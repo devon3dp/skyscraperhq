@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Thank you — Hearthstone Kitchen</title>
+<meta name="description" content="Thank you · Hearthstone Kitchen · Order confirmation.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2264%22%20height%3D%2264%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2212%22%20fill%3D%22%23a8854c%22/%3E%3Ctext%20x%3D%2232%22%20y%3D%2244%22%20font-size%3D%2236%22%20text-anchor%3D%22middle%22%3E%F0%9F%8D%B3%3C/text%3E%3C/svg%3E">
+<meta property="og:title" content="Thank you — Hearthstone Kitchen">
+<meta property="og:description" content="Order confirmation.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://exterior-these-ambassador-regions.trycloudflare.com/hearthstone-kitchen/thank-you.html">
+<meta property="og:image" content="https://exterior-these-ambassador-regions.trycloudflare.com/hearthstone-kitchen/og-image.svg">
+<meta property="og:site_name" content="Skyscraper">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#a8854c">
+<style>
+body { margin:0; font:16px/1.5 -apple-system,Segoe UI,system-ui,sans-serif; color:#1a1a1a; background:#fafafa; }
+.container { max-width:560px; margin:80px auto; padding:48px 32px; background:white; border-radius:8px; box-shadow:0 2px 12px rgba(0,0,0,0.05); text-align:center; }
+h1 { font-weight:300; font-size:36px; color:#a8854c; margin:0 0 16px; }
+.check { font-size:64px; margin-bottom:24px; }
+p { color:#555; font-size:17px; line-height:1.6; margin:16px 0; }
+.order-sku { font-size:13px; color:#888; letter-spacing:0.1em; text-transform:uppercase; margin-top:24px; }
+.what-next { margin-top:40px; padding-top:32px; border-top:1px solid #eee; text-align:left; }
+.what-next h2 { font-weight:500; font-size:20px; color:#a8854c; margin:0 0 16px; }
+.what-next ol { padding-left:24px; }
+.what-next li { margin:8px 0; color:#555; }
+.back { display:inline-block; margin-top:32px; padding:12px 24px; background:#a8854c; color:white; text-decoration:none; border-radius:4px; font-size:14px; letter-spacing:0.05em; text-transform:uppercase; }
+.back:hover { opacity:0.9; }
+</style></head>
+<body>
+<div class="container">
+  <div class="check">✓</div>
+  <h1>Thank you for your order</h1>
+  <p>Your payment is confirmed. We're preparing your dispatch.</p>
+  <p>A receipt and tracking info will arrive in your email within an hour.</p>
+  <div class="order-sku" id="order-sku"></div>
+  <div class="what-next">
+    <h2>What happens next</h2>
+    <ol>
+      <li>We confirm your order with the supplier (within 24 hours)</li>
+      <li>The supplier ships from their warehouse</li>
+      <li>You receive tracking via email (3-5 working days)</li>
+      <li>Item arrives 7-14 working days from order</li>
+    </ol>
+    <p style="font-size:14px; color:#888; margin-top:16px;">
+      Need help? Email <a href="mailto:knechtelross+hearthstone@gmail.com" style="color:#a8854c;">knechtelross+hearthstone@gmail.com</a> with your order ID.
+    </p>
+  </div>
+  <a href="/hearthstone-kitchen/" class="back">Continue shopping</a>
+</div>
+<script>
+const qs = new URLSearchParams(location.search);
+const sku = qs.get('thank_you');
+if (sku) { document.getElementById('order-sku').textContent = 'Order ref: ' + sku; }
+</script>
+</body></html>

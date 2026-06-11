@@ -1,0 +1,25 @@
+[build]
+  publish = "."
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+[[redirects]]
+  from = "/lumiere"
+  to = "/lumiere-beauty/"
+  status = 301
+
+[[redirects]]
+  from = "/pinwheel"
+  to = "/pinwheel-toys/"
+  status = 301
+
+[[redirects]]
+  from = "/quilltree"
+  to = "/quilltree-office/"
+  status = 301

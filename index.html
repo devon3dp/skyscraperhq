@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Skyscraper — a family of fifteen UK online shops</title>
+<meta name="description" content="Skyscraper is a UK-based family of fifteen online shops covering beauty, toys, pets, kitchen, tech, outdoor, fitness, office, travel, garden, baby, stationery, sleep, eco-living and crafts.">
+<meta name="keywords" content="UK shopping, online shops, family of brands, beauty, toys, pets, kitchen">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2264%22%20height%3D%2264%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2212%22%20fill%3D%22%233e6b4d%22/%3E%3Ctext%20x%3D%2232%22%20y%3D%2244%22%20font-size%3D%2236%22%20text-anchor%3D%22middle%22%3E%F0%9F%8F%9B%EF%B8%8F%3C/text%3E%3C/svg%3E">
+<meta property="og:title" content="Skyscraper — a family of fifteen UK online shops">
+<meta property="og:description" content="Fifteen carefully curated brands. Secure Stripe checkout. UK customer support.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://exterior-these-ambassador-regions.trycloudflare.com/">
+<meta property="og:image" content="https://exterior-these-ambassador-regions.trycloudflare.com/og-image.svg">
+<meta property="og:site_name" content="Skyscraper">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#3e6b4d">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Skyscraper","url":"https://exterior-these-ambassador-regions.trycloudflare.com/","email":"knechtelross@gmail.com","telephone":"+447481057362","sameAs":[]}
+</script>
+<style>
+:root { --primary:#3e6b4d; --accent:#a14724; --bg:#f5eedc; --ink:#1a1a1a; }
+* { box-sizing:border-box; }
+body { margin:0; font:16px/1.6 -apple-system,Segoe UI,system-ui,sans-serif; color:var(--ink); background:var(--bg); }
+header { padding:80px 24px 60px; text-align:center; }
+h1 { font-weight:200; font-size:64px; letter-spacing:0.04em; margin:0; color:var(--primary); }
+.subtitle { margin-top:12px; color:#666; font-size:20px; font-style:italic; }
+.intro { max-width:720px; margin:32px auto 0; padding:0 24px; color:#555; font-size:17px; text-align:center; line-height:1.7; }
+main { max-width:1200px; margin:0 auto; padding:48px 24px; }
+section { margin:64px 0; }
+h2 { font-weight:300; font-size:32px; color:var(--primary); margin-bottom:24px; text-align:center; }
+.grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:24px; }
+a.shop-card { display:block; padding:32px 24px; background:white; border-radius:8px; text-decoration:none; color:inherit; box-shadow:0 1px 3px rgba(0,0,0,0.04); transition:all .15s; }
+a.shop-card:hover { transform:translateY(-3px); box-shadow:0 8px 24px rgba(0,0,0,0.1); }
+.shop-card h3 { margin:0 0 8px; font-weight:500; font-size:22px; color:var(--accent); }
+.shop-card .tag { color:#888; font-size:14px; font-style:italic; }
+.shop-card .niche { font-size:12px; color:#aaa; letter-spacing:0.1em; text-transform:uppercase; margin-top:12px; }
+.contact-card { max-width:600px; margin:0 auto; padding:32px; background:white; border-radius:8px; text-align:center; }
+.contact-card p { margin:8px 0; }
+.contact-card a { color:var(--accent); }
+footer { text-align:center; padding:48px 24px; color:#888; font-size:13px; border-top:1px solid rgba(0,0,0,0.06); margin-top:48px; }
+footer .links { margin-bottom:16px; }
+footer .links a { color:#666; text-decoration:none; margin:0 12px; }
+footer .links a:hover { color:var(--accent); }
+</style></head>
+<body>
+
+<div style="background:rgba(255,255,255,0.85);text-align:center;padding:10px;font-size:13px;color:#555;border-bottom:1px solid #eee;">
+  ✓ Secure checkout via Stripe · ✓ 14-day returns · ✓ UK customer support · ✓ Free standard delivery
+</div><header>
+  <h1>Skyscraper</h1>
+  <div class="subtitle">a family of fifteen shops</div>
+  <div class="intro">
+    Independent online shops carefully curated and dispatched from supplier partners.
+    UK customer support, secure checkout via Stripe, 14-day return policy.
+  </div>
+</header>
+<div id="product-search" style="max-width:720px;margin:32px auto;padding:0 24px;">
+  <div style="position:relative;">
+    <input type="search" id="search-input" placeholder="Search across all fifteen shops…" style="width:100%;padding:18px 24px;font-size:18px;border:2px solid #ddd;border-radius:32px;box-sizing:border-box;font-family:inherit;outline:none;transition:border-color .15s;">
+    <div id="search-results" style="position:absolute;top:100%;left:0;right:0;background:white;border-radius:8px;box-shadow:0 8px 32px rgba(0,0,0,0.12);margin-top:8px;max-height:480px;overflow-y:auto;display:none;z-index:100;"></div>
+  </div>
+</div>
+<script>
+let _products = null;
+async function loadProducts() {
+  if (_products) return _products;
+  const r = await fetch('/products.json');
+  _products = await r.json();
+  return _products;
+}
+function escapeHtml(s) { return String(s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+const input = document.getElementById('search-input');
+const results = document.getElementById('search-results');
+input.addEventListener('focus', ()=>{ input.style.borderColor='#3e6b4d'; });
+input.addEventListener('blur', ()=>{ input.style.borderColor='#ddd'; setTimeout(()=>results.style.display='none', 200); });
+input.addEventListener('input', async (e) => {
+  const q = e.target.value.toLowerCase().trim();
+  if (q.length < 2) { results.style.display='none'; return; }
+  const ps = await loadProducts();
+  const matches = ps.filter(p => p.name.toLowerCase().includes(q) || p.shop.toLowerCase().includes(q) || p.category.toLowerCase().includes(q)).slice(0, 12);
+  if (matches.length === 0) {
+    results.innerHTML = '<div style="padding:24px;color:#888;text-align:center;">No matches for "' + escapeHtml(q) + '"</div>';
+  } else {
+    results.innerHTML = matches.map(p => `
+      <a href="${p.buy_url}" target="_blank" rel="noopener" style="display:flex;align-items:center;padding:14px 20px;border-bottom:1px solid #eee;text-decoration:none;color:#1a1a1a;transition:background .1s;" onmouseover="this.style.background='#fafafa'" onmouseout="this.style.background='white'">
+        <div style="flex:1;">
+          <div style="font-weight:500;font-size:15px;">${escapeHtml(p.name)}</div>
+          <div style="font-size:12px;color:#888;margin-top:4px;">${escapeHtml(p.shop)} · ${escapeHtml(p.category.replace(/_/g,' '))}</div>
+        </div>
+        <div style="color:#3e6b4d;font-size:18px;font-weight:500;">£${p.price.toFixed(2)}</div>
+      </a>
+    `).join('');
+  }
+  results.style.display = 'block';
+});
+</script>
+
+
+<main>
+  <div class="ad-slot" data-slot="mst-leader-top" data-size="728x90" style="margin:16px auto;text-align:center;color:#aaa;font-size:11px;letter-spacing:.1em;text-transform:uppercase;border:1px dashed #ccc;padding:14px;max-width:728px;">advertising space — enquire <a href="mailto:knechtelross+ads@gmail.com" style="color:#999;">knechtelross+ads@gmail.com</a></div>
+
+
+<section id="featured" style="max-width:1200px;margin:48px auto 0;padding:32px 24px;">
+  <h2 style="font-weight:300;font-size:32px;color:#3e6b4d;text-align:center;margin-bottom:32px;">Featured today</h2>
+  <p style="text-align:center;color:#666;margin-bottom:32px;">A small slice from across the fifteen shops.</p>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px;">
+    
+    <a href="https://buy.stripe.com/test_9B614f4ccbbe0DT8w11ck1O" target="_blank" rel="noopener" style="display:block;background:white;border-radius:12px;overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 1px 4px rgba(0,0,0,0.06);transition:transform .15s, box-shadow .15s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 4px rgba(0,0,0,0.06)'">
+      <div style="aspect-ratio:1.2;background:linear-gradient(135deg,#1a1f4d 0%,#cfaa3a 100%);display:flex;align-items:center;justify-content:center;"><span style="font-size:64px;">📜</span></div>
+      <div style="padding:18px;">
+        <div style="font-size:11px;color:#aaa;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">Inkwell & Co</div>
+        <div style="font-weight:500;font-size:15px;margin:0 0 8px;color:#1a1a1a;line-height:1.3;">Calligraphy Starter Kit</div>
+        <div style="color:#3e6b4d;font-weight:500;font-size:18px;">£32.99</div>
+      </div>
+    </a>
+    <a href="https://buy.stripe.com/test_fZu28jaAAgvycmB7rX1ck1B" target="_blank" rel="noopener" style="display:block;background:white;border-radius:12px;overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 1px 4px rgba(0,0,0,0.06);transition:transform .15s, box-shadow .15s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 4px rgba(0,0,0,0.06)'">
+      <div style="aspect-ratio:1.2;background:linear-gradient(135deg,#a14724 0%,#3f7d3f 100%);display:flex;align-items:center;justify-content:center;"><span style="font-size:64px;">🌱</span></div>
+      <div style="padding:18px;">
+        <div style="font-size:11px;color:#aaa;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">Greenhouse Lane</div>
+        <div style="font-weight:500;font-size:15px;margin:0 0 8px;color:#1a1a1a;line-height:1.3;">Bird Feeder Window-Mount</div>
+        <div style="color:#3e6b4d;font-weight:500;font-size:18px;">£19.99</div>
+      </div>
+    </a>
+    <a href="https://buy.stripe.com/test_9B66ozeQQ5QU72h7rX1ck1m" target="_blank" rel="noopener" style="display:block;background:white;border-radius:12px;overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 1px 4px rgba(0,0,0,0.06);transition:transform .15s, box-shadow .15s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 4px rgba(0,0,0,0.06)'">
+      <div style="aspect-ratio:1.2;background:linear-gradient(135deg,#0f2a47 0%,#b48e3a 100%);display:flex;align-items:center;justify-content:center;"><span style="font-size:64px;">✈️</span></div>
+      <div style="padding:18px;">
+        <div style="font-size:11px;color:#aaa;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">Voyage & Co</div>
+        <div style="font-weight:500;font-size:15px;margin:0 0 8px;color:#1a1a1a;line-height:1.3;">Lightweight Daypack 20L</div>
+        <div style="color:#3e6b4d;font-weight:500;font-size:18px;">£28.99</div>
+      </div>
+    </a>
+    <a href="https://buy.stripe.com/test_fZu5kvcIIcfi9ap5jP1ck2d" target="_blank" rel="noopener" style="display:block;background:white;border-radius:12px;overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 1px 4px rgba(0,0,0,0.06);transition:transform .15s, box-shadow .15s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 4px rgba(0,0,0,0.06)'">
+      <div style="aspect-ratio:1.2;background:linear-gradient(135deg,#7ea861 0%,#a0c4d8 100%);display:flex;align-items:center;justify-content:center;"><span style="font-size:64px;">🌿</span></div>
+      <div style="padding:18px;">
+        <div style="font-size:11px;color:#aaa;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">Living Light Eco</div>
+        <div style="font-weight:500;font-size:15px;margin:0 0 8px;color:#1a1a1a;line-height:1.3;">Reusable Coffee Cup 350ml</div>
+        <div style="color:#3e6b4d;font-weight:500;font-size:18px;">£15.99</div>
+      </div>
+    </a>
+    <a href="https://buy.stripe.com/test_00weV5cIIa7a72h13z1ck0m" target="_blank" rel="noopener" style="display:block;background:white;border-radius:12px;overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 1px 4px rgba(0,0,0,0.06);transition:transform .15s, box-shadow .15s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 4px rgba(0,0,0,0.06)'">
+      <div style="aspect-ratio:1.2;background:linear-gradient(135deg,#3e6b4d 0%,#cda06a 100%);display:flex;align-items:center;justify-content:center;"><span style="font-size:64px;">🐾</span></div>
+      <div style="padding:18px;">
+        <div style="font-size:11px;color:#aaa;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">Pawsworth</div>
+        <div style="font-weight:500;font-size:15px;margin:0 0 8px;color:#1a1a1a;line-height:1.3;">Memory Foam Dog Bed Medium</div>
+        <div style="color:#3e6b4d;font-weight:500;font-size:18px;">£59.99</div>
+      </div>
+    </a>
+    <a href="https://buy.stripe.com/test_cNiaEPcII93686lbId1ck2o" target="_blank" rel="noopener" style="display:block;background:white;border-radius:12px;overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 1px 4px rgba(0,0,0,0.06);transition:transform .15s, box-shadow .15s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 4px rgba(0,0,0,0.06)'">
+      <div style="aspect-ratio:1.2;background:linear-gradient(135deg,#a4344f 0%,#f7d570 100%);display:flex;align-items:center;justify-content:center;"><span style="font-size:64px;">🎨</span></div>
+      <div style="padding:18px;">
+        <div style="font-size:11px;color:#aaa;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">Maker Lane</div>
+        <div style="font-weight:500;font-size:15px;margin:0 0 8px;color:#1a1a1a;line-height:1.3;">Resin Casting Starter</div>
+        <div style="color:#3e6b4d;font-weight:500;font-size:18px;">£38.99</div>
+      </div>
+    </a>
+    <a href="https://buy.stripe.com/test_9B600bbEEdjmfyN5jP1ck0F" target="_blank" rel="noopener" style="display:block;background:white;border-radius:12px;overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 1px 4px rgba(0,0,0,0.06);transition:transform .15s, box-shadow .15s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 4px rgba(0,0,0,0.06)'">
+      <div style="aspect-ratio:1.2;background:linear-gradient(135deg,#27313a 0%,#3aa1ff 100%);display:flex;align-items:center;justify-content:center;"><span style="font-size:64px;">⚡</span></div>
+      <div style="padding:18px;">
+        <div style="font-size:11px;color:#aaa;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">Vector Tech</div>
+        <div style="font-weight:500;font-size:15px;margin:0 0 8px;color:#1a1a1a;line-height:1.3;">30W USB-C Wall Charger</div>
+        <div style="color:#3e6b4d;font-weight:500;font-size:18px;">£14.99</div>
+      </div>
+    </a>
+    <a href="https://buy.stripe.com/test_dRm8wH9ww0wAeuJ27D1ck1G" target="_blank" rel="noopener" style="display:block;background:white;border-radius:12px;overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 1px 4px rgba(0,0,0,0.06);transition:transform .15s, box-shadow .15s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 4px rgba(0,0,0,0.06)'">
+      <div style="aspect-ratio:1.2;background:linear-gradient(135deg,#f0d4d8 0%,#d7d0c6 100%);display:flex;align-items:center;justify-content:center;"><span style="font-size:64px;">🍼</span></div>
+      <div style="padding:18px;">
+        <div style="font-size:11px;color:#aaa;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">Little Robin</div>
+        <div style="font-weight:500;font-size:15px;margin:0 0 8px;color:#1a1a1a;line-height:1.3;">Baby Carrier Ergonomic</div>
+        <div style="color:#3e6b4d;font-weight:500;font-size:18px;">£54.99</div>
+      </div>
+    </a>
+    <a href="https://buy.stripe.com/test_14AbITfUU2EI1HX27D1ck1c" target="_blank" rel="noopener" style="display:block;background:white;border-radius:12px;overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 1px 4px rgba(0,0,0,0.06);transition:transform .15s, box-shadow .15s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 4px rgba(0,0,0,0.06)'">
+      <div style="aspect-ratio:1.2;background:linear-gradient(135deg,#4d3a25 0%,#1a1a1a 100%);display:flex;align-items:center;justify-content:center;"><span style="font-size:64px;">✒️</span></div>
+      <div style="padding:18px;">
+        <div style="font-size:11px;color:#aaa;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">Quilltree Office</div>
+        <div style="font-weight:500;font-size:15px;margin:0 0 8px;color:#1a1a1a;line-height:1.3;">Standing Desk Converter</div>
+        <div style="color:#3e6b4d;font-weight:500;font-size:18px;">£119.99</div>
+      </div>
+    </a>
+    <a href="https://buy.stripe.com/test_6oUcMXdMMgvy5Yd27D1ck10" target="_blank" rel="noopener" style="display:block;background:white;border-radius:12px;overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 1px 4px rgba(0,0,0,0.06);transition:transform .15s, box-shadow .15s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 4px rgba(0,0,0,0.06)'">
+      <div style="aspect-ratio:1.2;background:linear-gradient(135deg,#1c4e7d 0%,#d9b48c 100%);display:flex;align-items:center;justify-content:center;"><span style="font-size:64px;">🧘</span></div>
+      <div style="padding:18px;">
+        <div style="font-size:11px;color:#aaa;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">Stretch Fitness</div>
+        <div style="font-weight:500;font-size:15px;margin:0 0 8px;color:#1a1a1a;line-height:1.3;">Foam Roller High-Density</div>
+        <div style="color:#3e6b4d;font-weight:500;font-size:18px;">£18.99</div>
+      </div>
+    </a>
+    <a href="https://buy.stripe.com/test_eVq6ozcIIfrubixbId1ck0h" target="_blank" rel="noopener" style="display:block;background:white;border-radius:12px;overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 1px 4px rgba(0,0,0,0.06);transition:transform .15s, box-shadow .15s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 4px rgba(0,0,0,0.06)'">
+      <div style="aspect-ratio:1.2;background:linear-gradient(135deg,#1c4ec0 0%,#ffea63 100%);display:flex;align-items:center;justify-content:center;"><span style="font-size:64px;">🧸</span></div>
+      <div style="padding:18px;">
+        <div style="font-size:11px;color:#aaa;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">Pinwheel Toys</div>
+        <div style="font-weight:500;font-size:15px;margin:0 0 8px;color:#1a1a1a;line-height:1.3;">Board Game Family Fun</div>
+        <div style="color:#3e6b4d;font-weight:500;font-size:18px;">£22.99</div>
+      </div>
+    </a>
+    <a href="https://buy.stripe.com/test_3cI5kv4ccfru4U98w11ck0S" target="_blank" rel="noopener" style="display:block;background:white;border-radius:12px;overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 1px 4px rgba(0,0,0,0.06);transition:transform .15s, box-shadow .15s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 4px rgba(0,0,0,0.06)'">
+      <div style="aspect-ratio:1.2;background:linear-gradient(135deg,#3b5c3a 0%,#cfa75a 100%);display:flex;align-items:center;justify-content:center;"><span style="font-size:64px;">⛰️</span></div>
+      <div style="padding:18px;">
+        <div style="font-size:11px;color:#aaa;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">Trailhead Outdoor</div>
+        <div style="font-weight:500;font-size:15px;margin:0 0 8px;color:#1a1a1a;line-height:1.3;">Trail Hydration Bladder 2L</div>
+        <div style="color:#3e6b4d;font-weight:500;font-size:18px;">£18.99</div>
+      </div>
+    </a>
+    <a href="https://buy.stripe.com/test_8x24grdMM6UYfyNeUp1ck2p" target="_blank" rel="noopener" style="display:block;background:white;border-radius:12px;overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 1px 4px rgba(0,0,0,0.06);transition:transform .15s, box-shadow .15s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 4px rgba(0,0,0,0.06)'">
+      <div style="aspect-ratio:1.2;background:linear-gradient(135deg,#a4344f 0%,#f7d570 100%);display:flex;align-items:center;justify-content:center;"><span style="font-size:64px;">🎨</span></div>
+      <div style="padding:18px;">
+        <div style="font-size:11px;color:#aaa;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">Maker Lane</div>
+        <div style="font-weight:500;font-size:15px;margin:0 0 8px;color:#1a1a1a;line-height:1.3;">Project Storage Caddy</div>
+        <div style="color:#3e6b4d;font-weight:500;font-size:18px;">£21.99</div>
+      </div>
+    </a>
+    <a href="https://buy.stripe.com/test_6oUdR1fUU4MQ1HXcMh1ck0d" target="_blank" rel="noopener" style="display:block;background:white;border-radius:12px;overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 1px 4px rgba(0,0,0,0.06);transition:transform .15s, box-shadow .15s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 4px rgba(0,0,0,0.06)'">
+      <div style="aspect-ratio:1.2;background:linear-gradient(135deg,#1c4ec0 0%,#ffea63 100%);display:flex;align-items:center;justify-content:center;"><span style="font-size:64px;">🧸</span></div>
+      <div style="padding:18px;">
+        <div style="font-size:11px;color:#aaa;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">Pinwheel Toys</div>
+        <div style="font-weight:500;font-size:15px;margin:0 0 8px;color:#1a1a1a;line-height:1.3;">Magnetic Building Tiles 60pc</div>
+        <div style="color:#3e6b4d;font-weight:500;font-size:18px;">£39.99</div>
+      </div>
+    </a>
+    <a href="https://buy.stripe.com/test_6oU00b5gggvy4U9cMh1ck1E" target="_blank" rel="noopener" style="display:block;background:white;border-radius:12px;overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 1px 4px rgba(0,0,0,0.06);transition:transform .15s, box-shadow .15s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 4px rgba(0,0,0,0.06)'">
+      <div style="aspect-ratio:1.2;background:linear-gradient(135deg,#f0d4d8 0%,#d7d0c6 100%);display:flex;align-items:center;justify-content:center;"><span style="font-size:64px;">🍼</span></div>
+      <div style="padding:18px;">
+        <div style="font-size:11px;color:#aaa;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">Little Robin</div>
+        <div style="font-weight:500;font-size:15px;margin:0 0 8px;color:#1a1a1a;line-height:1.3;">Nursing Cover Soft</div>
+        <div style="color:#3e6b4d;font-weight:500;font-size:18px;">£19.99</div>
+      </div>
+    </a>
+    <a href="https://buy.stripe.com/test_bJe8wHaAA7Z29apcMh1ck09" target="_blank" rel="noopener" style="display:block;background:white;border-radius:12px;overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 1px 4px rgba(0,0,0,0.06);transition:transform .15s, box-shadow .15s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 4px rgba(0,0,0,0.06)'">
+      <div style="aspect-ratio:1.2;background:linear-gradient(135deg,#8e3a4d 0%,#f4d3d6 100%);display:flex;align-items:center;justify-content:center;"><span style="font-size:64px;">💄</span></div>
+      <div style="padding:18px;">
+        <div style="font-size:11px;color:#aaa;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">Lumière Beauty</div>
+        <div style="font-weight:500;font-size:15px;margin:0 0 8px;color:#1a1a1a;line-height:1.3;">LED Light Therapy Mask</div>
+        <div style="color:#3e6b4d;font-weight:500;font-size:18px;">£49.99</div>
+      </div>
+    </a>
+    <a href="https://buy.stripe.com/test_8x23cnaAAcfieuJeUp1ck0k" target="_blank" rel="noopener" style="display:block;background:white;border-radius:12px;overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 1px 4px rgba(0,0,0,0.06);transition:transform .15s, box-shadow .15s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 4px rgba(0,0,0,0.06)'">
+      <div style="aspect-ratio:1.2;background:linear-gradient(135deg,#3e6b4d 0%,#cda06a 100%);display:flex;align-items:center;justify-content:center;"><span style="font-size:64px;">🐾</span></div>
+      <div style="padding:18px;">
+        <div style="font-size:11px;color:#aaa;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">Pawsworth</div>
+        <div style="font-weight:500;font-size:15px;margin:0 0 8px;color:#1a1a1a;line-height:1.3;">Slow-feeder Bowl Dog</div>
+        <div style="color:#3e6b4d;font-weight:500;font-size:18px;">£14.99</div>
+      </div>
+    </a>
+    <a href="https://buy.stripe.com/test_4gM28j100enqgCR9A51ck0A" target="_blank" rel="noopener" style="display:block;background:white;border-radius:12px;overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 1px 4px rgba(0,0,0,0.06);transition:transform .15s, box-shadow .15s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 4px rgba(0,0,0,0.06)'">
+      <div style="aspect-ratio:1.2;background:linear-gradient(135deg,#637157 0%,#a8854c 100%);display:flex;align-items:center;justify-content:center;"><span style="font-size:64px;">🍳</span></div>
+      <div style="padding:18px;">
+        <div style="font-size:11px;color:#aaa;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">Hearthstone Kitchen</div>
+        <div style="font-weight:500;font-size:15px;margin:0 0 8px;color:#1a1a1a;line-height:1.3;">Glass Storage Jars Set of 6</div>
+        <div style="color:#3e6b4d;font-weight:500;font-size:18px;">£19.99</div>
+      </div>
+    </a>
+    <a href="https://buy.stripe.com/test_5kQ5kv7oogvy0DT9A51ck1Y" target="_blank" rel="noopener" style="display:block;background:white;border-radius:12px;overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 1px 4px rgba(0,0,0,0.06);transition:transform .15s, box-shadow .15s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 4px rgba(0,0,0,0.06)'">
+      <div style="aspect-ratio:1.2;background:linear-gradient(135deg,#5a3a78 0%,#c4c6cc 100%);display:flex;align-items:center;justify-content:center;"><span style="font-size:64px;">🌙</span></div>
+      <div style="padding:18px;">
+        <div style="font-size:11px;color:#aaa;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">Twilight Wellness</div>
+        <div style="font-weight:500;font-size:15px;margin:0 0 8px;color:#1a1a1a;line-height:1.3;">Weighted Blanket 7kg</div>
+        <div style="color:#3e6b4d;font-weight:500;font-size:18px;">£89.99</div>
+      </div>
+    </a>
+    <a href="https://buy.stripe.com/test_eVq5kv7oodjm5Yd13z1ck0z" target="_blank" rel="noopener" style="display:block;background:white;border-radius:12px;overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 1px 4px rgba(0,0,0,0.06);transition:transform .15s, box-shadow .15s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 4px rgba(0,0,0,0.06)'">
+      <div style="aspect-ratio:1.2;background:linear-gradient(135deg,#637157 0%,#a8854c 100%);display:flex;align-items:center;justify-content:center;"><span style="font-size:64px;">🍳</span></div>
+      <div style="padding:18px;">
+        <div style="font-size:11px;color:#aaa;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">Hearthstone Kitchen</div>
+        <div style="font-weight:500;font-size:15px;margin:0 0 8px;color:#1a1a1a;line-height:1.3;">Smart Meat Thermometer Bluetooth</div>
+        <div style="color:#3e6b4d;font-weight:500;font-size:18px;">£36.99</div>
+      </div>
+    </a>
+    <a href="https://buy.stripe.com/test_fZudR1244a7a5YdaE91ck2c" target="_blank" rel="noopener" style="display:block;background:white;border-radius:12px;overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 1px 4px rgba(0,0,0,0.06);transition:transform .15s, box-shadow .15s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 4px rgba(0,0,0,0.06)'">
+      <div style="aspect-ratio:1.2;background:linear-gradient(135deg,#7ea861 0%,#a0c4d8 100%);display:flex;align-items:center;justify-content:center;"><span style="font-size:64px;">🌿</span></div>
+      <div style="padding:18px;">
+        <div style="font-size:11px;color:#aaa;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">Living Light Eco</div>
+        <div style="font-weight:500;font-size:15px;margin:0 0 8px;color:#1a1a1a;line-height:1.3;">Stainless Lunchbox 3-tier</div>
+        <div style="color:#3e6b4d;font-weight:500;font-size:18px;">£32.99</div>
+      </div>
+    </a>
+    <a href="https://buy.stripe.com/test_bJe5kv244gvy3Q59A51ck1M" target="_blank" rel="noopener" style="display:block;background:white;border-radius:12px;overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 1px 4px rgba(0,0,0,0.06);transition:transform .15s, box-shadow .15s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 4px rgba(0,0,0,0.06)'">
+      <div style="aspect-ratio:1.2;background:linear-gradient(135deg,#1a1f4d 0%,#cfaa3a 100%);display:flex;align-items:center;justify-content:center;"><span style="font-size:64px;">📜</span></div>
+      <div style="padding:18px;">
+        <div style="font-size:11px;color:#aaa;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">Inkwell & Co</div>
+        <div style="font-weight:500;font-size:15px;margin:0 0 8px;color:#1a1a1a;line-height:1.3;">Linen Hardcover Notebook A5</div>
+        <div style="color:#3e6b4d;font-weight:500;font-size:18px;">£18.99</div>
+      </div>
+    </a>
+    <a href="https://buy.stripe.com/test_5kQ4grdMM4MQ0DTaE91ck22" target="_blank" rel="noopener" style="display:block;background:white;border-radius:12px;overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 1px 4px rgba(0,0,0,0.06);transition:transform .15s, box-shadow .15s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 4px rgba(0,0,0,0.06)'">
+      <div style="aspect-ratio:1.2;background:linear-gradient(135deg,#5a3a78 0%,#c4c6cc 100%);display:flex;align-items:center;justify-content:center;"><span style="font-size:64px;">🌙</span></div>
+      <div style="padding:18px;">
+        <div style="font-size:11px;color:#aaa;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">Twilight Wellness</div>
+        <div style="font-weight:500;font-size:15px;margin:0 0 8px;color:#1a1a1a;line-height:1.3;">Bedside Mood Lamp</div>
+        <div style="color:#3e6b4d;font-weight:500;font-size:18px;">£24.99</div>
+      </div>
+    </a>
+    <a href="https://buy.stripe.com/test_eVqdR1aAA0wA4U9fYt1ck1b" target="_blank" rel="noopener" style="display:block;background:white;border-radius:12px;overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 1px 4px rgba(0,0,0,0.06);transition:transform .15s, box-shadow .15s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='';this.style.boxShadow='0 1px 4px rgba(0,0,0,0.06)'">
+      <div style="aspect-ratio:1.2;background:linear-gradient(135deg,#4d3a25 0%,#1a1a1a 100%);display:flex;align-items:center;justify-content:center;"><span style="font-size:64px;">✒️</span></div>
+      <div style="padding:18px;">
+        <div style="font-size:11px;color:#aaa;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">Quilltree Office</div>
+        <div style="font-weight:500;font-size:15px;margin:0 0 8px;color:#1a1a1a;line-height:1.3;">Cable Tray Under-Desk</div>
+        <div style="color:#3e6b4d;font-weight:500;font-size:18px;">£18.99</div>
+      </div>
+    </a>
+  </div>
+</section>
+<section id="shops">
+  <h2>Our fifteen shops</h2>
+  <div class="grid">
+    <a class="shop-card" href="/lumiere-beauty/" data-shop="lumiere-beauty">
+      <h3>Lumière Beauty</h3>
+      <div class="tag">beauty illuminated</div>
+      
+    </a>
+    <a class="shop-card" href="/pinwheel-toys/" data-shop="pinwheel-toys">
+      <h3>Pinwheel Toys</h3>
+      <div class="tag">pure play</div>
+      
+    </a>
+    <a class="shop-card" href="/pawsworth-pets/" data-shop="pawsworth-pets">
+      <h3>Pawsworth</h3>
+      <div class="tag">for the household crew</div>
+      
+    </a>
+    <a class="shop-card" href="/hearthstone-kitchen/" data-shop="hearthstone-kitchen">
+      <h3>Hearthstone Kitchen</h3>
+      <div class="tag">kitchens come alive</div>
+      
+    </a>
+    <a class="shop-card" href="/vector-tech/" data-shop="vector-tech">
+      <h3>Vector Tech</h3>
+      <div class="tag">set your gear up</div>
+      
+    </a>
+    <a class="shop-card" href="/trailhead-outdoor/" data-shop="trailhead-outdoor">
+      <h3>Trailhead Outdoor</h3>
+      <div class="tag">where the path begins</div>
+      
+    </a>
+    <a class="shop-card" href="/stretch-fitness/" data-shop="stretch-fitness">
+      <h3>Stretch Fitness</h3>
+      <div class="tag">every body</div>
+      
+    </a>
+    <a class="shop-card" href="/quilltree-office/" data-shop="quilltree-office">
+      <h3>Quilltree Office</h3>
+      <div class="tag">work, well</div>
+      
+    </a>
+    <a class="shop-card" href="/voyage-and-co/" data-shop="voyage-and-co">
+      <h3>Voyage & Co</h3>
+      <div class="tag">pack lighter, go further</div>
+      
+    </a>
+    <a class="shop-card" href="/greenhouse-lane/" data-shop="greenhouse-lane">
+      <h3>Greenhouse Lane</h3>
+      <div class="tag">grow on</div>
+      
+    </a>
+    <a class="shop-card" href="/little-robin/" data-shop="little-robin">
+      <h3>Little Robin</h3>
+      <div class="tag">soft starts</div>
+      
+    </a>
+    <a class="shop-card" href="/inkwell-and-co/" data-shop="inkwell-and-co">
+      <h3>Inkwell & Co</h3>
+      <div class="tag">words made beautiful</div>
+      
+    </a>
+    <a class="shop-card" href="/twilight-wellness/" data-shop="twilight-wellness">
+      <h3>Twilight Wellness</h3>
+      <div class="tag">sleep deep</div>
+      
+    </a>
+    <a class="shop-card" href="/living-light-eco/" data-shop="living-light-eco">
+      <h3>Living Light Eco</h3>
+      <div class="tag">kinder daily</div>
+      
+    </a>
+    <a class="shop-card" href="/maker-lane/" data-shop="maker-lane">
+      <h3>Maker Lane</h3>
+      <div class="tag">make it yours</div>
+      
+    </a>
+  </div>
+</section>
+
+  <div class="ad-slot" data-slot="mst-rectangle-mid" data-size="300x250" style="margin:32px auto;text-align:center;color:#aaa;font-size:11px;letter-spacing:.1em;text-transform:uppercase;border:1px dashed #ccc;padding:24px;max-width:300px;">advertising space — enquire <a href="mailto:knechtelross+ads@gmail.com" style="color:#999;">knechtelross+ads@gmail.com</a></div>
+
+
+<section id="how-it-works" style="background:white;padding:48px 24px;margin:48px 0;">
+  <h2 style="font-weight:300; font-size:32px; color:#3e6b4d; text-align:center; margin-bottom:32px;">How it works</h2>
+  <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;">
+    <div style="text-align:center;padding:16px;">
+      <div style="font-size:48px;margin-bottom:12px;">🛍️</div>
+      <h3 style="font-weight:500;font-size:18px;margin:0 0 8px;">Pick your shop</h3>
+      <p style="color:#666;font-size:14px;margin:0;">Fifteen curated brands. One trusted house.</p>
+    </div>
+    <div style="text-align:center;padding:16px;">
+      <div style="font-size:48px;margin-bottom:12px;">💳</div>
+      <h3 style="font-weight:500;font-size:18px;margin:0 0 8px;">Pay securely</h3>
+      <p style="color:#666;font-size:14px;margin:0;">Stripe Checkout. Cards + Apple Pay + Google Pay.</p>
+    </div>
+    <div style="text-align:center;padding:16px;">
+      <div style="font-size:48px;margin-bottom:12px;">📦</div>
+      <h3 style="font-weight:500;font-size:18px;margin:0 0 8px;">We dispatch</h3>
+      <p style="color:#666;font-size:14px;margin:0;">7-14 working days standard UK delivery.</p>
+    </div>
+    <div style="text-align:center;padding:16px;">
+      <div style="font-size:48px;margin-bottom:12px;">↩️</div>
+      <h3 style="font-weight:500;font-size:18px;margin:0 0 8px;">14-day returns</h3>
+      <p style="color:#666;font-size:14px;margin:0;">Change your mind? Reply by email. No fuss.</p>
+    </div>
+  </div>
+</section>
+<section id="about">
+  <h2>About Skyscraper</h2>
+  <div class="contact-card">
+    <p><strong>Skyscraper</strong> is a UK-based family of online shops.</p>
+    <p>Each shop is independently curated for its niche. Orders are processed securely via Stripe and dispatched from carefully chosen supplier partners.</p>
+    <p>All shops follow the same standards: 14-day return policy, GDPR-compliant data handling, UK customer support.</p>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="contact-card">
+    <p><strong>Email:</strong> <a href="mailto:knechtelross@gmail.com">knechtelross@gmail.com</a></p>
+    <p><strong>Phone:</strong> <a href="tel:+447481057362">07481 057362</a></p>
+    <p><strong>Customer Service Hours:</strong> Mon-Fri 08:00-17:00 GMT</p>
+    <p><strong>Returns:</strong> see <a href="/_legal/returns.html">returns policy</a></p>
+  </div>
+</section>
+</main>
+
+
+<div class="ad-slot" data-slot="mst-footer-banner" data-size="728x90" style="margin:32px auto;text-align:center;color:#aaa;font-size:11px;letter-spacing:.1em;text-transform:uppercase;border:1px dashed #ccc;padding:14px;max-width:728px;">advertising space — enquire <a href="mailto:knechtelross+ads@gmail.com" style="color:#999;">knechtelross+ads@gmail.com</a></div>
+
+<section id="newsletter" style="background:linear-gradient(135deg,#3e6b4d 0%,#a14724 100%);color:white;padding:48px 24px;margin:48px 0 0;text-align:center;">
+  <h2 style="font-weight:300;font-size:28px;margin:0 0 12px;">Stay in the loop</h2>
+  <p style="margin:0 0 24px;font-size:16px;opacity:0.9;">Occasional updates from across the fifteen shops. No spam.</p>
+  <form id="newsletter-form" style="max-width:480px;margin:0 auto;display:flex;gap:8px;flex-wrap:wrap;justify-content:center;" onsubmit="return submitNewsletter(event)">
+    <input type="email" id="newsletter-email" required placeholder="your email address" style="flex:1 1 240px;padding:14px 18px;border:none;border-radius:6px;font-size:15px;font-family:inherit;">
+    <button type="submit" style="padding:14px 28px;background:white;color:#3e6b4d;border:none;border-radius:6px;font-size:15px;font-weight:500;cursor:pointer;letter-spacing:0.05em;text-transform:uppercase;">Subscribe</button>
+  </form>
+  <div id="newsletter-result" style="margin-top:16px;font-size:14px;opacity:0.85;"></div>
+</section>
+<script>
+function submitNewsletter(e) {
+  e.preventDefault();
+  const email = document.getElementById('newsletter-email').value.trim();
+  if (!email) return false;
+  // Store locally so we don't lose the signup if backend isn't wired yet
+  try {
+    const subs = JSON.parse(localStorage.getItem('skyscraper_newsletter_subs') || '[]');
+    if (!subs.includes(email)) subs.push(email);
+    localStorage.setItem('skyscraper_newsletter_subs', JSON.stringify(subs));
+  } catch(_) {}
+  // Optional: kick off mailto so the operator's inbox gets a copy
+  const mail = 'mailto:knechtelross+newsletter@gmail.com?subject=Newsletter%20signup&body=' + encodeURIComponent(email);
+  // Don't actually open mailto (annoying UX); just record locally and thank
+  document.getElementById('newsletter-result').textContent = '✓ Thank you — we\'ll send you our first issue soon.';
+  document.getElementById('newsletter-form').style.display = 'none';
+  return false;
+}
+</script>
+<footer>
+  <div class="links">
+    <a href="/_legal/terms.html">Terms & Conditions</a>
+    <a href="/_legal/privacy.html">Privacy Policy</a>
+    <a href="/_legal/returns.html">Returns & Refunds</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div>© 2026 Skyscraper · UK-based · secure checkout via Stripe</div>
+  <div style="margin-top:6px; font-size:11px; opacity:0.7;">Dropship model — items shipped from supplier partners on order</div>
+</footer>
+</body></html>

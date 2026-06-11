@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+Disallow: /_legal/
+Disallow: /survey.html
+
+# Major search engines explicitly welcomed
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# Don't index thank-you pages (they're per-order)
+Disallow: /*/thank-you.html
+
+# Crawl delay polite
+Crawl-delay: 1
+
+Sitemap: https://exterior-these-ambassador-regions.trycloudflare.com/sitemap.xml

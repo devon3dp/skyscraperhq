@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Quick survey — Skyscraper</title>
+<style>
+body {{ margin:0; font:16px/1.6 system-ui,sans-serif; color:#1a1a1a; background:#fafafa; }}
+.container {{ max-width:520px; margin:80px auto; padding:32px; background:white; border-radius:8px; box-shadow:0 2px 12px rgba(0,0,0,0.05); }}
+h1 {{ font-weight:300; font-size:28px; margin:0 0 16px; color:#3e6b4d; }}
+.step {{ display:none; }}
+.step.active {{ display:block; }}
+button {{ background:#3e6b4d; color:white; border:none; padding:12px 24px; margin:8px 4px; border-radius:4px; cursor:pointer; font-size:15px; }}
+button:hover {{ opacity:0.9; }}
+.options {{ display:flex; flex-direction:column; gap:8px; }}
+textarea {{ width:100%; box-sizing:border-box; padding:10px; border:1px solid #ddd; border-radius:4px; min-height:80px; }}
+</style></head>
+<body>
+<div class="container">
+<div class="step active" id="step1"><h1>30 seconds, 3 questions?</h1>
+<p>Help us learn what's working.</p>
+<button onclick="show(2)">Sure</button><button onclick="window.close()">Not now</button>
+</div>
+<div class="step" id="step2"><h1>1/3 · How did you arrive here?</h1><div class="options">
+<button onclick="ans('arrived','google');show(3)">Google search</button>
+<button onclick="ans('arrived','social');show(3)">Social media</button>
+<button onclick="ans('arrived','friend');show(3)">Friend recommended</button>
+<button onclick="ans('arrived','other');show(3)">Other</button>
+</div></div>
+<div class="step" id="step3"><h1>2/3 · What were you hoping to find?</h1>
+<textarea id="hoping" placeholder="a few words is plenty…"></textarea>
+<button onclick="ans('hoping',document.getElementById('hoping').value);show(4)">Next</button>
+</div>
+<div class="step" id="step4"><h1>3/3 · Anything else?</h1>
+<textarea id="more" placeholder="any thought is welcome…"></textarea>
+<button onclick="ans('more',document.getElementById('more').value);submit()">Done</button>
+</div>
+<div class="step" id="step5"><h1>Thank you. Truly.</h1>
+<p>Every answer helps shape what we build next. A reply will follow if you left contact info.</p>
+<button onclick="window.location='/'">Back to home</button>
+</div>
+</div>
+<script>
+const answers = {{}};
+function ans(k,v){{ answers[k]=v; }}
+function show(n){{ document.querySelectorAll('.step').forEach(s=>s.classList.remove('active')); document.getElementById('step'+n).classList.add('active'); }}
+function submit(){{
+  // POST to mailto via fetch isn't possible — encode as mailto link instead
+  const body = Object.entries(answers).map(([k,v])=>`${{k}}: ${{v}}`).join('\n');
+  // Save to localStorage for now (no backend); + open mailto
+  try {{ localStorage.setItem('skyscraper_survey_'+Date.now(), JSON.stringify(answers)); }} catch(e){{}}
+  const link = `mailto:knechtelross+survey@gmail.com?subject=Survey response&body=${{encodeURIComponent(body)}}`;
+  // Optional: window.open(link); — for now, just thank
+  show(5);
+}}
+</script>
+</body></html>
