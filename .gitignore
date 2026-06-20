@@ -1,8 +1,12 @@
-.DS_Store
-Thumbs.db
-*.log
-.env
-.env.*
+# SAFETY — hardcoded blocks. Never push these regardless of structure.
+.env*
+**/.env*
+**/vault/
+**/secret*
+**/*token*
+**/*credential*
+**/*.pem
+**/*.key
 node_modules/
-.idea/
-.vscode/
+.DS_Store
+__pycache__/

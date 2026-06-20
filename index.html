@@ -8,13 +8,13 @@
 <meta property="og:title" content="Skyscraper — a family of fifteen UK online shops">
 <meta property="og:description" content="Fifteen carefully curated brands. Secure Stripe checkout. UK customer support.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://exterior-these-ambassador-regions.trycloudflare.com/">
-<meta property="og:image" content="https://exterior-these-ambassador-regions.trycloudflare.com/og-image.svg">
+<meta property="og:url" content="https://skyscraperhq.uk/">
+<meta property="og:image" content="https://skyscraperhq.uk/og-image.svg">
 <meta property="og:site_name" content="Skyscraper">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#3e6b4d">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Organization","name":"Skyscraper","url":"https://exterior-these-ambassador-regions.trycloudflare.com/","email":"knechtelross@gmail.com","telephone":"+447481057362","sameAs":[]}
+{"@context":"https://schema.org","@type":"Organization","name":"Skyscraper","url":"https://skyscraperhq.uk/","email":"knechtelross@gmail.com","telephone":"+447481057362","sameAs":[]}
 </script>
 <style>
 :root { --primary:#3e6b4d; --accent:#a14724; --bg:#f5eedc; --ink:#1a1a1a; }
@@ -42,6 +42,34 @@ footer .links a { color:#666; text-decoration:none; margin:0 12px; }
 footer .links a:hover { color:var(--accent); }
 </style></head>
 <body>
+<div id="lead-strip" style="background:linear-gradient(135deg,#3e6b4d 0%,#a14724 100%);color:white;padding:14px 24px;display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;font-size:14px;">
+  <strong style="font-weight:500;">Get 10% off your first order ·</strong>
+  <form style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;" onsubmit="return submitHeroEmail(event)">
+    <input type="email" required placeholder="your email" id="hero-email" style="padding:8px 12px;border:none;border-radius:4px;font-size:13px;width:200px;color:#1a1a1a;">
+    <button type="submit" style="padding:8px 16px;background:white;color:#3e6b4d;border:none;border-radius:4px;font-size:13px;font-weight:500;cursor:pointer;letter-spacing:0.05em;text-transform:uppercase;">Subscribe</button>
+  </form>
+  <span id="hero-result" style="font-size:13px;opacity:0.9;"></span>
+  <button id="hero-close" onclick="document.getElementById('lead-strip').style.display='none';localStorage.setItem('skyscraper_hero_dismissed','1')" style="background:transparent;border:none;color:white;cursor:pointer;font-size:18px;padding:0 6px;opacity:0.6;" title="dismiss">×</button>
+</div>
+<script>
+if (localStorage.getItem('skyscraper_hero_dismissed') === '1') {
+  document.getElementById('lead-strip').style.display = 'none';
+}
+function submitHeroEmail(e) {
+  e.preventDefault();
+  const v = document.getElementById('hero-email').value.trim();
+  if (!v) return false;
+  try {
+    const k = 'skyscraper_leads';
+    const subs = JSON.parse(localStorage.getItem(k) || '[]');
+    if (!subs.includes(v)) subs.push(v);
+    localStorage.setItem(k, JSON.stringify(subs));
+  } catch(_) {}
+  document.getElementById('hero-result').textContent = '✓ Check your inbox for the 10% code (sent within minutes).';
+  e.target.style.display = 'none';
+  return false;
+}
+</script>
 
 <div style="background:rgba(255,255,255,0.85);text-align:center;padding:10px;font-size:13px;color:#555;border-bottom:1px solid #eee;">
   ✓ Secure checkout via Stripe · ✓ 14-day returns · ✓ UK customer support · ✓ Free standard delivery
