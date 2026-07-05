@@ -1,0 +1,11 @@
+{
+  "name": "stamp_proposal",
+  "description": "Append a 'wren_proposal' row to qsb_f47_team_records.jsonl when Wren wants to formally propose something + queue it for review.",
+  "safety_class": "stamp",
+  "params": {
+    "title": { "type": "string", "required": true },
+    "body": { "type": "string", "required": true }
+  },
+  "authored_by": "Claude for Wren training tier-4",
+  "authored_ts": "2026-06-17"
+}

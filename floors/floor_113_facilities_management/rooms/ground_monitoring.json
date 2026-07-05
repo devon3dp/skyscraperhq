@@ -1,0 +1,34 @@
+{
+  "room_id": "ground_monitoring",
+  "name": "Ground Monitoring Room",
+  "category": "operations",
+  "purpose": "Monitoring room for ground conditions and maintenance schedules.",
+  "concierge_blurb": "Learn about the Ground Monitoring Room where daily check-ins happen.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": -4.5,
+    "footprint_m": [
+      3,
+      3
+    ],
+    "height_m": 1.8
+  },
+  "render": {
+    "primary_prop": "monitor_screen",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Ground Mon.",
+    "glow": true
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/ground_monitoring.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_113"
+}

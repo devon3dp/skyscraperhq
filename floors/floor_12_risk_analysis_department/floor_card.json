@@ -1,0 +1,56 @@
+{
+  "floor_id": "floor_12",
+  "floor_number": 12,
+  "floor_name": "Risk Analysis Department",
+  "department": "auto_generated_from_dir_name",
+  "zone": "ZONE B \u00b7 OPERATIONS",
+  "archetype": "auto_generated_from_dir_name",
+  "staff_lead": "TBD",
+  "tour_blurb": "Risk Analysis Department \u2014 a floor in the QSB Tower. Skeleton card auto-generated; full fit-out pending.",
+  "visitor_open": false,
+  "advisory_only": true,
+  "execution_mode": "PREVIEW_ONLY",
+  "skeleton": true,
+  "skeleton_source": "floor_manifest.json",
+  "skeleton_generated_ts": "2026-06-17",
+  "live_signals": {
+    "theme": null,
+    "categories": null,
+    "palette": null,
+    "tagline": null
+  },
+  "gate_posture": {
+    "advisory_only": true,
+    "execution_allowed": false,
+    "live_payments_enabled": false
+  },
+  "team_roster": [
+    {
+      "id": "f012.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "spawned_id": "b8fd4f1b72",
+      "spawned_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F012",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f012.operator.01",
+      "spawned_id": "9cf8dd398d"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F012",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f012.operator.02",
+      "spawned_id": "3c69077d40"
+    }
+  ],
+  "floor_manager": "f012.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

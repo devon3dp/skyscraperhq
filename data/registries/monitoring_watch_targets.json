@@ -1,0 +1,50 @@
+[
+  {
+    "id": "dashboard_heartbeat",
+    "label": "Dashboard Heartbeat",
+    "target": "http://127.0.0.1:8765/api/status",
+    "severity": "critical"
+  },
+  {
+    "id": "dashboard_process",
+    "label": "Dashboard Process",
+    "target": "data/runtime/dashboard.pid",
+    "severity": "critical"
+  },
+  {
+    "id": "lift_traffic",
+    "label": "Lift Traffic",
+    "target": "lift_state",
+    "severity": "warning"
+  },
+  {
+    "id": "packet_flow",
+    "label": "Packet Flow",
+    "target": "packets",
+    "severity": "warning"
+  },
+  {
+    "id": "floor_registry",
+    "label": "Floor Registry",
+    "target": "Registry.floors",
+    "severity": "critical"
+  },
+  {
+    "id": "provider_sockets",
+    "label": "Provider Sockets",
+    "target": "provider_sockets.json",
+    "severity": "warning"
+  },
+  {
+    "id": "adapter_sockets",
+    "label": "Adapter Sockets",
+    "target": "adapter_sockets.json",
+    "severity": "warning"
+  },
+  {
+    "id": "diagnostics_latest",
+    "label": "Latest Diagnostics Report",
+    "target": "floors/floor_33_diagnostics_department/inspection_reports/latest_report.json",
+    "severity": "warning"
+  }
+]

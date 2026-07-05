@@ -1,0 +1,34 @@
+{
+  "room_id": "sandbox_kitchenette",
+  "name": "Sandbox Kitchenette",
+  "category": "kitchen",
+  "purpose": "A small area for testing patches in a sandbox environment.",
+  "concierge_blurb": "Miniature kitchen with a few pots and pans, and a simple table for tests.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 8.0,
+    "offset_z": -0.5,
+    "footprint_m": [
+      4,
+      4
+    ],
+    "height_m": 2.3
+  },
+  "render": {
+    "primary_prop": "kitchenette",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Sandbox Kitchen",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": null,
+    "refresh_seconds": 600
+  },
+  "floor": "floor_5"
+}

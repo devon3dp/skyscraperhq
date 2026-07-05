@@ -1,0 +1,34 @@
+{
+  "room_id": "guardian_monitoring_station",
+  "name": "Monitoring Station",
+  "category": "operations",
+  "purpose": "Operates and maintains the monitoring equipment for the QSB Tower.",
+  "concierge_blurb": "Visitors see a row of workstations with monitors and control panels.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -8.0,
+    "offset_z": 3.5,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "desk",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Monitor",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/maintenance_log.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 30
+  },
+  "floor": "floor_29"
+}

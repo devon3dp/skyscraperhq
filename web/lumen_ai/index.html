@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lumen — a chat AI grown inside QSB Tower.</title>
+<meta name="description" content="Lumen is the QSB Tower's local chat AI. Powered by the Kernel substrate. Honest about its limits. Built on Floor 48.">
+<link rel="stylesheet" href="/static/styles.css">
+</head>
+<body class="dark">
+<header class="topbar">
+  <a class="brand" href="/">
+    <span class="logo-mark"><svg viewBox="0 0 32 32" width="32" height="32"><circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="2" fill="none"/><circle cx="16" cy="16" r="6" fill="currentColor"/></svg></span>
+    <span class="logo-text">Lumen</span>
+  </a>
+  <nav class="main-nav">
+    <a href="#playground">Playground</a>
+    <a href="#why">Why Lumen</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#faq">FAQ</a>
+    <a href="#playground" class="cta-link">Try it</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero">
+  <div class="hero-content">
+    <p class="eyebrow">FLOOR 48 · QSB TOWER V1.5</p>
+    <h1>A chat AI that <span class="grad">won't pretend to know</span>.</h1>
+    <p class="hero-sub">Lumen is the local chat AI of the QSB Tower. It's wired into the Kernel substrate, answers from real registries, and tells you honestly when it doesn't know. No hallucinated reservations. No invented stock prices. No imaginary citations.</p>
+    <div class="hero-cta">
+      <a class="btn primary" href="#playground">Open the playground</a>
+      <a class="btn secondary" href="#why">Why honest matters</a>
+    </div>
+    <p class="hero-meta">Local mode · No external API · Kernel-powered · Safety envelope stamped on every reply</p>
+  </div>
+  <div class="hero-art" aria-hidden="true">
+    <div class="orb">
+      <div class="orb-core"></div>
+      <div class="orb-ring r1"></div>
+      <div class="orb-ring r2"></div>
+      <div class="orb-ring r3"></div>
+    </div>
+  </div>
+</section>
+
+<section id="playground" class="section">
+  <div class="section-header">
+    <h2>Playground</h2>
+    <p>Type below — replies route through the QSB Kernel's topic table.</p>
+  </div>
+  <div class="chat-wrap">
+    <div id="chat-log" class="chat-log" aria-live="polite"></div>
+    <form id="chat-form" class="chat-form">
+      <input id="chat-input" name="message" autocomplete="off"
+             placeholder="Try: 'tower briefing'   or   'show me the family tree'">
+      <button class="btn primary" type="submit">Send</button>
+    </form>
+    <div class="chat-suggestions">
+      <button class="chip" data-msg="tower briefing">tower briefing</button>
+      <button class="chip" data-msg="who is profitable">who is profitable</button>
+      <button class="chip" data-msg="show me the family tree">family tree</button>
+      <button class="chip" data-msg="free image sources">free image sources</button>
+      <button class="chip" data-msg="pending grants">pending grants</button>
+      <button class="chip" data-msg="show me your cognition">your cognition</button>
+    </div>
+    <p class="chat-policy">Lumen is local. <code>model_inference_external_apis = false</code>. <code>real_payments_enabled = false</code>. Replies come from the Kernel topic table, not a large language model.</p>
+  </div>
+</section>
+
+<section id="why" class="section section-alt">
+  <div class="section-header">
+    <h2>Why Lumen</h2>
+  </div>
+  <div class="why-grid">
+    <div class="why-card">
+      <h3>Citations or silence</h3>
+      <p>Every Lumen answer either cites a registry path or admits ignorance. No "I think" answers.</p>
+    </div>
+    <div class="why-card">
+      <h3>Bounded scope</h3>
+      <p>Lumen knows the QSB Tower. It will not pretend to know your customers, your codebase, or yesterday's news. Domain-fit by design.</p>
+    </div>
+    <div class="why-card">
+      <h3>Replayable</h3>
+      <p>Every conversation is logged in <code>qsb_floor48_lumen_conversations.json</code>. Audits are trivial.</p>
+    </div>
+    <div class="why-card">
+      <h3>Cost-known</h3>
+      <p>No external inference cost. Local CPU only. Operator knows what the meter looks like.</p>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" class="section">
+  <div class="section-header">
+    <h2>Pricing (advisory)</h2>
+    <p>Tiers shaped for the future real-payment phase. No money moves yet.</p>
+  </div>
+  <div id="tiers-grid" class="tiers-grid">
+    <p class="loading">Loading tiers…</p>
+  </div>
+</section>
+
+<section id="faq" class="section section-alt">
+  <div class="section-header">
+    <h2>FAQ</h2>
+  </div>
+  <details class="faq">
+    <summary>Is Lumen a large language model?</summary>
+    <p>No. Lumen is a topic-table lookup against the QSB Kernel substrate. The honest framing matters — we're not stacking another LLM, we're exposing what the Kernel already knows.</p>
+  </details>
+  <details class="faq">
+    <summary>Can I use Lumen on my own site?</summary>
+    <p>Not today. The <code>public_api_open</code> gate is closed. A separate operator-flipped phase would expose the chat endpoint behind authentication + rate limits.</p>
+  </details>
+  <details class="faq">
+    <summary>What happens if Lumen doesn't know an answer?</summary>
+    <p>You get a short, honest "I don't have that topic yet" message with examples of what Lumen DOES know. You don't get fabricated text.</p>
+  </details>
+  <details class="faq">
+    <summary>Where does my conversation history live?</summary>
+    <p>Locally in <code>data/registries/qsb_floor48_lumen_conversations.json</code>. Local-only until the operator wires a real backend.</p>
+  </details>
+</section>
+</main>
+
+<footer class="footer">
+  <p>© Lumen · A studio inside QSB Tower V1.5 · Floor 48</p>
+  <p class="footer-note">Engine: local Kernel · External API: off · Real payments: off · Safety envelope stamped on every reply.</p>
+</footer>
+
+<script src="/static/site.js"></script>
+</body>
+</html>

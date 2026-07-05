@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Apex Gear concept">
+  <defs>
+    <linearGradient id="bg-concept_apexgear" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d9e2c6"/>
+      <stop offset="1" stop-color="#2c3e2d" stop-opacity="0.15"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="800" height="600" fill="url(#bg-concept_apexgear)"/>
+  <circle cx="160" cy="60" r="2" fill="#2c3e2d" opacity="0.18"/>
+        <circle cx="271" cy="373" r="3" fill="#2c3e2d" opacity="0.18"/>
+        <circle cx="382" cy="226" r="4" fill="#2c3e2d" opacity="0.18"/>
+        <circle cx="493" cy="79" r="5" fill="#2c3e2d" opacity="0.18"/>
+        <circle cx="604" cy="392" r="2" fill="#2c3e2d" opacity="0.18"/>
+        <circle cx="715" cy="245" r="3" fill="#2c3e2d" opacity="0.18"/>
+        <circle cx="26" cy="98" r="4" fill="#2c3e2d" opacity="0.18"/>
+        <circle cx="137" cy="411" r="5" fill="#2c3e2d" opacity="0.18"/>
+        <circle cx="248" cy="264" r="2" fill="#2c3e2d" opacity="0.18"/>
+        <circle cx="359" cy="117" r="3" fill="#2c3e2d" opacity="0.18"/>
+        <circle cx="470" cy="430" r="4" fill="#2c3e2d" opacity="0.18"/>
+        <circle cx="581" cy="283" r="5" fill="#2c3e2d" opacity="0.18"/>
+        <circle cx="692" cy="136" r="2" fill="#2c3e2d" opacity="0.18"/>
+        <circle cx="3" cy="449" r="3" fill="#2c3e2d" opacity="0.18"/>
+        <circle cx="114" cy="302" r="4" fill="#2c3e2d" opacity="0.18"/>
+        <circle cx="225" cy="155" r="5" fill="#2c3e2d" opacity="0.18"/>
+        <circle cx="336" cy="8" r="2" fill="#2c3e2d" opacity="0.18"/>
+        <circle cx="447" cy="321" r="3" fill="#2c3e2d" opacity="0.18"/>
+        <circle cx="558" cy="174" r="4" fill="#2c3e2d" opacity="0.18"/>
+        <circle cx="669" cy="27" r="5" fill="#2c3e2d" opacity="0.18"/>
+        <circle cx="780" cy="340" r="2" fill="#2c3e2d" opacity="0.18"/>
+        <circle cx="91" cy="193" r="3" fill="#2c3e2d" opacity="0.18"/>
+        <circle cx="202" cy="46" r="4" fill="#2c3e2d" opacity="0.18"/>
+        <circle cx="313" cy="359" r="5" fill="#2c3e2d" opacity="0.18"/>
+        <circle cx="424" cy="212" r="2" fill="#2c3e2d" opacity="0.18"/>
+        <circle cx="535" cy="65" r="3" fill="#2c3e2d" opacity="0.18"/>
+        <circle cx="646" cy="378" r="4" fill="#2c3e2d" opacity="0.18"/>
+        <circle cx="757" cy="231" r="5" fill="#2c3e2d" opacity="0.18"/>
+  
+      <g transform="translate(0,360)">
+        <polygon points="100,0 240,-200 380,40 280,40" fill="#2c3e2d" stroke="#1a1d23" stroke-width="2"/>
+        <polygon points="320,40 460,-160 600,40 500,40" fill="#8a8f6a" stroke="#1a1d23" stroke-width="2"/>
+        <polygon points="500,40 640,-220 800,40" fill="#2c3e2d" stroke="#1a1d23" stroke-width="2"/>
+        <polygon points="220,-160 240,-200 260,-160" fill="#fff" />
+        <polygon points="440,-130 460,-160 480,-130" fill="#fff" />
+        <polygon points="620,-190 640,-220 660,-190" fill="#fff" />
+        <circle cx="700" cy="80" r="38" fill="#d9e2c6"/>
+      </g>
+  <text x="60" y="60" fill="#1a1d23" font-family="Georgia, 'Times New Roman', serif"
+        font-size="40" font-weight="700">Apex Gear</text>
+  <text x="60" y="100" fill="#1a1d23" font-family="Georgia, 'Times New Roman', serif"
+        font-size="22" opacity="0.75">Built for the climb.</text>
+  <text x="60" y="555" fill="#1a1d23" font-family="ui-sans-serif, system-ui, sans-serif"
+        font-size="13" letter-spacing="3" opacity="0.55">TOWER STUDIO · CONCEPT · CONCEPT_APEXGEAR</text>
+</svg>

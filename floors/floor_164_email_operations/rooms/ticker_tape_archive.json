@@ -1,0 +1,34 @@
+{
+  "room_id": "ticker_tape_archive",
+  "name": "Ticker Tape Archive",
+  "category": "archive",
+  "purpose": "Holding historical email records.",
+  "concierge_blurb": "This archive preserves the history of our communications over time.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      8,
+      4
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "archive_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Ticker Tape",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_164"
+}

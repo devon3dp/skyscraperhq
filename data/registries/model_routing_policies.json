@@ -1,0 +1,54 @@
+[
+  {
+    "id": "coding_policy",
+    "request_type": "coding",
+    "origin_floor": "floor_05",
+    "routing_floor": "floor_24",
+    "preferred_target": "floor_27",
+    "fallback_target": "floor_23",
+    "emergency_target": "roof",
+    "preferred_lift": "model_lift",
+    "execution_enabled": false,
+    "direct_provider_access": false,
+    "selection_rule": "Prefer local coding-capable models if detected. Otherwise route to external provider socket layer."
+  },
+  {
+    "id": "claude_code_handoff_policy",
+    "request_type": "claude_code_handoff",
+    "origin_floor": "floor_05",
+    "routing_floor": "floor_24",
+    "preferred_target": "floor_23",
+    "fallback_target": "roof",
+    "emergency_target": "floor_27",
+    "preferred_lift": "model_lift",
+    "execution_enabled": false,
+    "direct_provider_access": false,
+    "selection_rule": "Claude Code remains external. Floor 24 prepares socket handoff only."
+  },
+  {
+    "id": "vision_policy",
+    "request_type": "vision",
+    "origin_floor": "floor_13",
+    "routing_floor": "floor_24",
+    "preferred_target": "floor_27",
+    "fallback_target": "floor_23",
+    "emergency_target": "roof",
+    "preferred_lift": "model_lift",
+    "execution_enabled": false,
+    "direct_provider_access": false,
+    "selection_rule": "Prefer local vision model if detected. Otherwise use provider socket layer."
+  },
+  {
+    "id": "general_policy",
+    "request_type": "general",
+    "origin_floor": "ground",
+    "routing_floor": "floor_24",
+    "preferred_target": "floor_27",
+    "fallback_target": "floor_23",
+    "emergency_target": "roof",
+    "preferred_lift": "model_lift",
+    "execution_enabled": false,
+    "direct_provider_access": false,
+    "selection_rule": "Prefer local general model if detected. Otherwise use provider socket layer."
+  }
+]

@@ -1,0 +1,16 @@
+{
+  "ok": true,
+  "kind": "eqsb_memory_profile",
+  "generated_ts": "2026-06-30T13:46:33.437849+00:00",
+  "free_h": "total        used        free      shared  buff/cache   available\nMem:            61Gi       8.6Gi        33Gi       475Mi        20Gi        53Gi\nSwap:           15Gi          0B        15Gi",
+  "mem_total_bytes": 66233671680,
+  "mem_available_bytes": 56945864704,
+  "swap_used_bytes": 0,
+  "memory_pressure": "low",
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

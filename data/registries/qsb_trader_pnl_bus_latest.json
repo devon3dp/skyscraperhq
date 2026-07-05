@@ -1,0 +1,31 @@
+{
+  "ts": "2026-07-02T10:58:24Z",
+  "started_at": "2026-07-02T10:57:31Z",
+  "event_count": 2,
+  "last_event_ts": "2026-07-02T10:58:24.183006+00:00",
+  "by_worker": {
+    "belief_driven_gbp": {
+      "closes": 2,
+      "wins": 2,
+      "losses": 0,
+      "pnl_sum": 0.3798350347742972,
+      "real_closes": 2,
+      "sim_closes": 0,
+      "venue": "oanda",
+      "instrument": "GBP_USD"
+    }
+  },
+  "by_venue": {
+    "oanda": {
+      "closes": 2,
+      "pnl_sum": 0.3798350347742972,
+      "wins": 2
+    }
+  },
+  "totals": {
+    "closes": 2,
+    "pnl_sum": 0.3798350347742972,
+    "real_closes": 2,
+    "wins": 2
+  }
+}

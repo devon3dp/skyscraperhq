@@ -1,0 +1,71 @@
+{
+  "ok": true,
+  "kind": "qsb_kernel_chat_routing_audit",
+  "phase": "QSB_KERNEL_CHAT_REGISTRY_AWARE_ROUTING_REPAIR_V1",
+  "generated_ts": "2026-06-09T16:00:16+00:00",
+  "smoke_test_v2_before_repair": {
+    "log": "data/logs/qsb_kernel_learning_smoke_test_v2_20260609T155130Z.log",
+    "passes": 12,
+    "warnings": 0,
+    "failures": 4,
+    "failed_intents": [
+      "recent_upgrades",
+      "godot_status",
+      "missing_features",
+      "learning_evidence"
+    ],
+    "only_passing_intent": "claude_changes"
+  },
+  "root_cause": {
+    "where_identity_paragraph_is_emitted": "src/tower/kernel_dialogue_adapter.py :: symbolic_reply() (~line 2380) f-string body: 'I am QSB Kernel, version ... Leading beliefs: ... Local symbolic interpretation: The kernel is active and stable. Local model routing may be used only as a speech layer if localhost Ollama is available. ...'",
+    "why_it_fires_for_failed_intents": "Topic detection (_wants_eqsb_topic) had triggers for ~25 topics but no recent_upgrades, godot_native_status, missing_features, or learning_evidence topic. When no topic matched and intent != IDENTITY, ask_kernel appended base_reply (identity paragraph) as the safety-net fallback.",
+    "why_claude_changes_worked": "code_observatory topic exists (added earlier) with triggers including 'what did claude change last' / 'claude changes'. That topic block reads eqsb_last_claude_change_summary + eqsb_phase_changes_latest, so the V2 smoke test's claude_changes question matched and printed a real block.",
+    "sidecar_vs_shell_route_difference": "scripts/qsb_kernel_chat.sh runs `python3 src/tower/kernel_dialogue_adapter.py` directly \u2014 same code path used by the smoke test. Sidecar (port 8766) was not the source of the failure; the adapter itself was missing topics."
+  },
+  "fix_applied": {
+    "new_topics_added": [
+      "recent_upgrades  (19 trigger phrases)",
+      "godot_native_status  (19 trigger phrases)",
+      "missing_features  (18 trigger phrases)",
+      "learning_evidence  (15 trigger phrases)"
+    ],
+    "new_handler_blocks_added": 4,
+    "registry_backed_blocks_in_adapter": true,
+    "new_helper_module": "src/tower/kernel_registry_answer_builder.py",
+    "new_direct_report_scripts": [
+      "scripts/qsb_kernel_recent_upgrades_report.sh",
+      "scripts/qsb_kernel_godot_status_report.sh",
+      "scripts/qsb_kernel_missing_features_report.sh",
+      "scripts/qsb_kernel_learning_evidence_report.sh"
+    ]
+  },
+  "identity_paragraph_now_fires_only_when": [
+    "intent == IDENTITY (user explicitly asks who/what/identity/status)",
+    "intent != EXECUTION_REQUEST AND no topic block was produced (safety net so reply is never empty)"
+  ],
+  "identity_paragraph_now_does_NOT_fire_for": [
+    "recent_upgrades",
+    "godot_native_status",
+    "missing_features",
+    "learning_evidence",
+    "claude_changes",
+    "floor41_oanda",
+    "floor42_binance",
+    "penthouse",
+    "hardware_observatory",
+    "dashboard_repair",
+    "openclaw_supervision",
+    "skyscraper_occupancy",
+    "native_cockpit_v2",
+    "rebuild_v1",
+    "revamp_3d_v1",
+    "worker_truth",
+    "completion_v1",
+    "workforce_v1"
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

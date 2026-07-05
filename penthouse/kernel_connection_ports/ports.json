@@ -1,0 +1,66 @@
+[
+  {
+    "id": "port_registry_read",
+    "name": "Registry Read Port",
+    "direction": "inbound",
+    "target": "data/registries",
+    "enabled": true,
+    "execution_enabled": false
+  },
+  {
+    "id": "port_lift_network",
+    "name": "Lift Network Port",
+    "direction": "inbound_outbound",
+    "target": "src/tower/lifts.py",
+    "enabled": true,
+    "execution_enabled": false
+  },
+  {
+    "id": "port_floor_53_handoff",
+    "name": "Floor 53 Handoff Port",
+    "direction": "inbound",
+    "target": "floor_53",
+    "enabled": true,
+    "execution_enabled": false
+  },
+  {
+    "id": "port_diagnostics",
+    "name": "Diagnostics Port",
+    "direction": "inbound",
+    "target": "floor_33",
+    "enabled": true,
+    "execution_enabled": false
+  },
+  {
+    "id": "port_monitoring",
+    "name": "Monitoring Port",
+    "direction": "inbound",
+    "target": "floor_34",
+    "enabled": true,
+    "execution_enabled": false
+  },
+  {
+    "id": "port_infrastructure",
+    "name": "Infrastructure Services Port",
+    "direction": "inbound",
+    "target": "floor_35",
+    "enabled": true,
+    "execution_enabled": false
+  },
+  {
+    "id": "port_security_gate",
+    "name": "Security / Permissions Gate Port",
+    "direction": "inbound",
+    "target": "floor_28_floor_29_floor_30",
+    "enabled": true,
+    "execution_enabled": false
+  },
+  {
+    "id": "port_event_console",
+    "name": "Kernel Event Console Port",
+    "direction": "outbound",
+    "target": "penthouse/kernel_event_console",
+    "enabled": true,
+    "execution_enabled": false
+  }
+]

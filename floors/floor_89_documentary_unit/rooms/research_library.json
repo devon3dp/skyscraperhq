@@ -1,0 +1,34 @@
+{
+  "room_id": "research_library",
+  "name": "Nature Library",
+  "category": "library",
+  "purpose": "A collection of books and resources related to nature and the environment.",
+  "concierge_blurb": "Dive into our library on the wonders of nature and history.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 6.0,
+    "offset_z": 2.5,
+    "footprint_m": [
+      8,
+      10
+    ],
+    "height_m": 2.2
+  },
+  "render": {
+    "primary_prop": "library_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Nature Lib.",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_89"
+}

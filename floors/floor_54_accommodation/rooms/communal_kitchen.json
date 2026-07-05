@@ -1,0 +1,34 @@
+{
+  "room_id": "communal_kitchen",
+  "name": "Communal Kitchen",
+  "category": "kitchen",
+  "purpose": "A place for the workforce to gather and socialize.",
+  "concierge_blurb": "Relax in our communal kitchen, a hub for meals and conversation among colleagues.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 6.0,
+    "offset_z": -1.5,
+    "footprint_m": [
+      7,
+      4
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "kitchen_line",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Kitchen",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_54"
+}

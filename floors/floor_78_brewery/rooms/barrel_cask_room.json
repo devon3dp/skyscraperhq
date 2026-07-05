@@ -1,0 +1,34 @@
+{
+  "room_id": "barrel_cask_room",
+  "name": "Barrel and Cask Room",
+  "category": "storage",
+  "purpose": "This room is for storing barrels and casks of aged beer.",
+  "concierge_blurb": "Rows of wooden barrels line the walls, ready to be tapped.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -8.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "display",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Barrel Room",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 0
+  },
+  "floor": "floor_78"
+}

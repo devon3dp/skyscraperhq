@@ -1,0 +1,31 @@
+{
+  "room_id": "storage_archive",
+  "name": "Storage Archive",
+  "category": "archive_shelf",
+  "purpose": "A secure storage area for valuable documents and records.",
+  "concierge_blurb": "Explore the archives in our secure Storage Area.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -6.0,
+    "offset_z": 8.0,
+    "footprint_m": [
+      10,
+      5
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "archive_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Storage Archive",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_38"
+}

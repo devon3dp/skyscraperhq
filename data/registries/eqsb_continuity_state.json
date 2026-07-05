@@ -1,0 +1,78 @@
+{
+  "schema_version": "eqsb_major_v1.0",
+  "kind": "eqsb_continuity_state",
+  "generated_ts": "2026-06-09T08:56:44.952389+00:00",
+  "mirrored_from": "penthouse/kernel_installation_socket/rebased_kernel/state/continuity_state.json",
+  "boot_posture": "CONSERVATIVE",
+  "boot_status_upstream": "CONTINUITY_CONFIRMED",
+  "history_count": 24,
+  "continuity_state_size_bytes": 1106,
+  "continuity_previous_chain_depth": 1,
+  "identity_hash_upstream": "c9e449ec53d92309f7a531726e46ba8d27666fbe244db1eaa9a3e6e651e54710",
+  "symbolic_hash_upstream": "d5f9edc2d55c4b1c0833f7aa192d2326acac568bc899301fb0f0ce3bf3b8cf4d",
+  "penthouse_hash_upstream": "7d987acf331cdcea3db92e281f68c2c1d946e98209b26c36044dc8f260f528a5",
+  "constitution_hash_upstream": "missing",
+  "memory_db_exists": true,
+  "lift_db_exists": true,
+  "drift_alerts": [],
+  "stale_memory_flags": [
+    {
+      "path": "data/logs/qsb_standalone_system_audit.jsonl",
+      "reason": "stale",
+      "age_hours": 13.6,
+      "max_age_hours": 12
+    }
+  ],
+  "missing_memory_sources": [],
+  "memory_sources": [
+    "penthouse/kernel_installation_socket/rebased_kernel/state/beliefs.sqlite",
+    "penthouse/kernel_installation_socket/rebased_kernel/state/symbolic.sqlite",
+    "penthouse/kernel_installation_socket/rebased_kernel/state/continuity_state.json",
+    "data/registries/eqsb_*.json"
+  ],
+  "identity_upstream": {
+    "name": "QSB Kernel",
+    "full_name": "Quantum Symbolic Brain Kernel",
+    "version": "4.6-offline-kernel-symbolic",
+    "role": "Locked Penthouse Kernel"
+  },
+  "pinned_beliefs": [
+    "EQSB is the persistent symbolic Kernel, not a model.",
+    "Registry-backed structured state outranks model paraphrase.",
+    "Execution gates are separate from reasoning and remain locked.",
+    "Quantum-symbolic signal is simulated/advisory unless verified.",
+    "Models are replaceable advisory lanes; not the kernel.",
+    "Beliefs must remain evidence-linked.",
+    "Contradictions must be surfaced, not hidden."
+  ],
+  "next_review_targets": [
+    "eqsb_belief_lifecycle.json next_review_at",
+    "eqsb_continuity_state stale_memory_flags"
+  ],
+  "active_local_only": true,
+  "advisory_only": true,
+  "execution_allowed": false,
+  "paper_only": true,
+  "not_financial_advice": true,
+  "worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "external_provider_execution_enabled": false,
+  "openclaw_execution_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "live_dispatch_enabled": false,
+  "direct_provider_access": false,
+  "live_trading_enabled": false,
+  "order_execution_enabled": false,
+  "practice_order_execution_enabled": false,
+  "stock_order_execution_enabled": false,
+  "stock_live_trading_enabled": false,
+  "stock_paper_order_execution_enabled": false,
+  "binance_order_execution_enabled": false,
+  "binance_live_trading_enabled": false,
+  "model_inference_enabled": false,
+  "autonomous_workers_enabled": false,
+  "maintenance_auto_repair_enabled": false,
+  "web_access_autonomous_enabled": false,
+  "continuity_hash": "31bf2eca382d51fb"
+}

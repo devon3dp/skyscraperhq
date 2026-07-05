@@ -1,0 +1,31 @@
+{
+  "room_id": "communications_hub_audit",
+  "name": "Audit Room",
+  "category": "audit",
+  "purpose": "This room conducts audits of the network and systems.",
+  "concierge_blurb": "Explore our rigorous auditing process.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_right",
+    "offset_x": 4.0,
+    "offset_z": -6.0,
+    "footprint_m": [
+      8,
+      5
+    ],
+    "height_m": 1.8
+  },
+  "render": {
+    "primary_prop": "audit_table",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Audit",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_152"
+}

@@ -1,0 +1,34 @@
+{
+  "room_id": "pinwheel_display",
+  "name": "Pinwheel Display",
+  "category": "display",
+  "purpose": "A showcase of finished toys and prototypes.",
+  "concierge_blurb": "Marvel at the creativity and craftsmanship on display here.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": 4.0,
+    "footprint_m": [
+      12.0,
+      6.0
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "display_case",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Display",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 0
+  },
+  "floor": "floor_62"
+}

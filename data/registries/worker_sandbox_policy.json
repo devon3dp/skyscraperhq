@@ -1,0 +1,40 @@
+{
+  "policy": "worker_sandbox_recruitment_v1",
+  "version": "1.0",
+  "mode": "sandbox_only",
+  "purpose": "Allow sandbox worker roles to process Floor 41 OANDA paper strategy tasks without enabling real execution.",
+  "sandbox_workers_enabled": true,
+  "worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "external_provider_execution_enabled": false,
+  "openclaw_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "live_dispatch_enabled": false,
+  "direct_provider_access": false,
+  "live_trading_enabled": false,
+  "order_execution_enabled": false,
+  "practice_order_execution_enabled": false,
+  "paper_trading_enabled": true,
+  "allowed_floors": [
+    "floor_25_agent_coordination_department",
+    "floor_37_simulation_labs",
+    "floor_38_sandbox_operations",
+    "floor_41_oanda_trading_floor"
+  ],
+  "allowed_tasks": [
+    "read OANDA practice pricing",
+    "run paper strategy lab",
+    "write paper signal ledger",
+    "produce sandbox worker observations",
+    "generate lift packet trails",
+    "ask local-only kernel for commentary"
+  ],
+  "forbidden_tasks": [
+    "place OANDA live orders",
+    "place OANDA practice orders",
+    "activate OpenClaw execution",
+    "activate autonomous dispatch",
+    "call external AI providers",
+    "enable real worker execution"
+  ]
+}

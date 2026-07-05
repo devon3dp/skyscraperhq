@@ -1,0 +1,22 @@
+coding_department:
+  version: 1.1
+  floor_id: floor_05
+  role: coding_workspace_and_request_origin
+  direct_provider_access: false
+  routes_through: floor_24
+  first_lift: service_lift
+  models_required: false
+  kernel_required: false
+
+queues:
+  request_queue: active
+  patch_queue: active
+  review_queue: active
+  test_queue: active
+
+ports:
+  claude_code_port: socket_ready_not_connected
+  local_coder_port: socket_ready_not_connected
+  future_coding_provider_port: expansion_ready
+
+principle: Floor 5 creates coding work packets. Floor 24 routes them. Providers remain external tenants.

@@ -1,0 +1,53 @@
+{
+  "ok": true,
+  "floor_number": 56,
+  "floor_name": "Cinema",
+  "floor_kind": "recreation_and_accommodation_v1",
+  "description": "two screens, classic films + dailies + worker-made films night",
+  "rooms": [
+    "screen_one_120",
+    "screen_two_60",
+    "lobby_concessions",
+    "projection_booth",
+    "poster_wall_archive"
+  ],
+  "open_hours": "24/7 (accommodation) or 06:00-23:00 (recreation)",
+  "created_ts": "2026-06-11T08:36:09.551273Z",
+  "manager": "F56_manager_TBD",
+  "capacity": {
+    "occupants_max": 180
+  },
+  "inter_floor_consumes": [
+    "F30_permissions (sealed packets)",
+    "F47_wren (announcements)",
+    "F49_resource (supplies)"
+  ],
+  "inter_floor_produces": [
+    "F47_wren (occupancy reports)",
+    "F44_accounts (consumption costs)"
+  ],
+  "advisory_only": true,
+  "interior_brief": {
+    "archetype": "ops_floor",
+    "palette": [
+      "#1a1e2a",
+      "#3a4050",
+      "#6a90c0"
+    ],
+    "furniture": [
+      "desks",
+      "meeting area",
+      "common space"
+    ],
+    "lighting": "task + ambient",
+    "mood": "professional",
+    "designed_by": "F66 Architects + Fitters team (sweep 2)",
+    "fitted_at": "2026-06-11T14:40:49.185810Z",
+    "godot_scene_brief": "render an generic floor with neutral grey + accent palette",
+    "signature": "Standard tower office layout \u2014 desks, meeting nook, kitchenette",
+    "diversified_ts": "2026-06-11T17:57:45Z",
+    "diversified_by": "qsb_archetype_diversifier_v1"
+  },
+  "fitted_out": true,
+  "fit_out_ts": "2026-06-11T14:40:49.185810Z"
+}

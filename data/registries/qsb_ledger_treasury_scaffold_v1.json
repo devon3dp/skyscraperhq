@@ -1,0 +1,46 @@
+{
+  "ok": true,
+  "kind": "qsb_ledger_treasury_scaffold_v1",
+  "generated_ts": "2026-06-11T12:40:09.422379Z",
+  "status": "SCAFFOLD_ONLY \u2014 not active until shop revenue \u2265 \u00a3500 cumulative",
+  "device": "Ledger Nano (Ross has)",
+  "role_in_tower": "cold storage for accumulated crypto only \u2014 NOT for active trading",
+  "use_cases": [
+    {
+      "name": "crypto_treasury_v1",
+      "flow": "shop sales (GBP) \u2192 quarterly conversion to BTC/ETH on Binance \u2192 withdraw to Ledger addresses",
+      "percentage": "10-20% of shop net profit (configurable)",
+      "requires": [
+        "Binance LIVE account (not yet)",
+        "BTC + ETH receive addresses from Ledger",
+        "CLAUDE.md authorization clause"
+      ],
+      "safety": "every withdrawal logged to F44; cap per withdrawal \u00a3500 until reviewed"
+    },
+    {
+      "name": "crypto_payments_for_shops",
+      "flow": "shop checkout offers BTC/ETH alongside Stripe \u2192 BTCPay Server or Coinbase Commerce \u2192 settles to Ledger",
+      "requires": [
+        "BTCPay Server self-hosted (free) OR Coinbase Commerce account",
+        "SSL on shops",
+        "customer-facing wallet UI"
+      ],
+      "audience": "~5-10% of e-commerce customers prefer crypto"
+    },
+    {
+      "name": "public_tip_addresses",
+      "flow": "public BTC + ETH addresses on master landing; sponsors/donors can send directly",
+      "requires": [
+        "Ledger receive addresses",
+        "clear \"no expectation\" framing on the page"
+      ]
+    }
+  ],
+  "NOT_doing_now_and_why": [
+    "Active crypto trading via Ledger \u2014 physical button-press per trade is impractical",
+    "Replacing Binance live \u2014 Ledger is storage, not execution",
+    "Skipping CLAUDE.md gates \u2014 real_money_live_trading_enabled remains locked"
+  ],
+  "activation_trigger": "shop revenue \u2265 \u00a3500 cumulative AND CLAUDE.md crypto-treasury clause added",
+  "advisory_only": true
+}

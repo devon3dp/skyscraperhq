@@ -1,0 +1,250 @@
+{
+  "ok": true,
+  "kind": "qsb_advertising_inventory_v1",
+  "generated_ts": "2026-06-11T11:04:26.383733Z",
+  "inventory": {
+    "master_landing": [
+      {
+        "slot_id": "mst-leader-top",
+        "position": "header",
+        "size": "728x90",
+        "rate_gbp_per_month": 150
+      },
+      {
+        "slot_id": "mst-rectangle-mid",
+        "position": "between-shops",
+        "size": "300x250",
+        "rate_gbp_per_month": 80
+      },
+      {
+        "slot_id": "mst-footer-banner",
+        "position": "above-footer",
+        "size": "728x90",
+        "rate_gbp_per_month": 70
+      }
+    ],
+    "lumiere-beauty": [
+      {
+        "slot_id": "lumiere-beauty-rectangle-top",
+        "position": "between-header-and-grid",
+        "size": "300x250",
+        "rate_gbp_per_month": 40
+      },
+      {
+        "slot_id": "lumiere-beauty-leader-footer",
+        "position": "above-footer",
+        "size": "728x90",
+        "rate_gbp_per_month": 30
+      }
+    ],
+    "pinwheel-toys": [
+      {
+        "slot_id": "pinwheel-toys-rectangle-top",
+        "position": "between-header-and-grid",
+        "size": "300x250",
+        "rate_gbp_per_month": 40
+      },
+      {
+        "slot_id": "pinwheel-toys-leader-footer",
+        "position": "above-footer",
+        "size": "728x90",
+        "rate_gbp_per_month": 30
+      }
+    ],
+    "pawsworth-pets": [
+      {
+        "slot_id": "pawsworth-pets-rectangle-top",
+        "position": "between-header-and-grid",
+        "size": "300x250",
+        "rate_gbp_per_month": 40
+      },
+      {
+        "slot_id": "pawsworth-pets-leader-footer",
+        "position": "above-footer",
+        "size": "728x90",
+        "rate_gbp_per_month": 30
+      }
+    ],
+    "hearthstone-kitchen": [
+      {
+        "slot_id": "hearthstone-kitchen-rectangle-top",
+        "position": "between-header-and-grid",
+        "size": "300x250",
+        "rate_gbp_per_month": 40
+      },
+      {
+        "slot_id": "hearthstone-kitchen-leader-footer",
+        "position": "above-footer",
+        "size": "728x90",
+        "rate_gbp_per_month": 30
+      }
+    ],
+    "vector-tech": [
+      {
+        "slot_id": "vector-tech-rectangle-top",
+        "position": "between-header-and-grid",
+        "size": "300x250",
+        "rate_gbp_per_month": 40
+      },
+      {
+        "slot_id": "vector-tech-leader-footer",
+        "position": "above-footer",
+        "size": "728x90",
+        "rate_gbp_per_month": 30
+      }
+    ],
+    "trailhead-outdoor": [
+      {
+        "slot_id": "trailhead-outdoor-rectangle-top",
+        "position": "between-header-and-grid",
+        "size": "300x250",
+        "rate_gbp_per_month": 40
+      },
+      {
+        "slot_id": "trailhead-outdoor-leader-footer",
+        "position": "above-footer",
+        "size": "728x90",
+        "rate_gbp_per_month": 30
+      }
+    ],
+    "stretch-fitness": [
+      {
+        "slot_id": "stretch-fitness-rectangle-top",
+        "position": "between-header-and-grid",
+        "size": "300x250",
+        "rate_gbp_per_month": 40
+      },
+      {
+        "slot_id": "stretch-fitness-leader-footer",
+        "position": "above-footer",
+        "size": "728x90",
+        "rate_gbp_per_month": 30
+      }
+    ],
+    "quilltree-office": [
+      {
+        "slot_id": "quilltree-office-rectangle-top",
+        "position": "between-header-and-grid",
+        "size": "300x250",
+        "rate_gbp_per_month": 40
+      },
+      {
+        "slot_id": "quilltree-office-leader-footer",
+        "position": "above-footer",
+        "size": "728x90",
+        "rate_gbp_per_month": 30
+      }
+    ],
+    "voyage-and-co": [
+      {
+        "slot_id": "voyage-and-co-rectangle-top",
+        "position": "between-header-and-grid",
+        "size": "300x250",
+        "rate_gbp_per_month": 40
+      },
+      {
+        "slot_id": "voyage-and-co-leader-footer",
+        "position": "above-footer",
+        "size": "728x90",
+        "rate_gbp_per_month": 30
+      }
+    ],
+    "greenhouse-lane": [
+      {
+        "slot_id": "greenhouse-lane-rectangle-top",
+        "position": "between-header-and-grid",
+        "size": "300x250",
+        "rate_gbp_per_month": 40
+      },
+      {
+        "slot_id": "greenhouse-lane-leader-footer",
+        "position": "above-footer",
+        "size": "728x90",
+        "rate_gbp_per_month": 30
+      }
+    ],
+    "little-robin": [
+      {
+        "slot_id": "little-robin-rectangle-top",
+        "position": "between-header-and-grid",
+        "size": "300x250",
+        "rate_gbp_per_month": 40
+      },
+      {
+        "slot_id": "little-robin-leader-footer",
+        "position": "above-footer",
+        "size": "728x90",
+        "rate_gbp_per_month": 30
+      }
+    ],
+    "inkwell-and-co": [
+      {
+        "slot_id": "inkwell-and-co-rectangle-top",
+        "position": "between-header-and-grid",
+        "size": "300x250",
+        "rate_gbp_per_month": 40
+      },
+      {
+        "slot_id": "inkwell-and-co-leader-footer",
+        "position": "above-footer",
+        "size": "728x90",
+        "rate_gbp_per_month": 30
+      }
+    ],
+    "twilight-wellness": [
+      {
+        "slot_id": "twilight-wellness-rectangle-top",
+        "position": "between-header-and-grid",
+        "size": "300x250",
+        "rate_gbp_per_month": 40
+      },
+      {
+        "slot_id": "twilight-wellness-leader-footer",
+        "position": "above-footer",
+        "size": "728x90",
+        "rate_gbp_per_month": 30
+      }
+    ],
+    "living-light-eco": [
+      {
+        "slot_id": "living-light-eco-rectangle-top",
+        "position": "between-header-and-grid",
+        "size": "300x250",
+        "rate_gbp_per_month": 40
+      },
+      {
+        "slot_id": "living-light-eco-leader-footer",
+        "position": "above-footer",
+        "size": "728x90",
+        "rate_gbp_per_month": 30
+      }
+    ],
+    "maker-lane": [
+      {
+        "slot_id": "maker-lane-rectangle-top",
+        "position": "between-header-and-grid",
+        "size": "300x250",
+        "rate_gbp_per_month": 40
+      },
+      {
+        "slot_id": "maker-lane-leader-footer",
+        "position": "above-footer",
+        "size": "728x90",
+        "rate_gbp_per_month": 30
+      }
+    ]
+  },
+  "total_slots": 33,
+  "pricing_model": "monthly_flat_rate",
+  "self_serve": false,
+  "contact_email": "knechtelross+ads@gmail.com",
+  "mvp_routes": [
+    "direct email enquiry \u2192 Wren reviews \u2192 quote \u2192 Stripe Payment Link \u2192 bookings.json",
+    "or self-serve via Stripe Pricing Table when MVP grows"
+  ],
+  "guidance": {
+    "starter_rate_rationale": "low to attract first advertisers; raise once Skyscraper has 30-day traffic data",
+    "no_advertising_in_first_30_days": "until traffic data proves slots have eyeballs"
+  },
+  "advisory_only": true
+}

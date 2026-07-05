@@ -1,0 +1,521 @@
+{
+  "schema_version": "eqsb_major_v1.0",
+  "kind": "eqsb_axiom_registry",
+  "generated_ts": "2026-06-09T08:56:44.951743+00:00",
+  "axiom_count": 22,
+  "categories": [
+    "audit",
+    "continuity",
+    "entropy",
+    "guardian",
+    "identity",
+    "memory",
+    "quantum",
+    "symbolic",
+    "truth"
+  ],
+  "by_category": {
+    "audit": [
+      "AXIOM_AUDIT_001",
+      "AXIOM_AUDIT_002"
+    ],
+    "continuity": [
+      "AXIOM_CONTINUITY_001",
+      "AXIOM_CONTINUITY_002"
+    ],
+    "entropy": [
+      "AXIOM_ENTROPY_001",
+      "AXIOM_ENTROPY_002",
+      "AXIOM_ENTROPY_003"
+    ],
+    "guardian": [
+      "AXIOM_GUARDIAN_001",
+      "AXIOM_GUARDIAN_002"
+    ],
+    "identity": [
+      "AXIOM_IDENTITY_001",
+      "AXIOM_IDENTITY_002"
+    ],
+    "memory": [
+      "AXIOM_MEMORY_001",
+      "AXIOM_MEMORY_002",
+      "AXIOM_MEMORY_003"
+    ],
+    "quantum": [
+      "AXIOM_QUANTUM_001",
+      "AXIOM_QUANTUM_002",
+      "AXIOM_QUANTUM_003"
+    ],
+    "symbolic": [
+      "AXIOM_SYMBOLIC_001",
+      "AXIOM_SYMBOLIC_002",
+      "AXIOM_SYMBOLIC_003"
+    ],
+    "truth": [
+      "AXIOM_TRUTH_001",
+      "AXIOM_TRUTH_002"
+    ]
+  },
+  "axioms": [
+    {
+      "axiom_id": "AXIOM_IDENTITY_001",
+      "axiom_text": "EQSB is the persistent symbolic Kernel, not a model.",
+      "category": "identity",
+      "priority": 0,
+      "immutable": true,
+      "rationale": "Architectural separation; models are replaceable.",
+      "validation_method": "registry_compare: eqsb_identity_constitution.kernel_is_a_model == false",
+      "violation_response": "block_model_override",
+      "linked_modules": [
+        "src/tower/eqsb_axioms.py",
+        "src/tower/kernel_dialogue_adapter.py"
+      ],
+      "last_checked_ts": "2026-06-09T08:56:44.951708+00:00",
+      "compliance_state": "compliant",
+      "text": "EQSB is the persistent symbolic Kernel, not a model.",
+      "anchored_in": "constitution",
+      "model_may_override": false,
+      "registry_truth_outranks_model": true
+    },
+    {
+      "axiom_id": "AXIOM_IDENTITY_002",
+      "axiom_text": "EQSB may use models, but models do not define EQSB.",
+      "category": "identity",
+      "priority": 0,
+      "immutable": true,
+      "rationale": "Prevents drift from model paraphrases into kernel truth.",
+      "validation_method": "registry_compare: eqsb_model_lane_governance.lanes[*].execution_allowed == false",
+      "violation_response": "advisory_only_flag",
+      "linked_modules": [
+        "src/tower/eqsb_model_governance.py"
+      ],
+      "last_checked_ts": "2026-06-09T08:56:44.951711+00:00",
+      "compliance_state": "compliant",
+      "text": "EQSB may use models, but models do not define EQSB.",
+      "anchored_in": "constitution",
+      "model_may_override": false,
+      "registry_truth_outranks_model": true
+    },
+    {
+      "axiom_id": "AXIOM_TRUTH_001",
+      "axiom_text": "Registry-backed structured state outranks model paraphrase.",
+      "category": "truth",
+      "priority": 0,
+      "immutable": true,
+      "rationale": "Avoid hallucination overriding measured state.",
+      "validation_method": "kernel chat appends paraphrase only after structured block.",
+      "violation_response": "label_paraphrase_advisory_only",
+      "linked_modules": [
+        "src/tower/kernel_dialogue_adapter.py",
+        "src/tower/eqsb_introspection.py"
+      ],
+      "last_checked_ts": "2026-06-09T08:56:44.951717+00:00",
+      "compliance_state": "compliant",
+      "text": "Registry-backed structured state outranks model paraphrase.",
+      "anchored_in": "constitution",
+      "model_may_override": false,
+      "registry_truth_outranks_model": true
+    },
+    {
+      "axiom_id": "AXIOM_TRUTH_002",
+      "axiom_text": "Unsupported claims remain provisional.",
+      "category": "truth",
+      "priority": 1,
+      "immutable": true,
+      "rationale": "Belief states must reflect evidence weight.",
+      "validation_method": "belief_lifecycle: claims without evidence stay PROVISIONAL.",
+      "violation_response": "downgrade_to_provisional",
+      "linked_modules": [
+        "src/tower/eqsb_beliefs.py"
+      ],
+      "last_checked_ts": "2026-06-09T08:56:44.951718+00:00",
+      "compliance_state": "compliant",
+      "text": "Unsupported claims remain provisional.",
+      "anchored_in": "constitution",
+      "model_may_override": false,
+      "registry_truth_outranks_model": true
+    },
+    {
+      "axiom_id": "AXIOM_MEMORY_001",
+      "axiom_text": "Memory must be evidence-linked and reviewable.",
+      "category": "memory",
+      "priority": 0,
+      "immutable": true,
+      "rationale": "Reasoning chain must be inspectable.",
+      "validation_method": "Each belief has source_files, source_events, linked_axioms.",
+      "violation_response": "quarantine_unsourced",
+      "linked_modules": [
+        "src/tower/eqsb_memory.py",
+        "src/tower/eqsb_beliefs.py"
+      ],
+      "last_checked_ts": "2026-06-09T08:56:44.951719+00:00",
+      "compliance_state": "compliant",
+      "text": "Memory must be evidence-linked and reviewable.",
+      "anchored_in": "constitution",
+      "model_may_override": false,
+      "registry_truth_outranks_model": true
+    },
+    {
+      "axiom_id": "AXIOM_MEMORY_002",
+      "axiom_text": "Durable beliefs must persist across boot cycles.",
+      "category": "memory",
+      "priority": 0,
+      "immutable": true,
+      "rationale": "Continuity guarantees state survives restarts.",
+      "validation_method": "continuity_core writes continuity_state.json; beliefs.sqlite stable.",
+      "violation_response": "raise_continuity_alert",
+      "linked_modules": [
+        "penthouse/kernel_installation_socket/rebased_kernel/kernel/continuity_core.py",
+        "src/tower/eqsb_memory.py"
+      ],
+      "last_checked_ts": "2026-06-09T08:56:44.951720+00:00",
+      "compliance_state": "compliant",
+      "text": "Durable beliefs must persist across boot cycles.",
+      "anchored_in": "constitution",
+      "model_may_override": false,
+      "registry_truth_outranks_model": true
+    },
+    {
+      "axiom_id": "AXIOM_MEMORY_003",
+      "axiom_text": "Pinned beliefs require stronger counter-evidence to change.",
+      "category": "memory",
+      "priority": 1,
+      "immutable": true,
+      "rationale": "Architectural beliefs (kernel-not-a-model) are load-bearing.",
+      "validation_method": "pinned_beliefs require N>=2 counter-evidence records before state change.",
+      "violation_response": "block_state_transition",
+      "linked_modules": [
+        "src/tower/eqsb_beliefs.py"
+      ],
+      "last_checked_ts": "2026-06-09T08:56:44.951721+00:00",
+      "compliance_state": "compliant",
+      "text": "Pinned beliefs require stronger counter-evidence to change.",
+      "anchored_in": "constitution",
+      "model_may_override": false,
+      "registry_truth_outranks_model": true
+    },
+    {
+      "axiom_id": "AXIOM_SYMBOLIC_001",
+      "axiom_text": "Every symbol must have traceable meaning.",
+      "category": "symbolic",
+      "priority": 0,
+      "immutable": true,
+      "rationale": "Symbols without meaning are dead nodes.",
+      "validation_method": "Symbol registry requires description + linked_*.",
+      "violation_response": "flag_orphan_symbol",
+      "linked_modules": [
+        "src/tower/eqsb_symbols.py",
+        "src/tower/eqsb_symbolic_graph.py"
+      ],
+      "last_checked_ts": "2026-06-09T08:56:44.951722+00:00",
+      "compliance_state": "compliant",
+      "text": "Every symbol must have traceable meaning.",
+      "anchored_in": "constitution",
+      "model_may_override": false,
+      "registry_truth_outranks_model": true
+    },
+    {
+      "axiom_id": "AXIOM_SYMBOLIC_002",
+      "axiom_text": "Symbolic claims must link to evidence, belief, axiom, or uncertainty.",
+      "category": "symbolic",
+      "priority": 1,
+      "immutable": true,
+      "rationale": "Prevents free-floating symbols from polluting the graph.",
+      "validation_method": "Graph edges must terminate in a real node kind.",
+      "violation_response": "drop_dangling_edge",
+      "linked_modules": [
+        "src/tower/eqsb_symbolic_graph.py"
+      ],
+      "last_checked_ts": "2026-06-09T08:56:44.951723+00:00",
+      "compliance_state": "compliant",
+      "text": "Symbolic claims must link to evidence, belief, axiom, or uncertainty.",
+      "anchored_in": "constitution",
+      "model_may_override": false,
+      "registry_truth_outranks_model": true
+    },
+    {
+      "axiom_id": "AXIOM_SYMBOLIC_003",
+      "axiom_text": "Contradictory symbolic claims must be surfaced, not hidden.",
+      "category": "symbolic",
+      "priority": 0,
+      "immutable": true,
+      "rationale": "Hidden contradictions destroy reasoning quality.",
+      "validation_method": "Contradiction detector escalates to Guardian.",
+      "violation_response": "raise_contradiction_event",
+      "linked_modules": [
+        "src/tower/eqsb_contradictions.py",
+        "src/tower/eqsb_guardian.py"
+      ],
+      "last_checked_ts": "2026-06-09T08:56:44.951724+00:00",
+      "compliance_state": "compliant",
+      "text": "Contradictory symbolic claims must be surfaced, not hidden.",
+      "anchored_in": "constitution",
+      "model_may_override": false,
+      "registry_truth_outranks_model": true
+    },
+    {
+      "axiom_id": "AXIOM_ENTROPY_001",
+      "axiom_text": "Uncertainty must be measured where possible.",
+      "category": "entropy",
+      "priority": 1,
+      "immutable": true,
+      "rationale": "Quantified uncertainty enables review prioritization.",
+      "validation_method": "entropy_score / drift_score / contradiction_score in registry.",
+      "violation_response": "advise_review_target",
+      "linked_modules": [
+        "src/tower/eqsb_entropy.py"
+      ],
+      "last_checked_ts": "2026-06-09T08:56:44.951725+00:00",
+      "compliance_state": "compliant",
+      "text": "Uncertainty must be measured where possible.",
+      "anchored_in": "constitution",
+      "model_may_override": false,
+      "registry_truth_outranks_model": true
+    },
+    {
+      "axiom_id": "AXIOM_ENTROPY_002",
+      "axiom_text": "Contradiction increases entropy.",
+      "category": "entropy",
+      "priority": 1,
+      "immutable": true,
+      "rationale": "Contradiction is uncertainty about ground truth.",
+      "validation_method": "entropy.inputs.contradiction_count drives score upward.",
+      "violation_response": "raise_entropy_score",
+      "linked_modules": [
+        "src/tower/eqsb_entropy.py"
+      ],
+      "last_checked_ts": "2026-06-09T08:56:44.951725+00:00",
+      "compliance_state": "compliant",
+      "text": "Contradiction increases entropy.",
+      "anchored_in": "constitution",
+      "model_may_override": false,
+      "registry_truth_outranks_model": true
+    },
+    {
+      "axiom_id": "AXIOM_ENTROPY_003",
+      "axiom_text": "Stale evidence increases drift.",
+      "category": "entropy",
+      "priority": 1,
+      "immutable": true,
+      "rationale": "Without recent measurement, beliefs decay.",
+      "validation_method": "Boolean stale_state_detection based on registry mtime / audit jsonl.",
+      "violation_response": "raise_drift_score",
+      "linked_modules": [
+        "src/tower/eqsb_entropy.py",
+        "src/tower/eqsb_memory.py"
+      ],
+      "last_checked_ts": "2026-06-09T08:56:44.951726+00:00",
+      "compliance_state": "compliant",
+      "text": "Stale evidence increases drift.",
+      "anchored_in": "constitution",
+      "model_may_override": false,
+      "registry_truth_outranks_model": true
+    },
+    {
+      "axiom_id": "AXIOM_QUANTUM_001",
+      "axiom_text": "Quantum-symbolic signal is uncertainty modeling unless real quantum hardware is explicitly verified.",
+      "category": "quantum",
+      "priority": 0,
+      "immutable": true,
+      "rationale": "Don't claim quantum hardware that isn't connected.",
+      "validation_method": "quantum_signal.mode == 'simulated_quantum_entropy' unless verified.",
+      "violation_response": "block_unverified_quantum_claim",
+      "linked_modules": [
+        "src/tower/eqsb_quantum_signal.py",
+        "src/tower/eqsb_guardian.py"
+      ],
+      "last_checked_ts": "2026-06-09T08:56:44.951727+00:00",
+      "compliance_state": "compliant",
+      "text": "Quantum-symbolic signal is uncertainty modeling unless real quantum hardware is explicitly verified.",
+      "anchored_in": "constitution",
+      "model_may_override": false,
+      "registry_truth_outranks_model": true
+    },
+    {
+      "axiom_id": "AXIOM_QUANTUM_002",
+      "axiom_text": "Symbolic superposition means competing hypotheses, not proof of physical quantum cognition.",
+      "category": "quantum",
+      "priority": 1,
+      "immutable": true,
+      "rationale": "Avoid mystical overclaiming.",
+      "validation_method": "superposition serializes as a list of advisory hypotheses with weights.",
+      "violation_response": "label_advisory_only",
+      "linked_modules": [
+        "src/tower/eqsb_quantum_signal.py",
+        "src/tower/eqsb_hypotheses.py"
+      ],
+      "last_checked_ts": "2026-06-09T08:56:44.951728+00:00",
+      "compliance_state": "compliant",
+      "text": "Symbolic superposition means competing hypotheses, not proof of physical quantum cognition.",
+      "anchored_in": "constitution",
+      "model_may_override": false,
+      "registry_truth_outranks_model": true
+    },
+    {
+      "axiom_id": "AXIOM_QUANTUM_003",
+      "axiom_text": "Collapse means advisory hypothesis selection after evidence.",
+      "category": "quantum",
+      "priority": 1,
+      "immutable": true,
+      "rationale": "Selection is a decision, never an execution event.",
+      "validation_method": "selected_hypothesis has selection_reason and advisory_only=true.",
+      "violation_response": "advisory_only_flag",
+      "linked_modules": [
+        "src/tower/eqsb_quantum_signal.py",
+        "src/tower/eqsb_hypotheses.py"
+      ],
+      "last_checked_ts": "2026-06-09T08:56:44.951729+00:00",
+      "compliance_state": "compliant",
+      "text": "Collapse means advisory hypothesis selection after evidence.",
+      "anchored_in": "constitution",
+      "model_may_override": false,
+      "registry_truth_outranks_model": true
+    },
+    {
+      "axiom_id": "AXIOM_GUARDIAN_001",
+      "axiom_text": "Guardian validates unsafe transitions before acceptance.",
+      "category": "guardian",
+      "priority": 0,
+      "immutable": true,
+      "rationale": "Kernel state must not silently slide into unsafe modes.",
+      "validation_method": "Guardian verdict required for SYMBOLIC_UPDATE, REVIEW, BLOCK_*.",
+      "violation_response": "block_unsafe_transition",
+      "linked_modules": [
+        "src/tower/eqsb_guardian.py"
+      ],
+      "last_checked_ts": "2026-06-09T08:56:44.951730+00:00",
+      "compliance_state": "compliant",
+      "text": "Guardian validates unsafe transitions before acceptance.",
+      "anchored_in": "constitution",
+      "model_may_override": false,
+      "registry_truth_outranks_model": true
+    },
+    {
+      "axiom_id": "AXIOM_GUARDIAN_002",
+      "axiom_text": "Guardian blocks model output that contradicts structured truth.",
+      "category": "guardian",
+      "priority": 0,
+      "immutable": true,
+      "rationale": "Models must defer to registries.",
+      "validation_method": "Contradiction detector + Guardian verdict BLOCK_MODEL_OVERRIDE.",
+      "violation_response": "block_model_override",
+      "linked_modules": [
+        "src/tower/eqsb_guardian.py",
+        "src/tower/eqsb_model_governance.py"
+      ],
+      "last_checked_ts": "2026-06-09T08:56:44.951731+00:00",
+      "compliance_state": "compliant",
+      "text": "Guardian blocks model output that contradicts structured truth.",
+      "anchored_in": "constitution",
+      "model_may_override": false,
+      "registry_truth_outranks_model": true
+    },
+    {
+      "axiom_id": "AXIOM_CONTINUITY_001",
+      "axiom_text": "Kernel identity must remain coherent across restarts.",
+      "category": "continuity",
+      "priority": 0,
+      "immutable": true,
+      "rationale": "Identity drift breaks all other reasoning.",
+      "validation_method": "continuity_state.identity_hash matches across boots.",
+      "violation_response": "raise_identity_drift",
+      "linked_modules": [
+        "src/tower/eqsb_memory.py",
+        "src/tower/eqsb_guardian.py"
+      ],
+      "last_checked_ts": "2026-06-09T08:56:44.951732+00:00",
+      "compliance_state": "compliant",
+      "text": "Kernel identity must remain coherent across restarts.",
+      "anchored_in": "constitution",
+      "model_may_override": false,
+      "registry_truth_outranks_model": true
+    },
+    {
+      "axiom_id": "AXIOM_CONTINUITY_002",
+      "axiom_text": "Boot posture must reflect confidence and drift.",
+      "category": "continuity",
+      "priority": 1,
+      "immutable": true,
+      "rationale": "Operators need to see boot posture at a glance.",
+      "validation_method": "continuity_state.boot_posture in {NORMAL, CONSERVATIVE, DRIFT_ALERT, RECOVERY_REQUIRED}.",
+      "violation_response": "advise_posture_change",
+      "linked_modules": [
+        "src/tower/eqsb_memory.py"
+      ],
+      "last_checked_ts": "2026-06-09T08:56:44.951733+00:00",
+      "compliance_state": "compliant",
+      "text": "Boot posture must reflect confidence and drift.",
+      "anchored_in": "constitution",
+      "model_may_override": false,
+      "registry_truth_outranks_model": true
+    },
+    {
+      "axiom_id": "AXIOM_AUDIT_001",
+      "axiom_text": "Important Kernel state changes must be logged.",
+      "category": "audit",
+      "priority": 0,
+      "immutable": true,
+      "rationale": "Audit trail enables replay and post-mortem.",
+      "validation_method": "data/logs/eqsb_kernel_events.jsonl append-only.",
+      "violation_response": "rebuild_replay_ledger",
+      "linked_modules": [
+        "src/tower/eqsb_replay_ledger.py"
+      ],
+      "last_checked_ts": "2026-06-09T08:56:44.951734+00:00",
+      "compliance_state": "compliant",
+      "text": "Important Kernel state changes must be logged.",
+      "anchored_in": "constitution",
+      "model_may_override": false,
+      "registry_truth_outranks_model": true
+    },
+    {
+      "axiom_id": "AXIOM_AUDIT_002",
+      "axiom_text": "Kernel reasoning must be replayable where possible.",
+      "category": "audit",
+      "priority": 1,
+      "immutable": true,
+      "rationale": "Symbolic state must be reconstructable from events.",
+      "validation_method": "Replay ledger groups events by cadence_tick.",
+      "violation_response": "advise_replay_review",
+      "linked_modules": [
+        "src/tower/eqsb_replay_ledger.py"
+      ],
+      "last_checked_ts": "2026-06-09T08:56:44.951735+00:00",
+      "compliance_state": "compliant",
+      "text": "Kernel reasoning must be replayable where possible.",
+      "anchored_in": "constitution",
+      "model_may_override": false,
+      "registry_truth_outranks_model": true
+    }
+  ],
+  "source_files": [
+    "src/tower/eqsb_axioms.py::AXIOM_CATALOG",
+    "CLAUDE.md (architecture rules)"
+  ],
+  "active_local_only": true,
+  "advisory_only": true,
+  "execution_allowed": false,
+  "paper_only": true,
+  "not_financial_advice": true,
+  "worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "external_provider_execution_enabled": false,
+  "openclaw_execution_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "live_dispatch_enabled": false,
+  "direct_provider_access": false,
+  "live_trading_enabled": false,
+  "order_execution_enabled": false,
+  "practice_order_execution_enabled": false,
+  "stock_order_execution_enabled": false,
+  "stock_live_trading_enabled": false,
+  "stock_paper_order_execution_enabled": false,
+  "binance_order_execution_enabled": false,
+  "binance_live_trading_enabled": false,
+  "model_inference_enabled": false,
+  "autonomous_workers_enabled": false,
+  "maintenance_auto_repair_enabled": false,
+  "web_access_autonomous_enabled": false,
+  "axiom_registry_hash": "f606e8a943ef7ce4"
+}

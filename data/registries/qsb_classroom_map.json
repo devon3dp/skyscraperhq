@@ -1,0 +1,32 @@
+{
+  "ok": true,
+  "kind": "qsb_classroom_map",
+  "phase": "QSB_FULL_SKYSCRAPER_OCCUPANCY_COMMERCE_WORKFORCE_EXPANSION_V1",
+  "generated_ts": "2026-06-30T13:46:36.984837+00:00",
+  "primary_floor": 8,
+  "classrooms": [
+    "Trading Classroom",
+    "Commerce Classroom",
+    "Etsy Classroom",
+    "Print-on-Demand Classroom",
+    "3D Printing Classroom",
+    "SEO / Listing Classroom",
+    "Prompt Engineering Lab",
+    "Teacher Lounge",
+    "Certification Board"
+  ],
+  "teacher_count": 25,
+  "student_count": 17,
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "worker_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "live_payments_enabled": false,
+  "live_listings_publishing_enabled": false,
+  "external_api_calls_enabled": false,
+  "secrets_in_logs": false,
+  "manual_approval_required_for_commerce": true
+}

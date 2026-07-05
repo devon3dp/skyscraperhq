@@ -1,0 +1,92 @@
+{
+  "card_id": "floor_card_f13",
+  "floor_number": 13,
+  "floor_name": "Vision Department",
+  "schema_version": "1.0",
+  "schema_pattern_source": "floor_card_f0",
+  "created_ts": "2026-06-14T17:10:00Z",
+  "created_by": "skyscraper_floor_card_push (claude opus 4.7)",
+  "authorization": "CLAUDE.md 2026-06-13 workshop bench amendment",
+  "advisory_only": true,
+  "interior_brief_ref": "floors/floor_13_vision_department/floor_manifest.json#interior_brief",
+  "tour_blurb": "The thirteenth is the Vision Department, where images, frames, and screenshots are read and interpreted. If a worker upstairs needs to know what's in a picture \u2014 a chart, a photo, a UI capture \u2014 Vision drafts the description and sends it back up by sealed packet.",
+  "tour_blurb_source": "data/registries/qsb_open_day_tour.json#floor_13",
+  "live_signals": {
+    "vision_stream_path": "/api/vision/stream",
+    "vision_status_path": "/api/vision/status",
+    "vision_host": "http://127.0.0.1:8821",
+    "probe_method": "curl -s --max-time 3 http://127.0.0.1:8821/api/vision/status",
+    "probed_ts": "2026-06-14T17:05:25Z",
+    "camera_open": true,
+    "running": true,
+    "fps": 25.0,
+    "person_count": 0,
+    "last_detection_ts": "2026-06-14T17:05:25.032412+00:00",
+    "device_index": 0,
+    "error": null,
+    "advisory_only": true,
+    "no_recording": true,
+    "execution_allowed": false
+  },
+  "live_signal_fields": [
+    "vision_stream_path",
+    "camera_open",
+    "fps",
+    "last_detection_ts"
+  ],
+  "constraints_respected": {
+    "no_claude_md_edit": true,
+    "no_vault_edit": true,
+    "no_env_edit": true,
+    "no_gate_edit": true,
+    "no_recording": true,
+    "no_face_recognition_descriptor": true,
+    "no_personal_identifiers_leaked": true,
+    "advisory_only_flag": true,
+    "execution_gate_locked": true
+  },
+  "rebrand_note": "Floor heading rebranded to Vision Department per task #20 (completed). Card reflects rebrand.",
+  "evidence_paths": [
+    "tools/qsb_vision_floor.py",
+    "src/dashboard/static/cockpit.js",
+    "data/registries/qsb_open_day_tour.json",
+    "floors/floor_13_vision_department/floor_manifest.json"
+  ],
+  "team_roster": [
+    {
+      "id": "f013.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "spawned_id": "95358c5f6a",
+      "spawned_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F013",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f013.operator.01",
+      "spawned_id": "6e9a0dc367"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F013",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f013.operator.02",
+      "spawned_id": "d8e7d0eef4"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F013",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f013.operator.03",
+      "spawned_id": "18ddbf1848"
+    }
+  ],
+  "floor_manager": "f013.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

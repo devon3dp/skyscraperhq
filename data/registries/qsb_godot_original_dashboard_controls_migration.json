@@ -1,0 +1,36 @@
+{
+  "ok": true,
+  "kind": "qsb_godot_original_dashboard_controls_migration",
+  "phase": "QSB_GODOT_NATIVE_COCKPIT_PRIMARY_GRAPHICS_ENGINE_SWITCH_V1",
+  "generated_ts": "2026-06-09T20:32:00+00:00",
+  "policy": "Every original browser-dashboard control must be FUNCTIONAL in Godot, or visibly DISABLED with a planned/not-wired-yet status. Silent omission is forbidden.",
+  "control_target_file": "scripts/ControlBar.gd",
+  "controls": [
+    { "id": "kernel_chat",  "label": "Kernel Chat",        "godot_status": "functional", "wired_via": "KernelChatPanel.gd" },
+    { "id": "talk",         "label": "Talk",                "godot_status": "planned",    "wired_via": "VoiceControlBridge.gd (mic capture stub)" },
+    { "id": "voice",        "label": "Voice",               "godot_status": "functional", "wired_via": "VoiceControlBridge.gd" },
+    { "id": "sound",        "label": "Sound",               "godot_status": "functional", "wired_via": "ControlBar action handler" },
+    { "id": "commentary",   "label": "Commentary",          "godot_status": "planned",    "wired_via": "EventStreamAnimator + voice TTS hook" },
+    { "id": "mute_all",     "label": "Mute All",            "godot_status": "functional", "wired_via": "VoiceControlBridge.set_all_muted" },
+    { "id": "directory",    "label": "Directory",           "godot_status": "functional", "wired_via": "ControlBar 'directory' action — zoom out" },
+    { "id": "rotate",       "label": "Rotate",              "godot_status": "functional", "wired_via": "CameraController.toggle_rotate" },
+    { "id": "all_names",    "label": "All Names",           "godot_status": "functional", "wired_via": "Main.gd labels_visible toggle" },
+    { "id": "trading",      "label": "Trading",             "godot_status": "functional", "wired_via": "selects floor 41" },
+    { "id": "models",       "label": "Models",              "godot_status": "functional", "wired_via": "selects floor 23" },
+    { "id": "risk",         "label": "Risk",                "godot_status": "functional", "wired_via": "selects floor 30" },
+    { "id": "renderer",     "label": "Renderer",            "godot_status": "planned",    "wired_via": "panel showing current renderer + GPU info" },
+    { "id": "focus",        "label": "Focus",               "godot_status": "functional", "wired_via": "CameraController.focus_on" },
+    { "id": "reset_view",   "label": "View Reset",          "godot_status": "functional", "wired_via": "CameraController.reset_camera" },
+    { "id": "pause",        "label": "Pause",               "godot_status": "functional", "wired_via": "CameraController.toggle_pause" },
+    { "id": "layout",       "label": "Layout Reset",        "godot_status": "planned",    "wired_via": "HUD layout preset switcher" },
+    { "id": "worker_view",  "label": "Worker View",         "godot_status": "planned",    "wired_via": "WorkerRenderer view-mode toggle" },
+    { "id": "refresh",      "label": "Refresh Telemetry",   "godot_status": "functional", "wired_via": "TelemetryBridge._poll" },
+    { "id": "browser_fallback", "label": "Browser Fallback","godot_status": "functional", "wired_via": "open browser dashboard externally at http://127.0.0.1:8765/?v=unified" }
+  ],
+  "summary": {
+    "total": 20,
+    "functional": 14,
+    "planned": 6,
+    "silently_omitted": 0
+  }
+}

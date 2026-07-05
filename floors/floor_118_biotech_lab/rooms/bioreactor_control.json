@@ -1,0 +1,34 @@
+{
+  "room_id": "bioreactor_control",
+  "name": "Bioreactor Control Room",
+  "category": "operations",
+  "purpose": "Controls the bioreactors used in protein engineering.",
+  "concierge_blurb": "Visitors see a large control panel with multiple screens displaying real-time data.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Bioreactor Ctr",
+    "glow": true
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/bioreactors.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 60
+  },
+  "floor": "floor_118"
+}

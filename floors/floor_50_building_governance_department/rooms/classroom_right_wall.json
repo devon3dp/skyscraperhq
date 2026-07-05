@@ -1,0 +1,34 @@
+{
+  "room_id": "classroom_right_wall",
+  "name": "Group Study Area",
+  "category": "seating",
+  "purpose": "Facilitates collaborative learning among students.",
+  "concierge_blurb": "Collaborate and discuss in the Group Study Area.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "right_wall",
+    "offset_x": 8.0,
+    "offset_z": -6.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "chair_set",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Group Study",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_50"
+}

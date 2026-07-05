@@ -1,0 +1,200 @@
+{
+  "ts": "2026-06-08T08:28:50.907770+00:00",
+  "phase": "OPENCLAW_WORKER_TRADING_SIMULATION_FLOOR_V1",
+  "status": "healthy",
+  "mode": "paper_only_simulated_trade_tickets",
+  "instruments": [
+    "EUR_USD",
+    "GBP_USD",
+    "USD_JPY"
+  ],
+  "ticket_counts": {
+    "paper_long": 1,
+    "paper_short": 0,
+    "no_trade": 2
+  },
+  "summary": {
+    "paper_long": 1,
+    "paper_short": 0,
+    "no_trade": 2,
+    "total": 3
+  },
+  "sources": {
+    "strategy_intelligence": {
+      "loaded": true,
+      "latest_ts": "2026-06-08T00:25:35.298003+00:00"
+    },
+    "strategy_autoloop_correlation": {
+      "loaded": true,
+      "latest_ts": "2026-06-08T00:29:31.007581+00:00"
+    },
+    "sandbox_performance": {
+      "loaded": true,
+      "latest_ts": "2026-06-08T08:28:31.825632+00:00"
+    },
+    "floor41_paper_ledger": {
+      "loaded": true,
+      "latest_ts": "2026-06-08T08:28:30.380724+00:00"
+    },
+    "openclaw_sandbox": {
+      "loaded": true,
+      "latest_ts": "2026-06-08T08:28:31.826079+00:00"
+    },
+    "oanda_paper_strategy": {
+      "loaded": true,
+      "latest_ts": "2026-06-08T08:28:30.378311+00:00"
+    }
+  },
+  "tickets": [
+    {
+      "ticket_id": "pt_9beb2e2f05",
+      "ts": "2026-06-08T08:28:50.907770+00:00",
+      "instrument": "EUR_USD",
+      "suggested_side": "no_trade",
+      "confidence": 0.95,
+      "reason": "observe alignment \u2014 no paper bias candidate",
+      "alignment": "OBSERVE_ALIGNED_STABLE",
+      "current_spread_pips": 0.700000000000145,
+      "simulated_entry_mid": 1.15171,
+      "simulated_stop_distance_pips": 3.13,
+      "simulated_target_distance_pips": 5.22,
+      "simulated_avg_candle_range_pips": 2.09,
+      "simulated_risk_score": 0.87,
+      "openclaw_recommendation": "observe_only",
+      "strategy_signal": "observe",
+      "strategy_direction": "flat_observation",
+      "performance_delta_pips": -0.7500000000004725,
+      "ledger_recent_count": 1,
+      "gate_checks": {
+        "alignment_is_paper_bias_candidate": false,
+        "confidence_above_threshold": true,
+        "openclaw_does_not_block": true,
+        "spread_gate_ok": true
+      },
+      "execution_allowed": false,
+      "order_created": false,
+      "paper_only": true,
+      "not_financial_advice": true,
+      "locks": {
+        "live_trading_enabled": false,
+        "order_execution_enabled": false,
+        "practice_order_execution_enabled": false,
+        "worker_execution_enabled": false,
+        "provider_execution_enabled": false,
+        "external_provider_execution_enabled": false,
+        "openclaw_execution_enabled": false,
+        "openclaw_real_tool_execution_enabled": false,
+        "autonomous_dispatch_enabled": false,
+        "live_dispatch_enabled": false,
+        "direct_provider_access": false
+      }
+    },
+    {
+      "ticket_id": "pt_5a14385743",
+      "ts": "2026-06-08T08:28:50.907770+00:00",
+      "instrument": "GBP_USD",
+      "suggested_side": "no_trade",
+      "confidence": 0.95,
+      "reason": "observe alignment \u2014 no paper bias candidate",
+      "alignment": "OBSERVE_ALIGNED_STABLE",
+      "current_spread_pips": 1.500000000000945,
+      "simulated_entry_mid": 1.33319,
+      "simulated_stop_distance_pips": 3.69,
+      "simulated_target_distance_pips": 6.15,
+      "simulated_avg_candle_range_pips": 2.46,
+      "simulated_risk_score": 0.83,
+      "openclaw_recommendation": "observe_only",
+      "strategy_signal": "observe",
+      "strategy_direction": "flat_observation",
+      "performance_delta_pips": -0.6499999999975969,
+      "ledger_recent_count": 1,
+      "gate_checks": {
+        "alignment_is_paper_bias_candidate": false,
+        "confidence_above_threshold": true,
+        "openclaw_does_not_block": true,
+        "spread_gate_ok": true
+      },
+      "execution_allowed": false,
+      "order_created": false,
+      "paper_only": true,
+      "not_financial_advice": true,
+      "locks": {
+        "live_trading_enabled": false,
+        "order_execution_enabled": false,
+        "practice_order_execution_enabled": false,
+        "worker_execution_enabled": false,
+        "provider_execution_enabled": false,
+        "external_provider_execution_enabled": false,
+        "openclaw_execution_enabled": false,
+        "openclaw_real_tool_execution_enabled": false,
+        "autonomous_dispatch_enabled": false,
+        "live_dispatch_enabled": false,
+        "direct_provider_access": false
+      }
+    },
+    {
+      "ticket_id": "pt_2d70f87f67",
+      "ts": "2026-06-08T08:28:50.907770+00:00",
+      "instrument": "USD_JPY",
+      "suggested_side": "paper_long",
+      "confidence": 0.85,
+      "reason": "paper bias candidate \u00b7 paper_long_bias \u00b7 confidence 0.85 \u00b7 openclaw 'observe_only'",
+      "alignment": "PAPER_BIAS_CANDIDATE",
+      "current_spread_pips": 1.5999999999991132,
+      "simulated_entry_mid": 160.167,
+      "simulated_stop_distance_pips": 4.99,
+      "simulated_target_distance_pips": 8.32,
+      "simulated_avg_candle_range_pips": 3.33,
+      "simulated_risk_score": 0.69,
+      "openclaw_recommendation": "observe_only",
+      "strategy_signal": "long_bias",
+      "strategy_direction": "paper_long_bias",
+      "performance_delta_pips": 1.2500000000017053,
+      "ledger_recent_count": 1,
+      "gate_checks": {
+        "alignment_is_paper_bias_candidate": true,
+        "confidence_above_threshold": true,
+        "openclaw_does_not_block": true,
+        "spread_gate_ok": true
+      },
+      "execution_allowed": false,
+      "order_created": false,
+      "paper_only": true,
+      "not_financial_advice": true,
+      "locks": {
+        "live_trading_enabled": false,
+        "order_execution_enabled": false,
+        "practice_order_execution_enabled": false,
+        "worker_execution_enabled": false,
+        "provider_execution_enabled": false,
+        "external_provider_execution_enabled": false,
+        "openclaw_execution_enabled": false,
+        "openclaw_real_tool_execution_enabled": false,
+        "autonomous_dispatch_enabled": false,
+        "live_dispatch_enabled": false,
+        "direct_provider_access": false
+      }
+    }
+  ],
+  "practice_order_gate": {
+    "gate_status": "CLOSED",
+    "gate_locked": true,
+    "practice_order_execution_enabled": false
+  },
+  "locks": {
+    "live_trading_enabled": false,
+    "order_execution_enabled": false,
+    "practice_order_execution_enabled": false,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "external_provider_execution_enabled": false,
+    "openclaw_execution_enabled": false,
+    "openclaw_real_tool_execution_enabled": false,
+    "autonomous_dispatch_enabled": false,
+    "live_dispatch_enabled": false,
+    "direct_provider_access": false
+  },
+  "paper_only": true,
+  "not_financial_advice": true,
+  "execution_allowed": false
+}

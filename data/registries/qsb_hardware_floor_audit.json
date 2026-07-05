@@ -1,0 +1,60 @@
+{
+  "ok": true,
+  "phase": "EQSB_SYSTEM_OBSERVATORY_HARDWARE_FLOOR_LIVE_TELEMETRY_REPAIR_V1",
+  "kind": "qsb_hardware_floor_audit",
+  "generated_ts": "2026-06-30T13:46:32.846863+00:00",
+  "existing_candidates": [
+    {
+      "floor": 21,
+      "label": "Adapter Systems Department",
+      "matched_keyword": "system"
+    },
+    {
+      "floor": 35,
+      "label": "Infrastructure Services Department \u00b7 Hardware Systems Floor",
+      "matched_keyword": "hardware"
+    },
+    {
+      "floor": 40,
+      "label": "Prototype Systems",
+      "matched_keyword": "system"
+    },
+    {
+      "floor": 52,
+      "label": "Infrastructure Command Department",
+      "matched_keyword": "infrastructure"
+    },
+    {
+      "floor": 141,
+      "label": "Theater & Performance",
+      "matched_keyword": "performance"
+    },
+    {
+      "floor": 145,
+      "label": "Observatory",
+      "matched_keyword": "observatory"
+    }
+  ],
+  "dedicated_hardware_floor_already_exists": true,
+  "chosen_floor": 35,
+  "chosen_label": "Infrastructure Services Department \u00b7 Hardware Systems Floor",
+  "chosen_reason": "Floor 35 is the canonical Infrastructure Services Department \u2014 co-locate Hardware Systems sub-departments here without breaking its existing manifest.",
+  "safe_floors_inspected": true,
+  "important_floors_protected": [
+    "30 (Permissions/Risk)",
+    "31 (Audit/Ledger)",
+    "37 (Sim Labs)",
+    "38 (Sandbox)",
+    "41 (OANDA)",
+    "42 (Binance)",
+    "43 (Stocks)",
+    "44 (Accounts/PnL)",
+    "45 (Recruitment)",
+    "53 (Tower Command)"
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false
+}

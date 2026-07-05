@@ -1,0 +1,494 @@
+{
+  "summary": {
+    "ts": "2026-06-09T09:52:31.154650+00:00",
+    "spine": "security_spine",
+    "version": "1.1",
+    "status": "healthy",
+    "floors": [
+      "floor_28",
+      "floor_29",
+      "floor_30",
+      "floor_31",
+      "floor_32"
+    ],
+    "execution_enabled": false,
+    "enforcement_enabled": false,
+    "checks_run": 23,
+    "critical_failures": 0,
+    "warnings": 0,
+    "passed": 23
+  },
+  "items": [
+    {
+      "name": "floor_28_manifest",
+      "status": "pass",
+      "severity": "critical",
+      "message": "floor_28 manifest valid.",
+      "details": {
+        "path": "floors/floor_28_security_department/floor_manifest.json",
+        "floor_id": "floor_28",
+        "execution_enabled": false,
+        "enforcement_enabled": false
+      }
+    },
+    {
+      "name": "floor_29_manifest",
+      "status": "pass",
+      "severity": "critical",
+      "message": "floor_29 manifest valid.",
+      "details": {
+        "path": "floors/floor_29_guardian_department/floor_manifest.json",
+        "floor_id": "floor_29",
+        "execution_enabled": false,
+        "enforcement_enabled": false
+      }
+    },
+    {
+      "name": "floor_30_manifest",
+      "status": "pass",
+      "severity": "critical",
+      "message": "floor_30 manifest valid.",
+      "details": {
+        "path": "floors/floor_30_permissions_department/floor_manifest.json",
+        "floor_id": "floor_30",
+        "execution_enabled": false,
+        "enforcement_enabled": false
+      }
+    },
+    {
+      "name": "floor_31_manifest",
+      "status": "pass",
+      "severity": "critical",
+      "message": "floor_31 manifest valid.",
+      "details": {
+        "path": "floors/floor_31_audit_department/floor_manifest.json",
+        "floor_id": "floor_31",
+        "execution_enabled": false,
+        "enforcement_enabled": false
+      }
+    },
+    {
+      "name": "floor_32_manifest",
+      "status": "pass",
+      "severity": "critical",
+      "message": "floor_32 manifest valid.",
+      "details": {
+        "path": "floors/floor_32_compliance_department/floor_manifest.json",
+        "floor_id": "floor_32",
+        "execution_enabled": false,
+        "enforcement_enabled": false
+      }
+    },
+    {
+      "name": "security_gates_registered",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Security gates registered: 4.",
+      "details": {}
+    },
+    {
+      "name": "security_enforcement_disabled",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Security enforcement disabled as required.",
+      "details": {
+        "gates": 4,
+        "disabled": 4
+      }
+    },
+    {
+      "name": "guardian_rules_registered",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Guardian rules registered: 5.",
+      "details": {}
+    },
+    {
+      "name": "guardian_enforcement_disabled",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Guardian enforcement disabled as required.",
+      "details": {
+        "rules": 5,
+        "disabled": 5
+      }
+    },
+    {
+      "name": "permission_roles_registered",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Permission roles registered: 4.",
+      "details": {}
+    },
+    {
+      "name": "future_kernel_role_inactive",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Future kernel role exists but is inactive.",
+      "details": {
+        "future_kernel": [
+          {
+            "id": "future_kernel",
+            "floor": "floor_30",
+            "name": "Future QSB Kernel 4.5",
+            "permissions": [
+              "discover_registries",
+              "read_lift_network",
+              "read_floor_map",
+              "write_kernel_events"
+            ],
+            "activation_required": true,
+            "currently_active": false,
+            "execution_enabled": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "lift_permissions_registered",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Lift permission records registered: 9.",
+      "details": {}
+    },
+    {
+      "name": "sealed_packet_policy_present",
+      "status": "pass",
+      "severity": "warning",
+      "message": "Sealed packet policy records: 8.",
+      "details": {}
+    },
+    {
+      "name": "compliance_rules_registered",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Compliance rules registered: 5.",
+      "details": {}
+    },
+    {
+      "name": "penthouse_kernel_not_installed",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Penthouse confirms kernel_installed false.",
+      "details": {
+        "kernel_installed": false
+      }
+    },
+    {
+      "name": "penthouse_kernel_logic_absent",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Penthouse confirms kernel_logic_present false.",
+      "details": {
+        "kernel_logic_present": false
+      }
+    },
+    {
+      "name": "penthouse_reserved_message",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Penthouse reserved message is correct.",
+      "details": {
+        "visible_message": "Reserved For Future QSB Kernel 4.5 Installation"
+      }
+    },
+    {
+      "name": "infrastructure_healthy_or_degraded",
+      "status": "pass",
+      "severity": "warning",
+      "message": "Infrastructure status: healthy.",
+      "details": {
+        "status": "healthy"
+      }
+    },
+    {
+      "name": "secure_route_floor_24_to_floor_27",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Expected model_lift, selected model_lift.",
+      "details": {
+        "source": "floor_24",
+        "target": "floor_27",
+        "expected": "model_lift",
+        "selected": {
+          "id": "model_lift",
+          "name": "Model Lift",
+          "type": "model",
+          "serves": [
+            "floor_21",
+            "floor_23",
+            "floor_24",
+            "floor_26",
+            "floor_27",
+            "roof"
+          ],
+          "status": "online"
+        }
+      }
+    },
+    {
+      "name": "secure_route_floor_05_to_floor_24",
+      "status": "pass",
+      "severity": "warning",
+      "message": "Expected service_lift, selected service_lift.",
+      "details": {
+        "source": "floor_05",
+        "target": "floor_24",
+        "expected": "service_lift",
+        "selected": {
+          "id": "service_lift",
+          "name": "Service Lift",
+          "type": "service",
+          "serves": [
+            "B3",
+            "B2",
+            "B1",
+            "ground",
+            "floor_01",
+            "floor_02",
+            "floor_03",
+            "floor_04",
+            "floor_05",
+            "floor_06",
+            "floor_07",
+            "floor_08",
+            "floor_09",
+            "floor_10",
+            "floor_11",
+            "floor_12",
+            "floor_13",
+            "floor_14",
+            "floor_15",
+            "floor_16",
+            "floor_17",
+            "floor_18",
+            "floor_19",
+            "floor_20",
+            "floor_21",
+            "floor_22",
+            "floor_23",
+            "floor_24",
+            "floor_25",
+            "floor_26",
+            "floor_27",
+            "floor_28",
+            "floor_29",
+            "floor_30",
+            "floor_31",
+            "floor_32",
+            "floor_33",
+            "floor_34",
+            "floor_35",
+            "floor_36",
+            "floor_37",
+            "floor_38",
+            "floor_39",
+            "floor_40",
+            "floor_41",
+            "floor_42",
+            "floor_43",
+            "floor_44",
+            "floor_45",
+            "floor_46",
+            "floor_47",
+            "floor_48",
+            "floor_49",
+            "floor_50",
+            "floor_51",
+            "floor_52",
+            "floor_53",
+            "penthouse",
+            "roof"
+          ],
+          "status": "online"
+        }
+      }
+    },
+    {
+      "name": "secure_route_floor_53_to_penthouse",
+      "status": "pass",
+      "severity": "warning",
+      "message": "Expected executive_lift, selected executive_lift.",
+      "details": {
+        "source": "floor_53",
+        "target": "penthouse",
+        "expected": "executive_lift",
+        "selected": {
+          "id": "executive_lift",
+          "name": "Executive Lift",
+          "type": "executive",
+          "serves": [
+            "floor_45",
+            "floor_46",
+            "floor_47",
+            "floor_48",
+            "floor_49",
+            "floor_50",
+            "floor_51",
+            "floor_52",
+            "floor_53",
+            "penthouse"
+          ],
+          "status": "online"
+        }
+      }
+    },
+    {
+      "name": "secure_route_penthouse_to_B1",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Expected emergency_stairwell, selected emergency_stairwell.",
+      "details": {
+        "source": "penthouse",
+        "target": "B1",
+        "expected": "emergency_stairwell",
+        "selected": {
+          "id": "emergency_stairwell",
+          "name": "Emergency Stairwell",
+          "type": "stairwell",
+          "serves": [
+            "B3",
+            "B2",
+            "B1",
+            "ground",
+            "floor_01",
+            "floor_02",
+            "floor_03",
+            "floor_04",
+            "floor_05",
+            "floor_06",
+            "floor_07",
+            "floor_08",
+            "floor_09",
+            "floor_10",
+            "floor_11",
+            "floor_12",
+            "floor_13",
+            "floor_14",
+            "floor_15",
+            "floor_16",
+            "floor_17",
+            "floor_18",
+            "floor_19",
+            "floor_20",
+            "floor_21",
+            "floor_22",
+            "floor_23",
+            "floor_24",
+            "floor_25",
+            "floor_26",
+            "floor_27",
+            "floor_28",
+            "floor_29",
+            "floor_30",
+            "floor_31",
+            "floor_32",
+            "floor_33",
+            "floor_34",
+            "floor_35",
+            "floor_36",
+            "floor_37",
+            "floor_38",
+            "floor_39",
+            "floor_40",
+            "floor_41",
+            "floor_42",
+            "floor_43",
+            "floor_44",
+            "floor_45",
+            "floor_46",
+            "floor_47",
+            "floor_48",
+            "floor_49",
+            "floor_50",
+            "floor_51",
+            "floor_52",
+            "floor_53",
+            "penthouse",
+            "roof"
+          ],
+          "status": "available",
+          "emergency_route": true
+        }
+      }
+    },
+    {
+      "name": "secure_route_floor_28_to_penthouse",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Expected security_lift, selected security_lift.",
+      "details": {
+        "source": "floor_28",
+        "target": "penthouse",
+        "expected": "security_lift",
+        "selected": {
+          "id": "security_lift",
+          "name": "Security Lift",
+          "type": "security",
+          "serves": [
+            "B3",
+            "B2",
+            "B1",
+            "ground",
+            "floor_01",
+            "floor_02",
+            "floor_03",
+            "floor_04",
+            "floor_05",
+            "floor_06",
+            "floor_07",
+            "floor_08",
+            "floor_09",
+            "floor_10",
+            "floor_11",
+            "floor_12",
+            "floor_13",
+            "floor_14",
+            "floor_15",
+            "floor_16",
+            "floor_17",
+            "floor_18",
+            "floor_19",
+            "floor_20",
+            "floor_21",
+            "floor_22",
+            "floor_23",
+            "floor_24",
+            "floor_25",
+            "floor_26",
+            "floor_27",
+            "floor_28",
+            "floor_29",
+            "floor_30",
+            "floor_31",
+            "floor_32",
+            "floor_33",
+            "floor_34",
+            "floor_35",
+            "floor_36",
+            "floor_37",
+            "floor_38",
+            "floor_39",
+            "floor_40",
+            "floor_41",
+            "floor_42",
+            "floor_43",
+            "floor_44",
+            "floor_45",
+            "floor_46",
+            "floor_47",
+            "floor_48",
+            "floor_49",
+            "floor_50",
+            "floor_51",
+            "floor_52",
+            "floor_53",
+            "penthouse",
+            "roof"
+          ],
+          "status": "online"
+        }
+      }
+    }
+  ]
+}

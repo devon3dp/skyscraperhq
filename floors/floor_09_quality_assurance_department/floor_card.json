@@ -1,0 +1,59 @@
+{
+  "floor_id": "floor_09",
+  "floor_number": 9,
+  "floor_name": "Quality Assurance Department",
+  "department": "auto_generated_from_dir_name",
+  "zone": "ZONE A \u00b7 GROUND",
+  "archetype": "auto_generated_from_dir_name",
+  "staff_lead": "TBD",
+  "tour_blurb": "Quality Assurance Department \u2014 a floor in the QSB Tower. Skeleton card auto-generated; full fit-out pending.",
+  "visitor_open": false,
+  "advisory_only": true,
+  "execution_mode": "PREVIEW_ONLY",
+  "skeleton": true,
+  "skeleton_source": "floor_manifest.json",
+  "skeleton_generated_ts": "2026-06-17",
+  "live_signals": {
+    "theme": null,
+    "categories": null,
+    "palette": null,
+    "tagline": null
+  },
+  "gate_posture": {
+    "advisory_only": true,
+    "execution_allowed": false,
+    "live_payments_enabled": false
+  },
+  "team_roster": [
+    {
+      "id": "f009.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "promoted_from": "sim_worker_floor_33",
+      "promoted_from_floor": "diagnostics_department",
+      "promotion_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F009",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f009.operator.01",
+      "promoted_from": "sim_worker_floor_34",
+      "promoted_from_floor": "monitoring_department"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F009",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f009.operator.02",
+      "promoted_from": "sim_worker_floor_35",
+      "promoted_from_floor": "infrastructure_services_department"
+    }
+  ],
+  "floor_manager": "f009.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

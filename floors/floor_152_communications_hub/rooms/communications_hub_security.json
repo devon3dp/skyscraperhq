@@ -1,0 +1,34 @@
+{
+  "room_id": "communications_hub_security",
+  "name": "Security Operations Center",
+  "category": "security",
+  "purpose": "This room monitors and manages the security systems.",
+  "concierge_blurb": "See how we protect our network from threats.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -4.0,
+    "offset_z": 6.0,
+    "footprint_m": [
+      10,
+      5
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "monitor_wall",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "SecOps",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/security_status.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_152"
+}

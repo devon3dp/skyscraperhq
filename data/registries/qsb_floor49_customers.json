@@ -1,0 +1,116 @@
+{
+  "ok": true,
+  "kind": "qsb_floor49_customers",
+  "generated_ts": "2026-07-05T06:46:31+00:00",
+  "policy": "Customer DB. Local only. Real PII only after operator flips real_payments_enabled.",
+  "customer_count": 5,
+  "by_status": {
+    "active": 1,
+    "lead": 4
+  },
+  "total_lifetime_value_usd": 3600.0,
+  "customers": [
+    {
+      "customer_id": "cust_seed_001",
+      "name": "Anwen Roberts",
+      "email": "anwen@bayreachbooks.co.uk",
+      "company": "Bayreach Books",
+      "phone": null,
+      "address": null,
+      "status": "active",
+      "tags": [
+        "publishing",
+        "wordpress",
+        "small_business"
+      ],
+      "notes": [
+        "Wants a redesign + ongoing maintenance retainer.",
+        "Prefers warm earth tones; existing brand has a fox motif."
+      ],
+      "created_ts": 1779820532.3104086,
+      "last_contact_ts": 1780857332.3104093,
+      "lifetime_value_usd": 3600.0,
+      "source": "referral"
+    },
+    {
+      "customer_id": "cust_seed_002",
+      "name": "Drew Maranta",
+      "email": "drew@nightowlcafe.com",
+      "company": "Night Owl Cafe",
+      "phone": null,
+      "address": null,
+      "status": "lead",
+      "tags": [
+        "hospitality",
+        "starter_site"
+      ],
+      "notes": [
+        "Just signed lease on a new location.",
+        "Needs a simple site with hours, menu, location, contact."
+      ],
+      "created_ts": 1780770932.3104124,
+      "last_contact_ts": 1780943732.3104124,
+      "lifetime_value_usd": 0.0,
+      "source": "website_form"
+    },
+    {
+      "customer_id": "cust_1781030267_977c27",
+      "name": "Test Lead",
+      "email": "test@example.com",
+      "company": "Demo Co",
+      "phone": null,
+      "address": null,
+      "status": "lead",
+      "tags": [
+        "website_lead"
+      ],
+      "notes": [
+        "Need a 5-page marketing site by next month.",
+        "approx_budget_usd=2500"
+      ],
+      "created_ts": 1781030267.0079908,
+      "last_contact_ts": 1781030267.007991,
+      "lifetime_value_usd": 0.0,
+      "source": "website_form"
+    },
+    {
+      "customer_id": "cust_1781101305_ce5a72",
+      "name": "Ross Knechtel",
+      "email": "knechtelross@gmail.com",
+      "company": "hhh",
+      "phone": null,
+      "address": null,
+      "status": "lead",
+      "tags": [
+        "website_lead"
+      ],
+      "notes": [
+        "Hi \u2014 I'd like a quote for TS-LP-STARTER.",
+        "approx_budget_usd=110000"
+      ],
+      "created_ts": 1781101305.3882577,
+      "last_contact_ts": 1781101305.3882577,
+      "lifetime_value_usd": 0.0,
+      "source": "website_form"
+    },
+    {
+      "customer_id": "cust_1781623742_5bd989",
+      "name": "audit",
+      "email": "a@b",
+      "company": null,
+      "phone": null,
+      "address": null,
+      "status": "lead",
+      "tags": [
+        "website_lead"
+      ],
+      "notes": [
+        "audit test"
+      ],
+      "created_ts": 1781623742.9964514,
+      "last_contact_ts": 1781623742.9964514,
+      "lifetime_value_usd": 0.0,
+      "source": "website_form"
+    }
+  ]
+}

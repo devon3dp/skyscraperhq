@@ -1,0 +1,120 @@
+{
+  "ok": true,
+  "kind": "qsb_godot_original_controls_migration",
+  "phase": "QSB_GODOT_PROFESSIONAL_3D_DASHBOARD_UPGRADE_V1",
+  "generated_ts": "2026-06-09T15:45:19+00:00",
+  "controls": [
+    {
+      "id": "kernel_chat",
+      "status": "migrated_v1",
+      "native_handler": "KernelChatBridge + HUD KernelChatPanel"
+    },
+    {
+      "id": "talk",
+      "status": "scaffolded",
+      "native_handler": "VoiceControlBridge (POST /api/native_cockpit/kernel_chat planned)"
+    },
+    {
+      "id": "voice_on_off",
+      "status": "scaffolded",
+      "native_handler": "VoiceControlBridge \u2014 disabled-but-planned"
+    },
+    {
+      "id": "sound_on_off",
+      "status": "scaffolded",
+      "native_handler": "VoiceControlBridge \u2014 disabled-but-planned"
+    },
+    {
+      "id": "commentary_on_off",
+      "status": "scaffolded",
+      "native_handler": "VoiceControlBridge \u2014 disabled-but-planned"
+    },
+    {
+      "id": "mute_all",
+      "status": "scaffolded",
+      "native_handler": "VoiceControlBridge.mute_all()"
+    },
+    {
+      "id": "directory",
+      "status": "migrated_v1",
+      "native_handler": "ControlBar 'Floors' button shows InspectorPanels floor list"
+    },
+    {
+      "id": "rotate",
+      "status": "implemented",
+      "native_handler": "CameraController right-drag \u2014 always-on"
+    },
+    {
+      "id": "all_names",
+      "status": "migrated_v1",
+      "native_handler": "ControlBar 'Labels' toggle hides/shows Label3D"
+    },
+    {
+      "id": "highlight_trading",
+      "status": "migrated_v1",
+      "native_handler": "ControlBar 'Trading' button focuses floors 41/42/43"
+    },
+    {
+      "id": "highlight_models",
+      "status": "migrated_v1",
+      "native_handler": "ControlBar 'Models' button focuses AirLLM F23"
+    },
+    {
+      "id": "highlight_risk",
+      "status": "migrated_v1",
+      "native_handler": "ControlBar 'Risk' button focuses F30 Guardian"
+    },
+    {
+      "id": "renderer_debug",
+      "status": "web_fallback_only",
+      "native_handler": "use browser /?v=next3d for renderer-debug"
+    },
+    {
+      "id": "focus",
+      "status": "implemented",
+      "native_handler": "CameraController.focus_floor_y on selection"
+    },
+    {
+      "id": "view_reset",
+      "status": "implemented",
+      "native_handler": "ControlBar 'Reset' button + R key"
+    },
+    {
+      "id": "pause",
+      "status": "migrated_v1",
+      "native_handler": "ControlBar 'Pause' toggle stops animation timers"
+    },
+    {
+      "id": "layout_reset",
+      "status": "migrated_v1",
+      "native_handler": "ControlBar 'Layout' button rebuilds the HUD"
+    },
+    {
+      "id": "worker_view_mode",
+      "status": "scaffolded",
+      "native_handler": "InspectorPanels WorkerView selector"
+    },
+    {
+      "id": "floor_prev_next",
+      "status": "implemented",
+      "native_handler": "PageUp/Down keyboard"
+    },
+    {
+      "id": "open_browser_fallback",
+      "status": "migrated_v1",
+      "native_handler": "ControlBar opens /?v=next3d in OS browser"
+    },
+    {
+      "id": "refresh_telemetry",
+      "status": "implemented",
+      "native_handler": "ControlBar 'Refresh' or 'F5' key"
+    }
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "live_payments_enabled": false,
+  "live_listings_publishing_enabled": false
+}

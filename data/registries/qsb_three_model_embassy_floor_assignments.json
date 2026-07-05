@@ -1,0 +1,20 @@
+{
+  "ok": true,
+  "kind": "qsb_three_model_embassy_floor_assignments",
+  "ts": "2026-06-09T22:16:32Z",
+  "phase": "QSB_THREE_MODEL_EMBASSY_FLOORS_CLAUDE_GPT_DEEPSEEK_V1",
+  "assignments": [
+    {"floor_id":"F47","provider":"claude",  "name":"Claude Embassy"},
+    {"floor_id":"F48","provider":"gpt",     "name":"GPT / ChatGPT Embassy"},
+    {"floor_id":"F49","provider":"deepseek","name":"DeepSeek Embassy"}
+  ],
+  "original_suggestion_was": ["F50","F51","F52"],
+  "deviation_reason": "F50 is the canonical ML/RL Lab — preserving it intact. F47-F49 are contiguous, previously generic, and group the three model embassies together as a coherent AI quarter directly below ML/RL Lab.",
+  "neighborhood_context": {
+    "F46":"Commerce Wing",
+    "F47":"Claude Embassy (new)",
+    "F48":"GPT Embassy (new)",
+    "F49":"DeepSeek Embassy (new)",
+    "F50":"ML/RL Lab (unchanged)"
+  }
+}

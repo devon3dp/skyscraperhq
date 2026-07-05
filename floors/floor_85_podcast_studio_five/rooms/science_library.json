@@ -1,0 +1,31 @@
+{
+  "room_id": "science_library",
+  "name": "Science Library",
+  "category": "library",
+  "purpose": "Houses research materials and resources.",
+  "concierge_blurb": "Explore the latest in science and technology.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": -8.0,
+    "footprint_m": [
+      12,
+      8
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "library_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Science Lib.",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_85"
+}

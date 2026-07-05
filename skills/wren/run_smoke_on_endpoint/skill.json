@@ -1,0 +1,17 @@
+{
+  "name": "run_smoke_on_endpoint",
+  "description": "HTTP GET against an allowlisted localhost endpoint, return status + first 500 chars of body.",
+  "params": {
+    "type": "object",
+    "properties": {
+      "path": {"type": "string", "description": "path (e.g. '/api/f0/greet'); host is always 127.0.0.1"},
+      "port": {"type": "integer", "description": "default 8765"},
+      "method": {"type": "string", "description": "GET or POST", "default": "GET"},
+      "body":   {"type": "object", "description": "JSON body for POST"}
+    },
+    "required": ["path"]
+  },
+  "safety_class": "read",
+  "entrypoint": "skill:run",
+  "tags": ["smoke", "qa", "health"]
+}

@@ -1,0 +1,4133 @@
+{
+  "ok": true,
+  "phase": "EQSB_SYSTEM_OBSERVATORY_HARDWARE_FLOOR_LIVE_TELEMETRY_REPAIR_V1",
+  "kind": "eqsb_phase_prechange_snapshot",
+  "stage": "prechange",
+  "generated_ts": "2026-06-09T09:31:19.973959+00:00",
+  "snapshot_id": "prechange_20260609T093119Z",
+  "file_count": 684,
+  "files": {
+    "src/__init__.py": {
+      "group": "src",
+      "size_bytes": 35,
+      "modified_ts": "2026-06-07T18:02:02.923073+00:00",
+      "sha256": "6e739b1fd6fb0d37b1cc7a5af85d0682d520829ba118f6fb6e8e069bbf815178"
+    },
+    "src/dashboard/server.py": {
+      "group": "src",
+      "size_bytes": 204624,
+      "modified_ts": "2026-06-09T09:08:31.771904+00:00",
+      "sha256": "fbbf69733a37c1cd85db20dd771e0d4acfb6a7022ae0b2627cc8278543dccd3d"
+    },
+    "src/tower_ops/openclaw_practice.py": {
+      "group": "src",
+      "size_bytes": 5831,
+      "modified_ts": "2026-06-08T15:26:53.553393+00:00",
+      "sha256": "c3a2eee9588d70fa24a29f3ba89b7e8ae0d9cace39855017a0f038ce2519bb3b"
+    },
+    "src/tower_ops/conference_hub.py": {
+      "group": "src",
+      "size_bytes": 8179,
+      "modified_ts": "2026-06-08T16:21:38.504019+00:00",
+      "sha256": "c65d05f166940f24909e53896981b18a303ce736ecf901d68cbcc89db93d3e07"
+    },
+    "src/tower_ops/speech_ops.py": {
+      "group": "src",
+      "size_bytes": 1319,
+      "modified_ts": "2026-06-08T14:31:37.861308+00:00",
+      "sha256": "4d48ef01f5bce3833f0e30fee6f32acc001bf8724419ba74d6ceb2b3b86b110f"
+    },
+    "src/tower_ops/extra_workers.py": {
+      "group": "src",
+      "size_bytes": 23535,
+      "modified_ts": "2026-06-08T15:31:34.172537+00:00",
+      "sha256": "46bde6cc34b093dcd9841bf730f648cad5a0fa15293cd975208a568b6d796520"
+    },
+    "src/tower_ops/lifts.py": {
+      "group": "src",
+      "size_bytes": 3518,
+      "modified_ts": "2026-06-08T14:31:04.992559+00:00",
+      "sha256": "4cf77b8e3e23e4ab6fb2dd80ed96a0a924528ee7766938d8be982990bce9738b"
+    },
+    "src/tower_ops/tower_tick.py": {
+      "group": "src",
+      "size_bytes": 2844,
+      "modified_ts": "2026-06-08T14:31:18.544455+00:00",
+      "sha256": "b88655620d1977db4bece125e1c6f348b66b0005c613853ed61b55463bc49543"
+    },
+    "src/tower_ops/__init__.py": {
+      "group": "src",
+      "size_bytes": 7512,
+      "modified_ts": "2026-06-08T15:27:42.128994+00:00",
+      "sha256": "cd2707963284d09ec45cae868225085dd97b2c5358afc654500b32b42c9e7d40"
+    },
+    "src/tower_ops/correction_actions.py": {
+      "group": "src",
+      "size_bytes": 9015,
+      "modified_ts": "2026-06-08T15:57:56.041305+00:00",
+      "sha256": "b80b9f46ad0e7c6bcec4d8f60d45f26d62334e52405130d842b33e349caa54f6"
+    },
+    "src/tower_ops/talk.py": {
+      "group": "src",
+      "size_bytes": 2533,
+      "modified_ts": "2026-06-08T15:44:45.818988+00:00",
+      "sha256": "bd059ac440c51fbc9eadc96f47e5f38f0ac056c6989efb7da8c877fde7311b63"
+    },
+    "src/tower_ops/training_academy.py": {
+      "group": "src",
+      "size_bytes": 2608,
+      "modified_ts": "2026-06-08T15:00:36.015111+00:00",
+      "sha256": "9e8ab71077dd3c08829c2f00beddbbaa973b63b38df531f07434144f33617481"
+    },
+    "src/tower_ops/lift_scheduler.py": {
+      "group": "src",
+      "size_bytes": 3464,
+      "modified_ts": "2026-06-08T15:42:32.600471+00:00",
+      "sha256": "0ede870fc880113442c65e3ef9208520d234a0cb509272715b399f45cebc484a"
+    },
+    "src/tower_ops/security.py": {
+      "group": "src",
+      "size_bytes": 3208,
+      "modified_ts": "2026-06-08T13:52:48.359578+00:00",
+      "sha256": "59b81002dc8f61b042d3b65ea3f677a7d0d6598d553db52567b281d1b4783ae6"
+    },
+    "src/tower_ops/model_ops.py": {
+      "group": "src",
+      "size_bytes": 7464,
+      "modified_ts": "2026-06-08T14:27:13.855679+00:00",
+      "sha256": "cb20584bfd2776b8ac7aa0c7c745ba61f231c3b9d521fb795d592fc0275473a5"
+    },
+    "src/tower_ops/correction_report.py": {
+      "group": "src",
+      "size_bytes": 1411,
+      "modified_ts": "2026-06-08T15:58:32.803835+00:00",
+      "sha256": "e22858e19e15ee697ed82af10e4ee8b7b6915040ca49b3bb6c9a90ef45b93f1a"
+    },
+    "src/tower_ops/floor_activation.py": {
+      "group": "src",
+      "size_bytes": 2356,
+      "modified_ts": "2026-06-08T16:21:48.433993+00:00",
+      "sha256": "184a7756ac0d69944d250a9d353f4ad3cdea7d7824cf2c01b2e6d75a462f5fec"
+    },
+    "src/tower_ops/maintenance.py": {
+      "group": "src",
+      "size_bytes": 4691,
+      "modified_ts": "2026-06-08T13:52:34.159687+00:00",
+      "sha256": "a96db9fd353f12f8718418c4d054ddd81a0cc584b1d3804165c7413540bf320b"
+    },
+    "src/tower_ops/it_ops.py": {
+      "group": "src",
+      "size_bytes": 6327,
+      "modified_ts": "2026-06-08T13:53:13.928393+00:00",
+      "sha256": "96666b3f5b289f576f12870a0b0f9e563dedb3cbb6fed9459f8b4ac5a73dac26"
+    },
+    "src/tower_ops/live_worker_routes.py": {
+      "group": "src",
+      "size_bytes": 10206,
+      "modified_ts": "2026-06-08T15:42:17.848642+00:00",
+      "sha256": "05302c00d20bdc6cb803ae29fea1fa94ba6f1a7473fbe4184cba3bb2b3165bbf"
+    },
+    "src/tower_ops/worker_registry.py": {
+      "group": "src",
+      "size_bytes": 33767,
+      "modified_ts": "2026-06-08T14:28:40.770801+00:00",
+      "sha256": "2a7f470d893a719f9c665fdb3692363d3b835d522cabd7c56526505682fdb214"
+    },
+    "src/tower_ops/floor_comms.py": {
+      "group": "src",
+      "size_bytes": 4429,
+      "modified_ts": "2026-06-08T15:42:57.271188+00:00",
+      "sha256": "e9847e2762ae7a8bbcf6c871608236b70d61711ee48dd10897da14c5012cbed2"
+    },
+    "src/tower_ops/autonomous_company_loop.py": {
+      "group": "src",
+      "size_bytes": 3362,
+      "modified_ts": "2026-06-08T16:21:05.629102+00:00",
+      "sha256": "c3ac1f42e8b6114063654309b0ef3976d124ffce2cadf70964d17cb6287a290b"
+    },
+    "src/tower_ops/not_working.py": {
+      "group": "src",
+      "size_bytes": 2866,
+      "modified_ts": "2026-06-08T15:44:59.462842+00:00",
+      "sha256": "e13877193ddea4326b30fcd9b21b87facb428cf17db5bf6305ee21da28aaa358"
+    },
+    "src/tower_ops/access_control.py": {
+      "group": "src",
+      "size_bytes": 7394,
+      "modified_ts": "2026-06-08T14:25:47.449671+00:00",
+      "sha256": "e4aeab3ad6ede979289fc58cae90a534d0f7e0573f42b4578fad6a1007f5c8e7"
+    },
+    "src/tower_ops/safety_contract.py": {
+      "group": "src",
+      "size_bytes": 3216,
+      "modified_ts": "2026-06-08T13:48:27.241311+00:00",
+      "sha256": "a5256005406307058e77fe95ec0c54a06da3833b1cafceb3c0b79aa88694e6a5"
+    },
+    "src/tower_ops/worker_narration.py": {
+      "group": "src",
+      "size_bytes": 4993,
+      "modified_ts": "2026-06-08T15:58:52.977106+00:00",
+      "sha256": "2333028dd314e07d215facc6f2f4967411aad822008d92efcfa98d3749743a21"
+    },
+    "src/tower_ops/certification_engine.py": {
+      "group": "src",
+      "size_bytes": 13405,
+      "modified_ts": "2026-06-08T15:00:26.491153+00:00",
+      "sha256": "a939c97e22f7d1f4167b8b7356dff653df7dd53b9dd6d40e4e580a4ffab75335"
+    },
+    "src/tower_ops/missing.py": {
+      "group": "src",
+      "size_bytes": 2869,
+      "modified_ts": "2026-06-08T14:31:31.252358+00:00",
+      "sha256": "7386f6ef7f6647ce811972cf7a866c0107888f47147636f77f5821a4ea226634"
+    },
+    "src/tower_ops/final_acceptance.py": {
+      "group": "src",
+      "size_bytes": 5254,
+      "modified_ts": "2026-06-08T16:20:52.771134+00:00",
+      "sha256": "98dc79b2428540db0163918b08014ad47af3a89082c83b27bee5ce099f5c29b4"
+    },
+    "src/tower_ops/colonel_observation.py": {
+      "group": "src",
+      "size_bytes": 4055,
+      "modified_ts": "2026-06-08T15:43:15.691980+00:00",
+      "sha256": "21463eab4fc8ae3f673062a35d7e5b8b97ccdc99a46c23e08c7912ba9072c901"
+    },
+    "src/tower_ops/research_facility.py": {
+      "group": "src",
+      "size_bytes": 3980,
+      "modified_ts": "2026-06-08T13:53:30.867277+00:00",
+      "sha256": "75b45501aae1973fcad2920d7da20cc1b6758686c77136c06b6ebdea2431e98a"
+    },
+    "src/tower_ops/approval_workflow.py": {
+      "group": "src",
+      "size_bytes": 4510,
+      "modified_ts": "2026-06-08T15:43:31.997797+00:00",
+      "sha256": "2a65653439fc369da948b6615c62054143e81c7cf606583f0fa2c42c944dbe61"
+    },
+    "src/tower_ops/trading_telemetry.py": {
+      "group": "src",
+      "size_bytes": 10320,
+      "modified_ts": "2026-06-08T15:23:00.900667+00:00",
+      "sha256": "948cbdabc7a07f10468afe4ee91d1ee55a7ff4bad22511f5cb16ce5a180813c9"
+    },
+    "src/tower_ops/tower_audit.py": {
+      "group": "src",
+      "size_bytes": 5538,
+      "modified_ts": "2026-06-08T15:02:52.509527+00:00",
+      "sha256": "9596a936618e816082ba19fdec4dbfe2b6b354eb7ffa2079acc39aaa18a6f3ac"
+    },
+    "src/tower_ops/stale_language_audit.py": {
+      "group": "src",
+      "size_bytes": 3601,
+      "modified_ts": "2026-06-08T15:59:48.408784+00:00",
+      "sha256": "981a3d9e2b74b69b7bb5cac7bcca098e0bc81f66c624241384a817b22c22723e"
+    },
+    "src/tower_ops/stocks_paper.py": {
+      "group": "src",
+      "size_bytes": 4684,
+      "modified_ts": "2026-06-08T15:44:35.069104+00:00",
+      "sha256": "37e6f6f12343b14e808174652ae5aaa4f770785e5daa5aca77afe38b17b31f85"
+    },
+    "src/tower_ops/quantum_floor.py": {
+      "group": "src",
+      "size_bytes": 2484,
+      "modified_ts": "2026-06-08T14:26:45.807987+00:00",
+      "sha256": "aa1336fbe83a4366b67020fd155510b41f6be2ee14595df5f931ec0bd43f8405"
+    },
+    "src/tower_ops/accounts_department.py": {
+      "group": "src",
+      "size_bytes": 5591,
+      "modified_ts": "2026-06-08T14:26:35.109108+00:00",
+      "sha256": "1dca8904d3a2ee92ee91bd82204bcc7b29c7e4dab45ee0978d9c5d218abcdd4d"
+    },
+    "src/tower_ops/audit_checks.py": {
+      "group": "src",
+      "size_bytes": 20083,
+      "modified_ts": "2026-06-08T15:10:42.433720+00:00",
+      "sha256": "c9b9d729e358b79bc006731d43208d04f8c4de530bbcb24cb13f44ca7d3116db"
+    },
+    "src/tower_ops/colonel_concierge.py": {
+      "group": "src",
+      "size_bytes": 4476,
+      "modified_ts": "2026-06-08T13:53:49.810153+00:00",
+      "sha256": "dbbe7068c59af54cc609b7d35c2576a0aeedbeb3f091c545f183172fc9f285ac"
+    },
+    "src/tower_ops/gauge_registry.py": {
+      "group": "src",
+      "size_bytes": 4181,
+      "modified_ts": "2026-06-08T16:22:29.583885+00:00",
+      "sha256": "814e155da011d20097e33e1828ca01eb9aea318f17195c4fef10d81c8f406445"
+    },
+    "src/tower_ops/self_fix_engine.py": {
+      "group": "src",
+      "size_bytes": 9583,
+      "modified_ts": "2026-06-08T16:20:30.111189+00:00",
+      "sha256": "ad860ae6b901b108711900e9b04d8440627c58f87a5cfd4e7f9f4a51c8441098"
+    },
+    "src/tower_ops/chat_diagnostics.py": {
+      "group": "src",
+      "size_bytes": 2212,
+      "modified_ts": "2026-06-08T14:31:47.275238+00:00",
+      "sha256": "3d23d0dae406f30f727b339039b9ccbd54e56e0f5e16c7163faadf02008d489f"
+    },
+    "src/tower_ops/identity_badges.py": {
+      "group": "src",
+      "size_bytes": 5968,
+      "modified_ts": "2026-06-08T14:25:16.424060+00:00",
+      "sha256": "aeabb457c93d88c5e9b97a9af1bc3a59fcd6237aa0c2bf69c22cb712dd322c3b"
+    },
+    "src/tower_ops/oanda_practice_trading.py": {
+      "group": "src",
+      "size_bytes": 19908,
+      "modified_ts": "2026-06-08T15:26:13.409623+00:00",
+      "sha256": "2c74f91ce62d9b56924e9f3c572f26775e5f80f340c3711c774fe9093e17c4b6"
+    },
+    "src/tower_ops/next_steps.py": {
+      "group": "src",
+      "size_bytes": 12480,
+      "modified_ts": "2026-06-08T15:03:59.203254+00:00",
+      "sha256": "595e6a8f42c131c751b145c1d56d692403d0af0984da9be69f82106432bc9e5d"
+    },
+    "src/tower_ops/management_chain.py": {
+      "group": "src",
+      "size_bytes": 7568,
+      "modified_ts": "2026-06-08T14:52:43.432545+00:00",
+      "sha256": "fffc474f03f936b403d148f0f5547067d3b62dc29cd01892d758e76c6ce66abb"
+    },
+    "src/tower_ops/company_comms_bus.py": {
+      "group": "src",
+      "size_bytes": 5844,
+      "modified_ts": "2026-06-08T16:22:10.061937+00:00",
+      "sha256": "4158d9f49c3bce4de1528c15a27d038234f462379724521cf2efabf242edd344"
+    },
+    "src/tower_ops/floor_narration.py": {
+      "group": "src",
+      "size_bytes": 2822,
+      "modified_ts": "2026-06-08T15:59:04.855260+00:00",
+      "sha256": "bb3d8b2f79b63414fcc91abc2afad099282355d8862543062dc5cab73a09fa37"
+    },
+    "src/tower_ops/security_enforcement.py": {
+      "group": "src",
+      "size_bytes": 3261,
+      "modified_ts": "2026-06-08T15:59:32.405598+00:00",
+      "sha256": "43b939fc2482e25e0a91202a49ed23b1a192016b4aa5c3bdc2a53bae20dd13ff"
+    },
+    "src/tower_ops/overseer_registry.py": {
+      "group": "src",
+      "size_bytes": 4360,
+      "modified_ts": "2026-06-08T13:51:52.139030+00:00",
+      "sha256": "2c767b312fa98b491262f8351cc28197432007e00d70344100fecfa194ff8eee"
+    },
+    "src/tower_ops/self_check_engine.py": {
+      "group": "src",
+      "size_bytes": 6026,
+      "modified_ts": "2026-06-08T16:19:48.420287+00:00",
+      "sha256": "9ac5e65dfbf9bff3f7eb6c5cbea0d489e26f9f05eb867cfc03c1a31b182aa711"
+    },
+    "src/tower_ops/colonel_audio.py": {
+      "group": "src",
+      "size_bytes": 3382,
+      "modified_ts": "2026-06-08T15:59:17.553418+00:00",
+      "sha256": "7f3b3361f3c6f5e1f905ebcf76b602be7e6ca3f6a24ba144c6b8cc232b90ecf1"
+    },
+    "src/tower_ops/curriculum_registry.py": {
+      "group": "src",
+      "size_bytes": 5731,
+      "modified_ts": "2026-06-08T14:59:37.646373+00:00",
+      "sha256": "bb10d74ce938860074b6b14a0b8b49e5dc267b1dcfa72ad3aeae227a0fa29f05"
+    },
+    "src/tower_ops/oanda_dashboard.py": {
+      "group": "src",
+      "size_bytes": 4851,
+      "modified_ts": "2026-06-08T15:43:56.560524+00:00",
+      "sha256": "b01da5d65bd1b1f29cd2d0164a8709e51744ef778e47b14782f7a70938edcb44"
+    },
+    "src/tower_ops/autonomous_oanda_practice.py": {
+      "group": "src",
+      "size_bytes": 5164,
+      "modified_ts": "2026-06-08T16:22:50.057829+00:00",
+      "sha256": "2d78daf94fe083174628ca6dbc1f9c6fcd1c439e77522ede9b399e3aa35a6818"
+    },
+    "src/tower_ops/correction_loop.py": {
+      "group": "src",
+      "size_bytes": 8114,
+      "modified_ts": "2026-06-08T15:58:26.764751+00:00",
+      "sha256": "c00c5496ca3f1226bfc982be60878d632f7fce04345d343ee5ab50e5c846bb70"
+    },
+    "src/tower_ops/dashboard_pro.py": {
+      "group": "src",
+      "size_bytes": 9413,
+      "modified_ts": "2026-06-08T15:27:27.815396+00:00",
+      "sha256": "5d51c2844d425a11b6f75d9355a2787ead68d4a15d9b0ff6613f0f9e75643886"
+    },
+    "src/tower_ops/reporting.py": {
+      "group": "src",
+      "size_bytes": 4009,
+      "modified_ts": "2026-06-08T13:52:07.738899+00:00",
+      "sha256": "cd598dcb7ce40d94f1044e142c8bace14f1194fa83d06ad58a8e14c36f05da34"
+    },
+    "src/tower_ops/binance_testnet.py": {
+      "group": "src",
+      "size_bytes": 5095,
+      "modified_ts": "2026-06-08T15:44:18.051289+00:00",
+      "sha256": "38a188ce9cd937b03531c733932730ad46e69f0ed12935d2f87a80e41c85c4d4"
+    },
+    "src/tower_ops/floor_room_positions.py": {
+      "group": "src",
+      "size_bytes": 4093,
+      "modified_ts": "2026-06-08T15:41:37.091123+00:00",
+      "sha256": "c7b9fd3c061b7283a7ef8c2831d19f24bd0e7d27d3d34d597b95e33b6b018f98"
+    },
+    "src/tower_ops/worker_directory.py": {
+      "group": "src",
+      "size_bytes": 4834,
+      "modified_ts": "2026-06-08T14:26:04.479465+00:00",
+      "sha256": "ed3f0044c53b5a810da52e38f1623873f720120567a45d65719ac38b20846ce8"
+    },
+    "src/tower_ops/org_schema.py": {
+      "group": "src",
+      "size_bytes": 5087,
+      "modified_ts": "2026-06-08T13:48:46.612045+00:00",
+      "sha256": "92e89d16194e144fbdb6a65c13fbea4c0c785d80ef33e89cb3daf79f267d5b3a"
+    },
+    "src/tower/eqsb_contradictions.py": {
+      "group": "src",
+      "size_bytes": 7548,
+      "modified_ts": "2026-06-09T07:11:06.193116+00:00",
+      "sha256": "9e2e7d1a944d5428baedd873a947883855db123b707e7b643fd89a1c6ad82ef4"
+    },
+    "src/tower/simulation_labs.py": {
+      "group": "src",
+      "size_bytes": 10158,
+      "modified_ts": "2026-06-07T18:19:52.401911+00:00",
+      "sha256": "6fbd10df28259b574ac0b761866875208817647fc064b0a66074eaee8e72e568"
+    },
+    "src/tower/sandbox_operations.py": {
+      "group": "src",
+      "size_bytes": 8008,
+      "modified_ts": "2026-06-07T18:21:43.120337+00:00",
+      "sha256": "6712533af1d8712f04d0fef4418f23d9ea65f65c7c40ce374955529490c8271e"
+    },
+    "src/tower/kernel_readiness.py": {
+      "group": "src",
+      "size_bytes": 16248,
+      "modified_ts": "2026-06-07T20:13:48.445421+00:00",
+      "sha256": "ff0e75d1f6849ea2e58bc3b5a67f7e0792c919e4d1a3d4087bd8dc71845ee5bb"
+    },
+    "src/tower/binance_paper_strategy.py": {
+      "group": "src",
+      "size_bytes": 9739,
+      "modified_ts": "2026-06-08T09:23:56.761285+00:00",
+      "sha256": "012e1b26f75bf29017e27c06f7fa760fc8bfb1c1b9e7ac924d3c5186a2b74e26"
+    },
+    "src/tower/binance_floor.py": {
+      "group": "src",
+      "size_bytes": 14198,
+      "modified_ts": "2026-06-08T08:46:16.637623+00:00",
+      "sha256": "164b72d8a6c82c8f896cdf406afa9c9b1cd3445af41312a4994fb232502f91a3"
+    },
+    "src/tower/eqsb_replay_ledger.py": {
+      "group": "src",
+      "size_bytes": 4992,
+      "modified_ts": "2026-06-09T07:12:36.611001+00:00",
+      "sha256": "729e1c54618901dc3dd57cbfcfee2060ef70af1510a8dc9d1f4d071f41785eff"
+    },
+    "src/tower/qsb_workers_reconciliation.py": {
+      "group": "src",
+      "size_bytes": 22346,
+      "modified_ts": "2026-06-09T08:34:06.068781+00:00",
+      "sha256": "6a55e6be2f2431b98da96f25b9f3f4ed2815062b55e358b50a04c6266398fefd"
+    },
+    "src/tower/expansion_planning.py": {
+      "group": "src",
+      "size_bytes": 14167,
+      "modified_ts": "2026-06-07T17:28:10.599463+00:00",
+      "sha256": "c76b916a0fd87fedd22f3db6dab5097d65e77a179bb09c20a453bc07dd7d2cbe"
+    },
+    "src/tower/strategy_autoloop_correlation_sidecar.py": {
+      "group": "src",
+      "size_bytes": 2598,
+      "modified_ts": "2026-06-07T23:26:42.203980+00:00",
+      "sha256": "40f704c5e1df1292cfe83d52b459008ec4af74b4aaf3691d6752c6120c367aa6"
+    },
+    "src/tower/paths.py": {
+      "group": "src",
+      "size_bytes": 211,
+      "modified_ts": "2026-06-07T16:01:59.663939+00:00",
+      "sha256": "22efbcc767a1ae41fc97a05d259062527b1be2214f41bab96842800c946dde58"
+    },
+    "src/tower/worker_recruitment_agency.py": {
+      "group": "src",
+      "size_bytes": 24389,
+      "modified_ts": "2026-06-08T18:33:58.184532+00:00",
+      "sha256": "b05a266509cf2d077be37c9fe528d032c1a91c9cc0f89f52b23362b0ad4a1d23"
+    },
+    "src/tower/foundation_completeness.py": {
+      "group": "src",
+      "size_bytes": 6712,
+      "modified_ts": "2026-06-07T18:02:02.929101+00:00",
+      "sha256": "864b050a9544e8015c967090215f424740ec49a591ac6536f596ce8c399c59fe"
+    },
+    "src/tower/adapter_systems.py": {
+      "group": "src",
+      "size_bytes": 6505,
+      "modified_ts": "2026-06-07T16:38:54.791182+00:00",
+      "sha256": "6c6b6723037063c649dacea2e14abcbe13e590a5c9b188c08cf0623bf7f4deaf"
+    },
+    "src/tower/lifts.py": {
+      "group": "src",
+      "size_bytes": 11451,
+      "modified_ts": "2026-06-08T16:11:45.971930+00:00",
+      "sha256": "c475b26001d0fea672808d97cd28b19c3dad4752b814bf1573bccdc519a9dc23"
+    },
+    "src/tower/qsb_paper_trading.py": {
+      "group": "src",
+      "size_bytes": 24680,
+      "modified_ts": "2026-06-09T07:54:05.960968+00:00",
+      "sha256": "f028bb6e184bd0f3c76ff9c9db0ca30174b7b558d61f5134060602bfd8fde747"
+    },
+    "src/tower/oanda_floor41_sidecar.py": {
+      "group": "src",
+      "size_bytes": 4054,
+      "modified_ts": "2026-06-07T22:33:12.075323+00:00",
+      "sha256": "38876ee6b963dc163a8baad4201d1b5a5a1e99a2c14af5a8bd2ce5ba778f6ff3"
+    },
+    "src/tower/__init__.py": {
+      "group": "src",
+      "size_bytes": 40,
+      "modified_ts": "2026-06-07T18:02:02.923152+00:00",
+      "sha256": "7a8c467846faf52810f2f7ca22f4feac97a61fe4c2af51de2b95cc03df7c65b6"
+    },
+    "src/tower/oanda_trading_floor.py": {
+      "group": "src",
+      "size_bytes": 2179,
+      "modified_ts": "2026-06-07T22:20:52.856904+00:00",
+      "sha256": "05119d53b88d58d667c40bf0308368e8f5fa73a28a739b1bce6392d1ef3b1229"
+    },
+    "src/tower/cross_market_bus.py": {
+      "group": "src",
+      "size_bytes": 16269,
+      "modified_ts": "2026-06-08T10:34:50.158360+00:00",
+      "sha256": "1bdc8e389602c0f7216f96ab5b9d31eb23dc2930e8f42899751544d1eada070b"
+    },
+    "src/tower/model_evaluation_department.py": {
+      "group": "src",
+      "size_bytes": 13081,
+      "modified_ts": "2026-06-07T18:14:26.765741+00:00",
+      "sha256": "789d65f13a6941ad02cb9063fb2c04fb89316315e7e8577e6e7cdef1fd1fa50e"
+    },
+    "src/tower/strategy_intelligence.py": {
+      "group": "src",
+      "size_bytes": 10495,
+      "modified_ts": "2026-06-07T23:12:04.497411+00:00",
+      "sha256": "368bc337dbe06107ce8a89b846e64bb9d2a25d970e3ba91c270a7a765cf2105e"
+    },
+    "src/tower/eqsb_guardian.py": {
+      "group": "src",
+      "size_bytes": 7692,
+      "modified_ts": "2026-06-09T07:12:14.355047+00:00",
+      "sha256": "f3481993688a34b491acd1e8bea0a5c1c760c8c472c2c34abfb6997fd76dc5f3"
+    },
+    "src/tower/paper_trade_simulator.py": {
+      "group": "src",
+      "size_bytes": 14239,
+      "modified_ts": "2026-06-07T23:48:19.855986+00:00",
+      "sha256": "b08ffeb713a925b03bf02e0e47bde9e6e2983abf9d50f407532c22d3204cb73f"
+    },
+    "src/tower/integration_services.py": {
+      "group": "src",
+      "size_bytes": 7926,
+      "modified_ts": "2026-06-07T16:41:00.546876+00:00",
+      "sha256": "a5c8000831da864f5dfd48fd665ad72fdd66095873e6caf9c4419389eb9533c3"
+    },
+    "src/tower/air_llm_operations.py": {
+      "group": "src",
+      "size_bytes": 6934,
+      "modified_ts": "2026-06-07T16:34:22.567214+00:00",
+      "sha256": "4e0c19406aba566a7c7857a34c5f503a7d0382e188edce308f78f02f30818178"
+    },
+    "src/tower/eqsb_model_governance.py": {
+      "group": "src",
+      "size_bytes": 5228,
+      "modified_ts": "2026-06-09T07:11:38.438097+00:00",
+      "sha256": "f9b57d913022912800c9f59852b38e796d059d5d4abed833d1b7c8781d815052"
+    },
+    "src/tower/qsb_openclaw_supervision.py": {
+      "group": "src",
+      "size_bytes": 11325,
+      "modified_ts": "2026-06-09T07:52:13.837333+00:00",
+      "sha256": "b1d7b3784a43356da0f06a277fa3547453c719bbe1c3494fc7413277e44e6985"
+    },
+    "src/tower/database.py": {
+      "group": "src",
+      "size_bytes": 1189,
+      "modified_ts": "2026-06-07T16:01:59.664056+00:00",
+      "sha256": "4c13416402310d888c2518dc8dae5d0857712d87f011968bba6fefde3a732916"
+    },
+    "src/tower/qsb_dashboard_visual_audit.py": {
+      "group": "src",
+      "size_bytes": 8888,
+      "modified_ts": "2026-06-09T08:32:48.886590+00:00",
+      "sha256": "5e7e845b6b90c6e45a7f4996390a5a78270ec76f3c92366de0dfb9dd585d9409"
+    },
+    "src/tower/eqsb_observatory.py": {
+      "group": "src",
+      "size_bytes": 54301,
+      "modified_ts": "2026-06-09T09:31:08.779675+00:00",
+      "sha256": "019919c28e4226f5eb8e789ae98597cfad1dc9702f335961f779dda9dd151da5"
+    },
+    "src/tower/dashboard_render_model.py": {
+      "group": "src",
+      "size_bytes": 23120,
+      "modified_ts": "2026-06-08T11:21:03.094697+00:00",
+      "sha256": "6575c0ed791e972acd302550071d0af16e14a2b288687cbd4a1c7f01ffbd4638"
+    },
+    "src/tower/eqsb_introspection.py": {
+      "group": "src",
+      "size_bytes": 12273,
+      "modified_ts": "2026-06-09T07:13:22.077874+00:00",
+      "sha256": "ba69f32344f5ccd44d2bd6d6b12f39d1e6933b67181208456f308baa77aa5325"
+    },
+    "src/tower/qsb_profit_command.py": {
+      "group": "src",
+      "size_bytes": 7747,
+      "modified_ts": "2026-06-09T09:05:58.389108+00:00",
+      "sha256": "02ce96132840a60e353d77a629832ff6c4689b24bd1d77dd676d1e5d9548a8be"
+    },
+    "src/tower/qsb_narrator.py": {
+      "group": "src",
+      "size_bytes": 15393,
+      "modified_ts": "2026-06-09T09:07:13.131969+00:00",
+      "sha256": "8105453d7737e720dcf51b0769de679ff44d2dcc02f301c59f1a1c624038a8bd"
+    },
+    "src/tower/kernel_chat_sidecar.py": {
+      "group": "src",
+      "size_bytes": 5643,
+      "modified_ts": "2026-06-07T22:13:18.011286+00:00",
+      "sha256": "b4f92efe0efd1580c144e8484445a7ef78cae5e62a90f6fe373f67b352021b17"
+    },
+    "src/tower/floor41_paper_ledger.py": {
+      "group": "src",
+      "size_bytes": 5541,
+      "modified_ts": "2026-06-07T22:39:29.108528+00:00",
+      "sha256": "32d904283e79160d98117bf9d16affa6a1f80cc19d8e56b3c46c98f8a63b3cd5"
+    },
+    "src/tower/eqsb_cognition.py": {
+      "group": "src",
+      "size_bytes": 70133,
+      "modified_ts": "2026-06-08T19:27:07.254822+00:00",
+      "sha256": "bbfa6d6a60458c1063812b2d612de890e87ab14c141f61dbf0cdc3178cc92a51"
+    },
+    "src/tower/worker_sandbox.py": {
+      "group": "src",
+      "size_bytes": 7201,
+      "modified_ts": "2026-06-07T22:39:29.109528+00:00",
+      "sha256": "17f1d16308245846af28066527dc60d55cf52db1abd7da910e95964c4a4c89b8"
+    },
+    "src/tower/kernel_activation_gate.py": {
+      "group": "src",
+      "size_bytes": 14806,
+      "modified_ts": "2026-06-07T21:26:46.141723+00:00",
+      "sha256": "7413dd6df7151cd963d08b59156967640203dad9cbc0289ed45953cf1b90c822"
+    },
+    "src/tower/strategy_intelligence_sidecar.py": {
+      "group": "src",
+      "size_bytes": 3046,
+      "modified_ts": "2026-06-07T23:12:04.497784+00:00",
+      "sha256": "5e40009a14ffbee72ab2c623dd4e5f78e769e5848b2e4c0a02aea6d04bc14e49"
+    },
+    "src/tower/security_spine.py": {
+      "group": "src",
+      "size_bytes": 14350,
+      "modified_ts": "2026-06-07T17:26:05.991673+00:00",
+      "sha256": "578ba6be627da4dfe1a4d72d0997e96feb3d186e1e17a0797670cd4860f3a3f4"
+    },
+    "src/tower/dormant_kernel_adapter.py": {
+      "group": "src",
+      "size_bytes": 9490,
+      "modified_ts": "2026-06-07T20:01:50.041446+00:00",
+      "sha256": "417906dacf084551681cc4404d67ab325203366a385f6b91327db744127666c0"
+    },
+    "src/tower/qsb_dashboard_live_telemetry.py": {
+      "group": "src",
+      "size_bytes": 19898,
+      "modified_ts": "2026-06-09T09:07:59.931718+00:00",
+      "sha256": "296c0610dcc9a28733fb132df85fdff75529d3b9e6da0db088c295ef864cc1cd"
+    },
+    "src/tower/model_infrastructure.py": {
+      "group": "src",
+      "size_bytes": 6180,
+      "modified_ts": "2026-06-07T16:11:50.278247+00:00",
+      "sha256": "97d9a77bac056bf08eaf50e09305eebc3f9511baf2c9de6adb15fcc6931669c4"
+    },
+    "src/tower/diagnostics_department.py": {
+      "group": "src",
+      "size_bytes": 15733,
+      "modified_ts": "2026-06-07T16:58:14.264609+00:00",
+      "sha256": "db4522258f25475b2de7c78c2f9e1bc37e03a7fb97928a3d47c9263fb64075cc"
+    },
+    "src/tower/diagnostics.py": {
+      "group": "src",
+      "size_bytes": 869,
+      "modified_ts": "2026-06-07T16:01:59.664169+00:00",
+      "sha256": "d542e9f701e2eaffa8ffbdece93d6aa5138b4c65d85804d37ce26a369fa14b11"
+    },
+    "src/tower/eqsb_beliefs.py": {
+      "group": "src",
+      "size_bytes": 10920,
+      "modified_ts": "2026-06-09T07:06:51.416178+00:00",
+      "sha256": "0fd8fdba70afdb43c28c8ce57332c14959478638a1ea0498a622e48802b05c29"
+    },
+    "src/tower/local_model_operations.py": {
+      "group": "src",
+      "size_bytes": 10958,
+      "modified_ts": "2026-06-07T16:32:10.780138+00:00",
+      "sha256": "1e669f2d32908b56991a1063423cb8ef8665fe7c592954a0c540438289ff24b1"
+    },
+    "src/tower/monitoring_department.py": {
+      "group": "src",
+      "size_bytes": 17155,
+      "modified_ts": "2026-06-07T17:17:39.268610+00:00",
+      "sha256": "0c6217f27b83929315872ac415199f1e1edd1cd410f343821998ad961aeb1cec"
+    },
+    "src/tower/eqsb_axioms.py": {
+      "group": "src",
+      "size_bytes": 14143,
+      "modified_ts": "2026-06-09T07:01:30.862836+00:00",
+      "sha256": "d55dfb79fe395e1eb1d6f200f7d6e59ef0bc0abfc259a31ff2b790cddffe150f"
+    },
+    "src/tower/local_model_inference_gateway.py": {
+      "group": "src",
+      "size_bytes": 7604,
+      "modified_ts": "2026-06-07T22:08:26.121275+00:00",
+      "sha256": "7e3e8886203cfe548262392ed83027c1184ba710deb343bff5ad06b059c3995a"
+    },
+    "src/tower/qsb_phase_v2_snapshot.py": {
+      "group": "src",
+      "size_bytes": 6912,
+      "modified_ts": "2026-06-09T07:51:04.811697+00:00",
+      "sha256": "dffbfc2b236bd22026a9be08aeaf60c0c53720d9371a6b03fa826d6597eb9fbd"
+    },
+    "src/tower/oanda_gateway.py": {
+      "group": "src",
+      "size_bytes": 8832,
+      "modified_ts": "2026-06-08T15:22:35.591759+00:00",
+      "sha256": "6f292564960ea70b72bc7ed64558036f6d6093d44ef8fb200837fb0c018b7a87"
+    },
+    "src/tower/qsb_workforce.py": {
+      "group": "src",
+      "size_bytes": 18703,
+      "modified_ts": "2026-06-09T09:04:55.939048+00:00",
+      "sha256": "2d99117ab1d7eadf602104426e79f3d13e5137d468c1c1ca92bb821ac757f5fc"
+    },
+    "src/tower/coding_department.py": {
+      "group": "src",
+      "size_bytes": 6034,
+      "modified_ts": "2026-06-07T16:19:16.205355+00:00",
+      "sha256": "e0941809feee365ee5a5cb68ad82c4895cc0281d668a39f631e6bbf3c20104e9"
+    },
+    "src/tower/qsb_command_center_audit.py": {
+      "group": "src",
+      "size_bytes": 12236,
+      "modified_ts": "2026-06-09T09:02:02.455994+00:00",
+      "sha256": "d97e9d02a2054ee64faf38ce6b2c7d635bc8a4ba57cb61d764949344f475e293"
+    },
+    "src/tower/sandbox_performance_sidecar.py": {
+      "group": "src",
+      "size_bytes": 6108,
+      "modified_ts": "2026-06-07T22:52:05.616801+00:00",
+      "sha256": "8c4f546c33a2c9acadcd2d899baf682d8868593f04855ffd3d6ec418865a3a0d"
+    },
+    "src/tower/eqsb_symbols.py": {
+      "group": "src",
+      "size_bytes": 9772,
+      "modified_ts": "2026-06-09T07:07:37.291514+00:00",
+      "sha256": "71785dc3f251bd296402aa99de38971124ca5157dafcd32ab8643cfd933a7d45"
+    },
+    "src/tower/eqsb_hypotheses.py": {
+      "group": "src",
+      "size_bytes": 10703,
+      "modified_ts": "2026-06-09T07:10:32.442108+00:00",
+      "sha256": "d83b6186b7b6b86f687cf6816b1cd73f7e7a42e3af0f78582265d17c92644301"
+    },
+    "src/tower/model_routing_department.py": {
+      "group": "src",
+      "size_bytes": 8896,
+      "modified_ts": "2026-06-07T16:22:03.192359+00:00",
+      "sha256": "3f802c9b0c3dfb99a1cfe6351b9261686cbaeee4e1889ccc527da23b4eb00045"
+    },
+    "src/tower/openclaw_sandbox_layer.py": {
+      "group": "src",
+      "size_bytes": 6244,
+      "modified_ts": "2026-06-07T22:56:30.270936+00:00",
+      "sha256": "d542daabaa74162efcd0d62a56141ff4d604edeec0e218505b4af1a45d87bf83"
+    },
+    "src/tower/eqsb_kernel_core_ext.py": {
+      "group": "src",
+      "size_bytes": 30486,
+      "modified_ts": "2026-06-09T07:28:36.925426+00:00",
+      "sha256": "512987f08b3fc19a9d5410f3b3d1274f1483da515fe831eef781840e771873ab"
+    },
+    "src/tower/eqsb_symbolic_graph.py": {
+      "group": "src",
+      "size_bytes": 11139,
+      "modified_ts": "2026-06-09T07:08:21.632761+00:00",
+      "sha256": "1bc73b3671e9b0235be6a2500c8de355d54857dde8f2168c4d4bda693bf593e6"
+    },
+    "src/tower/recruitment_agency.py": {
+      "group": "src",
+      "size_bytes": 25189,
+      "modified_ts": "2026-06-08T13:29:27.948221+00:00",
+      "sha256": "adffe71100ab51af0fbf66c9e6b9fa8fe1e8ae499f75463cf51f5f4886b237d0"
+    },
+    "src/tower/eqsb_cadence.py": {
+      "group": "src",
+      "size_bytes": 4651,
+      "modified_ts": "2026-06-09T07:02:38.894500+00:00",
+      "sha256": "6765fc58f5e48e0aeba59d3404f6687f0c55055f501fd14874067af5f958e281"
+    },
+    "src/tower/paper_trade_simulator_sidecar.py": {
+      "group": "src",
+      "size_bytes": 2533,
+      "modified_ts": "2026-06-07T23:48:34.308281+00:00",
+      "sha256": "af73ca50f6700fa4f5fee88dbd36f5720fc4f6f3d7b9ef9eb886df9e2f6642c9"
+    },
+    "src/tower/registry.py": {
+      "group": "src",
+      "size_bytes": 480,
+      "modified_ts": "2026-06-07T16:01:59.663996+00:00",
+      "sha256": "7897f4887a8a76d1070d8adcb80b5e141ca42032ee6ccc68a067e4d0cf4b006f"
+    },
+    "src/tower/agent_coordination.py": {
+      "group": "src",
+      "size_bytes": 14655,
+      "modified_ts": "2026-06-07T18:08:47.768591+00:00",
+      "sha256": "d8fee0795b5a9baadce237db0cf4b07ecf8beaf32a70a02a817d671e55b61360"
+    },
+    "src/tower/kernel_dependency_stubs.py": {
+      "group": "src",
+      "size_bytes": 5857,
+      "modified_ts": "2026-06-07T20:49:11.205530+00:00",
+      "sha256": "59ac17bf8925d7059791eebfe6ba5dd67d1e1cfd0c13bf3ca522382578186ad5"
+    },
+    "src/tower/kernel_talk_bridge.py": {
+      "group": "src",
+      "size_bytes": 7100,
+      "modified_ts": "2026-06-07T21:50:13.421009+00:00",
+      "sha256": "b244bc751291f0c479ebc7cbe9284f8a0edc5f881e4c7b946baf8afaaa71150f"
+    },
+    "src/tower/oanda_paper_strategy_lab.py": {
+      "group": "src",
+      "size_bytes": 7964,
+      "modified_ts": "2026-06-07T22:33:12.069771+00:00",
+      "sha256": "c691da0f7c1382bde17a3334e50cc784d0558524575dc37b0bd967ef01280d49"
+    },
+    "src/tower/sandbox_performance_loop.py": {
+      "group": "src",
+      "size_bytes": 9185,
+      "modified_ts": "2026-06-07T22:47:00.422898+00:00",
+      "sha256": "927e15ca096486391c407c974b4a637532e4527f4822d1370136a378285e9426"
+    },
+    "src/tower/sandbox_autoloop.py": {
+      "group": "src",
+      "size_bytes": 10128,
+      "modified_ts": "2026-06-07T23:02:32.017267+00:00",
+      "sha256": "dcfb1ab713a16992e7acfc3fcd73548845783dfd00d6ca914fabb3447f6f0731"
+    },
+    "src/tower/infrastructure_services.py": {
+      "group": "src",
+      "size_bytes": 11605,
+      "modified_ts": "2026-06-07T17:19:49.940887+00:00",
+      "sha256": "dbb593d5dc82da3689a68f40a5eda2d975451b5c0bcbf48483c63afde1167855"
+    },
+    "src/tower/executive_command.py": {
+      "group": "src",
+      "size_bytes": 15630,
+      "modified_ts": "2026-06-07T17:30:59.870348+00:00",
+      "sha256": "07612fcbbbdb0f10ff37581ee245438667b6fb753c03f5dc2b959aaaefcb2042"
+    },
+    "src/tower/worker_sandbox_sidecar.py": {
+      "group": "src",
+      "size_bytes": 6504,
+      "modified_ts": "2026-06-07T22:42:19.536500+00:00",
+      "sha256": "a4edd20e7a22ce5f5e17ed121185eebeed22e22804bfd73dfa9b003ce8d65a21"
+    },
+    "src/tower/openclaw_visual_sidecar.py": {
+      "group": "src",
+      "size_bytes": 3184,
+      "modified_ts": "2026-06-07T22:56:30.271936+00:00",
+      "sha256": "5658446c42b037e639184567e70214edf89dd4006fbd2154ed5e0066ae411bbf"
+    },
+    "src/tower/strategy_autoloop_correlation.py": {
+      "group": "src",
+      "size_bytes": 14333,
+      "modified_ts": "2026-06-07T23:26:22.080117+00:00",
+      "sha256": "a0494ac1e1138a23af4ce7cf69cb47073402c7ef997fbf9e64efc989990e2076"
+    },
+    "src/tower/penthouse_readiness.py": {
+      "group": "src",
+      "size_bytes": 15532,
+      "modified_ts": "2026-06-07T17:23:52.061674+00:00",
+      "sha256": "abe7818c92cd6694b2f6ecbf4066c141e814f7524feff5695ad914003362a523"
+    },
+    "src/tower/kernel_dialogue_adapter.py": {
+      "group": "src",
+      "size_bytes": 75511,
+      "modified_ts": "2026-06-09T09:17:02.196594+00:00",
+      "sha256": "a8e26629004e05d1a7a905f8992d9a572ad56ea18095b288b17b207aa37f8137"
+    },
+    "src/tower/stock_exchange_floor.py": {
+      "group": "src",
+      "size_bytes": 18702,
+      "modified_ts": "2026-06-08T10:27:10.848280+00:00",
+      "sha256": "1f3f3b5590c62230a6bdad82946ff350e7dd8196558e36c0563bfc2f1fd917e2"
+    },
+    "src/tower/eqsb_quantum_signal.py": {
+      "group": "src",
+      "size_bytes": 8696,
+      "modified_ts": "2026-06-09T07:09:44.986043+00:00",
+      "sha256": "91e8930dd5b4264bfb399b457e7d6dddf76fa7b702512266be016dcec7ad49a4"
+    },
+    "src/tower/eqsb_entropy.py": {
+      "group": "src",
+      "size_bytes": 8002,
+      "modified_ts": "2026-06-09T07:09:02.548928+00:00",
+      "sha256": "5e9137dab20ac537966d292a0ec1c418af600a14cbdca2df5181355c391f6f62"
+    },
+    "src/tower/eqsb_memory.py": {
+      "group": "src",
+      "size_bytes": 9058,
+      "modified_ts": "2026-06-09T07:06:00.861705+00:00",
+      "sha256": "c4d81ee5fb37965e12fd52f6b80f73d86c50e34dba17924be7577770f973dd34"
+    },
+    "src/tower/stock_paper_strategy.py": {
+      "group": "src",
+      "size_bytes": 11563,
+      "modified_ts": "2026-06-08T10:33:39.757325+00:00",
+      "sha256": "1b9f00e63d4b0491babce6a9209b0da752ed8d7578140d3a1966e827fc90bb2b"
+    },
+    "scripts/stop_sandbox_performance_sidecar.sh": {
+      "group": "scripts",
+      "size_bytes": 324,
+      "modified_ts": "2026-06-07T22:52:05.647693+00:00",
+      "sha256": "797efe065f7d54f878e9da6bcfe2c19c0c67dce7ff60231f40181e35e32b3765"
+    },
+    "scripts/eqsb_audit_current_architecture.sh": {
+      "group": "scripts",
+      "size_bytes": 621,
+      "modified_ts": "2026-06-08T19:22:48.683314+00:00",
+      "sha256": "25cfbb88374284ef5eaf10c6ff5608745c0ee33916c2b0f109caa1ae40831934"
+    },
+    "scripts/qsb_kernel_talk.sh": {
+      "group": "scripts",
+      "size_bytes": 162,
+      "modified_ts": "2026-06-07T21:50:13.423009+00:00",
+      "sha256": "975b498e6f1f2786764b601dcbb5c4f8877345586246e35f27478e07d9bfbad6"
+    },
+    "scripts/sandbox_autoloop_tick.sh": {
+      "group": "scripts",
+      "size_bytes": 304,
+      "modified_ts": "2026-06-07T23:02:32.017917+00:00",
+      "sha256": "f0c871b16d4d7709291d9430d096d826de337a5a12f3a94bb8870344907800a0"
+    },
+    "scripts/paper_trade_simulator_build.sh": {
+      "group": "scripts",
+      "size_bytes": 339,
+      "modified_ts": "2026-06-07T23:48:42.381443+00:00",
+      "sha256": "b7c64b6b91d362d896a6941cc70d8118a7465fe0a994711336e0ef307f02187b"
+    },
+    "scripts/eqsb_systems_check.sh": {
+      "group": "scripts",
+      "size_bytes": 341,
+      "modified_ts": "2026-06-09T07:25:05.374901+00:00",
+      "sha256": "b027838c05c2365915e8d8268646a6fab0c264a7bcd471419e08434a06f9dcc2"
+    },
+    "scripts/sync_ollama_inventory.sh": {
+      "group": "scripts",
+      "size_bytes": 259,
+      "modified_ts": "2026-06-07T16:11:50.278347+00:00",
+      "sha256": "7e70e7464995449e2f7ff18761f5454124fba9ace89e47719cf40798ed72bd31"
+    },
+    "scripts/cross_market_bus_build.sh": {
+      "group": "scripts",
+      "size_bytes": 833,
+      "modified_ts": "2026-06-08T10:36:05.417156+00:00",
+      "sha256": "d8a8ad6a7bd7a697a1d75913a957b1009ce9f56a5456d53f7b1a620a9c84b46f"
+    },
+    "scripts/final_active_kernel_preflight.sh": {
+      "group": "scripts",
+      "size_bytes": 3194,
+      "modified_ts": "2026-06-07T21:59:40.369887+00:00",
+      "sha256": "028399d8bee6c5226c76d3466ee4ed347444bb90f5b3f5dee1fa04f675d9bebe"
+    },
+    "scripts/activate_floor_01.sh": {
+      "group": "scripts",
+      "size_bytes": 625,
+      "modified_ts": "2026-06-07T18:02:02.923513+00:00",
+      "sha256": "aa781e5fcfe3a8b1cc252adbc5361fb4a517924e03d595a5f91b652814fcd075"
+    },
+    "scripts/run_strategy_intelligence_sidecar.sh": {
+      "group": "scripts",
+      "size_bytes": 847,
+      "modified_ts": "2026-06-07T23:12:04.501990+00:00",
+      "sha256": "3b2ed2eabb7f9582e081a0c3e49be81aa93c52b8b7eb6322efb5d9befcc5637c"
+    },
+    "scripts/eqsb_update_beliefs.sh": {
+      "group": "scripts",
+      "size_bytes": 256,
+      "modified_ts": "2026-06-09T07:24:43.801702+00:00",
+      "sha256": "45f4e285e0f4aaecaa67160b073c94e0601f58dd02731d27eb436e111dd27eef"
+    },
+    "scripts/model_routing_status.sh": {
+      "group": "scripts",
+      "size_bytes": 141,
+      "modified_ts": "2026-06-07T16:22:03.192420+00:00",
+      "sha256": "4806cc3c5f0e02ca48ed7f55bc91e6991851c089106a4c9f9aff2e27399d0492"
+    },
+    "scripts/qsb_boot_stack.sh": {
+      "group": "scripts",
+      "size_bytes": 5906,
+      "modified_ts": "2026-06-08T19:16:54.690834+00:00",
+      "sha256": "fdfa29ab44848dc077f0670f0012d851462650eaaeef9bd1f9da9522c629db77"
+    },
+    "scripts/eqsb_build_memory_policy.sh": {
+      "group": "scripts",
+      "size_bytes": 283,
+      "modified_ts": "2026-06-09T07:23:14.764524+00:00",
+      "sha256": "d4bf9210f8bc166bc25e01952ff7b030d7f4b81b25ff24dd69640193e9904bcc"
+    },
+    "scripts/sandbox_operations_status.sh": {
+      "group": "scripts",
+      "size_bytes": 135,
+      "modified_ts": "2026-06-07T18:21:43.120396+00:00",
+      "sha256": "2954480f5b24ca5f4ace914c86739b2a8dc3f7d74c417b599637c1c011afbc8e"
+    },
+    "scripts/run_sandbox_autoloop.sh": {
+      "group": "scripts",
+      "size_bytes": 967,
+      "modified_ts": "2026-06-07T23:02:32.020929+00:00",
+      "sha256": "562c094ad9c65cde9f93d2e410ad87cad1cf30596dad5e4c03e8989818dca832"
+    },
+    "scripts/stop_kernel_chat_sidecar.sh": {
+      "group": "scripts",
+      "size_bytes": 308,
+      "modified_ts": "2026-06-07T22:13:18.011437+00:00",
+      "sha256": "c592f0a6b66f6ce4eba2a2e042b46ff5a3af0a54ead3559167fb6cf017658685"
+    },
+    "scripts/activate_floor_20.sh": {
+      "group": "scripts",
+      "size_bytes": 625,
+      "modified_ts": "2026-06-07T18:02:02.924953+00:00",
+      "sha256": "cfab4955d301280ccbe24be95218b11f9d36f31feea773dab0268aaa05615e30"
+    },
+    "scripts/oanda_paper_strategy_status.sh": {
+      "group": "scripts",
+      "size_bytes": 280,
+      "modified_ts": "2026-06-07T22:33:12.072731+00:00",
+      "sha256": "f5244fbfa2a1105b73b1c177ac2fd25c10c3fe84c02baaf95f556c432342fde2"
+    },
+    "scripts/strategy_intelligence_run.sh": {
+      "group": "scripts",
+      "size_bytes": 395,
+      "modified_ts": "2026-06-07T23:12:04.498693+00:00",
+      "sha256": "dc3f7948f6f6b7d334d90e59643fe5fbf27894a6fc223b33a585ed8498f42d11"
+    },
+    "scripts/activate_floor_17.sh": {
+      "group": "scripts",
+      "size_bytes": 625,
+      "modified_ts": "2026-06-07T18:02:02.924737+00:00",
+      "sha256": "f867e26744da6a85fbdfced21f060bcbbeaf555f5b6a2a17a1cced1f8ba2b2ae"
+    },
+    "scripts/activate_floor_53.sh": {
+      "group": "scripts",
+      "size_bytes": 625,
+      "modified_ts": "2026-06-07T18:02:02.927392+00:00",
+      "sha256": "ce308ca64a7d22ab1a5bb0286027f5fb1e12ce0340e6dd74e4f6ab2bb6dcbc3f"
+    },
+    "scripts/refresh_integration_health.sh": {
+      "group": "scripts",
+      "size_bytes": 272,
+      "modified_ts": "2026-06-07T16:41:00.546983+00:00",
+      "sha256": "5d87d717a1a59decf81d570d28ba3c30a409cae67426fdb87b841c154714c06b"
+    },
+    "scripts/stop_strategy_intelligence_sidecar.sh": {
+      "group": "scripts",
+      "size_bytes": 454,
+      "modified_ts": "2026-06-07T23:12:04.503324+00:00",
+      "sha256": "e3a749110de2f869da170319950d382183993088fdcc77d6e74177456d4126b9"
+    },
+    "scripts/sandbox_autoloop_status.sh": {
+      "group": "scripts",
+      "size_bytes": 163,
+      "modified_ts": "2026-06-07T23:02:32.019463+00:00",
+      "sha256": "cecb4da480f335eae3ed532853e2849d0c7f576a7462721fe22fc7a7fe2598fa"
+    },
+    "scripts/activate_floor_48.sh": {
+      "group": "scripts",
+      "size_bytes": 625,
+      "modified_ts": "2026-06-07T18:02:02.927025+00:00",
+      "sha256": "574246d7cb13ead8787eb2873c0d4d04a209f8c5949d54146736427d0d8dca39"
+    },
+    "scripts/activate_floor_22.sh": {
+      "group": "scripts",
+      "size_bytes": 625,
+      "modified_ts": "2026-06-07T18:02:02.925109+00:00",
+      "sha256": "dc0aa49b7026b7d521c33159bbacf0953e44f5c13d8e742a262e59180801102e"
+    },
+    "scripts/refresh_adapter_health.sh": {
+      "group": "scripts",
+      "size_bytes": 257,
+      "modified_ts": "2026-06-07T16:38:54.791287+00:00",
+      "sha256": "38d9cc402b28e185040f27e2e5d7b6cee1df910dbf89c5c2b076bb9dc86712c4"
+    },
+    "scripts/activate_floor_34.sh": {
+      "group": "scripts",
+      "size_bytes": 625,
+      "modified_ts": "2026-06-07T18:02:02.926004+00:00",
+      "sha256": "788ae47655144707cd359351fc8a6ad1baadc23cf7d8d9c85be709b74d1b871e"
+    },
+    "scripts/run_floor25_prechecks.sh": {
+      "group": "scripts",
+      "size_bytes": 733,
+      "modified_ts": "2026-06-07T18:04:27.097073+00:00",
+      "sha256": "06cfe5753c1414444aee1e3e4d3f8e1787d7e179fb12a6de1c5944547032aa60"
+    },
+    "scripts/eqsb_generate_hypotheses.sh": {
+      "group": "scripts",
+      "size_bytes": 205,
+      "modified_ts": "2026-06-09T07:23:26.028270+00:00",
+      "sha256": "f1d0094683803b280d6bb91333ed25c58d77b416ce2b40c0d5d0ffeffe1c1a53"
+    },
+    "scripts/activate_floor_49.sh": {
+      "group": "scripts",
+      "size_bytes": 625,
+      "modified_ts": "2026-06-07T18:02:02.927102+00:00",
+      "sha256": "7732d063b310931e9de77511aa7228c3aab291c14ef64d2ac9138a412262d68e"
+    },
+    "scripts/activate_floor_50.sh": {
+      "group": "scripts",
+      "size_bytes": 625,
+      "modified_ts": "2026-06-07T18:02:02.927175+00:00",
+      "sha256": "82f3ebd89f058adb4afeec49472f72e1ca602cb6757111ad38be11779ca10b86"
+    },
+    "scripts/stop_paper_trade_simulator_sidecar.sh": {
+      "group": "scripts",
+      "size_bytes": 454,
+      "modified_ts": "2026-06-07T23:48:52.420639+00:00",
+      "sha256": "77ba79a010527a14f2c31e6083cf34426d170a9b58889db1c744780deabd6be5"
+    },
+    "scripts/activate_floor_33.sh": {
+      "group": "scripts",
+      "size_bytes": 625,
+      "modified_ts": "2026-06-07T18:02:02.925925+00:00",
+      "sha256": "728d673bef7db432e7a46a0cb827bbf3ed67b7ba3d5cf43b1da61dd2c68ee1bd"
+    },
+    "scripts/verify_dormant_kernel_import.sh": {
+      "group": "scripts",
+      "size_bytes": 2275,
+      "modified_ts": "2026-06-07T20:05:54.303474+00:00",
+      "sha256": "4e620b9d4799a5b7c9f89b535b80639ca2b193280102f0d57b11cfcbd5c87568"
+    },
+    "scripts/kernel_chat_sidecar_status.sh": {
+      "group": "scripts",
+      "size_bytes": 381,
+      "modified_ts": "2026-06-07T22:13:18.011476+00:00",
+      "sha256": "bc0afee363311b6ec9d63abace12a2dd3b5f71c708273851d92792af91bc0418"
+    },
+    "scripts/activate_floor_27.sh": {
+      "group": "scripts",
+      "size_bytes": 625,
+      "modified_ts": "2026-06-07T18:02:02.925482+00:00",
+      "sha256": "6d6a4d862f7bbbbe4b0ef9fc12d8c7b3f6969ac05e5ad66b9d25483477bad18e"
+    },
+    "scripts/activate_floor_52.sh": {
+      "group": "scripts",
+      "size_bytes": 625,
+      "modified_ts": "2026-06-07T18:02:02.927320+00:00",
+      "sha256": "80d035b3d7a3898dd4526f0b967f5c46b4f8e9e675cbcd4d4f1ada315e010603"
+    },
+    "scripts/qsb_full_recap.sh": {
+      "group": "scripts",
+      "size_bytes": 1096,
+      "modified_ts": "2026-06-08T11:21:14.251606+00:00",
+      "sha256": "8359b74f459369d97f76e464466fc77f60c63cf744dc254df85d59e40b640394"
+    },
+    "scripts/sandbox_performance_status.sh": {
+      "group": "scripts",
+      "size_bytes": 279,
+      "modified_ts": "2026-06-07T22:47:00.425898+00:00",
+      "sha256": "8a71ff4f68c18723c08e85bc1f91d83473e068419e20a3c7a72c7dcdc4676c91"
+    },
+    "scripts/monitoring_department_status.sh": {
+      "group": "scripts",
+      "size_bytes": 138,
+      "modified_ts": "2026-06-07T17:16:18.991880+00:00",
+      "sha256": "adc285f5bae5f9d74310ab93ea86972aa072499bf47b889467f8c6a4772be288"
+    },
+    "scripts/model_infrastructure_status.sh": {
+      "group": "scripts",
+      "size_bytes": 137,
+      "modified_ts": "2026-06-07T16:11:50.278300+00:00",
+      "sha256": "3fa36dfdc271c3f95c9566e5935667783c020b75abe4264c9f0944d92cb0069a"
+    },
+    "scripts/activate_floor_19.sh": {
+      "group": "scripts",
+      "size_bytes": 625,
+      "modified_ts": "2026-06-07T18:02:02.924880+00:00",
+      "sha256": "11f01ea34bf7dea76ce14756000a12036a46bb30ea526b923b28e84997b6042d"
+    },
+    "scripts/activate_floor_44.sh": {
+      "group": "scripts",
+      "size_bytes": 625,
+      "modified_ts": "2026-06-07T18:02:02.926726+00:00",
+      "sha256": "de30e3e298ff76a96598119289af08a3bc8c03ebfdadb089465c1424d9c66a6e"
+    },
+    "scripts/activate_floor_10.sh": {
+      "group": "scripts",
+      "size_bytes": 625,
+      "modified_ts": "2026-06-07T18:02:02.924235+00:00",
+      "sha256": "4cc815d6542caeb1af83434f245428f72c4933e9518a6892764d8d8eb6ecca3f"
+    },
+    "scripts/stock_floor_status.sh": {
+      "group": "scripts",
+      "size_bytes": 662,
+      "modified_ts": "2026-06-08T10:35:55.280674+00:00",
+      "sha256": "6a4de98d09deda450c5c7331cadf62f32730afb698020b74e082f37b378cdf75"
+    },
+    "scripts/activate_floor_26.sh": {
+      "group": "scripts",
+      "size_bytes": 625,
+      "modified_ts": "2026-06-07T18:02:02.925408+00:00",
+      "sha256": "f78f5ef237a957eaa26d7a8d2fbe183158a07bc232ca88b51bc9dd0accc9562c"
+    },
+    "scripts/activate_floor_45.sh": {
+      "group": "scripts",
+      "size_bytes": 625,
+      "modified_ts": "2026-06-07T18:02:02.926798+00:00",
+      "sha256": "f649b7edbb56cb2787f192203ac1967b9374bd6ba9d0d787a5551d32bbdf57dd"
+    },
+    "scripts/activate_floor_24.sh": {
+      "group": "scripts",
+      "size_bytes": 625,
+      "modified_ts": "2026-06-07T18:02:02.925258+00:00",
+      "sha256": "18f2ce2355e2b798b56515774d5a36733a1def387a8fdd02178ea4e3888ca717"
+    },
+    "scripts/run_oanda_floor41_sidecar.sh": {
+      "group": "scripts",
+      "size_bytes": 584,
+      "modified_ts": "2026-06-07T22:33:12.103323+00:00",
+      "sha256": "487f87ddd1bea0e0c04b7644aa02fae0f2d6a667811fc17ff2920db1927cb7d5"
+    },
+    "scripts/activate_floor_40.sh": {
+      "group": "scripts",
+      "size_bytes": 625,
+      "modified_ts": "2026-06-07T18:02:02.926440+00:00",
+      "sha256": "11922387e7514ebe6700c7c2cee5b9edf82a6d0f816997669aac12404788475c"
+    },
+    "scripts/qsb_dashboard_frontend_check.sh": {
+      "group": "scripts",
+      "size_bytes": 9684,
+      "modified_ts": "2026-06-09T09:15:01.245682+00:00",
+      "sha256": "f2da2b3a88aa1f9d53074f96e2bc372c19fe23a1f60fbdc7b953f807668adf65"
+    },
+    "scripts/stop_strategy_autoloop_correlation_sidecar.sh": {
+      "group": "scripts",
+      "size_bytes": 474,
+      "modified_ts": "2026-06-07T23:26:58.710884+00:00",
+      "sha256": "8a3527436784d72e6e574583c6ad007f6c2f1b8ec56a77abeb64222682e276d5"
+    },
+    "scripts/qsb_kernel_chat.sh": {
+      "group": "scripts",
+      "size_bytes": 167,
+      "modified_ts": "2026-06-07T21:58:17.021654+00:00",
+      "sha256": "dcfa59b8112b4c8f9302c7fbf44d20c813f86ab60869c7d8e73d375998758646"
+    },
+    "scripts/stop_worker_sandbox_sidecar.sh": {
+      "group": "scripts",
+      "size_bytes": 314,
+      "modified_ts": "2026-06-07T22:42:19.568886+00:00",
+      "sha256": "09d6b1e3f6967dfcf64c0e0e91708f360a3fd59ac7cdce4bfdd5a6d95c5f0617"
+    },
+    "scripts/rebased_kernel_unit_tests.sh": {
+      "group": "scripts",
+      "size_bytes": 2757,
+      "modified_ts": "2026-06-07T21:15:28.312391+00:00",
+      "sha256": "445e208d57744a1c8fa9120ab618244613a217fa22b5281463da1c6ba57571c4"
+    },
+    "scripts/run_penthouse_acceptance.sh": {
+      "group": "scripts",
+      "size_bytes": 392,
+      "modified_ts": "2026-06-07T17:23:52.061789+00:00",
+      "sha256": "0fba41fd02a5579213852fadaa4a06ce1ad577479202f71178d330bf591aed3f"
+    },
+    "scripts/local_model_inference_status.sh": {
+      "group": "scripts",
+      "size_bytes": 541,
+      "modified_ts": "2026-06-07T21:58:12.937037+00:00",
+      "sha256": "6795a5ef29a2fc2f5ae0952ad49c83303c592edb3731ed54e99e10474235404f"
+    },
+    "scripts/repro_kernel_core_recursion.sh": {
+      "group": "scripts",
+      "size_bytes": 4597,
+      "modified_ts": "2026-06-08T18:46:15.693897+00:00",
+      "sha256": "2b4f769065eb2ad43a5c62b7694a054a495a93ef8aae660f08147a890d4cd5cd"
+    },
+    "scripts/diagnostics_department_status.sh": {
+      "group": "scripts",
+      "size_bytes": 139,
+      "modified_ts": "2026-06-07T16:58:14.264677+00:00",
+      "sha256": "ed3ec842e71389d55289a0fa52a928dc35c47df866d9a22579e85f7973405fbe"
+    },
+    "scripts/stop_openclaw_visual_sidecar.sh": {
+      "group": "scripts",
+      "size_bytes": 316,
+      "modified_ts": "2026-06-07T22:56:30.325936+00:00",
+      "sha256": "0f30d2b0c6c84a0995e19c79cea049ece19d0286b5f8b85f9079b274b8ec1095"
+    },
+    "scripts/activate_floor_30.sh": {
+      "group": "scripts",
+      "size_bytes": 625,
+      "modified_ts": "2026-06-07T18:02:02.925703+00:00",
+      "sha256": "686ed71763280d2665b6f4a77cffbe5f875fee61d53d4600a28851a74b8e1f11"
+    },
+    "scripts/integration_services_status.sh": {
+      "group": "scripts",
+      "size_bytes": 137,
+      "modified_ts": "2026-06-07T16:41:00.546933+00:00",
+      "sha256": "ace6a44ea55824f9eefb044ffb0afb409f7f416f23e587a8747a845db5b19c2c"
+    },
+    "scripts/eqsb_detect_contradictions.sh": {
+      "group": "scripts",
+      "size_bytes": 270,
+      "modified_ts": "2026-06-09T07:24:35.057559+00:00",
+      "sha256": "b98fdbee85a3974b3c65e2e0bcc3359ac03496df198938a60537028676ed642f"
+    },
+    "scripts/activate_floor_31.sh": {
+      "group": "scripts",
+      "size_bytes": 625,
+      "modified_ts": "2026-06-07T18:02:02.925775+00:00",
+      "sha256": "c46989a39024e118ea1de52eb88f82fe4226de9b767fdf6be0f8d74cb76df2a9"
+    },
+    "scripts/activate_floor_43.sh": {
+      "group": "scripts",
+      "size_bytes": 625,
+      "modified_ts": "2026-06-07T18:02:02.926655+00:00",
+      "sha256": "9918adcefd5f2a3e6940155ecc332bacf14a98143d44b8d4a8516f2e904f097f"
+    },
+    "scripts/run_floor_33_diagnostics.sh": {
+      "group": "scripts",
+      "size_bytes": 403,
+      "modified_ts": "2026-06-07T16:58:14.264728+00:00",
+      "sha256": "4abc70e7fe4ef1952f6e3edccb5f6c32c2d21eee4948cbdbf021f1f147c9b053"
+    },
+    "scripts/run_all_tower_checks.sh": {
+      "group": "scripts",
+      "size_bytes": 1934,
+      "modified_ts": "2026-06-07T19:32:59.152457+00:00",
+      "sha256": "29ec85828aebac4c26c0e8c7051acdabd0269890a8fbd37c30daa17eb9d7a0be"
+    },
+    "scripts/refresh_provider_health.sh": {
+      "group": "scripts",
+      "size_bytes": 273,
+      "modified_ts": "2026-06-07T16:34:22.567315+00:00",
+      "sha256": "3bc800d57aeb6c6455ba19f4730a69e1e747b829d19850326e39e2b299c80bf3"
+    },
+    "scripts/dormant_kernel_path_rebase_status.sh": {
+      "group": "scripts",
+      "size_bytes": 3122,
+      "modified_ts": "2026-06-07T20:38:34.210118+00:00",
+      "sha256": "27232e099e6770336636e5a6a89fc7bb866d28e6882bf9530af6dbe1ca9a5fce"
+    },
+    "scripts/worker_recruitment_status.sh": {
+      "group": "scripts",
+      "size_bytes": 262,
+      "modified_ts": "2026-06-08T18:34:43.402577+00:00",
+      "sha256": "ba96f19bd3822b851e18fc03172ab52e96edbde319e3260344b4c74f39c84c33"
+    },
+    "scripts/activate_floor_06.sh": {
+      "group": "scripts",
+      "size_bytes": 625,
+      "modified_ts": "2026-06-07T18:02:02.923919+00:00",
+      "sha256": "9ec4abbede0a007b1267d3465f3179eae6cfa40ee0795aa45391570e626a7688"
+    },
+    "scripts/activate_floor_35.sh": {
+      "group": "scripts",
+      "size_bytes": 625,
+      "modified_ts": "2026-06-07T18:02:02.926079+00:00",
+      "sha256": "e0ba95137cf7ab8c72bf27dac81971cca3a03c8fd383bee6f2c1bef3e33ac59e"
+    },
+    "scripts/worker_sandbox_sidecar_status.sh": {
+      "group": "scripts",
+      "size_bytes": 393,
+      "modified_ts": "2026-06-07T22:42:19.570535+00:00",
+      "sha256": "b36b4741ec9acabf5f928cbb183e89cc34a7f1d25cfee92bfb121497bd8bba0e"
+    },
+    "scripts/oanda_kernel_commentary.sh": {
+      "group": "scripts",
+      "size_bytes": 2390,
+      "modified_ts": "2026-06-07T22:30:11.381596+00:00",
+      "sha256": "3a99f57c9b2f4d73e2cf0e739a33f5425fcc914f2609953e442065d5ed239e23"
+    },
+    "scripts/run_floor26_evaluation.sh": {
+      "group": "scripts",
+      "size_bytes": 905,
+      "modified_ts": "2026-06-07T18:14:26.765900+00:00",
+      "sha256": "dab3c5b371379b2fac8790df997a20a8a1a7ff80066f592c33d265a9f58a0bac"
+    },
+    "scripts/eqsb_kernel_self_audit.sh": {
+      "group": "scripts",
+      "size_bytes": 283,
+      "modified_ts": "2026-06-09T07:23:38.614897+00:00",
+      "sha256": "ebf46d5b61d401eb03fa9a94ea571d1f94582a43b8f32647beffba2c5c312c70"
+    },
+    "scripts/activate_floor_41.sh": {
+      "group": "scripts",
+      "size_bytes": 625,
+      "modified_ts": "2026-06-07T18:02:02.926512+00:00",
+      "sha256": "6ff7861a7f3c46e5e0f96968ec9d43fe98c1f913d5c9ea2f52960a24ceb0f1a6"
+    },
+    "scripts/model_evaluation_status.sh": {
+      "group": "scripts",
+      "size_bytes": 144,
+      "modified_ts": "2026-06-07T18:14:26.765826+00:00",
+      "sha256": "6b1c61991333757b43d723600e4e44ebdf8d0831b1bddc778730aa7f77fbd804"
+    },
+    "scripts/activate_floor_05.sh": {
+      "group": "scripts",
+      "size_bytes": 625,
+      "modified_ts": "2026-06-07T18:02:02.923845+00:00",
+      "sha256": "c3987d48e6c44367785254a9ae57a16259d3c1681dfca171093720d82686e401"
+    },
+    "scripts/foundation_completeness_status.sh": {
+      "group": "scripts",
+      "size_bytes": 140,
+      "modified_ts": "2026-06-07T18:02:02.929158+00:00",
+      "sha256": "f909b31d3fd1f07ec9247af860924cdb3f5780bff5de44be81ace5bb4aa22b7f"
+    },
+    "scripts/run_floor38_sandboxes.sh": {
+      "group": "scripts",
+      "size_bytes": 947,
+      "modified_ts": "2026-06-07T18:21:43.120467+00:00",
+      "sha256": "f50fb7019d77937a9f2bb3e65ab0d81efdfbc71103f85898f84df0ca894b08c9"
+    },
+    "scripts/eqsb_cadence_tick.sh": {
+      "group": "scripts",
+      "size_bytes": 260,
+      "modified_ts": "2026-06-09T07:23:08.684618+00:00",
+      "sha256": "deee84d03b7174f960d31dd73bad244cd879f28756491e79eab2843552ce7e7a"
+    },
+    "scripts/kernel_readiness_status.sh": {
+      "group": "scripts",
+      "size_bytes": 2187,
+      "modified_ts": "2026-06-07T19:32:31.753742+00:00",
+      "sha256": "96802e1646934673a631bef199477faf539697ff8ede22c6259b0957e240945a"
+    },
+    "scripts/animated_dashboard_status.sh": {
+      "group": "scripts",
+      "size_bytes": 144,
+      "modified_ts": "2026-06-07T17:35:06.980565+00:00",
+      "sha256": "af2864423690cd0aabffa47f4b90756f86e9afd25deb3d124d25bf1658bb60d0"
+    },
+    "scripts/oanda_trading_floor_status.sh": {
+      "group": "scripts",
+      "size_bytes": 517,
+      "modified_ts": "2026-06-07T22:20:52.878320+00:00",
+      "sha256": "cf48cfef69c0145a221b600aa90441f43e2950f01f0f84bd1a1d43d440619328"
+    },
+    "scripts/activate_floor_42.sh": {
+      "group": "scripts",
+      "size_bytes": 625,
+      "modified_ts": "2026-06-07T18:02:02.926583+00:00",
+      "sha256": "9a81062e9700fa9d0c1674110e6e6dee83ba8183f89adc81addd1bdc3506eefe"
+    },
+    "scripts/activate_floor_08.sh": {
+      "group": "scripts",
+      "size_bytes": 625,
+      "modified_ts": "2026-06-07T18:02:02.924080+00:00",
+      "sha256": "75210a9c6c5f6d4b3b373b22814c3faa22bdbcd2dbd976eedaaf4b68dc241ef6"
+    },
+    "scripts/activate_floor_04.sh": {
+      "group": "scripts",
+      "size_bytes": 625,
+      "modified_ts": "2026-06-07T18:02:02.923769+00:00",
+      "sha256": "909f213223c2e4620d7204dc68db58082dd406a9b8833655ea7999071f33a77d"
+    },
+    "scripts/eqsb_validate_model_lanes.sh": {
+      "group": "scripts",
+      "size_bytes": 215,
+      "modified_ts": "2026-06-09T07:23:30.240154+00:00",
+      "sha256": "dab91b45dcd5a5435294c26661e080aeb60ea3a20477fc5715286e90fe1fe9bd"
+    },
+    "scripts/model_worker_staging_status.sh": {
+      "group": "scripts",
+      "size_bytes": 2545,
+      "modified_ts": "2026-06-07T19:32:48.624566+00:00",
+      "sha256": "3ee491624d85c98960ee32980ef86d987799f9429790640ddd2bd137af9e8f7e"
+    },
+    "scripts/worker_sandbox_tick.sh": {
+      "group": "scripts",
+      "size_bytes": 375,
+      "modified_ts": "2026-06-07T22:39:29.112863+00:00",
+      "sha256": "583dd3a2f538e67050cfc67d7f36bec771f142086dc950c2e47f51ae81d17280"
+    },
+    "scripts/eqsb_build_axioms.sh": {
+      "group": "scripts",
+      "size_bytes": 264,
+      "modified_ts": "2026-06-09T07:24:56.461088+00:00",
+      "sha256": "ff05fbfc5fc86216ede70903fae2216b6c211b8ae5d2902cbf49d423e0e0bb1b"
+    },
+    "scripts/final_kernel_preflight.sh": {
+      "group": "scripts",
+      "size_bytes": 8495,
+      "modified_ts": "2026-06-07T19:33:32.188118+00:00",
+      "sha256": "44aa64c0c944325ac31606fc6a80d80f6574a55c3936b2ec5f7c38cfa4dff202"
+    },
+    "scripts/eqsb_build_symbols.sh": {
+      "group": "scripts",
+      "size_bytes": 217,
+      "modified_ts": "2026-06-09T07:23:20.909396+00:00",
+      "sha256": "535384e3f46c63aebc094eeaf0f377f38a92c8cab1acfc43a15b9e47bb1235cf"
+    },
+    "scripts/strategy_autoloop_correlation_build.sh": {
+      "group": "scripts",
+      "size_bytes": 363,
+      "modified_ts": "2026-06-07T23:26:47.757942+00:00",
+      "sha256": "6b1347a9140fac1cfee9f568058eedb7e01b0fc0b64e2bb62a09504cc0d08bcd"
+    },
+    "scripts/eqsb_build_introspection.sh": {
+      "group": "scripts",
+      "size_bytes": 372,
+      "modified_ts": "2026-06-09T07:23:54.803558+00:00",
+      "sha256": "5fa37a71084587bffe992bb748735ba750793fe8b0b3045c2585801cd96c40f8"
+    },
+    "scripts/paper_trade_simulator_status.sh": {
+      "group": "scripts",
+      "size_bytes": 283,
+      "modified_ts": "2026-06-07T23:48:44.450484+00:00",
+      "sha256": "13bda9b67b3b185a4aed299160d94b4de84498d6a7ed406c0b9530b6d801c740"
+    },
+    "scripts/activate_floor_21.sh": {
+      "group": "scripts",
+      "size_bytes": 625,
+      "modified_ts": "2026-06-07T18:02:02.925032+00:00",
+      "sha256": "d224745cb3c9b6c545432c0e0df137c6c4ccb89992024b463137df2b9a2dab8a"
+    },
+    "scripts/oanda_trading_floor_snapshot.sh": {
+      "group": "scripts",
+      "size_bytes": 331,
+      "modified_ts": "2026-06-07T22:20:52.879780+00:00",
+      "sha256": "f54a6c0924ada895ae07ba5f14c8129f0ee975d79bfb0f96f282db9b4dd8143e"
+    },
+    "scripts/run_kernel_chat_sidecar.sh": {
+      "group": "scripts",
+      "size_bytes": 576,
+      "modified_ts": "2026-06-07T22:13:18.011394+00:00",
+      "sha256": "f303e43d781d22bf32c68f72ddfb347a3b6a98cb2fb76eea9cb088949c706c33"
+    },
+    "scripts/infrastructure_services_status.sh": {
+      "group": "scripts",
+      "size_bytes": 140,
+      "modified_ts": "2026-06-07T17:19:49.940965+00:00",
+      "sha256": "77312b76098a83cdf752e985319679bb35d453671882c41ef66377ab913b50a2"
+    },
+    "scripts/adapter_systems_status.sh": {
+      "group": "scripts",
+      "size_bytes": 132,
+      "modified_ts": "2026-06-07T16:38:54.791239+00:00",
+      "sha256": "6139a5c0ae930b09dd44bc5b8c9c1364168c2f85e178afeb38106d71119b84aa"
+    },
+    "scripts/activate_floor_02.sh": {
+      "group": "scripts",
+      "size_bytes": 625,
+      "modified_ts": "2026-06-07T18:02:02.923609+00:00",
+      "sha256": "a01885dc2f724530952d4f768831d25ffd3d2d4b6ea8fdd9c5b7c89518c4ce13"
+    },
+    "scripts/strategy_intelligence_status.sh": {
+      "group": "scripts",
+      "size_bytes": 272,
+      "modified_ts": "2026-06-07T23:12:04.500162+00:00",
+      "sha256": "e315052bb793144639e9c4113bbe6d2cddf5e79a77505d37c6a990a79fec3ed3"
+    },
+    "scripts/activate_floor_37.sh": {
+      "group": "scripts",
+      "size_bytes": 625,
+      "modified_ts": "2026-06-07T18:02:02.926222+00:00",
+      "sha256": "0670b9da36161b04d27d614bc43e8c86c9ef5ff262560e4db5a07f296ece2665"
+    },
+    "scripts/activate_floor_18.sh": {
+      "group": "scripts",
+      "size_bytes": 625,
+      "modified_ts": "2026-06-07T18:02:02.924809+00:00",
+      "sha256": "d1afe99482d2d7aaba68332ef4990d150de1edbf4111e467cef105819c1fa106"
+    },
+    "scripts/sandbox_performance_quick.sh": {
+      "group": "scripts",
+      "size_bytes": 134,
+      "modified_ts": "2026-06-07T22:47:00.427897+00:00",
+      "sha256": "112ffaba83821a3e184640a4981b01fb61f0a5dfd164a64da456edbc43a90f7d"
+    },
+    "scripts/activate_floor_38.sh": {
+      "group": "scripts",
+      "size_bytes": 625,
+      "modified_ts": "2026-06-07T18:02:02.926294+00:00",
+      "sha256": "3b5cc26a7682affaeb98db37c313324f465b3f9808a01df8a106ec00bdbd1317"
+    },
+    "scripts/activate_floor_32.sh": {
+      "group": "scripts",
+      "size_bytes": 625,
+      "modified_ts": "2026-06-07T18:02:02.925853+00:00",
+      "sha256": "c7bde77f9be4aeeddf18470519095c109abf0b48a06e9df4d70986868d47ab24"
+    },
+    "scripts/seed_coding_department.sh": {
+      "group": "scripts",
+      "size_bytes": 523,
+      "modified_ts": "2026-06-07T16:19:16.205513+00:00",
+      "sha256": "510bb2afc74ab7075502f711f484b8c7c206689430492b281aadbb897ffbb732"
+    },
+    "scripts/strategy_autoloop_correlation_status.sh": {
+      "group": "scripts",
+      "size_bytes": 307,
+      "modified_ts": "2026-06-07T23:26:50.279925+00:00",
+      "sha256": "759fd5602bf6ca78f56fd90f4181586f740e29515a9bc9bac196ad6e807a7848"
+    },
+    "scripts/activate_floor_25.sh": {
+      "group": "scripts",
+      "size_bytes": 625,
+      "modified_ts": "2026-06-07T18:02:02.925335+00:00",
+      "sha256": "5cd3bc27da4eabbe4da6775eec6120237bc95dcc46bed1c88b279078b4499138"
+    },
+    "scripts/agent_coordination_status.sh": {
+      "group": "scripts",
+      "size_bytes": 135,
+      "modified_ts": "2026-06-07T18:04:27.097003+00:00",
+      "sha256": "9330d12962b98d2b6d857e0c1aaf0d16d6ee5fc91806568cfb68a270d7040ad7"
+    },
+    "scripts/local_model_operations_status.sh": {
+      "group": "scripts",
+      "size_bytes": 139,
+      "modified_ts": "2026-06-07T16:32:10.780204+00:00",
+      "sha256": "ca6c09795452d8312731af8572ddeda203138ac72082008f5d4f3326b9c8cec5"
+    },
+    "scripts/run_sandbox_performance_sidecar.sh": {
+      "group": "scripts",
+      "size_bytes": 616,
+      "modified_ts": "2026-06-07T22:52:05.645894+00:00",
+      "sha256": "bf872e1d534ab5d48d0de2015b35edea418835744ad1d898a1c92b26bcc43e76"
+    },
+    "scripts/eqsb_build_guardian_state.sh": {
+      "group": "scripts",
+      "size_bytes": 282,
+      "modified_ts": "2026-06-09T07:23:02.478674+00:00",
+      "sha256": "03be95b05ae8c60bf5dbc49ca52aadc637602b91b4872a90fb675d81b0e7880b"
+    },
+    "scripts/activate_floor_51.sh": {
+      "group": "scripts",
+      "size_bytes": 625,
+      "modified_ts": "2026-06-07T18:02:02.927247+00:00",
+      "sha256": "a3490776a2137fad36a90c02a5dd24813aba617470de5e02a1ce3db7c2516d39"
+    },
+    "scripts/executive_command_status.sh": {
+      "group": "scripts",
+      "size_bytes": 134,
+      "modified_ts": "2026-06-07T17:30:59.870417+00:00",
+      "sha256": "e2638b0280d88b4c8d718a41e717a8699d1bc7998a0a09b0483f5efeae41cec8"
+    },
+    "scripts/kernel_activation_gate_status.sh": {
+      "group": "scripts",
+      "size_bytes": 1960,
+      "modified_ts": "2026-06-07T20:51:20.230765+00:00",
+      "sha256": "77362e63189d2f04434a48f89d48fb03c1fa7e1b97156a900eaf9f5aa5024c1b"
+    },
+    "scripts/coding_department_status.sh": {
+      "group": "scripts",
+      "size_bytes": 134,
+      "modified_ts": "2026-06-07T16:19:16.205408+00:00",
+      "sha256": "867bb6cb8e08fed2928320cfd9daa5600d61d4fd41133739711475e195ffec03"
+    },
+    "scripts/sandbox_autoloop_tail.sh": {
+      "group": "scripts",
+      "size_bytes": 107,
+      "modified_ts": "2026-06-07T23:02:32.023551+00:00",
+      "sha256": "895c32289267aace01a5097dfc8f0ca82f6b6aaa1076d67910f93d79fe56a6d8"
+    },
+    "scripts/setup_binance_env.sh": {
+      "group": "scripts",
+      "size_bytes": 4389,
+      "modified_ts": "2026-06-08T08:47:43.075814+00:00",
+      "sha256": "ecc19e782869c295c43c0b1c8eb5c47a27489c73539628dab16c2f2d40e99bef"
+    },
+    "scripts/eqsb_compute_quantum_signal.sh": {
+      "group": "scripts",
+      "size_bytes": 345,
+      "modified_ts": "2026-06-09T07:24:25.735143+00:00",
+      "sha256": "5ad1aebaef6587ef62c8fa4e5b1f2a787b75cf3a50f8d6e2798a7255c41af707"
+    },
+    "scripts/security_spine_status.sh": {
+      "group": "scripts",
+      "size_bytes": 131,
+      "modified_ts": "2026-06-07T17:26:05.991738+00:00",
+      "sha256": "43deee4f0c6d55516c95c2f6be7a541e5e4efdbee05f86c2e178994f74b59928"
+    },
+    "scripts/snapshot_kernel_ready_state.sh": {
+      "group": "scripts",
+      "size_bytes": 1397,
+      "modified_ts": "2026-06-07T19:42:17.618196+00:00",
+      "sha256": "b1a09cf6d13fa9c14f4a821eda5ece12ef244553f60c4bcaa4f6e39f6fe738c4"
+    },
+    "scripts/qsb_env.sh": {
+      "group": "scripts",
+      "size_bytes": 1090,
+      "modified_ts": "2026-06-08T09:53:13.040867+00:00",
+      "sha256": "43ff106ea18ff8c7ebd4fd40da4ea0070a0aea7f15abff4bbc6d9c47ac4c150e"
+    },
+    "scripts/air_llm_operations_status.sh": {
+      "group": "scripts",
+      "size_bytes": 135,
+      "modified_ts": "2026-06-07T16:34:22.567268+00:00",
+      "sha256": "341d47b2d957d848a5a19cdd51a3f8be50182a54c3566e0eeb2567f4eb6ec9b3"
+    },
+    "scripts/security_spine_kernel_clearance_status.sh": {
+      "group": "scripts",
+      "size_bytes": 3331,
+      "modified_ts": "2026-06-07T21:21:13.819165+00:00",
+      "sha256": "0bddfd8e021289ef44caba4e5e9fc02e4741091a13375898b0da303be9a0d2bc"
+    },
+    "scripts/qsb_dashboard_health_check.sh": {
+      "group": "scripts",
+      "size_bytes": 9155,
+      "modified_ts": "2026-06-09T08:24:31.751969+00:00",
+      "sha256": "7b89fd6e0c5216f21fb5a865efeeeedf26109b35932d611b0a51b88e953710be"
+    },
+    "scripts/worker_sandbox_status.sh": {
+      "group": "scripts",
+      "size_bytes": 251,
+      "modified_ts": "2026-06-07T22:39:29.110528+00:00",
+      "sha256": "f7f1fc2c4b8eb6da06973947891b7c5a8ddcae426e9fb2d13e28dea896b45832"
+    },
+    "scripts/activate_floor_07.sh": {
+      "group": "scripts",
+      "size_bytes": 625,
+      "modified_ts": "2026-06-07T18:02:02.924001+00:00",
+      "sha256": "7a9f40f213bcb0000d7b0efc2de0d310083b253448859d6975bbf00336cba627"
+    },
+    "scripts/activate_floor_13.sh": {
+      "group": "scripts",
+      "size_bytes": 625,
+      "modified_ts": "2026-06-07T18:02:02.924449+00:00",
+      "sha256": "0b2aa96681aef2f57572409739fd54393952ccb99f38218e8c90d6f009853a37"
+    },
+    "scripts/interactive_dashboard_status.sh": {
+      "group": "scripts",
+      "size_bytes": 147,
+      "modified_ts": "2026-06-07T17:38:21.390311+00:00",
+      "sha256": "bbc3916a49832c5e1365117e4448de35d1bcaf14e461c679773cd6e17a14ffa2"
+    },
+    "scripts/run_strategy_autoloop_correlation_sidecar.sh": {
+      "group": "scripts",
+      "size_bytes": 874,
+      "modified_ts": "2026-06-07T23:26:55.297891+00:00",
+      "sha256": "79e6761e6370db936ec7c99869a6a4b681223ef6a163d8b11f24fe4c4ccd70d8"
+    },
+    "scripts/binance_market_snapshot.sh": {
+      "group": "scripts",
+      "size_bytes": 442,
+      "modified_ts": "2026-06-08T08:47:14.544379+00:00",
+      "sha256": "1b10588b1d79b7dff02321a554a58321764dd916d3d5353800466c7173c7ec6f"
+    },
+    "scripts/activate_floor_15.sh": {
+      "group": "scripts",
+      "size_bytes": 625,
+      "modified_ts": "2026-06-07T18:02:02.924590+00:00",
+      "sha256": "a6632111e1d9b4dce7bd4bea4fc3ce1bc2d8818469f1816629699f9628e89b62"
+    },
+    "scripts/cross_market_bus_status.sh": {
+      "group": "scripts",
+      "size_bytes": 493,
+      "modified_ts": "2026-06-08T10:36:07.775268+00:00",
+      "sha256": "b2d3eed00ec46831846251cedf0bf706ba65312506f85702ce34124c596228f3"
+    },
+    "scripts/activate_floor_12.sh": {
+      "group": "scripts",
+      "size_bytes": 625,
+      "modified_ts": "2026-06-07T18:02:02.924379+00:00",
+      "sha256": "cd5b47eba63a3ae070669daec23b42e42bf3c9dcea42ceefdf9b159cf936efcf"
+    },
+    "scripts/process_model_routes.sh": {
+      "group": "scripts",
+      "size_bytes": 367,
+      "modified_ts": "2026-06-07T16:22:03.192471+00:00",
+      "sha256": "11b038317aac9ecc4210f17ebe4236c1f52e7fdb330b1b0796376f4fecc870ba"
+    },
+    "scripts/eqsb_audit_current_kernel.sh": {
+      "group": "scripts",
+      "size_bytes": 557,
+      "modified_ts": "2026-06-09T07:22:57.664685+00:00",
+      "sha256": "ae2ae334a0b546a2f048c18ff5fcc443560f8315331125bce0ade241f9c9d912"
+    },
+    "scripts/activate_floor_29.sh": {
+      "group": "scripts",
+      "size_bytes": 625,
+      "modified_ts": "2026-06-07T18:02:02.925632+00:00",
+      "sha256": "2036b9b1d91948253a447ac0f576abe1125429dcb1644004b77ae541c32d80eb"
+    },
+    "scripts/run_executive_command_check.sh": {
+      "group": "scripts",
+      "size_bytes": 433,
+      "modified_ts": "2026-06-07T17:30:59.870470+00:00",
+      "sha256": "09fca8811f0cd660e5fd6e7e8b0b9ccb1ad7ecfa3deb66898a180747459ea2da"
+    },
+    "scripts/simulation_labs_status.sh": {
+      "group": "scripts",
+      "size_bytes": 132,
+      "modified_ts": "2026-06-07T18:19:52.402062+00:00",
+      "sha256": "8109c27848371068127aae1a36e3757e073f3251944f1a185a6b59d581f275f6"
+    },
+    "scripts/stock_paper_strategy.sh": {
+      "group": "scripts",
+      "size_bytes": 442,
+      "modified_ts": "2026-06-08T10:36:01.011948+00:00",
+      "sha256": "2b02c5c43e66f97190836e201d99d9426cf46031646fd1bb543773554e1f8586"
+    },
+    "scripts/oanda_paper_strategy_kernel_commentary.sh": {
+      "group": "scripts",
+      "size_bytes": 777,
+      "modified_ts": "2026-06-07T22:33:12.074398+00:00",
+      "sha256": "743d9dab4ff53902d388b3787438fc44b5fa8493509bf1627d724242ea123552"
+    },
+    "scripts/sandbox_performance_loop.sh": {
+      "group": "scripts",
+      "size_bytes": 539,
+      "modified_ts": "2026-06-07T22:47:00.423898+00:00",
+      "sha256": "0a219ee90686379f6e768d39b04fc41c6354bc7251d87a08d9c8e45df056f545"
+    },
+    "scripts/activate_floor_16.sh": {
+      "group": "scripts",
+      "size_bytes": 625,
+      "modified_ts": "2026-06-07T18:02:02.924664+00:00",
+      "sha256": "90287ee07432ac132466e501ccae0b505314e9f8216d0afa8e87aa8db1deb5d8"
+    },
+    "scripts/binance_paper_strategy.sh": {
+      "group": "scripts",
+      "size_bytes": 454,
+      "modified_ts": "2026-06-08T08:47:18.002701+00:00",
+      "sha256": "d686c3490766cf57bf5ffb909812d7abc51fa1fe93dfa953ef2eb16c63f4fc72"
+    },
+    "scripts/activate_floor_09.sh": {
+      "group": "scripts",
+      "size_bytes": 625,
+      "modified_ts": "2026-06-07T18:02:02.924162+00:00",
+      "sha256": "46e0fde3da4c9b03d44b555e14339fdb199c8c28ec4c15f032ab3c768c582a43"
+    },
+    "scripts/sync_local_model_inventory.sh": {
+      "group": "scripts",
+      "size_bytes": 357,
+      "modified_ts": "2026-06-07T16:32:10.780258+00:00",
+      "sha256": "6252831d08c5d5396644b1c5e1378fc3ce032bac340f88de2b6659426c936d87"
+    },
+    "scripts/run_floor_36_expansion.sh": {
+      "group": "scripts",
+      "size_bytes": 432,
+      "modified_ts": "2026-06-07T17:28:10.599577+00:00",
+      "sha256": "cfa19afcf5c12a567e4900f6b87e4a76341e3ab0db396e11541ad33dbc2023de"
+    },
+    "scripts/qsb_dashboard_start.sh": {
+      "group": "scripts",
+      "size_bytes": 2550,
+      "modified_ts": "2026-06-09T09:13:47.380044+00:00",
+      "sha256": "a0420b5982f33ab843b706bc438d48618f728ba7bc9f301853dbf2f36364045c"
+    },
+    "scripts/run_security_spine_check.sh": {
+      "group": "scripts",
+      "size_bytes": 412,
+      "modified_ts": "2026-06-07T17:26:05.991793+00:00",
+      "sha256": "78082b34e5463d7522e2a4fd872d02037e0d263473504c5eff6666e0d88d06ed"
+    },
+    "scripts/run_floor_35_infrastructure.sh": {
+      "group": "scripts",
+      "size_bytes": 813,
+      "modified_ts": "2026-06-07T17:19:49.941031+00:00",
+      "sha256": "b31310d5181f1df8501a89c0c71a48b2fc613a4207390e7062e7eef62d12e297"
+    },
+    "scripts/dormant_kernel_compatibility_review.sh": {
+      "group": "scripts",
+      "size_bytes": 3960,
+      "modified_ts": "2026-06-07T20:26:25.897017+00:00",
+      "sha256": "7b2bd1acc8fc606d63e25757a62db3312d5c1863ff60380acd4b91aedec10c1d"
+    },
+    "scripts/run_floor37_simulations.sh": {
+      "group": "scripts",
+      "size_bytes": 1018,
+      "modified_ts": "2026-06-07T18:19:52.402175+00:00",
+      "sha256": "50b7a3b6743fde3994ca4dcca8873779f98b0fd8a71518031ea335837ffca64a"
+    },
+    "scripts/eqsb_build_symbolic_graph.sh": {
+      "group": "scripts",
+      "size_bytes": 344,
+      "modified_ts": "2026-06-09T07:24:06.349409+00:00",
+      "sha256": "0088c6bfbe9a39c0a5a0ca8a8f5efdf34c2fc60f32b6eacd321dcc44d07ca8f7"
+    },
+    "scripts/activate_floor_23.sh": {
+      "group": "scripts",
+      "size_bytes": 625,
+      "modified_ts": "2026-06-07T18:02:02.925181+00:00",
+      "sha256": "33e957af2599da1ec1d0f141471f65da1f9e46b5bf5ea5e6e735205d2e1607fa"
+    },
+    "scripts/activate_floor_14.sh": {
+      "group": "scripts",
+      "size_bytes": 625,
+      "modified_ts": "2026-06-07T18:02:02.924520+00:00",
+      "sha256": "89883ebfc5672cf53633afc9f6c225e3c32db4b92a9be15ac50a2b2bf9444f10"
+    },
+    "scripts/run_paper_trade_simulator_sidecar.sh": {
+      "group": "scripts",
+      "size_bytes": 815,
+      "modified_ts": "2026-06-07T23:48:49.240577+00:00",
+      "sha256": "367570873ae544411c12e51792750abb3b9e4aefa8bb503814b6afcf87263e09"
+    },
+    "scripts/activate_floor_28.sh": {
+      "group": "scripts",
+      "size_bytes": 625,
+      "modified_ts": "2026-06-07T18:02:02.925560+00:00",
+      "sha256": "b44015990255a1c57101a80a0c43ca9da8dc2520cfe0d3bc642a19e77b438bc2"
+    },
+    "scripts/stop_oanda_floor41_sidecar.sh": {
+      "group": "scripts",
+      "size_bytes": 313,
+      "modified_ts": "2026-06-07T22:33:12.105322+00:00",
+      "sha256": "d8b479dede32ad196d49b1bcf9f8a6ec40c147eb447d43ea708f21f9e6828006"
+    },
+    "scripts/stock_market_snapshot.sh": {
+      "group": "scripts",
+      "size_bytes": 455,
+      "modified_ts": "2026-06-08T10:35:58.348821+00:00",
+      "sha256": "b6a4f5a08608dfbe8c94856c1822bc7da13b2924043a263f9719159aa69f5efb"
+    },
+    "scripts/dormant_kernel_status.sh": {
+      "group": "scripts",
+      "size_bytes": 2142,
+      "modified_ts": "2026-06-07T20:05:43.845559+00:00",
+      "sha256": "8c751571bbf2887e0648c91cd044b498052246d4e59254d277042e26cbd8322b"
+    },
+    "scripts/stop_sandbox_autoloop.sh": {
+      "group": "scripts",
+      "size_bytes": 431,
+      "modified_ts": "2026-06-07T23:02:32.022328+00:00",
+      "sha256": "74a99fa716e6e78f2081c873d5de20d7f8c090d5063736e197fa8871c6178a8d"
+    },
+    "scripts/worker_recruitment_candidates.sh": {
+      "group": "scripts",
+      "size_bytes": 264,
+      "modified_ts": "2026-06-08T18:34:48.142477+00:00",
+      "sha256": "14108e04d4e3db769f539d7be6e436528ea282ec95c5803080e43bc071b225c1"
+    },
+    "scripts/activate_floor_36.sh": {
+      "group": "scripts",
+      "size_bytes": 625,
+      "modified_ts": "2026-06-07T18:02:02.926151+00:00",
+      "sha256": "8aefb70691c3d4cca094504871b904e365467413f76a9d944b31c2aa233fca17"
+    },
+    "scripts/activate_floor_39.sh": {
+      "group": "scripts",
+      "size_bytes": 625,
+      "modified_ts": "2026-06-07T18:02:02.926368+00:00",
+      "sha256": "e79cec4d29b8c6b91fd37ea9e1726faefd01272b53b5ec032c25a0c23f357fce"
+    },
+    "scripts/penthouse_readiness_status.sh": {
+      "group": "scripts",
+      "size_bytes": 136,
+      "modified_ts": "2026-06-07T17:23:52.061739+00:00",
+      "sha256": "65ca3fa25f65010a0d2b52c5d586c030f6cd7ddf5138998448feb14c50fc88f0"
+    },
+    "scripts/activate_floor_11.sh": {
+      "group": "scripts",
+      "size_bytes": 625,
+      "modified_ts": "2026-06-07T18:02:02.924308+00:00",
+      "sha256": "12c52f79f1cd4f301762c1a7673d892062ee80b4e179a6c72eca5b203bca5cf5"
+    },
+    "scripts/worker_recruitment_tick.sh": {
+      "group": "scripts",
+      "size_bytes": 340,
+      "modified_ts": "2026-06-08T18:34:46.135520+00:00",
+      "sha256": "f4a1f1d7854288babc1947ff34bbab045409ceab24a5b58e7ab3082ea717d7b8"
+    },
+    "scripts/binance_floor_status.sh": {
+      "group": "scripts",
+      "size_bytes": 638,
+      "modified_ts": "2026-06-08T08:47:11.821120+00:00",
+      "sha256": "0e2f2f161b52b960cde5319832f1a607adc6748d3a61102cdaac7ba52b82b05a"
+    },
+    "scripts/setup_alpaca_env.sh": {
+      "group": "scripts",
+      "size_bytes": 4431,
+      "modified_ts": "2026-06-08T10:35:51.591496+00:00",
+      "sha256": "9a9bcba654c24b4090c917f2ab352483e64b284ef79b0e6da29bbe80f0663794"
+    },
+    "scripts/activate_floor_46.sh": {
+      "group": "scripts",
+      "size_bytes": 625,
+      "modified_ts": "2026-06-07T18:02:02.926871+00:00",
+      "sha256": "98c8e5a3bc34a617f987cc7aaf286b4a35744dfd14c45f172f0089b850eac32a"
+    },
+    "scripts/activate_floor_47.sh": {
+      "group": "scripts",
+      "size_bytes": 625,
+      "modified_ts": "2026-06-07T18:02:02.926943+00:00",
+      "sha256": "a587f512b47010b0a0c02bd0507e130248094c128c4ba893b502943dc654b805"
+    },
+    "scripts/expansion_planning_status.sh": {
+      "group": "scripts",
+      "size_bytes": 135,
+      "modified_ts": "2026-06-07T17:28:10.599527+00:00",
+      "sha256": "9624c7739164dcc55f54214933de605cb8d745ca6361a33e23a38a6f907ae907"
+    },
+    "scripts/activate_floor_03.sh": {
+      "group": "scripts",
+      "size_bytes": 625,
+      "modified_ts": "2026-06-07T18:02:02.923691+00:00",
+      "sha256": "5acea04b49818b1fd59d83cc30ae99e56b8ca67929e7d3356ada9c3a41f48955"
+    },
+    "scripts/run_openclaw_visual_sidecar.sh": {
+      "group": "scripts",
+      "size_bytes": 593,
+      "modified_ts": "2026-06-07T22:56:30.324662+00:00",
+      "sha256": "ec0145fe045949486c0b0f7f2d3f55e5dac32d4916c931e26fb8c17b37b2f051"
+    },
+    "scripts/openclaw_candidate_status.sh": {
+      "group": "scripts",
+      "size_bytes": 1704,
+      "modified_ts": "2026-06-07T19:32:41.829637+00:00",
+      "sha256": "f27be1cd692d885b9d250ad51aa618972e2fc504ab34a28b04cb4be8c383136f"
+    },
+    "scripts/run_floor_34_monitoring.sh": {
+      "group": "scripts",
+      "size_bytes": 1194,
+      "modified_ts": "2026-06-07T17:16:18.991947+00:00",
+      "sha256": "0694b60f686df9c91fb47d3bbbf1c22c07551ea2ee81d43308107782c181a89f"
+    },
+    "scripts/run_worker_sandbox_sidecar.sh": {
+      "group": "scripts",
+      "size_bytes": 594,
+      "modified_ts": "2026-06-07T22:42:19.566911+00:00",
+      "sha256": "9b58a71c1516f4bd515123327dc79a06467c27420c6e1f75ea35d5007bf5f9ee"
+    },
+    "scripts/eqsb_compute_entropy.sh": {
+      "group": "scripts",
+      "size_bytes": 257,
+      "modified_ts": "2026-06-09T07:24:14.439112+00:00",
+      "sha256": "5310b9c26fc2605e3c156ba5c7a780aefbc91685081ec249f8c125e171c11565"
+    },
+    "scripts/oanda_paper_strategy_lab.sh": {
+      "group": "scripts",
+      "size_bytes": 400,
+      "modified_ts": "2026-06-07T22:33:12.070869+00:00",
+      "sha256": "89fbbb45052ff1bc5ae3d3943f876c7b97e7f7b027c91df729e97daf37322379"
+    },
+    "src/dashboard/static/qsb_skyscraper_v3.js": {
+      "group": "dashboard_static",
+      "size_bytes": 15829,
+      "modified_ts": "2026-06-09T08:47:14.982716+00:00",
+      "sha256": "aa769cafebc94c9ce1a35c99604708073de17362a489896f357921dc3179ada4"
+    },
+    "src/dashboard/static/qsb_windows.js": {
+      "group": "dashboard_static",
+      "size_bytes": 5132,
+      "modified_ts": "2026-06-08T10:19:10.307255+00:00",
+      "sha256": "62b4491ac16da69ef946ea919bd7ff3136d50ef505909d506706dc559a42e939"
+    },
+    "src/dashboard/static/qsb_floor_interior.js": {
+      "group": "dashboard_static",
+      "size_bytes": 70947,
+      "modified_ts": "2026-06-08T18:38:45.205458+00:00",
+      "sha256": "1d6c410bca9036745461b8bd47d8988eec53f743214aa6dc5a25992b4b7e9591"
+    },
+    "src/dashboard/static/worker_voice.js": {
+      "group": "dashboard_static",
+      "size_bytes": 16641,
+      "modified_ts": "2026-06-08T16:02:26.998251+00:00",
+      "sha256": "783909f77ec847b2f95d2a8a94e5c127ff14fccf81fff88f5a0495ba6ea0aafb"
+    },
+    "src/dashboard/static/qsb_command_center.js": {
+      "group": "dashboard_static",
+      "size_bytes": 17581,
+      "modified_ts": "2026-06-09T09:12:31.168531+00:00",
+      "sha256": "681f41475e5569bda6d3e25991f797b487545e3c098b676216b8ba7ddf3f244a"
+    },
+    "src/dashboard/static/cockpit.js": {
+      "group": "dashboard_static",
+      "size_bytes": 136945,
+      "modified_ts": "2026-06-09T09:11:29.341807+00:00",
+      "sha256": "26444cb5e0d5260c4f3e1dadbf8ad9577ce94ad32fd7b99ae743b4da762d721d"
+    },
+    "src/dashboard/static/cockpit.css": {
+      "group": "dashboard_static",
+      "size_bytes": 44284,
+      "modified_ts": "2026-06-09T09:13:18.151604+00:00",
+      "sha256": "5120d8bd0d82b9799b1df044457731fad8425fd07ff80c497d3bc1fd1affdada"
+    },
+    "src/dashboard/static/index.html": {
+      "group": "dashboard_static",
+      "size_bytes": 12044,
+      "modified_ts": "2026-06-09T09:11:00.488427+00:00",
+      "sha256": "d520e85bf6c54ddfb59ffca34eca91848ce6c059e48d04d1a4160982e4e6142d"
+    },
+    "src/dashboard/static/qsb_v2_panel.js": {
+      "group": "dashboard_static",
+      "size_bytes": 8745,
+      "modified_ts": "2026-06-09T08:20:42.199172+00:00",
+      "sha256": "5011efbccc9b0887928b4e40a4472fc3b390651aa4274eef43bf50c42da8aa8a"
+    },
+    "src/dashboard/static/qsb_state.js": {
+      "group": "dashboard_static",
+      "size_bytes": 10232,
+      "modified_ts": "2026-06-08T10:49:40.151640+00:00",
+      "sha256": "371294833767d874c677e52e46c3a585dfa4b69becfbdb408da487435cc3f38f"
+    },
+    "src/dashboard/static/qsb_audio.js": {
+      "group": "dashboard_static",
+      "size_bytes": 7026,
+      "modified_ts": "2026-06-08T18:30:17.335177+00:00",
+      "sha256": "b19ebcfc4120c614303a5cc89880c457a888ebf1cba28638b9ed183289596d33"
+    },
+    "src/dashboard/static/qsb_scene.js": {
+      "group": "dashboard_static",
+      "size_bytes": 36948,
+      "modified_ts": "2026-06-09T08:41:23.446465+00:00",
+      "sha256": "e0c59f5b85f92e9e334b0d01425e979d68f537a19eef81058ceba47ab53865fe"
+    },
+    "src/dashboard/static/eqsb_penthouse.js": {
+      "group": "dashboard_static",
+      "size_bytes": 13466,
+      "modified_ts": "2026-06-09T08:20:57.332964+00:00",
+      "sha256": "f545fcc25fa0b28a17341710b5645e4412d3961d598bbdc373d7d6b128c8d6c7"
+    },
+    "src/dashboard/static/qsb_skyscraper_v2.js": {
+      "group": "dashboard_static",
+      "size_bytes": 14484,
+      "modified_ts": "2026-06-09T08:20:12.460581+00:00",
+      "sha256": "57ff8e28e09d5a00f004b992f1f512564a1b2766afe35f6d4eae80396df51b58"
+    },
+    "src/dashboard/static/qsb_tower_2d.js": {
+      "group": "dashboard_static",
+      "size_bytes": 37495,
+      "modified_ts": "2026-06-09T08:42:10.755784+00:00",
+      "sha256": "6b1593dd1150db2dfec7265577ae639d187afb8350c6777f5b45c18acce97012"
+    },
+    "data/registries/oanda_paper_strategy_latest.json": {
+      "group": "registries",
+      "size_bytes": 2697,
+      "modified_ts": "2026-06-08T21:13:59.454091+00:00",
+      "sha256": "34d379891e09cbbbf888fd0d8d7f4330ad83fae619fa816b9b8d45637b27d0a9"
+    },
+    "data/registries/kernel_readiness_latest.json": {
+      "group": "registries",
+      "size_bytes": 471,
+      "modified_ts": "2026-06-08T16:11:08.354926+00:00",
+      "sha256": "447f3638f83e5662675460033f5f63f762ec6c67ad2f83b3eb91187d1564f463"
+    },
+    "data/registries/local_model_role_recommendations.json": {
+      "group": "registries",
+      "size_bytes": 921,
+      "modified_ts": "2026-06-07T16:32:10.907658+00:00",
+      "sha256": "57372c30cbeb0900da320f0104547f50dde4c3244e932d37df6c66181e3c6b07"
+    },
+    "data/registries/eqsb_kernel_major_audit.json": {
+      "group": "registries",
+      "size_bytes": 5099,
+      "modified_ts": "2026-06-09T08:56:44.963537+00:00",
+      "sha256": "feb84ae345a8ca313b425bc186118988998fe9ae989a77b6fe7a4816cdb6e2ef"
+    },
+    "data/registries/lifts.json": {
+      "group": "registries",
+      "size_bytes": 5603,
+      "modified_ts": "2026-06-07T17:23:52.061268+00:00",
+      "sha256": "3047796153414a2c7c9df9c4b62d358b11d4055c29589764aabce45a5d4990ff"
+    },
+    "data/registries/eqsb_kernel_architecture_layers.json": {
+      "group": "registries",
+      "size_bytes": 8702,
+      "modified_ts": "2026-06-09T08:56:44.951316+00:00",
+      "sha256": "44e3d3fdbd7895fe181244369eb87689d767af6998ab5b4ce5ec9e9c52dbcd72"
+    },
+    "data/registries/eqsb_kernel_missing_capabilities.json": {
+      "group": "registries",
+      "size_bytes": 1542,
+      "modified_ts": "2026-06-09T08:56:44.963703+00:00",
+      "sha256": "3004d8be03d2b2762925118f23fde7fe95deaafa02508344a53525259c3186ec"
+    },
+    "data/registries/worker_sandbox_policy.json": {
+      "group": "registries",
+      "size_bytes": 1325,
+      "modified_ts": "2026-06-07T22:39:29.106528+00:00",
+      "sha256": "e457b67d5031ec1656d833ffdf66d283b4691c61a8a4b4e09e7cdbd4f9ffd32c"
+    },
+    "data/registries/kernel_dialogue_model_routing.json": {
+      "group": "registries",
+      "size_bytes": 378,
+      "modified_ts": "2026-06-07T21:58:17.018829+00:00",
+      "sha256": "e63efd185a82ce3fb333b95a3d254a0108aaf756adbdd9727fb7d9f4831dce8c"
+    },
+    "data/registries/eqsb_continuity_state.json": {
+      "group": "registries",
+      "size_bytes": 3105,
+      "modified_ts": "2026-06-09T08:56:44.952476+00:00",
+      "sha256": "c51371e2ee31440e90c973425b2d676824bf85847b89b417710d6d6bd83457c2"
+    },
+    "data/registries/eqsb_kernel_existing_capabilities.json": {
+      "group": "registries",
+      "size_bytes": 1946,
+      "modified_ts": "2026-06-09T08:56:44.963628+00:00",
+      "sha256": "ff1551859cf610af29dbf09973f381df218a204e30a0bee6908df318a162704e"
+    },
+    "data/registries/kernel_discovery_manifest.json": {
+      "group": "registries",
+      "size_bytes": 1039,
+      "modified_ts": "2026-06-07T21:38:48.826238+00:00",
+      "sha256": "38c8bfabbcfaec6794abb193c6df7acdf4a14fc7bff74c2c1f137321039df6c6"
+    },
+    "data/registries/sandbox_containment_rules.json": {
+      "group": "registries",
+      "size_bytes": 1508,
+      "modified_ts": "2026-06-07T18:21:43.119380+00:00",
+      "sha256": "bfdc8508a530fd243d1821a2ec957534424a4fc1e6a73a9e35d26e73cceb6772"
+    },
+    "data/registries/operator_kernel_approval.json": {
+      "group": "registries",
+      "size_bytes": 724,
+      "modified_ts": "2026-06-07T21:33:44.143609+00:00",
+      "sha256": "a3b9ceba089f784baeed3d76a831c09422227191113f107b55970a3fac6d98e5"
+    },
+    "data/registries/penthouse_policy.json": {
+      "group": "registries",
+      "size_bytes": 1725,
+      "modified_ts": "2026-06-09T08:31:56.000194+00:00",
+      "sha256": "dcc9ea16c38045f411b03bc2f5d3be85fb4a3b1b3624dbf80fb6152f3d89ea90"
+    },
+    "data/registries/floors.json": {
+      "group": "registries",
+      "size_bytes": 25589,
+      "modified_ts": "2026-06-08T18:32:20.464592+00:00",
+      "sha256": "819f6e25808dce5803692fc964b5fc2a821e9e700bcd3bb8c92cc076fc71a4e8"
+    },
+    "data/registries/adapter_policy.json": {
+      "group": "registries",
+      "size_bytes": 550,
+      "modified_ts": "2026-06-07T16:38:54.790486+00:00",
+      "sha256": "417e0bd4f154de85734aa5fe936b884c095ffd25699738657363e6eed16f12df"
+    },
+    "data/registries/dormant_kernel_import_manifest.json": {
+      "group": "registries",
+      "size_bytes": 3879,
+      "modified_ts": "2026-06-07T20:01:02.597830+00:00",
+      "sha256": "b8f3d80730cb2263eeb4e7cd3005571be38948645d1484f83cef34b3fd69db90"
+    },
+    "data/registries/worker_recruitment_agency_status.json": {
+      "group": "registries",
+      "size_bytes": 6750,
+      "modified_ts": "2026-06-09T09:31:16.195484+00:00",
+      "sha256": "9b5ca851b80e1c3998445bbbd84918d7139a3f88432224867570faf9445154b5"
+    },
+    "data/registries/qsb_trade_learning.json": {
+      "group": "registries",
+      "size_bytes": 1206,
+      "modified_ts": "2026-06-09T08:10:37.753134+00:00",
+      "sha256": "fcb6a182bc55bcba0a3569e1406582ac19b9d338da628bcae4c0cc1b4b73fad7"
+    },
+    "data/registries/qsb_command_center_audit.json": {
+      "group": "registries",
+      "size_bytes": 6577,
+      "modified_ts": "2026-06-09T09:17:18.782347+00:00",
+      "sha256": "160f6e75d614c54eee5271537c7bd920875bcb1bafa76304a26e91d179400e5a"
+    },
+    "data/registries/eqsb_hypothesis_state.json": {
+      "group": "registries",
+      "size_bytes": 12802,
+      "modified_ts": "2026-06-09T08:56:44.958302+00:00",
+      "sha256": "904317b713c3d0991b38274ca18c4aec0470f3cc6105cf075a7f665a94c261ac"
+    },
+    "data/registries/pixel_agent_candidate_registry.json": {
+      "group": "registries",
+      "size_bytes": 3885,
+      "modified_ts": "2026-06-07T19:29:47.769529+00:00",
+      "sha256": "949dbab8aa9a4b1f1f5cf3bc3556105311eb8a3185fecda9df9acb479372160b"
+    },
+    "data/registries/airllm_storage_status.json": {
+      "group": "registries",
+      "size_bytes": 2131,
+      "modified_ts": "2026-06-08T09:33:51.343765+00:00",
+      "sha256": "ba00624573053fcaeacea3e34ee9cc220dd4ef025bd113329459bd27b4e4f8ab"
+    },
+    "data/registries/integration_readiness_checks.json": {
+      "group": "registries",
+      "size_bytes": 1096,
+      "modified_ts": "2026-06-07T16:41:00.546237+00:00",
+      "sha256": "17ff2d3bc8a5e483506eeb06e1bc9093636bcfab77e8761a51c32345ea1f72fc"
+    },
+    "data/registries/security_spine_kernel_clearance_status.json": {
+      "group": "registries",
+      "size_bytes": 1382,
+      "modified_ts": "2026-06-07T21:33:44.143746+00:00",
+      "sha256": "aac3b3ebe1e6d9a81eaa12590f5e80ba6e28c8e6651b3a9b633a0847aed682fa"
+    },
+    "data/registries/integration_policy.json": {
+      "group": "registries",
+      "size_bytes": 738,
+      "modified_ts": "2026-06-07T16:41:00.545858+00:00",
+      "sha256": "feff49472cfb329eb9fda53be74d5c4c5a6dd6015259799962e89558a2cae82c"
+    },
+    "data/registries/expansion_policy.json": {
+      "group": "registries",
+      "size_bytes": 597,
+      "modified_ts": "2026-06-07T17:28:10.598239+00:00",
+      "sha256": "f5f8d9c06294b18c42299e00abe5dd1f81a6a68940002df7594808d774492da3"
+    },
+    "data/registries/qsb_dashboard_visual_audit.json": {
+      "group": "registries",
+      "size_bytes": 6447,
+      "modified_ts": "2026-06-09T09:17:18.736001+00:00",
+      "sha256": "cb661fd0bd42ecf76fac70835801b07950973c2186c287a82dda7942760540ec"
+    },
+    "data/registries/adapter_handoff_paths.json": {
+      "group": "registries",
+      "size_bytes": 1753,
+      "modified_ts": "2026-06-07T16:38:54.790411+00:00",
+      "sha256": "8eab08514f34f0452cd847bb277091a1130ca72acfc341f934f9ebedac91f258"
+    },
+    "data/registries/monitoring_policy.json": {
+      "group": "registries",
+      "size_bytes": 715,
+      "modified_ts": "2026-06-07T17:16:18.991089+00:00",
+      "sha256": "8da8c1f4b9298cadb217f268f17478efb873fa3c7f99d89cb8600121d2838108"
+    },
+    "data/registries/guardian_rules.json": {
+      "group": "registries",
+      "size_bytes": 1268,
+      "modified_ts": "2026-06-07T17:26:05.989616+00:00",
+      "sha256": "86d94698c072c55a5baed667ccad010f2019cd8ae4411c6082dbcff43b778b0c"
+    },
+    "data/registries/diagnostics_checks.json": {
+      "group": "registries",
+      "size_bytes": 3610,
+      "modified_ts": "2026-06-07T16:58:14.263995+00:00",
+      "sha256": "79cf481a35151bd4c6c0d073c220cc05eaf86f4ff785582f4409020c4a723a1d"
+    },
+    "data/registries/sandbox_autoloop_policy.json": {
+      "group": "registries",
+      "size_bytes": 997,
+      "modified_ts": "2026-06-07T23:02:32.016448+00:00",
+      "sha256": "3b40ed503f057caf94f3acf9749f2980324c1135edc8e230f0b9a88351cc0723"
+    },
+    "data/registries/qsb_worker_rewards.json": {
+      "group": "registries",
+      "size_bytes": 3799,
+      "modified_ts": "2026-06-09T09:17:18.698940+00:00",
+      "sha256": "5be27496f643eb7712556ce0cd7eede089d2ef22f8a81aba9ade4fc1f7af8e3c"
+    },
+    "data/registries/penthouse_security_precheck.json": {
+      "group": "registries",
+      "size_bytes": 411,
+      "modified_ts": "2026-06-07T17:23:52.060243+00:00",
+      "sha256": "032c3b8ac50a52d1a0a3853ca75b42d424f8815bd6030d266c615e793131ce24"
+    },
+    "data/registries/stock_market_snapshot_latest.json": {
+      "group": "registries",
+      "size_bytes": 1616,
+      "modified_ts": "2026-06-08T10:41:52.322279+00:00",
+      "sha256": "1a8d3cdc7cd989fcc2da63e49c4b471d614cc041dfe53c79b67478a943c71ad6"
+    },
+    "data/registries/simulation_scenarios.json": {
+      "group": "registries",
+      "size_bytes": 2894,
+      "modified_ts": "2026-06-07T18:19:52.401153+00:00",
+      "sha256": "a26d099fa7a193cb9cc999699ddec7820852ba16cb76f3493c9c3ef976712a71"
+    },
+    "data/registries/external_worker_candidates.json": {
+      "group": "registries",
+      "size_bytes": 3753,
+      "modified_ts": "2026-06-07T18:04:27.095640+00:00",
+      "sha256": "6f4df8e5ca7a8669973f9a330b3acc5dc8bcfc98dc0bdab190bfc7bb7f3b94ea"
+    },
+    "data/registries/kernel_activation_gate_policy.json": {
+      "group": "registries",
+      "size_bytes": 1478,
+      "modified_ts": "2026-06-07T20:47:52.150012+00:00",
+      "sha256": "dd59ee0aab5cfd1ef9d67a9acc8fad95d4f26d213d829c038b21eac2eefcfbb9"
+    },
+    "data/registries/sandbox_performance_latest.json": {
+      "group": "registries",
+      "size_bytes": 15481,
+      "modified_ts": "2026-06-08T21:13:28.936620+00:00",
+      "sha256": "2d89f15f4121b7a3a7d2babdd7b78433c302d97a56c9e9ac8d953f5cdd09870e"
+    },
+    "data/registries/qsb_lockdown_state.json": {
+      "group": "registries",
+      "size_bytes": 787,
+      "modified_ts": "2026-06-08T20:53:17.428908+00:00",
+      "sha256": "351e060442b5e0ae1491317524bf6bd46206072875657650ec8b3b9a9bd20237"
+    },
+    "data/registries/qsb_standalone_system_audit.json": {
+      "group": "registries",
+      "size_bytes": 41214,
+      "modified_ts": "2026-06-08T19:18:46.638780+00:00",
+      "sha256": "0ba621b1404800c6c95983ab887bf25444fbee287b0ebc2238291de7bab6ef75"
+    },
+    "data/registries/infrastructure_command_links.json": {
+      "group": "registries",
+      "size_bytes": 838,
+      "modified_ts": "2026-06-07T17:30:59.868740+00:00",
+      "sha256": "06199f3470d280c5db7d39fc162da27fe34808016ceed5f6a0a8f07abc61e3fc"
+    },
+    "data/registries/qsb_worker_awards.json": {
+      "group": "registries",
+      "size_bytes": 3662,
+      "modified_ts": "2026-06-09T09:17:18.699047+00:00",
+      "sha256": "d5bf002e147be81a6b95aab53223e3981c6d5f6d6d8da1e070a854df4ebe10bc"
+    },
+    "data/registries/resource_capacity.json": {
+      "group": "registries",
+      "size_bytes": 477,
+      "modified_ts": "2026-06-07T17:30:59.868488+00:00",
+      "sha256": "171b762cd70bd9a3e67357080c93a745b8f3169b4c3365d63117eaeb94da201c"
+    },
+    "data/registries/compliance_rules.json": {
+      "group": "registries",
+      "size_bytes": 1027,
+      "modified_ts": "2026-06-07T17:26:05.990215+00:00",
+      "sha256": "6a8319086fd8bc3ec4a6bba63b9a8bb0302f6380487ae86f66d153bb36e890ea"
+    },
+    "data/registries/vacant_floor_registry.json": {
+      "group": "registries",
+      "size_bytes": 3225,
+      "modified_ts": "2026-06-08T08:45:22.029013+00:00",
+      "sha256": "dbe304fed5cbe21ba4b8d0f0552674e2682e7d3ba440477c2535abfe5b63a925"
+    },
+    "data/registries/sandbox_operations_latest_runs.json": {
+      "group": "registries",
+      "size_bytes": 4098,
+      "modified_ts": "2026-06-09T09:18:28.557813+00:00",
+      "sha256": "459b1eb488d3eb3f25d820f069d6c67eae09dc9d6675bdc5579e4694e11d288a"
+    },
+    "data/registries/eqsb_memory_policy.json": {
+      "group": "registries",
+      "size_bytes": 3283,
+      "modified_ts": "2026-06-09T08:56:44.952244+00:00",
+      "sha256": "ca7be05d1a5debedfa29a38fc90db92a903246ec413c6af0664cd5a2467d9fef"
+    },
+    "data/registries/eqsb_cadence_state.json": {
+      "group": "registries",
+      "size_bytes": 3171,
+      "modified_ts": "2026-06-09T09:03:57.347543+00:00",
+      "sha256": "f5755929afc1f9ca4f0bf2287e3e3cdaf55835f9410d6bba088f3c6d72cfe354"
+    },
+    "data/registries/airllm_big_model_chamber.json": {
+      "group": "registries",
+      "size_bytes": 4106,
+      "modified_ts": "2026-06-08T09:33:39.459160+00:00",
+      "sha256": "908f82df62c40a2a3b38a054fe3e67a75b51f65b4e5d75f6a2998c93172962c8"
+    },
+    "data/registries/worker_sandbox_lift_packets_latest.json": {
+      "group": "registries",
+      "size_bytes": 11015,
+      "modified_ts": "2026-06-08T21:13:27.301486+00:00",
+      "sha256": "390b323df7309cfe772715dcbab45569e7c1f31fddf4e31cc3fc9763ee0fe21d"
+    },
+    "data/registries/external_handoff_paths.json": {
+      "group": "registries",
+      "size_bytes": 2035,
+      "modified_ts": "2026-06-07T16:34:22.566082+00:00",
+      "sha256": "88d4ac54c3ca23113114964625fc5353ac7a1441e57caa319089ccfaeeb3f0de"
+    },
+    "data/registries/executive_command_policy.json": {
+      "group": "registries",
+      "size_bytes": 1205,
+      "modified_ts": "2026-06-07T21:38:48.827331+00:00",
+      "sha256": "e8f12b83073ed1cbbac2997c0fe605ebda03635ff2dbc82b2760665507180ebb"
+    },
+    "data/registries/strategy_autoloop_correlation_latest.json": {
+      "group": "registries",
+      "size_bytes": 8016,
+      "modified_ts": "2026-06-08T00:29:31.007775+00:00",
+      "sha256": "5a0a009fcc6fe20ce8c6e0795eec7d0a553087d3293b2dc6e783d4ca93290234"
+    },
+    "data/registries/qsb_dashboard_frontend_check.json": {
+      "group": "registries",
+      "size_bytes": 1288,
+      "modified_ts": "2026-06-09T09:18:28.862261+00:00",
+      "sha256": "507a2b137d93fd7e8329293af0169e5d64599f54b566d543bd91b0fe214ae7d3"
+    },
+    "data/registries/qsb_dashboard_live_telemetry.json": {
+      "group": "registries",
+      "size_bytes": 204309,
+      "modified_ts": "2026-06-09T09:31:01.213789+00:00",
+      "sha256": "6cec8d22fe5daf3543b7dd8e90fb111f169d4660fc660fd9d1c9f6b703533a44"
+    },
+    "data/registries/model_routing_policies.json": {
+      "group": "registries",
+      "size_bytes": 1801,
+      "modified_ts": "2026-06-07T16:22:03.191788+00:00",
+      "sha256": "64ef407220274f60ab3b2212819979a194d542d5e112681f11a6bb017aa8d579"
+    },
+    "data/registries/eqsb_entropy_state.json": {
+      "group": "registries",
+      "size_bytes": 2435,
+      "modified_ts": "2026-06-09T08:56:44.956773+00:00",
+      "sha256": "0a94fed0b6328fdc193ada674de9d38e82eeb774d18419121c915322d0c0c32c"
+    },
+    "data/registries/model_request_paths.json": {
+      "group": "registries",
+      "size_bytes": 1901,
+      "modified_ts": "2026-06-07T16:11:50.277503+00:00",
+      "sha256": "4676d5a6e42db2c8393dc8b6b3c970be8e992af1f01cea6e1c76cd0314d46628"
+    },
+    "data/registries/qsb_worker_count_reconciliation.json": {
+      "group": "registries",
+      "size_bytes": 10780,
+      "modified_ts": "2026-06-09T09:17:18.678934+00:00",
+      "sha256": "0d42bdfa725f2768e438d4873d39e0b02191315ff2e976c79b3da8f8516f2bfa"
+    },
+    "data/registries/external_provider_capabilities.json": {
+      "group": "registries",
+      "size_bytes": 1988,
+      "modified_ts": "2026-06-07T16:34:22.565788+00:00",
+      "sha256": "e8822fdf597c5c31eb10bb4710d67e94d12c9cf416d84996924391e9706ac602"
+    },
+    "data/registries/model_routing_worker_slots.json": {
+      "group": "registries",
+      "size_bytes": 1048,
+      "modified_ts": "2026-06-07T16:22:03.191895+00:00",
+      "sha256": "3eb5e651f58c08a895d7b3a767992b865326e2ab40ef1e3859fcbc085bf9a9a5"
+    },
+    "data/registries/monitoring_watch_targets.json": {
+      "group": "registries",
+      "size_bytes": 1135,
+      "modified_ts": "2026-06-07T17:16:18.991211+00:00",
+      "sha256": "5ac7dfaccc6c98ab2677713b993d498df57a74bc2592d2f55739ac27d2c73a0d"
+    },
+    "data/registries/qsb_openclaw_trade_reports.json": {
+      "group": "registries",
+      "size_bytes": 4718,
+      "modified_ts": "2026-06-09T08:00:12.750360+00:00",
+      "sha256": "c1fe90f82ca5fb4cd1e6f78df48550b57d7d299421f67158f7524daea54492f8"
+    },
+    "data/registries/qsb_floor_name_map.json": {
+      "group": "registries",
+      "size_bytes": 2449,
+      "modified_ts": "2026-06-08T18:32:01.798985+00:00",
+      "sha256": "af2c1c722b74435a2c664fff777909a1b964089df1e2c0bbc8362a9a9b793fab"
+    },
+    "data/registries/kernel_monitoring_interface.json": {
+      "group": "registries",
+      "size_bytes": 881,
+      "modified_ts": "2026-06-07T21:38:48.825950+00:00",
+      "sha256": "dc7348491a254023664d39270eace7bc64817af367b2c1f35a65ec0047d9ca97"
+    },
+    "data/registries/eqsb_symbolic_graph.json": {
+      "group": "registries",
+      "size_bytes": 44589,
+      "modified_ts": "2026-06-09T08:56:44.955920+00:00",
+      "sha256": "360d58c916d6276c46b7bb354da18f1fed37d2d3a2b6f50190e6045fca18468d"
+    },
+    "data/registries/infrastructure_repair_hooks.json": {
+      "group": "registries",
+      "size_bytes": 772,
+      "modified_ts": "2026-06-07T17:19:49.940019+00:00",
+      "sha256": "e525a3c67b68a3e110fac4f5ba19436678c0b6260f4a009cb8bbabaa86016d77"
+    },
+    "data/registries/model_evaluation_criteria.json": {
+      "group": "registries",
+      "size_bytes": 1589,
+      "modified_ts": "2026-06-07T18:14:26.765111+00:00",
+      "sha256": "8293fcb2c788f152e43153160980d9b9b6ddb848321993beb01cc798fd4dc7de"
+    },
+    "data/registries/strategy_intelligence_latest.json": {
+      "group": "registries",
+      "size_bytes": 4459,
+      "modified_ts": "2026-06-08T00:25:35.298192+00:00",
+      "sha256": "52346d0bffbd23bea0c959b7ddd8973a2a13745dd0c97f543d72f1d65dfbf32b"
+    },
+    "data/registries/qsb_v2_full_system_recheck.json": {
+      "group": "registries",
+      "size_bytes": 1462,
+      "modified_ts": "2026-06-09T08:24:39.409861+00:00",
+      "sha256": "4b7222cc91be339d9e2c469d9743f27d900abe3bcd6b3e88a26f0776dbfbaa7e"
+    },
+    "data/registries/providers.json": {
+      "group": "registries",
+      "size_bytes": 1032,
+      "modified_ts": "2026-06-07T16:34:22.566473+00:00",
+      "sha256": "32eb3aa70dfa3ffc391ee03bf248635fa900a5dcbe593ccef56f22647923e8ba"
+    },
+    "data/registries/floor_53_penthouse_handoff.json": {
+      "group": "registries",
+      "size_bytes": 945,
+      "modified_ts": "2026-06-07T21:38:48.826498+00:00",
+      "sha256": "12a51f7101a2dd48ca62a2ee5d004e68e220fc4e61dce20d619535999a24fa51"
+    },
+    "data/registries/openclaw_sandbox_latest.json": {
+      "group": "registries",
+      "size_bytes": 9238,
+      "modified_ts": "2026-06-08T21:13:28.937553+00:00",
+      "sha256": "c7681d8f406c715111aabd1dbecc96f59556fc1aaee7da32d603a94e31e1b143"
+    },
+    "data/registries/model_evaluation_policy.json": {
+      "group": "registries",
+      "size_bytes": 874,
+      "modified_ts": "2026-06-07T18:14:26.764957+00:00",
+      "sha256": "f7d9821b7d035528dc596df7e203c65f343832cb0ec804ae65f6b3775496daff"
+    },
+    "data/registries/recruitment_workers.json": {
+      "group": "registries",
+      "size_bytes": 29447,
+      "modified_ts": "2026-06-09T09:31:16.194700+00:00",
+      "sha256": "da7931fb7528267a5fdcb360ec56a82011f9ca62f17c83b2d51f9578d0c5b500"
+    },
+    "data/registries/qsb_full_system_inventory.json": {
+      "group": "registries",
+      "size_bytes": 46017,
+      "modified_ts": "2026-06-08T14:52:28.576819+00:00",
+      "sha256": "b98f100eaa4d40674d5004338acec64bf597331bd88a29f498a4ad0d8566b2d9"
+    },
+    "data/registries/kernel_installation_socket.json": {
+      "group": "registries",
+      "size_bytes": 1044,
+      "modified_ts": "2026-06-07T21:38:48.825255+00:00",
+      "sha256": "2dc12cec34751fd38ea943b48a964406c62f708a7b278d01147088d562a0342c"
+    },
+    "data/registries/infrastructure_policy.json": {
+      "group": "registries",
+      "size_bytes": 598,
+      "modified_ts": "2026-06-07T17:19:49.939679+00:00",
+      "sha256": "42e40a7d44770347c85f09496297515aaa940403de958c2acec4c8a7d363d714"
+    },
+    "data/registries/coding_request_types.json": {
+      "group": "registries",
+      "size_bytes": 926,
+      "modified_ts": "2026-06-07T16:19:16.204872+00:00",
+      "sha256": "7e26e7120a66f27b3687964949cbc44ae0090ec4d801d43b64f6369d3b2984f5"
+    },
+    "data/registries/eqsb_axiom_registry.json": {
+      "group": "registries",
+      "size_bytes": 20013,
+      "modified_ts": "2026-06-09T08:56:44.951963+00:00",
+      "sha256": "08073d2fa9a85d868b641c4cfa1039fe2a97d7c8832c0b5c030ecfa6def14f47"
+    },
+    "data/registries/worker_onboarding_queue.json": {
+      "group": "registries",
+      "size_bytes": 6827,
+      "modified_ts": "2026-06-08T18:34:32.427267+00:00",
+      "sha256": "3f56268a5e91223b7e1ce4eaabd7edd4ec093f648c85ee5fb7d046f0877a052d"
+    },
+    "data/registries/qsb_dashboard_render_model.json": {
+      "group": "registries",
+      "size_bytes": 41225,
+      "modified_ts": "2026-06-08T18:39:54.539988+00:00",
+      "sha256": "78e6193fe2048f8a111f99ad6175850145fee4310b9360f8aab4f55faffec3ce"
+    },
+    "data/registries/qsb_kernel_collaboration_log.json": {
+      "group": "registries",
+      "size_bytes": 4821,
+      "modified_ts": "2026-06-08T19:20:09.314700+00:00",
+      "sha256": "95778ba6fac19d8badeb3bef08ab20daab8f5ef31c22b62528a952e3be7e0e6b"
+    },
+    "data/registries/eqsb_belief_lifecycle.json": {
+      "group": "registries",
+      "size_bytes": 18210,
+      "modified_ts": "2026-06-09T08:56:44.953136+00:00",
+      "sha256": "01cc044c6ec9b0ec886ecae76b736f6e8a77522098ed1b1d2a81af235f9dd62b"
+    },
+    "data/registries/lift_permissions.json": {
+      "group": "registries",
+      "size_bytes": 1250,
+      "modified_ts": "2026-06-07T17:26:05.989896+00:00",
+      "sha256": "b878412c9efcff459e2a09339429cb8cf2f31dfb364d96fb88edca85a568e501"
+    },
+    "data/registries/binance_floor_policy.json": {
+      "group": "registries",
+      "size_bytes": 1946,
+      "modified_ts": "2026-06-08T08:43:30.084759+00:00",
+      "sha256": "2518acc359a7927ca02eb1c25033de8c984ac579d858956c4117c57c93197fa6"
+    },
+    "data/registries/eqsb_guardian_state.json": {
+      "group": "registries",
+      "size_bytes": 2890,
+      "modified_ts": "2026-06-09T08:56:44.959818+00:00",
+      "sha256": "a7940622e5b92c37b3701735f3b19560570636b65d590594f094c5590ac656cf"
+    },
+    "data/registries/agent_coordination_policy.json": {
+      "group": "registries",
+      "size_bytes": 955,
+      "modified_ts": "2026-06-07T18:04:27.095305+00:00",
+      "sha256": "b2edbcf8430f34061b63471e9acf9e3c349403371af49f26f662924500def600"
+    },
+    "data/registries/permission_roles.json": {
+      "group": "registries",
+      "size_bytes": 1086,
+      "modified_ts": "2026-06-07T17:26:05.989720+00:00",
+      "sha256": "45fc36a186636f5f3f50684c70700600143ceed0627ef5847a1beb6e6598e625"
+    },
+    "data/registries/qsb_dashboard_rebuild_decision.json": {
+      "group": "registries",
+      "size_bytes": 1385,
+      "modified_ts": "2026-06-09T09:17:18.782547+00:00",
+      "sha256": "45cd80369e9fbc3123df8c2cfbf3b29fba59752c322c08d6564379c243d4e0c9"
+    },
+    "data/registries/kernel_activation_gate_status.json": {
+      "group": "registries",
+      "size_bytes": 2947,
+      "modified_ts": "2026-06-07T21:27:00.561082+00:00",
+      "sha256": "45f5fb5891b65b86673c65d14760fb7f13a0b32bb529994b7e2690ff79365d52"
+    },
+    "data/registries/local_model_inference_status.json": {
+      "group": "registries",
+      "size_bytes": 1124,
+      "modified_ts": "2026-06-09T08:54:49.127376+00:00",
+      "sha256": "b94571aab96ed82b47a4b044c68f687b53bc84e0a670b5917d3729b1030b4c13"
+    },
+    "data/registries/provider_sockets.json": {
+      "group": "registries",
+      "size_bytes": 2227,
+      "modified_ts": "2026-06-07T16:34:22.566282+00:00",
+      "sha256": "7f56cb64be377f17f4d43ee234cbe2c20db2e9f274b7a0ada4ba49c1226fafde"
+    },
+    "data/registries/local_model_inventory_policy.json": {
+      "group": "registries",
+      "size_bytes": 469,
+      "modified_ts": "2026-06-07T16:32:10.779678+00:00",
+      "sha256": "b3b24f55f81d5a498f5ce5c043c62b911b47d16c7a36df049bbd22c475d3c952"
+    },
+    "data/registries/building_governance_rules.json": {
+      "group": "registries",
+      "size_bytes": 1056,
+      "modified_ts": "2026-06-07T17:30:59.868584+00:00",
+      "sha256": "b9cb9a6e1c006ad593fd02a46ebada4b96b1ef218574b004213732464abfb102"
+    },
+    "data/registries/executive_command_channels.json": {
+      "group": "registries",
+      "size_bytes": 1870,
+      "modified_ts": "2026-06-07T17:30:59.868327+00:00",
+      "sha256": "232427fef2f9536e7831ab61614a17c246deb84753453efa2738bd2ceb7668cb"
+    },
+    "data/registries/worker_candidate_registry.json": {
+      "group": "registries",
+      "size_bytes": 38934,
+      "modified_ts": "2026-06-08T18:42:17.571234+00:00",
+      "sha256": "562758531548ae0afd708c4238cde82646433bf8dc598cd9d084e69f9ed91286"
+    },
+    "data/registries/adapter_capabilities.json": {
+      "group": "registries",
+      "size_bytes": 1973,
+      "modified_ts": "2026-06-07T16:38:54.790305+00:00",
+      "sha256": "60d03125c7a6fa863435edb0f152cca2c24090ab75bb9fe0d5e916a59ddc9941"
+    },
+    "data/registries/cross_market_correlation_latest.json": {
+      "group": "registries",
+      "size_bytes": 1059,
+      "modified_ts": "2026-06-08T10:42:07.309532+00:00",
+      "sha256": "d179d3c506960d44d7a7ab983820bdbebc8e7ccf132c832427266e511d7f202a"
+    },
+    "data/registries/security_gates.json": {
+      "group": "registries",
+      "size_bytes": 1189,
+      "modified_ts": "2026-06-07T17:26:05.989507+00:00",
+      "sha256": "0ea5dda86146f4dd6b8e6842e45d323d2cff402e2823f4370f5e9b93eeb7e1f4"
+    },
+    "data/registries/floor41_paper_ledger.json": {
+      "group": "registries",
+      "size_bytes": 603235,
+      "modified_ts": "2026-06-08T21:13:59.463230+00:00",
+      "sha256": "40b0a34d067239244d237d5a08edbe1f84344ca7779268b3de0c5fa7d78444e0"
+    },
+    "data/registries/agent_worker_slots.json": {
+      "group": "registries",
+      "size_bytes": 2455,
+      "modified_ts": "2026-06-07T18:04:27.095462+00:00",
+      "sha256": "372a3238f10fba9efaf8178e8a2bee7aff2b96c4435a8386855dc00bdf376f9c"
+    },
+    "data/registries/coding_workspaces.json": {
+      "group": "registries",
+      "size_bytes": 924,
+      "modified_ts": "2026-06-07T16:19:16.204643+00:00",
+      "sha256": "43ae187f4b9320af22cfb309610a732e7b83f76b7f2cff6dd7daff49182eaa0f"
+    },
+    "data/registries/executive_floors.json": {
+      "group": "registries",
+      "size_bytes": 2232,
+      "modified_ts": "2026-06-07T17:30:59.868203+00:00",
+      "sha256": "e0d018fb4aec044bf41bd586f473d322db0771112b9cfe56283edf9523d0c8be"
+    },
+    "data/registries/binance_floor_status.json": {
+      "group": "registries",
+      "size_bytes": 1536,
+      "modified_ts": "2026-06-08T09:22:54.418429+00:00",
+      "sha256": "8dcf724feaee273620a10cb7aaa3d596bca98afe42590e66175d801905e0add0"
+    },
+    "data/registries/standby_kernel_import_manifest.json": {
+      "group": "registries",
+      "size_bytes": 4444,
+      "modified_ts": "2026-06-07T19:50:02.106489+00:00",
+      "sha256": "db886bf24dcd9742e8669dc812b888a709c5c07d5bb13a34746a818dd812c797"
+    },
+    "data/registries/adapter_candidate_registry.json": {
+      "group": "registries",
+      "size_bytes": 5508,
+      "modified_ts": "2026-06-07T19:30:31.196040+00:00",
+      "sha256": "b3c7f838699678605e3af80c94fc3414a3d57aa4aed2001fb32ff4ef9f793ac8"
+    },
+    "data/registries/qsb_worker_promotions.json": {
+      "group": "registries",
+      "size_bytes": 1539,
+      "modified_ts": "2026-06-09T09:17:18.699238+00:00",
+      "sha256": "babb90f907f269dd6dc9951309af94681d0956d308c4da57a490287d5b5a9a2c"
+    },
+    "data/registries/future_department_blueprints.json": {
+      "group": "registries",
+      "size_bytes": 1699,
+      "modified_ts": "2026-06-07T17:28:10.598516+00:00",
+      "sha256": "fa8da8e4e495035ace58eb29d81a94aad4bc12bcbfd0a799734248ddea489c69"
+    },
+    "data/registries/eqsb_quantum_signal_state.json": {
+      "group": "registries",
+      "size_bytes": 3574,
+      "modified_ts": "2026-06-09T08:56:44.957645+00:00",
+      "sha256": "c4a5de3082d209c688ad6c2431b4450a0a97cef5a3eb55613cb6ea78c424af01"
+    },
+    "data/registries/qsb_new_workers_employed.json": {
+      "group": "registries",
+      "size_bytes": 20368,
+      "modified_ts": "2026-06-09T09:17:18.679140+00:00",
+      "sha256": "7a6acc8e111421984c2bbace401e6c3a04b2649dd937a6cd6dc975995076da2d"
+    },
+    "data/registries/eqsb_contradiction_report.json": {
+      "group": "registries",
+      "size_bytes": 1747,
+      "modified_ts": "2026-06-09T08:56:44.959028+00:00",
+      "sha256": "42d068120a4a4f8de592024f9825cb0c1186965876201bbf578ca145a9f7f61c"
+    },
+    "data/registries/eqsb_kernel_self_audit.json": {
+      "group": "registries",
+      "size_bytes": 1865,
+      "modified_ts": "2026-06-09T08:56:44.963131+00:00",
+      "sha256": "60a4948f8588791df530b2cc5fe0f73be890b2024079533495b97dc6b96ebf56"
+    },
+    "data/registries/paper_trade_simulator_latest.json": {
+      "group": "registries",
+      "size_bytes": 6780,
+      "modified_ts": "2026-06-08T08:28:50.908057+00:00",
+      "sha256": "2f8aae10a528bfef655fecd6f14e5e5807aea13cb5700916d918f062e8c605cd"
+    },
+    "data/registries/rebased_kernel_unit_test_report.json": {
+      "group": "registries",
+      "size_bytes": 902,
+      "modified_ts": "2026-06-07T21:15:59.560909+00:00",
+      "sha256": "36815def46453fd37c518c078e95cfc81d57861b00649b22f961a40bb3a74642"
+    },
+    "data/registries/qsb_openclaw_state.json": {
+      "group": "registries",
+      "size_bytes": 4261,
+      "modified_ts": "2026-06-09T08:00:12.748151+00:00",
+      "sha256": "1fd680a57765d5eae45f60d5b368275e16675904eb76d2cbb67a252602399cdb"
+    },
+    "data/registries/audit_policy.json": {
+      "group": "registries",
+      "size_bytes": 295,
+      "modified_ts": "2026-06-07T17:26:05.990052+00:00",
+      "sha256": "6a629cbbb0473e628b0d5a6f61bf9396c478dd0b733f819c93335de5a77403ca"
+    },
+    "data/registries/practice_order_gate_checklist.json": {
+      "group": "registries",
+      "size_bytes": 4957,
+      "modified_ts": "2026-06-07T23:47:22.415718+00:00",
+      "sha256": "2b452977af9208f518a84a9bb43559eb04f9669576f4b52921fba332187c8f5d"
+    },
+    "data/registries/qsb_worker_discipline.json": {
+      "group": "registries",
+      "size_bytes": 1356,
+      "modified_ts": "2026-06-09T09:17:18.699131+00:00",
+      "sha256": "9ba2b08110fe927479d6f2b6346bce411e799d453bbeef7794b27e8370c8224c"
+    },
+    "data/registries/cross_market_bus_latest.json": {
+      "group": "registries",
+      "size_bytes": 5541,
+      "modified_ts": "2026-06-08T10:42:07.309404+00:00",
+      "sha256": "a97cd43c75e70cc25e276788f661240b4b166407616a297c4c5d89aa54f007ce"
+    },
+    "data/registries/oanda_trading_floor_status.json": {
+      "group": "registries",
+      "size_bytes": 1005,
+      "modified_ts": "2026-06-08T21:13:58.941262+00:00",
+      "sha256": "f1acfdc8f8e9265102583df74108f00468746e142b72352f7b2329df2b14cefd"
+    },
+    "data/registries/eqsb_symbol_registry.json": {
+      "group": "registries",
+      "size_bytes": 10294,
+      "modified_ts": "2026-06-09T08:56:44.953503+00:00",
+      "sha256": "40fa49a9124001d7f9f052678594204463e686af6a94cdc0fed97b1e318e86fe"
+    },
+    "data/registries/eqsb_kernel_upgrade_plan.json": {
+      "group": "registries",
+      "size_bytes": 1816,
+      "modified_ts": "2026-06-09T08:56:44.963779+00:00",
+      "sha256": "63c441fc2f22ebb3e615c989dd91e89b95f8e0890a73c01efa0b1ee2b01d47c1"
+    },
+    "data/registries/worker_recruitment_prechecks.json": {
+      "group": "registries",
+      "size_bytes": 1011,
+      "modified_ts": "2026-06-07T18:04:27.095828+00:00",
+      "sha256": "d03f34d7ac86b13a3426919a6f65e483d2e870c6ab3b32f3366771163be84bcb"
+    },
+    "data/registries/kernel_health_display.json": {
+      "group": "registries",
+      "size_bytes": 752,
+      "modified_ts": "2026-06-07T21:38:48.825620+00:00",
+      "sha256": "7e5e6fc7f16f88d83840431be500fe26a17bde9e4e44ebdba697c097796d9e5b"
+    },
+    "data/registries/model_chambers_registry.json": {
+      "group": "registries",
+      "size_bytes": 1978,
+      "modified_ts": "2026-06-08T09:33:58.953244+00:00",
+      "sha256": "6c79230217b6e46c9649b4700e16b1fbeab988f3c1e90da14337e7a83e22721c"
+    },
+    "data/registries/vacant_floor_activation_hooks.json": {
+      "group": "registries",
+      "size_bytes": 2492,
+      "modified_ts": "2026-06-07T17:28:10.598636+00:00",
+      "sha256": "24ec9f6413f7f0deffaef82741f878deee1420d98a83bb54c7597e4ff7deb61f"
+    },
+    "data/registries/worker_sandbox_latest_tick.json": {
+      "group": "registries",
+      "size_bytes": 20052,
+      "modified_ts": "2026-06-08T21:13:27.301050+00:00",
+      "sha256": "410c2bbc2b5aa361393989d718c3dd50e6177833e7ff0777ef5ff17bd1fc85fe"
+    },
+    "data/registries/qsb_worker_scorecards.json": {
+      "group": "registries",
+      "size_bytes": 127154,
+      "modified_ts": "2026-06-09T09:17:18.698663+00:00",
+      "sha256": "4ea8eaad9ca58d62dec2a9f36f4b4e10ecbcaf714d5c81b3e9f8f5a7aa6e9808"
+    },
+    "data/registries/stock_paper_strategy_latest.json": {
+      "group": "registries",
+      "size_bytes": 11249,
+      "modified_ts": "2026-06-08T10:41:52.355872+00:00",
+      "sha256": "1c67adce4f87e327456913802bd56d3b86db6de5547e346a691eb5b72b3c95c3"
+    },
+    "data/registries/tower_command_handoff.json": {
+      "group": "registries",
+      "size_bytes": 1050,
+      "modified_ts": "2026-06-07T21:38:48.826753+00:00",
+      "sha256": "2d4ac71a77afcf35c4846a232bd75e3bdfab47846d0d2060a4eef7570662d74c"
+    },
+    "data/registries/eqsb_existing_capabilities_map.json": {
+      "group": "registries",
+      "size_bytes": 3133,
+      "modified_ts": "2026-06-09T08:56:44.943305+00:00",
+      "sha256": "dfd8759bbb5e7c84187323cb4542faf8c80a069145f5d1977cd77043f4851ec6"
+    },
+    "data/registries/simulation_labs_latest_runs.json": {
+      "group": "registries",
+      "size_bytes": 10956,
+      "modified_ts": "2026-06-09T09:18:28.557068+00:00",
+      "sha256": "0577d4e29d2c0a68daddda81e1468937e295a82c189b9bb0daf196f9e9c73a1c"
+    },
+    "data/registries/foundation_completeness_v13a.json": {
+      "group": "registries",
+      "size_bytes": 2987,
+      "modified_ts": "2026-06-07T18:02:02.928938+00:00",
+      "sha256": "b0f0601f83f7e6eec11508c96ad3caec214c5518d340a213ff18fa17403d11f4"
+    },
+    "data/registries/qsb_phase_v2_prechange_snapshot.json": {
+      "group": "registries",
+      "size_bytes": 2054,
+      "modified_ts": "2026-06-09T07:51:13.558415+00:00",
+      "sha256": "dacca298b821d2207e3d13489e580197632a9afd63758b130c5dbc7c4ef2aab7"
+    },
+    "data/registries/worker_training_assignments.json": {
+      "group": "registries",
+      "size_bytes": 5034,
+      "modified_ts": "2026-06-09T09:31:16.195080+00:00",
+      "sha256": "4716bd9ae568bceddb1ff08d20304ad407dfbcdc515c8e77cc4dc3768befc01a"
+    },
+    "data/registries/standby_kernel_analysis_report.json": {
+      "group": "registries",
+      "size_bytes": 7362,
+      "modified_ts": "2026-06-07T19:54:56.570808+00:00",
+      "sha256": "9603a005aa2dbbe1f37f5cf6b3262cc8d3b3c0b2ad6387895ce73911e4a5b90c"
+    },
+    "data/registries/stock_floor_policy.json": {
+      "group": "registries",
+      "size_bytes": 1729,
+      "modified_ts": "2026-06-08T10:25:37.788554+00:00",
+      "sha256": "379209f3ced14409a4664c9d80e82b54c6577a9b94822bee3bc9d4818d41d6f0"
+    },
+    "data/registries/binance_paper_strategy_latest.json": {
+      "group": "registries",
+      "size_bytes": 6581,
+      "modified_ts": "2026-06-08T09:28:05.836844+00:00",
+      "sha256": "3da5aaaf9de2743282d0cd5a520ef4d15b54602a20ddad7691b3f61df3b74fcb"
+    },
+    "data/registries/integration_dependency_graph.json": {
+      "group": "registries",
+      "size_bytes": 1819,
+      "modified_ts": "2026-06-07T16:41:00.546146+00:00",
+      "sha256": "e1ff5eff9a073b99baea89edfa8aa79bbc98a1034516d51f19c7a6cc1be0e752"
+    },
+    "data/registries/diagnostics_policy.json": {
+      "group": "registries",
+      "size_bytes": 743,
+      "modified_ts": "2026-06-07T16:58:14.263789+00:00",
+      "sha256": "3b738457faaedb5dbabe48d894b2bad96021dbae635bba2e4563251dcef4dc6b"
+    },
+    "data/registries/openclaw_sandbox_registry.json": {
+      "group": "registries",
+      "size_bytes": 1156,
+      "modified_ts": "2026-06-07T22:56:30.269936+00:00",
+      "sha256": "ecc8e9b83d3426797a3561f1ac7bce68f4f971815890e688ad63857c21bd0e14"
+    },
+    "data/registries/eqsb_model_lane_governance.json": {
+      "group": "registries",
+      "size_bytes": 4674,
+      "modified_ts": "2026-06-09T08:56:44.959355+00:00",
+      "sha256": "9661fa489cce7ecffdcca1667913261095b70743547535bf790cf8cf110d960b"
+    },
+    "data/registries/sandbox_task_envelopes.json": {
+      "group": "registries",
+      "size_bytes": 3303,
+      "modified_ts": "2026-06-07T18:21:43.119537+00:00",
+      "sha256": "fb75cd8d4540b94bf5cf2acabd08def4ccdf472d6778a3680d733ec44ed4fa75"
+    },
+    "data/registries/openclaw_sandbox_policy.json": {
+      "group": "registries",
+      "size_bytes": 1039,
+      "modified_ts": "2026-06-07T22:56:30.268936+00:00",
+      "sha256": "82be94a2b38c25603cb6c2bb4723fe9a5f958ad888689bfb8c450408cf9e2e17"
+    },
+    "data/registries/adapter_sockets.json": {
+      "group": "registries",
+      "size_bytes": 3959,
+      "modified_ts": "2026-06-07T16:38:54.790103+00:00",
+      "sha256": "14852c6b3903b087f29c47248b6516f33b06432c84bef24167d88d5b17112aaa"
+    },
+    "data/registries/coding_worker_slots.json": {
+      "group": "registries",
+      "size_bytes": 997,
+      "modified_ts": "2026-06-07T16:19:16.204775+00:00",
+      "sha256": "866106d687a9e9c4ef68ccae720c03dd4db73d4e6382535d2d12d00a85b8e828"
+    },
+    "data/registries/model_candidate_evaluations.json": {
+      "group": "registries",
+      "size_bytes": 11035,
+      "modified_ts": "2026-06-09T09:18:28.550414+00:00",
+      "sha256": "266ac1294decdff1a7b11742936854a538b1854b55db044f1f7085da208474b6"
+    },
+    "data/registries/foundation_completeness_latest_report.json": {
+      "group": "registries",
+      "size_bytes": 16710,
+      "modified_ts": "2026-06-07T18:02:02.984481+00:00",
+      "sha256": "8386c8f09896ae23616b654daa2f30c12c690a7d7c3f1c61398c6a24a4f863cc"
+    },
+    "data/registries/infrastructure_service_registry.json": {
+      "group": "registries",
+      "size_bytes": 1242,
+      "modified_ts": "2026-06-07T17:19:49.939800+00:00",
+      "sha256": "ef9ce6b375667430a06a19c49542beaa029b872b7081e01e88612a45eece45c2"
+    },
+    "data/registries/sandbox_extended_workers.json": {
+      "group": "registries",
+      "size_bytes": 12109,
+      "modified_ts": "2026-06-07T23:46:56.264089+00:00",
+      "sha256": "df1e9076f0efb7cf77874ee07f9e3a829b897fb2bbde5f05e6ab92520face1d2"
+    },
+    "data/registries/dormant_kernel_path_rebase_report.json": {
+      "group": "registries",
+      "size_bytes": 6436,
+      "modified_ts": "2026-06-07T20:38:15.521562+00:00",
+      "sha256": "9a5e10d698351ed1f82f774d0172c4c096e1fc4a205aff61327705520d541dd6"
+    },
+    "data/registries/integration_service_map.json": {
+      "group": "registries",
+      "size_bytes": 1898,
+      "modified_ts": "2026-06-07T16:41:00.546011+00:00",
+      "sha256": "9a61fe423a616e411416848763ac3080e30d9f069672baf56c985f5d5f885f76"
+    },
+    "data/registries/discovered_ollama_models.json": {
+      "group": "registries",
+      "size_bytes": 2202,
+      "modified_ts": "2026-06-07T16:14:36.234385+00:00",
+      "sha256": "b9a7fd6f3bc3d0d1d0dc56bddcc610f36ac088f870f1fc8036c067c718310d2c"
+    },
+    "data/registries/eqsb_quantum_roadmap.json": {
+      "group": "registries",
+      "size_bytes": 2035,
+      "modified_ts": "2026-06-09T08:56:44.957146+00:00",
+      "sha256": "2705a10ae0d1795bd466c1c6cb6891e1d2858d4d0c4578fa0352f2916aa9dbaf"
+    },
+    "data/registries/openclaw_candidate_registry.json": {
+      "group": "registries",
+      "size_bytes": 4894,
+      "modified_ts": "2026-06-07T19:29:36.104662+00:00",
+      "sha256": "16720a8edfdf6263984030f12c32b2d33c9e2b6ad7c035ebd5bad7ff3355bfeb"
+    },
+    "data/registries/dashboard_kernel_activation_sync.json": {
+      "group": "registries",
+      "size_bytes": 800,
+      "modified_ts": "2026-06-07T21:38:48.829051+00:00",
+      "sha256": "be0cc65af67259ce637f5c01ec839052bb1c98b1b2c1a8cd5dd171a97047b96b"
+    },
+    "data/registries/infrastructure_maintenance_hooks.json": {
+      "group": "registries",
+      "size_bytes": 649,
+      "modified_ts": "2026-06-07T17:19:49.940102+00:00",
+      "sha256": "c8b121562d3aff642101b01911702abcd14aea83fda439f00ac917fb9a5fc8ea"
+    },
+    "data/registries/eqsb_kernel_introspection_latest.json": {
+      "group": "registries",
+      "size_bytes": 20833,
+      "modified_ts": "2026-06-09T08:56:44.962740+00:00",
+      "sha256": "0e56bc74cc4a42bf58e2d81669057d216937c82c5d907c9879101756b67b9814"
+    },
+    "data/registries/dormant_kernel_compatibility_review.json": {
+      "group": "registries",
+      "size_bytes": 22243,
+      "modified_ts": "2026-06-07T20:26:01.625396+00:00",
+      "sha256": "01982f4ddc0fcef015fdc081966b1eb15f595b428bbdb7753654bf09fd3d8369"
+    },
+    "data/registries/oanda_trading_floor_latest_snapshot.json": {
+      "group": "registries",
+      "size_bytes": 7775,
+      "modified_ts": "2026-06-08T21:13:59.453858+00:00",
+      "sha256": "12b7fa0426bc6e800ae6875729cb046cc4fc25d513cf09447ce0745042f9037e"
+    },
+    "data/registries/worker_sandbox_registry.json": {
+      "group": "registries",
+      "size_bytes": 3088,
+      "modified_ts": "2026-06-08T10:37:01.580718+00:00",
+      "sha256": "be60bd5c6a36e11485a48f485eed0cfc6e729a64ef1a162967e6b2eb22dfd54e"
+    },
+    "data/registries/qsb_paper_trading_policy.json": {
+      "group": "registries",
+      "size_bytes": 1671,
+      "modified_ts": "2026-06-09T08:10:37.752222+00:00",
+      "sha256": "9a2b0a86f953bdf6a0e7d22a4a9f60a258cdb51584c80372befffbaca617631c"
+    },
+    "data/registries/qsb_open_paper_trades.json": {
+      "group": "registries",
+      "size_bytes": 2930,
+      "modified_ts": "2026-06-09T08:10:37.752686+00:00",
+      "sha256": "4f1c7c525fbadf5fc486d7d3f191e575ff34082c8427dd0bc813c13283e24601"
+    },
+    "data/registries/local_model_catalog.json": {
+      "group": "registries",
+      "size_bytes": 5212,
+      "modified_ts": "2026-06-07T16:32:10.904123+00:00",
+      "sha256": "d25e2f040e500117bf3cc5a8a5b2df8dcf53f98aca52442a08155d2700639d09"
+    },
+    "data/registries/local_model_roles.json": {
+      "group": "registries",
+      "size_bytes": 1428,
+      "modified_ts": "2026-06-07T16:32:10.779589+00:00",
+      "sha256": "def52c366780a0d7e17fa3b4e13d7c3737e894e18729249446314fa36467c20a"
+    },
+    "data/registries/workers.json": {
+      "group": "registries",
+      "size_bytes": 9421,
+      "modified_ts": "2026-06-07T16:01:59.663672+00:00",
+      "sha256": "e69c69a69b0e29af63c506a29846102b13804f25702015802051c142f8763397"
+    },
+    "data/registries/model_worker_slots.json": {
+      "group": "registries",
+      "size_bytes": 1281,
+      "modified_ts": "2026-06-07T16:11:50.277374+00:00",
+      "sha256": "4d3d79debb5ad8a83bca3588d27646f0f532b2bf952674dda45b925bf9443cb2"
+    },
+    "data/registries/kernel_connection_ports.json": {
+      "group": "registries",
+      "size_bytes": 1543,
+      "modified_ts": "2026-06-07T17:23:52.059884+00:00",
+      "sha256": "40fb8f54e0abe2177c43a452094ebb6df9558812af4024cbaef97a5cebe99f50"
+    },
+    "data/registries/qsb_canonical_workers.json": {
+      "group": "registries",
+      "size_bytes": 109470,
+      "modified_ts": "2026-06-09T09:17:18.678721+00:00",
+      "sha256": "e82396baa11d9ffa285cce48a88985cc780317402f6f75c5a66daa6f166ed21e"
+    },
+    "data/registries/eqsb_missing_architecture_report.json": {
+      "group": "registries",
+      "size_bytes": 1861,
+      "modified_ts": "2026-06-09T08:56:44.943392+00:00",
+      "sha256": "cd42d846bd02bbd2b31d60838dd57105b774f9879c273eba241b57a8bb5dff55"
+    },
+    "data/registries/oanda_trading_floor_policy.json": {
+      "group": "registries",
+      "size_bytes": 1294,
+      "modified_ts": "2026-06-07T22:20:52.855179+00:00",
+      "sha256": "3c4cc0f7ebad5eaa971b63026a93d4cdf8c291d3533f651399ecd70849e3fb29"
+    },
+    "data/registries/qsb_profit_command.json": {
+      "group": "registries",
+      "size_bytes": 20294,
+      "modified_ts": "2026-06-09T09:17:18.719141+00:00",
+      "sha256": "5ddcbb89157a5942a4f83ddd1fcadefcff168a58aab4dfb488c245761b6a69cb"
+    },
+    "data/registries/stock_floor_status.json": {
+      "group": "registries",
+      "size_bytes": 1787,
+      "modified_ts": "2026-06-08T10:41:41.118948+00:00",
+      "sha256": "dead0e1abd5382397111ff16df6d3d7c7d29010ffa18b6fb9ca8b6d341fc3ecf"
+    },
+    "data/registries/building.json": {
+      "group": "registries",
+      "size_bytes": 978,
+      "modified_ts": "2026-06-09T08:31:56.000289+00:00",
+      "sha256": "a3f300bf4d7b7de92579cb98ac409ea6538bc36502e3004cdc5a14eb4ca700ac"
+    },
+    "data/registries/sandbox_autoloop_latest.json": {
+      "group": "registries",
+      "size_bytes": 3175,
+      "modified_ts": "2026-06-08T21:13:28.940461+00:00",
+      "sha256": "534162ec3c61c302852d7eefdec0310bef44d089f9e9b163a11856cad9bc7698"
+    },
+    "data/registries/qsb_system_weak_points.json": {
+      "group": "registries",
+      "size_bytes": 2376,
+      "modified_ts": "2026-06-08T19:18:46.638902+00:00",
+      "sha256": "fef00eb64f5c7e28b6c343e4f9018399aeabe4c67c04cadcb65f9ac0ef64adbf"
+    },
+    "data/registries/security_spine_policy.json": {
+      "group": "registries",
+      "size_bytes": 599,
+      "modified_ts": "2026-06-07T17:26:05.989349+00:00",
+      "sha256": "ff41717c51f3fe2a0867c3b602d95d3e5639daa425084fb0623af5ac5b1dc43d"
+    },
+    "data/registries/external_provider_policy.json": {
+      "group": "registries",
+      "size_bytes": 755,
+      "modified_ts": "2026-06-07T16:34:22.565894+00:00",
+      "sha256": "39a01d7d28abeec56e3d7f58ba8dd5dbeeccd2b51942bbb087af96dcc8249381"
+    },
+    "data/registries/sandbox_performance_policy.json": {
+      "group": "registries",
+      "size_bytes": 876,
+      "modified_ts": "2026-06-07T22:47:00.421897+00:00",
+      "sha256": "4c3e8a61e003744ab1045c23395673af4c07f1c9f0cd6394fee422e3b17e2cca"
+    },
+    "data/registries/oanda_paper_strategy_policy.json": {
+      "group": "registries",
+      "size_bytes": 1044,
+      "modified_ts": "2026-06-07T22:33:12.068791+00:00",
+      "sha256": "d6d922948284ba681e88a9165242e74cf5da05575fcefb6802447c26b1d3668d"
+    },
+    "data/registries/eqsb_replay_audit_ledger.json": {
+      "group": "registries",
+      "size_bytes": 14452,
+      "modified_ts": "2026-06-09T08:56:44.961419+00:00",
+      "sha256": "ed11e60ea381efb53eac3bc25f731846e8379f23ad4b2363e42d40705b8e6f22"
+    },
+    "data/registries/eqsb_deep_kernel_audit.json": {
+      "group": "registries",
+      "size_bytes": 1501,
+      "modified_ts": "2026-06-09T08:56:44.943159+00:00",
+      "sha256": "49368b03c587d6169a5b7ddee89975100a0c74c81852a958edac62d557451194"
+    },
+    "data/registries/sandbox_operations_policy.json": {
+      "group": "registries",
+      "size_bytes": 749,
+      "modified_ts": "2026-06-07T18:21:43.119249+00:00",
+      "sha256": "ee0fb01924579bf185187fe094826e2deffc406301a3037292f93d43067ce0a5"
+    },
+    "data/registries/qsb_repair_plan_latest.json": {
+      "group": "registries",
+      "size_bytes": 2342,
+      "modified_ts": "2026-06-08T19:18:46.638978+00:00",
+      "sha256": "f89d2cdc58ff540ca85c275ddead5c0ec99a965b74967fdbd193fc11f17af67b"
+    },
+    "data/registries/strategy_intelligence_policy.json": {
+      "group": "registries",
+      "size_bytes": 1005,
+      "modified_ts": "2026-06-07T23:12:04.496163+00:00",
+      "sha256": "99defdaa2c60d953f14bd1b22d6b22c0070a3524cd9d23f3227ead0b02667a90"
+    },
+    "data/registries/executive_council_records.json": {
+      "group": "registries",
+      "size_bytes": 460,
+      "modified_ts": "2026-06-07T17:30:59.868656+00:00",
+      "sha256": "fa61263c9d3a114fef78af1f41ad2f2ac2d68e24cc503aac87fc9dcdf16ff6ef"
+    },
+    "data/registries/eqsb_identity_constitution.json": {
+      "group": "registries",
+      "size_bytes": 3677,
+      "modified_ts": "2026-06-09T08:56:44.951689+00:00",
+      "sha256": "19089d0f0c77de2f702eb34eb85472d91e0e5dd72433633c4b7206ae96eb2185"
+    },
+    "data/registries/infrastructure_script_registry.json": {
+      "group": "registries",
+      "size_bytes": 1166,
+      "modified_ts": "2026-06-07T17:19:49.939923+00:00",
+      "sha256": "ff557aebf79c6a08dcc9b28be076bf1ae65d9faa8b3020cfc313e5d76b30957c"
+    },
+    "data/registries/eqsb_symbolic_state.json": {
+      "group": "registries",
+      "size_bytes": 2378,
+      "modified_ts": "2026-06-09T08:56:44.953707+00:00",
+      "sha256": "9cd788b23680e9a7839e08df2e3aab0d654c7b7d0cead4f3c9e0a4d257792661"
+    },
+    "data/registries/local_model_inference_policy.json": {
+      "group": "registries",
+      "size_bytes": 1090,
+      "modified_ts": "2026-06-07T22:08:12.437077+00:00",
+      "sha256": "5c92ccddc7986a694a3c2c704bb57dc02a39ccf818686b0b52eefb9d99a62ece"
+    },
+    "data/registries/security_spine_kernel_clearance_review.json": {
+      "group": "registries",
+      "size_bytes": 11108,
+      "modified_ts": "2026-06-07T21:20:44.458500+00:00",
+      "sha256": "e88e8a81c3492d67f2d1c6b2c98ccdc02c25738730f103e1e27623b0cd090170"
+    },
+    "data/registries/simulation_labs_policy.json": {
+      "group": "registries",
+      "size_bytes": 801,
+      "modified_ts": "2026-06-07T18:19:52.400903+00:00",
+      "sha256": "58cd6d9365ab000c92621169c5ee644ed034ba02e240f9af5fe5ce6fdc1086cb"
+    },
+    "data/registries/strategic_roadmap.json": {
+      "group": "registries",
+      "size_bytes": 1047,
+      "modified_ts": "2026-06-07T17:30:59.868414+00:00",
+      "sha256": "5b3f2ee26fe5cc8768f1936358ff76f5dc613a67f3507466b1fd28979510f30a"
+    },
+    "data/registries/kernel_activation_report.json": {
+      "group": "registries",
+      "size_bytes": 1225,
+      "modified_ts": "2026-06-07T21:33:44.168151+00:00",
+      "sha256": "00063dadaaebd250cc82c550718ce823a1997ccc2f66cd4b8822e9a508526f32"
+    },
+    "data/registries/binance_market_snapshot_latest.json": {
+      "group": "registries",
+      "size_bytes": 4557,
+      "modified_ts": "2026-06-08T09:23:05.927719+00:00",
+      "sha256": "df5a5180d9d3adb429d4d8801e846e87436257070910f12d414205e0f6114c30"
+    },
+    "data/registries/eqsb_advisory_decision_protocol.json": {
+      "group": "registries",
+      "size_bytes": 3615,
+      "modified_ts": "2026-06-09T08:56:44.949974+00:00",
+      "sha256": "dc4bd2694220184dd4f563a9ad37a161a4d4e3350ddd95e83b0db44789cd5e74"
+    },
+    "floors/floor_42_binance_trading_floor/floor_manifest.json": {
+      "group": "floors",
+      "size_bytes": 2254,
+      "modified_ts": "2026-06-08T08:43:27.080679+00:00",
+      "sha256": "c92bdf477d81d96793492b8b365764daf6008487ec8e614cf25477c766722660"
+    },
+    "floors/floor_46_executive_support_department/floor_manifest.json": {
+      "group": "floors",
+      "size_bytes": 513,
+      "modified_ts": "2026-06-07T17:30:59.868937+00:00",
+      "sha256": "2051396df0485380b7ae75f61b589e2605f4f9a7a621d3ea3329fe03bccca2e1"
+    },
+    "floors/floor_31_audit_department/floor_manifest.json": {
+      "group": "floors",
+      "size_bytes": 392,
+      "modified_ts": "2026-06-07T17:26:05.990630+00:00",
+      "sha256": "67361889f6aeee3f0665d83d53e52bebdb77dc4aab9f63d9387b338330dfd716"
+    },
+    "floors/floor_31_audit_department/audit_log/audit_policy.json": {
+      "group": "floors",
+      "size_bytes": 295,
+      "modified_ts": "2026-06-07T17:26:05.991263+00:00",
+      "sha256": "6a629cbbb0473e628b0d5a6f61bf9396c478dd0b733f819c93335de5a77403ca"
+    },
+    "floors/floor_24_model_routing_department/floor_manifest.json": {
+      "group": "floors",
+      "size_bytes": 550,
+      "modified_ts": "2026-06-07T16:22:03.191979+00:00",
+      "sha256": "7bf02767e4a495e716dba13f4b6f51027a638bb946e47089e43412d93721545f"
+    },
+    "floors/floor_24_model_routing_department/routing_exchange/manifest.json": {
+      "group": "floors",
+      "size_bytes": 426,
+      "modified_ts": "2026-06-07T16:22:03.192071+00:00",
+      "sha256": "c4f072f6850b1b911b7dff202e628fc5f3b70b62984c3f9eb8701107da514371"
+    },
+    "floors/floor_33_diagnostics_department/floor_manifest.json": {
+      "group": "floors",
+      "size_bytes": 423,
+      "modified_ts": "2026-06-07T16:58:14.264080+00:00",
+      "sha256": "5942bbd0f594fdc8fb7a9924f5f3ea9caef73e5c63c01bca91bbdbd43aee5691"
+    },
+    "floors/floor_33_diagnostics_department/registry_validation/diagnostics_checks.json": {
+      "group": "floors",
+      "size_bytes": 3610,
+      "modified_ts": "2026-06-07T16:58:14.264246+00:00",
+      "sha256": "79cf481a35151bd4c6c0d073c220cc05eaf86f4ff785582f4409020c4a723a1d"
+    },
+    "floors/floor_33_diagnostics_department/inspection_reports/latest_report.json": {
+      "group": "floors",
+      "size_bytes": 14020,
+      "modified_ts": "2026-06-09T09:18:28.497674+00:00",
+      "sha256": "ee2244fdae70593a7f7f80806c82e17f275aecdf4d220f39de9e15368b821219"
+    },
+    "floors/floor_51_executive_council_department/floor_manifest.json": {
+      "group": "floors",
+      "size_bytes": 521,
+      "modified_ts": "2026-06-07T17:30:59.869281+00:00",
+      "sha256": "ac32a01d188f3061f0488adfe15638f1db480e7c4bd68f6152fa5065a27e8cef"
+    },
+    "floors/floor_51_executive_council_department/council_records/council_records.json": {
+      "group": "floors",
+      "size_bytes": 460,
+      "modified_ts": "2026-06-07T17:30:59.869715+00:00",
+      "sha256": "fa61263c9d3a114fef78af1f41ad2f2ac2d68e24cc503aac87fc9dcdf16ff6ef"
+    },
+    "floors/floor_49_resource_management_department/floor_manifest.json": {
+      "group": "floors",
+      "size_bytes": 532,
+      "modified_ts": "2026-06-07T17:30:59.869148+00:00",
+      "sha256": "404761e60ee496bd72cda75bc86234fb4fd6055f21b892c123a69049d906944d"
+    },
+    "floors/floor_49_resource_management_department/resource_reports/resource_capacity.json": {
+      "group": "floors",
+      "size_bytes": 477,
+      "modified_ts": "2026-06-07T17:30:59.869567+00:00",
+      "sha256": "171b762cd70bd9a3e67357080c93a745b8f3169b4c3365d63117eaeb94da201c"
+    },
+    "floors/floor_29_guardian_department/floor_manifest.json": {
+      "group": "floors",
+      "size_bytes": 407,
+      "modified_ts": "2026-06-07T17:26:05.990439+00:00",
+      "sha256": "f80f675452548eb723adf355a38cb6e0ce1f6917a53ef53f60903c602e8e11ab"
+    },
+    "floors/floor_29_guardian_department/guardian_rules/guardian_rules.json": {
+      "group": "floors",
+      "size_bytes": 1268,
+      "modified_ts": "2026-06-07T17:26:05.990901+00:00",
+      "sha256": "86d94698c072c55a5baed667ccad010f2019cd8ae4411c6082dbcff43b778b0c"
+    },
+    "floors/floor_43_stock_exchange_trading_floor/floor_manifest.json": {
+      "group": "floors",
+      "size_bytes": 3104,
+      "modified_ts": "2026-06-08T10:25:30.518670+00:00",
+      "sha256": "fd96eb6c90b3f0308abc0439495f01e75cdad93dc3df84195cc14cc6f5737881"
+    },
+    "floors/floor_39_development_labs/floor_manifest.json": {
+      "group": "floors",
+      "size_bytes": 862,
+      "modified_ts": "2026-06-07T18:02:02.928610+00:00",
+      "sha256": "49a58ece66b43c630d968ce0da59e6f9d4805e90ef45b976f5f0c102875bbe45"
+    },
+    "floors/floor_36_expansion_planning_department/floor_manifest.json": {
+      "group": "floors",
+      "size_bytes": 541,
+      "modified_ts": "2026-06-07T17:28:10.598755+00:00",
+      "sha256": "cd18abb7f7e898625be0c8b275c24b796dc1a493d3fe2c6f6bd80db87a65264b"
+    },
+    "floors/floor_36_expansion_planning_department/vacant_floor_registry/vacant_floors.json": {
+      "group": "floors",
+      "size_bytes": 3040,
+      "modified_ts": "2026-06-07T17:28:10.598898+00:00",
+      "sha256": "8e4bd15854731ab2dd171caaa8592cac35b579830599510454fb6d0e341baa53"
+    },
+    "floors/floor_36_expansion_planning_department/activation_hooks/activation_hooks.json": {
+      "group": "floors",
+      "size_bytes": 2492,
+      "modified_ts": "2026-06-07T17:28:10.599126+00:00",
+      "sha256": "24ec9f6413f7f0deffaef82741f878deee1420d98a83bb54c7597e4ff7deb61f"
+    },
+    "floors/floor_36_expansion_planning_department/future_department_plans/future_department_blueprints.json": {
+      "group": "floors",
+      "size_bytes": 1699,
+      "modified_ts": "2026-06-07T17:28:10.599009+00:00",
+      "sha256": "fa8da8e4e495035ace58eb29d81a94aad4bc12bcbfd0a799734248ddea489c69"
+    },
+    "floors/floor_36_expansion_planning_department/capacity_reports/latest_capacity_report.json": {
+      "group": "floors",
+      "size_bytes": 1076,
+      "modified_ts": "2026-06-08T08:26:19.556658+00:00",
+      "sha256": "d6dd9db48d2a1cb425c258731dea6db8359b2718bf02414e56abc068756328c5"
+    },
+    "floors/floor_36_expansion_planning_department/capacity_reports/latest_expansion_readiness_report.json": {
+      "group": "floors",
+      "size_bytes": 18006,
+      "modified_ts": "2026-06-08T08:26:19.556946+00:00",
+      "sha256": "8a896d7237883660e4af173dbc2ef829830fca54a2a42e01c697bec252b4b9e9"
+    },
+    "floors/floor_37_simulation_labs/floor_manifest.json": {
+      "group": "floors",
+      "size_bytes": 1404,
+      "modified_ts": "2026-06-07T18:19:52.401319+00:00",
+      "sha256": "0579daf7865107ac77c4e278b41be690d38a8892d86369cd7a5267a23547f74c"
+    },
+    "floors/floor_37_simulation_labs/scenario_library/simulation_scenarios.json": {
+      "group": "floors",
+      "size_bytes": 2894,
+      "modified_ts": "2026-06-07T18:19:52.401501+00:00",
+      "sha256": "a26d099fa7a193cb9cc999699ddec7820852ba16cb76f3493c9c3ef976712a71"
+    },
+    "floors/floor_37_simulation_labs/simulation_reports/latest_simulation_labs_report.json": {
+      "group": "floors",
+      "size_bytes": 12605,
+      "modified_ts": "2026-06-09T09:18:28.556898+00:00",
+      "sha256": "4468dfdffb277e59f7a67be2d415311106ddd2230d46a48b50d02286a297433a"
+    },
+    "floors/floor_34_monitoring_department/floor_manifest.json": {
+      "group": "floors",
+      "size_bytes": 404,
+      "modified_ts": "2026-06-07T17:16:18.991288+00:00",
+      "sha256": "b0fb78518698b40304099e2432afdb40244e0b2c92a651def60db45d5abd8dda"
+    },
+    "floors/floor_34_monitoring_department/live_snapshots/latest_snapshot.json": {
+      "group": "floors",
+      "size_bytes": 6689,
+      "modified_ts": "2026-06-09T09:18:28.505027+00:00",
+      "sha256": "1319406210ba140eff39bab549002218fcb5487552acac1460f9f0f1ec188077"
+    },
+    "floors/floor_34_monitoring_department/service_watch/watch_targets.json": {
+      "group": "floors",
+      "size_bytes": 1135,
+      "modified_ts": "2026-06-07T17:16:18.991389+00:00",
+      "sha256": "5ac7dfaccc6c98ab2677713b993d498df57a74bc2592d2f55739ac27d2c73a0d"
+    },
+    "floors/floor_44_future_systems_vacant/activation_hook/activate_floor_44.json": {
+      "group": "floors",
+      "size_bytes": 464,
+      "modified_ts": "2026-06-07T17:28:10.598090+00:00",
+      "sha256": "e34f0bbeb9e7e592e696baf1243118b7b846d5bbdfd468fa16d3e9429ff583ae"
+    },
+    "floors/floor_52_infrastructure_command_department/floor_manifest.json": {
+      "group": "floors",
+      "size_bytes": 524,
+      "modified_ts": "2026-06-07T17:30:59.869344+00:00",
+      "sha256": "1bf932dfb268046bbe0d086850686716580f2bd7b35fd5fc78157ae212246824"
+    },
+    "floors/floor_52_infrastructure_command_department/command_records/infrastructure_command_links.json": {
+      "group": "floors",
+      "size_bytes": 838,
+      "modified_ts": "2026-06-07T17:30:59.869802+00:00",
+      "sha256": "06199f3470d280c5db7d39fc162da27fe34808016ceed5f6a0a8f07abc61e3fc"
+    },
+    "floors/floor_47_executive_operations_department/floor_manifest.json": {
+      "group": "floors",
+      "size_bytes": 509,
+      "modified_ts": "2026-06-07T17:30:59.869012+00:00",
+      "sha256": "7b769bb811185b791e2c01836f66c205e57eb2b2e438cef923593a900b11844d"
+    },
+    "floors/floor_30_permissions_department/floor_manifest.json": {
+      "group": "floors",
+      "size_bytes": 403,
+      "modified_ts": "2026-06-07T17:26:05.990512+00:00",
+      "sha256": "cbd288f554f5f6d8805c44cf8af7525e7af0c44e02d3e10c8dcd74df31a5cc38"
+    },
+    "floors/floor_30_permissions_department/roles/permission_roles.json": {
+      "group": "floors",
+      "size_bytes": 1086,
+      "modified_ts": "2026-06-07T17:26:05.991068+00:00",
+      "sha256": "45fc36a186636f5f3f50684c70700600143ceed0627ef5847a1beb6e6598e625"
+    },
+    "floors/floor_30_permissions_department/lift_permissions/lift_permissions.json": {
+      "group": "floors",
+      "size_bytes": 1250,
+      "modified_ts": "2026-06-07T17:26:05.991195+00:00",
+      "sha256": "b878412c9efcff459e2a09339429cb8cf2f31dfb364d96fb88edca85a568e501"
+    },
+    "floors/floor_53_tower_command_department/floor_manifest.json": {
+      "group": "floors",
+      "size_bytes": 513,
+      "modified_ts": "2026-06-07T17:30:59.869406+00:00",
+      "sha256": "9c0e411c4b73c29cf59416c40cc32f29bf42fe460206c357c780624fedfef8ea"
+    },
+    "floors/floor_53_tower_command_department/handoff_preparation/tower_command_handoff.json": {
+      "group": "floors",
+      "size_bytes": 595,
+      "modified_ts": "2026-06-07T17:30:59.869870+00:00",
+      "sha256": "2c40464ddac36b4f4649736ed29274245fef6ee9bbe24e952eeba003f57b5dba"
+    },
+    "floors/floor_53_tower_command_department/tower_command_records/latest_executive_command_report.json": {
+      "group": "floors",
+      "size_bytes": 78691,
+      "modified_ts": "2026-06-09T09:18:28.111230+00:00",
+      "sha256": "ecee512b204b9e5ec7ee50f3aece42fbd0d3df0223bdaf01aef0bdb55e3f632b"
+    },
+    "floors/floor_53_tower_command_department/tower_command_records/executive_command_channels.json": {
+      "group": "floors",
+      "size_bytes": 1870,
+      "modified_ts": "2026-06-07T17:30:59.869984+00:00",
+      "sha256": "232427fef2f9536e7831ab61614a17c246deb84753453efa2738bd2ceb7668cb"
+    },
+    "floors/floor_38_sandbox_operations/floor_manifest.json": {
+      "group": "floors",
+      "size_bytes": 1439,
+      "modified_ts": "2026-06-07T18:21:43.119908+00:00",
+      "sha256": "38486d48d01bdcaef4489b4c0a797d32638da66aba63b450552bd50fff7e6eeb"
+    },
+    "floors/floor_38_sandbox_operations/sandbox_reports/latest_sandbox_operations_report.json": {
+      "group": "floors",
+      "size_bytes": 5314,
+      "modified_ts": "2026-06-09T09:18:28.557717+00:00",
+      "sha256": "5034bf7d73a60c96240c200444c3d475ce364640f17edcef701a5bb9996b0d3a"
+    },
+    "floors/floor_38_sandbox_operations/task_envelopes/sandbox_task_envelopes.json": {
+      "group": "floors",
+      "size_bytes": 3303,
+      "modified_ts": "2026-06-07T18:21:43.119782+00:00",
+      "sha256": "fb75cd8d4540b94bf5cf2acabd08def4ccdf472d6778a3680d733ec44ed4fa75"
+    },
+    "floors/floor_38_sandbox_operations/containment_rules/sandbox_containment_rules.json": {
+      "group": "floors",
+      "size_bytes": 1508,
+      "modified_ts": "2026-06-07T18:21:43.119642+00:00",
+      "sha256": "bfdc8508a530fd243d1821a2ec957534424a4fc1e6a73a9e35d26e73cceb6772"
+    },
+    "floors/floor_40_prototype_systems/floor_manifest.json": {
+      "group": "floors",
+      "size_bytes": 883,
+      "modified_ts": "2026-06-07T18:02:02.928750+00:00",
+      "sha256": "afeffdb647f38d16722329c3f8a092a68d8742c3f5ae5f1d2b0056281a175405"
+    },
+    "floors/floor_45_worker_recruitment_agency/floor_manifest.json": {
+      "group": "floors",
+      "size_bytes": 3818,
+      "modified_ts": "2026-06-08T18:31:51.183208+00:00",
+      "sha256": "1b3e38457f9eb04e47facb9ccdff3df217a7375aba54de8883c7ccfbe4cdfa7b"
+    },
+    "floors/floor_27_local_model_operations_department/floor_manifest.json": {
+      "group": "floors",
+      "size_bytes": 456,
+      "modified_ts": "2026-06-07T16:32:10.779862+00:00",
+      "sha256": "6a72150be06235dba04e8984d303a478a8d09fd7434e0007c30c0e44e5c364e7"
+    },
+    "floors/floor_27_local_model_operations_department/local_inventory/manifest.json": {
+      "group": "floors",
+      "size_bytes": 302,
+      "modified_ts": "2026-06-07T16:11:50.278046+00:00",
+      "sha256": "721327849633e537343701dcb560c061ebd4c7c7d6ce80b932eb516b97336224"
+    },
+    "floors/floor_25_agent_coordination_department/floor_manifest.json": {
+      "group": "floors",
+      "size_bytes": 1873,
+      "modified_ts": "2026-06-07T18:08:47.768809+00:00",
+      "sha256": "70c9a67defbaff7966d22aea659ce00a8a08c010c880fbaa50ade081b7d92ee9"
+    },
+    "floors/floor_25_agent_coordination_department/recruitment_reports/latest_agent_coordination_report.json": {
+      "group": "floors",
+      "size_bytes": 35320,
+      "modified_ts": "2026-06-09T09:18:28.480524+00:00",
+      "sha256": "eaa28b2340ddf79ea6e291947cb2fa214ee8a77b978a8450e24d5df3cf366583"
+    },
+    "floors/floor_25_agent_coordination_department/permission_prechecks/prechecks.json": {
+      "group": "floors",
+      "size_bytes": 1011,
+      "modified_ts": "2026-06-07T18:04:27.096529+00:00",
+      "sha256": "d03f34d7ac86b13a3426919a6f65e483d2e870c6ab3b32f3366771163be84bcb"
+    },
+    "floors/floor_25_agent_coordination_department/onboarding_queue/onboarding_queue.json": {
+      "group": "floors",
+      "size_bytes": 1127,
+      "modified_ts": "2026-06-07T18:04:27.096394+00:00",
+      "sha256": "224c4bd5d23987eb7b1500df9df5a5d48036a6ea4b9d5654425dc0562c2f9e63"
+    },
+    "floors/floor_25_agent_coordination_department/recruitment_registry/worker_slots.json": {
+      "group": "floors",
+      "size_bytes": 2455,
+      "modified_ts": "2026-06-07T18:04:27.096133+00:00",
+      "sha256": "372a3238f10fba9efaf8178e8a2bee7aff2b96c4435a8386855dc00bdf376f9c"
+    },
+    "floors/floor_25_agent_coordination_department/recruitment_registry/external_worker_candidates.json": {
+      "group": "floors",
+      "size_bytes": 3753,
+      "modified_ts": "2026-06-07T18:04:27.096303+00:00",
+      "sha256": "6f4df8e5ca7a8669973f9a330b3acc5dc8bcfc98dc0bdab190bfc7bb7f3b94ea"
+    },
+    "floors/floor_28_security_department/floor_manifest.json": {
+      "group": "floors",
+      "size_bytes": 401,
+      "modified_ts": "2026-06-07T17:26:05.990348+00:00",
+      "sha256": "432b5fa9f4ffbbf100a17dd5f37d5d2d15b3775cadc3e92d9de68b54e019aab2"
+    },
+    "floors/floor_28_security_department/access_gates/security_gates.json": {
+      "group": "floors",
+      "size_bytes": 1189,
+      "modified_ts": "2026-06-07T17:26:05.990800+00:00",
+      "sha256": "0ea5dda86146f4dd6b8e6842e45d323d2cff402e2823f4370f5e9b93eeb7e1f4"
+    },
+    "floors/floor_22_integration_services_department/floor_manifest.json": {
+      "group": "floors",
+      "size_bytes": 488,
+      "modified_ts": "2026-06-07T16:41:00.546306+00:00",
+      "sha256": "d82ec279aac7f56ef072592ab03b11de56dd1cbb3dc8af64e1b6aa61d759f5ef"
+    },
+    "floors/floor_22_integration_services_department/readiness_checks/readiness_checks.json": {
+      "group": "floors",
+      "size_bytes": 1096,
+      "modified_ts": "2026-06-07T16:41:00.546636+00:00",
+      "sha256": "17ff2d3bc8a5e483506eeb06e1bc9093636bcfab77e8761a51c32345ea1f72fc"
+    },
+    "floors/floor_22_integration_services_department/service_map/service_map.json": {
+      "group": "floors",
+      "size_bytes": 1898,
+      "modified_ts": "2026-06-07T16:41:00.546430+00:00",
+      "sha256": "9a61fe423a616e411416848763ac3080e30d9f069672baf56c985f5d5f885f76"
+    },
+    "floors/floor_22_integration_services_department/dependency_graph/dependency_graph.json": {
+      "group": "floors",
+      "size_bytes": 1819,
+      "modified_ts": "2026-06-07T16:41:00.546551+00:00",
+      "sha256": "e1ff5eff9a073b99baea89edfa8aa79bbc98a1034516d51f19c7a6cc1be0e752"
+    },
+    "floors/floor_23_air_llm_operations_department/airllm_chamber_manifest.json": {
+      "group": "floors",
+      "size_bytes": 2579,
+      "modified_ts": "2026-06-08T09:34:09.259001+00:00",
+      "sha256": "c64e0d08041c27f99afa2d661aceca7d7a99c9a58d8ba2fb14e931724c5a022d"
+    },
+    "floors/floor_23_air_llm_operations_department/floor_manifest.json": {
+      "group": "floors",
+      "size_bytes": 532,
+      "modified_ts": "2026-06-07T16:34:22.566581+00:00",
+      "sha256": "312747d3d6e2c39bdde254372e7babb99fb8316468582c7ba0ca91cc1d88d4fc"
+    },
+    "floors/floor_23_air_llm_operations_department/provider_capabilities/capabilities.json": {
+      "group": "floors",
+      "size_bytes": 1988,
+      "modified_ts": "2026-06-07T16:34:22.566875+00:00",
+      "sha256": "e8822fdf597c5c31eb10bb4710d67e94d12c9cf416d84996924391e9706ac602"
+    },
+    "floors/floor_23_air_llm_operations_department/provider_sockets/manifest.json": {
+      "group": "floors",
+      "size_bytes": 1907,
+      "modified_ts": "2026-06-07T16:34:22.566716+00:00",
+      "sha256": "2ec612c78b4315eeb9433a19156769f993a95c91d00bfe8a04c98fbd2a5d9a74"
+    },
+    "floors/floor_23_air_llm_operations_department/external_handoff/handoff_paths.json": {
+      "group": "floors",
+      "size_bytes": 2035,
+      "modified_ts": "2026-06-07T16:34:22.566993+00:00",
+      "sha256": "88d4ac54c3ca23113114964625fc5353ac7a1441e57caa319089ccfaeeb3f0de"
+    },
+    "floors/floor_26_model_evaluation_department/floor_manifest.json": {
+      "group": "floors",
+      "size_bytes": 1253,
+      "modified_ts": "2026-06-07T18:14:26.765245+00:00",
+      "sha256": "3b46d8e094aa4d8f214a5bcaf964e49a93f424c896e0485a84ec93764a99a330"
+    },
+    "floors/floor_26_model_evaluation_department/evaluation_reports/latest_model_evaluation_report.json": {
+      "group": "floors",
+      "size_bytes": 12825,
+      "modified_ts": "2026-06-09T09:18:28.550194+00:00",
+      "sha256": "4d970869c17a8093517925ee1c49ae02c18709b90a1436c4ba51509742edd212"
+    },
+    "floors/floor_26_model_evaluation_department/scoring_rules/evaluation_criteria.json": {
+      "group": "floors",
+      "size_bytes": 1589,
+      "modified_ts": "2026-06-07T18:14:26.765354+00:00",
+      "sha256": "8293fcb2c788f152e43153160980d9b9b6ddb848321993beb01cc798fd4dc7de"
+    },
+    "floors/floor_41_oanda_trading_floor/floor_manifest.json": {
+      "group": "floors",
+      "size_bytes": 1204,
+      "modified_ts": "2026-06-07T22:20:52.853953+00:00",
+      "sha256": "f5230525d61a74c17d84c880d0e6a2de6c01d9c0134202d89b7c93e65dcf80ae"
+    },
+    "floors/floor_50_building_governance_department/floor_manifest.json": {
+      "group": "floors",
+      "size_bytes": 533,
+      "modified_ts": "2026-06-07T17:30:59.869215+00:00",
+      "sha256": "aab21fb7be9673f1a6db80cd103a9007370ff1d0cfc3c916f9bfd3b452cfaef6"
+    },
+    "floors/floor_50_building_governance_department/governance_rules/governance_rules.json": {
+      "group": "floors",
+      "size_bytes": 1056,
+      "modified_ts": "2026-06-07T17:30:59.869651+00:00",
+      "sha256": "b9cb9a6e1c006ad593fd02a46ebada4b96b1ef218574b004213732464abfb102"
+    },
+    "floors/floor_32_compliance_department/floor_manifest.json": {
+      "group": "floors",
+      "size_bytes": 404,
+      "modified_ts": "2026-06-07T17:26:05.990696+00:00",
+      "sha256": "eb45cdd656c5bef6a820f0cd9ca78f8fd3e072c2be8cd5dc5fa5c90ad97519fc"
+    },
+    "floors/floor_32_compliance_department/compliance_rules/compliance_rules.json": {
+      "group": "floors",
+      "size_bytes": 1027,
+      "modified_ts": "2026-06-07T17:26:05.991346+00:00",
+      "sha256": "6a8319086fd8bc3ec4a6bba63b9a8bb0302f6380487ae86f66d153bb36e890ea"
+    },
+    "floors/floor_32_compliance_department/compliance_reports/latest_security_spine_report.json": {
+      "group": "floors",
+      "size_bytes": 12576,
+      "modified_ts": "2026-06-09T09:18:28.540545+00:00",
+      "sha256": "794e64bd9ee8cbe4aa18eb854c8e8d2affd71595932babeb29997113746638f3"
+    },
+    "floors/floor_21_adapter_systems_department/floor_manifest.json": {
+      "group": "floors",
+      "size_bytes": 422,
+      "modified_ts": "2026-06-07T16:38:54.790553+00:00",
+      "sha256": "4b6362fa4f962fc4a1c14a10c3bd3de621bce2b445d4f0753ecc9c83d4dd4260"
+    },
+    "floors/floor_21_adapter_systems_department/handoff_paths/handoff_paths.json": {
+      "group": "floors",
+      "size_bytes": 1753,
+      "modified_ts": "2026-06-07T16:38:54.790965+00:00",
+      "sha256": "8eab08514f34f0452cd847bb277091a1130ca72acfc341f934f9ebedac91f258"
+    },
+    "floors/floor_21_adapter_systems_department/adapter_sockets/manifest.json": {
+      "group": "floors",
+      "size_bytes": 4311,
+      "modified_ts": "2026-06-07T16:38:54.790731+00:00",
+      "sha256": "b48f24c13935573c6444674c774f7a59daf63772e3a876839003d637c66c510f"
+    },
+    "floors/floor_21_adapter_systems_department/adapter_capabilities/capabilities.json": {
+      "group": "floors",
+      "size_bytes": 1973,
+      "modified_ts": "2026-06-07T16:38:54.790862+00:00",
+      "sha256": "60d03125c7a6fa863435edb0f152cca2c24090ab75bb9fe0d5e916a59ddc9941"
+    },
+    "floors/floor_48_strategic_planning_department/floor_manifest.json": {
+      "group": "floors",
+      "size_bytes": 517,
+      "modified_ts": "2026-06-07T17:30:59.869082+00:00",
+      "sha256": "d43d3276cdc5eec4e2bb8ca16b226d3d7bf7aec7754f32f53ee9f64aa74f175d"
+    },
+    "floors/floor_48_strategic_planning_department/roadmaps/strategic_roadmap.json": {
+      "group": "floors",
+      "size_bytes": 1047,
+      "modified_ts": "2026-06-07T17:30:59.869491+00:00",
+      "sha256": "5b3f2ee26fe5cc8768f1936358ff76f5dc613a67f3507466b1fd28979510f30a"
+    },
+    "floors/floor_05_coding_department/floor_manifest.json": {
+      "group": "floors",
+      "size_bytes": 611,
+      "modified_ts": "2026-06-07T16:19:16.204951+00:00",
+      "sha256": "4075fa7683fad1aba071578bdff55aa9e592e749a38397463871fb68f13d180f"
+    },
+    "floors/floor_05_coding_department/ports/local_coder_port.json": {
+      "group": "floors",
+      "size_bytes": 307,
+      "modified_ts": "2026-06-07T16:19:16.205153+00:00",
+      "sha256": "4e37267652d2ce66db87138bd56d6707376543da3a1eb733265a4ef2c6e8f5bf"
+    },
+    "floors/floor_05_coding_department/ports/claude_code_port.json": {
+      "group": "floors",
+      "size_bytes": 310,
+      "modified_ts": "2026-06-07T16:19:16.205042+00:00",
+      "sha256": "f9a814611f51e74a8c7ba7cb08a14d3428cc62f3572f6e061b9d7ff298f53424"
+    },
+    "floors/floor_35_infrastructure_services_department/floor_manifest.json": {
+      "group": "floors",
+      "size_bytes": 541,
+      "modified_ts": "2026-06-07T17:19:49.940187+00:00",
+      "sha256": "90c0bc4ce2e256472c9397340c5285cbb0c8855e32e5bd19794824ecdaf87631"
+    },
+    "floors/floor_35_infrastructure_services_department/script_registry/scripts.json": {
+      "group": "floors",
+      "size_bytes": 1166,
+      "modified_ts": "2026-06-07T17:19:49.940387+00:00",
+      "sha256": "ff557aebf79c6a08dcc9b28be076bf1ae65d9faa8b3020cfc313e5d76b30957c"
+    },
+    "floors/floor_35_infrastructure_services_department/service_control/latest_status.json": {
+      "group": "floors",
+      "size_bytes": 13710,
+      "modified_ts": "2026-06-09T09:18:28.537468+00:00",
+      "sha256": "d23dfeee2953dfdcc8ba8a2a2e3d5fd01c6bf89a0d5b7fbd64f28b8befceaa24"
+    },
+    "floors/floor_35_infrastructure_services_department/repair_hooks/repair_hooks.json": {
+      "group": "floors",
+      "size_bytes": 772,
+      "modified_ts": "2026-06-07T17:19:49.940464+00:00",
+      "sha256": "e525a3c67b68a3e110fac4f5ba19436678c0b6260f4a009cb8bbabaa86016d77"
+    },
+    "floors/floor_35_infrastructure_services_department/maintenance_hooks/maintenance_hooks.json": {
+      "group": "floors",
+      "size_bytes": 649,
+      "modified_ts": "2026-06-07T17:19:49.940588+00:00",
+      "sha256": "c8b121562d3aff642101b01911702abcd14aea83fda439f00ac917fb9a5fc8ea"
+    },
+    "floors/floor_35_infrastructure_services_department/service_registry/services.json": {
+      "group": "floors",
+      "size_bytes": 1242,
+      "modified_ts": "2026-06-07T17:19:49.940289+00:00",
+      "sha256": "ef9ce6b375667430a06a19c49542beaa029b872b7081e01e88612a45eece45c2"
+    },
+    "penthouse/kernel_health_display/health_display.json": {
+      "group": "penthouse",
+      "size_bytes": 236,
+      "modified_ts": "2026-06-07T17:23:52.060593+00:00",
+      "sha256": "360588c66edc34d81e2636353960299ed4558bf8b495040096f5046af6c08b10"
+    },
+    "penthouse/kernel_occupancy_acceptance/latest_kernel_activation_report.json": {
+      "group": "penthouse",
+      "size_bytes": 1461,
+      "modified_ts": "2026-06-07T21:38:48.828445+00:00",
+      "sha256": "cb669752e2d70cc1d6fe19b37c21b44102ad961ee45bbad6c0b9e0d35947b414"
+    },
+    "penthouse/kernel_occupancy_acceptance/latest_acceptance_report.json": {
+      "group": "penthouse",
+      "size_bytes": 12221,
+      "modified_ts": "2026-06-09T09:18:28.521595+00:00",
+      "sha256": "ff7c187a67085cf1f4136e6a192d784ec1715cfeef72b8a0f97f14c5a14ebbe7"
+    },
+    "penthouse/kernel_occupancy_acceptance/latest_kernel_readiness_report.json": {
+      "group": "penthouse",
+      "size_bytes": 7775,
+      "modified_ts": "2026-06-08T16:11:08.355099+00:00",
+      "sha256": "bc0d62e929f0508997e37d5ee3780f75cc64401a8b8198d69ec36760cc0f94d9"
+    },
+    "penthouse/kernel_monitoring_interface/monitoring_interface.json": {
+      "group": "penthouse",
+      "size_bytes": 337,
+      "modified_ts": "2026-06-07T17:23:52.060525+00:00",
+      "sha256": "481a5538787f0a8f9c07df0258b9eb2035aecc595c3aac17f372bd03b5fc02c2"
+    },
+    "penthouse/kernel_connection_ports/ports.json": {
+      "group": "penthouse",
+      "size_bytes": 1543,
+      "modified_ts": "2026-06-07T17:23:52.060701+00:00",
+      "sha256": "40fb8f54e0abe2177c43a452094ebb6df9558812af4024cbaef97a5cebe99f50"
+    },
+    "penthouse/kernel_installation_socket/socket_manifest.json": {
+      "group": "penthouse",
+      "size_bytes": 482,
+      "modified_ts": "2026-06-07T17:23:52.060313+00:00",
+      "sha256": "77b5e2f12807ffcae829c8bbd10a97e656b9d4c984b7cb9a420214a5d8fd362f"
+    },
+    "penthouse/kernel_installation_socket/standby_kernel_analysis_report.json": {
+      "group": "penthouse",
+      "size_bytes": 7362,
+      "modified_ts": "2026-06-07T19:55:00.438794+00:00",
+      "sha256": "9603a005aa2dbbe1f37f5cf6b3262cc8d3b3c0b2ad6387895ce73911e4a5b90c"
+    },
+    "penthouse/kernel_installation_socket/dormant_imported_kernel/import_manifest.json": {
+      "group": "penthouse",
+      "size_bytes": 3879,
+      "modified_ts": "2026-06-07T20:01:06.234171+00:00",
+      "sha256": "b8f3d80730cb2263eeb4e7cd3005571be38948645d1484f83cef34b3fd69db90"
+    },
+    "penthouse/kernel_installation_socket/dormant_imported_kernel/import_reports/compatibility_review.json": {
+      "group": "penthouse",
+      "size_bytes": 22243,
+      "modified_ts": "2026-06-07T20:26:06.362530+00:00",
+      "sha256": "01982f4ddc0fcef015fdc081966b1eb15f595b428bbdb7753654bf09fd3d8369"
+    },
+    "penthouse/kernel_installation_socket/dormant_imported_kernel/source_support/penthouse.py": {
+      "group": "penthouse",
+      "size_bytes": 14728,
+      "modified_ts": "2026-06-07T20:00:20.592041+00:00",
+      "sha256": "8699bd66683a32ce8317f5901990bf7aaa9829dabe5a0fad3a4889287d931da5"
+    },
+    "penthouse/kernel_installation_socket/dormant_imported_kernel/source_support/promote_symbolic_to_kernel.py": {
+      "group": "penthouse",
+      "size_bytes": 10502,
+      "modified_ts": "2026-06-07T20:00:20.594222+00:00",
+      "sha256": "f0e3f2d4209d90c0c9b75d21fe5f3127153f84839c37c103a7986c7c1a4ffd7e"
+    },
+    "penthouse/kernel_installation_socket/dormant_imported_kernel/source_support/add_cognitive_kernel_47.py": {
+      "group": "penthouse",
+      "size_bytes": 29485,
+      "modified_ts": "2026-06-07T20:00:20.593152+00:00",
+      "sha256": "a938a2b1b3a8886701bf02cfe4519f643e12c15726a45ba49bba159a677b28f7"
+    },
+    "penthouse/kernel_installation_socket/dormant_imported_kernel/kernel/continuity_core.py": {
+      "group": "penthouse",
+      "size_bytes": 1869,
+      "modified_ts": "2026-06-07T20:00:17.569050+00:00",
+      "sha256": "9279e12b7c190108bdfba6f86863dc60227f532745149fb7c98a70267be53981"
+    },
+    "penthouse/kernel_installation_socket/dormant_imported_kernel/kernel/__init__.py": {
+      "group": "penthouse",
+      "size_bytes": 0,
+      "modified_ts": "2026-06-07T20:00:17.574195+00:00",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "penthouse/kernel_installation_socket/dormant_imported_kernel/kernel/kernel_core.py": {
+      "group": "penthouse",
+      "size_bytes": 1162,
+      "modified_ts": "2026-06-07T20:00:17.566901+00:00",
+      "sha256": "82ed521f912c0bcb78fee3e326f91c4501ece64317d1b1f9ffa3727f70120a41"
+    },
+    "penthouse/kernel_installation_socket/dormant_imported_kernel/kernel/continuity_state.json": {
+      "group": "penthouse",
+      "size_bytes": 1170,
+      "modified_ts": "2026-06-07T20:00:17.577479+00:00",
+      "sha256": "c45cbb011573f17bf211f98b7d676f8e929d37cbc8a0467ac7cec16730ce1b67"
+    },
+    "penthouse/kernel_installation_socket/dormant_imported_kernel/kernel/identity.json": {
+      "group": "penthouse",
+      "size_bytes": 370,
+      "modified_ts": "2026-06-07T20:00:17.576272+00:00",
+      "sha256": "c9e449ec53d92309f7a531726e46ba8d27666fbe244db1eaa9a3e6e651e54710"
+    },
+    "penthouse/kernel_installation_socket/dormant_imported_kernel/kernel/belief_core.py": {
+      "group": "penthouse",
+      "size_bytes": 5084,
+      "modified_ts": "2026-06-07T20:00:17.570090+00:00",
+      "sha256": "9cd46b6a7619acdc011c89bc7944c8ceffed4bcfc916e40337b1e65a599836ae"
+    },
+    "penthouse/kernel_installation_socket/dormant_imported_kernel/kernel/identity_core.py": {
+      "group": "penthouse",
+      "size_bytes": 979,
+      "modified_ts": "2026-06-07T20:00:17.572385+00:00",
+      "sha256": "a502d9ea2f01150259e8529a69424553d3aafc248eb4442265c3775177a42215"
+    },
+    "penthouse/kernel_installation_socket/dormant_imported_kernel/kernel/reflection_core.py": {
+      "group": "penthouse",
+      "size_bytes": 2662,
+      "modified_ts": "2026-06-07T20:00:17.573792+00:00",
+      "sha256": "dd16c7346d99d96a4f606b674e6a177a1c30cb12269d8e326f50155a6fdbb003"
+    },
+    "penthouse/kernel_installation_socket/dormant_imported_kernel/kernel/symbolic_core.py": {
+      "group": "penthouse",
+      "size_bytes": 7791,
+      "modified_ts": "2026-06-07T20:00:17.571299+00:00",
+      "sha256": "c65a425223c720244dbd6e69084814de083ad3258cb403e239bcfcf25270a1ef"
+    },
+    "penthouse/kernel_installation_socket/dormant_imported_kernel/kernel/axiom_core.py": {
+      "group": "penthouse",
+      "size_bytes": 1350,
+      "modified_ts": "2026-06-07T20:00:17.567195+00:00",
+      "sha256": "7315294641009cc19caa70b93a5e61d207cb2f62b7b22555598c2f8cf4d9e1f9"
+    },
+    "penthouse/kernel_installation_socket/rebased_kernel/rebase_report.json": {
+      "group": "rebased_kernel",
+      "size_bytes": 6436,
+      "modified_ts": "2026-06-07T20:38:15.498368+00:00",
+      "sha256": "9a5e10d698351ed1f82f774d0172c4c096e1fc4a205aff61327705520d541dd6"
+    },
+    "penthouse/kernel_installation_socket/rebased_kernel/rebase_manifest.json": {
+      "group": "rebased_kernel",
+      "size_bytes": 6436,
+      "modified_ts": "2026-06-07T20:38:09.994871+00:00",
+      "sha256": "9a5e10d698351ed1f82f774d0172c4c096e1fc4a205aff61327705520d541dd6"
+    },
+    "penthouse/kernel_installation_socket/rebased_kernel/activation_gate_report.json": {
+      "group": "rebased_kernel",
+      "size_bytes": 2947,
+      "modified_ts": "2026-06-07T21:27:00.561193+00:00",
+      "sha256": "45f5fb5891b65b86673c65d14760fb7f13a0b32bb529994b7e2690ff79365d52"
+    },
+    "penthouse/kernel_installation_socket/rebased_kernel/kernel/continuity_core.py": {
+      "group": "rebased_kernel",
+      "size_bytes": 4623,
+      "modified_ts": "2026-06-08T18:48:13.364399+00:00",
+      "sha256": "a4200969fa51275f5815dd7e3ea12756493344f4cb7cbe608efa5270f9ceeb3b"
+    },
+    "penthouse/kernel_installation_socket/rebased_kernel/kernel/__init__.py": {
+      "group": "rebased_kernel",
+      "size_bytes": 231,
+      "modified_ts": "2026-06-07T20:33:50.550279+00:00",
+      "sha256": "148b45cdd8564401637e24b31cdea0d8831a47f6a38f35d76a9b0b69e490f499"
+    },
+    "penthouse/kernel_installation_socket/rebased_kernel/kernel/kernel_core.py": {
+      "group": "rebased_kernel",
+      "size_bytes": 1332,
+      "modified_ts": "2026-06-07T20:37:10.002017+00:00",
+      "sha256": "7d987acf331cdcea3db92e281f68c2c1d946e98209b26c36044dc8f260f528a5"
+    },
+    "penthouse/kernel_installation_socket/rebased_kernel/kernel/continuity_state.json": {
+      "group": "rebased_kernel",
+      "size_bytes": 1170,
+      "modified_ts": "2026-06-07T20:33:42.664298+00:00",
+      "sha256": "c45cbb011573f17bf211f98b7d676f8e929d37cbc8a0467ac7cec16730ce1b67"
+    },
+    "penthouse/kernel_installation_socket/rebased_kernel/kernel/identity.json": {
+      "group": "rebased_kernel",
+      "size_bytes": 370,
+      "modified_ts": "2026-06-07T20:33:42.663193+00:00",
+      "sha256": "c9e449ec53d92309f7a531726e46ba8d27666fbe244db1eaa9a3e6e651e54710"
+    },
+    "penthouse/kernel_installation_socket/rebased_kernel/kernel/belief_core.py": {
+      "group": "rebased_kernel",
+      "size_bytes": 5325,
+      "modified_ts": "2026-06-07T20:37:12.871904+00:00",
+      "sha256": "66a65cd044881c0febc87fd976939cfa8fb65ed20ccf55655e1702a3a534a903"
+    },
+    "penthouse/kernel_installation_socket/rebased_kernel/kernel/identity_core.py": {
+      "group": "rebased_kernel",
+      "size_bytes": 1210,
+      "modified_ts": "2026-06-07T20:37:11.851944+00:00",
+      "sha256": "8a451f0fe953970fe91622410e783cfcd93812e58315b560b66b45e83bdd73d9"
+    },
+    "penthouse/kernel_installation_socket/rebased_kernel/kernel/reflection_core.py": {
+      "group": "rebased_kernel",
+      "size_bytes": 2662,
+      "modified_ts": "2026-06-07T20:33:42.659785+00:00",
+      "sha256": "dd16c7346d99d96a4f606b674e6a177a1c30cb12269d8e326f50155a6fdbb003"
+    },
+    "penthouse/kernel_installation_socket/rebased_kernel/kernel/symbolic_core.py": {
+      "group": "rebased_kernel",
+      "size_bytes": 8030,
+      "modified_ts": "2026-06-07T20:37:13.888865+00:00",
+      "sha256": "d5f9edc2d55c4b1c0833f7aa192d2326acac568bc899301fb0f0ce3bf3b8cf4d"
+    },
+    "penthouse/kernel_installation_socket/rebased_kernel/kernel/axiom_core.py": {
+      "group": "rebased_kernel",
+      "size_bytes": 1350,
+      "modified_ts": "2026-06-07T20:33:42.658567+00:00",
+      "sha256": "7315294641009cc19caa70b93a5e61d207cb2f62b7b22555598c2f8cf4d9e1f9"
+    },
+    "penthouse/kernel_installation_socket/rebased_kernel/reports/final_activation_report.json": {
+      "group": "rebased_kernel",
+      "size_bytes": 1461,
+      "modified_ts": "2026-06-07T21:38:48.828926+00:00",
+      "sha256": "cb669752e2d70cc1d6fe19b37c21b44102ad961ee45bbad6c0b9e0d35947b414"
+    },
+    "penthouse/kernel_installation_socket/rebased_kernel/reports/security_spine_clearance_review.json": {
+      "group": "rebased_kernel",
+      "size_bytes": 11376,
+      "modified_ts": "2026-06-07T21:20:57.259290+00:00",
+      "sha256": "f387725c34538f0e090965b94aece15e59b0c42e8fe1362419fda78db07e1aae"
+    },
+    "penthouse/kernel_installation_socket/rebased_kernel/reports/unit_test_report.json": {
+      "group": "rebased_kernel",
+      "size_bytes": 902,
+      "modified_ts": "2026-06-07T21:15:59.561043+00:00",
+      "sha256": "36815def46453fd37c518c078e95cfc81d57861b00649b22f961a40bb3a74642"
+    },
+    "penthouse/kernel_installation_socket/rebased_kernel/state/continuity_state.json": {
+      "group": "rebased_kernel",
+      "size_bytes": 1106,
+      "modified_ts": "2026-06-09T09:24:48.250551+00:00",
+      "sha256": "97111b72b7e83c306940500585c260607e4fb39e731e12f40e91283ea9650daa"
+    },
+    "penthouse/kernel_installation_socket/rebased_kernel/state/identity.json": {
+      "group": "rebased_kernel",
+      "size_bytes": 370,
+      "modified_ts": "2026-06-07T21:33:44.145345+00:00",
+      "sha256": "14fc35ce94b61981d73b26ba332ccc52b4ac0ab3e537636164f822c807aab1fb"
+    },
+    "penthouse/kernel_discovery_interface/discovery_manifest.json": {
+      "group": "penthouse",
+      "size_bytes": 489,
+      "modified_ts": "2026-06-07T17:23:52.060382+00:00",
+      "sha256": "159488f69386e7d26ee447663cc019293dbb50989ce2ab7d539457785ece88c9"
+    },
+    "penthouse/security_precheck/security_precheck.json": {
+      "group": "penthouse",
+      "size_bytes": 839,
+      "modified_ts": "2026-06-09T08:31:56.000413+00:00",
+      "sha256": "fc48e2f7b5d4bfe45c14a582741fe4fcf81239919a38c8d095adc0ed8dae5f1e"
+    },
+    "penthouse/floor_53_handoff/handoff.json": {
+      "group": "penthouse",
+      "size_bytes": 394,
+      "modified_ts": "2026-06-07T17:23:52.060765+00:00",
+      "sha256": "5621ebce479894ba41e669ff689422d528661a32583ea5bf946990704303b268"
+    }
+  },
+  "summary": {
+    "canonical_workers": 177,
+    "newly_employed": 35,
+    "live_telemetry_present": true,
+    "live_visual_mode": "LIVE_DATA_ONLY",
+    "worker_movements_count": 0,
+    "lift_movements_count": 0,
+    "narrator_routes_present": true,
+    "scorecards_total": 177,
+    "floor_44_vacant_dir_exists": true,
+    "hardware_floor_registry_exists": false
+  },
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

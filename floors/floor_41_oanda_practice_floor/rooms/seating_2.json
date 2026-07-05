@@ -1,0 +1,31 @@
+{
+  "room_id": "seating_2",
+  "name": "Trading Breakout Space",
+  "category": "seating",
+  "purpose": "A place for traders to take a break and discuss strategies.",
+  "concierge_blurb": "Comfortable seating area with views of the practice floor.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -8.0,
+    "offset_z": 2.5,
+    "footprint_m": [
+      6.0,
+      4.0
+    ],
+    "height_m": 1.3
+  },
+  "render": {
+    "primary_prop": "chair_set",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Breakout Space",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_41"
+}

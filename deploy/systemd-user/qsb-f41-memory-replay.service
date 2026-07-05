@@ -1,0 +1,13 @@
+[Unit]
+Description=QSB F41 trader memory replay — refresh trader_memory/ from closed_trades
+
+[Service]
+Type=oneshot
+WorkingDirectory=/vaults/nvme0/qsb_tower_v1
+Environment=PATH=/vaults/nvme0/qsb_tower_v1/.venv/bin:/usr/local/bin:/usr/bin:/bin
+ExecStart=/vaults/nvme0/qsb_tower_v1/.venv/bin/python3 /vaults/nvme0/qsb_tower_v1/tools/qsb_f41_memory_replay.py
+StandardOutput=append:/vaults/nvme0/qsb_tower_v1/logs/qsb_f41_memory_replay.log
+StandardError=append:/vaults/nvme0/qsb_tower_v1/logs/qsb_f41_memory_replay.log
+
+[Install]
+WantedBy=default.target

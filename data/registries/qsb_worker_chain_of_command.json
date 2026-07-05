@@ -1,0 +1,7020 @@
+{
+  "ok": true,
+  "kind": "qsb_worker_chain_of_command",
+  "generated_ts": "2026-06-30T13:46:36.969186+00:00",
+  "chain": [
+    {
+      "worker_id": "wrk_v2_f01_ful_floor_manager_001",
+      "role": "Fulfilment Floor Manager",
+      "manager_role_key": "FLOOR_OWNER",
+      "team": "fulfilment_team",
+      "floor": 1
+    },
+    {
+      "worker_id": "wrk_v2_f01_ful_intake_clerk_002",
+      "role": "Order Intake Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "fulfilment_team",
+      "floor": 1
+    },
+    {
+      "worker_id": "wrk_v2_f01_ful_intake_clerk_003",
+      "role": "Order Intake Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "fulfilment_team",
+      "floor": 1
+    },
+    {
+      "worker_id": "wrk_v2_f01_ful_intake_clerk_004",
+      "role": "Order Intake Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "fulfilment_team",
+      "floor": 1
+    },
+    {
+      "worker_id": "wrk_v2_f01_ful_intake_clerk_005",
+      "role": "Order Intake Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "fulfilment_team",
+      "floor": 1
+    },
+    {
+      "worker_id": "wrk_v2_f01_ful_intake_clerk_006",
+      "role": "Order Intake Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "fulfilment_team",
+      "floor": 1
+    },
+    {
+      "worker_id": "wrk_v2_f01_ful_dispatch_clerk_007",
+      "role": "Dispatch Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "fulfilment_team",
+      "floor": 1
+    },
+    {
+      "worker_id": "wrk_v2_f01_ful_dispatch_clerk_008",
+      "role": "Dispatch Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "fulfilment_team",
+      "floor": 1
+    },
+    {
+      "worker_id": "wrk_v2_f01_ful_dispatch_clerk_009",
+      "role": "Dispatch Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "fulfilment_team",
+      "floor": 1
+    },
+    {
+      "worker_id": "wrk_v2_f01_ful_dispatch_clerk_010",
+      "role": "Dispatch Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "fulfilment_team",
+      "floor": 1
+    },
+    {
+      "worker_id": "wrk_v2_f01_ful_dispatch_clerk_011",
+      "role": "Dispatch Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "fulfilment_team",
+      "floor": 1
+    },
+    {
+      "worker_id": "wrk_v2_f01_ful_ledger_clerk_012",
+      "role": "Fulfilment Ledger Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "fulfilment_team",
+      "floor": 1
+    },
+    {
+      "worker_id": "wrk_v2_f01_ful_ledger_clerk_013",
+      "role": "Fulfilment Ledger Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "fulfilment_team",
+      "floor": 1
+    },
+    {
+      "worker_id": "wrk_v2_f01_ful_ledger_clerk_014",
+      "role": "Fulfilment Ledger Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "fulfilment_team",
+      "floor": 1
+    },
+    {
+      "worker_id": "wrk_v2_f01_ful_qc_015",
+      "role": "Quality Check Worker",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "fulfilment_team",
+      "floor": 1
+    },
+    {
+      "worker_id": "wrk_v2_f01_ful_qc_016",
+      "role": "Quality Check Worker",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "fulfilment_team",
+      "floor": 1
+    },
+    {
+      "worker_id": "wrk_v2_f01_ful_qc_017",
+      "role": "Quality Check Worker",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "fulfilment_team",
+      "floor": 1
+    },
+    {
+      "worker_id": "wrk_v2_f01_ful_qc_018",
+      "role": "Quality Check Worker",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "fulfilment_team",
+      "floor": 1
+    },
+    {
+      "worker_id": "wrk_v2_f01_ful_returns_clerk_019",
+      "role": "Returns Desk Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "fulfilment_team",
+      "floor": 1
+    },
+    {
+      "worker_id": "wrk_v2_f01_ful_returns_clerk_020",
+      "role": "Returns Desk Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "fulfilment_team",
+      "floor": 1
+    },
+    {
+      "worker_id": "wrk_v2_f01_ful_returns_clerk_021",
+      "role": "Returns Desk Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "fulfilment_team",
+      "floor": 1
+    },
+    {
+      "worker_id": "wrk_v2_f01_ful_openclaw_insp_022",
+      "role": "OpenClaw Fulfilment Insp.",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "fulfilment_team",
+      "floor": 1
+    },
+    {
+      "worker_id": "wrk_v2_f01_ful_trainee_023",
+      "role": "Fulfilment Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "fulfilment_team",
+      "floor": 1
+    },
+    {
+      "worker_id": "wrk_v2_f01_ful_trainee_024",
+      "role": "Fulfilment Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "fulfilment_team",
+      "floor": 1
+    },
+    {
+      "worker_id": "wrk_v2_f01_ful_trainee_025",
+      "role": "Fulfilment Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "fulfilment_team",
+      "floor": 1
+    },
+    {
+      "worker_id": "wrk_v2_f01_ful_trainee_026",
+      "role": "Fulfilment Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "fulfilment_team",
+      "floor": 1
+    },
+    {
+      "worker_id": "wrk_v2_f01_ful_trainee_027",
+      "role": "Fulfilment Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "fulfilment_team",
+      "floor": 1
+    },
+    {
+      "worker_id": "wrk_v2_f01_ful_trainee_028",
+      "role": "Fulfilment Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "fulfilment_team",
+      "floor": 1
+    },
+    {
+      "worker_id": "wrk_v2_f01_ful_trainee_029",
+      "role": "Fulfilment Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "fulfilment_team",
+      "floor": 1
+    },
+    {
+      "worker_id": "wrk_v2_f01_ful_trainee_030",
+      "role": "Fulfilment Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "fulfilment_team",
+      "floor": 1
+    },
+    {
+      "worker_id": "wrk_v2_f01_ful_trainee_031",
+      "role": "Fulfilment Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "fulfilment_team",
+      "floor": 1
+    },
+    {
+      "worker_id": "wrk_v2_f01_ful_trainee_032",
+      "role": "Fulfilment Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "fulfilment_team",
+      "floor": 1
+    },
+    {
+      "worker_id": "wrk_v2_f01_ful_trainee_033",
+      "role": "Fulfilment Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "fulfilment_team",
+      "floor": 1
+    },
+    {
+      "worker_id": "wrk_v2_f01_ful_trainee_034",
+      "role": "Fulfilment Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "fulfilment_team",
+      "floor": 1
+    },
+    {
+      "worker_id": "wrk_v2_f01_ful_trainee_035",
+      "role": "Fulfilment Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "fulfilment_team",
+      "floor": 1
+    },
+    {
+      "worker_id": "wrk_v2_f02_dept_floor_manager_001",
+      "role": "Floor Manager",
+      "manager_role_key": "FLOOR_OWNER",
+      "team": "department_team",
+      "floor": 2
+    },
+    {
+      "worker_id": "wrk_v2_f02_dept_manager_002",
+      "role": "Department Manager",
+      "manager_role_key": "FLOOR_MANAGER",
+      "team": "department_team",
+      "floor": 2
+    },
+    {
+      "worker_id": "wrk_v2_f02_dept_overseer_003",
+      "role": "Department Overseer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 2
+    },
+    {
+      "worker_id": "wrk_v2_f02_dept_watcher_004",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 2
+    },
+    {
+      "worker_id": "wrk_v2_f02_dept_watcher_005",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 2
+    },
+    {
+      "worker_id": "wrk_v2_f02_dept_seer_006",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 2
+    },
+    {
+      "worker_id": "wrk_v2_f02_dept_seer_007",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 2
+    },
+    {
+      "worker_id": "wrk_v2_f02_dept_specialist_008",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 2
+    },
+    {
+      "worker_id": "wrk_v2_f02_dept_specialist_009",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 2
+    },
+    {
+      "worker_id": "wrk_v2_f02_dept_specialist_010",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 2
+    },
+    {
+      "worker_id": "wrk_v2_f02_dept_specialist_011",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 2
+    },
+    {
+      "worker_id": "wrk_v2_f02_dept_specialist_012",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 2
+    },
+    {
+      "worker_id": "wrk_v2_f02_dept_specialist_013",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 2
+    },
+    {
+      "worker_id": "wrk_v2_f02_dept_clerk_014",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 2
+    },
+    {
+      "worker_id": "wrk_v2_f02_dept_clerk_015",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 2
+    },
+    {
+      "worker_id": "wrk_v2_f02_dept_openclaw_insp_016",
+      "role": "OpenClaw Inspector",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 2
+    },
+    {
+      "worker_id": "wrk_v2_f02_dept_trainee_017",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 2
+    },
+    {
+      "worker_id": "wrk_v2_f02_dept_trainee_018",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 2
+    },
+    {
+      "worker_id": "wrk_v2_f02_dept_trainee_019",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 2
+    },
+    {
+      "worker_id": "wrk_v2_f02_dept_trainee_020",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 2
+    },
+    {
+      "worker_id": "wrk_v2_f02_dept_trainee_021",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 2
+    },
+    {
+      "worker_id": "wrk_v2_f02_dept_trainee_022",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 2
+    },
+    {
+      "worker_id": "wrk_v2_f03_pr_lab_manager_001",
+      "role": "Product Research Lab Mgr",
+      "manager_role_key": "FLOOR_MANAGER",
+      "team": "research_team",
+      "floor": 3
+    },
+    {
+      "worker_id": "wrk_v2_f03_pr_trend_watcher_002",
+      "role": "Trend Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "research_team",
+      "floor": 3
+    },
+    {
+      "worker_id": "wrk_v2_f03_pr_trend_watcher_003",
+      "role": "Trend Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "research_team",
+      "floor": 3
+    },
+    {
+      "worker_id": "wrk_v2_f03_pr_trend_watcher_004",
+      "role": "Trend Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "research_team",
+      "floor": 3
+    },
+    {
+      "worker_id": "wrk_v2_f03_pr_trend_watcher_005",
+      "role": "Trend Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "research_team",
+      "floor": 3
+    },
+    {
+      "worker_id": "wrk_v2_f03_pr_competitor_seer_006",
+      "role": "Competitor Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "research_team",
+      "floor": 3
+    },
+    {
+      "worker_id": "wrk_v2_f03_pr_competitor_seer_007",
+      "role": "Competitor Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "research_team",
+      "floor": 3
+    },
+    {
+      "worker_id": "wrk_v2_f03_pr_competitor_seer_008",
+      "role": "Competitor Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "research_team",
+      "floor": 3
+    },
+    {
+      "worker_id": "wrk_v2_f03_pr_competitor_seer_009",
+      "role": "Competitor Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "research_team",
+      "floor": 3
+    },
+    {
+      "worker_id": "wrk_v2_f03_pr_pricing_analyst_010",
+      "role": "Pricing Analyst",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "research_team",
+      "floor": 3
+    },
+    {
+      "worker_id": "wrk_v2_f03_pr_pricing_analyst_011",
+      "role": "Pricing Analyst",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "research_team",
+      "floor": 3
+    },
+    {
+      "worker_id": "wrk_v2_f03_pr_pricing_analyst_012",
+      "role": "Pricing Analyst",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "research_team",
+      "floor": 3
+    },
+    {
+      "worker_id": "wrk_v2_f03_pr_niche_seer_013",
+      "role": "Niche Discovery Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "research_team",
+      "floor": 3
+    },
+    {
+      "worker_id": "wrk_v2_f03_pr_niche_seer_014",
+      "role": "Niche Discovery Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "research_team",
+      "floor": 3
+    },
+    {
+      "worker_id": "wrk_v2_f03_pr_niche_seer_015",
+      "role": "Niche Discovery Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "research_team",
+      "floor": 3
+    },
+    {
+      "worker_id": "wrk_v2_f03_pr_demand_seer_016",
+      "role": "Demand Signal Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "research_team",
+      "floor": 3
+    },
+    {
+      "worker_id": "wrk_v2_f03_pr_demand_seer_017",
+      "role": "Demand Signal Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "research_team",
+      "floor": 3
+    },
+    {
+      "worker_id": "wrk_v2_f03_pr_demand_seer_018",
+      "role": "Demand Signal Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "research_team",
+      "floor": 3
+    },
+    {
+      "worker_id": "wrk_v2_f03_pr_openclaw_insp_019",
+      "role": "OpenClaw Research Inspector",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "research_team",
+      "floor": 3
+    },
+    {
+      "worker_id": "wrk_v2_f03_pr_trainee_020",
+      "role": "Product Research Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "research_team",
+      "floor": 3
+    },
+    {
+      "worker_id": "wrk_v2_f03_pr_trainee_021",
+      "role": "Product Research Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "research_team",
+      "floor": 3
+    },
+    {
+      "worker_id": "wrk_v2_f03_pr_trainee_022",
+      "role": "Product Research Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "research_team",
+      "floor": 3
+    },
+    {
+      "worker_id": "wrk_v2_f03_pr_trainee_023",
+      "role": "Product Research Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "research_team",
+      "floor": 3
+    },
+    {
+      "worker_id": "wrk_v2_f03_pr_trainee_024",
+      "role": "Product Research Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "research_team",
+      "floor": 3
+    },
+    {
+      "worker_id": "wrk_v2_f03_pr_trainee_025",
+      "role": "Product Research Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "research_team",
+      "floor": 3
+    },
+    {
+      "worker_id": "wrk_v2_f03_pr_trainee_026",
+      "role": "Product Research Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "research_team",
+      "floor": 3
+    },
+    {
+      "worker_id": "wrk_v2_f03_pr_trainee_027",
+      "role": "Product Research Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "research_team",
+      "floor": 3
+    },
+    {
+      "worker_id": "wrk_v2_f03_pr_trainee_028",
+      "role": "Product Research Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "research_team",
+      "floor": 3
+    },
+    {
+      "worker_id": "wrk_v2_f03_pr_trainee_029",
+      "role": "Product Research Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "research_team",
+      "floor": 3
+    },
+    {
+      "worker_id": "wrk_v2_f03_pr_trainee_030",
+      "role": "Product Research Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "research_team",
+      "floor": 3
+    },
+    {
+      "worker_id": "wrk_v2_f04_dept_floor_manager_001",
+      "role": "Floor Manager",
+      "manager_role_key": "FLOOR_OWNER",
+      "team": "teaching_team",
+      "floor": 4
+    },
+    {
+      "worker_id": "wrk_v2_f04_dept_manager_002",
+      "role": "Department Manager",
+      "manager_role_key": "FLOOR_MANAGER",
+      "team": "teaching_team",
+      "floor": 4
+    },
+    {
+      "worker_id": "wrk_v2_f04_dept_overseer_003",
+      "role": "Department Overseer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 4
+    },
+    {
+      "worker_id": "wrk_v2_f04_dept_watcher_004",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 4
+    },
+    {
+      "worker_id": "wrk_v2_f04_dept_watcher_005",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 4
+    },
+    {
+      "worker_id": "wrk_v2_f04_dept_seer_006",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 4
+    },
+    {
+      "worker_id": "wrk_v2_f04_dept_seer_007",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 4
+    },
+    {
+      "worker_id": "wrk_v2_f04_dept_specialist_008",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 4
+    },
+    {
+      "worker_id": "wrk_v2_f04_dept_specialist_009",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 4
+    },
+    {
+      "worker_id": "wrk_v2_f04_dept_specialist_010",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 4
+    },
+    {
+      "worker_id": "wrk_v2_f04_dept_specialist_011",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 4
+    },
+    {
+      "worker_id": "wrk_v2_f04_dept_specialist_012",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 4
+    },
+    {
+      "worker_id": "wrk_v2_f04_dept_specialist_013",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 4
+    },
+    {
+      "worker_id": "wrk_v2_f04_dept_specialist_014",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 4
+    },
+    {
+      "worker_id": "wrk_v2_f04_dept_specialist_015",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 4
+    },
+    {
+      "worker_id": "wrk_v2_f04_dept_clerk_016",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 4
+    },
+    {
+      "worker_id": "wrk_v2_f04_dept_clerk_017",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 4
+    },
+    {
+      "worker_id": "wrk_v2_f04_dept_openclaw_insp_018",
+      "role": "OpenClaw Inspector",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 4
+    },
+    {
+      "worker_id": "wrk_v2_f04_dept_trainee_019",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 4
+    },
+    {
+      "worker_id": "wrk_v2_f04_dept_trainee_020",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 4
+    },
+    {
+      "worker_id": "wrk_v2_f04_dept_trainee_021",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 4
+    },
+    {
+      "worker_id": "wrk_v2_f04_dept_trainee_022",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 4
+    },
+    {
+      "worker_id": "wrk_v2_f04_dept_trainee_023",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 4
+    },
+    {
+      "worker_id": "wrk_v2_f04_dept_trainee_024",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 4
+    },
+    {
+      "worker_id": "wrk_v2_f04_dept_trainee_025",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 4
+    },
+    {
+      "worker_id": "wrk_v2_f04_dept_trainee_026",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 4
+    },
+    {
+      "worker_id": "wrk_v2_f05_dept_floor_manager_001",
+      "role": "Floor Manager",
+      "manager_role_key": "FLOOR_OWNER",
+      "team": "department_team",
+      "floor": 5
+    },
+    {
+      "worker_id": "wrk_v2_f05_dept_manager_002",
+      "role": "Department Manager",
+      "manager_role_key": "FLOOR_MANAGER",
+      "team": "department_team",
+      "floor": 5
+    },
+    {
+      "worker_id": "wrk_v2_f05_dept_overseer_003",
+      "role": "Department Overseer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 5
+    },
+    {
+      "worker_id": "wrk_v2_f05_dept_watcher_004",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 5
+    },
+    {
+      "worker_id": "wrk_v2_f05_dept_watcher_005",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 5
+    },
+    {
+      "worker_id": "wrk_v2_f05_dept_seer_006",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 5
+    },
+    {
+      "worker_id": "wrk_v2_f05_dept_seer_007",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 5
+    },
+    {
+      "worker_id": "wrk_v2_f05_dept_specialist_008",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 5
+    },
+    {
+      "worker_id": "wrk_v2_f05_dept_specialist_009",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 5
+    },
+    {
+      "worker_id": "wrk_v2_f05_dept_specialist_010",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 5
+    },
+    {
+      "worker_id": "wrk_v2_f05_dept_clerk_011",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 5
+    },
+    {
+      "worker_id": "wrk_v2_f05_dept_clerk_012",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 5
+    },
+    {
+      "worker_id": "wrk_v2_f05_dept_openclaw_insp_013",
+      "role": "OpenClaw Inspector",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 5
+    },
+    {
+      "worker_id": "wrk_v2_f05_dept_trainee_014",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 5
+    },
+    {
+      "worker_id": "wrk_v2_f05_dept_trainee_015",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 5
+    },
+    {
+      "worker_id": "wrk_v2_f05_dept_trainee_016",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 5
+    },
+    {
+      "worker_id": "wrk_v2_f06_etsy_floor_manager_001",
+      "role": "Etsy Floor Manager",
+      "manager_role_key": "FLOOR_OWNER",
+      "team": "etsy_team",
+      "floor": 6
+    },
+    {
+      "worker_id": "wrk_v2_f06_etsy_dept_manager_002",
+      "role": "Etsy Department Manager",
+      "manager_role_key": "FLOOR_MANAGER",
+      "team": "etsy_team",
+      "floor": 6
+    },
+    {
+      "worker_id": "wrk_v2_f06_etsy_product_seer_003",
+      "role": "Product Research Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "etsy_team",
+      "floor": 6
+    },
+    {
+      "worker_id": "wrk_v2_f06_etsy_product_seer_004",
+      "role": "Product Research Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "etsy_team",
+      "floor": 6
+    },
+    {
+      "worker_id": "wrk_v2_f06_etsy_product_seer_005",
+      "role": "Product Research Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "etsy_team",
+      "floor": 6
+    },
+    {
+      "worker_id": "wrk_v2_f06_etsy_listing_writer_006",
+      "role": "Listing Writer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "etsy_team",
+      "floor": 6
+    },
+    {
+      "worker_id": "wrk_v2_f06_etsy_listing_writer_007",
+      "role": "Listing Writer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "etsy_team",
+      "floor": 6
+    },
+    {
+      "worker_id": "wrk_v2_f06_etsy_listing_writer_008",
+      "role": "Listing Writer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "etsy_team",
+      "floor": 6
+    },
+    {
+      "worker_id": "wrk_v2_f06_etsy_listing_writer_009",
+      "role": "Listing Writer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "etsy_team",
+      "floor": 6
+    },
+    {
+      "worker_id": "wrk_v2_f06_etsy_seo_clerk_010",
+      "role": "SEO Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "etsy_team",
+      "floor": 6
+    },
+    {
+      "worker_id": "wrk_v2_f06_etsy_seo_clerk_011",
+      "role": "SEO Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "etsy_team",
+      "floor": 6
+    },
+    {
+      "worker_id": "wrk_v2_f06_etsy_seo_clerk_012",
+      "role": "SEO Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "etsy_team",
+      "floor": 6
+    },
+    {
+      "worker_id": "wrk_v2_f06_etsy_image_designer_013",
+      "role": "Digital Image Designer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "etsy_team",
+      "floor": 6
+    },
+    {
+      "worker_id": "wrk_v2_f06_etsy_image_designer_014",
+      "role": "Digital Image Designer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "etsy_team",
+      "floor": 6
+    },
+    {
+      "worker_id": "wrk_v2_f06_etsy_image_designer_015",
+      "role": "Digital Image Designer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "etsy_team",
+      "floor": 6
+    },
+    {
+      "worker_id": "wrk_v2_f06_etsy_image_designer_016",
+      "role": "Digital Image Designer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "etsy_team",
+      "floor": 6
+    },
+    {
+      "worker_id": "wrk_v2_f06_etsy_mockup_creator_017",
+      "role": "Mockup Creator",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "etsy_team",
+      "floor": 6
+    },
+    {
+      "worker_id": "wrk_v2_f06_etsy_mockup_creator_018",
+      "role": "Mockup Creator",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "etsy_team",
+      "floor": 6
+    },
+    {
+      "worker_id": "wrk_v2_f06_etsy_mockup_creator_019",
+      "role": "Mockup Creator",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "etsy_team",
+      "floor": 6
+    },
+    {
+      "worker_id": "wrk_v2_f06_etsy_pricing_analyst_020",
+      "role": "Pricing Analyst",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "etsy_team",
+      "floor": 6
+    },
+    {
+      "worker_id": "wrk_v2_f06_etsy_pricing_analyst_021",
+      "role": "Pricing Analyst",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "etsy_team",
+      "floor": 6
+    },
+    {
+      "worker_id": "wrk_v2_f06_etsy_customer_clerk_022",
+      "role": "Customer Service Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "etsy_team",
+      "floor": 6
+    },
+    {
+      "worker_id": "wrk_v2_f06_etsy_customer_clerk_023",
+      "role": "Customer Service Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "etsy_team",
+      "floor": 6
+    },
+    {
+      "worker_id": "wrk_v2_f06_etsy_customer_clerk_024",
+      "role": "Customer Service Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "etsy_team",
+      "floor": 6
+    },
+    {
+      "worker_id": "wrk_v2_f06_etsy_order_watcher_025",
+      "role": "Order Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "etsy_team",
+      "floor": 6
+    },
+    {
+      "worker_id": "wrk_v2_f06_etsy_order_watcher_026",
+      "role": "Order Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "etsy_team",
+      "floor": 6
+    },
+    {
+      "worker_id": "wrk_v2_f06_etsy_revenue_acct_027",
+      "role": "Revenue Accountant",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "etsy_team",
+      "floor": 6
+    },
+    {
+      "worker_id": "wrk_v2_f06_etsy_revenue_acct_028",
+      "role": "Revenue Accountant",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "etsy_team",
+      "floor": 6
+    },
+    {
+      "worker_id": "wrk_v2_f06_etsy_compliance_029",
+      "role": "Compliance Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "etsy_team",
+      "floor": 6
+    },
+    {
+      "worker_id": "wrk_v2_f06_etsy_compliance_030",
+      "role": "Compliance Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "etsy_team",
+      "floor": 6
+    },
+    {
+      "worker_id": "wrk_v2_f06_etsy_openclaw_insp_031",
+      "role": "OpenClaw Etsy Inspector",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "etsy_team",
+      "floor": 6
+    },
+    {
+      "worker_id": "wrk_v2_f06_etsy_trainee_032",
+      "role": "Etsy Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "etsy_team",
+      "floor": 6
+    },
+    {
+      "worker_id": "wrk_v2_f07_shop_floor_manager_001",
+      "role": "Shopify Floor Manager",
+      "manager_role_key": "FLOOR_OWNER",
+      "team": "shopify_team",
+      "floor": 7
+    },
+    {
+      "worker_id": "wrk_v2_f07_shop_theme_designer_002",
+      "role": "Theme Designer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "shopify_team",
+      "floor": 7
+    },
+    {
+      "worker_id": "wrk_v2_f07_shop_theme_designer_003",
+      "role": "Theme Designer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "shopify_team",
+      "floor": 7
+    },
+    {
+      "worker_id": "wrk_v2_f07_shop_theme_designer_004",
+      "role": "Theme Designer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "shopify_team",
+      "floor": 7
+    },
+    {
+      "worker_id": "wrk_v2_f07_shop_cart_engineer_005",
+      "role": "Cart Logic Engineer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "shopify_team",
+      "floor": 7
+    },
+    {
+      "worker_id": "wrk_v2_f07_shop_cart_engineer_006",
+      "role": "Cart Logic Engineer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "shopify_team",
+      "floor": 7
+    },
+    {
+      "worker_id": "wrk_v2_f07_shop_cart_engineer_007",
+      "role": "Cart Logic Engineer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "shopify_team",
+      "floor": 7
+    },
+    {
+      "worker_id": "wrk_v2_f07_shop_storefront_aud_008",
+      "role": "Storefront Auditor",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "shopify_team",
+      "floor": 7
+    },
+    {
+      "worker_id": "wrk_v2_f07_shop_storefront_aud_009",
+      "role": "Storefront Auditor",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "shopify_team",
+      "floor": 7
+    },
+    {
+      "worker_id": "wrk_v2_f07_shop_webhook_clerk_010",
+      "role": "Webhook Listener Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "shopify_team",
+      "floor": 7
+    },
+    {
+      "worker_id": "wrk_v2_f07_shop_webhook_clerk_011",
+      "role": "Webhook Listener Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "shopify_team",
+      "floor": 7
+    },
+    {
+      "worker_id": "wrk_v2_f07_shop_compliance_012",
+      "role": "Shopify Compliance Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "shopify_team",
+      "floor": 7
+    },
+    {
+      "worker_id": "wrk_v2_f07_shop_compliance_013",
+      "role": "Shopify Compliance Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "shopify_team",
+      "floor": 7
+    },
+    {
+      "worker_id": "wrk_v2_f07_shop_openclaw_insp_014",
+      "role": "OpenClaw Shopify Inspector",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "shopify_team",
+      "floor": 7
+    },
+    {
+      "worker_id": "wrk_v2_f07_shop_trainee_015",
+      "role": "Shopify Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "shopify_team",
+      "floor": 7
+    },
+    {
+      "worker_id": "wrk_v2_f07_shop_trainee_016",
+      "role": "Shopify Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "shopify_team",
+      "floor": 7
+    },
+    {
+      "worker_id": "wrk_v2_f07_shop_trainee_017",
+      "role": "Shopify Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "shopify_team",
+      "floor": 7
+    },
+    {
+      "worker_id": "wrk_v2_f07_shop_trainee_018",
+      "role": "Shopify Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "shopify_team",
+      "floor": 7
+    },
+    {
+      "worker_id": "wrk_v2_f07_shop_trainee_019",
+      "role": "Shopify Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "shopify_team",
+      "floor": 7
+    },
+    {
+      "worker_id": "wrk_v2_f07_shop_trainee_020",
+      "role": "Shopify Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "shopify_team",
+      "floor": 7
+    },
+    {
+      "worker_id": "wrk_v2_f07_shop_trainee_021",
+      "role": "Shopify Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "shopify_team",
+      "floor": 7
+    },
+    {
+      "worker_id": "wrk_v2_f07_shop_trainee_022",
+      "role": "Shopify Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "shopify_team",
+      "floor": 7
+    },
+    {
+      "worker_id": "wrk_v2_f08_class_teacher_lead_001",
+      "role": "Lead Teacher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 8
+    },
+    {
+      "worker_id": "wrk_v2_f08_class_teacher_lead_002",
+      "role": "Lead Teacher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 8
+    },
+    {
+      "worker_id": "wrk_v2_f08_class_trading_teacher_003",
+      "role": "Trading Teacher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 8
+    },
+    {
+      "worker_id": "wrk_v2_f08_class_trading_teacher_004",
+      "role": "Trading Teacher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 8
+    },
+    {
+      "worker_id": "wrk_v2_f08_class_trading_teacher_005",
+      "role": "Trading Teacher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 8
+    },
+    {
+      "worker_id": "wrk_v2_f08_class_trading_teacher_006",
+      "role": "Trading Teacher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 8
+    },
+    {
+      "worker_id": "wrk_v2_f08_class_commerce_teacher_007",
+      "role": "Commerce Teacher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 8
+    },
+    {
+      "worker_id": "wrk_v2_f08_class_commerce_teacher_008",
+      "role": "Commerce Teacher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 8
+    },
+    {
+      "worker_id": "wrk_v2_f08_class_commerce_teacher_009",
+      "role": "Commerce Teacher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 8
+    },
+    {
+      "worker_id": "wrk_v2_f08_class_commerce_teacher_010",
+      "role": "Commerce Teacher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 8
+    },
+    {
+      "worker_id": "wrk_v2_f08_class_etsy_teacher_011",
+      "role": "Etsy Teacher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 8
+    },
+    {
+      "worker_id": "wrk_v2_f08_class_etsy_teacher_012",
+      "role": "Etsy Teacher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 8
+    },
+    {
+      "worker_id": "wrk_v2_f08_class_etsy_teacher_013",
+      "role": "Etsy Teacher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 8
+    },
+    {
+      "worker_id": "wrk_v2_f08_class_pod_teacher_014",
+      "role": "POD Teacher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 8
+    },
+    {
+      "worker_id": "wrk_v2_f08_class_pod_teacher_015",
+      "role": "POD Teacher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 8
+    },
+    {
+      "worker_id": "wrk_v2_f08_class_pod_teacher_016",
+      "role": "POD Teacher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 8
+    },
+    {
+      "worker_id": "wrk_v2_f08_class_3dprint_teacher_017",
+      "role": "3D Printing Teacher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 8
+    },
+    {
+      "worker_id": "wrk_v2_f08_class_3dprint_teacher_018",
+      "role": "3D Printing Teacher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 8
+    },
+    {
+      "worker_id": "wrk_v2_f08_class_3dprint_teacher_019",
+      "role": "3D Printing Teacher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 8
+    },
+    {
+      "worker_id": "wrk_v2_f08_class_seo_teacher_020",
+      "role": "SEO/Listing Teacher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 8
+    },
+    {
+      "worker_id": "wrk_v2_f08_class_seo_teacher_021",
+      "role": "SEO/Listing Teacher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 8
+    },
+    {
+      "worker_id": "wrk_v2_f08_class_seo_teacher_022",
+      "role": "SEO/Listing Teacher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 8
+    },
+    {
+      "worker_id": "wrk_v2_f08_class_prompt_teacher_023",
+      "role": "Prompt Engineering Teacher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 8
+    },
+    {
+      "worker_id": "wrk_v2_f08_class_prompt_teacher_024",
+      "role": "Prompt Engineering Teacher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 8
+    },
+    {
+      "worker_id": "wrk_v2_f08_class_prompt_teacher_025",
+      "role": "Prompt Engineering Teacher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 8
+    },
+    {
+      "worker_id": "wrk_v2_f08_class_mentor_026",
+      "role": "Worker Mentor",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 8
+    },
+    {
+      "worker_id": "wrk_v2_f08_class_mentor_027",
+      "role": "Worker Mentor",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 8
+    },
+    {
+      "worker_id": "wrk_v2_f08_class_mentor_028",
+      "role": "Worker Mentor",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 8
+    },
+    {
+      "worker_id": "wrk_v2_f08_class_mentor_029",
+      "role": "Worker Mentor",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 8
+    },
+    {
+      "worker_id": "wrk_v2_f08_class_certifier_030",
+      "role": "Certification Officer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 8
+    },
+    {
+      "worker_id": "wrk_v2_f08_class_certifier_031",
+      "role": "Certification Officer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 8
+    },
+    {
+      "worker_id": "wrk_v2_f08_class_student_032",
+      "role": "Cohort Student",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 8
+    },
+    {
+      "worker_id": "wrk_v2_f08_class_student_033",
+      "role": "Cohort Student",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 8
+    },
+    {
+      "worker_id": "wrk_v2_f08_class_student_034",
+      "role": "Cohort Student",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 8
+    },
+    {
+      "worker_id": "wrk_v2_f08_class_student_035",
+      "role": "Cohort Student",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 8
+    },
+    {
+      "worker_id": "wrk_v2_f08_class_student_036",
+      "role": "Cohort Student",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 8
+    },
+    {
+      "worker_id": "wrk_v2_f08_class_student_037",
+      "role": "Cohort Student",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 8
+    },
+    {
+      "worker_id": "wrk_v2_f08_class_student_038",
+      "role": "Cohort Student",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 8
+    },
+    {
+      "worker_id": "wrk_v2_f08_class_student_039",
+      "role": "Cohort Student",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 8
+    },
+    {
+      "worker_id": "wrk_v2_f08_class_student_040",
+      "role": "Cohort Student",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 8
+    },
+    {
+      "worker_id": "wrk_v2_f08_class_student_041",
+      "role": "Cohort Student",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 8
+    },
+    {
+      "worker_id": "wrk_v2_f08_class_student_042",
+      "role": "Cohort Student",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 8
+    },
+    {
+      "worker_id": "wrk_v2_f08_class_student_043",
+      "role": "Cohort Student",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 8
+    },
+    {
+      "worker_id": "wrk_v2_f08_class_student_044",
+      "role": "Cohort Student",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 8
+    },
+    {
+      "worker_id": "wrk_v2_f08_class_student_045",
+      "role": "Cohort Student",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 8
+    },
+    {
+      "worker_id": "wrk_v2_f08_class_student_046",
+      "role": "Cohort Student",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 8
+    },
+    {
+      "worker_id": "wrk_v2_f08_class_student_047",
+      "role": "Cohort Student",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 8
+    },
+    {
+      "worker_id": "wrk_v2_f08_class_student_048",
+      "role": "Cohort Student",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "teaching_team",
+      "floor": 8
+    },
+    {
+      "worker_id": "wrk_v2_f09_dept_floor_manager_001",
+      "role": "Floor Manager",
+      "manager_role_key": "FLOOR_OWNER",
+      "team": "design_team",
+      "floor": 9
+    },
+    {
+      "worker_id": "wrk_v2_f09_dept_manager_002",
+      "role": "Department Manager",
+      "manager_role_key": "FLOOR_MANAGER",
+      "team": "design_team",
+      "floor": 9
+    },
+    {
+      "worker_id": "wrk_v2_f09_dept_overseer_003",
+      "role": "Department Overseer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 9
+    },
+    {
+      "worker_id": "wrk_v2_f09_dept_watcher_004",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 9
+    },
+    {
+      "worker_id": "wrk_v2_f09_dept_watcher_005",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 9
+    },
+    {
+      "worker_id": "wrk_v2_f09_dept_seer_006",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 9
+    },
+    {
+      "worker_id": "wrk_v2_f09_dept_seer_007",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 9
+    },
+    {
+      "worker_id": "wrk_v2_f09_dept_specialist_008",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 9
+    },
+    {
+      "worker_id": "wrk_v2_f09_dept_specialist_009",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 9
+    },
+    {
+      "worker_id": "wrk_v2_f09_dept_specialist_010",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 9
+    },
+    {
+      "worker_id": "wrk_v2_f09_dept_specialist_011",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 9
+    },
+    {
+      "worker_id": "wrk_v2_f09_dept_specialist_012",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 9
+    },
+    {
+      "worker_id": "wrk_v2_f09_dept_specialist_013",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 9
+    },
+    {
+      "worker_id": "wrk_v2_f09_dept_specialist_014",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 9
+    },
+    {
+      "worker_id": "wrk_v2_f09_dept_specialist_015",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 9
+    },
+    {
+      "worker_id": "wrk_v2_f09_dept_specialist_016",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 9
+    },
+    {
+      "worker_id": "wrk_v2_f09_dept_specialist_017",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 9
+    },
+    {
+      "worker_id": "wrk_v2_f09_dept_clerk_018",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 9
+    },
+    {
+      "worker_id": "wrk_v2_f09_dept_clerk_019",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 9
+    },
+    {
+      "worker_id": "wrk_v2_f09_dept_openclaw_insp_020",
+      "role": "OpenClaw Inspector",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 9
+    },
+    {
+      "worker_id": "wrk_v2_f09_dept_trainee_021",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 9
+    },
+    {
+      "worker_id": "wrk_v2_f09_dept_trainee_022",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 9
+    },
+    {
+      "worker_id": "wrk_v2_f09_dept_trainee_023",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 9
+    },
+    {
+      "worker_id": "wrk_v2_f09_dept_trainee_024",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 9
+    },
+    {
+      "worker_id": "wrk_v2_f09_dept_trainee_025",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 9
+    },
+    {
+      "worker_id": "wrk_v2_f09_dept_trainee_026",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 9
+    },
+    {
+      "worker_id": "wrk_v2_f09_dept_trainee_027",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 9
+    },
+    {
+      "worker_id": "wrk_v2_f09_dept_trainee_028",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 9
+    },
+    {
+      "worker_id": "wrk_v2_f09_dept_trainee_029",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 9
+    },
+    {
+      "worker_id": "wrk_v2_f09_dept_trainee_030",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 9
+    },
+    {
+      "worker_id": "wrk_v2_f10_dept_floor_manager_001",
+      "role": "Floor Manager",
+      "manager_role_key": "FLOOR_OWNER",
+      "team": "department_team",
+      "floor": 10
+    },
+    {
+      "worker_id": "wrk_v2_f10_dept_manager_002",
+      "role": "Department Manager",
+      "manager_role_key": "FLOOR_MANAGER",
+      "team": "department_team",
+      "floor": 10
+    },
+    {
+      "worker_id": "wrk_v2_f10_dept_overseer_003",
+      "role": "Department Overseer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 10
+    },
+    {
+      "worker_id": "wrk_v2_f10_dept_watcher_004",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 10
+    },
+    {
+      "worker_id": "wrk_v2_f10_dept_watcher_005",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 10
+    },
+    {
+      "worker_id": "wrk_v2_f10_dept_seer_006",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 10
+    },
+    {
+      "worker_id": "wrk_v2_f10_dept_seer_007",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 10
+    },
+    {
+      "worker_id": "wrk_v2_f10_dept_specialist_008",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 10
+    },
+    {
+      "worker_id": "wrk_v2_f10_dept_specialist_009",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 10
+    },
+    {
+      "worker_id": "wrk_v2_f10_dept_specialist_010",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 10
+    },
+    {
+      "worker_id": "wrk_v2_f10_dept_specialist_011",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 10
+    },
+    {
+      "worker_id": "wrk_v2_f10_dept_specialist_012",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 10
+    },
+    {
+      "worker_id": "wrk_v2_f10_dept_specialist_013",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 10
+    },
+    {
+      "worker_id": "wrk_v2_f10_dept_specialist_014",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 10
+    },
+    {
+      "worker_id": "wrk_v2_f10_dept_specialist_015",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 10
+    },
+    {
+      "worker_id": "wrk_v2_f10_dept_specialist_016",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 10
+    },
+    {
+      "worker_id": "wrk_v2_f10_dept_specialist_017",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 10
+    },
+    {
+      "worker_id": "wrk_v2_f10_dept_specialist_018",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 10
+    },
+    {
+      "worker_id": "wrk_v2_f10_dept_specialist_019",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 10
+    },
+    {
+      "worker_id": "wrk_v2_f10_dept_specialist_020",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 10
+    },
+    {
+      "worker_id": "wrk_v2_f10_dept_clerk_021",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 10
+    },
+    {
+      "worker_id": "wrk_v2_f10_dept_clerk_022",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 10
+    },
+    {
+      "worker_id": "wrk_v2_f10_dept_openclaw_insp_023",
+      "role": "OpenClaw Inspector",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 10
+    },
+    {
+      "worker_id": "wrk_v2_f10_dept_trainee_024",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 10
+    },
+    {
+      "worker_id": "wrk_v2_f10_dept_trainee_025",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 10
+    },
+    {
+      "worker_id": "wrk_v2_f10_dept_trainee_026",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 10
+    },
+    {
+      "worker_id": "wrk_v2_f10_dept_trainee_027",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 10
+    },
+    {
+      "worker_id": "wrk_v2_f10_dept_trainee_028",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 10
+    },
+    {
+      "worker_id": "wrk_v2_f10_dept_trainee_029",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 10
+    },
+    {
+      "worker_id": "wrk_v2_f10_dept_trainee_030",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 10
+    },
+    {
+      "worker_id": "wrk_v2_f10_dept_trainee_031",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 10
+    },
+    {
+      "worker_id": "wrk_v2_f10_dept_trainee_032",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 10
+    },
+    {
+      "worker_id": "wrk_v2_f10_dept_trainee_033",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 10
+    },
+    {
+      "worker_id": "wrk_v2_f10_dept_trainee_034",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 10
+    },
+    {
+      "worker_id": "wrk_v2_f10_dept_trainee_035",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 10
+    },
+    {
+      "worker_id": "wrk_v2_f10_dept_trainee_036",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 10
+    },
+    {
+      "worker_id": "wrk_v2_f11_dept_floor_manager_001",
+      "role": "Floor Manager",
+      "manager_role_key": "FLOOR_OWNER",
+      "team": "department_team",
+      "floor": 11
+    },
+    {
+      "worker_id": "wrk_v2_f11_dept_manager_002",
+      "role": "Department Manager",
+      "manager_role_key": "FLOOR_MANAGER",
+      "team": "department_team",
+      "floor": 11
+    },
+    {
+      "worker_id": "wrk_v2_f11_dept_overseer_003",
+      "role": "Department Overseer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 11
+    },
+    {
+      "worker_id": "wrk_v2_f11_dept_watcher_004",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 11
+    },
+    {
+      "worker_id": "wrk_v2_f11_dept_watcher_005",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 11
+    },
+    {
+      "worker_id": "wrk_v2_f11_dept_seer_006",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 11
+    },
+    {
+      "worker_id": "wrk_v2_f11_dept_seer_007",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 11
+    },
+    {
+      "worker_id": "wrk_v2_f11_dept_specialist_008",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 11
+    },
+    {
+      "worker_id": "wrk_v2_f11_dept_specialist_009",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 11
+    },
+    {
+      "worker_id": "wrk_v2_f11_dept_specialist_010",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 11
+    },
+    {
+      "worker_id": "wrk_v2_f11_dept_specialist_011",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 11
+    },
+    {
+      "worker_id": "wrk_v2_f11_dept_specialist_012",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 11
+    },
+    {
+      "worker_id": "wrk_v2_f11_dept_specialist_013",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 11
+    },
+    {
+      "worker_id": "wrk_v2_f11_dept_specialist_014",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 11
+    },
+    {
+      "worker_id": "wrk_v2_f11_dept_specialist_015",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 11
+    },
+    {
+      "worker_id": "wrk_v2_f11_dept_specialist_016",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 11
+    },
+    {
+      "worker_id": "wrk_v2_f11_dept_specialist_017",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 11
+    },
+    {
+      "worker_id": "wrk_v2_f11_dept_specialist_018",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 11
+    },
+    {
+      "worker_id": "wrk_v2_f11_dept_specialist_019",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 11
+    },
+    {
+      "worker_id": "wrk_v2_f11_dept_clerk_020",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 11
+    },
+    {
+      "worker_id": "wrk_v2_f11_dept_clerk_021",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 11
+    },
+    {
+      "worker_id": "wrk_v2_f11_dept_openclaw_insp_022",
+      "role": "OpenClaw Inspector",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 11
+    },
+    {
+      "worker_id": "wrk_v2_f11_dept_trainee_023",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 11
+    },
+    {
+      "worker_id": "wrk_v2_f11_dept_trainee_024",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 11
+    },
+    {
+      "worker_id": "wrk_v2_f11_dept_trainee_025",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 11
+    },
+    {
+      "worker_id": "wrk_v2_f11_dept_trainee_026",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 11
+    },
+    {
+      "worker_id": "wrk_v2_f11_dept_trainee_027",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 11
+    },
+    {
+      "worker_id": "wrk_v2_f11_dept_trainee_028",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 11
+    },
+    {
+      "worker_id": "wrk_v2_f11_dept_trainee_029",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 11
+    },
+    {
+      "worker_id": "wrk_v2_f11_dept_trainee_030",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 11
+    },
+    {
+      "worker_id": "wrk_v2_f11_dept_trainee_031",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 11
+    },
+    {
+      "worker_id": "wrk_v2_f11_dept_trainee_032",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 11
+    },
+    {
+      "worker_id": "wrk_v2_f11_dept_trainee_033",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 11
+    },
+    {
+      "worker_id": "wrk_v2_f11_dept_trainee_034",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 11
+    },
+    {
+      "worker_id": "wrk_v2_f12_dept_floor_manager_001",
+      "role": "Floor Manager",
+      "manager_role_key": "FLOOR_OWNER",
+      "team": "department_team",
+      "floor": 12
+    },
+    {
+      "worker_id": "wrk_v2_f12_dept_manager_002",
+      "role": "Department Manager",
+      "manager_role_key": "FLOOR_MANAGER",
+      "team": "department_team",
+      "floor": 12
+    },
+    {
+      "worker_id": "wrk_v2_f12_dept_overseer_003",
+      "role": "Department Overseer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 12
+    },
+    {
+      "worker_id": "wrk_v2_f12_dept_watcher_004",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 12
+    },
+    {
+      "worker_id": "wrk_v2_f12_dept_watcher_005",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 12
+    },
+    {
+      "worker_id": "wrk_v2_f12_dept_seer_006",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 12
+    },
+    {
+      "worker_id": "wrk_v2_f12_dept_seer_007",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 12
+    },
+    {
+      "worker_id": "wrk_v2_f12_dept_specialist_008",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 12
+    },
+    {
+      "worker_id": "wrk_v2_f12_dept_specialist_009",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 12
+    },
+    {
+      "worker_id": "wrk_v2_f12_dept_specialist_010",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 12
+    },
+    {
+      "worker_id": "wrk_v2_f12_dept_specialist_011",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 12
+    },
+    {
+      "worker_id": "wrk_v2_f12_dept_specialist_012",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 12
+    },
+    {
+      "worker_id": "wrk_v2_f12_dept_specialist_013",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 12
+    },
+    {
+      "worker_id": "wrk_v2_f12_dept_specialist_014",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 12
+    },
+    {
+      "worker_id": "wrk_v2_f12_dept_specialist_015",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 12
+    },
+    {
+      "worker_id": "wrk_v2_f12_dept_clerk_016",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 12
+    },
+    {
+      "worker_id": "wrk_v2_f12_dept_clerk_017",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 12
+    },
+    {
+      "worker_id": "wrk_v2_f12_dept_openclaw_insp_018",
+      "role": "OpenClaw Inspector",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 12
+    },
+    {
+      "worker_id": "wrk_v2_f12_dept_trainee_019",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 12
+    },
+    {
+      "worker_id": "wrk_v2_f12_dept_trainee_020",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 12
+    },
+    {
+      "worker_id": "wrk_v2_f12_dept_trainee_021",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 12
+    },
+    {
+      "worker_id": "wrk_v2_f12_dept_trainee_022",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 12
+    },
+    {
+      "worker_id": "wrk_v2_f12_dept_trainee_023",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 12
+    },
+    {
+      "worker_id": "wrk_v2_f12_dept_trainee_024",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 12
+    },
+    {
+      "worker_id": "wrk_v2_f12_dept_trainee_025",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 12
+    },
+    {
+      "worker_id": "wrk_v2_f12_dept_trainee_026",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 12
+    },
+    {
+      "worker_id": "wrk_v2_f13_dept_floor_manager_001",
+      "role": "Floor Manager",
+      "manager_role_key": "FLOOR_OWNER",
+      "team": "department_team",
+      "floor": 13
+    },
+    {
+      "worker_id": "wrk_v2_f13_dept_manager_002",
+      "role": "Department Manager",
+      "manager_role_key": "FLOOR_MANAGER",
+      "team": "department_team",
+      "floor": 13
+    },
+    {
+      "worker_id": "wrk_v2_f13_dept_overseer_003",
+      "role": "Department Overseer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 13
+    },
+    {
+      "worker_id": "wrk_v2_f13_dept_watcher_004",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 13
+    },
+    {
+      "worker_id": "wrk_v2_f13_dept_watcher_005",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 13
+    },
+    {
+      "worker_id": "wrk_v2_f13_dept_seer_006",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 13
+    },
+    {
+      "worker_id": "wrk_v2_f13_dept_seer_007",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 13
+    },
+    {
+      "worker_id": "wrk_v2_f13_dept_specialist_008",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 13
+    },
+    {
+      "worker_id": "wrk_v2_f13_dept_specialist_009",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 13
+    },
+    {
+      "worker_id": "wrk_v2_f13_dept_specialist_010",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 13
+    },
+    {
+      "worker_id": "wrk_v2_f13_dept_specialist_011",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 13
+    },
+    {
+      "worker_id": "wrk_v2_f13_dept_specialist_012",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 13
+    },
+    {
+      "worker_id": "wrk_v2_f13_dept_specialist_013",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 13
+    },
+    {
+      "worker_id": "wrk_v2_f13_dept_clerk_014",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 13
+    },
+    {
+      "worker_id": "wrk_v2_f13_dept_clerk_015",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 13
+    },
+    {
+      "worker_id": "wrk_v2_f13_dept_openclaw_insp_016",
+      "role": "OpenClaw Inspector",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 13
+    },
+    {
+      "worker_id": "wrk_v2_f13_dept_trainee_017",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 13
+    },
+    {
+      "worker_id": "wrk_v2_f13_dept_trainee_018",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 13
+    },
+    {
+      "worker_id": "wrk_v2_f13_dept_trainee_019",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 13
+    },
+    {
+      "worker_id": "wrk_v2_f13_dept_trainee_020",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 13
+    },
+    {
+      "worker_id": "wrk_v2_f13_dept_trainee_021",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 13
+    },
+    {
+      "worker_id": "wrk_v2_f13_dept_trainee_022",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 13
+    },
+    {
+      "worker_id": "wrk_v2_f14_pod_floor_manager_001",
+      "role": "POD Floor Manager",
+      "manager_role_key": "FLOOR_OWNER",
+      "team": "pod_team",
+      "floor": 14
+    },
+    {
+      "worker_id": "wrk_v2_f14_pod_design_intake_002",
+      "role": "Design Intake Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "pod_team",
+      "floor": 14
+    },
+    {
+      "worker_id": "wrk_v2_f14_pod_design_intake_003",
+      "role": "Design Intake Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "pod_team",
+      "floor": 14
+    },
+    {
+      "worker_id": "wrk_v2_f14_pod_mockup_creator_004",
+      "role": "Mockup Creator",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "pod_team",
+      "floor": 14
+    },
+    {
+      "worker_id": "wrk_v2_f14_pod_mockup_creator_005",
+      "role": "Mockup Creator",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "pod_team",
+      "floor": 14
+    },
+    {
+      "worker_id": "wrk_v2_f14_pod_mockup_creator_006",
+      "role": "Mockup Creator",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "pod_team",
+      "floor": 14
+    },
+    {
+      "worker_id": "wrk_v2_f14_pod_mockup_creator_007",
+      "role": "Mockup Creator",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "pod_team",
+      "floor": 14
+    },
+    {
+      "worker_id": "wrk_v2_f14_pod_printful_clerk_008",
+      "role": "Printful Integration Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "pod_team",
+      "floor": 14
+    },
+    {
+      "worker_id": "wrk_v2_f14_pod_printful_clerk_009",
+      "role": "Printful Integration Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "pod_team",
+      "floor": 14
+    },
+    {
+      "worker_id": "wrk_v2_f14_pod_printify_clerk_010",
+      "role": "Printify Integration Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "pod_team",
+      "floor": 14
+    },
+    {
+      "worker_id": "wrk_v2_f14_pod_printify_clerk_011",
+      "role": "Printify Integration Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "pod_team",
+      "floor": 14
+    },
+    {
+      "worker_id": "wrk_v2_f14_pod_qc_012",
+      "role": "POD Quality Check",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "pod_team",
+      "floor": 14
+    },
+    {
+      "worker_id": "wrk_v2_f14_pod_qc_013",
+      "role": "POD Quality Check",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "pod_team",
+      "floor": 14
+    },
+    {
+      "worker_id": "wrk_v2_f14_pod_qc_014",
+      "role": "POD Quality Check",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "pod_team",
+      "floor": 14
+    },
+    {
+      "worker_id": "wrk_v2_f14_pod_fulfilment_mon_015",
+      "role": "Fulfilment Monitor",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "pod_team",
+      "floor": 14
+    },
+    {
+      "worker_id": "wrk_v2_f14_pod_fulfilment_mon_016",
+      "role": "Fulfilment Monitor",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "pod_team",
+      "floor": 14
+    },
+    {
+      "worker_id": "wrk_v2_f14_pod_fulfilment_mon_017",
+      "role": "Fulfilment Monitor",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "pod_team",
+      "floor": 14
+    },
+    {
+      "worker_id": "wrk_v2_f14_pod_ledger_clerk_018",
+      "role": "POD Order Ledger Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "pod_team",
+      "floor": 14
+    },
+    {
+      "worker_id": "wrk_v2_f14_pod_ledger_clerk_019",
+      "role": "POD Order Ledger Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "pod_team",
+      "floor": 14
+    },
+    {
+      "worker_id": "wrk_v2_f14_pod_openclaw_insp_020",
+      "role": "OpenClaw POD Inspector",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "pod_team",
+      "floor": 14
+    },
+    {
+      "worker_id": "wrk_v2_f14_pod_trainee_021",
+      "role": "POD Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "pod_team",
+      "floor": 14
+    },
+    {
+      "worker_id": "wrk_v2_f14_pod_trainee_022",
+      "role": "POD Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "pod_team",
+      "floor": 14
+    },
+    {
+      "worker_id": "wrk_v2_f14_pod_trainee_023",
+      "role": "POD Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "pod_team",
+      "floor": 14
+    },
+    {
+      "worker_id": "wrk_v2_f14_pod_trainee_024",
+      "role": "POD Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "pod_team",
+      "floor": 14
+    },
+    {
+      "worker_id": "wrk_v2_f14_pod_trainee_025",
+      "role": "POD Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "pod_team",
+      "floor": 14
+    },
+    {
+      "worker_id": "wrk_v2_f14_pod_trainee_026",
+      "role": "POD Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "pod_team",
+      "floor": 14
+    },
+    {
+      "worker_id": "wrk_v2_f14_pod_trainee_027",
+      "role": "POD Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "pod_team",
+      "floor": 14
+    },
+    {
+      "worker_id": "wrk_v2_f14_pod_trainee_028",
+      "role": "POD Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "pod_team",
+      "floor": 14
+    },
+    {
+      "worker_id": "wrk_v2_f15_dept_floor_manager_001",
+      "role": "Floor Manager",
+      "manager_role_key": "FLOOR_OWNER",
+      "team": "department_team",
+      "floor": 15
+    },
+    {
+      "worker_id": "wrk_v2_f15_dept_manager_002",
+      "role": "Department Manager",
+      "manager_role_key": "FLOOR_MANAGER",
+      "team": "department_team",
+      "floor": 15
+    },
+    {
+      "worker_id": "wrk_v2_f15_dept_overseer_003",
+      "role": "Department Overseer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 15
+    },
+    {
+      "worker_id": "wrk_v2_f15_dept_watcher_004",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 15
+    },
+    {
+      "worker_id": "wrk_v2_f15_dept_watcher_005",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 15
+    },
+    {
+      "worker_id": "wrk_v2_f15_dept_seer_006",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 15
+    },
+    {
+      "worker_id": "wrk_v2_f15_dept_seer_007",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 15
+    },
+    {
+      "worker_id": "wrk_v2_f15_dept_clerk_008",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 15
+    },
+    {
+      "worker_id": "wrk_v2_f15_dept_clerk_009",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 15
+    },
+    {
+      "worker_id": "wrk_v2_f15_dept_openclaw_insp_010",
+      "role": "OpenClaw Inspector",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 15
+    },
+    {
+      "worker_id": "wrk_v2_f16_ls_lab_manager_001",
+      "role": "Listing Lab Manager",
+      "manager_role_key": "FLOOR_MANAGER",
+      "team": "department_team",
+      "floor": 16
+    },
+    {
+      "worker_id": "wrk_v2_f16_ls_writer_002",
+      "role": "Listing Writer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 16
+    },
+    {
+      "worker_id": "wrk_v2_f16_ls_writer_003",
+      "role": "Listing Writer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 16
+    },
+    {
+      "worker_id": "wrk_v2_f16_ls_writer_004",
+      "role": "Listing Writer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 16
+    },
+    {
+      "worker_id": "wrk_v2_f16_ls_writer_005",
+      "role": "Listing Writer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 16
+    },
+    {
+      "worker_id": "wrk_v2_f16_ls_writer_006",
+      "role": "Listing Writer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 16
+    },
+    {
+      "worker_id": "wrk_v2_f16_ls_seo_clerk_007",
+      "role": "SEO Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 16
+    },
+    {
+      "worker_id": "wrk_v2_f16_ls_seo_clerk_008",
+      "role": "SEO Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 16
+    },
+    {
+      "worker_id": "wrk_v2_f16_ls_seo_clerk_009",
+      "role": "SEO Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 16
+    },
+    {
+      "worker_id": "wrk_v2_f16_ls_seo_clerk_010",
+      "role": "SEO Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 16
+    },
+    {
+      "worker_id": "wrk_v2_f16_ls_keyword_clerk_011",
+      "role": "Keyword Optimizer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 16
+    },
+    {
+      "worker_id": "wrk_v2_f16_ls_keyword_clerk_012",
+      "role": "Keyword Optimizer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 16
+    },
+    {
+      "worker_id": "wrk_v2_f16_ls_keyword_clerk_013",
+      "role": "Keyword Optimizer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 16
+    },
+    {
+      "worker_id": "wrk_v2_f16_ls_tag_optimizer_014",
+      "role": "Tag Optimizer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 16
+    },
+    {
+      "worker_id": "wrk_v2_f16_ls_tag_optimizer_015",
+      "role": "Tag Optimizer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 16
+    },
+    {
+      "worker_id": "wrk_v2_f16_ls_tag_optimizer_016",
+      "role": "Tag Optimizer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 16
+    },
+    {
+      "worker_id": "wrk_v2_f16_ls_compliance_017",
+      "role": "Listing Compliance",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 16
+    },
+    {
+      "worker_id": "wrk_v2_f16_ls_compliance_018",
+      "role": "Listing Compliance",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 16
+    },
+    {
+      "worker_id": "wrk_v2_f16_ls_openclaw_insp_019",
+      "role": "OpenClaw Listing Inspector",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 16
+    },
+    {
+      "worker_id": "wrk_v2_f16_ls_trainee_020",
+      "role": "Listing Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 16
+    },
+    {
+      "worker_id": "wrk_v2_f16_ls_trainee_021",
+      "role": "Listing Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 16
+    },
+    {
+      "worker_id": "wrk_v2_f16_ls_trainee_022",
+      "role": "Listing Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 16
+    },
+    {
+      "worker_id": "wrk_v2_f17_ds_studio_manager_001",
+      "role": "Design Studio Manager",
+      "manager_role_key": "FLOOR_MANAGER",
+      "team": "design_team",
+      "floor": 17
+    },
+    {
+      "worker_id": "wrk_v2_f17_ds_designer_002",
+      "role": "Product Designer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 17
+    },
+    {
+      "worker_id": "wrk_v2_f17_ds_designer_003",
+      "role": "Product Designer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 17
+    },
+    {
+      "worker_id": "wrk_v2_f17_ds_designer_004",
+      "role": "Product Designer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 17
+    },
+    {
+      "worker_id": "wrk_v2_f17_ds_designer_005",
+      "role": "Product Designer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 17
+    },
+    {
+      "worker_id": "wrk_v2_f17_ds_designer_006",
+      "role": "Product Designer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 17
+    },
+    {
+      "worker_id": "wrk_v2_f17_ds_designer_007",
+      "role": "Product Designer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 17
+    },
+    {
+      "worker_id": "wrk_v2_f17_ds_prompt_engineer_008",
+      "role": "Prompt Engineer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 17
+    },
+    {
+      "worker_id": "wrk_v2_f17_ds_prompt_engineer_009",
+      "role": "Prompt Engineer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 17
+    },
+    {
+      "worker_id": "wrk_v2_f17_ds_prompt_engineer_010",
+      "role": "Prompt Engineer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 17
+    },
+    {
+      "worker_id": "wrk_v2_f17_ds_prompt_engineer_011",
+      "role": "Prompt Engineer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 17
+    },
+    {
+      "worker_id": "wrk_v2_f17_ds_prompt_engineer_012",
+      "role": "Prompt Engineer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 17
+    },
+    {
+      "worker_id": "wrk_v2_f17_ds_asset_curator_013",
+      "role": "Asset Vault Curator",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 17
+    },
+    {
+      "worker_id": "wrk_v2_f17_ds_asset_curator_014",
+      "role": "Asset Vault Curator",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 17
+    },
+    {
+      "worker_id": "wrk_v2_f17_ds_style_keeper_015",
+      "role": "Style Guide Keeper",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 17
+    },
+    {
+      "worker_id": "wrk_v2_f17_ds_style_keeper_016",
+      "role": "Style Guide Keeper",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 17
+    },
+    {
+      "worker_id": "wrk_v2_f17_ds_qa_017",
+      "role": "Design Quality Reviewer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 17
+    },
+    {
+      "worker_id": "wrk_v2_f17_ds_qa_018",
+      "role": "Design Quality Reviewer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 17
+    },
+    {
+      "worker_id": "wrk_v2_f17_ds_qa_019",
+      "role": "Design Quality Reviewer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 17
+    },
+    {
+      "worker_id": "wrk_v2_f17_ds_qa_020",
+      "role": "Design Quality Reviewer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 17
+    },
+    {
+      "worker_id": "wrk_v2_f17_ds_openclaw_insp_021",
+      "role": "OpenClaw Design Inspector",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 17
+    },
+    {
+      "worker_id": "wrk_v2_f17_ds_trainee_022",
+      "role": "Design Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 17
+    },
+    {
+      "worker_id": "wrk_v2_f17_ds_trainee_023",
+      "role": "Design Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 17
+    },
+    {
+      "worker_id": "wrk_v2_f17_ds_trainee_024",
+      "role": "Design Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 17
+    },
+    {
+      "worker_id": "wrk_v2_f17_ds_trainee_025",
+      "role": "Design Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 17
+    },
+    {
+      "worker_id": "wrk_v2_f17_ds_trainee_026",
+      "role": "Design Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 17
+    },
+    {
+      "worker_id": "wrk_v2_f17_ds_trainee_027",
+      "role": "Design Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 17
+    },
+    {
+      "worker_id": "wrk_v2_f17_ds_trainee_028",
+      "role": "Design Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 17
+    },
+    {
+      "worker_id": "wrk_v2_f17_ds_trainee_029",
+      "role": "Design Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 17
+    },
+    {
+      "worker_id": "wrk_v2_f17_ds_trainee_030",
+      "role": "Design Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "design_team",
+      "floor": 17
+    },
+    {
+      "worker_id": "wrk_v2_f18_dept_floor_manager_001",
+      "role": "Floor Manager",
+      "manager_role_key": "FLOOR_OWNER",
+      "team": "department_team",
+      "floor": 18
+    },
+    {
+      "worker_id": "wrk_v2_f18_dept_manager_002",
+      "role": "Department Manager",
+      "manager_role_key": "FLOOR_MANAGER",
+      "team": "department_team",
+      "floor": 18
+    },
+    {
+      "worker_id": "wrk_v2_f18_dept_overseer_003",
+      "role": "Department Overseer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 18
+    },
+    {
+      "worker_id": "wrk_v2_f18_dept_watcher_004",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 18
+    },
+    {
+      "worker_id": "wrk_v2_f18_dept_watcher_005",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 18
+    },
+    {
+      "worker_id": "wrk_v2_f18_dept_seer_006",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 18
+    },
+    {
+      "worker_id": "wrk_v2_f18_dept_seer_007",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 18
+    },
+    {
+      "worker_id": "wrk_v2_f18_dept_specialist_008",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 18
+    },
+    {
+      "worker_id": "wrk_v2_f18_dept_specialist_009",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 18
+    },
+    {
+      "worker_id": "wrk_v2_f18_dept_specialist_010",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 18
+    },
+    {
+      "worker_id": "wrk_v2_f18_dept_specialist_011",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 18
+    },
+    {
+      "worker_id": "wrk_v2_f18_dept_specialist_012",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 18
+    },
+    {
+      "worker_id": "wrk_v2_f18_dept_specialist_013",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 18
+    },
+    {
+      "worker_id": "wrk_v2_f18_dept_specialist_014",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 18
+    },
+    {
+      "worker_id": "wrk_v2_f18_dept_specialist_015",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 18
+    },
+    {
+      "worker_id": "wrk_v2_f18_dept_specialist_016",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 18
+    },
+    {
+      "worker_id": "wrk_v2_f18_dept_specialist_017",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 18
+    },
+    {
+      "worker_id": "wrk_v2_f18_dept_clerk_018",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 18
+    },
+    {
+      "worker_id": "wrk_v2_f18_dept_clerk_019",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 18
+    },
+    {
+      "worker_id": "wrk_v2_f18_dept_openclaw_insp_020",
+      "role": "OpenClaw Inspector",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 18
+    },
+    {
+      "worker_id": "wrk_v2_f18_dept_trainee_021",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 18
+    },
+    {
+      "worker_id": "wrk_v2_f18_dept_trainee_022",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 18
+    },
+    {
+      "worker_id": "wrk_v2_f18_dept_trainee_023",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 18
+    },
+    {
+      "worker_id": "wrk_v2_f18_dept_trainee_024",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 18
+    },
+    {
+      "worker_id": "wrk_v2_f18_dept_trainee_025",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 18
+    },
+    {
+      "worker_id": "wrk_v2_f18_dept_trainee_026",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 18
+    },
+    {
+      "worker_id": "wrk_v2_f18_dept_trainee_027",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 18
+    },
+    {
+      "worker_id": "wrk_v2_f18_dept_trainee_028",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 18
+    },
+    {
+      "worker_id": "wrk_v2_f18_dept_trainee_029",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 18
+    },
+    {
+      "worker_id": "wrk_v2_f18_dept_trainee_030",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 18
+    },
+    {
+      "worker_id": "wrk_v2_f19_cs_floor_manager_001",
+      "role": "Customer Service Manager",
+      "manager_role_key": "FLOOR_OWNER",
+      "team": "customer_service_team",
+      "floor": 19
+    },
+    {
+      "worker_id": "wrk_v2_f19_cs_ticket_triager_002",
+      "role": "Ticket Triager",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "customer_service_team",
+      "floor": 19
+    },
+    {
+      "worker_id": "wrk_v2_f19_cs_ticket_triager_003",
+      "role": "Ticket Triager",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "customer_service_team",
+      "floor": 19
+    },
+    {
+      "worker_id": "wrk_v2_f19_cs_ticket_triager_004",
+      "role": "Ticket Triager",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "customer_service_team",
+      "floor": 19
+    },
+    {
+      "worker_id": "wrk_v2_f19_cs_ticket_triager_005",
+      "role": "Ticket Triager",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "customer_service_team",
+      "floor": 19
+    },
+    {
+      "worker_id": "wrk_v2_f19_cs_message_drafter_006",
+      "role": "Customer Message Drafter",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "customer_service_team",
+      "floor": 19
+    },
+    {
+      "worker_id": "wrk_v2_f19_cs_message_drafter_007",
+      "role": "Customer Message Drafter",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "customer_service_team",
+      "floor": 19
+    },
+    {
+      "worker_id": "wrk_v2_f19_cs_message_drafter_008",
+      "role": "Customer Message Drafter",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "customer_service_team",
+      "floor": 19
+    },
+    {
+      "worker_id": "wrk_v2_f19_cs_message_drafter_009",
+      "role": "Customer Message Drafter",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "customer_service_team",
+      "floor": 19
+    },
+    {
+      "worker_id": "wrk_v2_f19_cs_message_drafter_010",
+      "role": "Customer Message Drafter",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "customer_service_team",
+      "floor": 19
+    },
+    {
+      "worker_id": "wrk_v2_f19_cs_refund_clerk_011",
+      "role": "Refund Negotiation Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "customer_service_team",
+      "floor": 19
+    },
+    {
+      "worker_id": "wrk_v2_f19_cs_refund_clerk_012",
+      "role": "Refund Negotiation Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "customer_service_team",
+      "floor": 19
+    },
+    {
+      "worker_id": "wrk_v2_f19_cs_refund_clerk_013",
+      "role": "Refund Negotiation Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "customer_service_team",
+      "floor": 19
+    },
+    {
+      "worker_id": "wrk_v2_f19_cs_escalation_014",
+      "role": "Escalation Officer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "customer_service_team",
+      "floor": 19
+    },
+    {
+      "worker_id": "wrk_v2_f19_cs_escalation_015",
+      "role": "Escalation Officer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "customer_service_team",
+      "floor": 19
+    },
+    {
+      "worker_id": "wrk_v2_f19_cs_sentiment_seer_016",
+      "role": "Customer Sentiment Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "customer_service_team",
+      "floor": 19
+    },
+    {
+      "worker_id": "wrk_v2_f19_cs_sentiment_seer_017",
+      "role": "Customer Sentiment Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "customer_service_team",
+      "floor": 19
+    },
+    {
+      "worker_id": "wrk_v2_f19_cs_openclaw_insp_018",
+      "role": "OpenClaw CS Inspector",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "customer_service_team",
+      "floor": 19
+    },
+    {
+      "worker_id": "wrk_v2_f19_cs_trainee_019",
+      "role": "Customer Service Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "customer_service_team",
+      "floor": 19
+    },
+    {
+      "worker_id": "wrk_v2_f19_cs_trainee_020",
+      "role": "Customer Service Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "customer_service_team",
+      "floor": 19
+    },
+    {
+      "worker_id": "wrk_v2_f19_cs_trainee_021",
+      "role": "Customer Service Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "customer_service_team",
+      "floor": 19
+    },
+    {
+      "worker_id": "wrk_v2_f19_cs_trainee_022",
+      "role": "Customer Service Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "customer_service_team",
+      "floor": 19
+    },
+    {
+      "worker_id": "wrk_v2_f19_cs_trainee_023",
+      "role": "Customer Service Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "customer_service_team",
+      "floor": 19
+    },
+    {
+      "worker_id": "wrk_v2_f19_cs_trainee_024",
+      "role": "Customer Service Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "customer_service_team",
+      "floor": 19
+    },
+    {
+      "worker_id": "wrk_v2_f19_cs_trainee_025",
+      "role": "Customer Service Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "customer_service_team",
+      "floor": 19
+    },
+    {
+      "worker_id": "wrk_v2_f19_cs_trainee_026",
+      "role": "Customer Service Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "customer_service_team",
+      "floor": 19
+    },
+    {
+      "worker_id": "wrk_v2_f19_cs_trainee_027",
+      "role": "Customer Service Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "customer_service_team",
+      "floor": 19
+    },
+    {
+      "worker_id": "wrk_v2_f19_cs_trainee_028",
+      "role": "Customer Service Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "customer_service_team",
+      "floor": 19
+    },
+    {
+      "worker_id": "wrk_v2_f20_dept_floor_manager_001",
+      "role": "Floor Manager",
+      "manager_role_key": "FLOOR_OWNER",
+      "team": "department_team",
+      "floor": 20
+    },
+    {
+      "worker_id": "wrk_v2_f20_dept_manager_002",
+      "role": "Department Manager",
+      "manager_role_key": "FLOOR_MANAGER",
+      "team": "department_team",
+      "floor": 20
+    },
+    {
+      "worker_id": "wrk_v2_f20_dept_overseer_003",
+      "role": "Department Overseer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 20
+    },
+    {
+      "worker_id": "wrk_v2_f20_dept_watcher_004",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 20
+    },
+    {
+      "worker_id": "wrk_v2_f20_dept_watcher_005",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 20
+    },
+    {
+      "worker_id": "wrk_v2_f20_dept_seer_006",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 20
+    },
+    {
+      "worker_id": "wrk_v2_f20_dept_seer_007",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 20
+    },
+    {
+      "worker_id": "wrk_v2_f20_dept_specialist_008",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 20
+    },
+    {
+      "worker_id": "wrk_v2_f20_dept_specialist_009",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 20
+    },
+    {
+      "worker_id": "wrk_v2_f20_dept_specialist_010",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 20
+    },
+    {
+      "worker_id": "wrk_v2_f20_dept_specialist_011",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 20
+    },
+    {
+      "worker_id": "wrk_v2_f20_dept_specialist_012",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 20
+    },
+    {
+      "worker_id": "wrk_v2_f20_dept_specialist_013",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 20
+    },
+    {
+      "worker_id": "wrk_v2_f20_dept_specialist_014",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 20
+    },
+    {
+      "worker_id": "wrk_v2_f20_dept_specialist_015",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 20
+    },
+    {
+      "worker_id": "wrk_v2_f20_dept_clerk_016",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 20
+    },
+    {
+      "worker_id": "wrk_v2_f20_dept_clerk_017",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 20
+    },
+    {
+      "worker_id": "wrk_v2_f20_dept_openclaw_insp_018",
+      "role": "OpenClaw Inspector",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 20
+    },
+    {
+      "worker_id": "wrk_v2_f20_dept_trainee_019",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 20
+    },
+    {
+      "worker_id": "wrk_v2_f20_dept_trainee_020",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 20
+    },
+    {
+      "worker_id": "wrk_v2_f20_dept_trainee_021",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 20
+    },
+    {
+      "worker_id": "wrk_v2_f20_dept_trainee_022",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 20
+    },
+    {
+      "worker_id": "wrk_v2_f20_dept_trainee_023",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 20
+    },
+    {
+      "worker_id": "wrk_v2_f20_dept_trainee_024",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 20
+    },
+    {
+      "worker_id": "wrk_v2_f20_dept_trainee_025",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 20
+    },
+    {
+      "worker_id": "wrk_v2_f20_dept_trainee_026",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 20
+    },
+    {
+      "worker_id": "wrk_v2_f21_dept_floor_manager_001",
+      "role": "Floor Manager",
+      "manager_role_key": "FLOOR_OWNER",
+      "team": "department_team",
+      "floor": 21
+    },
+    {
+      "worker_id": "wrk_v2_f21_dept_manager_002",
+      "role": "Department Manager",
+      "manager_role_key": "FLOOR_MANAGER",
+      "team": "department_team",
+      "floor": 21
+    },
+    {
+      "worker_id": "wrk_v2_f21_dept_overseer_003",
+      "role": "Department Overseer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 21
+    },
+    {
+      "worker_id": "wrk_v2_f21_dept_watcher_004",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 21
+    },
+    {
+      "worker_id": "wrk_v2_f21_dept_watcher_005",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 21
+    },
+    {
+      "worker_id": "wrk_v2_f21_dept_seer_006",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 21
+    },
+    {
+      "worker_id": "wrk_v2_f21_dept_seer_007",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 21
+    },
+    {
+      "worker_id": "wrk_v2_f21_dept_clerk_008",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 21
+    },
+    {
+      "worker_id": "wrk_v2_f21_dept_clerk_009",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 21
+    },
+    {
+      "worker_id": "wrk_v2_f21_dept_openclaw_insp_010",
+      "role": "OpenClaw Inspector",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 21
+    },
+    {
+      "worker_id": "wrk_v2_f22_dept_floor_manager_001",
+      "role": "Floor Manager",
+      "manager_role_key": "FLOOR_OWNER",
+      "team": "department_team",
+      "floor": 22
+    },
+    {
+      "worker_id": "wrk_v2_f22_dept_manager_002",
+      "role": "Department Manager",
+      "manager_role_key": "FLOOR_MANAGER",
+      "team": "department_team",
+      "floor": 22
+    },
+    {
+      "worker_id": "wrk_v2_f22_dept_overseer_003",
+      "role": "Department Overseer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 22
+    },
+    {
+      "worker_id": "wrk_v2_f22_dept_watcher_004",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 22
+    },
+    {
+      "worker_id": "wrk_v2_f22_dept_watcher_005",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 22
+    },
+    {
+      "worker_id": "wrk_v2_f22_dept_seer_006",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 22
+    },
+    {
+      "worker_id": "wrk_v2_f22_dept_seer_007",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 22
+    },
+    {
+      "worker_id": "wrk_v2_f22_dept_specialist_008",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 22
+    },
+    {
+      "worker_id": "wrk_v2_f22_dept_specialist_009",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 22
+    },
+    {
+      "worker_id": "wrk_v2_f22_dept_clerk_010",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 22
+    },
+    {
+      "worker_id": "wrk_v2_f22_dept_clerk_011",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 22
+    },
+    {
+      "worker_id": "wrk_v2_f22_dept_openclaw_insp_012",
+      "role": "OpenClaw Inspector",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 22
+    },
+    {
+      "worker_id": "wrk_v2_f22_dept_trainee_013",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 22
+    },
+    {
+      "worker_id": "wrk_v2_f22_dept_trainee_014",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 22
+    },
+    {
+      "worker_id": "wrk_v2_f23_dept_floor_manager_001",
+      "role": "Floor Manager",
+      "manager_role_key": "FLOOR_OWNER",
+      "team": "department_team",
+      "floor": 23
+    },
+    {
+      "worker_id": "wrk_v2_f23_dept_manager_002",
+      "role": "Department Manager",
+      "manager_role_key": "FLOOR_MANAGER",
+      "team": "department_team",
+      "floor": 23
+    },
+    {
+      "worker_id": "wrk_v2_f23_dept_overseer_003",
+      "role": "Department Overseer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 23
+    },
+    {
+      "worker_id": "wrk_v2_f23_dept_watcher_004",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 23
+    },
+    {
+      "worker_id": "wrk_v2_f23_dept_watcher_005",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 23
+    },
+    {
+      "worker_id": "wrk_v2_f23_dept_seer_006",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 23
+    },
+    {
+      "worker_id": "wrk_v2_f23_dept_seer_007",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 23
+    },
+    {
+      "worker_id": "wrk_v2_f23_dept_clerk_008",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 23
+    },
+    {
+      "worker_id": "wrk_v2_f23_dept_clerk_009",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 23
+    },
+    {
+      "worker_id": "wrk_v2_f23_dept_openclaw_insp_010",
+      "role": "OpenClaw Inspector",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 23
+    },
+    {
+      "worker_id": "wrk_v2_f24_dept_floor_manager_001",
+      "role": "Floor Manager",
+      "manager_role_key": "FLOOR_OWNER",
+      "team": "department_team",
+      "floor": 24
+    },
+    {
+      "worker_id": "wrk_v2_f24_dept_manager_002",
+      "role": "Department Manager",
+      "manager_role_key": "FLOOR_MANAGER",
+      "team": "department_team",
+      "floor": 24
+    },
+    {
+      "worker_id": "wrk_v2_f24_dept_overseer_003",
+      "role": "Department Overseer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 24
+    },
+    {
+      "worker_id": "wrk_v2_f24_dept_watcher_004",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 24
+    },
+    {
+      "worker_id": "wrk_v2_f24_dept_watcher_005",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 24
+    },
+    {
+      "worker_id": "wrk_v2_f24_dept_seer_006",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 24
+    },
+    {
+      "worker_id": "wrk_v2_f24_dept_seer_007",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 24
+    },
+    {
+      "worker_id": "wrk_v2_f24_dept_clerk_008",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 24
+    },
+    {
+      "worker_id": "wrk_v2_f24_dept_clerk_009",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 24
+    },
+    {
+      "worker_id": "wrk_v2_f24_dept_openclaw_insp_010",
+      "role": "OpenClaw Inspector",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 24
+    },
+    {
+      "worker_id": "wrk_v2_f25_dept_floor_manager_001",
+      "role": "Floor Manager",
+      "manager_role_key": "FLOOR_OWNER",
+      "team": "openclaw_team",
+      "floor": 25
+    },
+    {
+      "worker_id": "wrk_v2_f25_dept_manager_002",
+      "role": "Department Manager",
+      "manager_role_key": "FLOOR_MANAGER",
+      "team": "openclaw_team",
+      "floor": 25
+    },
+    {
+      "worker_id": "wrk_v2_f25_dept_overseer_003",
+      "role": "Department Overseer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "openclaw_team",
+      "floor": 25
+    },
+    {
+      "worker_id": "wrk_v2_f25_dept_watcher_004",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "openclaw_team",
+      "floor": 25
+    },
+    {
+      "worker_id": "wrk_v2_f25_dept_watcher_005",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "openclaw_team",
+      "floor": 25
+    },
+    {
+      "worker_id": "wrk_v2_f25_dept_seer_006",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "openclaw_team",
+      "floor": 25
+    },
+    {
+      "worker_id": "wrk_v2_f25_dept_seer_007",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "openclaw_team",
+      "floor": 25
+    },
+    {
+      "worker_id": "wrk_v2_f25_dept_clerk_008",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "openclaw_team",
+      "floor": 25
+    },
+    {
+      "worker_id": "wrk_v2_f25_dept_clerk_009",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "openclaw_team",
+      "floor": 25
+    },
+    {
+      "worker_id": "wrk_v2_f25_dept_openclaw_insp_010",
+      "role": "OpenClaw Inspector",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "openclaw_team",
+      "floor": 25
+    },
+    {
+      "worker_id": "wrk_v2_f26_dept_floor_manager_001",
+      "role": "Floor Manager",
+      "manager_role_key": "FLOOR_OWNER",
+      "team": "department_team",
+      "floor": 26
+    },
+    {
+      "worker_id": "wrk_v2_f26_dept_manager_002",
+      "role": "Department Manager",
+      "manager_role_key": "FLOOR_MANAGER",
+      "team": "department_team",
+      "floor": 26
+    },
+    {
+      "worker_id": "wrk_v2_f26_dept_overseer_003",
+      "role": "Department Overseer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 26
+    },
+    {
+      "worker_id": "wrk_v2_f26_dept_watcher_004",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 26
+    },
+    {
+      "worker_id": "wrk_v2_f26_dept_watcher_005",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 26
+    },
+    {
+      "worker_id": "wrk_v2_f26_dept_seer_006",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 26
+    },
+    {
+      "worker_id": "wrk_v2_f26_dept_seer_007",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 26
+    },
+    {
+      "worker_id": "wrk_v2_f26_dept_specialist_008",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 26
+    },
+    {
+      "worker_id": "wrk_v2_f26_dept_specialist_009",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 26
+    },
+    {
+      "worker_id": "wrk_v2_f26_dept_specialist_010",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 26
+    },
+    {
+      "worker_id": "wrk_v2_f26_dept_specialist_011",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 26
+    },
+    {
+      "worker_id": "wrk_v2_f26_dept_specialist_012",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 26
+    },
+    {
+      "worker_id": "wrk_v2_f26_dept_specialist_013",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 26
+    },
+    {
+      "worker_id": "wrk_v2_f26_dept_specialist_014",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 26
+    },
+    {
+      "worker_id": "wrk_v2_f26_dept_specialist_015",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 26
+    },
+    {
+      "worker_id": "wrk_v2_f26_dept_specialist_016",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 26
+    },
+    {
+      "worker_id": "wrk_v2_f26_dept_specialist_017",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 26
+    },
+    {
+      "worker_id": "wrk_v2_f26_dept_clerk_018",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 26
+    },
+    {
+      "worker_id": "wrk_v2_f26_dept_clerk_019",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 26
+    },
+    {
+      "worker_id": "wrk_v2_f26_dept_openclaw_insp_020",
+      "role": "OpenClaw Inspector",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 26
+    },
+    {
+      "worker_id": "wrk_v2_f26_dept_trainee_021",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 26
+    },
+    {
+      "worker_id": "wrk_v2_f26_dept_trainee_022",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 26
+    },
+    {
+      "worker_id": "wrk_v2_f26_dept_trainee_023",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 26
+    },
+    {
+      "worker_id": "wrk_v2_f26_dept_trainee_024",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 26
+    },
+    {
+      "worker_id": "wrk_v2_f26_dept_trainee_025",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 26
+    },
+    {
+      "worker_id": "wrk_v2_f26_dept_trainee_026",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 26
+    },
+    {
+      "worker_id": "wrk_v2_f26_dept_trainee_027",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 26
+    },
+    {
+      "worker_id": "wrk_v2_f26_dept_trainee_028",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 26
+    },
+    {
+      "worker_id": "wrk_v2_f26_dept_trainee_029",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 26
+    },
+    {
+      "worker_id": "wrk_v2_f26_dept_trainee_030",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 26
+    },
+    {
+      "worker_id": "wrk_v2_f27_dept_floor_manager_001",
+      "role": "Floor Manager",
+      "manager_role_key": "FLOOR_OWNER",
+      "team": "department_team",
+      "floor": 27
+    },
+    {
+      "worker_id": "wrk_v2_f27_dept_manager_002",
+      "role": "Department Manager",
+      "manager_role_key": "FLOOR_MANAGER",
+      "team": "department_team",
+      "floor": 27
+    },
+    {
+      "worker_id": "wrk_v2_f27_dept_overseer_003",
+      "role": "Department Overseer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 27
+    },
+    {
+      "worker_id": "wrk_v2_f27_dept_watcher_004",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 27
+    },
+    {
+      "worker_id": "wrk_v2_f27_dept_watcher_005",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 27
+    },
+    {
+      "worker_id": "wrk_v2_f27_dept_seer_006",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 27
+    },
+    {
+      "worker_id": "wrk_v2_f27_dept_seer_007",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 27
+    },
+    {
+      "worker_id": "wrk_v2_f27_dept_clerk_008",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 27
+    },
+    {
+      "worker_id": "wrk_v2_f27_dept_clerk_009",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 27
+    },
+    {
+      "worker_id": "wrk_v2_f27_dept_openclaw_insp_010",
+      "role": "OpenClaw Inspector",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 27
+    },
+    {
+      "worker_id": "wrk_v2_f28_dept_floor_manager_001",
+      "role": "Floor Manager",
+      "manager_role_key": "FLOOR_OWNER",
+      "team": "department_team",
+      "floor": 28
+    },
+    {
+      "worker_id": "wrk_v2_f28_dept_manager_002",
+      "role": "Department Manager",
+      "manager_role_key": "FLOOR_MANAGER",
+      "team": "department_team",
+      "floor": 28
+    },
+    {
+      "worker_id": "wrk_v2_f28_dept_overseer_003",
+      "role": "Department Overseer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 28
+    },
+    {
+      "worker_id": "wrk_v2_f28_dept_watcher_004",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 28
+    },
+    {
+      "worker_id": "wrk_v2_f28_dept_watcher_005",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 28
+    },
+    {
+      "worker_id": "wrk_v2_f28_dept_seer_006",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 28
+    },
+    {
+      "worker_id": "wrk_v2_f28_dept_seer_007",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 28
+    },
+    {
+      "worker_id": "wrk_v2_f28_dept_specialist_008",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 28
+    },
+    {
+      "worker_id": "wrk_v2_f28_dept_specialist_009",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 28
+    },
+    {
+      "worker_id": "wrk_v2_f28_dept_specialist_010",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 28
+    },
+    {
+      "worker_id": "wrk_v2_f28_dept_specialist_011",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 28
+    },
+    {
+      "worker_id": "wrk_v2_f28_dept_specialist_012",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 28
+    },
+    {
+      "worker_id": "wrk_v2_f28_dept_specialist_013",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 28
+    },
+    {
+      "worker_id": "wrk_v2_f28_dept_clerk_014",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 28
+    },
+    {
+      "worker_id": "wrk_v2_f28_dept_clerk_015",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 28
+    },
+    {
+      "worker_id": "wrk_v2_f28_dept_openclaw_insp_016",
+      "role": "OpenClaw Inspector",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 28
+    },
+    {
+      "worker_id": "wrk_v2_f28_dept_trainee_017",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 28
+    },
+    {
+      "worker_id": "wrk_v2_f28_dept_trainee_018",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 28
+    },
+    {
+      "worker_id": "wrk_v2_f28_dept_trainee_019",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 28
+    },
+    {
+      "worker_id": "wrk_v2_f28_dept_trainee_020",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 28
+    },
+    {
+      "worker_id": "wrk_v2_f28_dept_trainee_021",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 28
+    },
+    {
+      "worker_id": "wrk_v2_f28_dept_trainee_022",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 28
+    },
+    {
+      "worker_id": "wrk_v2_f29_dept_floor_manager_001",
+      "role": "Floor Manager",
+      "manager_role_key": "FLOOR_OWNER",
+      "team": "department_team",
+      "floor": 29
+    },
+    {
+      "worker_id": "wrk_v2_f29_dept_manager_002",
+      "role": "Department Manager",
+      "manager_role_key": "FLOOR_MANAGER",
+      "team": "department_team",
+      "floor": 29
+    },
+    {
+      "worker_id": "wrk_v2_f29_dept_overseer_003",
+      "role": "Department Overseer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 29
+    },
+    {
+      "worker_id": "wrk_v2_f29_dept_watcher_004",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 29
+    },
+    {
+      "worker_id": "wrk_v2_f29_dept_watcher_005",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 29
+    },
+    {
+      "worker_id": "wrk_v2_f29_dept_seer_006",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 29
+    },
+    {
+      "worker_id": "wrk_v2_f29_dept_seer_007",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 29
+    },
+    {
+      "worker_id": "wrk_v2_f29_dept_clerk_008",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 29
+    },
+    {
+      "worker_id": "wrk_v2_f29_dept_clerk_009",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 29
+    },
+    {
+      "worker_id": "wrk_v2_f29_dept_openclaw_insp_010",
+      "role": "OpenClaw Inspector",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 29
+    },
+    {
+      "worker_id": "wrk_v2_f30_dept_floor_manager_001",
+      "role": "Floor Manager",
+      "manager_role_key": "FLOOR_OWNER",
+      "team": "department_team",
+      "floor": 30
+    },
+    {
+      "worker_id": "wrk_v2_f30_dept_manager_002",
+      "role": "Department Manager",
+      "manager_role_key": "FLOOR_MANAGER",
+      "team": "department_team",
+      "floor": 30
+    },
+    {
+      "worker_id": "wrk_v2_f30_dept_overseer_003",
+      "role": "Department Overseer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 30
+    },
+    {
+      "worker_id": "wrk_v2_f30_dept_watcher_004",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 30
+    },
+    {
+      "worker_id": "wrk_v2_f30_dept_watcher_005",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 30
+    },
+    {
+      "worker_id": "wrk_v2_f30_dept_seer_006",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 30
+    },
+    {
+      "worker_id": "wrk_v2_f30_dept_seer_007",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 30
+    },
+    {
+      "worker_id": "wrk_v2_f30_dept_specialist_008",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 30
+    },
+    {
+      "worker_id": "wrk_v2_f30_dept_specialist_009",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 30
+    },
+    {
+      "worker_id": "wrk_v2_f30_dept_specialist_010",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 30
+    },
+    {
+      "worker_id": "wrk_v2_f30_dept_specialist_011",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 30
+    },
+    {
+      "worker_id": "wrk_v2_f30_dept_specialist_012",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 30
+    },
+    {
+      "worker_id": "wrk_v2_f30_dept_specialist_013",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 30
+    },
+    {
+      "worker_id": "wrk_v2_f30_dept_clerk_014",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 30
+    },
+    {
+      "worker_id": "wrk_v2_f30_dept_clerk_015",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 30
+    },
+    {
+      "worker_id": "wrk_v2_f30_dept_openclaw_insp_016",
+      "role": "OpenClaw Inspector",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 30
+    },
+    {
+      "worker_id": "wrk_v2_f30_dept_trainee_017",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 30
+    },
+    {
+      "worker_id": "wrk_v2_f30_dept_trainee_018",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 30
+    },
+    {
+      "worker_id": "wrk_v2_f30_dept_trainee_019",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 30
+    },
+    {
+      "worker_id": "wrk_v2_f30_dept_trainee_020",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 30
+    },
+    {
+      "worker_id": "wrk_v2_f30_dept_trainee_021",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 30
+    },
+    {
+      "worker_id": "wrk_v2_f30_dept_trainee_022",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 30
+    },
+    {
+      "worker_id": "wrk_v2_f31_dept_floor_manager_001",
+      "role": "Floor Manager",
+      "manager_role_key": "FLOOR_OWNER",
+      "team": "audit_team",
+      "floor": 31
+    },
+    {
+      "worker_id": "wrk_v2_f31_dept_manager_002",
+      "role": "Department Manager",
+      "manager_role_key": "FLOOR_MANAGER",
+      "team": "audit_team",
+      "floor": 31
+    },
+    {
+      "worker_id": "wrk_v2_f31_dept_overseer_003",
+      "role": "Department Overseer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "audit_team",
+      "floor": 31
+    },
+    {
+      "worker_id": "wrk_v2_f31_dept_watcher_004",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "audit_team",
+      "floor": 31
+    },
+    {
+      "worker_id": "wrk_v2_f31_dept_watcher_005",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "audit_team",
+      "floor": 31
+    },
+    {
+      "worker_id": "wrk_v2_f31_dept_seer_006",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "audit_team",
+      "floor": 31
+    },
+    {
+      "worker_id": "wrk_v2_f31_dept_seer_007",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "audit_team",
+      "floor": 31
+    },
+    {
+      "worker_id": "wrk_v2_f31_dept_specialist_008",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "audit_team",
+      "floor": 31
+    },
+    {
+      "worker_id": "wrk_v2_f31_dept_specialist_009",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "audit_team",
+      "floor": 31
+    },
+    {
+      "worker_id": "wrk_v2_f31_dept_specialist_010",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "audit_team",
+      "floor": 31
+    },
+    {
+      "worker_id": "wrk_v2_f31_dept_specialist_011",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "audit_team",
+      "floor": 31
+    },
+    {
+      "worker_id": "wrk_v2_f31_dept_specialist_012",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "audit_team",
+      "floor": 31
+    },
+    {
+      "worker_id": "wrk_v2_f31_dept_specialist_013",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "audit_team",
+      "floor": 31
+    },
+    {
+      "worker_id": "wrk_v2_f31_dept_specialist_014",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "audit_team",
+      "floor": 31
+    },
+    {
+      "worker_id": "wrk_v2_f31_dept_specialist_015",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "audit_team",
+      "floor": 31
+    },
+    {
+      "worker_id": "wrk_v2_f31_dept_clerk_016",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "audit_team",
+      "floor": 31
+    },
+    {
+      "worker_id": "wrk_v2_f31_dept_clerk_017",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "audit_team",
+      "floor": 31
+    },
+    {
+      "worker_id": "wrk_v2_f31_dept_openclaw_insp_018",
+      "role": "OpenClaw Inspector",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "audit_team",
+      "floor": 31
+    },
+    {
+      "worker_id": "wrk_v2_f31_dept_trainee_019",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "audit_team",
+      "floor": 31
+    },
+    {
+      "worker_id": "wrk_v2_f31_dept_trainee_020",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "audit_team",
+      "floor": 31
+    },
+    {
+      "worker_id": "wrk_v2_f31_dept_trainee_021",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "audit_team",
+      "floor": 31
+    },
+    {
+      "worker_id": "wrk_v2_f31_dept_trainee_022",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "audit_team",
+      "floor": 31
+    },
+    {
+      "worker_id": "wrk_v2_f31_dept_trainee_023",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "audit_team",
+      "floor": 31
+    },
+    {
+      "worker_id": "wrk_v2_f31_dept_trainee_024",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "audit_team",
+      "floor": 31
+    },
+    {
+      "worker_id": "wrk_v2_f31_dept_trainee_025",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "audit_team",
+      "floor": 31
+    },
+    {
+      "worker_id": "wrk_v2_f31_dept_trainee_026",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "audit_team",
+      "floor": 31
+    },
+    {
+      "worker_id": "wrk_v2_f32_dept_floor_manager_001",
+      "role": "Floor Manager",
+      "manager_role_key": "FLOOR_OWNER",
+      "team": "compliance_team",
+      "floor": 32
+    },
+    {
+      "worker_id": "wrk_v2_f32_dept_manager_002",
+      "role": "Department Manager",
+      "manager_role_key": "FLOOR_MANAGER",
+      "team": "compliance_team",
+      "floor": 32
+    },
+    {
+      "worker_id": "wrk_v2_f32_dept_overseer_003",
+      "role": "Department Overseer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "compliance_team",
+      "floor": 32
+    },
+    {
+      "worker_id": "wrk_v2_f32_dept_watcher_004",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "compliance_team",
+      "floor": 32
+    },
+    {
+      "worker_id": "wrk_v2_f32_dept_watcher_005",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "compliance_team",
+      "floor": 32
+    },
+    {
+      "worker_id": "wrk_v2_f32_dept_seer_006",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "compliance_team",
+      "floor": 32
+    },
+    {
+      "worker_id": "wrk_v2_f32_dept_seer_007",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "compliance_team",
+      "floor": 32
+    },
+    {
+      "worker_id": "wrk_v2_f32_dept_specialist_008",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "compliance_team",
+      "floor": 32
+    },
+    {
+      "worker_id": "wrk_v2_f32_dept_specialist_009",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "compliance_team",
+      "floor": 32
+    },
+    {
+      "worker_id": "wrk_v2_f32_dept_specialist_010",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "compliance_team",
+      "floor": 32
+    },
+    {
+      "worker_id": "wrk_v2_f32_dept_specialist_011",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "compliance_team",
+      "floor": 32
+    },
+    {
+      "worker_id": "wrk_v2_f32_dept_clerk_012",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "compliance_team",
+      "floor": 32
+    },
+    {
+      "worker_id": "wrk_v2_f32_dept_clerk_013",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "compliance_team",
+      "floor": 32
+    },
+    {
+      "worker_id": "wrk_v2_f32_dept_openclaw_insp_014",
+      "role": "OpenClaw Inspector",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "compliance_team",
+      "floor": 32
+    },
+    {
+      "worker_id": "wrk_v2_f32_dept_trainee_015",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "compliance_team",
+      "floor": 32
+    },
+    {
+      "worker_id": "wrk_v2_f32_dept_trainee_016",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "compliance_team",
+      "floor": 32
+    },
+    {
+      "worker_id": "wrk_v2_f32_dept_trainee_017",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "compliance_team",
+      "floor": 32
+    },
+    {
+      "worker_id": "wrk_v2_f32_dept_trainee_018",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "compliance_team",
+      "floor": 32
+    },
+    {
+      "worker_id": "wrk_v2_f33_dept_floor_manager_001",
+      "role": "Floor Manager",
+      "manager_role_key": "FLOOR_OWNER",
+      "team": "department_team",
+      "floor": 33
+    },
+    {
+      "worker_id": "wrk_v2_f33_dept_manager_002",
+      "role": "Department Manager",
+      "manager_role_key": "FLOOR_MANAGER",
+      "team": "department_team",
+      "floor": 33
+    },
+    {
+      "worker_id": "wrk_v2_f33_dept_overseer_003",
+      "role": "Department Overseer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 33
+    },
+    {
+      "worker_id": "wrk_v2_f33_dept_watcher_004",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 33
+    },
+    {
+      "worker_id": "wrk_v2_f33_dept_watcher_005",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 33
+    },
+    {
+      "worker_id": "wrk_v2_f33_dept_seer_006",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 33
+    },
+    {
+      "worker_id": "wrk_v2_f33_dept_seer_007",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 33
+    },
+    {
+      "worker_id": "wrk_v2_f33_dept_specialist_008",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 33
+    },
+    {
+      "worker_id": "wrk_v2_f33_dept_specialist_009",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 33
+    },
+    {
+      "worker_id": "wrk_v2_f33_dept_specialist_010",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 33
+    },
+    {
+      "worker_id": "wrk_v2_f33_dept_specialist_011",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 33
+    },
+    {
+      "worker_id": "wrk_v2_f33_dept_clerk_012",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 33
+    },
+    {
+      "worker_id": "wrk_v2_f33_dept_clerk_013",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 33
+    },
+    {
+      "worker_id": "wrk_v2_f33_dept_openclaw_insp_014",
+      "role": "OpenClaw Inspector",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 33
+    },
+    {
+      "worker_id": "wrk_v2_f33_dept_trainee_015",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 33
+    },
+    {
+      "worker_id": "wrk_v2_f33_dept_trainee_016",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 33
+    },
+    {
+      "worker_id": "wrk_v2_f33_dept_trainee_017",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 33
+    },
+    {
+      "worker_id": "wrk_v2_f33_dept_trainee_018",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 33
+    },
+    {
+      "worker_id": "wrk_v2_f34_dept_floor_manager_001",
+      "role": "Floor Manager",
+      "manager_role_key": "FLOOR_OWNER",
+      "team": "department_team",
+      "floor": 34
+    },
+    {
+      "worker_id": "wrk_v2_f34_dept_manager_002",
+      "role": "Department Manager",
+      "manager_role_key": "FLOOR_MANAGER",
+      "team": "department_team",
+      "floor": 34
+    },
+    {
+      "worker_id": "wrk_v2_f34_dept_overseer_003",
+      "role": "Department Overseer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 34
+    },
+    {
+      "worker_id": "wrk_v2_f34_dept_watcher_004",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 34
+    },
+    {
+      "worker_id": "wrk_v2_f34_dept_watcher_005",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 34
+    },
+    {
+      "worker_id": "wrk_v2_f34_dept_seer_006",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 34
+    },
+    {
+      "worker_id": "wrk_v2_f34_dept_seer_007",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 34
+    },
+    {
+      "worker_id": "wrk_v2_f34_dept_specialist_008",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 34
+    },
+    {
+      "worker_id": "wrk_v2_f34_dept_specialist_009",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 34
+    },
+    {
+      "worker_id": "wrk_v2_f34_dept_specialist_010",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 34
+    },
+    {
+      "worker_id": "wrk_v2_f34_dept_specialist_011",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 34
+    },
+    {
+      "worker_id": "wrk_v2_f34_dept_specialist_012",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 34
+    },
+    {
+      "worker_id": "wrk_v2_f34_dept_specialist_013",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 34
+    },
+    {
+      "worker_id": "wrk_v2_f34_dept_clerk_014",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 34
+    },
+    {
+      "worker_id": "wrk_v2_f34_dept_clerk_015",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 34
+    },
+    {
+      "worker_id": "wrk_v2_f34_dept_openclaw_insp_016",
+      "role": "OpenClaw Inspector",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 34
+    },
+    {
+      "worker_id": "wrk_v2_f34_dept_trainee_017",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 34
+    },
+    {
+      "worker_id": "wrk_v2_f34_dept_trainee_018",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 34
+    },
+    {
+      "worker_id": "wrk_v2_f34_dept_trainee_019",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 34
+    },
+    {
+      "worker_id": "wrk_v2_f34_dept_trainee_020",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 34
+    },
+    {
+      "worker_id": "wrk_v2_f34_dept_trainee_021",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 34
+    },
+    {
+      "worker_id": "wrk_v2_f34_dept_trainee_022",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 34
+    },
+    {
+      "worker_id": "wrk_v2_f35_dept_floor_manager_001",
+      "role": "Floor Manager",
+      "manager_role_key": "FLOOR_OWNER",
+      "team": "department_team",
+      "floor": 35
+    },
+    {
+      "worker_id": "wrk_v2_f35_dept_manager_002",
+      "role": "Department Manager",
+      "manager_role_key": "FLOOR_MANAGER",
+      "team": "department_team",
+      "floor": 35
+    },
+    {
+      "worker_id": "wrk_v2_f35_dept_overseer_003",
+      "role": "Department Overseer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 35
+    },
+    {
+      "worker_id": "wrk_v2_f35_dept_watcher_004",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 35
+    },
+    {
+      "worker_id": "wrk_v2_f35_dept_watcher_005",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 35
+    },
+    {
+      "worker_id": "wrk_v2_f35_dept_seer_006",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 35
+    },
+    {
+      "worker_id": "wrk_v2_f35_dept_seer_007",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 35
+    },
+    {
+      "worker_id": "wrk_v2_f35_dept_specialist_008",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 35
+    },
+    {
+      "worker_id": "wrk_v2_f35_dept_specialist_009",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 35
+    },
+    {
+      "worker_id": "wrk_v2_f35_dept_clerk_010",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 35
+    },
+    {
+      "worker_id": "wrk_v2_f35_dept_clerk_011",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 35
+    },
+    {
+      "worker_id": "wrk_v2_f35_dept_openclaw_insp_012",
+      "role": "OpenClaw Inspector",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 35
+    },
+    {
+      "worker_id": "wrk_v2_f35_dept_trainee_013",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 35
+    },
+    {
+      "worker_id": "wrk_v2_f35_dept_trainee_014",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 35
+    },
+    {
+      "worker_id": "wrk_v2_f36_dept_floor_manager_001",
+      "role": "Floor Manager",
+      "manager_role_key": "FLOOR_OWNER",
+      "team": "department_team",
+      "floor": 36
+    },
+    {
+      "worker_id": "wrk_v2_f36_dept_manager_002",
+      "role": "Department Manager",
+      "manager_role_key": "FLOOR_MANAGER",
+      "team": "department_team",
+      "floor": 36
+    },
+    {
+      "worker_id": "wrk_v2_f36_dept_overseer_003",
+      "role": "Department Overseer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 36
+    },
+    {
+      "worker_id": "wrk_v2_f36_dept_watcher_004",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 36
+    },
+    {
+      "worker_id": "wrk_v2_f36_dept_watcher_005",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 36
+    },
+    {
+      "worker_id": "wrk_v2_f36_dept_seer_006",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 36
+    },
+    {
+      "worker_id": "wrk_v2_f36_dept_seer_007",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 36
+    },
+    {
+      "worker_id": "wrk_v2_f36_dept_specialist_008",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 36
+    },
+    {
+      "worker_id": "wrk_v2_f36_dept_specialist_009",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 36
+    },
+    {
+      "worker_id": "wrk_v2_f36_dept_specialist_010",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 36
+    },
+    {
+      "worker_id": "wrk_v2_f36_dept_specialist_011",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 36
+    },
+    {
+      "worker_id": "wrk_v2_f36_dept_specialist_012",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 36
+    },
+    {
+      "worker_id": "wrk_v2_f36_dept_specialist_013",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 36
+    },
+    {
+      "worker_id": "wrk_v2_f36_dept_clerk_014",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 36
+    },
+    {
+      "worker_id": "wrk_v2_f36_dept_clerk_015",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 36
+    },
+    {
+      "worker_id": "wrk_v2_f36_dept_openclaw_insp_016",
+      "role": "OpenClaw Inspector",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 36
+    },
+    {
+      "worker_id": "wrk_v2_f36_dept_trainee_017",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 36
+    },
+    {
+      "worker_id": "wrk_v2_f36_dept_trainee_018",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 36
+    },
+    {
+      "worker_id": "wrk_v2_f36_dept_trainee_019",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 36
+    },
+    {
+      "worker_id": "wrk_v2_f36_dept_trainee_020",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 36
+    },
+    {
+      "worker_id": "wrk_v2_f36_dept_trainee_021",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 36
+    },
+    {
+      "worker_id": "wrk_v2_f36_dept_trainee_022",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 36
+    },
+    {
+      "worker_id": "wrk_v2_f37_dept_floor_manager_001",
+      "role": "Floor Manager",
+      "manager_role_key": "FLOOR_OWNER",
+      "team": "department_team",
+      "floor": 37
+    },
+    {
+      "worker_id": "wrk_v2_f37_dept_manager_002",
+      "role": "Department Manager",
+      "manager_role_key": "FLOOR_MANAGER",
+      "team": "department_team",
+      "floor": 37
+    },
+    {
+      "worker_id": "wrk_v2_f37_dept_overseer_003",
+      "role": "Department Overseer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 37
+    },
+    {
+      "worker_id": "wrk_v2_f37_dept_watcher_004",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 37
+    },
+    {
+      "worker_id": "wrk_v2_f37_dept_watcher_005",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 37
+    },
+    {
+      "worker_id": "wrk_v2_f37_dept_seer_006",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 37
+    },
+    {
+      "worker_id": "wrk_v2_f37_dept_seer_007",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 37
+    },
+    {
+      "worker_id": "wrk_v2_f37_dept_specialist_008",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 37
+    },
+    {
+      "worker_id": "wrk_v2_f37_dept_specialist_009",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 37
+    },
+    {
+      "worker_id": "wrk_v2_f37_dept_specialist_010",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 37
+    },
+    {
+      "worker_id": "wrk_v2_f37_dept_specialist_011",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 37
+    },
+    {
+      "worker_id": "wrk_v2_f37_dept_specialist_012",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 37
+    },
+    {
+      "worker_id": "wrk_v2_f37_dept_specialist_013",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 37
+    },
+    {
+      "worker_id": "wrk_v2_f37_dept_specialist_014",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 37
+    },
+    {
+      "worker_id": "wrk_v2_f37_dept_specialist_015",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 37
+    },
+    {
+      "worker_id": "wrk_v2_f37_dept_specialist_016",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 37
+    },
+    {
+      "worker_id": "wrk_v2_f37_dept_specialist_017",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 37
+    },
+    {
+      "worker_id": "wrk_v2_f37_dept_clerk_018",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 37
+    },
+    {
+      "worker_id": "wrk_v2_f37_dept_clerk_019",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 37
+    },
+    {
+      "worker_id": "wrk_v2_f37_dept_openclaw_insp_020",
+      "role": "OpenClaw Inspector",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 37
+    },
+    {
+      "worker_id": "wrk_v2_f37_dept_trainee_021",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 37
+    },
+    {
+      "worker_id": "wrk_v2_f37_dept_trainee_022",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 37
+    },
+    {
+      "worker_id": "wrk_v2_f37_dept_trainee_023",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 37
+    },
+    {
+      "worker_id": "wrk_v2_f37_dept_trainee_024",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 37
+    },
+    {
+      "worker_id": "wrk_v2_f37_dept_trainee_025",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 37
+    },
+    {
+      "worker_id": "wrk_v2_f37_dept_trainee_026",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 37
+    },
+    {
+      "worker_id": "wrk_v2_f37_dept_trainee_027",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 37
+    },
+    {
+      "worker_id": "wrk_v2_f37_dept_trainee_028",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 37
+    },
+    {
+      "worker_id": "wrk_v2_f37_dept_trainee_029",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 37
+    },
+    {
+      "worker_id": "wrk_v2_f37_dept_trainee_030",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 37
+    },
+    {
+      "worker_id": "wrk_v2_f38_dept_floor_manager_001",
+      "role": "Floor Manager",
+      "manager_role_key": "FLOOR_OWNER",
+      "team": "department_team",
+      "floor": 38
+    },
+    {
+      "worker_id": "wrk_v2_f38_dept_manager_002",
+      "role": "Department Manager",
+      "manager_role_key": "FLOOR_MANAGER",
+      "team": "department_team",
+      "floor": 38
+    },
+    {
+      "worker_id": "wrk_v2_f38_dept_overseer_003",
+      "role": "Department Overseer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 38
+    },
+    {
+      "worker_id": "wrk_v2_f38_dept_watcher_004",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 38
+    },
+    {
+      "worker_id": "wrk_v2_f38_dept_watcher_005",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 38
+    },
+    {
+      "worker_id": "wrk_v2_f38_dept_seer_006",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 38
+    },
+    {
+      "worker_id": "wrk_v2_f38_dept_seer_007",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 38
+    },
+    {
+      "worker_id": "wrk_v2_f38_dept_specialist_008",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 38
+    },
+    {
+      "worker_id": "wrk_v2_f38_dept_specialist_009",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 38
+    },
+    {
+      "worker_id": "wrk_v2_f38_dept_specialist_010",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 38
+    },
+    {
+      "worker_id": "wrk_v2_f38_dept_specialist_011",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 38
+    },
+    {
+      "worker_id": "wrk_v2_f38_dept_clerk_012",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 38
+    },
+    {
+      "worker_id": "wrk_v2_f38_dept_clerk_013",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 38
+    },
+    {
+      "worker_id": "wrk_v2_f38_dept_openclaw_insp_014",
+      "role": "OpenClaw Inspector",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 38
+    },
+    {
+      "worker_id": "wrk_v2_f38_dept_trainee_015",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 38
+    },
+    {
+      "worker_id": "wrk_v2_f38_dept_trainee_016",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 38
+    },
+    {
+      "worker_id": "wrk_v2_f38_dept_trainee_017",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 38
+    },
+    {
+      "worker_id": "wrk_v2_f38_dept_trainee_018",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 38
+    },
+    {
+      "worker_id": "wrk_v2_f39_rec_floor_manager_001",
+      "role": "Recreation Manager",
+      "manager_role_key": "FLOOR_OWNER",
+      "team": "rest_team",
+      "floor": 39
+    },
+    {
+      "worker_id": "wrk_v2_f39_rec_break_host_002",
+      "role": "Break Room Host",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "rest_team",
+      "floor": 39
+    },
+    {
+      "worker_id": "wrk_v2_f39_rec_break_host_003",
+      "role": "Break Room Host",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "rest_team",
+      "floor": 39
+    },
+    {
+      "worker_id": "wrk_v2_f39_rec_break_host_004",
+      "role": "Break Room Host",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "rest_team",
+      "floor": 39
+    },
+    {
+      "worker_id": "wrk_v2_f39_rec_morale_keeper_005",
+      "role": "Morale Board Keeper",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "rest_team",
+      "floor": 39
+    },
+    {
+      "worker_id": "wrk_v2_f39_rec_morale_keeper_006",
+      "role": "Morale Board Keeper",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "rest_team",
+      "floor": 39
+    },
+    {
+      "worker_id": "wrk_v2_f39_rec_wellness_mon_007",
+      "role": "Wellness Monitor",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "rest_team",
+      "floor": 39
+    },
+    {
+      "worker_id": "wrk_v2_f39_rec_wellness_mon_008",
+      "role": "Wellness Monitor",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "rest_team",
+      "floor": 39
+    },
+    {
+      "worker_id": "wrk_v2_f39_rec_recovering_009",
+      "role": "Recovering Worker",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "rest_team",
+      "floor": 39
+    },
+    {
+      "worker_id": "wrk_v2_f39_rec_recovering_010",
+      "role": "Recovering Worker",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "rest_team",
+      "floor": 39
+    },
+    {
+      "worker_id": "wrk_v2_f39_rec_recovering_011",
+      "role": "Recovering Worker",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "rest_team",
+      "floor": 39
+    },
+    {
+      "worker_id": "wrk_v2_f39_rec_recovering_012",
+      "role": "Recovering Worker",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "rest_team",
+      "floor": 39
+    },
+    {
+      "worker_id": "wrk_v2_f39_rec_recovering_013",
+      "role": "Recovering Worker",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "rest_team",
+      "floor": 39
+    },
+    {
+      "worker_id": "wrk_v2_f39_rec_recovering_014",
+      "role": "Recovering Worker",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "rest_team",
+      "floor": 39
+    },
+    {
+      "worker_id": "wrk_v2_f39_rec_recovering_015",
+      "role": "Recovering Worker",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "rest_team",
+      "floor": 39
+    },
+    {
+      "worker_id": "wrk_v2_f39_rec_recovering_016",
+      "role": "Recovering Worker",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "rest_team",
+      "floor": 39
+    },
+    {
+      "worker_id": "wrk_v2_f39_rec_recovering_017",
+      "role": "Recovering Worker",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "rest_team",
+      "floor": 39
+    },
+    {
+      "worker_id": "wrk_v2_f39_rec_recovering_018",
+      "role": "Recovering Worker",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "rest_team",
+      "floor": 39
+    },
+    {
+      "worker_id": "wrk_v2_f39_rec_recovering_019",
+      "role": "Recovering Worker",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "rest_team",
+      "floor": 39
+    },
+    {
+      "worker_id": "wrk_v2_f39_rec_recovering_020",
+      "role": "Recovering Worker",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "rest_team",
+      "floor": 39
+    },
+    {
+      "worker_id": "wrk_v2_f40_rest_floor_manager_001",
+      "role": "Rest Floor Manager",
+      "manager_role_key": "FLOOR_OWNER",
+      "team": "rest_team",
+      "floor": 40
+    },
+    {
+      "worker_id": "wrk_v2_f40_rest_pod_attendant_002",
+      "role": "Sleep Pod Attendant",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "rest_team",
+      "floor": 40
+    },
+    {
+      "worker_id": "wrk_v2_f40_rest_pod_attendant_003",
+      "role": "Sleep Pod Attendant",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "rest_team",
+      "floor": 40
+    },
+    {
+      "worker_id": "wrk_v2_f40_rest_pod_attendant_004",
+      "role": "Sleep Pod Attendant",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "rest_team",
+      "floor": 40
+    },
+    {
+      "worker_id": "wrk_v2_f40_rest_pod_attendant_005",
+      "role": "Sleep Pod Attendant",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "rest_team",
+      "floor": 40
+    },
+    {
+      "worker_id": "wrk_v2_f40_rest_standby_host_006",
+      "role": "Standby Lounge Host",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "rest_team",
+      "floor": 40
+    },
+    {
+      "worker_id": "wrk_v2_f40_rest_standby_host_007",
+      "role": "Standby Lounge Host",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "rest_team",
+      "floor": 40
+    },
+    {
+      "worker_id": "wrk_v2_f40_rest_standby_host_008",
+      "role": "Standby Lounge Host",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "rest_team",
+      "floor": 40
+    },
+    {
+      "worker_id": "wrk_v2_f40_rest_quiet_warden_009",
+      "role": "Quiet Recovery Warden",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "rest_team",
+      "floor": 40
+    },
+    {
+      "worker_id": "wrk_v2_f40_rest_quiet_warden_010",
+      "role": "Quiet Recovery Warden",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "rest_team",
+      "floor": 40
+    },
+    {
+      "worker_id": "wrk_v2_f40_rest_shift_clerk_011",
+      "role": "Shift Change Desk Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "rest_team",
+      "floor": 40
+    },
+    {
+      "worker_id": "wrk_v2_f40_rest_shift_clerk_012",
+      "role": "Shift Change Desk Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "rest_team",
+      "floor": 40
+    },
+    {
+      "worker_id": "wrk_v2_f40_rest_shift_clerk_013",
+      "role": "Shift Change Desk Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "rest_team",
+      "floor": 40
+    },
+    {
+      "worker_id": "wrk_v2_f40_rest_resting_worker_014",
+      "role": "Resting Worker (rotation)",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "rest_team",
+      "floor": 40
+    },
+    {
+      "worker_id": "wrk_v2_f40_rest_resting_worker_015",
+      "role": "Resting Worker (rotation)",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "rest_team",
+      "floor": 40
+    },
+    {
+      "worker_id": "wrk_v2_f40_rest_resting_worker_016",
+      "role": "Resting Worker (rotation)",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "rest_team",
+      "floor": 40
+    },
+    {
+      "worker_id": "wrk_v2_f40_rest_resting_worker_017",
+      "role": "Resting Worker (rotation)",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "rest_team",
+      "floor": 40
+    },
+    {
+      "worker_id": "wrk_v2_f40_rest_resting_worker_018",
+      "role": "Resting Worker (rotation)",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "rest_team",
+      "floor": 40
+    },
+    {
+      "worker_id": "wrk_v2_f40_rest_resting_worker_019",
+      "role": "Resting Worker (rotation)",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "rest_team",
+      "floor": 40
+    },
+    {
+      "worker_id": "wrk_v2_f40_rest_resting_worker_020",
+      "role": "Resting Worker (rotation)",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "rest_team",
+      "floor": 40
+    },
+    {
+      "worker_id": "wrk_v2_f40_rest_resting_worker_021",
+      "role": "Resting Worker (rotation)",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "rest_team",
+      "floor": 40
+    },
+    {
+      "worker_id": "wrk_v2_f40_rest_resting_worker_022",
+      "role": "Resting Worker (rotation)",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "rest_team",
+      "floor": 40
+    },
+    {
+      "worker_id": "wrk_v2_f40_rest_resting_worker_023",
+      "role": "Resting Worker (rotation)",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "rest_team",
+      "floor": 40
+    },
+    {
+      "worker_id": "wrk_v2_f40_rest_resting_worker_024",
+      "role": "Resting Worker (rotation)",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "rest_team",
+      "floor": 40
+    },
+    {
+      "worker_id": "wrk_v2_f40_rest_resting_worker_025",
+      "role": "Resting Worker (rotation)",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "rest_team",
+      "floor": 40
+    },
+    {
+      "worker_id": "wrk_v2_f44_dept_floor_manager_001",
+      "role": "Floor Manager",
+      "manager_role_key": "FLOOR_OWNER",
+      "team": "department_team",
+      "floor": 44
+    },
+    {
+      "worker_id": "wrk_v2_f44_dept_manager_002",
+      "role": "Department Manager",
+      "manager_role_key": "FLOOR_MANAGER",
+      "team": "department_team",
+      "floor": 44
+    },
+    {
+      "worker_id": "wrk_v2_f44_dept_overseer_003",
+      "role": "Department Overseer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 44
+    },
+    {
+      "worker_id": "wrk_v2_f44_dept_watcher_004",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 44
+    },
+    {
+      "worker_id": "wrk_v2_f44_dept_watcher_005",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 44
+    },
+    {
+      "worker_id": "wrk_v2_f44_dept_seer_006",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 44
+    },
+    {
+      "worker_id": "wrk_v2_f44_dept_seer_007",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 44
+    },
+    {
+      "worker_id": "wrk_v2_f44_dept_specialist_008",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 44
+    },
+    {
+      "worker_id": "wrk_v2_f44_dept_specialist_009",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 44
+    },
+    {
+      "worker_id": "wrk_v2_f44_dept_specialist_010",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 44
+    },
+    {
+      "worker_id": "wrk_v2_f44_dept_specialist_011",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 44
+    },
+    {
+      "worker_id": "wrk_v2_f44_dept_specialist_012",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 44
+    },
+    {
+      "worker_id": "wrk_v2_f44_dept_specialist_013",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 44
+    },
+    {
+      "worker_id": "wrk_v2_f44_dept_specialist_014",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 44
+    },
+    {
+      "worker_id": "wrk_v2_f44_dept_specialist_015",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 44
+    },
+    {
+      "worker_id": "wrk_v2_f44_dept_specialist_016",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 44
+    },
+    {
+      "worker_id": "wrk_v2_f44_dept_specialist_017",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 44
+    },
+    {
+      "worker_id": "wrk_v2_f44_dept_specialist_018",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 44
+    },
+    {
+      "worker_id": "wrk_v2_f44_dept_specialist_019",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 44
+    },
+    {
+      "worker_id": "wrk_v2_f44_dept_clerk_020",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 44
+    },
+    {
+      "worker_id": "wrk_v2_f44_dept_clerk_021",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 44
+    },
+    {
+      "worker_id": "wrk_v2_f44_dept_openclaw_insp_022",
+      "role": "OpenClaw Inspector",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 44
+    },
+    {
+      "worker_id": "wrk_v2_f44_dept_trainee_023",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 44
+    },
+    {
+      "worker_id": "wrk_v2_f44_dept_trainee_024",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 44
+    },
+    {
+      "worker_id": "wrk_v2_f44_dept_trainee_025",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 44
+    },
+    {
+      "worker_id": "wrk_v2_f44_dept_trainee_026",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 44
+    },
+    {
+      "worker_id": "wrk_v2_f44_dept_trainee_027",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 44
+    },
+    {
+      "worker_id": "wrk_v2_f44_dept_trainee_028",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 44
+    },
+    {
+      "worker_id": "wrk_v2_f44_dept_trainee_029",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 44
+    },
+    {
+      "worker_id": "wrk_v2_f44_dept_trainee_030",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 44
+    },
+    {
+      "worker_id": "wrk_v2_f44_dept_trainee_031",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 44
+    },
+    {
+      "worker_id": "wrk_v2_f44_dept_trainee_032",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 44
+    },
+    {
+      "worker_id": "wrk_v2_f44_dept_trainee_033",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 44
+    },
+    {
+      "worker_id": "wrk_v2_f44_dept_trainee_034",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 44
+    },
+    {
+      "worker_id": "wrk_v2_f46_dept_floor_manager_001",
+      "role": "Floor Manager",
+      "manager_role_key": "FLOOR_OWNER",
+      "team": "department_team",
+      "floor": 46
+    },
+    {
+      "worker_id": "wrk_v2_f46_dept_manager_002",
+      "role": "Department Manager",
+      "manager_role_key": "FLOOR_MANAGER",
+      "team": "department_team",
+      "floor": 46
+    },
+    {
+      "worker_id": "wrk_v2_f46_dept_overseer_003",
+      "role": "Department Overseer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 46
+    },
+    {
+      "worker_id": "wrk_v2_f46_dept_watcher_004",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 46
+    },
+    {
+      "worker_id": "wrk_v2_f46_dept_watcher_005",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 46
+    },
+    {
+      "worker_id": "wrk_v2_f46_dept_seer_006",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 46
+    },
+    {
+      "worker_id": "wrk_v2_f46_dept_seer_007",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 46
+    },
+    {
+      "worker_id": "wrk_v2_f46_dept_specialist_008",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 46
+    },
+    {
+      "worker_id": "wrk_v2_f46_dept_specialist_009",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 46
+    },
+    {
+      "worker_id": "wrk_v2_f46_dept_specialist_010",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 46
+    },
+    {
+      "worker_id": "wrk_v2_f46_dept_specialist_011",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 46
+    },
+    {
+      "worker_id": "wrk_v2_f46_dept_clerk_012",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 46
+    },
+    {
+      "worker_id": "wrk_v2_f46_dept_clerk_013",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 46
+    },
+    {
+      "worker_id": "wrk_v2_f46_dept_openclaw_insp_014",
+      "role": "OpenClaw Inspector",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 46
+    },
+    {
+      "worker_id": "wrk_v2_f46_dept_trainee_015",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 46
+    },
+    {
+      "worker_id": "wrk_v2_f46_dept_trainee_016",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 46
+    },
+    {
+      "worker_id": "wrk_v2_f46_dept_trainee_017",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 46
+    },
+    {
+      "worker_id": "wrk_v2_f46_dept_trainee_018",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 46
+    },
+    {
+      "worker_id": "wrk_v2_f48_dept_floor_manager_001",
+      "role": "Floor Manager",
+      "manager_role_key": "FLOOR_OWNER",
+      "team": "department_team",
+      "floor": 48
+    },
+    {
+      "worker_id": "wrk_v2_f48_dept_manager_002",
+      "role": "Department Manager",
+      "manager_role_key": "FLOOR_MANAGER",
+      "team": "department_team",
+      "floor": 48
+    },
+    {
+      "worker_id": "wrk_v2_f48_dept_overseer_003",
+      "role": "Department Overseer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 48
+    },
+    {
+      "worker_id": "wrk_v2_f48_dept_watcher_004",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 48
+    },
+    {
+      "worker_id": "wrk_v2_f48_dept_watcher_005",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 48
+    },
+    {
+      "worker_id": "wrk_v2_f48_dept_seer_006",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 48
+    },
+    {
+      "worker_id": "wrk_v2_f48_dept_seer_007",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 48
+    },
+    {
+      "worker_id": "wrk_v2_f48_dept_specialist_008",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 48
+    },
+    {
+      "worker_id": "wrk_v2_f48_dept_specialist_009",
+      "role": "Specialist",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 48
+    },
+    {
+      "worker_id": "wrk_v2_f48_dept_clerk_010",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 48
+    },
+    {
+      "worker_id": "wrk_v2_f48_dept_clerk_011",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 48
+    },
+    {
+      "worker_id": "wrk_v2_f48_dept_openclaw_insp_012",
+      "role": "OpenClaw Inspector",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 48
+    },
+    {
+      "worker_id": "wrk_v2_f48_dept_trainee_013",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 48
+    },
+    {
+      "worker_id": "wrk_v2_f48_dept_trainee_014",
+      "role": "Trainee",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 48
+    },
+    {
+      "worker_id": "wrk_v2_f50_dept_floor_manager_001",
+      "role": "Floor Manager",
+      "manager_role_key": "FLOOR_OWNER",
+      "team": "department_team",
+      "floor": 50
+    },
+    {
+      "worker_id": "wrk_v2_f50_dept_manager_002",
+      "role": "Department Manager",
+      "manager_role_key": "FLOOR_MANAGER",
+      "team": "department_team",
+      "floor": 50
+    },
+    {
+      "worker_id": "wrk_v2_f50_dept_overseer_003",
+      "role": "Department Overseer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 50
+    },
+    {
+      "worker_id": "wrk_v2_f50_dept_watcher_004",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 50
+    },
+    {
+      "worker_id": "wrk_v2_f50_dept_watcher_005",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 50
+    },
+    {
+      "worker_id": "wrk_v2_f50_dept_seer_006",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 50
+    },
+    {
+      "worker_id": "wrk_v2_f50_dept_seer_007",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 50
+    },
+    {
+      "worker_id": "wrk_v2_f50_dept_clerk_008",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 50
+    },
+    {
+      "worker_id": "wrk_v2_f50_dept_clerk_009",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 50
+    },
+    {
+      "worker_id": "wrk_v2_f50_dept_openclaw_insp_010",
+      "role": "OpenClaw Inspector",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 50
+    },
+    {
+      "worker_id": "wrk_v2_f51_dept_floor_manager_001",
+      "role": "Floor Manager",
+      "manager_role_key": "FLOOR_OWNER",
+      "team": "department_team",
+      "floor": 51
+    },
+    {
+      "worker_id": "wrk_v2_f51_dept_manager_002",
+      "role": "Department Manager",
+      "manager_role_key": "FLOOR_MANAGER",
+      "team": "department_team",
+      "floor": 51
+    },
+    {
+      "worker_id": "wrk_v2_f51_dept_overseer_003",
+      "role": "Department Overseer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 51
+    },
+    {
+      "worker_id": "wrk_v2_f51_dept_watcher_004",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 51
+    },
+    {
+      "worker_id": "wrk_v2_f51_dept_watcher_005",
+      "role": "Department Watcher",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 51
+    },
+    {
+      "worker_id": "wrk_v2_f51_dept_seer_006",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 51
+    },
+    {
+      "worker_id": "wrk_v2_f51_dept_seer_007",
+      "role": "Department Seer",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 51
+    },
+    {
+      "worker_id": "wrk_v2_f51_dept_clerk_008",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 51
+    },
+    {
+      "worker_id": "wrk_v2_f51_dept_clerk_009",
+      "role": "Clerk",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 51
+    },
+    {
+      "worker_id": "wrk_v2_f51_dept_openclaw_insp_010",
+      "role": "OpenClaw Inspector",
+      "manager_role_key": "DEPT_MANAGER",
+      "team": "department_team",
+      "floor": 51
+    }
+  ],
+  "chain_count": 1000,
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "worker_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "live_payments_enabled": false,
+  "live_listings_publishing_enabled": false,
+  "external_api_calls_enabled": false,
+  "secrets_in_logs": false,
+  "manual_approval_required_for_commerce": true
+}

@@ -1,0 +1,34 @@
+{
+  "room_id": "air_quality_monitoring",
+  "name": "Air Quality Analysis Room",
+  "category": "lab",
+  "purpose": "This room is dedicated to analyzing air quality data.",
+  "concierge_blurb": "Analyzing the purity of our atmosphere.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -8.0,
+    "offset_z": 4.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "plinth",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Air Quality",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/air_quality.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 60
+  },
+  "floor": "floor_136"
+}

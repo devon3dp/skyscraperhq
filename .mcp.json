@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "unrealMCP": {
+      "command": "/vaults/nvme0/qsb_tower_v1/external/unreal-mcp/Python/.venv/bin/python3",
+      "args": [
+        "/vaults/nvme0/qsb_tower_v1/external/unreal-mcp/Python/unreal_mcp_server.py"
+      ],
+      "env": {
+        "PYTHONPATH": "/vaults/nvme0/qsb_tower_v1/external/unreal-mcp/Python"
+      }
+    }
+  }
+}

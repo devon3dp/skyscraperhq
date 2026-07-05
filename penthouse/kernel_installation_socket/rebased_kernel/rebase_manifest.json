@@ -1,0 +1,156 @@
+{
+  "manifest_type": "dormant_kernel_path_rebase",
+  "rebase_ts": "2026-06-07",
+  "rebase_method": "static_text_patch_no_execution",
+  "rebased_by": "QSB Tower V1.3 path rebase process",
+
+  "source_dormant_import_path": "/vaults/nvme0/qsb_tower_v1/penthouse/kernel_installation_socket/dormant_imported_kernel/kernel",
+  "rebased_target_path": "/vaults/nvme0/qsb_tower_v1/penthouse/kernel_installation_socket/rebased_kernel/kernel",
+  "state_dir": "/vaults/nvme0/qsb_tower_v1/penthouse/kernel_installation_socket/rebased_kernel/state",
+
+  "files_copied": [
+    "kernel_core.py",
+    "axiom_core.py",
+    "continuity_core.py",
+    "belief_core.py",
+    "symbolic_core.py",
+    "identity_core.py",
+    "reflection_core.py",
+    "__init__.py",
+    "identity.json",
+    "continuity_state.json",
+    "README.md",
+    "COGNITIVE_47_README.md"
+  ],
+
+  "files_patched": [
+    "kernel_core.py",
+    "identity_core.py",
+    "continuity_core.py",
+    "belief_core.py",
+    "symbolic_core.py",
+    "__init__.py"
+  ],
+
+  "files_verbatim": [
+    "axiom_core.py",
+    "reflection_core.py",
+    "identity.json",
+    "continuity_state.json",
+    "README.md",
+    "COGNITIVE_47_README.md"
+  ],
+
+  "patch_details": {
+    "kernel_core.py": {
+      "patches_applied": 5,
+      "changes": [
+        "from kernel.identity_core import IdentityCore  ->  from .identity_core import IdentityCore",
+        "from kernel.axiom_core import AxiomCore  ->  from .axiom_core import AxiomCore",
+        "from kernel.continuity_core import ContinuityCore  ->  from .continuity_core import ContinuityCore",
+        "from kernel.symbolic_core import SymbolicLogicCore  ->  from .symbolic_core import SymbolicLogicCore",
+        "from kernel.belief_core import BeliefCore  ->  from .belief_core import BeliefCore"
+      ],
+      "category": "IMPORT_REWIRE"
+    },
+    "identity_core.py": {
+      "patches_applied": 2,
+      "changes": [
+        "ROOT = Path('/vaults/nvme0/qsb_skyscraper')  ->  removed",
+        "KERNEL_STATE_ROOT = Path('.../rebased_kernel/state')  added",
+        "IDENTITY_FILE = ROOT / 'kernel' / 'identity.json'  ->  IDENTITY_FILE = KERNEL_STATE_ROOT / 'identity.json'"
+      ],
+      "category": "PATH_REBASE"
+    },
+    "continuity_core.py": {
+      "patches_applied": 8,
+      "changes": [
+        "ROOT = Path('/vaults/nvme0/qsb_skyscraper')  ->  removed",
+        "KERNEL_STATE_ROOT = Path('.../rebased_kernel/state')  added",
+        "TOWER_DB_ROOT = Path('/vaults/nvme0/qsb_tower_v1/data/db')  added",
+        "KERNEL_PACKAGE_DIR = Path(__file__).resolve().parent  added",
+        "STATE_FILE = ROOT / 'kernel' / 'continuity_state.json'  ->  KERNEL_STATE_ROOT / 'continuity_state.json'",
+        "_hash_file: p = ROOT / path  ->  p = KERNEL_PACKAGE_DIR / rel_path",
+        "boot_check hash paths updated: kernel/identity.json -> identity.json, kernel/symbolic_core.py -> symbolic_core.py",
+        "DB existence checks remapped: memory/missions/knowledge/bus -> tower data/db/ paths"
+      ],
+      "category": "PATH_REBASE_AND_DB_REMAP"
+    },
+    "belief_core.py": {
+      "patches_applied": 2,
+      "changes": [
+        "ROOT = Path('/vaults/nvme0/qsb_skyscraper')  ->  removed",
+        "KERNEL_STATE_ROOT = Path('.../rebased_kernel/state')  added",
+        "DB = ROOT / 'kernel' / 'qsb_beliefs.sqlite'  ->  DB = KERNEL_STATE_ROOT / 'beliefs.sqlite'"
+      ],
+      "category": "PATH_REBASE"
+    },
+    "symbolic_core.py": {
+      "patches_applied": 2,
+      "changes": [
+        "ROOT = Path('/vaults/nvme0/qsb_skyscraper')  ->  removed",
+        "KERNEL_STATE_ROOT = Path('.../rebased_kernel/state')  added",
+        "DB = ROOT / 'symbolic' / 'qsb_symbolic.sqlite'  ->  DB = KERNEL_STATE_ROOT / 'symbolic.sqlite'"
+      ],
+      "category": "PATH_REBASE"
+    },
+    "__init__.py": {
+      "patches_applied": 1,
+      "changes": [
+        "Empty file replaced with package header comment and dormant-use warning"
+      ],
+      "category": "PACKAGE_MARKER"
+    }
+  },
+
+  "old_path_references_remaining": 0,
+  "import_rewiring_count": 5,
+  "compile_results": {
+    "kernel_core.py": "OK",
+    "identity_core.py": "OK",
+    "continuity_core.py": "OK",
+    "belief_core.py": "OK",
+    "symbolic_core.py": "OK",
+    "axiom_core.py": "OK",
+    "reflection_core.py": "OK",
+    "__init__.py": "OK",
+    "all_pass": true
+  },
+
+  "sha256_hashes_rebased": {
+    "kernel/__init__.py":          "148b45cdd8564401637e24b31cdea0d8831a47f6a38f35d76a9b0b69e490f499",
+    "kernel/kernel_core.py":       "7d987acf331cdcea3db92e281f68c2c1d946e98209b26c36044dc8f260f528a5",
+    "kernel/axiom_core.py":        "7315294641009cc19caa70b93a5e61d207cb2f62b7b22555598c2f8cf4d9e1f9",
+    "kernel/identity_core.py":     "8a451f0fe953970fe91622410e783cfcd93812e58315b560b66b45e83bdd73d9",
+    "kernel/continuity_core.py":   "7eb4d5bd2a70bfd4c553476113528432a9e842451291dbe7143973e4e0b90342",
+    "kernel/belief_core.py":       "66a65cd044881c0febc87fd976939cfa8fb65ed20ccf55655e1702a3a534a903",
+    "kernel/symbolic_core.py":     "d5f9edc2d55c4b1c0833f7aa192d2326acac568bc899301fb0f0ce3bf3b8cf4d",
+    "kernel/reflection_core.py":   "dd16c7346d99d96a4f606b674e6a177a1c30cb12269d8e326f50155a6fdbb003",
+    "kernel/identity.json":        "c9e449ec53d92309f7a531726e46ba8d27666fbe244db1eaa9a3e6e651e54710",
+    "kernel/continuity_state.json":"c45cbb011573f17bf211f98b7d676f8e929d37cbc8a0467ac7cec16730ce1b67"
+  },
+
+  "forbidden_active_kernel_paths": {
+    "penthouse/kernel.py": "absent",
+    "penthouse/qsb_kernel_4_5.py": "absent",
+    "src/tower/kernel.py": "absent",
+    "src/tower/qsb_kernel_4_5.py": "absent",
+    "result": "all_absent"
+  },
+
+  "safety_flags": {
+    "kernel_installed": false,
+    "kernel_logic_present": true,
+    "activation_enabled": false,
+    "execution_enabled": false,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "model_inference_enabled": false,
+    "live_dispatch_enabled": false,
+    "qsb_kernel_core_instantiated": false,
+    "activation_allowed": false
+  },
+
+  "next_recommended_phase": "ACTIVATION_GATE_WRAPPER_CREATION",
+  "next_phase_description": "Create a KernelActivationGate class that wraps QSBKernelCore instantiation and verifies kernel_installed=true, operator_approval=true, and path_rebase_complete=true before allowing construction. Also create tower-compatible stubs for the ReflectionCore dependency injection (memory, departments, missions, lifts, graph, beliefs, semantic)."
+}

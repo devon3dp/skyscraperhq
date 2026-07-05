@@ -1,0 +1,34 @@
+{
+  "room_id": "3d_modeling_workshop",
+  "name": "3D Modeling Workshop",
+  "category": "workshop",
+  "purpose": "A space for creating complex 3D models and visual effects.",
+  "concierge_blurb": "Explore our 3D modeling workshop, where the impossible becomes reality.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": -6.0,
+    "footprint_m": [
+      25,
+      18
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "3D Modeling",
+    "glow": true
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": null,
+    "refresh_seconds": null
+  },
+  "floor": "floor_88"
+}

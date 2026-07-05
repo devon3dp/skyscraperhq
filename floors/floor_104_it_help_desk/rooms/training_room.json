@@ -1,0 +1,31 @@
+{
+  "room_id": "training_room",
+  "name": "Training Room",
+  "category": "seating",
+  "purpose": "A space for training and knowledge sharing sessions.",
+  "concierge_blurb": "Stay updated with the latest IT practices and tips.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -6.0,
+    "offset_z": 5.0,
+    "footprint_m": [
+      8.0,
+      4.0
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "chair_set",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Training",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_104"
+}

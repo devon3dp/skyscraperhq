@@ -1,0 +1,31 @@
+{
+  "room_id": "sales_pipeline_review",
+  "name": "Pipeline Review Room",
+  "category": "audit",
+  "purpose": "A place to review and strategize on the sales pipeline.",
+  "concierge_blurb": "Meetings here focus on optimizing leads and closing deals.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.0,
+    "offset_z": -3.0,
+    "footprint_m": [
+      10,
+      6
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Pipeline Review",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_109"
+}

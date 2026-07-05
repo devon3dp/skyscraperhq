@@ -1,0 +1,74 @@
+[
+  {
+    "slot_id": "floor25_recruitment_controller",
+    "floor_id": "floor_25",
+    "role": "recruitment_controller",
+    "candidate_id": null,
+    "status": "reserved_unbound",
+    "execution_enabled": false,
+    "worker_execution_enabled": false,
+    "model_bound": false,
+    "approval_required": true,
+    "notes": "Internal coordination slot. No live execution."
+  },
+  {
+    "slot_id": "claude_code_external_inspector_slot",
+    "floor_id": "floor_25",
+    "role": "external_codebase_inspector",
+    "candidate_id": "claude_code",
+    "status": "candidate_only",
+    "execution_enabled": false,
+    "worker_execution_enabled": false,
+    "model_bound": false,
+    "approval_required": true,
+    "notes": "Claude Code may inspect the tower as an external tool. It is not a tower worker yet."
+  },
+  {
+    "slot_id": "openclaw_candidate_slot",
+    "floor_id": "floor_25",
+    "role": "external_worker_candidate",
+    "candidate_id": "openclaw",
+    "status": "candidate_only",
+    "execution_enabled": false,
+    "worker_execution_enabled": false,
+    "model_bound": false,
+    "approval_required": true,
+    "notes": "OpenClaw placeholder candidate. No installation or activation."
+  },
+  {
+    "slot_id": "ollama_local_candidate_slot",
+    "floor_id": "floor_25",
+    "role": "local_model_candidate_pool",
+    "candidate_id": "ollama_local_models",
+    "status": "candidate_only",
+    "execution_enabled": false,
+    "worker_execution_enabled": false,
+    "model_bound": false,
+    "approval_required": true,
+    "notes": "Local models may be candidates through Floor 27 inventory only."
+  },
+  {
+    "slot_id": "future_llm_provider_candidate_slot",
+    "floor_id": "floor_25",
+    "role": "future_provider_candidate_pool",
+    "candidate_id": "future_llm_provider",
+    "status": "candidate_only",
+    "execution_enabled": false,
+    "worker_execution_enabled": false,
+    "model_bound": false,
+    "approval_required": true,
+    "notes": "Future provider candidate. Must route through Floor 21, 23, 24, and security gates."
+  },
+  {
+    "slot_id": "human_operator_approval_slot",
+    "floor_id": "floor_25",
+    "role": "manual_operator_approval",
+    "candidate_id": "human_operator",
+    "status": "approval_authority_registered",
+    "execution_enabled": false,
+    "worker_execution_enabled": false,
+    "model_bound": false,
+    "approval_required": false,
+    "notes": "Manual operator approval authority. Not an autonomous worker."
+  }
+]

@@ -1,0 +1,22 @@
+{
+  "ok": true,
+  "kind": "qsb_godot_kernel_chat_real_panel_status",
+  "ts": "2026-06-09T21:07:08Z",
+  "panel": "KernelChatPanel.gd (Control)",
+  "lives_in": "RightPanelTabs.Chat",
+  "components": {
+    "scrollable_history":   true,
+    "input_line_edit":      true,
+    "send_button":          true,
+    "clear_button":         true,
+    "copy_latest_button":   true,
+    "test_button":          true,
+    "status_label":         true,
+    "recent_prompt_buttons":["How do you think now?","What is missing?","Report dashboard status.","Report safety locks.","What changed since last loop?"]
+  },
+  "backend": "/api/kernel_chat (local Tower service on 127.0.0.1:8765)",
+  "bridge_script": "scripts/qsb_godot_kernel_chat_bridge.sh",
+  "local_only": true,
+  "external_provider": false,
+  "execution_enabled": false
+}

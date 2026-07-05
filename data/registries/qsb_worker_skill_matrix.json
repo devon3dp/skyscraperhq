@@ -1,0 +1,36 @@
+{
+  "ok": true,
+  "kind": "qsb_worker_skill_matrix",
+  "phase": "QSB_ML_RL_LAB_CLASSROOM_RESEARCH_WORKER_INTEGRATION_V1",
+  "generated_ts": "2026-06-09T16:49:28+00:00",
+  "skill_tracks": [
+    "Torch Fundamentals",
+    "DQN Basics",
+    "RL Safety",
+    "Paper Strategy Simulation",
+    "Risk-Aware Rewards",
+    "Backtest Reading",
+    "Model Failure Detection",
+    "Overfitting Detection",
+    "Experiment Logging",
+    "Safe Advisory Reporting"
+  ],
+  "skill_levels": [
+    "novice",
+    "trained",
+    "proficient",
+    "expert",
+    "certified"
+  ],
+  "default_starting_level": "novice",
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "live_payments_enabled": false,
+  "live_listings_publishing_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "worker_execution_enabled": false,
+  "secrets_in_logs": false
+}

@@ -1,0 +1,1316 @@
+{
+  "ok": true,
+  "kind": "qsb_fire_drill_report",
+  "started_ts": "2026-06-21T14:42:40Z",
+  "completed_ts": "2026-06-21T14:42:40Z",
+  "assembly_point": "car_park_external",
+  "assembly_name": "Tower Car Park \u00b7 Muster Point",
+  "assembly_location": "20m south of the lobby entrance, painted assembly grid",
+  "expected_total": 8168,
+  "present_total": 8168,
+  "percentage_present": 100.0,
+  "all_clear": true,
+  "floor_count_drilled": 162,
+  "manager_count": 55,
+  "floor_reports": [
+    {
+      "floor": "F1",
+      "manager": "\u2014",
+      "expected": 102,
+      "accounted_for": 102,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F01",
+      "manager": "Mara",
+      "expected": 12,
+      "accounted_for": 12,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F2",
+      "manager": "\u2014",
+      "expected": 38,
+      "accounted_for": 38,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F02",
+      "manager": "Theo",
+      "expected": 12,
+      "accounted_for": 12,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F3",
+      "manager": "\u2014",
+      "expected": 38,
+      "accounted_for": 38,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F03",
+      "manager": "Anya",
+      "expected": 12,
+      "accounted_for": 12,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F4",
+      "manager": "\u2014",
+      "expected": 38,
+      "accounted_for": 38,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F04",
+      "manager": "Levi",
+      "expected": 12,
+      "accounted_for": 12,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F5",
+      "manager": "\u2014",
+      "expected": 38,
+      "accounted_for": 38,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F05",
+      "manager": "Cleo",
+      "expected": 12,
+      "accounted_for": 12,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F6",
+      "manager": "\u2014",
+      "expected": 38,
+      "accounted_for": 38,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F06",
+      "manager": "Idris",
+      "expected": 12,
+      "accounted_for": 12,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F7",
+      "manager": "\u2014",
+      "expected": 38,
+      "accounted_for": 38,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F07",
+      "manager": "Nyla",
+      "expected": 12,
+      "accounted_for": 12,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F8",
+      "manager": "\u2014",
+      "expected": 38,
+      "accounted_for": 38,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F08",
+      "manager": "Ezra",
+      "expected": 12,
+      "accounted_for": 12,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F9",
+      "manager": "\u2014",
+      "expected": 38,
+      "accounted_for": 38,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F09",
+      "manager": "Sasha",
+      "expected": 12,
+      "accounted_for": 12,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F10",
+      "manager": "Jonas",
+      "expected": 50,
+      "accounted_for": 50,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F11",
+      "manager": "Iris",
+      "expected": 50,
+      "accounted_for": 50,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F12",
+      "manager": "Kane",
+      "expected": 50,
+      "accounted_for": 50,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F13",
+      "manager": "Tara",
+      "expected": 50,
+      "accounted_for": 50,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F14",
+      "manager": "Felix",
+      "expected": 50,
+      "accounted_for": 50,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F15",
+      "manager": "Lina",
+      "expected": 50,
+      "accounted_for": 50,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F16",
+      "manager": "Adele",
+      "expected": 50,
+      "accounted_for": 50,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F17",
+      "manager": "Marius",
+      "expected": 110,
+      "accounted_for": 110,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F18",
+      "manager": "Solene",
+      "expected": 50,
+      "accounted_for": 50,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F19",
+      "manager": "Owen",
+      "expected": 50,
+      "accounted_for": 50,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F20",
+      "manager": "Greta",
+      "expected": 50,
+      "accounted_for": 50,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F21",
+      "manager": "Lior",
+      "expected": 50,
+      "accounted_for": 50,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F22",
+      "manager": "Mira",
+      "expected": 62,
+      "accounted_for": 62,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F23",
+      "manager": "Hugo",
+      "expected": 50,
+      "accounted_for": 50,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F24",
+      "manager": "Lila",
+      "expected": 68,
+      "accounted_for": 68,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F25",
+      "manager": "Quinn",
+      "expected": 74,
+      "accounted_for": 74,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F26",
+      "manager": "Astrid",
+      "expected": 43,
+      "accounted_for": 43,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F27",
+      "manager": "Niko",
+      "expected": 50,
+      "accounted_for": 50,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F28",
+      "manager": "Ivy",
+      "expected": 56,
+      "accounted_for": 56,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F29",
+      "manager": "Cyrus",
+      "expected": 58,
+      "accounted_for": 58,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F30",
+      "manager": "Maya",
+      "expected": 83,
+      "accounted_for": 83,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F31",
+      "manager": "Roan",
+      "expected": 68,
+      "accounted_for": 68,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F32",
+      "manager": "Selah",
+      "expected": 50,
+      "accounted_for": 50,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F33",
+      "manager": "Eira",
+      "expected": 50,
+      "accounted_for": 50,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F34",
+      "manager": "Otis",
+      "expected": 50,
+      "accounted_for": 50,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F35",
+      "manager": "Vita",
+      "expected": 90,
+      "accounted_for": 90,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F36",
+      "manager": "Caleb",
+      "expected": 63,
+      "accounted_for": 63,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F37",
+      "manager": "Nessa",
+      "expected": 138,
+      "accounted_for": 138,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F38",
+      "manager": "Pavel",
+      "expected": 98,
+      "accounted_for": 98,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F39",
+      "manager": "Ada",
+      "expected": 50,
+      "accounted_for": 50,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F40",
+      "manager": "Bram",
+      "expected": 50,
+      "accounted_for": 50,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F41",
+      "manager": "Lyra",
+      "expected": 50,
+      "accounted_for": 50,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F42",
+      "manager": "Joss",
+      "expected": 50,
+      "accounted_for": 50,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F43",
+      "manager": "Eden",
+      "expected": 50,
+      "accounted_for": 50,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F44",
+      "manager": "Imre",
+      "expected": 53,
+      "accounted_for": 53,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F45",
+      "manager": "Saoirse",
+      "expected": 62,
+      "accounted_for": 62,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F46",
+      "manager": "Devi",
+      "expected": 50,
+      "accounted_for": 50,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F47",
+      "manager": "Wren",
+      "expected": 1515,
+      "accounted_for": 1515,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F48",
+      "manager": "Naia",
+      "expected": 50,
+      "accounted_for": 50,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F49",
+      "manager": "Yuri",
+      "expected": 50,
+      "accounted_for": 50,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F50",
+      "manager": "Posy",
+      "expected": 86,
+      "accounted_for": 86,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F51",
+      "manager": "Thora",
+      "expected": 92,
+      "accounted_for": 92,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F52",
+      "manager": "Indra",
+      "expected": 56,
+      "accounted_for": 56,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F53",
+      "manager": "Reza",
+      "expected": 50,
+      "accounted_for": 50,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F54",
+      "manager": "Aro",
+      "expected": 37,
+      "accounted_for": 37,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F55",
+      "manager": "Sayuri",
+      "expected": 70,
+      "accounted_for": 70,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F56",
+      "manager": "\u2014",
+      "expected": 12,
+      "accounted_for": 12,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F57",
+      "manager": "\u2014",
+      "expected": 21,
+      "accounted_for": 21,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F58",
+      "manager": "\u2014",
+      "expected": 13,
+      "accounted_for": 13,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F67",
+      "manager": "\u2014",
+      "expected": 28,
+      "accounted_for": 28,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F68",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F69",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F70",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F71",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F72",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F73",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F74",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F75",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F76",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F77",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F78",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F79",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F80",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F81",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F82",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F83",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F84",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F85",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F86",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F87",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F88",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F89",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F90",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F91",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F92",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F93",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F94",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F95",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F96",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F97",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F98",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F99",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "",
+      "manager": "\u2014",
+      "expected": 308,
+      "accounted_for": 308,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "FLOOR_45_WORKER_RECRUITMENT_AGENCY",
+      "manager": "\u2014",
+      "expected": 80,
+      "accounted_for": 80,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "FLOOR_36_EXPANSION_PLANNING_DEPARTMENT",
+      "manager": "\u2014",
+      "expected": 150,
+      "accounted_for": 150,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "FLOOR_38_SANDBOX_OPERATIONS",
+      "manager": "\u2014",
+      "expected": 50,
+      "accounted_for": 50,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "FLOOR_47_EXECUTIVE_OPERATIONS_DEPARTMENT",
+      "manager": "\u2014",
+      "expected": 90,
+      "accounted_for": 90,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "FLOOR_44_ACCOUNTS_DEPARTMENT",
+      "manager": "\u2014",
+      "expected": 100,
+      "accounted_for": 100,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "FLOOR_30_PERMISSIONS_DEPARTMENT",
+      "manager": "\u2014",
+      "expected": 70,
+      "accounted_for": 70,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "FLOOR_49_RESOURCE_MANAGEMENT_DEPARTMENT",
+      "manager": "\u2014",
+      "expected": 280,
+      "accounted_for": 280,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "FLOOR_52_INFRASTRUCTURE_COMMAND_DEPARTMENT",
+      "manager": "\u2014",
+      "expected": 180,
+      "accounted_for": 180,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F100",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F101",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F102",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F103",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F104",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F105",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F106",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F107",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F108",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F109",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F110",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F111",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F112",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F113",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F114",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F115",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F116",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F117",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F118",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F119",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F120",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F121",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F122",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F123",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F124",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F125",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F126",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F127",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F128",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F129",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F130",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F131",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F132",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F133",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F134",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F135",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F136",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F137",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F138",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F139",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F140",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F141",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F142",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F143",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F144",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F145",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F146",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F147",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F148",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F149",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F150",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F151",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    },
+    {
+      "floor": "F152",
+      "manager": "\u2014",
+      "expected": 24,
+      "accounted_for": 24,
+      "check_in_ts": "2026-06-21T14:42:40Z",
+      "status": "all_present"
+    }
+  ],
+  "advisory_only": true,
+  "drill_only": true,
+  "no_real_evacuation": true
+}

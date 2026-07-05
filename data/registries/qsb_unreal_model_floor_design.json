@@ -1,0 +1,56 @@
+{
+  "phase": "QSB_UNREAL_PROFESSIONAL_SKYSCRAPER_HUD_DASHBOARD_DIRECTION_V2",
+  "stage": 6,
+  "title": "Model & AI Collaboration Floors",
+  "models": {
+    "claude": {
+      "rooms": [
+        "Thought Lounge \u2014 circular, projected reasoning traces",
+        "Prompt/Result Terminal \u2014 dual-pane glass screen",
+        "Safety Boardroom \u2014 RAG score for each live conversation",
+        "Collaboration Atrium \u2014 3 pods Claude+GPT+DeepSeek compare",
+        "Ethics Window \u2014 one-way glass over plaza, watching reminder"
+      ],
+      "actions": [
+        "askClaude",
+        "compareModels",
+        "viewSafetyBoard",
+        "traceReasoning",
+        "collabAtrium"
+      ],
+      "designed_by": "Claude (spec V2 directive \u2014 Claude designs his own floor)"
+    },
+    "gpt_openai": {
+      "rooms": [
+        "Product Brief Studio",
+        "Copy/Strategy Help Desk",
+        "Compare Bench",
+        "Cost/Usage Display"
+      ],
+      "actions": [
+        "askGPT",
+        "copyDraft",
+        "strategyConsult",
+        "compareModels"
+      ]
+    },
+    "deepseek": {
+      "rooms": [
+        "Code Review Lab",
+        "Debugging Bench",
+        "Architecture Wall",
+        "Audit Trail"
+      ],
+      "actions": [
+        "askDeepSeek",
+        "reviewCode",
+        "architectureSketch",
+        "auditTrace"
+      ]
+    }
+  },
+  "signoff": "DeepSeek-authored room list for Claude floor. Claude approves Ethics Window as the signature element.",
+  "_meta": {
+    "ts": "2026-06-25T12:18:39Z"
+  }
+}

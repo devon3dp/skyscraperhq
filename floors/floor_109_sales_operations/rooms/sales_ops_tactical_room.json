@@ -1,0 +1,31 @@
+{
+  "room_id": "sales_ops_tactical_room",
+  "name": "Tactical Operations Room",
+  "category": "workshop",
+  "purpose": "A room for tactical planning and operational strategy.",
+  "concierge_blurb": "Strategize here to enhance sales performance.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -5.0,
+    "offset_z": 2.0,
+    "footprint_m": [
+      10,
+      6
+    ],
+    "height_m": 2.4
+  },
+  "render": {
+    "primary_prop": "plinth",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Tactical Ops",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_109"
+}

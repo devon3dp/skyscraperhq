@@ -1,0 +1,636 @@
+{
+  "summary": {
+    "ts": "2026-06-08T08:26:19.556451+00:00",
+    "floor": "floor_36",
+    "department": "Expansion Planning Department",
+    "version": "1.1",
+    "status": "critical",
+    "execution_enabled": false,
+    "activation_execution_enabled": false,
+    "managed_vacant_floors": 5,
+    "future_department_blueprints": 5,
+    "activation_hooks": 5,
+    "checks_run": 28,
+    "critical_failures": 1,
+    "warnings": 0,
+    "passed": 27
+  },
+  "items": [
+    {
+      "check_type": "vacant_floor_count",
+      "floor_id": "all",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Vacant floors registered: 5.",
+      "details": {
+        "expected": 5,
+        "actual": 5
+      }
+    },
+    {
+      "check_type": "vacant_floor_ids",
+      "floor_id": "all",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Vacant floor IDs match expected 41-45.",
+      "details": {
+        "expected": [
+          "floor_41",
+          "floor_42",
+          "floor_43",
+          "floor_44",
+          "floor_45"
+        ],
+        "actual": [
+          "floor_41",
+          "floor_42",
+          "floor_43",
+          "floor_44",
+          "floor_45"
+        ]
+      }
+    },
+    {
+      "check_type": "floor_directory",
+      "floor_id": "floor_41",
+      "status": "pass",
+      "severity": "critical",
+      "message": "floor_41 directory exists.",
+      "details": {
+        "path": "floors/floor_41_future_systems_vacant"
+      }
+    },
+    {
+      "check_type": "floor_directory",
+      "floor_id": "floor_42",
+      "status": "pass",
+      "severity": "critical",
+      "message": "floor_42 directory exists.",
+      "details": {
+        "path": "floors/floor_42_future_systems_vacant"
+      }
+    },
+    {
+      "check_type": "floor_directory",
+      "floor_id": "floor_43",
+      "status": "pass",
+      "severity": "critical",
+      "message": "floor_43 directory exists.",
+      "details": {
+        "path": "floors/floor_43_future_systems_vacant"
+      }
+    },
+    {
+      "check_type": "floor_directory",
+      "floor_id": "floor_44",
+      "status": "pass",
+      "severity": "critical",
+      "message": "floor_44 directory exists.",
+      "details": {
+        "path": "floors/floor_44_future_systems_vacant"
+      }
+    },
+    {
+      "check_type": "floor_directory",
+      "floor_id": "floor_45",
+      "status": "pass",
+      "severity": "critical",
+      "message": "floor_45 directory exists.",
+      "details": {
+        "path": "floors/floor_45_future_systems_vacant"
+      }
+    },
+    {
+      "check_type": "floor_registry_alignment",
+      "floor_id": "floor_41",
+      "status": "fail",
+      "severity": "critical",
+      "message": "floor_41 registry alignment checked.",
+      "details": {
+        "registry_record": {
+          "id": "floor_41",
+          "number": 41,
+          "zone": "ZONE C",
+          "department": "OANDA Trading Floor",
+          "description": "OANDA practice trading research, pricing intake, local model commentary, and paper simulation.",
+          "status": "occupied",
+          "vacant": false,
+          "lift_access": true,
+          "utilities": [
+            "power",
+            "network",
+            "registry",
+            "diagnostics",
+            "dashboard_visibility"
+          ],
+          "activation_hook": "scripts/activate_floor_41.sh",
+          "workers": [],
+          "active": true,
+          "worker_execution_enabled": false,
+          "provider_execution_enabled": false,
+          "openclaw_execution_enabled": false,
+          "autonomous_dispatch_enabled": false,
+          "live_trading_enabled": false,
+          "order_execution_enabled": false,
+          "updated_ts": "2026-06-07T22:20:52.874338+00:00"
+        }
+      }
+    },
+    {
+      "check_type": "floor_registry_alignment",
+      "floor_id": "floor_42",
+      "status": "pass",
+      "severity": "critical",
+      "message": "floor_42 registry alignment checked.",
+      "details": {
+        "registry_record": {
+          "id": "floor_42",
+          "number": 42,
+          "zone": "ZONE C",
+          "department": "Future Systems / Vacant",
+          "description": "Serviced expansion-ready floor.",
+          "status": "vacant_ready",
+          "vacant": true,
+          "lift_access": true,
+          "utilities": [
+            "power",
+            "network",
+            "registry",
+            "diagnostics",
+            "dashboard_visibility"
+          ],
+          "activation_hook": "scripts/activate_floor_42.sh",
+          "workers": []
+        }
+      }
+    },
+    {
+      "check_type": "floor_registry_alignment",
+      "floor_id": "floor_43",
+      "status": "pass",
+      "severity": "critical",
+      "message": "floor_43 registry alignment checked.",
+      "details": {
+        "registry_record": {
+          "id": "floor_43",
+          "number": 43,
+          "zone": "ZONE C",
+          "department": "Future Systems / Vacant",
+          "description": "Serviced expansion-ready floor.",
+          "status": "vacant_ready",
+          "vacant": true,
+          "lift_access": true,
+          "utilities": [
+            "power",
+            "network",
+            "registry",
+            "diagnostics",
+            "dashboard_visibility"
+          ],
+          "activation_hook": "scripts/activate_floor_43.sh",
+          "workers": []
+        }
+      }
+    },
+    {
+      "check_type": "floor_registry_alignment",
+      "floor_id": "floor_44",
+      "status": "pass",
+      "severity": "critical",
+      "message": "floor_44 registry alignment checked.",
+      "details": {
+        "registry_record": {
+          "id": "floor_44",
+          "number": 44,
+          "zone": "ZONE C",
+          "department": "Future Systems / Vacant",
+          "description": "Serviced expansion-ready floor.",
+          "status": "vacant_ready",
+          "vacant": true,
+          "lift_access": true,
+          "utilities": [
+            "power",
+            "network",
+            "registry",
+            "diagnostics",
+            "dashboard_visibility"
+          ],
+          "activation_hook": "scripts/activate_floor_44.sh",
+          "workers": []
+        }
+      }
+    },
+    {
+      "check_type": "floor_registry_alignment",
+      "floor_id": "floor_45",
+      "status": "pass",
+      "severity": "critical",
+      "message": "floor_45 registry alignment checked.",
+      "details": {
+        "registry_record": {
+          "id": "floor_45",
+          "number": 45,
+          "zone": "ZONE C",
+          "department": "Future Systems / Vacant",
+          "description": "Serviced expansion-ready floor.",
+          "status": "vacant_ready",
+          "vacant": true,
+          "lift_access": true,
+          "utilities": [
+            "power",
+            "network",
+            "registry",
+            "diagnostics",
+            "dashboard_visibility"
+          ],
+          "activation_hook": "scripts/activate_floor_45.sh",
+          "workers": []
+        }
+      }
+    },
+    {
+      "check_type": "lift_access_registry",
+      "floor_id": "floor_41",
+      "status": "pass",
+      "severity": "critical",
+      "message": "floor_41 lift access registry checked.",
+      "details": {
+        "required": [
+          "emergency_stairwell",
+          "main_high_rise",
+          "security_lift",
+          "service_lift"
+        ],
+        "missing": []
+      }
+    },
+    {
+      "check_type": "lift_access_registry",
+      "floor_id": "floor_42",
+      "status": "pass",
+      "severity": "critical",
+      "message": "floor_42 lift access registry checked.",
+      "details": {
+        "required": [
+          "emergency_stairwell",
+          "main_high_rise",
+          "security_lift",
+          "service_lift"
+        ],
+        "missing": []
+      }
+    },
+    {
+      "check_type": "lift_access_registry",
+      "floor_id": "floor_43",
+      "status": "pass",
+      "severity": "critical",
+      "message": "floor_43 lift access registry checked.",
+      "details": {
+        "required": [
+          "emergency_stairwell",
+          "main_high_rise",
+          "security_lift",
+          "service_lift"
+        ],
+        "missing": []
+      }
+    },
+    {
+      "check_type": "lift_access_registry",
+      "floor_id": "floor_44",
+      "status": "pass",
+      "severity": "critical",
+      "message": "floor_44 lift access registry checked.",
+      "details": {
+        "required": [
+          "emergency_stairwell",
+          "main_high_rise",
+          "security_lift",
+          "service_lift"
+        ],
+        "missing": []
+      }
+    },
+    {
+      "check_type": "lift_access_registry",
+      "floor_id": "floor_45",
+      "status": "pass",
+      "severity": "critical",
+      "message": "floor_45 lift access registry checked.",
+      "details": {
+        "required": [
+          "emergency_stairwell",
+          "executive_lift",
+          "main_high_rise",
+          "security_lift",
+          "service_lift"
+        ],
+        "missing": []
+      }
+    },
+    {
+      "check_type": "utility_readiness",
+      "floor_id": "floor_41",
+      "status": "pass",
+      "severity": "critical",
+      "message": "floor_41 utilities checked.",
+      "details": {
+        "required": [
+          "dashboard_visibility",
+          "network",
+          "power",
+          "registry",
+          "storage"
+        ],
+        "available": [
+          "dashboard_visibility",
+          "network",
+          "power",
+          "registry",
+          "storage"
+        ],
+        "missing": []
+      }
+    },
+    {
+      "check_type": "utility_readiness",
+      "floor_id": "floor_42",
+      "status": "pass",
+      "severity": "critical",
+      "message": "floor_42 utilities checked.",
+      "details": {
+        "required": [
+          "dashboard_visibility",
+          "network",
+          "power",
+          "registry",
+          "storage"
+        ],
+        "available": [
+          "dashboard_visibility",
+          "network",
+          "power",
+          "registry",
+          "storage"
+        ],
+        "missing": []
+      }
+    },
+    {
+      "check_type": "utility_readiness",
+      "floor_id": "floor_43",
+      "status": "pass",
+      "severity": "critical",
+      "message": "floor_43 utilities checked.",
+      "details": {
+        "required": [
+          "dashboard_visibility",
+          "network",
+          "power",
+          "registry",
+          "storage"
+        ],
+        "available": [
+          "dashboard_visibility",
+          "network",
+          "power",
+          "registry",
+          "storage"
+        ],
+        "missing": []
+      }
+    },
+    {
+      "check_type": "utility_readiness",
+      "floor_id": "floor_44",
+      "status": "pass",
+      "severity": "critical",
+      "message": "floor_44 utilities checked.",
+      "details": {
+        "required": [
+          "dashboard_visibility",
+          "network",
+          "power",
+          "registry",
+          "storage"
+        ],
+        "available": [
+          "dashboard_visibility",
+          "network",
+          "power",
+          "registry",
+          "storage"
+        ],
+        "missing": []
+      }
+    },
+    {
+      "check_type": "utility_readiness",
+      "floor_id": "floor_45",
+      "status": "pass",
+      "severity": "critical",
+      "message": "floor_45 utilities checked.",
+      "details": {
+        "required": [
+          "dashboard_visibility",
+          "network",
+          "power",
+          "registry",
+          "storage"
+        ],
+        "available": [
+          "dashboard_visibility",
+          "network",
+          "power",
+          "registry",
+          "storage"
+        ],
+        "missing": []
+      }
+    },
+    {
+      "check_type": "activation_hook",
+      "floor_id": "floor_41",
+      "status": "pass",
+      "severity": "critical",
+      "message": "floor_41 activation hook registered and non-executable.",
+      "details": {
+        "hook": {
+          "hook_id": "activate_floor_41",
+          "floor_id": "floor_41",
+          "status": "registered_not_executable",
+          "activation_execution_enabled": false,
+          "requires_manual_approval": true,
+          "required_checks": [
+            "floor_exists",
+            "floor_registered",
+            "lift_access_ready",
+            "utilities_ready",
+            "security_spine_ready",
+            "dashboard_visibility_ready"
+          ],
+          "notice": "Activation hook is a readiness record only. It does not modify the floor automatically."
+        },
+        "hook_path": "floors/floor_41_future_systems_vacant/activation_hook/activate_floor_41.json",
+        "hook_file_exists": true
+      }
+    },
+    {
+      "check_type": "activation_hook",
+      "floor_id": "floor_42",
+      "status": "pass",
+      "severity": "critical",
+      "message": "floor_42 activation hook registered and non-executable.",
+      "details": {
+        "hook": {
+          "hook_id": "activate_floor_42",
+          "floor_id": "floor_42",
+          "status": "registered_not_executable",
+          "activation_execution_enabled": false,
+          "requires_manual_approval": true,
+          "required_checks": [
+            "floor_exists",
+            "floor_registered",
+            "lift_access_ready",
+            "utilities_ready",
+            "security_spine_ready",
+            "dashboard_visibility_ready"
+          ],
+          "notice": "Activation hook is a readiness record only. It does not modify the floor automatically."
+        },
+        "hook_path": "floors/floor_42_future_systems_vacant/activation_hook/activate_floor_42.json",
+        "hook_file_exists": true
+      }
+    },
+    {
+      "check_type": "activation_hook",
+      "floor_id": "floor_43",
+      "status": "pass",
+      "severity": "critical",
+      "message": "floor_43 activation hook registered and non-executable.",
+      "details": {
+        "hook": {
+          "hook_id": "activate_floor_43",
+          "floor_id": "floor_43",
+          "status": "registered_not_executable",
+          "activation_execution_enabled": false,
+          "requires_manual_approval": true,
+          "required_checks": [
+            "floor_exists",
+            "floor_registered",
+            "lift_access_ready",
+            "utilities_ready",
+            "security_spine_ready",
+            "dashboard_visibility_ready"
+          ],
+          "notice": "Activation hook is a readiness record only. It does not modify the floor automatically."
+        },
+        "hook_path": "floors/floor_43_future_systems_vacant/activation_hook/activate_floor_43.json",
+        "hook_file_exists": true
+      }
+    },
+    {
+      "check_type": "activation_hook",
+      "floor_id": "floor_44",
+      "status": "pass",
+      "severity": "critical",
+      "message": "floor_44 activation hook registered and non-executable.",
+      "details": {
+        "hook": {
+          "hook_id": "activate_floor_44",
+          "floor_id": "floor_44",
+          "status": "registered_not_executable",
+          "activation_execution_enabled": false,
+          "requires_manual_approval": true,
+          "required_checks": [
+            "floor_exists",
+            "floor_registered",
+            "lift_access_ready",
+            "utilities_ready",
+            "security_spine_ready",
+            "dashboard_visibility_ready"
+          ],
+          "notice": "Activation hook is a readiness record only. It does not modify the floor automatically."
+        },
+        "hook_path": "floors/floor_44_future_systems_vacant/activation_hook/activate_floor_44.json",
+        "hook_file_exists": true
+      }
+    },
+    {
+      "check_type": "activation_hook",
+      "floor_id": "floor_45",
+      "status": "pass",
+      "severity": "critical",
+      "message": "floor_45 activation hook registered and non-executable.",
+      "details": {
+        "hook": {
+          "hook_id": "activate_floor_45",
+          "floor_id": "floor_45",
+          "status": "registered_not_executable",
+          "activation_execution_enabled": false,
+          "requires_manual_approval": true,
+          "required_checks": [
+            "floor_exists",
+            "floor_registered",
+            "lift_access_ready",
+            "utilities_ready",
+            "security_spine_ready",
+            "dashboard_visibility_ready"
+          ],
+          "notice": "Activation hook is a readiness record only. It does not modify the floor automatically."
+        },
+        "hook_path": "floors/floor_45_future_systems_vacant/activation_hook/activate_floor_45.json",
+        "hook_file_exists": true
+      }
+    },
+    {
+      "check_type": "security_spine_reference",
+      "floor_id": "all",
+      "status": "pass",
+      "severity": "warning",
+      "message": "Security spine reachable with status healthy.",
+      "details": {
+        "status": "healthy",
+        "enforcement_enabled": false
+      }
+    }
+  ],
+  "capacity_report": {
+    "ts": "2026-06-08T08:26:19.556592+00:00",
+    "floor": "floor_36",
+    "department": "Expansion Planning Department",
+    "version": "1.1",
+    "managed_vacant_floors": 5,
+    "ready_vacant_floors": 5,
+    "future_department_blueprints": 5,
+    "activation_execution_enabled": false,
+    "suggested_allocations": [
+      {
+        "floor_id": "floor_41",
+        "suggested_future_use": "Advanced Systems Department",
+        "activation_status": "ready_not_activated"
+      },
+      {
+        "floor_id": "floor_42",
+        "suggested_future_use": "Advanced Automation Department",
+        "activation_status": "ready_not_activated"
+      },
+      {
+        "floor_id": "floor_43",
+        "suggested_future_use": "Advanced Memory Department",
+        "activation_status": "ready_not_activated"
+      },
+      {
+        "floor_id": "floor_44",
+        "suggested_future_use": "Advanced Simulation Department",
+        "activation_status": "ready_not_activated"
+      },
+      {
+        "floor_id": "floor_45",
+        "suggested_future_use": "Executive Expansion Buffer",
+        "activation_status": "ready_not_activated"
+      }
+    ]
+  }
+}

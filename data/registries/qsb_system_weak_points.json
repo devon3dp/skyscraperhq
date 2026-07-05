@@ -1,0 +1,61 @@
+{
+  "phase": "QSB_TOWER_STANDALONE_AUDIT_REPAIR_WITH_KERNEL_COLLABORATION_V1",
+  "ts": "2026-06-08T19:18:46.638103+00:00",
+  "severity_counts": {
+    "CRITICAL": 0,
+    "HIGH": 0,
+    "MEDIUM": 4,
+    "LOW": 4
+  },
+  "weak_points": [
+    {
+      "severity": "MEDIUM",
+      "title": "OANDA practice pricing not ready",
+      "signal": "oanda_trading_floor_status.pricing_ready=False",
+      "fix": "Re-run scripts/oanda_practice_status.sh and verify .env.oanda_practice loaded."
+    },
+    {
+      "severity": "MEDIUM",
+      "title": "Stocks public market data not ready",
+      "signal": "stock_floor_status.public_market_data_ready=False",
+      "fix": "Re-run stocks gateway script; ensure credentials .env.alpaca loaded if needed."
+    },
+    {
+      "severity": "MEDIUM",
+      "title": "Lift boarding/exiting animations not complete",
+      "signal": "rolling_occupancy_only=True",
+      "fix": "Extend qsb_floor_interior.js + qsb_tower_2d.js capsule paths."
+    },
+    {
+      "severity": "MEDIUM",
+      "title": "Manager / overseer / accountant glyphs missing in floor interiors",
+      "signal": "tower_ops surfaces managers in /api/floor_detail but interior renderer doesn't visualize them.",
+      "fix": "Add desks/sections in qsb_floor_interior.js for manager/overseer/accountant."
+    },
+    {
+      "severity": "LOW",
+      "title": "Per-worker enrolment/exam UI missing from Worker ID Card",
+      "signal": "training endpoints exist but worker detail window has no buttons",
+      "fix": "Add enrol/complete-lesson buttons in openWorkerWindow."
+    },
+    {
+      "severity": "LOW",
+      "title": "Floor accountant cards exist in API but lack interior visualization",
+      "signal": "/api/accounts/floor_accountants present but no UI tile renders them",
+      "fix": "Add accountant tile to floor interiors 41/42/43."
+    },
+    {
+      "severity": "LOW",
+      "title": "Audit recommendations remain advisory only",
+      "signal": "/api/audit/next_steps surfaced but no top-level panel",
+      "fix": "Add an audit Next-Steps card to a rail or ticker."
+    },
+    {
+      "severity": "LOW",
+      "title": "Dashboard needs a Mission Control / Daily Briefing panel",
+      "signal": "kernel + locks + autoloop + recruitment shown separately",
+      "fix": "Add a Mission Control window stitching these together."
+    }
+  ],
+  "execution_allowed": false
+}

@@ -1,0 +1,15 @@
+{
+  "ok": true,
+  "kind": "qsb_browser_visible_dashboard_check",
+  "phase": "QSB_DASHBOARD_VISIBLE_REALITY_REBUILD_V1",
+  "generated_ts": "2026-06-09T12:44:45+00:00",
+  "passed": 17,
+  "total": 17,
+  "score": 100.0,
+  "failed": [],
+  "manual_visual_required": true,
+  "automation_can_only_verify_html_state_and_payloads": true,
+  "execution_allowed": false,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

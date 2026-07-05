@@ -1,0 +1,11 @@
+{
+  "ok": true, "kind": "qsb_tower_lift_system_status", "ts": "2026-06-09T22:06:58Z",
+  "lift_count": 9,
+  "prominent_visible": 3,
+  "mini_visible": 6,
+  "states_supported": ["idle","moving","arriving","loading","blocked"],
+  "click_focus_routes_lift": true,
+  "smooth_movement": true,
+  "real_work_claimed": false,
+  "owner_script": "TowerLiftSystem.gd"
+}

@@ -1,0 +1,44 @@
+{
+  "ok": true,
+  "phase": "QSB_DASHBOARD_3D_TOTAL_REVAMP_WORKERS_OPENCLAW_V1",
+  "kind": "qsb_dashboard_3d_revamp_completion_score",
+  "generated_ts": "2026-06-30T13:46:34.880231+00:00",
+  "iteration": 1,
+  "completion_score": 81.2,
+  "passed": 13,
+  "total": 16,
+  "is_100_complete": false,
+  "failed_gates": [
+    "G1",
+    "G2",
+    "G3"
+  ],
+  "failed_details": [
+    {
+      "gate_id": "G1",
+      "name": "Dashboard loads",
+      "passed": false,
+      "evidence": "html=0 unified=0 telem=0",
+      "repair_if_failed": ""
+    },
+    {
+      "gate_id": "G2",
+      "name": "New renderer files (V1 revamp) loaded in HTML",
+      "passed": false,
+      "evidence": "found 0 of 6",
+      "repair_if_failed": ""
+    },
+    {
+      "gate_id": "G3",
+      "name": "qsb_3d_dashboard.css linked",
+      "passed": false,
+      "evidence": "MISSING",
+      "repair_if_failed": ""
+    }
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

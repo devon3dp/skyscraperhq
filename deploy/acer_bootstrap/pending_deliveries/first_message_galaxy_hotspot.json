@@ -1,0 +1,10 @@
+{
+  "id": "hq-first-hello-acer",
+  "from": "hq",
+  "to": "acer",
+  "kind": "credentials",
+  "subject": "galaxy_hotspot_and_smb_share",
+  "body": "Galaxy WiFi hotspot: SSID="Galaxy A15 5G 398D" · PSK="123123123" · WPA2-PSK · 2.4GHz. Once connected, HQ SMB share is reachable at //10.198.101.207/ssk (user ross, pw in data/registries/samba/tower_share_credentials.json chmod 600). Also //10.198.101.207/tower for code. Real-money OFF.",
+  "created_at": "2026-07-02T19:19:53Z",
+  "note": "Deliver to Acer's inbox on first boot of qsb_node_listener_acer.py"
+}

@@ -1,0 +1,351 @@
+{
+  "ok": true,
+  "kind": "qsb_3d_skyscraper_state",
+  "phase": "QSB_3D_SKYSCRAPER_LIVE_REBUILD_V2",
+  "generated_ts": "2026-07-01T15:41:17.271315+00:00",
+  "lifts": [
+    {
+      "lift_id": "main_low_rise",
+      "type": "main",
+      "current_floor": 41,
+      "target_floor": 41,
+      "moving": true,
+      "is_idle": false,
+      "status": "online",
+      "serves_min": 0,
+      "serves_max": 15
+    },
+    {
+      "lift_id": "main_mid_rise",
+      "type": "main",
+      "current_floor": null,
+      "target_floor": null,
+      "moving": false,
+      "is_idle": true,
+      "status": "online",
+      "serves_min": 15,
+      "serves_max": 30
+    },
+    {
+      "lift_id": "main_high_rise",
+      "type": "main",
+      "current_floor": null,
+      "target_floor": null,
+      "moving": false,
+      "is_idle": true,
+      "status": "online",
+      "serves_min": 30,
+      "serves_max": 45
+    },
+    {
+      "lift_id": "executive_lift",
+      "type": "executive",
+      "current_floor": null,
+      "target_floor": null,
+      "moving": false,
+      "is_idle": true,
+      "status": "online",
+      "serves_min": 45,
+      "serves_max": 53
+    },
+    {
+      "lift_id": "service_lift",
+      "type": "service",
+      "current_floor": null,
+      "target_floor": null,
+      "moving": false,
+      "is_idle": true,
+      "status": "online",
+      "serves_min": 0,
+      "serves_max": 54
+    },
+    {
+      "lift_id": "memory_lift",
+      "type": "memory",
+      "current_floor": null,
+      "target_floor": null,
+      "moving": false,
+      "is_idle": true,
+      "status": "online",
+      "serves_min": 2,
+      "serves_max": 31
+    },
+    {
+      "lift_id": "model_lift",
+      "type": "model",
+      "current_floor": null,
+      "target_floor": null,
+      "moving": false,
+      "is_idle": true,
+      "status": "online",
+      "serves_min": 21,
+      "serves_max": 54
+    },
+    {
+      "lift_id": "security_lift",
+      "type": "security",
+      "current_floor": null,
+      "target_floor": null,
+      "moving": false,
+      "is_idle": true,
+      "status": "online",
+      "serves_min": 0,
+      "serves_max": 54
+    },
+    {
+      "lift_id": "emergency_stairwell",
+      "type": "stairwell",
+      "current_floor": null,
+      "target_floor": null,
+      "moving": false,
+      "is_idle": true,
+      "status": "available",
+      "serves_min": 0,
+      "serves_max": 54
+    }
+  ],
+  "lift_count": 9,
+  "per_floor": [
+    {
+      "floor": 5,
+      "total": 5,
+      "ops": 5,
+      "tr": 0,
+      "rest": 0
+    },
+    {
+      "floor": 12,
+      "total": 1,
+      "ops": 1,
+      "tr": 0,
+      "rest": 0
+    },
+    {
+      "floor": 13,
+      "total": 1,
+      "ops": 0,
+      "tr": 1,
+      "rest": 0
+    },
+    {
+      "floor": 24,
+      "total": 5,
+      "ops": 5,
+      "tr": 0,
+      "rest": 0
+    },
+    {
+      "floor": 25,
+      "total": 3,
+      "ops": 3,
+      "tr": 0,
+      "rest": 0
+    },
+    {
+      "floor": 27,
+      "total": 3,
+      "ops": 3,
+      "tr": 0,
+      "rest": 0
+    },
+    {
+      "floor": 29,
+      "total": 1,
+      "ops": 1,
+      "tr": 0,
+      "rest": 0
+    },
+    {
+      "floor": 30,
+      "total": 77,
+      "ops": 63,
+      "tr": 14,
+      "rest": 0
+    },
+    {
+      "floor": 31,
+      "total": 7,
+      "ops": 7,
+      "tr": 0,
+      "rest": 0
+    },
+    {
+      "floor": 35,
+      "total": 11,
+      "ops": 11,
+      "tr": 0,
+      "rest": 0
+    },
+    {
+      "floor": 36,
+      "total": 153,
+      "ops": 153,
+      "tr": 0,
+      "rest": 0
+    },
+    {
+      "floor": 37,
+      "total": 9,
+      "ops": 8,
+      "tr": 1,
+      "rest": 0
+    },
+    {
+      "floor": 38,
+      "total": 53,
+      "ops": 53,
+      "tr": 0,
+      "rest": 0
+    },
+    {
+      "floor": 41,
+      "total": 8,
+      "ops": 7,
+      "tr": 1,
+      "rest": 0
+    },
+    {
+      "floor": 42,
+      "total": 2,
+      "ops": 2,
+      "tr": 0,
+      "rest": 0
+    },
+    {
+      "floor": 43,
+      "total": 3,
+      "ops": 3,
+      "tr": 0,
+      "rest": 0
+    },
+    {
+      "floor": 44,
+      "total": 104,
+      "ops": 104,
+      "tr": 0,
+      "rest": 0
+    },
+    {
+      "floor": 45,
+      "total": 96,
+      "ops": 80,
+      "tr": 16,
+      "rest": 0
+    },
+    {
+      "floor": 47,
+      "total": 90,
+      "ops": 90,
+      "tr": 0,
+      "rest": 0
+    },
+    {
+      "floor": 49,
+      "total": 280,
+      "ops": 280,
+      "tr": 0,
+      "rest": 0
+    },
+    {
+      "floor": 52,
+      "total": 180,
+      "ops": 180,
+      "tr": 0,
+      "rest": 0
+    },
+    {
+      "floor": 53,
+      "total": 15,
+      "ops": 15,
+      "tr": 0,
+      "rest": 0
+    }
+  ],
+  "canonical_workers": 1190,
+  "openclaw_current_floor": 30,
+  "openclaw_advanced_by": "eqsb_cadence_state.tick_count",
+  "cadence_tick": 73,
+  "cadence_last_ts": "2026-06-30T13:46:34.781542+00:00",
+  "trading_pnl": {
+    "realized": 0.0,
+    "unrealized": 0.0,
+    "total": 0.0
+  },
+  "intercom_flashes": [
+    {
+      "from_floor": 41,
+      "to_floor": 43,
+      "lift": "service_lift",
+      "kind": "fx_market_brief",
+      "ts": "2026-06-30T13:46:36.774805+00:00"
+    },
+    {
+      "from_floor": 42,
+      "to_floor": 41,
+      "lift": "service_lift",
+      "kind": "crypto_status_brief",
+      "ts": "2026-06-30T13:46:36.774810+00:00"
+    },
+    {
+      "from_floor": 43,
+      "to_floor": 41,
+      "lift": "service_lift",
+      "kind": "equities_brief",
+      "ts": "2026-06-30T13:46:36.774813+00:00"
+    },
+    {
+      "from_floor": 43,
+      "to_floor": 42,
+      "lift": "service_lift",
+      "kind": "equities_brief",
+      "ts": "2026-06-30T13:46:36.774815+00:00"
+    },
+    {
+      "from_floor": 41,
+      "to_floor": 31,
+      "lift": "memory_lift",
+      "kind": "audit_fan_in",
+      "ts": "2026-06-30T13:46:36.774818+00:00"
+    },
+    {
+      "from_floor": 42,
+      "to_floor": 31,
+      "lift": "memory_lift",
+      "kind": "audit_fan_in",
+      "ts": "2026-06-30T13:46:36.774823+00:00"
+    },
+    {
+      "from_floor": 43,
+      "to_floor": 31,
+      "lift": "memory_lift",
+      "kind": "audit_fan_in",
+      "ts": "2026-06-30T13:46:36.774826+00:00"
+    },
+    {
+      "from_floor": 31,
+      "to_floor": 41,
+      "lift": "memory_lift",
+      "kind": "cross_market_labels",
+      "ts": "2026-06-30T13:46:36.774829+00:00"
+    },
+    {
+      "from_floor": 31,
+      "to_floor": 42,
+      "lift": "memory_lift",
+      "kind": "cross_market_labels",
+      "ts": "2026-06-30T13:46:36.774833+00:00"
+    },
+    {
+      "from_floor": 31,
+      "to_floor": 43,
+      "lift": "memory_lift",
+      "kind": "cross_market_labels",
+      "ts": "2026-06-30T13:46:36.774835+00:00"
+    }
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

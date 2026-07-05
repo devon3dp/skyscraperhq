@@ -1,0 +1,297 @@
+{
+  "ok": true,
+  "kind": "eqsb_system_understanding_graph",
+  "generated_ts": "2026-06-30T13:46:34.324457+00:00",
+  "node_count": 27,
+  "edge_count": 24,
+  "node_kinds": [
+    "claude_phase",
+    "cpu",
+    "dashboard_component",
+    "disk_mount",
+    "gpu",
+    "hardware_floor",
+    "kernel_component",
+    "model_lane",
+    "openclaw_component",
+    "ram",
+    "trading_component",
+    "worker_component"
+  ],
+  "relations_in_use": [
+    "GPU_supports_local_model",
+    "RAM_limits_model_lane",
+    "hardware_floor_observes_cpu",
+    "hardware_floor_observes_gpu",
+    "hardware_floor_observes_ram",
+    "hardware_floor_observes_storage",
+    "hardware_supports_dashboard",
+    "hardware_supports_model_lane",
+    "storage_supports_airllm"
+  ],
+  "nodes": [
+    {
+      "id": "hardware_floor",
+      "kind": "hardware_floor",
+      "label": "Hardware Systems Floor"
+    },
+    {
+      "id": "cpu",
+      "kind": "cpu",
+      "label": "AMD Ryzen 9 7950X3D 16-Core Processor"
+    },
+    {
+      "id": "gpu",
+      "kind": "gpu",
+      "label": "NVIDIA GeForce RTX 5070 Ti"
+    },
+    {
+      "id": "ram",
+      "kind": "ram",
+      "label": "RAM low"
+    },
+    {
+      "id": "qsb_project_storage",
+      "kind": "disk_mount",
+      "label": "/vaults/nvme0/qsb_tower_v1"
+    },
+    {
+      "id": "vaults_ai_storage",
+      "kind": "disk_mount",
+      "label": "/vaults/ai"
+    },
+    {
+      "id": "dashboard_server",
+      "kind": "dashboard_component",
+      "label": "dashboard_server"
+    },
+    {
+      "id": "dashboard_static",
+      "kind": "dashboard_component",
+      "label": "dashboard_static"
+    },
+    {
+      "id": "kernel_dialogue_adapter",
+      "kind": "kernel_component",
+      "label": "kernel_dialogue_adapter"
+    },
+    {
+      "id": "eqsb_kernel_core_ext",
+      "kind": "kernel_component",
+      "label": "eqsb_kernel_core_ext"
+    },
+    {
+      "id": "eqsb_introspection",
+      "kind": "kernel_component",
+      "label": "eqsb_introspection"
+    },
+    {
+      "id": "openclaw_supervision",
+      "kind": "openclaw_component",
+      "label": "openclaw_supervision"
+    },
+    {
+      "id": "qsb_paper_trading",
+      "kind": "trading_component",
+      "label": "qsb_paper_trading"
+    },
+    {
+      "id": "qsb_workforce",
+      "kind": "worker_component",
+      "label": "qsb_workforce"
+    },
+    {
+      "id": "qsb_profit_command",
+      "kind": "worker_component",
+      "label": "qsb_profit_command"
+    },
+    {
+      "id": "qsb_narrator",
+      "kind": "kernel_component",
+      "label": "qsb_narrator"
+    },
+    {
+      "id": "qsb_dashboard_live_telemetry",
+      "kind": "dashboard_component",
+      "label": "qsb_dashboard_live_telemetry"
+    },
+    {
+      "id": "lane_local_ollama",
+      "kind": "model_lane",
+      "label": "lane_local_ollama"
+    },
+    {
+      "id": "lane_local_llama",
+      "kind": "model_lane",
+      "label": "lane_local_llama"
+    },
+    {
+      "id": "lane_airllm_chamber",
+      "kind": "model_lane",
+      "label": "lane_airllm_chamber"
+    },
+    {
+      "id": "lane_future_locked_provider",
+      "kind": "model_lane",
+      "label": "lane_future_locked_provider"
+    },
+    {
+      "id": "phase_EQSB_KERNEL_MAJOR_DEEP_SYMBOLIC_QUANTUM_CORE_V1",
+      "kind": "claude_phase",
+      "label": "EQSB_KERNEL_MAJOR_DEEP_SYMBOLIC_QUANTUM_CORE_V1"
+    },
+    {
+      "id": "phase_QSB_OPENCLAW_PAPER_TRADE_WORKERS_3D_SKYSCRAPER_V",
+      "kind": "claude_phase",
+      "label": "QSB_OPENCLAW_PAPER_TRADE_WORKERS_3D_SKYSCRAPER_V2"
+    },
+    {
+      "id": "phase_QSB_V2_FULL_SYSTEM_RECHECK_AND_DASHBOARD_REPAIR_",
+      "kind": "claude_phase",
+      "label": "QSB_V2_FULL_SYSTEM_RECHECK_AND_DASHBOARD_REPAIR_V1"
+    },
+    {
+      "id": "phase_QSB_DASHBOARD_DATA_DRIVEN_SKYSCRAPER_REBUILD_V2",
+      "kind": "claude_phase",
+      "label": "QSB_DASHBOARD_DATA_DRIVEN_SKYSCRAPER_REBUILD_V2"
+    },
+    {
+      "id": "phase_QSB_LIVE_SKYSCRAPER_COMMAND_CENTER_REBUILD_V1",
+      "kind": "claude_phase",
+      "label": "QSB_LIVE_SKYSCRAPER_COMMAND_CENTER_REBUILD_V1"
+    },
+    {
+      "id": "phase_EQSB_SYSTEM_OBSERVATORY_HARDWARE_FLOOR_LIVE_TELE",
+      "kind": "claude_phase",
+      "label": "EQSB_SYSTEM_OBSERVATORY_HARDWARE_FLOOR_LIVE_TELEMETRY_REPAIR_V1"
+    }
+  ],
+  "edges": [
+    {
+      "source": "hardware_floor",
+      "relation": "hardware_floor_observes_cpu",
+      "target": "cpu"
+    },
+    {
+      "source": "hardware_floor",
+      "relation": "hardware_floor_observes_gpu",
+      "target": "gpu"
+    },
+    {
+      "source": "hardware_floor",
+      "relation": "hardware_floor_observes_ram",
+      "target": "ram"
+    },
+    {
+      "source": "hardware_floor",
+      "relation": "hardware_floor_observes_storage",
+      "target": "qsb_project_storage"
+    },
+    {
+      "source": "hardware_floor",
+      "relation": "hardware_floor_observes_storage",
+      "target": "vaults_ai_storage"
+    },
+    {
+      "source": "hardware_floor",
+      "relation": "hardware_supports_dashboard",
+      "target": "dashboard_server"
+    },
+    {
+      "source": "hardware_floor",
+      "relation": "hardware_supports_dashboard",
+      "target": "dashboard_static"
+    },
+    {
+      "source": "hardware_floor",
+      "relation": "hardware_supports_dashboard",
+      "target": "kernel_dialogue_adapter"
+    },
+    {
+      "source": "hardware_floor",
+      "relation": "hardware_supports_dashboard",
+      "target": "eqsb_kernel_core_ext"
+    },
+    {
+      "source": "hardware_floor",
+      "relation": "hardware_supports_dashboard",
+      "target": "eqsb_introspection"
+    },
+    {
+      "source": "hardware_floor",
+      "relation": "hardware_supports_dashboard",
+      "target": "openclaw_supervision"
+    },
+    {
+      "source": "hardware_floor",
+      "relation": "hardware_supports_dashboard",
+      "target": "qsb_paper_trading"
+    },
+    {
+      "source": "hardware_floor",
+      "relation": "hardware_supports_dashboard",
+      "target": "qsb_workforce"
+    },
+    {
+      "source": "hardware_floor",
+      "relation": "hardware_supports_dashboard",
+      "target": "qsb_profit_command"
+    },
+    {
+      "source": "hardware_floor",
+      "relation": "hardware_supports_dashboard",
+      "target": "qsb_narrator"
+    },
+    {
+      "source": "hardware_floor",
+      "relation": "hardware_supports_dashboard",
+      "target": "qsb_dashboard_live_telemetry"
+    },
+    {
+      "source": "hardware_floor",
+      "relation": "hardware_supports_model_lane",
+      "target": "lane_local_ollama"
+    },
+    {
+      "source": "hardware_floor",
+      "relation": "hardware_supports_model_lane",
+      "target": "lane_local_llama"
+    },
+    {
+      "source": "hardware_floor",
+      "relation": "hardware_supports_model_lane",
+      "target": "lane_airllm_chamber"
+    },
+    {
+      "source": "hardware_floor",
+      "relation": "hardware_supports_model_lane",
+      "target": "lane_future_locked_provider"
+    },
+    {
+      "source": "gpu",
+      "relation": "GPU_supports_local_model",
+      "target": "lane_local_ollama"
+    },
+    {
+      "source": "gpu",
+      "relation": "GPU_supports_local_model",
+      "target": "lane_local_llama"
+    },
+    {
+      "source": "ram",
+      "relation": "RAM_limits_model_lane",
+      "target": "lane_airllm_chamber"
+    },
+    {
+      "source": "vaults_ai_storage",
+      "relation": "storage_supports_airllm",
+      "target": "lane_airllm_chamber"
+    }
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

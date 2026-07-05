@@ -1,0 +1,34 @@
+{
+  "room_id": "publishing_kitchen",
+  "name": "Publishing Kitchen",
+  "category": "kitchen",
+  "purpose": "Supports the creation and production of content.",
+  "concierge_blurb": "Taste what goes into our publications.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -5.0,
+    "offset_z": 4.5,
+    "footprint_m": [
+      8,
+      6
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "kitchen_line",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Pub Kitchen",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": null
+  },
+  "floor": "floor_98"
+}

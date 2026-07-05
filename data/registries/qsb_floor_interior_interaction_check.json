@@ -1,0 +1,54 @@
+{
+  "ok": true,
+  "kind": "qsb_floor_interior_interaction_check",
+  "ts": "2026-06-09T21:49:56Z",
+  "tested_floors": [
+    "F55",
+    "F41",
+    "F35",
+    "F01"
+  ],
+  "results": [
+    {
+      "floor_id": "F55",
+      "ok": true,
+      "template": "KernelPenthouseInterior",
+      "rooms": 10,
+      "workers": 8,
+      "click_route": "FloorClickRouter -> enter_interior(55)",
+      "simulated_enter": "ok",
+      "simulated_back": "ok"
+    },
+    {
+      "floor_id": "F41",
+      "ok": true,
+      "template": "TradingFloorInterior",
+      "rooms": 8,
+      "workers": 48,
+      "click_route": "FloorClickRouter -> enter_interior(41)",
+      "simulated_enter": "ok",
+      "simulated_back": "ok"
+    },
+    {
+      "floor_id": "F35",
+      "ok": true,
+      "template": "HardwareObservatoryInterior",
+      "rooms": 8,
+      "workers": 18,
+      "click_route": "FloorClickRouter -> enter_interior(35)",
+      "simulated_enter": "ok",
+      "simulated_back": "ok"
+    },
+    {
+      "floor_id": "F01",
+      "ok": true,
+      "template": "GenericFloorInterior",
+      "rooms": 5,
+      "workers": 12,
+      "click_route": "FloorClickRouter -> enter_interior(1)",
+      "simulated_enter": "ok",
+      "simulated_back": "ok"
+    }
+  ],
+  "note": "Symbolic \u2014 validates registry loadability + per-target completeness. Visual confirmation requires operator interaction."
+}

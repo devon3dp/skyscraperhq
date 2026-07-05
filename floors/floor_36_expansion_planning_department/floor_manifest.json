@@ -1,0 +1,41 @@
+{
+  "floor_id": "floor_36",
+  "department": "Expansion Planning Department",
+  "version": "1.1",
+  "role": "vacant_floor_capacity_and_future_department_allocation_layer",
+  "kernel_required": false,
+  "models_required": false,
+  "execution_enabled": false,
+  "activation_execution_enabled": false,
+  "hardwired_providers": false,
+  "providers_are_external": true,
+  "managed_vacant_floors": 5,
+  "future_department_blueprints": 5,
+  "activation_hooks": 5,
+  "notice": "Floor 36 manages expansion planning for fully serviced vacant floors.",
+  "interior_brief": {
+    "archetype": "ops_floor",
+    "palette": [
+      "#1a1e2a",
+      "#3a4050",
+      "#6a90c0"
+    ],
+    "furniture": [
+      "desks",
+      "meeting area",
+      "common space",
+      "storage"
+    ],
+    "lighting": "task + ambient",
+    "mood": "professional",
+    "designed_by": "F66 Architects + F17 Graphics + Fitters team",
+    "fitted_at": "2026-06-11T14:39:45.620109Z",
+    "godot_scene_brief": "render an generic floor with neutral grey + accent per floor theme palette, professional mood, key furniture: desks, meeting area, common space",
+    "signature": "Standard tower office layout \u2014 desks, meeting nook, kitchenette",
+    "diversified_ts": "2026-06-11T17:57:45Z",
+    "diversified_by": "qsb_archetype_diversifier_v1"
+  },
+  "fitted_out": true,
+  "fit_out_ts": "2026-06-11T14:39:45.620109Z",
+  "floor_name": "Expansion Planning Department"
+}

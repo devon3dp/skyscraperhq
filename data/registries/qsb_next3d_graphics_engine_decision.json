@@ -1,0 +1,64 @@
+{
+  "ok": true,
+  "kind": "qsb_next3d_graphics_engine_decision",
+  "phase": "QSB_NEXTGEN_3D_DASHBOARD_GREENFIELD_REBUILD_V1",
+  "generated_ts": "2026-06-09T14:00:00+00:00",
+  "current_stack_audit": {
+    "old_cockpit_uses": "Mixed — qsb_tower_2d.js (SVG pseudo-3D) is the dominant visible layer, qsb_scene.js (Babylon 4.x WebGL, 967 lines) is built but was hidden behind a .use-3d CSS gate until last phase.",
+    "patching_history": "5+ phases of overlay modules (qsb_3d_app, qsb_3d_workers, qsb_3d_openclaw, qsb_3d_telemetry, qsb_render_visible, qsb_3d_skyscraper_v2). All paint on top of the same 2D SVG.",
+    "why_still_weak": "Operator sees the SVG cockpit as the primary visual. Babylon scene was forced on last phase, but the SVG remains at 30% opacity AND existing side panels anchor to SVG rect[data-floor] — so the SVG cannot be removed without breaking everything. The whole stack carries old visual DNA.",
+    "worth_keeping_visually": false,
+    "worth_keeping_as_API": true
+  },
+  "platform_comparison": {
+    "babylon_js": {
+      "already_vendored": true,
+      "vendor_path": "src/dashboard/static/vendor/babylon.js",
+      "size_bytes": 8542655,
+      "version": "4.x",
+      "pros": ["zero new download", "WebGL2 capable", "scene/camera/material API mature", "existing qsb_scene.js proves it works on this machine"],
+      "cons": ["heavy bundle", "4.x is older than 6.x but still capable"]
+    },
+    "three_js": {
+      "already_vendored": false,
+      "pros": ["smaller bundle", "more modern docs"],
+      "cons": ["requires new vendor download from CDN or local copy — adds supply-chain risk", "no existing knowledge in repo"]
+    },
+    "custom_webgl_or_canvas": {
+      "pros": ["minimum size"],
+      "cons": ["weeks of work to match Babylon's API", "no scene graph", "fragile"]
+    },
+    "webgpu": {
+      "available_in_chromium": true,
+      "cons": ["not supported in all browsers", "would require dropping fallback"]
+    }
+  },
+  "decision": "Babylon.js 4.x",
+  "decision_rationale": [
+    "Already vendored — no new download, no supply-chain risk.",
+    "Proven working on this machine (existing 967-line qsb_scene.js was rendering before being hidden).",
+    "Mature scene graph + camera + material API suits a 53-floor tower without writing low-level WebGL.",
+    "Reusing the vendor means the new dashboard ships immediately without an internet fetch."
+  ],
+  "rejected_alternatives": {
+    "three_js": "Would require adding a new 600KB+ vendor file. No existing code in repo. Risk of supply-chain issue. Babylon already works.",
+    "custom_webgl": "Weeks of work to match Babylon's depth/lighting. Out of scope.",
+    "react_react_three_fiber": "Requires a React build pipeline. The dashboard is plain JS. Would force a build-tooling rewrite."
+  },
+  "implementation_plan": {
+    "isolation": "All next3d code lives under src/dashboard/static/next3d/ — separate scene, separate CSS, separate orchestrator.",
+    "engine_independence": "next3d builds a FRESH Babylon engine on its own canvas. Does NOT call window.QSB_SCENE.",
+    "route": "/?v=next3d serves /static/next3d/index.html",
+    "fallback": "Old cockpit at /?v=unified remains untouched and continues to work.",
+    "no_svg": "next3d does not use SVG for any tower element. All tower geometry is Babylon meshes."
+  },
+  "webgl_fallback": {
+    "strategy": "If WebGL context creation fails, display a 'WebGL unavailable — enable hardware acceleration' message instead of falling back to a 2D placeholder. Honest failure beats fake 3D.",
+    "fallback_marker": "html element with id='next3d-webgl-unavailable'"
+  },
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

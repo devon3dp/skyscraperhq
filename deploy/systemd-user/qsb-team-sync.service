@@ -1,0 +1,15 @@
+[Unit]
+Description=QSB Tower team sync — 30-min CrewAI Wren+Hermes rhythm
+After=network-online.target ollama.service
+Wants=ollama.service
+
+[Service]
+Type=oneshot
+WorkingDirectory=/vaults/nvme0/qsb_tower_v1
+Environment=PATH=/vaults/nvme0/qsb_tower_v1/.venv/bin:/usr/local/bin:/usr/bin:/bin
+ExecStart=/vaults/nvme0/qsb_tower_v1/.venv/bin/python3 /vaults/nvme0/qsb_tower_v1/tools/qsb_team_sync.py
+StandardOutput=append:/vaults/nvme0/qsb_tower_v1/logs/qsb_team_sync.log
+StandardError=append:/vaults/nvme0/qsb_tower_v1/logs/qsb_team_sync.log
+
+[Install]
+WantedBy=default.target

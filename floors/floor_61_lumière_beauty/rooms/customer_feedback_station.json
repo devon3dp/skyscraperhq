@@ -1,0 +1,34 @@
+{
+  "room_id": "customer_feedback_station",
+  "name": "Customer Feedback Station",
+  "category": "admin",
+  "purpose": "To gather customer feedback on products.",
+  "concierge_blurb": "Help us improve with your feedback.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": -0.5,
+    "offset_z": 7.5,
+    "footprint_m": [
+      3,
+      2
+    ],
+    "height_m": 1.4
+  },
+  "render": {
+    "primary_prop": "plinth",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Feedback",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 0
+  },
+  "floor": "floor_61"
+}

@@ -1,0 +1,64 @@
+{
+  "floor_id": "floor_30",
+  "floor_number": 30,
+  "floor_name": "Permissions",
+  "department": "Permissions Department",
+  "zone": "ZONE B \u00b7 OPERATIONS",
+  "archetype": "generic",
+  "staff_lead": "TBD",
+  "tour_blurb": "Permissions \u2014 a floor in the QSB Tower. Skeleton card auto-generated; full fit-out pending.",
+  "visitor_open": false,
+  "advisory_only": true,
+  "execution_mode": "PREVIEW_ONLY",
+  "skeleton": true,
+  "skeleton_source": "floor_manifest.json",
+  "skeleton_generated_ts": "2026-06-17",
+  "live_signals": {
+    "theme": null,
+    "categories": null,
+    "palette": null,
+    "tagline": null
+  },
+  "gate_posture": {
+    "advisory_only": true,
+    "execution_allowed": false,
+    "live_payments_enabled": false
+  },
+  "team_roster": [
+    {
+      "id": "f030.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "spawned_id": "8401a30751",
+      "spawned_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F030",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f030.operator.01",
+      "spawned_id": "cc0b4082f6"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F030",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f030.operator.02",
+      "spawned_id": "04694d83d8"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F030",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f030.operator.03",
+      "spawned_id": "9cf709fe53"
+    }
+  ],
+  "floor_manager": "f030.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

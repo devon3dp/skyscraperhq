@@ -1,0 +1,34 @@
+{
+  "room_id": "orchestra_seating",
+  "name": "Orchestra Seating",
+  "category": "seating",
+  "purpose": "This area provides seating for the orchestra.",
+  "concierge_blurb": "Experience the rich tones of our classical ensemble from this dedicated seating area.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      35,
+      10
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "chair_set",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Orchestra Seating",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": null,
+    "refresh_seconds": 0
+  },
+  "floor": "floor_143"
+}

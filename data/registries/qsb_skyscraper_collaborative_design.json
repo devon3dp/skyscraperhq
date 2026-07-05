@@ -1,0 +1,493 @@
+{
+  "kind": "qsb_skyscraper_collaborative_design",
+  "version": "v1",
+  "ts": "2026-06-10T19:48:40Z",
+  "designers": [
+    "openai_gpt-4o-mini",
+    "deepseek_chat",
+    "wren_synthesis"
+  ],
+  "rounds": [
+    {
+      "round": 1,
+      "by": "openai",
+      "file": "data/registries/collaborative_design/round1_openai.md"
+    },
+    {
+      "round": 2,
+      "by": "deepseek",
+      "file": "data/registries/collaborative_design/round2_deepseek.md"
+    },
+    {
+      "round": 3,
+      "by": "openai",
+      "file": "data/registries/collaborative_design/round3_openai_final.csv"
+    },
+    {
+      "round": 4,
+      "by": "deepseek",
+      "file": "data/registries/collaborative_design/round4_deepseek_upper.md"
+    },
+    {
+      "round": 5,
+      "by": "deepseek",
+      "file": "data/registries/collaborative_design/round5_deepseek_top.md"
+    }
+  ],
+  "synthesized_by": "wren",
+  "advisory_only": true,
+  "total_floors_specced": 55,
+  "newly_designed": 37,
+  "preserved": 18,
+  "floors": {
+    "F01": {
+      "name": "Public Lobby",
+      "object": "Holographic city map with a slow-spinning kinetic sculpture above",
+      "palette": "sky blue, brushed silver, white",
+      "lighting": "3 slim cool-white LED strips + uplight on sculpture",
+      "walls": "transparent curtain wall with cityscape views",
+      "origin": "collab_openai_deepseek_2026_06_10"
+    },
+    "F02": {
+      "name": "Community Wall",
+      "object": "Rotating exhibit wall (artwork or worker spotlights swap weekly)",
+      "palette": "sage green, moss, bright white frames",
+      "lighting": "soft pendant lights (organic shapes)",
+      "walls": "matte finish with framed art bays",
+      "origin": "collab_openai_deepseek_2026_06_10"
+    },
+    "F03": {
+      "name": "Idea Board",
+      "object": "AI-powered prompt wall (operator writes, board suggests)",
+      "palette": "charcoal, brass, paper-white",
+      "lighting": "programmable retro-Edison LED cluster",
+      "walls": "frosted glass with faint tech graphics",
+      "origin": "collab_openai_deepseek_2026_06_10"
+    },
+    "F04": {
+      "name": "Wellness Garden",
+      "object": "Indoor living wall, floor-to-ceiling",
+      "palette": "soft green, white, terracotta",
+      "lighting": "warm uplighting along the wall",
+      "walls": "transparent with green view",
+      "origin": "collab_openai_deepseek_2026_06_10"
+    },
+    "F05": {
+      "name": "Relaxation Pods",
+      "object": "5 soundproof recline pods in a quiet ring",
+      "palette": "pastel blue, soft gray, terracotta accent wall",
+      "lighting": "soft glow floor lamps",
+      "walls": "matte acoustic-treated walls",
+      "origin": "collab_openai_deepseek_2026_06_10"
+    },
+    "F06": {
+      "name": "Agora Forum",
+      "object": "Tiered debate seating in a half-bowl",
+      "palette": "warm taupe, terracotta, oak",
+      "lighting": "linear amber cove lighting",
+      "walls": "sound-dampening wood slats with frameless glass",
+      "origin": "collab_openai_deepseek_2026_06_10"
+    },
+    "F07": {
+      "name": "Collaboration Zone",
+      "object": "Modular standing tables with movable whiteboards",
+      "palette": "lavender, soft yellow, white",
+      "lighting": "slow-cycle color-shifting wall wash (5-minute transitions)",
+      "walls": "artful murals with open layout",
+      "origin": "collab_openai_deepseek_2026_06_10"
+    },
+    "F08": {
+      "name": "Classroom Floor",
+      "object": "12 student desks + 2 whiteboards + violet lectern",
+      "palette": "violet, beige, oak",
+      "lighting": "soft pendant + whiteboard accent strips",
+      "walls": "white walls + acoustic ceiling",
+      "origin": "preserved_prior_design"
+    },
+    "F09": {
+      "name": "Innovation Room",
+      "object": "Floor-to-ceiling writable surfaces, central ideation pit",
+      "palette": "muted tangerine, ocean teal, paper-white",
+      "lighting": "5 ceiling-mounted spheres (warm color)",
+      "walls": "transparent with writable glass panels",
+      "origin": "collab_openai_deepseek_2026_06_10"
+    },
+    "F10": {
+      "name": "VR Cave",
+      "object": "Black-box VR chamber with hidden RGB strips",
+      "palette": "neon green accents, black, charcoal",
+      "lighting": "halo lights with RGB program",
+      "walls": "matte black walls + blackout curtains",
+      "origin": "collab_openai_deepseek_2026_06_10"
+    },
+    "F11": {
+      "name": "AI Art Studio",
+      "object": "Generative art printer + display loop",
+      "palette": "cyan, magenta, white",
+      "lighting": "programmable LED ceiling grid",
+      "walls": "white drywall, gallery hanging rail",
+      "origin": "collab_openai_deepseek_2026_06_10"
+    },
+    "F12": {
+      "name": "Meditation Zone",
+      "object": "Single cushion + paper lamp + still-water bowl",
+      "palette": "calm beige, soft white, oak",
+      "lighting": "ambient diffused LED, very low",
+      "walls": "textured glass for privacy",
+      "origin": "collab_openai_deepseek_2026_06_10"
+    },
+    "F13": {
+      "name": "3D Printing Hub",
+      "object": "4-printer bay + cooling rack",
+      "palette": "deep blue, silver, slate",
+      "lighting": "linear LED ceiling lights",
+      "walls": "sound-absorbent panels",
+      "origin": "collab_openai_deepseek_2026_06_10"
+    },
+    "F14": {
+      "name": "Banking Floor",
+      "object": "6 ledger desks + central scales",
+      "palette": "green emission, brass, ledger-cream",
+      "lighting": "green-emission accents + desk lamps",
+      "walls": "marble veneer + brass trim",
+      "origin": "preserved_prior_design"
+    },
+    "F15": {
+      "name": "Greenhouse Atrium",
+      "object": "Hydroponic vertical growing wall + harvest bench",
+      "palette": "nature green, earthy brown, white frame",
+      "lighting": "natural light via skylights + warm grow lamps",
+      "walls": "walls with recycled timber, glass ceiling",
+      "origin": "collab_openai_deepseek_2026_06_10"
+    },
+    "F16": {
+      "name": "Workshop Studio",
+      "object": "Hands-on prototyping benches + tool wall",
+      "palette": "warm yellow, steel gray, raw wood",
+      "lighting": "adjustable task lights over each bench",
+      "walls": "roll-up glass doors for flexibility",
+      "origin": "collab_openai_deepseek_2026_06_10"
+    },
+    "F17": {
+      "name": "Digital Art Gallery",
+      "object": "Curated rotating screen art on monolithic frames",
+      "palette": "white, monochrome, gold inlay",
+      "lighting": "track lighting on each piece",
+      "walls": "neutral matte walls for art highlight",
+      "origin": "collab_openai_deepseek_2026_06_10"
+    },
+    "F18": {
+      "name": "Sound Booths",
+      "object": "Three isolation booths around shared mixing console",
+      "palette": "charcoal, neon teal accents, oak",
+      "lighting": "acoustic panels + indicator LEDs",
+      "walls": "soundproof walls with textured felt",
+      "origin": "collab_openai_deepseek_2026_06_10"
+    },
+    "F19": {
+      "name": "Movement Studio",
+      "object": "Open mat floor + ballet rail",
+      "palette": "aqua blue, soft coral, white",
+      "lighting": "soft mood lighting with adjustable levels",
+      "walls": "wall mirrors for open feel",
+      "origin": "collab_openai_deepseek_2026_06_10"
+    },
+    "F20": {
+      "name": "Sky Observatory",
+      "object": "Telescope eye + fiber-optic star ceiling",
+      "palette": "midnight blue, white, brass",
+      "lighting": "fiber optic star ceiling + dim ambient",
+      "walls": "panoramic skyline windows",
+      "origin": "collab_openai_deepseek_2026_06_10"
+    },
+    "F21": {
+      "name": "Culinary Lab",
+      "object": "Two demo cooking stations + tasting counter",
+      "palette": "warm orange, cream, copper",
+      "lighting": "pendant lighting over stations",
+      "walls": "easy-clean tile with soundproof core",
+      "origin": "collab_openai_deepseek_2026_06_10"
+    },
+    "F22": {
+      "name": "Lift Hall",
+      "object": "Eight elevator portals in a ring + central status totem",
+      "palette": "cool gray, navy, polished brass",
+      "lighting": "interactive smart lighting (status-tinted)",
+      "walls": "adjustable-opacity smart glass",
+      "origin": "collab_openai_deepseek_2026_06_10"
+    },
+    "F23": {
+      "name": "Classroom Floor",
+      "object": "12 student desks + 2 whiteboards + violet lectern",
+      "palette": "violet, beige, oak",
+      "lighting": "soft pendant + whiteboard accent strips",
+      "walls": "white walls + acoustic ceiling",
+      "origin": "preserved_prior_design"
+    },
+    "F24": {
+      "name": "Server Floor",
+      "object": "Server racks & HVAC chase",
+      "palette": "cool white, silver, cable-blue",
+      "lighting": "low blue LED strips + task lights",
+      "walls": "perforated metal panels + acoustic foam",
+      "origin": "collab_openai_deepseek_2026_06_10"
+    },
+    "F25": {
+      "name": "Recruitment Center",
+      "object": "Interview booths & holographic job boards",
+      "palette": "deep teal, charcoal, muted gold",
+      "lighting": "cool focused spotlights + screen glow",
+      "walls": "curved frosted glass partitions",
+      "origin": "collab_openai_deepseek_2026_06_10"
+    },
+    "F26": {
+      "name": "Operations Hall",
+      "object": "Open-plan desks & mobile partitions",
+      "palette": "neutral gray, warm beige, marker-board white",
+      "lighting": "ambient panels with zone-control LEDs",
+      "walls": "lightweight fabric-wrapped panels",
+      "origin": "collab_openai_deepseek_2026_06_10"
+    },
+    "F27": {
+      "name": "Print & Supply",
+      "object": "Print/copy stations & supply lockers",
+      "palette": "flat white, industrial yellow, steel",
+      "lighting": "high utility fluorescents",
+      "walls": "solid white laminate with bumper rails",
+      "origin": "collab_openai_deepseek_2026_06_10"
+    },
+    "F28": {
+      "name": "Security Vault",
+      "object": "Vault door with crimson wheel + 13 lock pillars",
+      "palette": "matte black, crimson, brushed steel",
+      "lighting": "low red ambient + spotlit pillars",
+      "walls": "armoured concrete + steel cladding",
+      "origin": "preserved_prior_design"
+    },
+    "F29": {
+      "name": "Break Hall",
+      "object": "Break room with kiosks & vending",
+      "palette": "saturated orange, navy, chrome",
+      "lighting": "warm + energized neon accent strips",
+      "walls": "glossy tile half-wall, painted upper",
+      "origin": "collab_openai_deepseek_2026_06_10"
+    },
+    "F30": {
+      "name": "Guardian / Sentinels",
+      "object": "Sentinel watchwall (12 live components)",
+      "palette": "deep blue, indicator green, charcoal",
+      "lighting": "indicator LEDs + low blue floor wash",
+      "walls": "matte panels with live status displays",
+      "origin": "preserved_prior_design"
+    },
+    "F31": {
+      "name": "Banking Floor",
+      "object": "6 ledger desks + central scales",
+      "palette": "green emission, brass, ledger-cream",
+      "lighting": "green-emission accents + desk lamps",
+      "walls": "marble veneer + brass trim",
+      "origin": "preserved_prior_design"
+    },
+    "F32": {
+      "name": "Destruct Cell",
+      "object": "Shredder + hard-drive destruction cell",
+      "palette": "matte black, red, concrete gray",
+      "lighting": "stark harsh white flood",
+      "walls": "reinforced concrete with anti-frag film",
+      "origin": "collab_openai_deepseek_2026_06_10"
+    },
+    "F33": {
+      "name": "Meeting Pods",
+      "object": "Cluster of birch phone booths",
+      "palette": "birch wood, sage green, acoustic felt",
+      "lighting": "dimmable warm recessed downlights",
+      "walls": "floor-to-ceiling felt + transparent doors",
+      "origin": "collab_openai_deepseek_2026_06_10"
+    },
+    "F34": {
+      "name": "Mail & Sorting",
+      "object": "Mail room + package sorting line",
+      "palette": "corrugated aluminum, safety yellow, gray",
+      "lighting": "bright overhead strips + dock lamp",
+      "walls": "ribbed metal wainscot + mesh ceiling",
+      "origin": "collab_openai_deepseek_2026_06_10"
+    },
+    "F35": {
+      "name": "Hardware Observatory",
+      "object": "6 server racks + diagnostic console + 28-LED status wall",
+      "palette": "cyan, slate, brushed alloy",
+      "lighting": "cyan status wall + console glow",
+      "walls": "perforated panel + cable trays",
+      "origin": "preserved_prior_design"
+    },
+    "F36": {
+      "name": "Heavy Storage",
+      "object": "Inventory staging + caged storage",
+      "palette": "charcoal, orange hazard stripes, steel",
+      "lighting": "high-bay LED floods, motion-triggered",
+      "walls": "welded wire mesh + concrete block",
+      "origin": "collab_openai_deepseek_2026_06_10"
+    },
+    "F37": {
+      "name": "Strategy Labs",
+      "object": "100 worker pods + strategy refinement wall",
+      "palette": "indigo, violet, white",
+      "lighting": "indigo accent strips + pod glow",
+      "walls": "frosted glass partitions + writable panels",
+      "origin": "preserved_prior_design"
+    },
+    "F38": {
+      "name": "Sandbox",
+      "object": "VR & prototype testing zone with modular panels",
+      "palette": "white, light gray, lime green accent",
+      "lighting": "ultra-bright diffuse panels + blackout zones",
+      "walls": "modular smooth drywall with magnetic panels",
+      "origin": "collab_openai_deepseek_2026_06_10"
+    },
+    "F39": {
+      "name": "Quiet Lounge",
+      "object": "Soft seating in a quiet zone",
+      "palette": "dusty rose, slate blue, walnut",
+      "lighting": "soft indirect coves + floor lamps",
+      "walls": "textile-wrapped acoustic panels + stained wood slats",
+      "origin": "collab_openai_deepseek_2026_06_10"
+    },
+    "F40": {
+      "name": "Kitchenette",
+      "object": "Kitchenette + micro-office",
+      "palette": "white subway tile, stainless, lemon",
+      "lighting": "warm undercabinet strips + pendants",
+      "walls": "glossy ceramic wainscot + drywall",
+      "origin": "collab_openai_deepseek_2026_06_10"
+    },
+    "F41": {
+      "name": "OANDA Practice",
+      "object": "8 trader stations + ticker ribbon + market wall",
+      "palette": "green, gold, charcoal",
+      "lighting": "green ticker ribbon + amber lamps",
+      "walls": "screen wall + brushed steel",
+      "origin": "preserved_prior_design"
+    },
+    "F42": {
+      "name": "Binance Testnet",
+      "object": "8 trader stations + ticker ribbon + market wall",
+      "palette": "green, gold, charcoal",
+      "lighting": "green ticker ribbon + amber lamps",
+      "walls": "screen wall + brushed steel",
+      "origin": "preserved_prior_design"
+    },
+    "F43": {
+      "name": "Stocks Paper",
+      "object": "8 trader stations + ticker ribbon + market wall",
+      "palette": "green, gold, charcoal",
+      "lighting": "green ticker ribbon + amber lamps",
+      "walls": "screen wall + brushed steel",
+      "origin": "preserved_prior_design"
+    },
+    "F44": {
+      "name": "Accounts / PnL",
+      "object": "Roll-up board + summary dais",
+      "palette": "green, gold, navy",
+      "lighting": "lit board + dais spot",
+      "walls": "wood-veneer + accounting accent",
+      "origin": "preserved_prior_design"
+    },
+    "F45": {
+      "name": "Recruitment Agency",
+      "object": "Agency desks & candidate screening booths",
+      "palette": "deep forest green, brass, cream",
+      "lighting": "warm glazing-filtered daylight + desk lamps",
+      "walls": "tongue-and-groove wood + etched glass",
+      "origin": "collab_openai_deepseek_2026_06_10"
+    },
+    "F46": {
+      "name": "Banking Floor",
+      "object": "6 ledger desks + central scales",
+      "palette": "green emission, brass, ledger-cream",
+      "lighting": "green-emission accents + desk lamps",
+      "walls": "marble veneer + brass trim",
+      "origin": "preserved_prior_design"
+    },
+    "F47": {
+      "name": "Claude Embassy (Wren)",
+      "object": "Amber dais + obsidian platform + violet lamp",
+      "palette": "amber, obsidian, violet",
+      "lighting": "amber dais + violet desk lamp",
+      "walls": "warm wood panel + slate accent",
+      "origin": "preserved_prior_design"
+    },
+    "F48": {
+      "name": "Lumen AI",
+      "object": "Conversation pod + 5 floating chat-bubble spheres",
+      "palette": "warm amber, cream, walnut",
+      "lighting": "warm amber pendant + bubble glow",
+      "walls": "caf\u00e9 tile + textile acoustic",
+      "origin": "preserved_prior_design"
+    },
+    "F49": {
+      "name": "Tower Studio",
+      "object": "3 drafting tables + 6-monitor wall + mood-board strips",
+      "palette": "cool teal, paper-white, oak",
+      "lighting": "cool teal panels + drafting task lamps",
+      "walls": "studio drywall + pin-up boards",
+      "origin": "preserved_prior_design"
+    },
+    "F50": {
+      "name": "Classroom Floor",
+      "object": "12 student desks + 2 whiteboards + violet lectern",
+      "palette": "violet, beige, oak",
+      "lighting": "soft pendant + whiteboard accent strips",
+      "walls": "white walls + acoustic ceiling",
+      "origin": "preserved_prior_design"
+    },
+    "F51": {
+      "name": "Research Labs",
+      "object": "Lab benches, micro-centrifuge, fume hood sash, racked pipettes",
+      "palette": "white epoxy, stainless steel, borosilicate clear",
+      "lighting": "cool white overhead panels + UV sterilization glow",
+      "walls": "white phenolic resin panels + sealed cove base + eye wash",
+      "origin": "collab_openai_deepseek_2026_06_10"
+    },
+    "F52": {
+      "name": "Reflection",
+      "object": "Single cushion, bare bulb, writing desk, paper lamp",
+      "palette": "raw concrete, soft grey wool, warm oak",
+      "lighting": "single dimmed source, amber tungsten, shadowed corners",
+      "walls": "unpainted textured concrete + acoustic felt + shallow shelf",
+      "origin": "collab_openai_deepseek_2026_06_10"
+    },
+    "F53": {
+      "name": "Tower Command",
+      "object": "Holographic globe + multi-screen console + comms headset",
+      "palette": "matte black, cobalt glass, amber indicator LEDs",
+      "lighting": "dim blue ambient + focused screen glow + status blinks",
+      "walls": "curved frosted glass + dark metal grid + blackout blinds",
+      "origin": "collab_openai_deepseek_2026_06_10"
+    },
+    "F54": {
+      "name": "Roof Garden",
+      "object": "Raised planter boxes, aluminum trellis, glass dome, reclining chaise",
+      "palette": "terracotta, weathered steel, tempered glass, foliage",
+      "lighting": "simulated full-spectrum sun + soft uplight + star-point projection",
+      "walls": "low glass parapet + white-lime stucco + sky-blue ceiling",
+      "origin": "collab_openai_deepseek_2026_06_10"
+    },
+    "F55": {
+      "name": "Penthouse Kernel",
+      "object": "Amber thinking orb + 5 concentric layer rings + creed wall",
+      "palette": "amber, obsidian, gold leaf",
+      "lighting": "amber orb glow + concentric ring lights",
+      "walls": "obsidian panels + back-wall creed text",
+      "origin": "preserved_prior_design"
+    }
+  },
+  "roles": {
+    "openai_gpt-4o-mini": "decorator + fitter \u2014 proposes interior surfaces, lighting, palettes",
+    "deepseek_chat": "decorator + fitter \u2014 critiques + proposes interior surfaces, lighting, palettes",
+    "wren": "architect + synthesizer \u2014 owns floor function, accepts/rejects decoration, holds the brief",
+    "tower": "architecture authority \u2014 floor purpose is set by tower registries, not by decorators"
+  },
+  "important_brief": "OpenAI and DeepSeek are decorators + fitters, not architects. They decorate to the brief Wren sets. If a future round suggests changing a floor's FUNCTION, reject that part \u2014 they fit interiors only.",
+  "synthesis_authority": "wren_only",
+  "restamped_ts": "2026-06-10T19:49:22Z"
+}

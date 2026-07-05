@@ -1,0 +1,12 @@
+{
+  "worker_id": "f42_spread_watcher",
+  "instrument": "ETHUSDT",
+  "strategy": "mean_revert",
+  "cycle_secs": 700,
+  "usd": 40,
+  "side_bias": 0.5,
+  "flatten_threshold_usd": 200.0,
+  "authored_by": "claude_helm",
+  "authored_ts": "2026-06-17T21:10:00Z",
+  "notes": "Phase 3 v1 policy \u2014 strategy + tunables. cycle_secs and usd override the daemon defaults; flatten_threshold informs the position flattener."
+}

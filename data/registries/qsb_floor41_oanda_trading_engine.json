@@ -1,0 +1,32 @@
+{
+  "ok": true,
+  "kind": "qsb_floor41_oanda_trading_engine",
+  "phase": "QSB_FLOOR_41_OANDA_FULL_TRADING_FLOOR_REBUILD_V1",
+  "generated_ts": "2026-06-30T13:46:36.650881+00:00",
+  "mode": "oanda_practice_api",
+  "base_url": "https://api-fxpractice.oanda.com",
+  "credentials_present": true,
+  "account_id": "101-004-37307818-002",
+  "balance": 100057.298,
+  "NAV": 99396.1616,
+  "instrument_count": 11,
+  "price_count": 11,
+  "ready_for_open_paper_trade": true,
+  "ready_for_close_paper_trade": true,
+  "engine_modes_supported": [
+    "oanda_practice_api",
+    "paper_simulator",
+    "disabled"
+  ],
+  "live_money_enabled": false,
+  "oanda_live_environment_allowed": false,
+  "real_production_trading_allowed": false,
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "oanda_practice_paper_trading_allowed": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "worker_execution_enabled": false,
+  "autonomous_dispatch_enabled": false
+}

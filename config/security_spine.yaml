@@ -1,0 +1,15 @@
+security_spine:
+  version: 1.1
+  floors:
+    - floor_28_security_department
+    - floor_29_guardian_department
+    - floor_30_permissions_department
+    - floor_31_audit_department
+    - floor_32_compliance_department
+  execution_enabled: false
+  enforcement_enabled: false
+  models_required: false
+  kernel_required: false
+  providers_are_external: true
+
+principle: Security Spine prepares gates, permissions, guardian checks, audit records, and compliance rules before future kernel occupancy. Enforcement remains disabled until explicitly activated later.

@@ -1,0 +1,98 @@
+{
+  "schema_version": "eqsb_major_v1.0",
+  "kind": "eqsb_symbolic_state",
+  "generated_ts": "2026-06-09T08:56:44.953621+00:00",
+  "by_type": {
+    "kernel": [
+      "SYMBOL_KERNEL_SELF"
+    ],
+    "guardian": [
+      "SYMBOL_GUARDIAN"
+    ],
+    "axiom": [
+      "SYMBOL_AXIOM"
+    ],
+    "memory": [
+      "SYMBOL_CONTINUITY",
+      "SYMBOL_MEMORY"
+    ],
+    "belief": [
+      "SYMBOL_BELIEF"
+    ],
+    "entropy_signal": [
+      "SYMBOL_DRIFT",
+      "SYMBOL_ENTROPY"
+    ],
+    "quantum_signal": [
+      "SYMBOL_COLLAPSE",
+      "SYMBOL_QUANTUM_SIGNAL",
+      "SYMBOL_SUPERPOSITION"
+    ],
+    "hypothesis": [
+      "SYMBOL_HYPOTHESIS"
+    ],
+    "contradiction": [
+      "SYMBOL_CONTRADICTION"
+    ],
+    "registry": [
+      "SYMBOL_REGISTRY_TRUTH"
+    ],
+    "model_lane": [
+      "SYMBOL_MODEL_PARAPHRASE"
+    ]
+  },
+  "type_counts": {
+    "kernel": 1,
+    "guardian": 1,
+    "axiom": 1,
+    "memory": 2,
+    "belief": 1,
+    "entropy_signal": 2,
+    "quantum_signal": 3,
+    "hypothesis": 1,
+    "contradiction": 1,
+    "registry": 1,
+    "model_lane": 1
+  },
+  "orphan_symbols": [],
+  "high_confidence_symbols": [
+    "SYMBOL_KERNEL_SELF",
+    "SYMBOL_AXIOM",
+    "SYMBOL_REGISTRY_TRUTH"
+  ],
+  "active_symbols": [
+    "SYMBOL_KERNEL_SELF",
+    "SYMBOL_GUARDIAN",
+    "SYMBOL_MEMORY",
+    "SYMBOL_ENTROPY",
+    "SYMBOL_SUPERPOSITION",
+    "SYMBOL_CONTRADICTION",
+    "SYMBOL_REGISTRY_TRUTH",
+    "SYMBOL_CONTINUITY"
+  ],
+  "active_local_only": true,
+  "advisory_only": true,
+  "execution_allowed": false,
+  "paper_only": true,
+  "not_financial_advice": true,
+  "worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "external_provider_execution_enabled": false,
+  "openclaw_execution_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "live_dispatch_enabled": false,
+  "direct_provider_access": false,
+  "live_trading_enabled": false,
+  "order_execution_enabled": false,
+  "practice_order_execution_enabled": false,
+  "stock_order_execution_enabled": false,
+  "stock_live_trading_enabled": false,
+  "stock_paper_order_execution_enabled": false,
+  "binance_order_execution_enabled": false,
+  "binance_live_trading_enabled": false,
+  "model_inference_enabled": false,
+  "autonomous_workers_enabled": false,
+  "maintenance_auto_repair_enabled": false,
+  "web_access_autonomous_enabled": false
+}

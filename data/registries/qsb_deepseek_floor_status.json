@@ -1,0 +1,27 @@
+{
+  "ok": true,
+  "kind": "qsb_deepseek_floor_status",
+  "ts": "2026-06-09T22:40:25Z",
+  "floor_id": "F49",
+  "status": {
+    "provider_name": "DeepSeek",
+    "floor_id": "F49",
+    "enabled": false,
+    "env_key_present": false,
+    "external_calls_allowed": false,
+    "manual_test_mode": true,
+    "model_name": null,
+    "masked_key": "(absent)",
+    "last_test": null,
+    "last_error_masked": null,
+    "notes": [],
+    "cost_guard": {
+      "max_requests_per_session": 5,
+      "max_tokens_per_request": 1000,
+      "log_prompts": false,
+      "mask_secrets": true,
+      "external_calls_enabled_global": false
+    }
+  },
+  "external_call_made_this_session": false
+}

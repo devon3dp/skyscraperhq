@@ -1,0 +1,34 @@
+{
+  "room_id": "concert_hall_stage",
+  "name": "Stage Area",
+  "category": "stage",
+  "purpose": "This area is for performers and the stage setup.",
+  "concierge_blurb": "Welcome to the heart of our concert hall, where classical, jazz, and folk music converge.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      40,
+      15
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Stage",
+    "glow": true
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": null,
+    "refresh_seconds": 0
+  },
+  "floor": "floor_143"
+}

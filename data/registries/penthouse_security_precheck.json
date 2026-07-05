@@ -1,0 +1,17 @@
+{
+  "security_precheck_id": "penthouse_security_precheck",
+  "status": "precheck_ready",
+  "required_floors": [
+    "floor_28",
+    "floor_29",
+    "floor_30",
+    "floor_31",
+    "floor_32",
+    "floor_33",
+    "floor_34",
+    "floor_35"
+  ],
+  "security_gate": "not_enforcing_yet",
+  "execution_enabled": false,
+  "notice": "Security gate records readiness only. It does not enforce kernel permissions yet."
+}

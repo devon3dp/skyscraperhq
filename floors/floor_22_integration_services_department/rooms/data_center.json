@@ -1,0 +1,34 @@
+{
+  "room_id": "data_center",
+  "name": "Data Center",
+  "category": "security",
+  "purpose": "This room houses critical data servers.",
+  "concierge_blurb": "A secure area with state-of-the-art server racks.",
+  "current_state": "already_exists",
+  "visitor_open": false,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": -8.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 3.0
+  },
+  "render": {
+    "primary_prop": "server_rack",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Data Center",
+    "glow": true
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/server_status.jsonl",
+    "display": "big_number",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_22"
+}

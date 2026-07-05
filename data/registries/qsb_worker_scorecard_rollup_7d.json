@@ -1,0 +1,36 @@
+{
+  "ok": true,
+  "kind": "qsb_worker_scorecard_rollup_7d",
+  "phase": "EQSB_SYSTEM_OBSERVATORY_HARDWARE_FLOOR_LIVE_TELEMETRY_REPAIR_V1",
+  "generated_ts": "2026-06-30T13:46:34.510800+00:00",
+  "window_days": 7,
+  "performance_events_count_7d": 1,
+  "reward_point_velocity_per_day": 170.0,
+  "top_today": [
+    {
+      "worker_id": "wrk_binance_market_scout",
+      "name": "Binance Market Scout",
+      "reward_points": 10,
+      "rank": "Junior Worker"
+    },
+    {
+      "worker_id": "wrk_strategy_student",
+      "name": "Strategy Student",
+      "reward_points": 10,
+      "rank": "Junior Worker"
+    },
+    {
+      "worker_id": "wrk_spread_watcher",
+      "name": "Spread Watcher",
+      "reward_points": 9,
+      "rank": "Junior Worker"
+    }
+  ],
+  "summary": "Rollup of qsb_worker_performance_events.jsonl across the last 7 days. Top performers come from the live scorecards.",
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

@@ -1,0 +1,34 @@
+{
+  "room_id": "2d_animation_lab",
+  "name": "2D Animation Lab",
+  "category": "workshop",
+  "purpose": "A dedicated lab for the creation of 2D animations and illustrations.",
+  "concierge_blurb": "Step into our 2D animation lab, where every frame tells a story.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -6.0,
+    "offset_z": 14.0,
+    "footprint_m": [
+      25,
+      15
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "bench",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "2D Animation",
+    "glow": true
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": null,
+    "refresh_seconds": null
+  },
+  "floor": "floor_88"
+}

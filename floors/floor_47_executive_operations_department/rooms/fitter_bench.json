@@ -1,0 +1,53 @@
+{
+  "room_id": "fitter_bench",
+  "name": "Fitter's Bench",
+  "category": "workshop",
+  "floor": "floor_47",
+  "purpose": "this bench is for fitters who install reviewed components into the live cockpit.",
+  "concierge_blurb": "Fitters take signed components and seat them precisely where they belong. Nothing is forced; everything is measured twice.",
+  "current_state": "to_build",
+  "visitor_open": true,
+  "evidence_paths": [
+    "data/registries/qsb_f47_fleet_roster.json",
+    "tools/qsb_proposal_applier.py"
+  ],
+  "live_signals": {
+    "roster_source": "data/registries/qsb_f47_fleet_roster.json",
+    "fitter_role_id": "designer/scene_fitter",
+    "fitter_category": "design_decoration",
+    "fitter_operative_count": 5,
+    "fitter_operative_ids_sample": [
+      "f47.fleet.design_decoration.scene_fitter.01",
+      "f47.fleet.design_decoration.scene_fitter.02",
+      "f47.fleet.design_decoration.scene_fitter.03",
+      "f47.fleet.design_decoration.scene_fitter.04",
+      "f47.fleet.design_decoration.scene_fitter.05"
+    ],
+    "last_fit_ts": "2026-06-14T17:15:00Z",
+    "last_fit_ts_source": "default_placeholder_no_fits_logged_yet",
+    "advisory_only": true,
+    "execution_allowed": false
+  },
+  "built_at": "2026-06-14T17:15:00Z",
+  "built_by": "f47_floor_buildout_batch_2",
+  "lessons_learned_for_next_agent": "There is no fitter_role literal in the roster \u2014 the role string is 'designer/scene_fitter' and category is 'design_decoration'. A naive query for category=='fitter' returns zero. Use role-suffix matching. Also: last_fit_ts has no source jsonl yet, so I used a 2026-06-14 placeholder per the brief \u2014 future agents wiring a real fit log should overwrite that field.",
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -4.5,
+    "offset_z": -3.5,
+    "footprint_m": [
+      1.6,
+      0.8
+    ],
+    "height_m": 0.85
+  },
+  "render": {
+    "primary_prop": "bench",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "FITTER",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  }
+}

@@ -1,0 +1,279 @@
+{
+  "ok": true,
+  "ts": "2026-06-30T09:44:31.240820+00:00",
+  "label": "QSB_TOWER_V1_5_CORRECTION_LOOP_AND_WORKER_VOICE",
+  "pass": 1,
+  "issues_before": 15,
+  "issues_after": 15,
+  "issues_resolved": 0,
+  "actions_applied": [
+    {
+      "action": "archive_dashboard_backups",
+      "moved_count": 0,
+      "moved": [],
+      "ts": "2026-06-30T09:44:26.796408+00:00",
+      "ok": true
+    },
+    {
+      "action": "archive_tower_backups",
+      "moved_count": 0,
+      "moved": [],
+      "ts": "2026-06-30T09:44:26.796559+00:00",
+      "ok": true
+    },
+    {
+      "action": "archive_registry_backups",
+      "moved_count": 0,
+      "moved": [],
+      "ts": "2026-06-30T09:44:26.797641+00:00",
+      "ok": true
+    },
+    {
+      "action": "archive_static_backups",
+      "moved_count": 0,
+      "moved": [],
+      "ts": "2026-06-30T09:44:26.797735+00:00",
+      "ok": true
+    },
+    {
+      "action": "archive_duplicate_floor_shells",
+      "moved_count": 0,
+      "moved": [],
+      "ts": "2026-06-30T09:44:26.797796+00:00",
+      "ok": true
+    },
+    {
+      "action": "reconcile_penthouse_kernel_policy",
+      "files_annotated": [
+        "/vaults/nvme0/qsb_tower_v1/data/registries/penthouse_policy.json",
+        "/vaults/nvme0/qsb_tower_v1/data/registries/building.json"
+      ],
+      "ts": "2026-06-30T09:44:26.798035+00:00",
+      "ok": true
+    },
+    {
+      "action": "promote_security_gate",
+      "ts": "2026-06-30T09:44:26.798163+00:00",
+      "promoted_to": "enforcing_routing_only",
+      "path": "/vaults/nvme0/qsb_tower_v1/penthouse/security_precheck/security_precheck.json",
+      "ok": true
+    },
+    {
+      "action": "write_archive_manifest",
+      "manifest_path": "/vaults/nvme0/qsb_tower_v1/archive/20260608_v15_cleanup/archive_manifest.json",
+      "entry_count": 55,
+      "ts": "2026-06-30T09:44:26.800585+00:00",
+      "ok": true
+    },
+    {
+      "action": "py_compile_dashboard",
+      "compiled": 15,
+      "errors": [],
+      "ts": "2026-06-30T09:44:26.843772+00:00",
+      "ok": true
+    }
+  ],
+  "endpoint_smoke": [
+    {
+      "path": "/api/correction/status",
+      "code": 200,
+      "ok": true,
+      "snippet": "{\n  \"ok\": true,\n  \"ts\": \"2026-06-30T09:44:26.857679+00:00\",\n  \"label\": \"CORRECTION_LOOP_STATUS\",\n  \"loop_module\": \"tower_ops.correction_loop\",\n  \"max_passes_per_run_until_clean\": 5,\n  \"state_latest_ex"
+    },
+    {
+      "path": "/api/tower_ops/not_working",
+      "code": 200,
+      "ok": true,
+      "snippet": "{\n  \"ok\": true,\n  \"ts\": \"2026-06-30T09:44:26.869785+00:00\",\n  \"phase\": \"QSB_TOWER_V1.5\",\n  \"items\": [\n    {\n      \"item\": \"kernel_core recursion\",\n      \"status\": \"OK\",\n      \"detail\": null,\n      \"se"
+    },
+    {
+      "path": "/api/workers/directory",
+      "code": 200,
+      "ok": true,
+      "snippet": "{\n  \"ok\": true,\n  \"ts\": \"2026-06-30T09:44:26.876296+00:00\",\n  \"directory_count\": 174,\n  \"directory\": [\n    {\n      \"worker_id\": \"w_4f08a66788\",\n      \"badge_id\": \"QSB-WORKER-041-OANDA-001\",\n      \"dis"
+    },
+    {
+      "path": "/api/lifts/status",
+      "code": 200,
+      "ok": true,
+      "snippet": "{\n  \"ok\": true,\n  \"ts\": \"2026-06-30T09:44:26.909633+00:00\",\n  \"phase\": \"QSB_TOWER_OPERATIONS_V2\",\n  \"lifts\": [\n    {\n      \"lift_id\": \"LIFT-01\",\n      \"name\": \"Low-Rise Main\",\n      \"current_floor\": 3"
+    },
+    {
+      "path": "/api/lifts/permission_audit",
+      "code": 200,
+      "ok": true,
+      "snippet": "{\n  \"lift_count\": 9,\n  \"lifts\": [\n    {\n      \"lift_id\": \"main_low_rise\",\n      \"name\": \"Low-Rise Main Lift\",\n      \"type\": \"main\",\n      \"status\": \"online\",\n      \"serves\": [\n        \"ground\",\n      "
+    },
+    {
+      "path": "/api/security/enforcement_status",
+      "code": 200,
+      "ok": true,
+      "snippet": "{\n  \"ok\": true,\n  \"ts\": \"2026-06-30T09:44:26.911878+00:00\",\n  \"label\": \"SECURITY_GATE_ENFORCEMENT\",\n  \"security_gate\": \"enforcing_routing_only\",\n  \"enforcement_scope\": [\n    \"lift_routing\",\n    \"worke"
+    },
+    {
+      "path": "/api/trading/oanda/live_dashboard",
+      "code": 200,
+      "ok": true,
+      "snippet": "{\n  \"ok\": true,\n  \"ts\": \"2026-06-30T09:44:26.912407+00:00\",\n  \"label\": \"OANDA_LIVE_DASHBOARD\",\n  \"phase\": \"QSB_TOWER_V1.5\",\n  \"account\": {\n    \"ok\": true,\n    \"ts\": \"2026-06-30T09:44:27.229673+00:00\","
+    },
+    {
+      "path": "/api/trading/binance/live_dashboard",
+      "code": 200,
+      "ok": true,
+      "snippet": "{\n  \"ok\": true,\n  \"ts\": \"2026-06-30T09:44:30.869736+00:00\",\n  \"label\": \"BINANCE_LIVE_DASHBOARD\",\n  \"preflight\": {\n    \"ok\": true,\n    \"ts\": \"2026-06-30T09:44:30.869741+00:00\",\n    \"phase\": \"QSB_TOWER_"
+    },
+    {
+      "path": "/api/trading/stocks/live_dashboard",
+      "code": 200,
+      "ok": true,
+      "snippet": "{\n  \"ok\": true,\n  \"ts\": \"2026-06-30T09:44:31.240550+00:00\",\n  \"label\": \"STOCKS_LIVE_DASHBOARD\",\n  \"preflight\": {\n    \"ok\": true,\n    \"ts\": \"2026-06-30T09:44:31.240555+00:00\",\n    \"phase\": \"QSB_TOWER_V"
+    }
+  ],
+  "issues_remaining": [
+    {
+      "item": "kernel_core recursion",
+      "status": "OK",
+      "severity": "INFO",
+      "kind": "info"
+    },
+    {
+      "item": "Speech talk button",
+      "status": "browser-side (mic + speaker via Web Speech API)",
+      "severity": "INFO",
+      "kind": "info"
+    },
+    {
+      "item": "Binance testnet config",
+      "status": "TESTNET NOT CONFIGURED \u2014 set BINANCE_ENV=testnet + creds",
+      "severity": "WARN",
+      "kind": "warn"
+    },
+    {
+      "item": "Stocks paper broker config",
+      "status": "PAPER BROKER NOT CONFIGURED \u2014 set ALPACA_API_KEY + ALPACA_API_SECRET",
+      "severity": "WARN",
+      "kind": "warn"
+    },
+    {
+      "item": "Worker orbiting bands",
+      "status": "REPLACED by live_worker_routes.py \u2014 workers now have purposeful hops",
+      "severity": "INFO",
+      "kind": "info"
+    },
+    {
+      "item": "Floors without gauges",
+      "status": "OANDA Floor 41 has gauges via /api/trading/oanda/gauges. Binance & Stocks ship preview gauges via _live_dashboard.",
+      "severity": "WARN",
+      "kind": "warn"
+    },
+    {
+      "item": "Floor accountants",
+      "status": "13 floor accountants seeded on Floor 44 (Accounts Department).",
+      "severity": "INFO",
+      "kind": "info"
+    },
+    {
+      "item": "Floor comms / radio",
+      "status": "Floor Comms Bus live: /api/comms/*",
+      "severity": "INFO",
+      "kind": "info"
+    },
+    {
+      "item": "Manager approval workflow",
+      "status": "Approval Workflow live: /api/approvals/*",
+      "severity": "INFO",
+      "kind": "info"
+    },
+    {
+      "item": "Old sim/sandbox labels",
+      "status": "Scrubbed from data/registries/floors.json in V3. No user-facing leaks.",
+      "severity": "INFO",
+      "kind": "info"
+    },
+    {
+      "item": "Detailed floor interiors",
+      "status": "Babylon WebGL V18 LIVE \u2014 165-floor 3D tower rendering at ~18fps with night-sky background. SVG 2D fallback also present.",
+      "severity": "INFO",
+      "kind": "info"
+    },
+    {
+      "item": "Godot 3D cockpit",
+      "status": "Godot 4.6.1 native cockpit running (Vulkan Forward+ on RTX 5070 Ti). 165-floor tower, F153 Penthouse, interior factory with live-build animation.",
+      "severity": "INFO",
+      "kind": "info"
+    },
+    {
+      "item": "Worker count truth",
+      "status": "Canonical via Registry.workers() \u2014 9,026 unique workers deduped across all rosters. Truth audit running every 60s, 0 mismatches.",
+      "severity": "INFO",
+      "kind": "info"
+    },
+    {
+      "item": "Code Crew syntax linter",
+      "status": "F47.CODE Crew runs python3 -m py_compile + node --check every 60s. Catches breaking syntax errors before they reach Ross.",
+      "severity": "INFO",
+      "kind": "info"
+    },
+    {
+      "item": "Live dispatch + team work visibility",
+      "status": "12 teams report jobs to /api/dispatch/live every 3min. Cockpit panel shows live job stream.",
+      "severity": "INFO",
+      "kind": "info"
+    }
+  ],
+  "safe_to_apply_inventory": {
+    "action": "collect_safe_corrections_inventory",
+    "safe_to_apply_automatically": [
+      "archive_dashboard_backups",
+      "archive_tower_backups",
+      "archive_registry_backups",
+      "archive_static_backups",
+      "archive_duplicate_floor_shells",
+      "write_archive_manifest",
+      "py_compile_dashboard",
+      "reconcile_penthouse_kernel_policy",
+      "promote_security_gate"
+    ],
+    "needs_ross_decision": [
+      "remove inherited 4.6-symbolic kernel artifact from Penthouse",
+      "enable Binance testnet placement (currently preview-only)",
+      "enable Stocks paper placement (currently preview-only)",
+      "promote OpenClaw practice proposals to real execution",
+      "increase OANDA practice max units beyond 1000"
+    ],
+    "ts": "2026-06-30T09:44:31.240807+00:00"
+  },
+  "execution_allowed": false,
+  "live_trading_enabled": false,
+  "order_execution_enabled": false,
+  "practice_order_execution_enabled": false,
+  "binance_order_execution_enabled": false,
+  "binance_live_trading_enabled": false,
+  "stock_order_execution_enabled": false,
+  "stock_live_trading_enabled": false,
+  "stock_paper_order_execution_enabled": false,
+  "cross_market_execution_enabled": false,
+  "worker_execution_enabled": false,
+  "recruited_worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "external_provider_execution_enabled": false,
+  "openclaw_execution_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "live_dispatch_enabled": false,
+  "direct_provider_access": false,
+  "recruitment_openclaw_execution_enabled": false,
+  "recruited_worker_live_execution_enabled": false,
+  "recruited_worker_provider_access_enabled": false,
+  "recruited_worker_autonomous_dispatch_enabled": false,
+  "maintenance_auto_repair_enabled": false,
+  "web_access_autonomous_enabled": false,
+  "worker_real_registry_enabled": true,
+  "openclaw_readiness_enabled": true,
+  "security_enforcement_enabled": true,
+  "it_network_observability_enabled": true,
+  "paper_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "not_financial_advice": true
+}

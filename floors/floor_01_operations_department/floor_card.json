@@ -1,0 +1,75 @@
+{
+  "floor_id": "floor_01",
+  "floor_number": 1,
+  "floor_name": "Order Fulfilment Hub",
+  "department": "Order Fulfilment Hub",
+  "zone": "ZONE A",
+  "archetype": "commerce_wing_floor",
+  "staff_lead": "F1 crew",
+  "tour_blurb": "Order Fulfilment Hub \u2014 part of the QSB Tower commerce wing. Advisory only; no live orders or live payments flow through this floor without an explicit operator-confirmed unlock.",
+  "visitor_open": true,
+  "advisory_only": true,
+  "execution_mode": "PREVIEW_ONLY",
+  "live_payments_in_play": false,
+  "live_listings_publishing_enabled": false,
+  "live_signals": {
+    "mode": "PREVIEW_ONLY",
+    "advisory_only": true
+  },
+  "gate_posture": {
+    "live_payments_enabled": false,
+    "live_listings_publishing_enabled": false,
+    "execution_allowed": false,
+    "advisory_only": true
+  },
+  "team_roster": [
+    {
+      "id": "f001.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "promoted_from": "sim_worker_floor_01",
+      "promoted_from_floor": "operations_department",
+      "promotion_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F001",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f001.operator.01",
+      "promoted_from": "sim_worker_floor_02",
+      "promoted_from_floor": "memory_department"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F001",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f001.operator.02",
+      "promoted_from": "sim_worker_floor_03",
+      "promoted_from_floor": "research_department"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F001",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f001.operator.03",
+      "promoted_from": "sim_worker_floor_04",
+      "promoted_from_floor": "knowledge_department"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F001",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f001.operator.04",
+      "promoted_from": "sim_worker_floor_05",
+      "promoted_from_floor": "coding_department"
+    }
+  ],
+  "floor_manager": "f001.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

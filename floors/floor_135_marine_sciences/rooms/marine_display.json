@@ -1,0 +1,34 @@
+{
+  "room_id": "marine_display",
+  "name": "Marine Exhibit",
+  "category": "display",
+  "purpose": "Displays marine life and ecosystems.",
+  "concierge_blurb": "See a miniature reef teeming with life.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      15.0,
+      8.0
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "plinth",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Marine Life",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_135"
+}

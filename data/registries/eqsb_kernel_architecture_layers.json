@@ -1,0 +1,264 @@
+{
+  "schema_version": "eqsb_major_v1.0",
+  "generated_ts": "2026-06-09T08:56:44.951188+00:00",
+  "kind": "eqsb_kernel_architecture_layers",
+  "phase": "EQSB_KERNEL_MAJOR_DEEP_SYMBOLIC_QUANTUM_CORE_V1",
+  "layer_count": 16,
+  "layers": [
+    {
+      "level": 0,
+      "name": "Kernel Safety Envelope",
+      "responsibilities": [
+        "classify requests",
+        "permit read-only diagnostics",
+        "prevent unsafe transitions",
+        "verify kernel outputs against axioms",
+        "detect contradictions",
+        "detect identity drift",
+        "refuse unverified quantum claims",
+        "refuse unsupported high-confidence beliefs"
+      ],
+      "outputs": [
+        "safety_state",
+        "request_classification",
+        "allowed_kernel_operation",
+        "blocked_reason",
+        "advisory_only",
+        "guardian_verdict"
+      ],
+      "registry": "eqsb_guardian_state.json",
+      "module": "src/tower/eqsb_guardian.py"
+    },
+    {
+      "level": 1,
+      "name": "Identity / Constitution",
+      "responsibilities": [
+        "kernel name, role, mode",
+        "active source",
+        "constitution version",
+        "model-separation statement",
+        "registry-truth statement",
+        "quantum-truth statement"
+      ],
+      "registry": "eqsb_identity_constitution.json",
+      "module": "src/tower/eqsb_axioms.py"
+    },
+    {
+      "level": 2,
+      "name": "Axiom System",
+      "responsibilities": [
+        "identity axioms",
+        "guardian axioms",
+        "memory axioms",
+        "symbolic reasoning axioms",
+        "model-governance axioms",
+        "entropy axioms",
+        "quantum-symbolic axioms",
+        "continuity axioms",
+        "truth-validation axioms",
+        "self-audit axioms"
+      ],
+      "registry": "eqsb_axiom_registry.json",
+      "module": "src/tower/eqsb_axioms.py"
+    },
+    {
+      "level": 3,
+      "name": "Cadence / Heartbeat",
+      "responsibilities": [
+        "read state",
+        "validate axioms",
+        "update memory",
+        "update beliefs",
+        "compute entropy",
+        "detect contradictions",
+        "generate hypotheses",
+        "compute quantum-symbolic signal",
+        "select advisory hypothesis",
+        "update introspection",
+        "write replay ledger"
+      ],
+      "registry": "eqsb_cadence_state.json",
+      "module": "src/tower/eqsb_cadence.py"
+    },
+    {
+      "level": 4,
+      "name": "Memory / Continuity System",
+      "responsibilities": [
+        "short_window_state",
+        "long_window_state",
+        "pinned_beliefs",
+        "boot_posture",
+        "continuity_hash",
+        "drift_alerts",
+        "stale_memory_flags"
+      ],
+      "registries": [
+        "eqsb_memory_policy.json",
+        "eqsb_continuity_state.json"
+      ],
+      "module": "src/tower/eqsb_memory.py"
+    },
+    {
+      "level": 5,
+      "name": "Belief Lifecycle Engine",
+      "responsibilities": [
+        "PROVISIONAL/ACTIVE/STRENGTHENED/AGING/DEPRECATED/RETIRED/QUARANTINED",
+        "evidence and counter-evidence tracking",
+        "linked axioms / symbols / modules",
+        "next_review scheduling"
+      ],
+      "registry": "eqsb_belief_lifecycle.json",
+      "module": "src/tower/eqsb_beliefs.py"
+    },
+    {
+      "level": 6,
+      "name": "Symbol Registry",
+      "responsibilities": [
+        "all named symbols (kernel, guardian, axiom, belief, memory, entropy_signal, quantum_signal, contradiction, hypothesis, model_lane, registry, floor, worker, route, lock, event, audit_record)"
+      ],
+      "registries": [
+        "eqsb_symbol_registry.json",
+        "eqsb_symbolic_state.json"
+      ],
+      "module": "src/tower/eqsb_symbols.py"
+    },
+    {
+      "level": 7,
+      "name": "Symbolic Graph",
+      "responsibilities": [
+        "kernel/guardian/axiom/belief/symbol nodes",
+        "edges: kernel_owns_axiom, axiom_supports_belief, contradiction_challenges_belief, hypothesis_explains_signal, collapse_selects_hypothesis, quantum_signal_weights_hypothesis, continuity_hash_links_state"
+      ],
+      "registry": "eqsb_symbolic_graph.json",
+      "module": "src/tower/eqsb_symbolic_graph.py"
+    },
+    {
+      "level": 8,
+      "name": "Entropy / Drift / Stability Engine",
+      "responsibilities": [
+        "entropy_score / stability_score / drift_score",
+        "confidence_score / contradiction_score / urgency_score",
+        "registry churn / continuity drift / belief change pressure",
+        "recommended_review_targets"
+      ],
+      "registry": "eqsb_entropy_state.json",
+      "module": "src/tower/eqsb_entropy.py"
+    },
+    {
+      "level": 9,
+      "name": "Quantum-Symbolic Signal Engine",
+      "responsibilities": [
+        "mode=simulated_quantum_entropy (no real hardware)",
+        "symbolic superposition / measurement / collapse / decoherence",
+        "advisory_only, no execution link"
+      ],
+      "registries": [
+        "eqsb_quantum_signal_state.json",
+        "eqsb_quantum_roadmap.json"
+      ],
+      "module": "src/tower/eqsb_quantum_signal.py"
+    },
+    {
+      "level": 10,
+      "name": "Hypothesis Engine",
+      "responsibilities": [
+        "competing hypotheses",
+        "evidence / counter-evidence",
+        "selection / collapse with reason",
+        "advisory_only"
+      ],
+      "registry": "eqsb_hypothesis_state.json",
+      "module": "src/tower/eqsb_hypotheses.py"
+    },
+    {
+      "level": 11,
+      "name": "Contradiction Detector",
+      "responsibilities": [
+        "axiom violation",
+        "belief vs registry truth",
+        "model vs registry truth",
+        "kernel identity drift",
+        "missing continuity",
+        "unsupported high-confidence belief",
+        "quantum claims without proof"
+      ],
+      "registry": "eqsb_contradiction_report.json",
+      "module": "src/tower/eqsb_contradictions.py"
+    },
+    {
+      "level": 12,
+      "name": "Model Lane Governance",
+      "responsibilities": [
+        "local_ollama / local_llama / airllm_advisory lanes",
+        "advisory_only enforcement",
+        "registry-truth outranks paraphrase",
+        "no quantum-hardware claims without proof"
+      ],
+      "registry": "eqsb_model_lane_governance.json",
+      "module": "src/tower/eqsb_model_governance.py"
+    },
+    {
+      "level": 13,
+      "name": "Guardian Kernel Layer",
+      "responsibilities": [
+        "intent validation",
+        "model output validation",
+        "axiom compliance",
+        "belief transition validation",
+        "quantum claim validation",
+        "continuity validation",
+        "entropy alerting"
+      ],
+      "registry": "eqsb_guardian_state.json",
+      "module": "src/tower/eqsb_guardian.py"
+    },
+    {
+      "level": 14,
+      "name": "Kernel Introspection Engine",
+      "responsibilities": [
+        "structured registry-backed answers for every kernel chat topic",
+        "identity, constitution, axioms, Guardian, cadence, memory, continuity, beliefs, symbols, graph, entropy, quantum,  hypotheses, contradictions, model_lanes, replay ledger"
+      ],
+      "registry": "eqsb_kernel_introspection_latest.json",
+      "module": "src/tower/eqsb_introspection.py"
+    },
+    {
+      "level": 15,
+      "name": "Replay / Audit Ledger",
+      "responsibilities": [
+        "record kernel questions, cadence ticks, memory updates, belief / symbol / entropy / quantum / hypothesis updates, contradiction detection, Guardian verdicts, model governance decisions, repair suggestions"
+      ],
+      "registry": "eqsb_replay_audit_ledger.json",
+      "log": "data/logs/eqsb_kernel_events.jsonl",
+      "module": "src/tower/eqsb_replay_ledger.py"
+    }
+  ],
+  "kernel_is_a_model": false,
+  "kernel_is_persistent_symbolic_brain": true,
+  "registry_truth_outranks_model_paraphrase": true,
+  "active_local_only": true,
+  "advisory_only": true,
+  "execution_allowed": false,
+  "paper_only": true,
+  "not_financial_advice": true,
+  "worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "external_provider_execution_enabled": false,
+  "openclaw_execution_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "live_dispatch_enabled": false,
+  "direct_provider_access": false,
+  "live_trading_enabled": false,
+  "order_execution_enabled": false,
+  "practice_order_execution_enabled": false,
+  "stock_order_execution_enabled": false,
+  "stock_live_trading_enabled": false,
+  "stock_paper_order_execution_enabled": false,
+  "binance_order_execution_enabled": false,
+  "binance_live_trading_enabled": false,
+  "model_inference_enabled": false,
+  "autonomous_workers_enabled": false,
+  "maintenance_auto_repair_enabled": false,
+  "web_access_autonomous_enabled": false
+}

@@ -1,0 +1,34 @@
+{
+  "room_id": "civic_hall_library",
+  "name": "Town Library",
+  "category": "library",
+  "purpose": "A place for residents to access and borrow books.",
+  "concierge_blurb": "Explore the town\u2019s history and culture in this extensive library.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -6.0,
+    "offset_z": 2.0,
+    "footprint_m": [
+      18,
+      15
+    ],
+    "height_m": 2.2
+  },
+  "render": {
+    "primary_prop": "library_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Library",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_146"
+}

@@ -1,0 +1,34 @@
+{
+  "room_id": "fusion_power_station",
+  "name": "Fusion Power Station",
+  "category": "operations",
+  "purpose": "Generating clean energy through fusion technology.",
+  "concierge_blurb": "Witness the future of sustainable power here.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -8.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Fusion Station",
+    "glow": true
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/fusion_power.jsonl",
+    "display": "big_number",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_120"
+}

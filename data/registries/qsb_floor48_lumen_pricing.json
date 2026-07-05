@@ -1,0 +1,50 @@
+{
+  "ok": true,
+  "kind": "qsb_floor48_lumen_pricing",
+  "generated_ts": "2026-07-05T07:02:09+00:00",
+  "policy": "Advisory pricing. Real billing requires operator gate flip + real-money phase.",
+  "tier_count": 3,
+  "tiers": [
+    {
+      "sku": "LUMEN-FREE",
+      "name": "Lumen Free",
+      "price_usd_per_month": 0.0,
+      "monthly_message_quota": 100,
+      "rate_limit_per_minute": 4,
+      "features": [
+        "100 messages / month",
+        "4 messages / minute rate limit",
+        "Topic-table answers only",
+        "Community support"
+      ]
+    },
+    {
+      "sku": "LUMEN-PRO",
+      "name": "Lumen Pro",
+      "price_usd_per_month": 19.0,
+      "monthly_message_quota": 5000,
+      "rate_limit_per_minute": 30,
+      "features": [
+        "5,000 messages / month",
+        "30 messages / minute rate limit",
+        "Full topic table + structured replies",
+        "Per-conversation history retained 90 days",
+        "Email support"
+      ]
+    },
+    {
+      "sku": "LUMEN-BUSINESS",
+      "name": "Lumen Business",
+      "price_usd_per_month": 99.0,
+      "monthly_message_quota": 50000,
+      "rate_limit_per_minute": 120,
+      "features": [
+        "50,000 messages / month",
+        "120 messages / minute rate limit",
+        "Bring-your-own-registry topics",
+        "Priority queue",
+        "SLA support"
+      ]
+    }
+  ]
+}

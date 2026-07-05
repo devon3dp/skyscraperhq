@@ -1,0 +1,25 @@
+{
+  "ok": true,
+  "phase": "QSB_MASTER_SYSTEM_SELF_AUDIT_AND_REPAIR_ROADMAP_V1",
+  "kind": "qsb_broken_or_stale_features",
+  "generated_ts": "2026-06-30T13:46:37.770584+00:00",
+  "fake": [],
+  "stale": [
+    "C_unified_phase_label",
+    "E_legacy_floor_44_vacant_dir"
+  ],
+  "broken": [],
+  "partial": [
+    "A_kernel_chat_route",
+    "B_babylon_openclaw_mesh",
+    "D_discipline_triggers_actionable",
+    "D_promotion_eligibility_static",
+    "E_profit_command_floor",
+    "G_openclaw_visual_svg_only"
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false
+}

@@ -1,0 +1,11 @@
+{
+  "ok": true, "kind": "qsb_tower_camera_readability_status", "ts": "2026-06-09T22:06:58Z",
+  "camera_controller": "CameraController.gd (existing) + TowerCameraController.gd (focus helpers)",
+  "centered_on_launch": true,
+  "zoom_in_out": true,
+  "rotate_orbit": true,
+  "reset_supported": true,
+  "focus_methods": ["focus_floor","focus_openclaw","focus_lift","focus_density","reset"],
+  "label_modes": ["all","compact","off"],
+  "default_label_mode": "compact"
+}

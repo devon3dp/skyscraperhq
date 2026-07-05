@@ -1,0 +1,102 @@
+[
+  {
+    "scenario_id": "candidate_worker_readonly_audit",
+    "name": "Claude Code read-only audit simulation",
+    "description": "Simulates Claude Code inspecting the tower as an external read-only candidate.",
+    "source_floor": "floor_25",
+    "route": [
+      "floor_25",
+      "floor_26",
+      "floor_33",
+      "floor_31"
+    ],
+    "lifts": [
+      "main_mid_rise",
+      "service_lift",
+      "security_lift"
+    ],
+    "packet_type": "simulated_readonly_audit_packet",
+    "candidate_id": "claude_code",
+    "execution_enabled": false,
+    "expected_result": "audit_allowed_readonly"
+  },
+  {
+    "scenario_id": "candidate_model_evaluation_gate",
+    "name": "Candidate model evaluation gate simulation",
+    "description": "Simulates Floor 25 sending candidates to Floor 26 for static evaluation.",
+    "source_floor": "floor_25",
+    "route": [
+      "floor_25",
+      "floor_26"
+    ],
+    "lifts": [
+      "main_mid_rise",
+      "service_lift"
+    ],
+    "packet_type": "simulated_candidate_evaluation_packet",
+    "candidate_id": "all_candidates",
+    "execution_enabled": false,
+    "expected_result": "candidate_only_do_not_activate"
+  },
+  {
+    "scenario_id": "model_request_safe_route",
+    "name": "Safe model request route simulation",
+    "description": "Simulates a coding request travelling to Floor 24, then to Floor 27 inventory or Floor 23 sockets.",
+    "source_floor": "floor_05",
+    "route": [
+      "floor_05",
+      "floor_24",
+      "floor_27"
+    ],
+    "lifts": [
+      "service_lift",
+      "model_lift"
+    ],
+    "packet_type": "simulated_model_route_packet",
+    "candidate_id": "ollama_local_models",
+    "execution_enabled": false,
+    "expected_result": "route_valid_no_inference"
+  },
+  {
+    "scenario_id": "security_precheck_route",
+    "name": "Security precheck simulation",
+    "description": "Simulates future candidate activation request being routed through the Security Spine.",
+    "source_floor": "floor_25",
+    "route": [
+      "floor_25",
+      "floor_28",
+      "floor_29",
+      "floor_30",
+      "floor_31",
+      "floor_32"
+    ],
+    "lifts": [
+      "security_lift"
+    ],
+    "packet_type": "simulated_security_precheck_packet",
+    "candidate_id": "openclaw",
+    "execution_enabled": false,
+    "expected_result": "blocked_until_source_audit"
+  },
+  {
+    "scenario_id": "emergency_stairwell_fallback",
+    "name": "Emergency Stairwell fallback simulation",
+    "description": "Simulates safe fallback from Penthouse to Basement if lifts are unavailable.",
+    "source_floor": "penthouse",
+    "route": [
+      "penthouse",
+      "floor_53",
+      "ground",
+      "B1",
+      "B2",
+      "B3"
+    ],
+    "lifts": [
+      "emergency_stairwell"
+    ],
+    "packet_type": "simulated_emergency_fallback_packet",
+    "candidate_id": "none",
+    "execution_enabled": false,
+    "expected_result": "fallback_path_available"
+  }
+]

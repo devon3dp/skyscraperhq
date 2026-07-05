@@ -1,0 +1,34 @@
+{
+  "room_id": "accounting_workshop",
+  "name": "Accounting Workshop",
+  "category": "workshop",
+  "purpose": "Developing and reviewing financial strategies.",
+  "concierge_blurb": "A space for creating detailed financial plans and models.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -7.0,
+    "offset_z": -8.0,
+    "footprint_m": [
+      15,
+      6
+    ],
+    "height_m": 2.2
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Workshop Area",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/tax.accounting.data.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_102"
+}

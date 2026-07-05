@@ -1,0 +1,849 @@
+{
+  "ok": true,
+  "kind": "qsb_department_team_map",
+  "phase": "QSB_FULL_SKYSCRAPER_OCCUPANCY_COMMERCE_WORKFORCE_EXPANSION_V1",
+  "generated_ts": "2026-06-30T13:46:36.971511+00:00",
+  "department_count": 53,
+  "departments": {
+    "Order Fulfilment Hub": {
+      "floor": 1,
+      "primary_label": "Operations",
+      "purpose": "physical/digital order fulfilment dispatch",
+      "rooms": [
+        "Order Intake",
+        "Dispatch Desk",
+        "Fulfilment Ledger",
+        "Quality Check",
+        "Returns Desk"
+      ],
+      "profit": true,
+      "kernel": false,
+      "safety": true,
+      "rest": false,
+      "team": "fulfilment_team"
+    },
+    "Customer Memory Vault": {
+      "floor": 2,
+      "primary_label": "Memory",
+      "purpose": "customer history + repeat-purchase memory",
+      "rooms": [
+        "Customer Profiles Vault",
+        "Purchase History Archive",
+        "Loyalty Ledger",
+        "Memory Retention Desk"
+      ],
+      "profit": true,
+      "kernel": true,
+      "safety": true,
+      "rest": false,
+      "team": "department_team"
+    },
+    "Product Research Lab": {
+      "floor": 3,
+      "primary_label": "Research",
+      "purpose": "commerce + product research",
+      "rooms": [
+        "Trend Watch Desk",
+        "Competitor Research Desk",
+        "Pricing Research Desk",
+        "Niche Discovery Desk",
+        "Demand Signal Wall"
+      ],
+      "profit": true,
+      "kernel": true,
+      "safety": false,
+      "rest": false,
+      "team": "research_team"
+    },
+    "Knowledge Library + Classroom Wing": {
+      "floor": 4,
+      "primary_label": "Knowledge",
+      "purpose": "training resources + classroom content",
+      "rooms": [
+        "Curriculum Library",
+        "Teacher Office",
+        "Study Carrels",
+        "Certification Records"
+      ],
+      "profit": false,
+      "kernel": true,
+      "safety": false,
+      "rest": false,
+      "team": "teaching_team"
+    },
+    "Code Observatory + Dev Squad": {
+      "floor": 5,
+      "primary_label": "Coding",
+      "purpose": "claude-change tracking + repo health",
+      "rooms": [
+        "Code Review Desk",
+        "Phase History Wall",
+        "Refactor Queue",
+        "Test Runner Bench"
+      ],
+      "profit": false,
+      "kernel": true,
+      "safety": true,
+      "rest": false,
+      "team": "department_team"
+    },
+    "Etsy Shop Floor": {
+      "floor": 6,
+      "primary_label": "Engineering",
+      "purpose": "digital products listing pipeline (manual approval)",
+      "rooms": [
+        "Etsy Shop Manager Office",
+        "Product Research Desk",
+        "Digital Product Studio",
+        "Listing Writer Desk",
+        "SEO / Tags Desk",
+        "Pricing Desk",
+        "Image Preview Wall",
+        "Customer Message Desk",
+        "Order Monitor",
+        "Revenue Ledger",
+        "Compliance Review Desk"
+      ],
+      "profit": true,
+      "kernel": false,
+      "safety": true,
+      "rest": false,
+      "team": "etsy_team"
+    },
+    "Shopify Storefront Floor": {
+      "floor": 7,
+      "primary_label": "Architecture",
+      "purpose": "direct storefront design + theme work",
+      "rooms": [
+        "Theme Studio",
+        "Cart Logic Desk",
+        "Storefront Audit",
+        "Webhook Listener Desk",
+        "Compliance Review"
+      ],
+      "profit": true,
+      "kernel": false,
+      "safety": true,
+      "rest": false,
+      "team": "shopify_team"
+    },
+    "Trading + Commerce Classrooms": {
+      "floor": 8,
+      "primary_label": "Training Academy",
+      "purpose": "curriculum + cohort teaching",
+      "rooms": [
+        "Trading Classroom",
+        "Commerce Classroom",
+        "Etsy Classroom",
+        "Print-on-Demand Classroom",
+        "3D Printing Classroom",
+        "SEO / Listing Classroom",
+        "Prompt Engineering Lab",
+        "Teacher Lounge",
+        "Certification Board"
+      ],
+      "profit": false,
+      "kernel": true,
+      "safety": true,
+      "rest": false,
+      "team": "teaching_team"
+    },
+    "Design Quality Review + Mistake Lab": {
+      "floor": 9,
+      "primary_label": "Quality Assurance",
+      "purpose": "design QA + lessons-from-mistakes review",
+      "rooms": [
+        "Design Quality Review Room",
+        "Mistake Review Room",
+        "Lessons Room",
+        "QA Sign-off Desk"
+      ],
+      "profit": true,
+      "kernel": true,
+      "safety": true,
+      "rest": false,
+      "team": "design_team"
+    },
+    "Strategy Lab + Sandbox Coupling": {
+      "floor": 10,
+      "primary_label": "Trading Simulation",
+      "purpose": "extend Floor 38 sandbox with strategy scenarios",
+      "rooms": [
+        "Scenario Lab",
+        "Counter-Strategy Bench",
+        "Walk-Forward Test Pit",
+        "Simulation Result Wall"
+      ],
+      "profit": true,
+      "kernel": true,
+      "safety": true,
+      "rest": false,
+      "team": "department_team"
+    },
+    "Demand + Competitor Watch": {
+      "floor": 11,
+      "primary_label": "Market Intelligence",
+      "purpose": "cross-platform demand watching",
+      "rooms": [
+        "Demand Watch Desk",
+        "Competitor Watch Desk",
+        "Trend Signal Wall",
+        "Pricing Intel Desk"
+      ],
+      "profit": true,
+      "kernel": false,
+      "safety": false,
+      "rest": false,
+      "team": "department_team"
+    },
+    "Commerce + Trading Risk Bench": {
+      "floor": 12,
+      "primary_label": "Risk Analysis",
+      "purpose": "unified risk view across trading + commerce",
+      "rooms": [
+        "Trading Risk Bench",
+        "Commerce Risk Bench",
+        "Risk Threshold Desk",
+        "Kill-Switch Console"
+      ],
+      "profit": true,
+      "kernel": false,
+      "safety": true,
+      "rest": false,
+      "team": "department_team"
+    },
+    "Product Image Studio + Mockup Wall": {
+      "floor": 13,
+      "primary_label": "Vision",
+      "purpose": "mockup + product image previews",
+      "rooms": [
+        "Mockup Studio",
+        "Image Preview Wall",
+        "Product Photography Set",
+        "Asset Library"
+      ],
+      "profit": true,
+      "kernel": false,
+      "safety": false,
+      "rest": false,
+      "team": "department_team"
+    },
+    "Print-on-Demand Floor": {
+      "floor": 14,
+      "primary_label": "Media",
+      "purpose": "POD product design + Printful/Printify drafts",
+      "rooms": [
+        "Design Intake",
+        "Product Mockup Desk",
+        "Printful/Printify Integration Desk",
+        "Quality Check",
+        "Fulfilment Monitor",
+        "Order Ledger"
+      ],
+      "profit": true,
+      "kernel": false,
+      "safety": true,
+      "rest": false,
+      "team": "pod_team"
+    },
+    "Voice Commerce Studio": {
+      "floor": 15,
+      "primary_label": "Speech & Audio",
+      "purpose": "audio narration + customer voice replies (draft only)",
+      "rooms": [
+        "Voice Narrator Desk",
+        "Customer Voice Drafts",
+        "Audio QA"
+      ],
+      "profit": false,
+      "kernel": false,
+      "safety": true,
+      "rest": false,
+      "team": "department_team"
+    },
+    "Listing Writer + SEO Lab": {
+      "floor": 16,
+      "primary_label": "Document Processing",
+      "purpose": "listing copy + SEO + tags",
+      "rooms": [
+        "Listing Writer Desk",
+        "SEO Lab",
+        "Keyword Vault",
+        "Tag Optimizer",
+        "Compliance Review"
+      ],
+      "profit": true,
+      "kernel": false,
+      "safety": true,
+      "rest": false,
+      "team": "department_team"
+    },
+    "Product Design Studio + Prompt-to-Product": {
+      "floor": 17,
+      "primary_label": "Graphics & Design",
+      "purpose": "design asset generation + prompt iteration",
+      "rooms": [
+        "Design Studio",
+        "Prompt Engineering Lab",
+        "Asset Vault",
+        "Style Guide Wall",
+        "Design Quality Review"
+      ],
+      "profit": true,
+      "kernel": true,
+      "safety": true,
+      "rest": false,
+      "team": "design_team"
+    },
+    "Marketing + Promotion Floor": {
+      "floor": 18,
+      "primary_label": "Automation",
+      "purpose": "campaign drafts + scheduled posts (manual approval)",
+      "rooms": [
+        "Campaign Draft Desk",
+        "Schedule Board",
+        "Newsletter Studio",
+        "Promotion Compliance"
+      ],
+      "profit": true,
+      "kernel": false,
+      "safety": true,
+      "rest": false,
+      "team": "department_team"
+    },
+    "Customer Service Floor": {
+      "floor": 19,
+      "primary_label": "Workflow Management",
+      "purpose": "customer messaging drafts + ticket triage",
+      "rooms": [
+        "Ticket Triage",
+        "Message Draft Desk",
+        "Refund Negotiation Desk",
+        "Escalation Bench",
+        "Customer Sentiment Wall"
+      ],
+      "profit": true,
+      "kernel": false,
+      "safety": true,
+      "rest": false,
+      "team": "customer_service_team"
+    },
+    "Platform Integration Bench": {
+      "floor": 20,
+      "primary_label": "API Services",
+      "purpose": "API watchers + integration health (test/sandbox only)",
+      "rooms": [
+        "Etsy API Sandbox",
+        "Shopify API Sandbox",
+        "Printful API Sandbox",
+        "Webhook Sandbox",
+        "Integration Health Wall"
+      ],
+      "profit": false,
+      "kernel": true,
+      "safety": true,
+      "rest": false,
+      "team": "department_team"
+    },
+    "Format / Schema Translation": {
+      "floor": 21,
+      "primary_label": "Adapter Systems",
+      "purpose": "data format translation between commerce + kernel",
+      "rooms": [
+        "Schema Bench",
+        "Format Translator",
+        "Validation Desk"
+      ],
+      "profit": false,
+      "kernel": true,
+      "safety": false,
+      "rest": false,
+      "team": "department_team"
+    },
+    "Lifts Department Operations": {
+      "floor": 22,
+      "primary_label": "Integration Services",
+      "purpose": "lift + sealed-packet routing",
+      "rooms": [
+        "Lift Dispatch",
+        "Packet Router Bench",
+        "Lift Maintenance"
+      ],
+      "profit": false,
+      "kernel": true,
+      "safety": true,
+      "rest": false,
+      "team": "department_team"
+    },
+    "AirLLM Chamber": {
+      "floor": 23,
+      "primary_label": "AIR LLM Operations",
+      "purpose": "local model advisory only",
+      "rooms": [
+        "Model Chamber",
+        "Prompt Buffer",
+        "Advisory Out"
+      ],
+      "profit": false,
+      "kernel": true,
+      "safety": true,
+      "rest": false,
+      "team": "department_team"
+    },
+    "Lane Governance": {
+      "floor": 24,
+      "primary_label": "Model Routing",
+      "purpose": "route prompts between local lanes",
+      "rooms": [
+        "Routing Console",
+        "Lane Governance"
+      ],
+      "profit": false,
+      "kernel": true,
+      "safety": true,
+      "rest": false,
+      "team": "department_team"
+    },
+    "OpenClaw Coordination Office": {
+      "floor": 25,
+      "primary_label": "Agent Coordination",
+      "purpose": "openclaw read-only supervision dispatch",
+      "rooms": [
+        "Inspection Dispatch",
+        "Ticket Coordination",
+        "Finding Archive"
+      ],
+      "profit": false,
+      "kernel": true,
+      "safety": true,
+      "rest": false,
+      "team": "openclaw_team"
+    },
+    "Commerce Accounting Floor": {
+      "floor": 26,
+      "primary_label": "Model Evaluation",
+      "purpose": "commerce PnL + tax-ready ledger",
+      "rooms": [
+        "Commerce PnL Desk",
+        "Sales Ledger",
+        "Tax-Ready Export",
+        "Refund Accounting",
+        "Platform Fee Tracker"
+      ],
+      "profit": true,
+      "kernel": false,
+      "safety": true,
+      "rest": false,
+      "team": "department_team"
+    },
+    "Local Model Drafting Bench": {
+      "floor": 27,
+      "primary_label": "Local Model Ops",
+      "purpose": "local-only LLM draft surfaces",
+      "rooms": [
+        "Drafting Bench",
+        "Local Model Console"
+      ],
+      "profit": false,
+      "kernel": true,
+      "safety": true,
+      "rest": false,
+      "team": "department_team"
+    },
+    "Security Operations Center": {
+      "floor": 28,
+      "primary_label": "Security",
+      "purpose": "security observability + secret vault audit",
+      "rooms": [
+        "SecOps Console",
+        "Vault Audit",
+        "Access Log Wall",
+        "Incident Bench"
+      ],
+      "profit": false,
+      "kernel": true,
+      "safety": true,
+      "rest": false,
+      "team": "department_team"
+    },
+    "Guardian Watch": {
+      "floor": 29,
+      "primary_label": "Guardian",
+      "purpose": "guardian state + lock map watch",
+      "rooms": [
+        "Lock Map Console",
+        "Guardian Watch",
+        "Drift Alarm"
+      ],
+      "profit": false,
+      "kernel": true,
+      "safety": true,
+      "rest": false,
+      "team": "department_team"
+    },
+    "Permissions / Risk Department": {
+      "floor": 30,
+      "primary_label": "Permissions",
+      "purpose": "13-lock execution permissions",
+      "rooms": [
+        "Permissions Desk",
+        "Risk Review",
+        "Lock Audit",
+        "Approval Workflow Bench"
+      ],
+      "profit": false,
+      "kernel": true,
+      "safety": true,
+      "rest": false,
+      "team": "department_team"
+    },
+    "Audit / Ledger Department": {
+      "floor": 31,
+      "primary_label": "Audit",
+      "purpose": "ledger fan-in + audit reports",
+      "rooms": [
+        "Ledger Dispatch",
+        "Audit Trail Wall",
+        "Compliance Bench",
+        "Sealed-Packet Receiver"
+      ],
+      "profit": true,
+      "kernel": true,
+      "safety": true,
+      "rest": false,
+      "team": "audit_team"
+    },
+    "Platform Compliance Office": {
+      "floor": 32,
+      "primary_label": "Compliance",
+      "purpose": "platform terms + compliance checklists",
+      "rooms": [
+        "Etsy Compliance Desk",
+        "Shopify Compliance Desk",
+        "Print Platforms Compliance Desk",
+        "Terms Tracking Wall",
+        "Compliance Audit"
+      ],
+      "profit": false,
+      "kernel": false,
+      "safety": true,
+      "rest": false,
+      "team": "compliance_team"
+    },
+    "Refund / Dispute Desk + Diagnostics": {
+      "floor": 33,
+      "primary_label": "Diagnostics",
+      "purpose": "refund handling + system diagnostics",
+      "rooms": [
+        "Refund Intake",
+        "Dispute Negotiation",
+        "Diagnostics Console",
+        "Service Health Wall"
+      ],
+      "profit": true,
+      "kernel": false,
+      "safety": true,
+      "rest": false,
+      "team": "department_team"
+    },
+    "Storefront Analytics Room": {
+      "floor": 34,
+      "primary_label": "Monitoring",
+      "purpose": "cross-store analytics + telemetry",
+      "rooms": [
+        "Storefront Analytics",
+        "Conversion Funnel Wall",
+        "Telemetry Console",
+        "Alert Bench"
+      ],
+      "profit": true,
+      "kernel": false,
+      "safety": true,
+      "rest": false,
+      "team": "department_team"
+    },
+    "Hardware Systems Floor": {
+      "floor": 35,
+      "primary_label": "Infrastructure Svcs",
+      "purpose": "CPU/GPU/RAM/disk observatory",
+      "rooms": [
+        "Hardware Observatory",
+        "Resource Console",
+        "Service Monitor Bench"
+      ],
+      "profit": false,
+      "kernel": true,
+      "safety": true,
+      "rest": false,
+      "team": "department_team"
+    },
+    "Workforce Expansion Planning": {
+      "floor": 36,
+      "primary_label": "Expansion Planning",
+      "purpose": "workforce expansion + onboarding plans",
+      "rooms": [
+        "Expansion Desk",
+        "Onboarding Track",
+        "Department Growth Plan"
+      ],
+      "profit": false,
+      "kernel": true,
+      "safety": true,
+      "rest": false,
+      "team": "department_team"
+    },
+    "Strategy Labs": {
+      "floor": 37,
+      "primary_label": "Simulation Labs",
+      "purpose": "strategy scenarios + backtesting",
+      "rooms": [
+        "Strategy Scenario Lab",
+        "Backtest Bench",
+        "Walk-Forward Lab"
+      ],
+      "profit": true,
+      "kernel": true,
+      "safety": true,
+      "rest": false,
+      "team": "department_team"
+    },
+    "Sandbox Ops Coupling": {
+      "floor": 38,
+      "primary_label": "Sandbox Operations",
+      "purpose": "sandbox lift packets + market sim",
+      "rooms": [
+        "Sandbox Console",
+        "Lift Packet Dispatch",
+        "Sandbox Audit"
+      ],
+      "profit": true,
+      "kernel": true,
+      "safety": true,
+      "rest": false,
+      "team": "department_team"
+    },
+    "Worker Recreation Floor": {
+      "floor": 39,
+      "primary_label": "Development Labs",
+      "purpose": "recreation + recovery after shifts",
+      "rooms": [
+        "Break Room",
+        "Game Room",
+        "Morale Board",
+        "Coffee Bar",
+        "Wellness Monitor"
+      ],
+      "profit": false,
+      "kernel": false,
+      "safety": false,
+      "rest": true,
+      "team": "rest_team"
+    },
+    "Worker Rest / Dormitory Floor": {
+      "floor": 40,
+      "primary_label": "Prototype Systems",
+      "purpose": "sleep pods + standby for off-shift workers",
+      "rooms": [
+        "Sleep Pods",
+        "Standby Lounge",
+        "Quiet Recovery Room",
+        "Shift Change Desk"
+      ],
+      "profit": false,
+      "kernel": false,
+      "safety": true,
+      "rest": true,
+      "team": "rest_team"
+    },
+    "OANDA Practice Trading": {
+      "floor": 41,
+      "primary_label": "OANDA Trading Floor",
+      "purpose": "FX paper/practice trading",
+      "rooms": [
+        "OANDA \u2014 already populated by qsb_floor41_oanda module"
+      ],
+      "profit": true,
+      "kernel": false,
+      "safety": true,
+      "rest": false,
+      "team": "department_team"
+    },
+    "Binance Testnet Preview": {
+      "floor": 42,
+      "primary_label": "Binance Trading",
+      "purpose": "crypto testnet preview only",
+      "rooms": [
+        "Binance \u2014 already populated by qsb_floor42_binance module"
+      ],
+      "profit": true,
+      "kernel": false,
+      "safety": true,
+      "rest": false,
+      "team": "department_team"
+    },
+    "Stocks Paper Preview": {
+      "floor": 43,
+      "primary_label": "Stock Exchange",
+      "purpose": "equities paper preview only",
+      "rooms": [
+        "Stocks \u2014 already populated by qsb_floor43_stocks module"
+      ],
+      "profit": true,
+      "kernel": false,
+      "safety": true,
+      "rest": false,
+      "team": "department_team"
+    },
+    "Trading + Commerce Accounting": {
+      "floor": 44,
+      "primary_label": "Accounts Department",
+      "purpose": "PnL ledger for trading + commerce",
+      "rooms": [
+        "PnL Ledger",
+        "Trade Accounting Desk",
+        "Loss Review",
+        "Reward Accounting",
+        "Commerce Revenue Desk"
+      ],
+      "profit": true,
+      "kernel": false,
+      "safety": true,
+      "rest": false,
+      "team": "department_team"
+    },
+    "Worker Recruitment": {
+      "floor": 45,
+      "primary_label": "Recruitment Agency",
+      "purpose": "candidate intake + assignment",
+      "rooms": [
+        "Recruitment \u2014 already populated"
+      ],
+      "profit": false,
+      "kernel": true,
+      "safety": true,
+      "rest": false,
+      "team": "department_team"
+    },
+    "Executive Liaison + Concierge": {
+      "floor": 46,
+      "primary_label": "Executive Support",
+      "purpose": "executive support + colonel concierge",
+      "rooms": [
+        "Colonel Concierge",
+        "Executive Briefing Room",
+        "VIP Reception"
+      ],
+      "profit": false,
+      "kernel": true,
+      "safety": true,
+      "rest": false,
+      "team": "department_team"
+    },
+    "Executive Ops Department": {
+      "floor": 47,
+      "primary_label": "Executive Operations",
+      "purpose": "executive operations + governance",
+      "rooms": [
+        "Executive Ops \u2014 already populated"
+      ],
+      "profit": false,
+      "kernel": true,
+      "safety": true,
+      "rest": false,
+      "team": "department_team"
+    },
+    "Strategic Plan Office": {
+      "floor": 48,
+      "primary_label": "Strategic Planning",
+      "purpose": "long-term planning + roadmap",
+      "rooms": [
+        "Plan Desk",
+        "Roadmap Wall",
+        "Quarterly Review"
+      ],
+      "profit": false,
+      "kernel": true,
+      "safety": true,
+      "rest": false,
+      "team": "department_team"
+    },
+    "Resource Mgmt Department": {
+      "floor": 49,
+      "primary_label": "Resource Management",
+      "purpose": "resource allocation",
+      "rooms": [
+        "Resource Mgmt \u2014 already populated"
+      ],
+      "profit": false,
+      "kernel": true,
+      "safety": true,
+      "rest": false,
+      "team": "department_team"
+    },
+    "Building Governance Council": {
+      "floor": 50,
+      "primary_label": "Building Governance",
+      "purpose": "building rules + governance",
+      "rooms": [
+        "Governance Council",
+        "Rule Book Library"
+      ],
+      "profit": false,
+      "kernel": true,
+      "safety": true,
+      "rest": false,
+      "team": "department_team"
+    },
+    "Executive Council Office": {
+      "floor": 51,
+      "primary_label": "Executive Council",
+      "purpose": "executive council convenings",
+      "rooms": [
+        "Council Chamber"
+      ],
+      "profit": false,
+      "kernel": true,
+      "safety": true,
+      "rest": false,
+      "team": "department_team"
+    },
+    "Infrastructure Command": {
+      "floor": 52,
+      "primary_label": "Infrastructure Cmd",
+      "purpose": "infrastructure command",
+      "rooms": [
+        "Infrastructure \u2014 already populated"
+      ],
+      "profit": false,
+      "kernel": true,
+      "safety": true,
+      "rest": false,
+      "team": "department_team"
+    },
+    "Tower Command Department": {
+      "floor": 53,
+      "primary_label": "Tower Command",
+      "purpose": "tower command + colonel observation",
+      "rooms": [
+        "Tower Command \u2014 already populated"
+      ],
+      "profit": false,
+      "kernel": true,
+      "safety": true,
+      "rest": false,
+      "team": "department_team"
+    }
+  },
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "worker_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "live_payments_enabled": false,
+  "live_listings_publishing_enabled": false,
+  "external_api_calls_enabled": false,
+  "secrets_in_logs": false,
+  "manual_approval_required_for_commerce": true
+}

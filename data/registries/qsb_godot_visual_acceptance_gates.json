@@ -1,0 +1,179 @@
+{
+  "ok": true,
+  "kind": "qsb_godot_visual_acceptance_gates",
+  "phase": "QSB_GODOT_REAL_3D_ENGINE_BUILD_AFTER_INSTALLER_V1",
+  "generated_ts": "2026-06-09T15:41:41+00:00",
+  "gates": [
+    {
+      "id": "G1",
+      "name": "Godot install verified",
+      "passed": true,
+      "evidence": "qsb_godot_install_verified.godot_ok=true; v4.6.1"
+    },
+    {
+      "id": "G2",
+      "name": "Panda3D fallback verified",
+      "passed": true,
+      "evidence": "Panda3D 1.10.16 in .venv_3d; smoke test prints 2191 total"
+    },
+    {
+      "id": "G3",
+      "name": "PyQt reclassified fallback/admin only",
+      "passed": true,
+      "evidence": "qsb_pyqt_admin_fallback_status.role=fallback_admin_only"
+    },
+    {
+      "id": "G4",
+      "name": "Godot project exists",
+      "passed": true,
+      "evidence": "native_cockpit/godot_qsb/ with scenes + scripts"
+    },
+    {
+      "id": "G5",
+      "name": "project.godot exists",
+      "passed": true,
+      "evidence": "config_version=5, main_scene=res://scenes/Main.tscn, Telemetry autoload"
+    },
+    {
+      "id": "G6",
+      "name": "Main scene exists",
+      "passed": true,
+      "evidence": "scenes/Main.tscn with Node3D + CameraRig + Camera3D + TowerRoot + LiftsRoot + OpenClawRoot + HUDLayer"
+    },
+    {
+      "id": "G7",
+      "name": "Tower scene exists",
+      "passed": true,
+      "evidence": "scenes/Tower.tscn (scaffold; built at runtime by TowerRenderer)"
+    },
+    {
+      "id": "G8",
+      "name": "Camera controller exists",
+      "passed": true,
+      "evidence": "scripts/CameraController.gd \u2014 orbit (right-drag), wheel zoom, R reset, F focus"
+    },
+    {
+      "id": "G9",
+      "name": "Telemetry bridge exists",
+      "passed": true,
+      "evidence": "scripts/TelemetryBridge.gd autoload; HTTPRequest to /api/native_cockpit/state with /api/unified fallback"
+    },
+    {
+      "id": "G10",
+      "name": "53-floor skyscraper generated",
+      "passed": true,
+      "evidence": "TowerRenderer._make_floor instantiates one BoxMesh+collider per masterplan floor"
+    },
+    {
+      "id": "G11",
+      "name": "Penthouse crown generated",
+      "passed": true,
+      "evidence": "TowerRenderer._make_crown \u2014 CylinderMesh emissive gold; PENTHOUSE label"
+    },
+    {
+      "id": "G12",
+      "name": "Lift shafts generated",
+      "passed": true,
+      "evidence": "LiftRenderer 9 vertical CylinderMesh shafts; back-left/right/rear placement"
+    },
+    {
+      "id": "G13",
+      "name": "Lift cars generated",
+      "passed": true,
+      "evidence": "LiftRenderer 9 BoxMesh cars with collider; lerp toward telemetry current_floor each frame"
+    },
+    {
+      "id": "G14",
+      "name": "OpenClaw marker generated",
+      "passed": true,
+      "evidence": "OpenClawRenderer SphereMesh + TorusMesh halo; orbits at openclaw.current_floor"
+    },
+    {
+      "id": "G15",
+      "name": "Worker density clusters generated",
+      "passed": true,
+      "evidence": "WorkerRenderer per-floor floating sphere ring; count scaled by total_workers"
+    },
+    {
+      "id": "G16",
+      "name": "Commerce Wing highlighted",
+      "passed": true,
+      "evidence": "CommerceRenderer paints emissive torus halos around F1/6/7/13/14/15/16/17/18/19/26/32/33/34"
+    },
+    {
+      "id": "G17",
+      "name": "Floor 41 OANDA scaffold exists",
+      "passed": true,
+      "evidence": "HUDController.show_floor renders OANDA detail in selected-floor RichTextLabel + masterplan rooms"
+    },
+    {
+      "id": "G18",
+      "name": "Floor 42 Binance scaffold exists",
+      "passed": true,
+      "evidence": "Same path \u2014 Binance rooms + workers + locks"
+    },
+    {
+      "id": "G19",
+      "name": "Floor 35 Hardware scaffold exists",
+      "passed": true,
+      "evidence": "Same path \u2014 hardware rooms; CPU/GPU/RAM via Telemetry.hardware"
+    },
+    {
+      "id": "G20",
+      "name": "Floor selection scaffold exists",
+      "passed": true,
+      "evidence": "FloorSelector raycasts to StaticBody3D collider; PageUp/Down keyboard"
+    },
+    {
+      "id": "G21",
+      "name": "HUD scaffold exists",
+      "passed": true,
+      "evidence": "HUDController paints build badge + workforce + locks + openclaw + pnl + safety banner"
+    },
+    {
+      "id": "G22",
+      "name": "Run script exists",
+      "passed": true,
+      "evidence": "scripts/qsb_godot_run.sh \u2014 cds into project dir to dodge snap confinement"
+    },
+    {
+      "id": "G23",
+      "name": "Health script exists",
+      "passed": true,
+      "evidence": "scripts/qsb_godot_visual_check.sh \u2014 32/32 pass including headless parse"
+    },
+    {
+      "id": "G24",
+      "name": "No live trading enabled",
+      "passed": true,
+      "evidence": "Telemetry.safety_locks_all_off() asserts five locks false"
+    },
+    {
+      "id": "G25",
+      "name": "No commerce publishing enabled",
+      "passed": true,
+      "evidence": "live_listings_publishing_enabled=false stamped on every payload"
+    },
+    {
+      "id": "G26",
+      "name": "No money spending enabled",
+      "passed": true,
+      "evidence": "live_payments_enabled=false; no payment SDK in project"
+    },
+    {
+      "id": "G27",
+      "name": "No secrets exposed",
+      "passed": true,
+      "evidence": "TelemetryBridge reads HTTP JSON only; no env/credential extraction"
+    }
+  ],
+  "passed_count": 27,
+  "total": 27,
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "live_payments_enabled": false,
+  "live_listings_publishing_enabled": false
+}

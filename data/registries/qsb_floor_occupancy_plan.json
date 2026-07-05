@@ -1,0 +1,31 @@
+{
+  "ok": true,
+  "phase": "QSB_SKYSCRAPER_100_PERCENT_ONLINE_INTERACTIVE_3D_WORKFORCE_COMPLETION_V1",
+  "kind": "qsb_floor_occupancy_plan",
+  "generated_ts": "2026-06-30T13:46:34.681038+00:00",
+  "occupancy_by_floor": {
+    "floor_45_worker_recruitment_agency": 80,
+    "floor_36_expansion_planning_department": 150,
+    "floor_38_sandbox_operations": 50,
+    "floor_47_executive_operations_department": 90,
+    "floor_44_accounts_department": 100,
+    "floor_30_permissions_department": 70,
+    "floor_49_resource_management_department": 280,
+    "floor_52_infrastructure_command_department": 180
+  },
+  "training_academy_floor": 36,
+  "lessons_room_floor": 38,
+  "recruitment_floor": 45,
+  "accounts_floor": 44,
+  "guardian_risk_floor": 30,
+  "worker_operations_floor": 47,
+  "rest_dormitory_floor": 49,
+  "floor_operations_floor": 52,
+  "policy_note": "Workers are stationed at their assigned floor + room + station. External tower view shows per-floor count badges only. Interior view shows individual workers per room.",
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

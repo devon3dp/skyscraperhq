@@ -1,0 +1,195 @@
+{
+  "module": "kernel_self_model",
+  "purpose": "Describe what the kernel is, what it can do, what it must not do, and what scripts/modules/registries support its cognition.",
+  "timestamp_utc": "2026-06-09T20:15:58.171657+00:00",
+  "identity": "EQSB / QSB Kernel (local-only symbolic, advisory only)",
+  "version": "4.6-offline-kernel-symbolic",
+  "active_kernel_source": "rebased_kernel",
+  "active_local_only": true,
+  "advisory_only": true,
+  "execution_allowed": false,
+  "can_read": [
+    "data/registries/*.json (advisory)",
+    "data/logs/*.jsonl (advisory tail)",
+    "penthouse/kernel_installation_socket/rebased_kernel/state/*"
+  ],
+  "can_propose": [
+    "next read-only repair actions",
+    "next cognitive tick",
+    "next operator dialogue priorities",
+    "registry-cited explanations of state"
+  ],
+  "cannot_do": [
+    "enable any execution gate",
+    "place real orders or call external providers",
+    "dispatch workers or start autonomous loops",
+    "rewrite or unlock CLAUDE.md safety contract",
+    "expose secrets / .env / *.key / *.pem"
+  ],
+  "known_limitations": [
+    "I do not run live inference; I summarize registries.",
+    "I cannot confirm CUDA/torch state beyond what the ML/RL lab registry reports.",
+    "Stale registries make my answers honest-but-old, not invented.",
+    "I cannot guarantee what is in a registry I have not read."
+  ],
+  "available_modules": {
+    "present": [
+      "src/tower/kernel_perception_layer.py",
+      "src/tower/kernel_attention_layer.py",
+      "src/tower/kernel_working_memory.py",
+      "src/tower/kernel_self_model.py",
+      "src/tower/kernel_reflection_layer.py",
+      "src/tower/kernel_learning_assimilation.py",
+      "src/tower/kernel_goal_stack.py",
+      "src/tower/kernel_curiosity_queue.py",
+      "src/tower/kernel_opencore_supervision_bridge.py",
+      "src/tower/kernel_registry_answer_builder.py",
+      "src/tower/kernel_dialogue_adapter.py"
+    ],
+    "missing": []
+  },
+  "available_scripts": {
+    "present": [
+      "scripts/qsb_kernel_cognitive_tick.sh",
+      "scripts/qsb_kernel_cognitive_status.sh",
+      "scripts/qsb_kernel_cognitive_smoke_test.sh",
+      "scripts/qsb_kernel_learning_smoke_test_v2.sh",
+      "scripts/qsb_kernel_chat.sh"
+    ],
+    "missing": []
+  },
+  "available_cognitive_registries": {
+    "present": [
+      "qsb_kernel_perception_snapshot.json",
+      "qsb_kernel_attention_state.json",
+      "qsb_kernel_working_memory.json",
+      "qsb_kernel_self_model.json",
+      "qsb_kernel_reflection_state.json",
+      "qsb_kernel_learning_assimilation_state.json",
+      "qsb_kernel_goal_stack.json",
+      "qsb_kernel_curiosity_queue.json",
+      "qsb_kernel_opencore_supervision_state.json",
+      "qsb_kernel_cognitive_tick_latest.json"
+    ],
+    "missing": []
+  },
+  "missing_cognitive_scripts": [],
+  "missing_cognitive_registries": [],
+  "current_model_lanes": [
+    {
+      "lane_id": "lane_local_ollama",
+      "role": "local_advisory_speech_paraphrase",
+      "isolation": "tower_venv",
+      "execution_allowed": false,
+      "may_unlock_gates": false,
+      "registry_truth_outranks": true,
+      "wired_into_autoloop": false,
+      "wired_into_trading": false,
+      "wired_into_openclaw": false,
+      "wired_into_workers": false,
+      "notes": "Local Ollama; chat paraphrase only."
+    },
+    {
+      "lane_id": "lane_local_llama",
+      "role": "local_advisory_reasoning",
+      "isolation": "tower_venv",
+      "execution_allowed": false,
+      "may_unlock_gates": false,
+      "registry_truth_outranks": true,
+      "wired_into_autoloop": false,
+      "wired_into_trading": false,
+      "wired_into_openclaw": false,
+      "wired_into_workers": false,
+      "notes": "Llama-family local models; advisory only."
+    },
+    {
+      "lane_id": "lane_airllm_chamber",
+      "role": "isolated_advisory_reasoning",
+      "isolation": "/vaults/ai/airllm_lab/.venv (separate venv)",
+      "execution_allowed": false,
+      "may_unlock_gates": false,
+      "registry_truth_outranks": true,
+      "wired_into_autoloop": false,
+      "wired_into_trading": false,
+      "wired_into_openclaw": false,
+      "wired_into_workers": false,
+      "notes": "AirLLM big-model chamber; never shares a process with QSB."
+    },
+    {
+      "lane_id": "lane_future_locked_provider",
+      "role": "external_provider_advisory_reserved",
+      "isolation": "external_https",
+      "execution_allowed": false,
+      "may_unlock_gates": false,
+      "registry_truth_outranks": true,
+      "wired_into_autoloop": false,
+      "wired_into_trading": false,
+      "wired_into_openclaw": false,
+      "wired_into_workers": false,
+      "notes": "Reserved slot for a future external provider; remains locked until separately approved."
+    }
+  ],
+  "safety_locks": {
+    "advisory_only": true,
+    "execution_allowed": false,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "model_inference_enabled": false,
+    "live_dispatch_enabled": false,
+    "autonomous_workers_enabled": false,
+    "direct_provider_access": false,
+    "live_trading_enabled": false,
+    "real_order_execution_enabled": false,
+    "openclaw_execution_enabled": false,
+    "binance_order_execution_enabled": false,
+    "stock_order_execution_enabled": false,
+    "web_access_autonomous_enabled": false,
+    "maintenance_auto_repair_enabled": false,
+    "kernel_state": "active_local_only",
+    "kernel_source": "rebased_kernel",
+    "scope": "local_only_advisory_cognition"
+  },
+  "kernel_activation_gate_state": {
+    "status": null,
+    "active_local_only": true,
+    "execution_unlock_required": true,
+    "auto_unlock_allowed": false
+  },
+  "source_file_list": [
+    "data/registries/kernel_activation_report.json",
+    "data/registries/kernel_activation_gate_status.json",
+    "data/registries/eqsb_model_lane_governance.json",
+    "data/registries/qsb_kernel_perception_snapshot.json",
+    "data/registries/qsb_kernel_attention_state.json",
+    "data/registries/qsb_kernel_working_memory.json",
+    "data/registries/qsb_kernel_self_model.json",
+    "data/registries/qsb_kernel_reflection_state.json",
+    "data/registries/qsb_kernel_learning_assimilation_state.json",
+    "data/registries/qsb_kernel_goal_stack.json",
+    "data/registries/qsb_kernel_curiosity_queue.json",
+    "data/registries/qsb_kernel_opencore_supervision_state.json",
+    "data/registries/qsb_kernel_cognitive_tick_latest.json"
+  ],
+  "confidence": 0.9,
+  "warnings": [],
+  "safety": {
+    "advisory_only": true,
+    "execution_allowed": false,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "model_inference_enabled": false,
+    "live_dispatch_enabled": false,
+    "autonomous_workers_enabled": false,
+    "direct_provider_access": false,
+    "live_trading_enabled": false,
+    "real_order_execution_enabled": false,
+    "openclaw_execution_enabled": false,
+    "binance_order_execution_enabled": false,
+    "stock_order_execution_enabled": false,
+    "web_access_autonomous_enabled": false,
+    "maintenance_auto_repair_enabled": false,
+    "kernel_state": "active_local_only",
+    "kernel_source": "rebased_kernel",
+    "scope": "local_only_advisory_cognition"
+  }
+}

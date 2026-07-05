@@ -1,0 +1,11 @@
+[
+  {"id":"7","subject":"Close Phase 2 of trader learning loop","status":"pending"},
+  {"id":"9","subject":"Per-floor walkable 3D interiors","status":"in_progress","note":"All major pieces shipped + skyscraper-scale + carpark verified"},
+  {"id":"11","subject":"Launch godot alongside browser","status":"in_progress","note":"Standalone godot launched but window dies after init phase. Vulkan + Forward+ + NVIDIA RTX 5070 Ti boots clean. Mouse still not working — unsolved."},
+  {"id":"15","subject":"Wren-32B via Ollama","status":"in_progress","note":"qwen2.5:32b pulling. Last check 33% (6.6/19 GB) at 2.9 MB/s. Likely now ~40-50%. PID 594142."},
+  {"id":"16","subject":"Cockpit3d perf swap","status":"completed","note":"powerPreference high-performance + logarithmicDepthBuffer true. Headless screenshot verified no regressions."},
+  {"id":"17","subject":"Wren chat panel relocated F47→F46","status":"completed","note":"F47ChatPanel.gd → F46WrenChatPanel.gd. class_name + header 'F46 — Wren's Bench · chat' + Main.gd preload+variable updated. Godot booted clean, no parse errors."},
+  {"id":"18","subject":"Hermes-3 wire-up","status":"completed","note":"DISCOVERED already wired in qsb_provider_agent.py line 51-55. hermes3:8b in Ollama, 4.7GB, smoke-tested replying."},
+  {"id":"19","subject":"Look at TikTok videos for skyscraper resources","status":"in_progress","note":"Ross pasted GLM 5.2 URL: https://vm.tiktok.com/ZNR3Wm8he/. Need URLs for: WHOADIE, Fabio Silva (Gemma 4 12B / Dev IA), Taki Mong (HERMES Agent KILLED). Plan: open each in Firefox, capture, read description, assess resource fit."},
+  {"id":"20","subject":"TikTok @skyscraper.hq username rename to @skyscraperhq","status":"pending","note":"Account is live as @skyscraper.hq. Chevron tap to enter Username edit screen didn't register earlier. Need to try again."}
+]

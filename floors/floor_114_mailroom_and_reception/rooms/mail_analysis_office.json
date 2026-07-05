@@ -1,0 +1,34 @@
+{
+  "room_id": "mail_analysis_office",
+  "name": "Mail Analysis Office",
+  "category": "admin",
+  "purpose": "Analyzing and managing mail operations data.",
+  "concierge_blurb": "This office houses the minds behind our efficient mail system.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 7.5,
+    "offset_z": 6.0,
+    "footprint_m": [
+      8,
+      3
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Analysis Desk",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_114"
+}

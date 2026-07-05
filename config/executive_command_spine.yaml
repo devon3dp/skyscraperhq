@@ -1,0 +1,17 @@
+executive_command_spine:
+  version: 1.1
+  floors:
+    - floor_46_executive_support_department
+    - floor_47_executive_operations_department
+    - floor_48_strategic_planning_department
+    - floor_49_resource_management_department
+    - floor_50_building_governance_department
+    - floor_51_executive_council_department
+    - floor_52_infrastructure_command_department
+    - floor_53_tower_command_department
+  execution_enabled: false
+  command_execution_enabled: false
+  kernel_installed: false
+  models_required: false
+
+principle: Executive Command Spine coordinates tower command and future kernel handoff preparation. It does not install, run, or contain the QSB Kernel.

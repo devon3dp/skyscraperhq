@@ -1,0 +1,34 @@
+{
+  "room_id": "library",
+  "name": "Library",
+  "category": "library",
+  "purpose": "A place for workers to read and learn.",
+  "concierge_blurb": "Books line the walls, inviting you to a quiet reading nook.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -8.0,
+    "offset_z": -7.5,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 1.3
+  },
+  "render": {
+    "primary_prop": "library_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "LIBRARY",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 0
+  },
+  "floor": "floor_59"
+}

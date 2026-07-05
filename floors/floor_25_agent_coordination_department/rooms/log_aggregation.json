@@ -1,0 +1,31 @@
+{
+  "room_id": "log_aggregation",
+  "name": "Log Aggregation Room",
+  "category": "operations",
+  "purpose": "Gathers and logs task completion data.",
+  "concierge_blurb": "A stack of ledgers records every task completed.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -4.5,
+    "offset_z": 0.0,
+    "footprint_m": [
+      12,
+      7
+    ],
+    "height_m": 2.2
+  },
+  "render": {
+    "primary_prop": "archive_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Log Shelf",
+    "glow": true
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_25"
+}

@@ -1,0 +1,24 @@
+diagnostics_department:
+  version: 1.1
+  floor_id: floor_33
+  role: tower_engineering_inspection_layer
+  execution_enabled: false
+  hardwired_providers: false
+  models_required: false
+  kernel_required: false
+  providers_are_external: true
+
+principle: Floor 33 inspects and reports. It does not execute providers, adapters, tools, CLI commands, file operations, models, or kernel logic.
+
+inspection_scope:
+  - tower registry
+  - floor registry
+  - lift network
+  - packet integrity
+  - department imports
+  - dashboard endpoints
+  - integration health
+  - model infrastructure
+  - adapter systems
+  - local model inventory
+  - AIR LLM socket layer

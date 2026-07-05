@@ -1,0 +1,78 @@
+[
+  {
+    "component": "Floor 5 Coding Department",
+    "floor_id": "floor_05",
+    "depends_on": [
+      "service_lift",
+      "Floor 24 Model Routing Department"
+    ],
+    "optional_depends_on": [
+      "Floor 21 Adapter Systems Department"
+    ],
+    "execution_enabled": false
+  },
+  {
+    "component": "Floor 21 Adapter Systems Department",
+    "floor_id": "floor_21",
+    "depends_on": [
+      "service_lift",
+      "adapter_sockets registry"
+    ],
+    "optional_depends_on": [
+      "Floor 23 AIR LLM Operations",
+      "Floor 27 Local Model Operations"
+    ],
+    "execution_enabled": false
+  },
+  {
+    "component": "Floor 22 Integration Services Department",
+    "floor_id": "floor_22",
+    "depends_on": [
+      "integration_service_map registry",
+      "dependency_graph registry"
+    ],
+    "optional_depends_on": [
+      "all model-service floors"
+    ],
+    "execution_enabled": false
+  },
+  {
+    "component": "Floor 24 Model Routing Department",
+    "floor_id": "floor_24",
+    "depends_on": [
+      "service_lift",
+      "model_lift",
+      "model_routing_policies registry"
+    ],
+    "optional_depends_on": [
+      "Floor 27 Local Model Operations",
+      "Floor 23 AIR LLM Operations"
+    ],
+    "execution_enabled": false
+  },
+  {
+    "component": "Floor 27 Local Model Operations",
+    "floor_id": "floor_27",
+    "depends_on": [
+      "model_lift",
+      "local_model_roles registry"
+    ],
+    "optional_depends_on": [
+      "Ollama local installation"
+    ],
+    "execution_enabled": false
+  },
+  {
+    "component": "Floor 23 AIR LLM Operations",
+    "floor_id": "floor_23",
+    "depends_on": [
+      "model_lift",
+      "provider_sockets registry"
+    ],
+    "optional_depends_on": [
+      "external provider accounts",
+      "roof AIR LLM Cloud"
+    ],
+    "execution_enabled": false
+  }
+]

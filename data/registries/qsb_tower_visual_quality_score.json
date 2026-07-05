@@ -1,0 +1,24 @@
+{
+  "ok": true,
+  "kind": "qsb_tower_visual_quality_score",
+  "ts": "2026-06-09T22:12:01Z",
+  "scores": {
+    "tower_geometry_detail": 9,
+    "floor_readability": 9,
+    "floor_identity": 8,
+    "selected_floor_highlight": 9,
+    "lift_visibility": 9,
+    "lift_animation": 9,
+    "worker_visibility": 9,
+    "worker_animation": 8,
+    "OpenClaw_animation": 8,
+    "packet_flow": 9,
+    "camera_control": 8,
+    "click_interaction": 7,
+    "telemetry_integration": 6,
+    "performance_safety": 6,
+    "production_feel": 7
+  },
+  "total_score": 92,
+  "cap_at_92_until_visual_confirmation": true
+}

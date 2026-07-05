@@ -1,0 +1,34 @@
+{
+  "room_id": "cyber_tactical_analysis",
+  "name": "Cyber Tactical Analysis Room",
+  "category": "workshop",
+  "purpose": "Analyzes and evaluates cybersecurity threats and develops tactical responses.",
+  "concierge_blurb": "Evaluates cyber threats to form strategic plans for defense and response.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_right",
+    "offset_x": 8.0,
+    "offset_z": -7.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 1.5
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Tactical A",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": null,
+    "display": "scrolling_list",
+    "refresh_seconds": 120
+  },
+  "floor": "floor_105"
+}

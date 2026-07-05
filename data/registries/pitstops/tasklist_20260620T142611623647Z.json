@@ -1,0 +1,12 @@
+[
+  {"id":"1","subject":"Qwen2.5-32B download","status":"COMPLETED","note":"63GB · 17/17 shards · HF blob layout restructured · 26 files in snapshot dir"},
+  {"id":"7","subject":"Close Phase 2 of trader learning loop","status":"pending"},
+  {"id":"9","subject":"Per-floor walkable interiors","status":"in_progress","note":"All major pieces shipped + skyscraper-scale + carpark verified"},
+  {"id":"11","subject":"Launch godot alongside browser","status":"in_progress","note":"Standalone godot 4.7 launched. Mouse still not working — needs separate diagnosis."},
+  {"id":"12","subject":"Wire godot to /api/floor_rooms","status":"COMPLETED","note":"Verified end-to-end: 25 rooms placed for F47 at y=65.10"},
+  {"id":"13","subject":"Daily github push tool + timer","status":"COMPLETED","note":"systemd user timer firing hourly + 23h cooldown gate"},
+  {"id":"14","subject":"TikTok signup","status":"COMPLETED","note":"@skyscraper.hq account LIVE on Galaxy. Display: Skyscraper Hq. Logged in via Continue-with-Google (hqskyscraper@gmail.com), phone +447411410545 SMS auto-detected (code 673414). Currently on Edit Profile screen — tap to rename Username chevron not registering. Want to change @skyscraper.hq → @skyscraperhq (no dot) to match github + Netlify."},
+  {"id":"15","subject":"Wren-32B brain upgrade","status":"in_progress","note":"AirLLM path failed 3 times: (1) missing bitsandbytes (fixed), (2) transformers 4.46+ Qwen2 incompat (fixed via downgrade to 4.45.2), (3) timeout at 240s. Reason: AirLLM streams layer-by-layer from disk → first-load too slow for wrapper cap. BETTER PATH: Ollama qwen2.5:32b — fits in 16GB VRAM at 4-bit quantization. Pending Ross OK."},
+  {"id":"16","subject":"Wren chat panel on F46 not F47","status":"pending","note":"Per Ross 2026-06-20: rename F47ChatPanel → F46WrenChatPanel. Godot label already changed 'Wren's Embassy' → 'Claude's Embassy' as stopgap."},
+  {"id":"17","subject":"Hermes-3 → provider agent layer","status":"pending","note":"Add hermes-3 to qsb_provider_agent.py whitelist. CLAUDE.md edit needed to authorize Together/HF as 3rd provider. For autonomous worker tasks (audits, classroom curriculum)."}
+]

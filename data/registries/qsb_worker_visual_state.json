@@ -1,0 +1,24 @@
+{
+  "ok": true,
+  "kind": "qsb_worker_visual_state",
+  "generated_ts": "2026-06-30T13:46:34.681261+00:00",
+  "default_exterior_mode": "counts_only",
+  "interior_workers_per_floor_visible": {
+    "floor_45_worker_recruitment_agency": 80,
+    "floor_36_expansion_planning_department": 150,
+    "floor_38_sandbox_operations": 50,
+    "floor_47_executive_operations_department": 90,
+    "floor_44_accounts_department": 100,
+    "floor_30_permissions_department": 70,
+    "floor_49_resource_management_department": 280,
+    "floor_52_infrastructure_command_department": 180
+  },
+  "exterior_individual_workers_visible_count": 0,
+  "policy_compliance": "all_v1_expansion_workers_routed_to_interior_only",
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

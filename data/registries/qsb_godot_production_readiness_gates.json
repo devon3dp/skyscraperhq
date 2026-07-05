@@ -1,0 +1,53 @@
+{
+  "ok": true,
+  "kind": "qsb_godot_production_readiness_gates",
+  "phase": "QSB_GODOT_DASHBOARD_AUTONOMOUS_PRODUCTION_LOOP_V1",
+  "generated_ts": "2026-06-09T22:00:00+00:00",
+  "policy": "Honest scoring. 'functional' only if the action runs end-to-end with feedback. 'visible_not_wired' if the UI element shows but the action is a no-op. 'planned' if it announces itself. 'missing' if absent. 'blocked' if a safety lock prevents it. Each gate has a baseline status determined at iteration 0; the loop attempts to lift it.",
+  "p0_gates": [
+    {"id":  1, "name": "Godot launches directly",                              "baseline_status": "functional"},
+    {"id":  2, "name": "Project Manager is not shown",                          "baseline_status": "functional"},
+    {"id":  3, "name": "Browser dashboard is fallback only",                    "baseline_status": "functional"},
+    {"id":  4, "name": "PyQt is admin fallback only",                           "baseline_status": "functional"},
+    {"id":  5, "name": "Window title does not say DEBUG",                       "baseline_status": "needs_relaunch"},
+    {"id":  6, "name": "Main tower visible and centered",                       "baseline_status": "functional"},
+    {"id":  7, "name": "Panels do not cover the main tower badly",              "baseline_status": "functional"},
+    {"id":  8, "name": "Top command bar visible",                               "baseline_status": "functional"},
+    {"id":  9, "name": "Event ticker visible",                                  "baseline_status": "functional"},
+    {"id": 10, "name": "Floor inspector visible and useful",                    "baseline_status": "functional"},
+    {"id": 11, "name": "Kernel chat panel visible",                             "baseline_status": "functional"},
+    {"id": 12, "name": "Safety locks visible",                                  "baseline_status": "functional"},
+    {"id": 13, "name": "No live trading enabled",                                "baseline_status": "blocked_by_safety"},
+    {"id": 14, "name": "No payments enabled",                                    "baseline_status": "blocked_by_safety"},
+    {"id": 15, "name": "No secrets exposed",                                     "baseline_status": "blocked_by_safety"},
+    {"id": 16, "name": "Feature migration smoke test passes",                    "baseline_status": "functional"}
+  ],
+  "p1_gates": [
+    {"id": 17, "name": "Old dashboard buttons migrated or marked planned",      "baseline_status": "functional"},
+    {"id": 18, "name": "Talk/Voice/Sound/Commentary/Mute controls visible",     "baseline_status": "functional"},
+    {"id": 19, "name": "Kernel Chat input/send/history works",                  "baseline_status": "functional"},
+    {"id": 20, "name": "Floor list/select/focus/enter available",               "baseline_status": "functional"},
+    {"id": 21, "name": "Floor interiors for key floors",                         "baseline_status": "functional"},
+    {"id": 22, "name": "Worker/OpenClaw panels visible",                         "baseline_status": "functional"},
+    {"id": 23, "name": "OANDA/Binance/Stocks/PnL panels (safe paper)",          "baseline_status": "functional"},
+    {"id": 24, "name": "ML/RL panel visible",                                    "baseline_status": "functional"},
+    {"id": 25, "name": "Banking scaffold panel visible",                         "baseline_status": "functional"},
+    {"id": 26, "name": "GitHub Scout panel visible",                             "baseline_status": "functional"},
+    {"id": 27, "name": "Commerce/Classroom panels visible",                      "baseline_status": "functional"},
+    {"id": 28, "name": "Telemetry freshness visible",                            "baseline_status": "functional"},
+    {"id": 29, "name": "Missing registries shown as warnings, not crashes",      "baseline_status": "functional"},
+    {"id": 30, "name": "Controls give feedback when clicked",                    "baseline_status": "functional"}
+  ],
+  "p2_gates": [
+    {"id": 31, "name": "Camera orbit/zoom/focus smooth",                          "baseline_status": "functional"},
+    {"id": 32, "name": "Tower materials professional",                            "baseline_status": "functional"},
+    {"id": 33, "name": "Department color bands coherent",                          "baseline_status": "functional"},
+    {"id": 34, "name": "OpenClaw animation channel exists",                       "baseline_status": "functional"},
+    {"id": 35, "name": "Lift animation channel exists",                            "baseline_status": "functional"},
+    {"id": 36, "name": "Worker density badges useful",                             "baseline_status": "functional"},
+    {"id": 37, "name": "Event ticker styled professionally",                       "baseline_status": "functional"},
+    {"id": 38, "name": "Right-side panels collapsible/tabbed",                     "baseline_status": "visible_not_wired"},
+    {"id": 39, "name": "Bottom inspector useful",                                   "baseline_status": "functional"},
+    {"id": 40, "name": "Overall visual score production-grade",                    "baseline_status": "needs_visual_review"}
+  ]
+}

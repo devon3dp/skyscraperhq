@@ -1,0 +1,31 @@
+{
+  "room_id": "tax_library",
+  "name": "Tax Library",
+  "category": "library",
+  "purpose": "Storing and accessing tax-related literature.",
+  "concierge_blurb": "A vast collection of tax books and journals.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_right",
+    "offset_x": 8.0,
+    "offset_z": -6.5,
+    "footprint_m": [
+      14,
+      12
+    ],
+    "height_m": 2.3
+  },
+  "render": {
+    "primary_prop": "library_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Tax Library",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_102"
+}

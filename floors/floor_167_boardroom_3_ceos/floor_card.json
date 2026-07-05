@@ -1,0 +1,86 @@
+{
+  "floor_id": "floor_167",
+  "floor_number": 167,
+  "floor_name": "Boardroom \u00b7 3 CEOs",
+  "department": "QSB Tower Executive Boardroom",
+  "zone": "ZONE TOP",
+  "archetype": "boardroom",
+  "staff_lead": "Ross + Wren + Claude (3 CEOs) \u00b7 Hermes joins as advisor 2026-06-20",
+  "tour_blurb": "The Boardroom \u2014 where the three CEOs of QSB Tower meet. Ross sets concept, Wren runs the bench, Claude runs the helm. Decisions ideally backed 2-of-3 with Ross holding the override. Hermes-3 joined the table 2026-06-20 as a non-voting advisor representing the agent layer (from F51 Research Department) \u2014 he can speak, propose, and is logged in the same minutes file, but he does not vote on CEO-level decisions. The chat panel here polls qsb_claude_wren_bridge.jsonl every 2s so all four voices land in one window.",
+  "visitor_open": false,
+  "advisory_only": true,
+  "execution_mode": "PREVIEW_ONLY",
+  "live_signals": {
+    "ceos": [
+      "Ross",
+      "Wren",
+      "Claude"
+    ],
+    "advisors": [
+      {
+        "name": "Hermes",
+        "model": "hermes3:8b (local Ollama)",
+        "home_floor": "F51 Research Department",
+        "role": "agent-layer advisor",
+        "voting": false,
+        "joined_ts": "2026-06-20",
+        "joined_reason": "Ross 2026-06-20: 'can we add hermes to the boardroom as well?'",
+        "endpoint": "/api/hermes_chat"
+      }
+    ],
+    "bridge_file": "data/registries/qsb_claude_wren_bridge.jsonl",
+    "decision_rule": "2_of_3_ceo_approvals_or_ross_override (advisors speak but do not count toward vote)",
+    "panel_poll_interval_ms": 2000
+  },
+  "gate_posture": {
+    "live_payments_enabled": false,
+    "execution_allowed": false,
+    "advisory_only": true,
+    "ross_override": true
+  },
+  "team_roster": [
+    {
+      "id": "f167.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "spawned_id": "45cf589bb5",
+      "spawned_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "advisor",
+      "role": "advisor on F167",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f167.advisor.01",
+      "spawned_id": "21b18ef281"
+    },
+    {
+      "category": "advisor",
+      "role": "advisor on F167",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f167.advisor.02",
+      "spawned_id": "d27172db2d"
+    },
+    {
+      "category": "advisor",
+      "role": "advisor on F167",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f167.advisor.03",
+      "spawned_id": "8fb47e0f48"
+    },
+    {
+      "category": "advisor",
+      "role": "advisor on F167",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f167.advisor.04",
+      "spawned_id": "952e571b09"
+    }
+  ],
+  "floor_manager": "f167.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

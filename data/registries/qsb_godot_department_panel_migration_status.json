@@ -1,0 +1,15 @@
+{
+  "ok": true,
+  "kind": "qsb_godot_department_panel_migration_status",
+  "phase": "QSB_OLD_DASHBOARD_TO_GODOT_FEATURE_MIGRATION_V1",
+  "generated_ts": "2026-06-09T21:35:00+00:00",
+  "panels": [
+    {"name": "ML/RL Lab",        "file": "scripts/MLRLPanel.gd",            "registry": "qsb_ml_rl_lab_status.json + qsb_ml_rl_runtime_mode.json + cognitive_ml_rl_advisory.json", "present": true},
+    {"name": "Banking Gateway",  "file": "scripts/BankingGatewayPanel.gd", "registry": "cognitive_banking_gateway_scaffold.json + cognitive_bank_state.json + cognitive_compensation_state.json", "present": true},
+    {"name": "GitHub Scout",     "file": "scripts/GitHubScoutPanel.gd",    "registry": "qsb_github_upgrade_candidates.json", "present": true},
+    {"name": "Kernel Cognitive", "file": "scripts/KernelCognitivePanel.gd","registry": "cognitive_morning_briefing.json + cognitive_self_model.json + cognitive_orchestrator_last_tick.json", "present": true},
+    {"name": "Commerce",         "file": "scripts/CommercePanel.gd",       "registry": "qsb_floor46_commerce_state.json + qsb_floor46_commerce_catalog.json + qsb_floor46_commerce_pricing.json + cognitive_free_image_catalog.json", "present": true},
+    {"name": "Classroom",        "file": "scripts/ClassroomPanel.gd",      "registry": "qsb_ml_rl_classroom_map.json + cognitive_curriculum_evolution.json + cognitive_classroom_state.json + cognitive_worker_certification.json", "present": true}
+  ],
+  "summary": {"total": 6, "present": 6, "missing": 0}
+}

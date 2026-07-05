@@ -1,0 +1,31 @@
+{
+  "room_id": "maintenance_bench_1",
+  "name": "Maintenance Bench",
+  "category": "security",
+  "purpose": "A maintenance station for repairing or replacing components.",
+  "concierge_blurb": "Technicians work on server racks and other equipment here.",
+  "current_state": "already_exists",
+  "visitor_open": false,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "left_wall",
+    "offset_x": -8.0,
+    "offset_z": 1.5,
+    "footprint_m": [
+      2,
+      4
+    ],
+    "height_m": 0.7
+  },
+  "render": {
+    "primary_prop": "bench",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Maintenance Bench",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_106"
+}

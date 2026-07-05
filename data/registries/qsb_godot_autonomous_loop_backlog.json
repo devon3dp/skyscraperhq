@@ -1,0 +1,10 @@
+{
+  "ok": true,
+  "kind": "qsb_godot_autonomous_loop_backlog",
+  "ts": "2026-06-09T22:00:00Z",
+  "items": [
+    {"priority": "P0", "description": "Relaunch to apply title change (kill stale DEBUG window)", "target_file": "(launch script)", "score_lift": 2.5},
+    {"priority": "P1", "description": "Tab-style right-column for panel switching (currently buttons)", "target_file": "scripts/HUDController.gd", "score_lift": 1.5},
+    {"priority": "P2", "description": "Wire ImageMagick install hint for PNG screenshots", "target_file": "scripts/qsb_godot_capture_visual_state.sh", "score_lift": 1.0}
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "ok": true,
+  "kind": "qsb_godot_launch_failure_audit",
+  "phase": "QSB_GODOT_PROJECT_MANAGER_TO_REAL_COCKPIT_FIX_V1",
+  "generated_ts": "2026-06-09T16:09:34+00:00",
+  "user_reported_symptom": "Godot opened Project Manager. QSB cockpit did not launch.",
+  "root_causes_found": [
+    {
+      "id": "RC1",
+      "name": "GDScript Parse Error: Python-style slice [0:40] in TowerRenderer.gd:126",
+      "fix": "Replaced str(...)[0:40] with str(...).substr(0, 40)",
+      "verified": "headless --quit on /home/ross/qsb_godot_test now exit 0"
+    },
+    {
+      "id": "RC2",
+      "name": "Variant inference errors in WorkerRenderer.gd:20 and EventStreamAnimator.gd:66",
+      "fix": "Added explicit type annotations: var dots: int, var ang: float, var y: float, var arc: float \u2014 and float() casts on Dictionary values before lerp().",
+      "verified": "0 parse errors after fix"
+    },
+    {
+      "id": "RC3",
+      "name": "Snap-confined Godot cannot read /vaults/... via --path",
+      "evidence": "/snap/bin/godot-4 --headless --quit --path /vaults/nvme0/qsb_tower_v1/native_cockpit/godot_qsb \u2192 'Invalid project path specified, aborting.' (exit 0, but no project loaded \u2192 Project Manager opens). Same error for /tmp.",
+      "fix": "qsb_godot_run.sh now rsyncs the project to ~/.local/share/qsb_godot_cockpit/ (snap-allowed home path) and launches with --path against that mirror.",
+      "verified": "snap_safe_mirror_exists=true after run; /snap/bin/godot-4 --path /home/.../qsb_godot_cockpit accepts the path"
+    }
+  ],
+  "files_verified_after_fix": {
+    "project.godot": true,
+    "scenes/Main.tscn": true,
+    "scripts/Main.gd": true,
+    "main_scene_reference": "res://scenes/Main.tscn",
+    "config_version": 5,
+    "headless_parse_errors": 0
+  },
+  "snap_safe_mirror_path": "/home/ross/.local/share/qsb_godot_cockpit",
+  "fixes_applied": [
+    "TowerRenderer.gd line 126: substr(0, 40) replaces [0:40]",
+    "WorkerRenderer.gd:20-27: explicit type annotations",
+    "EventStreamAnimator.gd:66-67: float() casts + explicit types",
+    "qsb_godot_run.sh: rsyncs project to snap-safe home, launches with --path",
+    "qsb_godot_launch_check.sh (NEW): 11 gates, includes real headless parse",
+    "IMPORT_INSTRUCTIONS.md (NEW): manual fallback for Project Manager case"
+  ],
+  "honest_admission": "My earlier `headless_parse exit 0` health checks were misleading: Godot's `--headless --quit` exits 0 even when scripts fail to compile \u2014 it just prints SCRIPT ERROR lines to stderr. The new launch_check greps for 'Parse Error|Compile Error|Failed to load' so it actually catches these failures.",
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

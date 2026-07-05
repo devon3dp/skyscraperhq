@@ -1,0 +1,31 @@
+{
+  "room_id": "assistant_council",
+  "name": "Assistant Council",
+  "category": "operations",
+  "purpose": "Council room for voice assistant development and strategy.",
+  "concierge_blurb": "Where the future of voice assistants is shaped.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      12,
+      8
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "seating",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Assistant Council",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_15"
+}

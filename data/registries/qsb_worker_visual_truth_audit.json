@@ -1,0 +1,48 @@
+{
+  "ok": true,
+  "phase": "QSB_WORKER_TRUTH_AND_VISUAL_ROUTE_REPAIR_V1",
+  "kind": "qsb_worker_visual_truth_audit",
+  "generated_ts": "2026-06-30T13:46:34.628193+00:00",
+  "policy": "LIVE_DATA_ONLY \u00b7 sim seeds must be visually tagged SIM",
+  "renderer_truth_table": [
+    {
+      "element": "SVG 2D worker dot",
+      "source": "/api/unified.workers[] (legacy 64-view)",
+      "data_driven": true,
+      "honest_label": "includes 48 sim_worker_floor_* SIM seeds",
+      "concern": "All 48 sim_workers default to floor_41 and render as a horizontal band across that single slab. Visually it looks like a crowd. They are seed records, not live operational workers.",
+      "fix_in_this_phase": "Tag every sim_worker_floor_* dot with a 'SIM' CSS class via the V1 truth overlay; reduce opacity; show 'SIM \u00b7 simulation seed' on hover."
+    },
+    {
+      "element": "Babylon 3D worker mesh",
+      "source": "/api/unified.workers[] (same legacy view)",
+      "data_driven": true,
+      "honest_label": "same 64-view; anchored to floor slabs by V3 patch",
+      "concern": "Workers are anchored deterministically (V3 fix), but since 48 of them pin to floor_41, the visual still looks like a dense band on that one floor.",
+      "fix_in_this_phase": "Same SIM tagging in the 3D scene via _qsbBase.cls='sim' emissive dimming."
+    },
+    {
+      "element": "Worker movements (real)",
+      "source": "/api/dashboard/live_telemetry.worker_movements",
+      "data_driven": true,
+      "honest_label": "18 real trade-event-derived transit packets",
+      "concern": "None \u2014 movements come from paper_trade_events.",
+      "fix_in_this_phase": "Keep as-is."
+    },
+    {
+      "element": "Worker orbit band around tower",
+      "source": "n/a",
+      "data_driven": true,
+      "honest_label": "V3 phase removed all orbits; current band is a SIM CLUSTER on floor_41, not an orbit",
+      "concern": "The previous master audit was correct that no random orbit math runs; the user's perception of a 'band' comes from the 48 sim_workers clustered on floor_41. We must label this honestly.",
+      "fix_in_this_phase": "Tag SIM; reduce visual weight; show count badge."
+    }
+  ],
+  "movements_count": 25,
+  "honest_status": "The previous master audit overstated 'fake=0'. There is no RANDOM motion, but there ARE simulation-seed workers being rendered as if they were live operational workers. This phase tags them clearly and reduces their visual weight.",
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false
+}

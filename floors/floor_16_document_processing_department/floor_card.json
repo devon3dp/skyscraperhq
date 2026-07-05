@@ -1,0 +1,70 @@
+{
+  "floor_id": "floor_16",
+  "floor_number": 16,
+  "floor_name": "Listing Writer + SEO Lab",
+  "department": "Listing Writer + SEO Lab",
+  "zone": "ZONE B",
+  "archetype": "commerce_wing_floor",
+  "staff_lead": "F16 crew",
+  "tour_blurb": "Listing Writer + SEO Lab \u2014 part of the QSB Tower commerce wing. Advisory only; no live orders or live payments flow through this floor without an explicit operator-confirmed unlock.",
+  "visitor_open": true,
+  "advisory_only": true,
+  "execution_mode": "PREVIEW_ONLY",
+  "live_payments_in_play": false,
+  "live_listings_publishing_enabled": false,
+  "live_signals": {
+    "mode": "PREVIEW_ONLY",
+    "advisory_only": true
+  },
+  "gate_posture": {
+    "live_payments_enabled": false,
+    "live_listings_publishing_enabled": false,
+    "execution_allowed": false,
+    "advisory_only": true
+  },
+  "team_roster": [
+    {
+      "id": "f016.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "spawned_id": "ee553f7653",
+      "spawned_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F016",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f016.operator.01",
+      "spawned_id": "48f57155c3"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F016",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f016.operator.02",
+      "spawned_id": "cd47b6a8d2"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F016",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f016.operator.03",
+      "spawned_id": "340df5e6cd"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F016",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f016.operator.04",
+      "spawned_id": "31435107ca"
+    }
+  ],
+  "floor_manager": "f016.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

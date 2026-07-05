@@ -1,0 +1,24 @@
+{
+  "ok": true,
+  "kind": "qsb_godot_kernel_chat_migration_status",
+  "phase": "QSB_OLD_DASHBOARD_TO_GODOT_FEATURE_MIGRATION_V1",
+  "generated_ts": "2026-06-09T21:35:00+00:00",
+  "godot_files": [
+    "scripts/KernelChatPanel.gd",
+    "scripts/KernelChatBridge.gd"
+  ],
+  "components": {
+    "input_box": true,
+    "send_button": true,
+    "response_area": true,
+    "scrollable_history": true,
+    "status_indicator": true,
+    "clear_button": "planned",
+    "recent_prompts_list": "planned",
+    "registry_backed_answer_test": true
+  },
+  "endpoint_used": "http://127.0.0.1:8765/api/kernel_chat",
+  "fallback_when_endpoint_down": "ticker-line ('chat backend unavailable')",
+  "secrets_exposed": false,
+  "live_execution_triggered": false
+}

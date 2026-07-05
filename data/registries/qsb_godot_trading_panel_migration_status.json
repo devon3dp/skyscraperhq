@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "kind": "qsb_godot_trading_panel_migration_status",
+  "phase": "QSB_OLD_DASHBOARD_TO_GODOT_FEATURE_MIGRATION_V1",
+  "generated_ts": "2026-06-09T21:35:00+00:00",
+  "godot_files": [
+    "scripts/TradingPanel.gd",
+    "scripts/RiskPanel.gd"
+  ],
+  "panels": {
+    "oanda_floor_41":   {"present": true, "registry": "qsb_floor41_oanda_pnl.json + oanda_trading_floor_latest_snapshot.json"},
+    "binance_floor_42": {"present": true, "registry": "qsb_floor42_binance_testnet_state.json"},
+    "stocks_floor_43":  {"present": true, "registry": "qsb_floor43_stocks_state.json"},
+    "accounts_floor_44":{"present": true, "registry": "qsb_floor41_oanda_pnl.json (proxy)"},
+    "strategy_lab":     {"present": true, "registry": "oanda_paper_strategy_status (indirect)"},
+    "paper_testnet_research": {"present": true},
+    "risk_guardian":    {"present": true, "registry": "eqsb_guardian_state.json"}
+  },
+  "live_trading_enabled":            false,
+  "order_execution_enabled":          false,
+  "provider_execution_enabled":       false,
+  "shows_stale_or_missing":           true
+}

@@ -1,0 +1,108 @@
+{
+  "ok": true,
+  "kind": "qsb_floor41_oanda_instruments",
+  "phase": "QSB_FLOOR_41_OANDA_FULL_TRADING_FLOOR_REBUILD_V1",
+  "generated_ts": "2026-06-30T13:46:36.386200+00:00",
+  "instrument_count": 11,
+  "instruments": [
+    {
+      "instrument": "EUR_USD",
+      "display_name": "EUR/USD",
+      "pip_location": -4,
+      "active": true,
+      "tradeable_in_paper": true,
+      "tradeable_live": false
+    },
+    {
+      "instrument": "GBP_USD",
+      "display_name": "GBP/USD",
+      "pip_location": -4,
+      "active": true,
+      "tradeable_in_paper": true,
+      "tradeable_live": false
+    },
+    {
+      "instrument": "USD_JPY",
+      "display_name": "USD/JPY",
+      "pip_location": -2,
+      "active": true,
+      "tradeable_in_paper": true,
+      "tradeable_live": false
+    },
+    {
+      "instrument": "AUD_USD",
+      "display_name": "AUD/USD",
+      "pip_location": -4,
+      "active": true,
+      "tradeable_in_paper": true,
+      "tradeable_live": false
+    },
+    {
+      "instrument": "USD_CAD",
+      "display_name": "USD/CAD",
+      "pip_location": -4,
+      "active": true,
+      "tradeable_in_paper": true,
+      "tradeable_live": false
+    },
+    {
+      "instrument": "EUR_GBP",
+      "display_name": "EUR/GBP",
+      "pip_location": -4,
+      "active": true,
+      "tradeable_in_paper": true,
+      "tradeable_live": false
+    },
+    {
+      "instrument": "XAU_USD",
+      "display_name": "XAU/USD",
+      "pip_location": -4,
+      "active": true,
+      "tradeable_in_paper": true,
+      "tradeable_live": false
+    },
+    {
+      "instrument": "XAG_USD",
+      "display_name": "XAG/USD",
+      "pip_location": -4,
+      "active": true,
+      "tradeable_in_paper": true,
+      "tradeable_live": false
+    },
+    {
+      "instrument": "BCO_USD",
+      "display_name": "BCO/USD",
+      "pip_location": -4,
+      "active": true,
+      "tradeable_in_paper": true,
+      "tradeable_live": false
+    },
+    {
+      "instrument": "WTICO_USD",
+      "display_name": "WTICO/USD",
+      "pip_location": -4,
+      "active": true,
+      "tradeable_in_paper": true,
+      "tradeable_live": false
+    },
+    {
+      "instrument": "NATGAS_USD",
+      "display_name": "NATGAS/USD",
+      "pip_location": -4,
+      "active": true,
+      "tradeable_in_paper": true,
+      "tradeable_live": false
+    }
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "oanda_practice_paper_trading_allowed": true,
+  "live_money_enabled": false,
+  "oanda_live_environment_allowed": false,
+  "real_production_trading_allowed": false,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "worker_execution_enabled": false,
+  "autonomous_dispatch_enabled": false
+}

@@ -1,0 +1,72 @@
+{
+  "floor_id": "floor_67",
+  "floor_number": 67,
+  "floor_name": "Wellness Studio",
+  "department": "designed_by_f66_architects_v1",
+  "zone": "ZONE D \u00b7 COMMERCE WING",
+  "archetype": "designed_by_f66_architects_v1",
+  "staff_lead": "F66 Architects' Office",
+  "tour_blurb": "yoga + meditation + massage",
+  "visitor_open": false,
+  "advisory_only": true,
+  "execution_mode": "PREVIEW_ONLY",
+  "skeleton": true,
+  "skeleton_source": "floor_manifest.json",
+  "skeleton_generated_ts": "2026-06-17",
+  "live_signals": {
+    "theme": null,
+    "categories": null,
+    "palette": null,
+    "tagline": null
+  },
+  "gate_posture": {
+    "advisory_only": true,
+    "execution_allowed": false,
+    "live_payments_enabled": false
+  },
+  "team_roster": [
+    {
+      "id": "f067.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "spawned_id": "e028c55afb",
+      "spawned_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F067",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f067.operator.01",
+      "spawned_id": "3da633d240"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F067",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f067.operator.02",
+      "spawned_id": "f727fb4487"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F067",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f067.operator.03",
+      "spawned_id": "1849c1c0e9"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F067",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f067.operator.04",
+      "spawned_id": "bc7eca5994"
+    }
+  ],
+  "floor_manager": "f067.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

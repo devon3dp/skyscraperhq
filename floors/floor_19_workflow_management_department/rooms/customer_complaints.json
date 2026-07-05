@@ -1,0 +1,34 @@
+{
+  "room_id": "customer_complaints",
+  "name": "Customer Complaints Office",
+  "category": "admin",
+  "purpose": "To handle and resolve customer complaints.",
+  "concierge_blurb": "Let us know if you have any issues to be resolved.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -6.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      3.5,
+      2.5
+    ],
+    "height_m": 1.8
+  },
+  "render": {
+    "primary_prop": "chair_set",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Complaints",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_19"
+}

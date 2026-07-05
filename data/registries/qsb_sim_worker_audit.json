@@ -1,0 +1,18 @@
+{
+  "ok": true,
+  "kind": "qsb_sim_worker_audit",
+  "phase": "QSB_WORKFORCE_OPERATIONS_REDESIGN_RECRUITMENT_TRAINING_LESSONS_V1",
+  "generated_ts": "2026-06-30T13:46:34.652169+00:00",
+  "sim_worker_count": 48,
+  "verdict": "training_workers_relocated_to_training_academy",
+  "relocation_target_floor": "floor_36_expansion_planning_department",
+  "relocation_target_floor_number": 36,
+  "policy": "sim_worker_floor_NN records are simulation seeds used by tests and training scenarios. They are NOT operational workers. In V1 redesign they are: (a) classified as training_worker, (b) homed at floor_36 (Training Academy sub-department), (c) hidden from exterior tower view, (d) visible only when the operator opens the Training Academy floor interior.",
+  "should_be_hidden_externally": true,
+  "should_be_visible_in_training_academy_interior": true,
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false
+}

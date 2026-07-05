@@ -1,0 +1,18 @@
+{
+  "poll_seconds": 10,
+  "cool_ticks_to_recover": 12,
+  "gpu_warn_c": 64,
+  "gpu_throttle_c": 70,
+  "gpu_critical_c": 78,
+  "cpu_warn_c": 75,
+  "cpu_throttle_c": 85,
+  "cpu_critical_c": 92,
+  "gpu_pl_throttle_w": 250,
+  "gpu_clock_throttle_mhz": [
+    210,
+    1300
+  ],
+  "cpu_max_freq_throttle_khz": 3800000,
+  "cpu_max_freq_critical_khz": 2800000,
+  "ollama_unload_on_critical": true
+}

@@ -1,0 +1,34 @@
+{
+  "room_id": "protein_expression_room",
+  "name": "Protein Expression Room",
+  "category": "workshop",
+  "purpose": "Expresses and purifies proteins for research.",
+  "concierge_blurb": "A space dedicated to the expression and purification of proteins.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -4.0,
+    "offset_z": 5.0,
+    "footprint_m": [
+      8,
+      6
+    ],
+    "height_m": 1.5
+  },
+  "render": {
+    "primary_prop": "bench",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Exp Room",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": null
+  },
+  "floor": "floor_118"
+}

@@ -1,0 +1,15 @@
+{
+  "ok": true,
+  "kind": "qsb_godot_commentary_settings",
+  "ts": "2026-06-09T21:07:08Z",
+  "commentary_enabled": false,
+  "voice_enabled": false,
+  "sound_enabled": false,
+  "event_beeps_enabled": false,
+  "kernel_readout_enabled": false,
+  "openclaw_alerts_enabled": false,
+  "muted": false,
+  "tts_backend": "spd-say",
+  "default_rate": 10,
+  "note": "Operator toggles flip these via AudioControlPanel; defaults start OFF."
+}

@@ -1,0 +1,96 @@
+{
+  "ok": true,
+  "kind": "qsb_penthouse_gauges",
+  "phase": "QSB_KERNEL_CHAT_PENTHOUSE_AND_3D_DASHBOARD_REALITY_FIX_V1",
+  "generated_ts": "2026-06-30T13:46:36.731584+00:00",
+  "gauge_count": 10,
+  "gauges": [
+    {
+      "id": "kernel_continuity",
+      "label": "Kernel continuity",
+      "value": "100%",
+      "unit": "",
+      "status": "ok",
+      "source": "qsb_penthouse_command_state.kernel_active"
+    },
+    {
+      "id": "cadence_tick",
+      "label": "Cadence tick",
+      "value": 73,
+      "unit": "ticks",
+      "status": "ok",
+      "source": "eqsb_cadence_state.tick_count"
+    },
+    {
+      "id": "guardian_state",
+      "label": "Guardian",
+      "value": "OK",
+      "unit": "",
+      "status": "ok",
+      "source": "eqsb_guardian_state.safety_state"
+    },
+    {
+      "id": "locks_open",
+      "label": "Execution locks open",
+      "value": 0,
+      "unit": "/ 13",
+      "status": "ok",
+      "source": "eqsb_guardian_state.locks"
+    },
+    {
+      "id": "workers_active",
+      "label": "Workers active",
+      "value": 1190,
+      "unit": "workers",
+      "status": "ok",
+      "source": "qsb_worker_truth_contract.active_reporting_workers"
+    },
+    {
+      "id": "openclaw_floor",
+      "label": "OpenClaw on floor",
+      "value": 30,
+      "unit": "",
+      "status": "ok",
+      "source": "qsb_openclaw_route.current_floor"
+    },
+    {
+      "id": "pnl_realized",
+      "label": "Floor 41 realized PnL",
+      "value": -225.176,
+      "unit": "USD (paper)",
+      "status": "ok",
+      "source": "qsb_floor41_oanda_pnl.realized_pnl_total"
+    },
+    {
+      "id": "pnl_unrealized",
+      "label": "Floor 41 unrealized PnL",
+      "value": 0,
+      "unit": "USD (paper)",
+      "status": "ok",
+      "source": "qsb_floor41_oanda_pnl.unrealized_pnl_total"
+    },
+    {
+      "id": "memory_total_gb",
+      "label": "Host memory total",
+      "value": "n/a",
+      "unit": "GiB",
+      "status": "ok",
+      "source": "qsb_hardware_floor_audit"
+    },
+    {
+      "id": "real_money_lock",
+      "label": "Real-money trading",
+      "value": "OFF",
+      "unit": "(locked in code)",
+      "status": "ok",
+      "source": "policy"
+    }
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "worker_execution_enabled": false,
+  "autonomous_dispatch_enabled": false
+}

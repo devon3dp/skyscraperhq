@@ -1,0 +1,34 @@
+{
+  "room_id": "customer_service",
+  "name": "Customer Service Desk",
+  "category": "reception",
+  "purpose": "Provides assistance to customers and manages inquiries.",
+  "concierge_blurb": "Your questions about printing are our priority here at the Customer Service Desk.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": -5.5,
+    "footprint_m": [
+      3.0,
+      2.0
+    ],
+    "height_m": 1.5
+  },
+  "render": {
+    "primary_prop": "reception",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "CS Desk",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": null,
+    "refresh_seconds": 600
+  },
+  "floor": "floor_14"
+}

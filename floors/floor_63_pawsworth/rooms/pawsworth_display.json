@@ -1,0 +1,31 @@
+{
+  "room_id": "pawsworth_display",
+  "name": "Pawsworth Display Room",
+  "category": "display",
+  "purpose": "Displays items for visitors to admire.",
+  "concierge_blurb": "Discover unique items from Pawsworth here.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": -5.0,
+    "footprint_m": [
+      4,
+      6
+    ],
+    "height_m": 1.8
+  },
+  "render": {
+    "primary_prop": "plinth",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Pawsworth Display",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_63"
+}

@@ -1,0 +1,34 @@
+{
+  "policy": "safe_strategy_intelligence_retry_v1",
+  "version": "1.0",
+  "mode": "standalone_paper_only_signal_intelligence",
+  "environment": "oanda_practice_read_only",
+  "granularity": "M5",
+  "candle_count": 80,
+  "min_complete_candles": 20,
+  "min_confidence_for_bias": 0.62,
+  "max_spread_pips": {
+    "EUR_USD": 1.4,
+    "GBP_USD": 1.8,
+    "USD_JPY": 1.8,
+    "default": 1.8
+  },
+  "momentum_gate_pips": {
+    "default": 0.75,
+    "USD_JPY": 0.75
+  },
+  "paper_trading_enabled": true,
+  "strategy_intelligence_enabled": true,
+  "history_reads_enabled": true,
+  "live_trading_enabled": false,
+  "order_execution_enabled": false,
+  "practice_order_execution_enabled": false,
+  "worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "external_provider_execution_enabled": false,
+  "openclaw_execution_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "live_dispatch_enabled": false,
+  "direct_provider_access": false
+}

@@ -1,0 +1,13 @@
+{
+  "operator_approval_recorded": true,
+  "approved_by": "ross",
+  "approval_ts": "2026-06-07T21:33:44.143522+00:00",
+  "approval_phrase_hash": "582da8174c85305fb49c68237865e619c080cc1933584b91534016e138a95c5a",
+  "approval_scope": "final_qsb_kernel_activation",
+  "activation_requested": true,
+  "activation_allowed": false,
+  "kernel_installed": false,
+  "QSBKernelCore_instantiated": false,
+  "notes": "Operator approves the final activation gate conditions to pass. This does NOT install the kernel or instantiate QSBKernelCore. Actual kernel instantiation is a separate explicit step requiring another deliberate operator action.",
+  "approval_note": "Ross explicitly approved final local-only QSB Kernel activation."
+}

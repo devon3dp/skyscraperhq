@@ -1,0 +1,34 @@
+{
+  "room_id": "permissions_seating",
+  "name": "Break Area",
+  "category": "seating",
+  "purpose": "This room is for taking breaks and informal meetings.",
+  "concierge_blurb": "A comfortable seating area with chairs and a small table.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -4.0,
+    "offset_z": 8.0,
+    "footprint_m": [
+      5.0,
+      3.0
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "chair_set",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Break Area",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_30"
+}

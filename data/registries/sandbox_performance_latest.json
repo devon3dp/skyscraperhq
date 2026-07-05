@@ -1,0 +1,198 @@
+{
+  "ts": "2026-07-01T13:46:51.015530+00:00",
+  "started_ts": "2026-07-01T13:46:50.463162+00:00",
+  "phase": "SANDBOX_PERFORMANCE_LOOP_V1",
+  "mode": "paper_only_sandbox_performance",
+  "ticks_requested": 1,
+  "ticks_completed": 1,
+  "delay_seconds": 0,
+  "instruments": "EUR_USD,GBP_USD,USD_JPY",
+  "worker_count": 12,
+  "performance": {
+    "entries_analyzed": 3,
+    "total_paper_score": 0.1,
+    "total_observation_delta_pips": -1.4999999999994351,
+    "by_instrument": [
+      {
+        "instrument": "EUR_USD",
+        "entries": 1,
+        "signals": {
+          "observe": 1
+        },
+        "delta_pips_total": -0.2999999999997449,
+        "delta_pips_avg": -0.2999999999997449,
+        "avg_spread_pips": 0.9000000000014552,
+        "paper_score_total": 0.05,
+        "paper_score_avg": 0.05
+      },
+      {
+        "instrument": "GBP_USD",
+        "entries": 1,
+        "signals": {
+          "observe": 1
+        },
+        "delta_pips_total": -1.1500000000008725,
+        "delta_pips_avg": -1.1500000000008725,
+        "avg_spread_pips": 1.40000000000029,
+        "paper_score_total": 0.05,
+        "paper_score_avg": 0.05
+      },
+      {
+        "instrument": "USD_JPY",
+        "entries": 1,
+        "signals": {
+          "observe": 1
+        },
+        "delta_pips_total": -0.04999999999881766,
+        "delta_pips_avg": -0.04999999999881766,
+        "avg_spread_pips": 1.9000000000005457,
+        "paper_score_total": 0.0,
+        "paper_score_avg": 0.0
+      }
+    ]
+  },
+  "tick_reports": [
+    {
+      "tick_index": 1,
+      "ts": "2026-07-01T13:46:50.463284+00:00",
+      "status": "healthy",
+      "packet_count": 12,
+      "lab_summary": {
+        "instrument_count": 3,
+        "tradeable_count": 3,
+        "avg_spread_pips": 1.4000000000007635,
+        "signal_counts": {
+          "observe": 3
+        },
+        "errors": []
+      },
+      "latest_entries": [
+        {
+          "id": "paper_cfb25d597295",
+          "ts": "2026-07-01T13:46:50.955544+00:00",
+          "floor": "floor_41",
+          "source": "oanda_paper_strategy_lab_v1",
+          "instrument": "EUR_USD",
+          "paper_signal": "observe",
+          "paper_direction": "flat_observation",
+          "paper_reason": "balanced book / no clear paper edge",
+          "bid": 1.14082,
+          "ask": 1.14091,
+          "mid": 1.140865,
+          "spread_pips": 0.9000000000014552,
+          "top_liquidity_imbalance": 0.0,
+          "prior_mid": 1.140895,
+          "simulated_delta": -2.999999999997449e-05,
+          "simulated_delta_pips_since_prior_observation": -0.2999999999997449,
+          "account_nav": "99150.3200",
+          "paper_only": true,
+          "not_financial_advice": true,
+          "locks": {
+            "live_trading_enabled": false,
+            "order_execution_enabled": false,
+            "practice_order_execution_enabled": false,
+            "worker_execution_enabled": false,
+            "provider_execution_enabled": false,
+            "external_provider_execution_enabled": false,
+            "openclaw_execution_enabled": false,
+            "autonomous_dispatch_enabled": false,
+            "live_dispatch_enabled": false,
+            "direct_provider_access": false
+          }
+        },
+        {
+          "id": "paper_f6abc8664002",
+          "ts": "2026-07-01T13:46:50.955544+00:00",
+          "floor": "floor_41",
+          "source": "oanda_paper_strategy_lab_v1",
+          "instrument": "GBP_USD",
+          "paper_signal": "observe",
+          "paper_direction": "flat_observation",
+          "paper_reason": "balanced book / no clear paper edge",
+          "bid": 1.32755,
+          "ask": 1.32769,
+          "mid": 1.32762,
+          "spread_pips": 1.40000000000029,
+          "top_liquidity_imbalance": 0.0,
+          "prior_mid": 1.327735,
+          "simulated_delta": -0.00011500000000008725,
+          "simulated_delta_pips_since_prior_observation": -1.1500000000008725,
+          "account_nav": "99150.3200",
+          "paper_only": true,
+          "not_financial_advice": true,
+          "locks": {
+            "live_trading_enabled": false,
+            "order_execution_enabled": false,
+            "practice_order_execution_enabled": false,
+            "worker_execution_enabled": false,
+            "provider_execution_enabled": false,
+            "external_provider_execution_enabled": false,
+            "openclaw_execution_enabled": false,
+            "autonomous_dispatch_enabled": false,
+            "live_dispatch_enabled": false,
+            "direct_provider_access": false
+          }
+        },
+        {
+          "id": "paper_d0af243bf807",
+          "ts": "2026-07-01T13:46:50.955544+00:00",
+          "floor": "floor_41",
+          "source": "oanda_paper_strategy_lab_v1",
+          "instrument": "USD_JPY",
+          "paper_signal": "observe",
+          "paper_direction": "flat_observation",
+          "paper_reason": "balanced book / no clear paper edge",
+          "bid": 162.305,
+          "ask": 162.324,
+          "mid": 162.3145,
+          "spread_pips": 1.9000000000005457,
+          "top_liquidity_imbalance": 0.0,
+          "prior_mid": 162.315,
+          "simulated_delta": -0.0004999999999881766,
+          "simulated_delta_pips_since_prior_observation": -0.04999999999881766,
+          "account_nav": "99150.3200",
+          "paper_only": true,
+          "not_financial_advice": true,
+          "locks": {
+            "live_trading_enabled": false,
+            "order_execution_enabled": false,
+            "practice_order_execution_enabled": false,
+            "worker_execution_enabled": false,
+            "provider_execution_enabled": false,
+            "external_provider_execution_enabled": false,
+            "openclaw_execution_enabled": false,
+            "autonomous_dispatch_enabled": false,
+            "live_dispatch_enabled": false,
+            "direct_provider_access": false
+          }
+        }
+      ],
+      "locks": {
+        "live_trading_enabled": false,
+        "order_execution_enabled": false,
+        "practice_order_execution_enabled": false,
+        "worker_execution_enabled": false,
+        "provider_execution_enabled": false,
+        "external_provider_execution_enabled": false,
+        "openclaw_execution_enabled": false,
+        "autonomous_dispatch_enabled": false,
+        "live_dispatch_enabled": false,
+        "direct_provider_access": false
+      }
+    }
+  ],
+  "locks": {
+    "live_trading_enabled": false,
+    "order_execution_enabled": false,
+    "practice_order_execution_enabled": false,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "external_provider_execution_enabled": false,
+    "openclaw_execution_enabled": false,
+    "autonomous_dispatch_enabled": false,
+    "live_dispatch_enabled": false,
+    "direct_provider_access": false
+  },
+  "paper_only": true,
+  "not_financial_advice": true
+}

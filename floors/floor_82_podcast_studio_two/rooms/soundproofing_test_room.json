@@ -1,0 +1,34 @@
+{
+  "room_id": "soundproofing_test_room",
+  "name": "Soundproofing Test Room",
+  "category": "lab",
+  "purpose": "Testing the effectiveness of sound insulation materials.",
+  "concierge_blurb": "Ensuring that our recordings are free from unwanted noise.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -7.5,
+    "offset_z": 8.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 2.3
+  },
+  "render": {
+    "primary_prop": "chamber",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Test Chamber",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_82"
+}

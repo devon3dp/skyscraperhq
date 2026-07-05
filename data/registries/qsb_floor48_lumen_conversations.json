@@ -1,0 +1,398 @@
+{
+  "ok": true,
+  "kind": "qsb_floor48_lumen_conversations",
+  "generated_ts": "2026-07-05T07:02:09+00:00",
+  "policy": "Per-conversation rolling history. Local only.",
+  "conversation_count": 15,
+  "max_history_turns": 50,
+  "conversations": [
+    {
+      "conversation_id": "conv_1781623742_834f1c",
+      "started_ts": 1781623742.9837103,
+      "last_ts": 1781623742.988735,
+      "user_label": "guest",
+      "turn_count": 2,
+      "last_turn_excerpt": "Hi, I'm Lumen \u2014 the tower's local chat AI. I won't pretend to know things I don't. Try 'tower briefing' or 'family tree' to start.",
+      "turns": [
+        {
+          "role": "user",
+          "content": "one short hello",
+          "ts": 1781623742.9837146,
+          "matched_topics": [],
+          "fallback_reason": null
+        },
+        {
+          "role": "lumen",
+          "content": "Hi, I'm Lumen \u2014 the tower's local chat AI. I won't pretend to know things I don't. Try 'tower briefing' or 'family tree' to start.",
+          "ts": 1781623742.9887326,
+          "matched_topics": [
+            "greeting"
+          ],
+          "fallback_reason": null
+        }
+      ]
+    },
+    {
+      "conversation_id": "conv_1781456729_eef7eb",
+      "started_ts": 1781456729.5063863,
+      "last_ts": 1781456729.5065022,
+      "user_label": "guest",
+      "turn_count": 2,
+      "last_turn_excerpt": "Hi, I'm Lumen \u2014 the tower's local chat AI. I won't pretend to know things I don't. Try 'tower briefing' or 'family tree' to start.",
+      "turns": [
+        {
+          "role": "user",
+          "content": "hello",
+          "ts": 1781456729.5063908,
+          "matched_topics": [],
+          "fallback_reason": null
+        },
+        {
+          "role": "lumen",
+          "content": "Hi, I'm Lumen \u2014 the tower's local chat AI. I won't pretend to know things I don't. Try 'tower briefing' or 'family tree' to start.",
+          "ts": 1781456729.5065002,
+          "matched_topics": [
+            "greeting"
+          ],
+          "fallback_reason": null
+        }
+      ]
+    },
+    {
+      "conversation_id": "conv_1781454911_0a796f",
+      "started_ts": 1781454911.8980606,
+      "last_ts": 1781454911.8981872,
+      "user_label": "guest",
+      "turn_count": 2,
+      "last_turn_excerpt": "Hi, I'm Lumen \u2014 the tower's local chat AI. I won't pretend to know things I don't. Try 'tower briefing' or 'family tree' to start.",
+      "turns": [
+        {
+          "role": "user",
+          "content": "What is this place?",
+          "ts": 1781454911.8980634,
+          "matched_topics": [],
+          "fallback_reason": null
+        },
+        {
+          "role": "lumen",
+          "content": "Hi, I'm Lumen \u2014 the tower's local chat AI. I won't pretend to know things I don't. Try 'tower briefing' or 'family tree' to start.",
+          "ts": 1781454911.8981857,
+          "matched_topics": [
+            "greeting"
+          ],
+          "fallback_reason": null
+        }
+      ]
+    },
+    {
+      "conversation_id": "conv_1781454911_b54318",
+      "started_ts": 1781454911.8759158,
+      "last_ts": 1781454911.8773415,
+      "user_label": "guest",
+      "turn_count": 2,
+      "last_turn_excerpt": "EQSB Kernel \u2014 Structured Introspection\n========================================================\nschema_version: eqsb_major_v1.0\ngenerated_ts:   2026-06-09T08:56",
+      "turns": [
+        {
+          "role": "user",
+          "content": "tower briefing",
+          "ts": 1781454911.8759186,
+          "matched_topics": [],
+          "fallback_reason": null
+        },
+        {
+          "role": "lumen",
+          "content": "EQSB Kernel \u2014 Structured Introspection\n========================================================\nschema_version: eqsb_major_v1.0\ngenerated_ts:   2026-06-09T08:56:44.962414+00:00\nlock_count_true: 0 \u00b7 active_local_only: True \u00b7 execution_allowed: False\n\nTower Morning Briefing\n--------------------------------------------------------\nHEADLINE:  Tower steady. PnL $1620, Bank 3378 QBC, 1 friend edges, 0 child edges, 9042 certified.\n\nState:\n  \u00b7 Practice PnL: $1620.46 across 12 worker(s). Top earners: demo_worker_A ($1489), demo_worker_B ($132), f41_order_entry_clerk ($0).\n  \u00b7 Bank: 3378 QBC outstanding (0.34% of 1000000 cap). Top concentration: 0.2813.\n  \u00b7 Certifications: {'certified': 9042, 'tested': 26}. Authority gate: certified=37, suspended=0.\n  \u00b7 Family tree: 1 friend edge(s), 0 child edge(s). Population: 0 / 5000.\n  \u00b7 Commerce projection: revenue $2262/mo, profit $1784/mo. Warnings: ['oanda_floor41_pnl_zero_or_missing', 'binance_testnet_state_missing', 'stocks_paper_state_missing'].\n\nGates (always):\n  execution_allowed: False\n  live_payments_enabled: False\n  real_money_live_trading_enabled: False\n  autonomous_dispatch_enabled: False\n\n--------------------------------------------------\n\n[truncated for chat \u2014 full block available via kernel chat in dashboard]",
+          "ts": 1781454911.8773398,
+          "matched_topics": [
+            "morning_briefing"
+          ],
+          "fallback_reason": null
+        }
+      ]
+    },
+    {
+      "conversation_id": "conv_1781454911_21a376",
+      "started_ts": 1781454911.8707695,
+      "last_ts": 1781454911.8708591,
+      "user_label": "guest",
+      "turn_count": 2,
+      "last_turn_excerpt": "Hi, I'm Lumen \u2014 the tower's local chat AI. I won't pretend to know things I don't. Try 'tower briefing' or 'family tree' to start.",
+      "turns": [
+        {
+          "role": "user",
+          "content": "hello",
+          "ts": 1781454911.8707743,
+          "matched_topics": [],
+          "fallback_reason": null
+        },
+        {
+          "role": "lumen",
+          "content": "Hi, I'm Lumen \u2014 the tower's local chat AI. I won't pretend to know things I don't. Try 'tower briefing' or 'family tree' to start.",
+          "ts": 1781454911.8708575,
+          "matched_topics": [
+            "greeting"
+          ],
+          "fallback_reason": null
+        }
+      ]
+    },
+    {
+      "conversation_id": "conv_1781454482_f3e0cb",
+      "started_ts": 1781454482.432572,
+      "last_ts": 1781454482.433793,
+      "user_label": "guest",
+      "turn_count": 2,
+      "last_turn_excerpt": "EQSB Kernel \u2014 Structured Introspection\n========================================================\nschema_version: eqsb_major_v1.0\ngenerated_ts:   2026-06-09T08:56",
+      "turns": [
+        {
+          "role": "user",
+          "content": "tower briefing",
+          "ts": 1781454482.432576,
+          "matched_topics": [],
+          "fallback_reason": null
+        },
+        {
+          "role": "lumen",
+          "content": "EQSB Kernel \u2014 Structured Introspection\n========================================================\nschema_version: eqsb_major_v1.0\ngenerated_ts:   2026-06-09T08:56:44.962414+00:00\nlock_count_true: 0 \u00b7 active_local_only: True \u00b7 execution_allowed: False\n\nTower Morning Briefing\n--------------------------------------------------------\nHEADLINE:  Tower steady. PnL $1620, Bank 3378 QBC, 1 friend edges, 0 child edges, 9042 certified.\n\nState:\n  \u00b7 Practice PnL: $1620.46 across 12 worker(s). Top earners: demo_worker_A ($1489), demo_worker_B ($132), f41_order_entry_clerk ($0).\n  \u00b7 Bank: 3378 QBC outstanding (0.34% of 1000000 cap). Top concentration: 0.2813.\n  \u00b7 Certifications: {'certified': 9042, 'tested': 26}. Authority gate: certified=37, suspended=0.\n  \u00b7 Family tree: 1 friend edge(s), 0 child edge(s). Population: 0 / 5000.\n  \u00b7 Commerce projection: revenue $2262/mo, profit $1784/mo. Warnings: ['oanda_floor41_pnl_zero_or_missing', 'binance_testnet_state_missing', 'stocks_paper_state_missing'].\n\nGates (always):\n  execution_allowed: False\n  live_payments_enabled: False\n  real_money_live_trading_enabled: False\n  autonomous_dispatch_enabled: False\n\n--------------------------------------------------\n\n[truncated for chat \u2014 full block available via kernel chat in dashboard]",
+          "ts": 1781454482.4337914,
+          "matched_topics": [
+            "morning_briefing"
+          ],
+          "fallback_reason": null
+        }
+      ]
+    },
+    {
+      "conversation_id": "conv_1781454420_fbb8fc",
+      "started_ts": 1781454420.477671,
+      "last_ts": 1781454420.4777477,
+      "user_label": "guest",
+      "turn_count": 2,
+      "last_turn_excerpt": "Hi, I'm Lumen \u2014 the tower's local chat AI. I won't pretend to know things I don't. Try 'tower briefing' or 'family tree' to start.",
+      "turns": [
+        {
+          "role": "user",
+          "content": "hello",
+          "ts": 1781454420.4776745,
+          "matched_topics": [],
+          "fallback_reason": null
+        },
+        {
+          "role": "lumen",
+          "content": "Hi, I'm Lumen \u2014 the tower's local chat AI. I won't pretend to know things I don't. Try 'tower briefing' or 'family tree' to start.",
+          "ts": 1781454420.477746,
+          "matched_topics": [
+            "greeting"
+          ],
+          "fallback_reason": null
+        }
+      ]
+    },
+    {
+      "conversation_id": "conv_1781454126_50445b",
+      "started_ts": 1781454126.251658,
+      "last_ts": 1781454126.2534902,
+      "user_label": "guest",
+      "turn_count": 2,
+      "last_turn_excerpt": "EQSB Kernel \u2014 Structured Introspection\n========================================================\nschema_version: eqsb_major_v1.0\ngenerated_ts:   2026-06-09T08:56",
+      "turns": [
+        {
+          "role": "user",
+          "content": "tower briefing",
+          "ts": 1781454126.2516623,
+          "matched_topics": [],
+          "fallback_reason": null
+        },
+        {
+          "role": "lumen",
+          "content": "EQSB Kernel \u2014 Structured Introspection\n========================================================\nschema_version: eqsb_major_v1.0\ngenerated_ts:   2026-06-09T08:56:44.962414+00:00\nlock_count_true: 0 \u00b7 active_local_only: True \u00b7 execution_allowed: False\n\nTower Morning Briefing\n--------------------------------------------------------\nHEADLINE:  Tower steady. PnL $1620, Bank 3378 QBC, 1 friend edges, 0 child edges, 9041 certified.\n\nState:\n  \u00b7 Practice PnL: $1620.46 across 12 worker(s). Top earners: demo_worker_A ($1489), demo_worker_B ($132), f41_order_entry_clerk ($0).\n  \u00b7 Bank: 3378 QBC outstanding (0.34% of 1000000 cap). Top concentration: 0.2813.\n  \u00b7 Certifications: {'certified': 9041, 'tested': 26}. Authority gate: certified=37, suspended=0.\n  \u00b7 Family tree: 1 friend edge(s), 0 child edge(s). Population: 0 / 5000.\n  \u00b7 Commerce projection: revenue $2262/mo, profit $1784/mo. Warnings: ['oanda_floor41_pnl_zero_or_missing', 'binance_testnet_state_missing', 'stocks_paper_state_missing'].\n\nGates (always):\n  execution_allowed: False\n  live_payments_enabled: False\n  real_money_live_trading_enabled: False\n  autonomous_dispatch_enabled: False\n\n--------------------------------------------------\n\n[truncated for chat \u2014 full block available via kernel chat in dashboard]",
+          "ts": 1781454126.253488,
+          "matched_topics": [
+            "morning_briefing"
+          ],
+          "fallback_reason": null
+        }
+      ]
+    },
+    {
+      "conversation_id": "conv_1781454120_4890b1",
+      "started_ts": 1781454120.0744061,
+      "last_ts": 1781454120.1047232,
+      "user_label": "guest",
+      "turn_count": 2,
+      "last_turn_excerpt": "Hi, I'm Lumen \u2014 the tower's local chat AI. I won't pretend to know things I don't. Try 'tower briefing' or 'family tree' to start.",
+      "turns": [
+        {
+          "role": "user",
+          "content": "hello",
+          "ts": 1781454120.07441,
+          "matched_topics": [],
+          "fallback_reason": null
+        },
+        {
+          "role": "lumen",
+          "content": "Hi, I'm Lumen \u2014 the tower's local chat AI. I won't pretend to know things I don't. Try 'tower briefing' or 'family tree' to start.",
+          "ts": 1781454120.104721,
+          "matched_topics": [
+            "greeting"
+          ],
+          "fallback_reason": null
+        }
+      ]
+    },
+    {
+      "conversation_id": "conv_1781454003_337782",
+      "started_ts": 1781454003.982232,
+      "last_ts": 1781454003.9824696,
+      "user_label": "guest",
+      "turn_count": 2,
+      "last_turn_excerpt": "EQSB Kernel \u2014 Structured Introspection\n========================================================\nschema_version: eqsb_major_v1.0\ngenerated_ts:   2026-06-09T08:56",
+      "turns": [
+        {
+          "role": "user",
+          "content": "hello",
+          "ts": 1781454003.982236,
+          "matched_topics": [],
+          "fallback_reason": null
+        },
+        {
+          "role": "lumen",
+          "content": "EQSB Kernel \u2014 Structured Introspection\n========================================================\nschema_version: eqsb_major_v1.0\ngenerated_ts:   2026-06-09T08:56:44.962414+00:00\nlock_count_true: 0 \u00b7 active_local_only: True \u00b7 execution_allowed: False\n\n--------------------------------------------------------\nAll EQSB outputs are advisory_only=True, execution_allowed=False.",
+          "ts": 1781454003.982468,
+          "matched_topics": [
+            "greeting"
+          ],
+          "fallback_reason": null
+        }
+      ]
+    },
+    {
+      "conversation_id": "conv_1781453785_ab5f54",
+      "started_ts": 1781453785.1219778,
+      "last_ts": 1781453785.1245909,
+      "user_label": "guest",
+      "turn_count": 2,
+      "last_turn_excerpt": "EQSB Kernel \u2014 Structured Introspection\n========================================================\nschema_version: eqsb_major_v1.0\ngenerated_ts:   2026-06-09T08:56",
+      "turns": [
+        {
+          "role": "user",
+          "content": "tower briefing",
+          "ts": 1781453785.1219804,
+          "matched_topics": [],
+          "fallback_reason": null
+        },
+        {
+          "role": "lumen",
+          "content": "EQSB Kernel \u2014 Structured Introspection\n========================================================\nschema_version: eqsb_major_v1.0\ngenerated_ts:   2026-06-09T08:56:44.962414+00:00\nlock_count_true: 0 \u00b7 active_local_only: True \u00b7 execution_allowed: False\n\nTower Morning Briefing\n--------------------------------------------------------\nHEADLINE:  Tower steady. PnL $1620, Bank 3378 QBC, 1 friend edges, 0 child edges, 9041 certified.\n\nState:\n  \u00b7 Practice PnL: $1620.46 across 12 worker(s). Top earners: demo_worker_A ($1489), demo_worker_B ($132), f41_order_entry_clerk ($0).\n  \u00b7 Bank: 3378 QBC outstanding (0.34% of 1000000 cap). Top concentration: 0.2813.\n  \u00b7 Certifications: {'certified': 9041, 'tested': 26}. Authority gate: certified=37, suspended=0.\n  \u00b7 Family tree: 1 friend edge(s), 0 child edge(s). Population: 0 / 5000.\n  \u00b7 Commerce projection: revenue $2262/mo, profit $1784/mo. Warnings: ['oanda_floor41_pnl_zero_or_missing', 'binance_testnet_state_missing', 'stocks_paper_state_missing'].\n\nGates (always):\n  execution_allowed: False\n  live_payments_enabled: False\n  real_money_live_trading_enabled: False\n  autonomous_dispatch_enabled: False\n\n--------------------------------------------------\n\n[truncated for chat \u2014 full block available via kernel chat in dashboard]",
+          "ts": 1781453785.124589,
+          "matched_topics": [
+            "morning_briefing"
+          ],
+          "fallback_reason": null
+        }
+      ]
+    },
+    {
+      "conversation_id": "conv_1781453785_932e84",
+      "started_ts": 1781453785.1100898,
+      "last_ts": 1781453785.1103237,
+      "user_label": "guest",
+      "turn_count": 2,
+      "last_turn_excerpt": "EQSB Kernel \u2014 Structured Introspection\n========================================================\nschema_version: eqsb_major_v1.0\ngenerated_ts:   2026-06-09T08:56",
+      "turns": [
+        {
+          "role": "user",
+          "content": "hi",
+          "ts": 1781453785.1100938,
+          "matched_topics": [],
+          "fallback_reason": null
+        },
+        {
+          "role": "lumen",
+          "content": "EQSB Kernel \u2014 Structured Introspection\n========================================================\nschema_version: eqsb_major_v1.0\ngenerated_ts:   2026-06-09T08:56:44.962414+00:00\nlock_count_true: 0 \u00b7 active_local_only: True \u00b7 execution_allowed: False\n\n--------------------------------------------------------\nAll EQSB outputs are advisory_only=True, execution_allowed=False.",
+          "ts": 1781453785.1103222,
+          "matched_topics": [
+            "greeting"
+          ],
+          "fallback_reason": null
+        }
+      ]
+    },
+    {
+      "conversation_id": "conv_1781453761_d070b4",
+      "started_ts": 1781453761.5919425,
+      "last_ts": 1781453761.592013,
+      "user_label": "guest",
+      "turn_count": 2,
+      "last_turn_excerpt": "Hi \u2014 I'm Lumen, the QSB Tower's local chat AI. I answer from a topic table the Kernel has learned. Ask me about the bank, family tree, profit plan, free images,",
+      "turns": [
+        {
+          "role": "user",
+          "content": "who are you",
+          "ts": 1781453761.5919452,
+          "matched_topics": [],
+          "fallback_reason": null
+        },
+        {
+          "role": "lumen",
+          "content": "Hi \u2014 I'm Lumen, the QSB Tower's local chat AI. I answer from a topic table the Kernel has learned. Ask me about the bank, family tree, profit plan, free images, certified workers, or the morning briefing.",
+          "ts": 1781453761.5920112,
+          "matched_topics": [],
+          "fallback_reason": "no_topic_matched"
+        }
+      ]
+    },
+    {
+      "conversation_id": "conv_1781453761_05f369",
+      "started_ts": 1781453761.5697644,
+      "last_ts": 1781453761.570062,
+      "user_label": "guest",
+      "turn_count": 2,
+      "last_turn_excerpt": "EQSB Kernel \u2014 Structured Introspection\n========================================================\nschema_version: eqsb_major_v1.0\ngenerated_ts:   2026-06-09T08:56",
+      "turns": [
+        {
+          "role": "user",
+          "content": "hello",
+          "ts": 1781453761.56977,
+          "matched_topics": [],
+          "fallback_reason": null
+        },
+        {
+          "role": "lumen",
+          "content": "EQSB Kernel \u2014 Structured Introspection\n========================================================\nschema_version: eqsb_major_v1.0\ngenerated_ts:   2026-06-09T08:56:44.962414+00:00\nlock_count_true: 0 \u00b7 active_local_only: True \u00b7 execution_allowed: False\n\n--------------------------------------------------------\nAll EQSB outputs are advisory_only=True, execution_allowed=False.",
+          "ts": 1781453761.57006,
+          "matched_topics": [
+            "greeting"
+          ],
+          "fallback_reason": null
+        }
+      ]
+    },
+    {
+      "conversation_id": "conv_1781453694_7dcf96",
+      "started_ts": 1781453694.25504,
+      "last_ts": 1781453694.269279,
+      "user_label": "guest",
+      "turn_count": 2,
+      "last_turn_excerpt": "EQSB Kernel \u2014 Structured Introspection\n========================================================\nschema_version: eqsb_major_v1.0\ngenerated_ts:   2026-06-09T08:56",
+      "turns": [
+        {
+          "role": "user",
+          "content": "hello",
+          "ts": 1781453694.2550464,
+          "matched_topics": [],
+          "fallback_reason": null
+        },
+        {
+          "role": "lumen",
+          "content": "EQSB Kernel \u2014 Structured Introspection\n========================================================\nschema_version: eqsb_major_v1.0\ngenerated_ts:   2026-06-09T08:56:44.962414+00:00\nlock_count_true: 0 \u00b7 active_local_only: True \u00b7 execution_allowed: False\n\n--------------------------------------------------------\nAll EQSB outputs are advisory_only=True, execution_allowed=False.",
+          "ts": 1781453694.2692769,
+          "matched_topics": [
+            "greeting"
+          ],
+          "fallback_reason": null
+        }
+      ]
+    }
+  ]
+}

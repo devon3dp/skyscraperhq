@@ -1,0 +1,31 @@
+{
+  "room_id": "vault_security",
+  "name": "Vault Security",
+  "category": "security",
+  "purpose": "Protects the Vault from unauthorized access.",
+  "concierge_blurb": "A large, fortified door with multiple locking mechanisms.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_right",
+    "offset_x": 8.0,
+    "offset_z": -2.5,
+    "footprint_m": [
+      10,
+      7
+    ],
+    "height_m": 3.0
+  },
+  "render": {
+    "primary_prop": "plinth",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Vault Security",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_28"
+}

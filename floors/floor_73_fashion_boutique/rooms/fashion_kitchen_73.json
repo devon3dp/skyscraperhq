@@ -1,0 +1,34 @@
+{
+  "room_id": "fashion_kitchen_73",
+  "name": "Accessories Kitchen",
+  "category": "kitchen",
+  "purpose": "Creating and customizing accessories.",
+  "concierge_blurb": "Where our accessories come to life.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 4.5,
+    "offset_z": 0.0,
+    "footprint_m": [
+      6,
+      8
+    ],
+    "height_m": 1.2
+  },
+  "render": {
+    "primary_prop": "kitchen_line",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Accessories Line",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_73"
+}

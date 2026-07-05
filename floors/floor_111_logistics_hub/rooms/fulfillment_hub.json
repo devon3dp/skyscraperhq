@@ -1,0 +1,34 @@
+{
+  "room_id": "fulfillment_hub",
+  "name": "Fulfillment Hub",
+  "category": "operations",
+  "purpose": "Coordinates the packing and dispatch of goods.",
+  "concierge_blurb": "See how orders are packed and prepared for shipping.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.5,
+    "offset_z": 2.3,
+    "footprint_m": [
+      8,
+      4
+    ],
+    "height_m": 1.5
+  },
+  "render": {
+    "primary_prop": "workbench",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Fulfillment Hub",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/packing_activity.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 60
+  },
+  "floor": "floor_111"
+}

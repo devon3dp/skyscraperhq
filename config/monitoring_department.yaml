@@ -1,0 +1,23 @@
+monitoring_department:
+  version: 1.1
+  floor_id: floor_34
+  role: live_building_watch_layer
+  execution_enabled: false
+  hardwired_providers: false
+  models_required: false
+  kernel_required: false
+  providers_are_external: true
+
+principle: Floor 34 watches and records building activity. It does not execute providers, adapters, tools, CLI commands, model calls, or kernel logic.
+
+watch_scope:
+  - dashboard heartbeat
+  - dashboard process uptime
+  - cpu memory disk snapshot
+  - lift traffic
+  - packet flow
+  - floor registry
+  - provider socket watch
+  - adapter socket watch
+  - local model watch
+  - diagnostics summary watch

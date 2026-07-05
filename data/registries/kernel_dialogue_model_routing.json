@@ -1,0 +1,11 @@
+{
+  "routing": "kernel_dialogue_model_routing",
+  "version": "1.0",
+  "kernel_dialogue_model_routing": true,
+  "route": "kernel_dialogue_adapter -> local_model_inference_gateway -> localhost_ollama",
+  "scope": "local_only_kernel_dialogue",
+  "external_providers_enabled": false,
+  "workers_enabled": false,
+  "openclaw_enabled": false,
+  "autonomous_dispatch_enabled": false
+}

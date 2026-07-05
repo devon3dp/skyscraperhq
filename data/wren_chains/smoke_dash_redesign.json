@@ -1,0 +1,34 @@
+{
+  "id": "smoke_dash_redesign_20260703",
+  "title": "Smoke: Wren designs new dash tile using team + sandbox + exit gate",
+  "stages": [
+    {
+      "kind": "design",
+      "prompt": "Use wren_edit_file to overwrite data/wren_sandbox/new_dash_concept.md. Write 4 lines describing ONE new tile you want on your dashboard (worker-status tile with animated dots per team member). Include: tile name, what it shows, why it matters, what it looks like. No other work — just the edit."
+    },
+    {
+      "kind": "forge_html",
+      "prompt": "Use wren_dispatch_f46_team with worker='forge' and a SINGLE-line task: 'Draft 12 lines of HTML+CSS for a worker-status tile with 5 workers, each a colored dot animated with a subtle pulse. No prose, just the code.' Do exactly ONE dispatch. Report Forge's reply in your STAGE_OUT line (truncated to 200 chars)."
+    },
+    {
+      "kind": "pip_summary",
+      "prompt": "Use wren_dispatch_f46_team with worker='pip' and a SINGLE-line task: 'In 2 lines: what makes a worker-status tile good?'. Do exactly ONE dispatch. Report Pip's reply."
+    },
+    {
+      "kind": "mira_review",
+      "prompt": "Use wren_dispatch_f46_team with worker='mira' and a SINGLE-line task: 'What is ONE edge case that would break a small worker-status tile with animated dots?'. Do exactly ONE dispatch. Report Mira's reply."
+    },
+    {
+      "kind": "sandbox_write",
+      "prompt": "Use wren_edit_file to overwrite data/wren_sandbox/tile1_draft.html with Forge's HTML from the prior stage. If unsure of the exact HTML, use a placeholder with the tile structure. Just do the edit."
+    },
+    {
+      "kind": "smoke_verify",
+      "prompt": "Use wren_bash cmd='wc -l data/wren_sandbox/tile1_draft.html && head -3 data/wren_sandbox/tile1_draft.html'. Report the output."
+    },
+    {
+      "kind": "verdict",
+      "prompt": "Read your recent stages via the prior context. Answer in ONE line whether the sandbox tile PASSES the exit gate (has content, no syntax err, Mira did not veto). Then answer whether you would PROMOTE to production. Format: 'CHAIN VERDICT: gate=<passed|blocked>, decision=<PROMOTE|HOLD>, one-line-rationale'."
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "ok": true,
+  "kind": "qsb_paper_strategy_templates_v1",
+  "generated_ts": "2026-06-11T08:40:28.928961Z",
+  "venues": [
+    "alpaca_paper",
+    "binance_testnet",
+    "oanda_practice"
+  ],
+  "templates": [
+    {
+      "id": "spy_open_dca",
+      "name": "SPY Open Dollar-Cost Averaging",
+      "venue": "alpaca_paper",
+      "symbol": "SPY",
+      "side": "buy",
+      "type": "market",
+      "tif": "day",
+      "notional_usd": 20.0,
+      "cadence": "daily_at_open",
+      "risk_profile": "broad_market_low_volatility",
+      "holding_period": "open_to_close_or_overnight",
+      "success_criterion": "positive close vs open within 5min"
+    },
+    {
+      "id": "tech_megacap_basket",
+      "name": "AAPL+MSFT+NVDA equal-weight basket",
+      "venue": "alpaca_paper",
+      "symbols": [
+        "AAPL",
+        "MSFT",
+        "NVDA"
+      ],
+      "side": "buy",
+      "type": "market",
+      "tif": "day",
+      "notional_per_leg_usd": 10.0,
+      "cadence": "daily_at_open",
+      "risk_profile": "tech_concentration",
+      "holding_period": "open_to_close"
+    },
+    {
+      "id": "btc_scalp_testnet",
+      "name": "BTC scalp testnet ~$10 notional",
+      "venue": "binance_testnet",
+      "symbol": "BTCUSDT",
+      "side": "BUY",
+      "type": "MARKET",
+      "qty": "0.00016",
+      "cadence": "hourly",
+      "risk_profile": "crypto_high_vol",
+      "holding_period": "minutes",
+      "exit": "opposite MARKET when +/-0.10% from entry, or after 15min"
+    },
+    {
+      "id": "eth_scalp_testnet",
+      "name": "ETH scalp testnet ~$15 notional",
+      "venue": "binance_testnet",
+      "symbol": "ETHUSDT",
+      "side": "BUY",
+      "type": "MARKET",
+      "qty": "0.005",
+      "cadence": "hourly",
+      "risk_profile": "crypto_high_vol",
+      "holding_period": "minutes"
+    },
+    {
+      "id": "eur_gbp_range",
+      "name": "EUR/GBP range scalp",
+      "venue": "oanda_practice",
+      "instrument": "EUR_GBP",
+      "units": 900,
+      "cadence": "session_european",
+      "holding_period": "5-15min",
+      "risk_profile": "fx_range",
+      "exit": "opposite signal or +/-15 pips"
+    },
+    {
+      "id": "sector_etf_etf_basket",
+      "name": "XLK+XLF+XLE rotation basket",
+      "venue": "alpaca_paper",
+      "symbols": [
+        "XLK",
+        "XLF",
+        "XLE"
+      ],
+      "side": "buy",
+      "type": "market",
+      "tif": "day",
+      "notional_per_leg_usd": 10.0,
+      "cadence": "weekly_open",
+      "risk_profile": "sector_rotation",
+      "holding_period": "1-5 days"
+    }
+  ],
+  "authorization": "paper/testnet only \u2014 no real money",
+  "consumer_floors": [
+    41,
+    42,
+    43
+  ],
+  "advisory_only": true
+}

@@ -1,0 +1,70 @@
+{
+  "floor_id": "floor_62",
+  "floor_number": 62,
+  "floor_name": "Pinwheel Toys",
+  "department": "public_dropship_storefront_v1",
+  "zone": "ZONE D \u00b7 COMMERCE WING",
+  "archetype": "public_dropship_storefront_v1",
+  "staff_lead": "TBD",
+  "tour_blurb": "Pinwheel \u2014 pure play.",
+  "visitor_open": false,
+  "advisory_only": true,
+  "execution_mode": "PREVIEW_ONLY",
+  "skeleton": true,
+  "skeleton_source": "floor_manifest.json",
+  "skeleton_generated_ts": "2026-06-17",
+  "live_signals": {
+    "theme": "toys_and_games",
+    "categories": [
+      "educational",
+      "plush",
+      "puzzles",
+      "outdoor",
+      "science_kits"
+    ],
+    "palette": "primary red / yellow / blue",
+    "tagline": "Pinwheel \u2014 pure play."
+  },
+  "gate_posture": {
+    "advisory_only": true,
+    "execution_allowed": false,
+    "live_payments_enabled": false
+  },
+  "team_roster": [
+    {
+      "id": "f062.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "spawned_id": "20d4c6fbad",
+      "spawned_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F062",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f062.operator.01",
+      "spawned_id": "4012998436"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F062",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f062.operator.02",
+      "spawned_id": "19bd8a9739"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F062",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f062.operator.03",
+      "spawned_id": "437b5167b8"
+    }
+  ],
+  "floor_manager": "f062.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

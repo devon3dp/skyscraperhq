@@ -1,0 +1,34 @@
+{
+  "room_id": "classroom_left_wall",
+  "name": "Study Pods",
+  "category": "seating",
+  "purpose": "Provides individual study spaces for focused work.",
+  "concierge_blurb": "Seek quiet and focus in the Study Pods.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "left_wall",
+    "offset_x": -8.0,
+    "offset_z": 6.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "chair_set",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Study Pods",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_50"
+}

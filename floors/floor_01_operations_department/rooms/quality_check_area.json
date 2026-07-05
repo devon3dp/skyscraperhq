@@ -1,0 +1,34 @@
+{
+  "room_id": "quality_check_area",
+  "name": "Quality Check Area",
+  "category": "operations",
+  "purpose": "Ensuring all orders meet quality standards.",
+  "concierge_blurb": "Inspect the meticulous quality checks in action.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 6.0,
+    "offset_z": -2.5,
+    "footprint_m": [
+      10,
+      8
+    ],
+    "height_m": 1.5
+  },
+  "render": {
+    "primary_prop": "inspector_kiosk",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "QC Area",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 0
+  },
+  "floor": "floor_1"
+}

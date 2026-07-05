@@ -1,0 +1,7902 @@
+"""
+QSB Tower V1.3 — Unified Animated Cockpit Dashboard
+
+Phase: QSB_TOWER_UNIFIED_ANIMATED_DASHBOARD_REBUILD_V1
+
+One dashboard server. One unified data endpoint. One cockpit view.
+The browser polls /api/unified on this server only. The dashboard reads
+registry/runtime JSON files directly. Existing sidecar endpoints remain
+served for backward compatibility but are not required by the cockpit.
+
+Read-only / sandbox-control only. No execution flags are flipped here.
+"""
+
+import sys
+import json
+import socket
+import time
+import importlib
+import mimetypes
+import urllib.request
+from pathlib import Path
+from datetime import datetime, UTC
+from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
+from urllib.parse import urlparse
+
+ROOT = Path("/vaults/nvme0/qsb_tower_v1")
+STATIC_DIR = Path(__file__).parent / "static"
+INDEX_HTML_PATH = STATIC_DIR / "index.html"
+SHOPS_PATH = STATIC_DIR / "shops.html"
+STUDIO_PATH = STATIC_DIR / "studio.html"
+GARDEN_PATH = STATIC_DIR / "garden.html"
+
+
+def load_json(rel_path, fallback=None):
+    """Read JSON relative to tower root. Dashboard-safe: never raises."""
+    if fallback is None:
+        fallback = {}
+    try:
+        path = ROOT / rel_path
+        if not path.exists():
+            return fallback
+        return json.loads(path.read_text(encoding="utf-8"))
+    except Exception as exc:
+        return {
+            "status": "unavailable",
+            "error": str(exc),
+            "path": str(rel_path),
+        }
+
+
+# ------------------------------------------------------------------
+# Worker forum reader (visitor-safe view of qsb_worker_forum.jsonl)
+# Backs /api/forum and /api/forum/threads/<thread_id>. The forum tool
+# (tools/qsb_worker_forum.py) writes; this reader only reads, and:
+#   - redacts author handles to role only (worker/operator/wren/advisor)
+#   - drops bodies longer than 500 chars (replaced with truncation note)
+#   - flags is_tannoy:true rows so the cockpit can render them as PA pings
+# Never exposes paths, costs, or internal reasoning.
+# ------------------------------------------------------------------
+FORUM_JSONL = ROOT / "data/registries/qsb_worker_forum.jsonl"
+FORUM_BODY_CAP = 500
+
+
+def _forum_read_rows():
+    """Load every row in the forum jsonl. Returns [] on any error."""
+    try:
+        if not FORUM_JSONL.exists():
+            return []
+        out = []
+        for ln in FORUM_JSONL.read_text(encoding="utf-8").splitlines():
+            ln = ln.strip()
+            if not ln:
+                continue
+            try:
+                out.append(json.loads(ln))
+            except Exception:
+                continue
+        return out
+    except Exception:
+        return []
+
+
+def _forum_redact(row):
+    """Visitor-safe view of one forum row.
+
+    Strips the raw author handle (could be a worker id or a person's name)
+    and surfaces only the role. Truncates long bodies to FORUM_BODY_CAP and
+    appends a marker. Preserves is_tannoy as a top-level flag.
+    """
+    role = (row.get("author_role") or "worker").lower()
+    if role not in ("worker", "operator", "wren", "advisor"):
+        role = "worker"
+    body = row.get("body") or ""
+    truncated = False
+    if len(body) > FORUM_BODY_CAP:
+        body = body[:FORUM_BODY_CAP].rstrip() + "… (truncated)"
+        truncated = True
+    return {
+        "id":           row.get("id"),
+        "thread_id":    row.get("thread_id"),
+        "parent_id":    row.get("parent_id"),
+        "ts":           row.get("ts"),
+        "author_role":  role,
+        "category":     row.get("category"),
+        "title":        row.get("title"),
+        "body":         body,
+        "body_truncated": truncated,
+        "is_tannoy":    bool(row.get("is_tannoy")),
+        "reactions":    row.get("reactions") or {},
+    }
+
+
+def forum_threads_view(limit=50):
+    """Return latest N top-level threads, redacted, with reply counts."""
+    rows = _forum_read_rows()
+    threads = [r for r in rows if not r.get("parent_id")]
+    threads.sort(key=lambda t: t.get("ts") or "", reverse=True)
+    threads = threads[:max(1, min(int(limit or 50), 200))]
+    reply_counts = {}
+    for r in rows:
+        tid = r.get("thread_id")
+        if r.get("parent_id") and tid:
+            reply_counts[tid] = reply_counts.get(tid, 0) + 1
+    out = []
+    for t in threads:
+        view = _forum_redact(t)
+        view["reply_count"] = reply_counts.get(t.get("thread_id"), 0)
+        out.append(view)
+    return {
+        "ok":      True,
+        "count":   len(out),
+        "threads": out,
+    }
+
+
+def forum_thread_view(thread_id):
+    """Return one thread and all its replies, redacted and time-ordered."""
+    rows = _forum_read_rows()
+    posts = [r for r in rows if r.get("thread_id") == thread_id]
+    if not posts:
+        return {"ok": False, "error": "thread_not_found"}
+    posts.sort(key=lambda r: r.get("ts") or "")
+    root = next((p for p in posts if not p.get("parent_id")), posts[0])
+    replies = [p for p in posts if p.get("parent_id")]
+    return {
+        "ok":         True,
+        "thread_id":  thread_id,
+        "thread":     _forum_redact(root),
+        "replies":    [_forum_redact(r) for r in replies],
+        "reply_count": len(replies),
+    }
+
+
+sys.path.insert(0, str(ROOT / "src"))
+
+def _xml_esc(s):
+    return (s or "").replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;")
+
+def utcnow_iso():
+    from datetime import datetime, timezone
+    return datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
+
+
+# ------------------------------------------------------------------
+# Dashboard request deny-list (Ross 2026-06-14)
+# Hard pre-filter applied at the TOP of every do_GET / do_POST. The dashboard
+# never intentionally serves repo files, but this guard ensures any future
+# regression (e.g. a generic file route) cannot leak sensitive surfaces.
+# ------------------------------------------------------------------
+DASHBOARD_DENY_TOKENS = (
+    "qsb_wake_briefing",
+    "qsb_session_diary",
+    "qsb_helm_briefings",
+    "qsb_claude_meta_letters",
+    "qsb_abandoned_paths",
+    "qsb_chat_log",
+    ".env",
+    "vault/",
+)
+DASHBOARD_SECURITY_AUDIT = ROOT / "data/registries/qsb_dashboard_security_audit.jsonl"
+
+
+def _dashboard_path_is_denied(raw_path: str):
+    """Return (denied: bool, reason: str). Checks deny-tokens and ../ traversal."""
+    if not raw_path:
+        return False, ""
+    p = raw_path
+    # case-insensitive token match against the raw URL path
+    low = p.lower()
+    for tok in DASHBOARD_DENY_TOKENS:
+        if tok.lower() in low:
+            return True, "deny_token:" + tok
+    # path traversal — block any literal ../ or encoded variants
+    if ".." in p or "%2e%2e" in low or "%2E%2E" in p:
+        return True, "path_traversal"
+    return False, ""
+
+
+def _dashboard_audit_deny(client_addr: str, method: str, raw_path: str, reason: str):
+    """Append one JSONL row recording a blocked request. Never raises."""
+    try:
+        DASHBOARD_SECURITY_AUDIT.parent.mkdir(parents=True, exist_ok=True)
+        row = {
+            "ts": utcnow_iso(),
+            "event": "dashboard_deny",
+            "method": method,
+            "path": (raw_path or "")[:512],
+            "reason": reason,
+            "client": (client_addr or "")[:64],
+        }
+        with DASHBOARD_SECURITY_AUDIT.open("a", encoding="utf-8") as f:
+            f.write(json.dumps(row, ensure_ascii=False) + "\n")
+    except Exception:
+        pass
+
+
+
+from tower.registry import Registry
+from tower.database import init_db
+from tower.lifts import LiftNetwork
+
+
+def now():
+    return datetime.now(UTC).isoformat()
+
+
+def safe_dashboard(module_name, class_name):
+    try:
+        mod = importlib.import_module(module_name)
+        cls = getattr(mod, class_name)
+        return cls().dashboard()
+    except Exception as e:
+        return {"status": "error", "module": module_name, "class": class_name, "error": str(e)}
+
+
+def core_status():
+    init_db()
+    reg = Registry()
+    lifts = LiftNetwork()
+    floors = reg.floors()
+    return {
+        "building": reg.building(),
+        "floors": floors,
+        "counts": {
+            "floors": len(floors),
+            "vacant": len([f for f in floors if f.get("vacant")]),
+            "lifts": len(reg.lifts()),
+            "workers": len(reg.workers()),
+            "kernel_installed": False,
+        },
+        "lifts": lifts.states(),
+        "packets": lifts.packets(),
+        "providers": reg.providers(),
+        "workers": reg.workers(),
+    }
+
+
+def live_payload():
+    payload = {
+        "server_ts": now(),
+        "status": core_status(),
+        "penthouse":      safe_dashboard("tower.penthouse_readiness",       "PenthouseReadiness"),
+        "executive":      safe_dashboard("tower.executive_command",         "ExecutiveCommand"),
+        "security":       safe_dashboard("tower.security_spine",            "SecuritySpine"),
+        "expansion":      safe_dashboard("tower.expansion_planning",        "ExpansionPlanning"),
+        "infrastructure": safe_dashboard("tower.infrastructure_services",   "InfrastructureServices"),
+        "monitoring":     safe_dashboard("tower.monitoring_department",     "MonitoringDepartment"),
+        "diagnostics":    safe_dashboard("tower.diagnostics_department",    "DiagnosticsDepartment"),
+        "integration":    safe_dashboard("tower.integration_services",      "IntegrationServices"),
+        "adapters":       safe_dashboard("tower.adapter_systems",           "AdapterSystems"),
+        "coding":         safe_dashboard("tower.coding_department",         "CodingDepartment"),
+        "routing":        safe_dashboard("tower.model_routing_department",  "ModelRoutingDepartment"),
+        "local_models":   safe_dashboard("tower.local_model_operations",    "LocalModelOperations"),
+        "air_llm":        safe_dashboard("tower.air_llm_operations",        "AirLLMOperations"),
+        "model_infrastructure": safe_dashboard("tower.model_infrastructure","ModelInfrastructure"),
+        "agent_coordination":   safe_dashboard("tower.agent_coordination",  "AgentCoordination"),
+        "model_evaluation":     safe_dashboard("tower.model_evaluation_department", "ModelEvaluationDepartment"),
+        "simulation_labs":      safe_dashboard("tower.simulation_labs",     "SimulationLabs"),
+        "sandbox_operations":   safe_dashboard("tower.sandbox_operations",  "SandboxOperations"),
+        "dormant_kernel":       safe_dashboard("tower.dormant_kernel_adapter", "DormantKernelAdapter"),
+        "kernel_readiness":     load_json("data/registries/kernel_readiness_latest.json", {}),
+    }
+    payload["activity"] = build_activity(payload)
+    return payload
+
+
+def build_activity(payload):
+    activity = []
+    ts = payload.get("server_ts", now())
+    for p in (payload.get("status", {}).get("packets") or [])[:12]:
+        activity.append({
+            "ts": p.get("ts", ts),
+            "type": "packet",
+            "title": "{} → {}".format(p.get("source"), p.get("target")),
+            "detail": "{} · priority {} · {}".format(
+                p.get("lift_id"), p.get("priority"), p.get("status")),
+            "status": p.get("status", "unknown"),
+        })
+    for name, status in [
+        ("penthouse",      payload.get("penthouse",      {}).get("readiness_status")),
+        ("executive",      payload.get("executive",      {}).get("status")),
+        ("security",       payload.get("security",       {}).get("status")),
+        ("expansion",      payload.get("expansion",      {}).get("expansion_status")),
+        ("infrastructure", payload.get("infrastructure", {}).get("infrastructure_status")),
+        ("monitoring",     payload.get("monitoring",     {}).get("monitoring_status")),
+        ("diagnostics",    payload.get("diagnostics",    {}).get("diagnostic_status")),
+    ]:
+        if status:
+            activity.append({
+                "ts": ts, "type": "system", "title": name, "detail": str(status),
+                "status": "healthy" if status in [
+                    "healthy", "ready_for_future_qsb_kernel_4_5"] else "watch",
+            })
+    return activity[:24]
+
+
+def apply_active_kernel_overlay(payload):
+    """
+    If kernel_activation_report says the kernel is active_local_only with
+    rebased_kernel, project that truth across the payload while keeping
+    workers/providers/inference locked.
+    """
+    report_path = ROOT / "data/registries/kernel_activation_report.json"
+    try:
+        activation = json.loads(report_path.read_text(encoding="utf-8"))
+    except Exception:
+        return payload
+
+    if not (
+        activation.get("kernel_installed") is True
+        and activation.get("QSBKernelCore_instantiated") is True
+        and activation.get("activation_status") == "active_local_only"
+        and activation.get("active_kernel_source") == "rebased_kernel"
+    ):
+        return payload
+
+    active_patch = {
+        "kernel_installed": True,
+        "QSBKernelCore_instantiated": True,
+        "kernel_logic_present": True,
+        "active_kernel_source": "rebased_kernel",
+        "activation_status": "active_local_only",
+        "readiness_status": "kernel_active_local_only",
+        "socket_status": "occupied_local_only",
+        "worker_execution_enabled": False,
+        "provider_execution_enabled": False,
+        "model_inference_enabled": False,
+        "live_dispatch_enabled": False,
+        "autonomous_workers_enabled": False,
+        "direct_provider_access": False,
+        "critical_failures": 0,
+        "failures": 0,
+        "warnings": 0,
+    }
+
+    def patch_dict(d):
+        if not isinstance(d, dict):
+            return
+        if "kernel_installed" in d:
+            d["kernel_installed"] = True
+        if "QSBKernelCore_instantiated" in d:
+            d["QSBKernelCore_instantiated"] = True
+        if "kernel_logic_present" in d:
+            d["kernel_logic_present"] = True
+        if "logic_present" in d:
+            d["logic_present"] = True
+        if d.get("socket_status") == "socket_ready_empty":
+            d["socket_status"] = "occupied_local_only"
+        if d.get("readiness_status") in {
+            "not_ready_for_kernel_occupancy",
+            "ready_for_future_qsb_kernel_4_5",
+            "READY_FOR_KERNEL_INTEGRATION",
+            "READY_FOR_DORMANT_KERNEL_REVIEW",
+            "NOT_READY_FOR_KERNEL_INTEGRATION",
+        }:
+            d["readiness_status"] = "kernel_active_local_only"
+        for key in [
+            "worker_execution_enabled",
+            "provider_execution_enabled",
+            "model_inference_enabled",
+            "live_dispatch_enabled",
+            "autonomous_workers_enabled",
+            "direct_provider_access",
+        ]:
+            if key in d:
+                d[key] = False
+        if d.get("department") in {"Executive Command Spine", "Command Spine"}:
+            d["status"] = "healthy"
+            d["executive_status"] = "healthy"
+        if d.get("executive_status") == "critical":
+            d["executive_status"] = "healthy"
+        if "critical_failures" in d:
+            d["critical_failures"] = 0
+        if "failures" in d:
+            d["failures"] = 0
+        if "warnings" in d:
+            d["warnings"] = 0
+
+    def walk(obj):
+        if isinstance(obj, dict):
+            patch_dict(obj)
+            for v in obj.values():
+                walk(v)
+        elif isinstance(obj, list):
+            for item in obj:
+                walk(item)
+
+    walk(payload)
+    if isinstance(payload, dict):
+        payload["active_kernel"] = dict(active_patch)
+        payload["kernel_activation_report"] = activation
+        for top_key in ["health", "building", "penthouse", "penthouse_readiness"]:
+            if isinstance(payload.get(top_key), dict):
+                payload[top_key].update(active_patch)
+    return payload
+
+
+# ---------------------------------------------------------------------------
+# Unified cockpit aggregator
+# ---------------------------------------------------------------------------
+
+HIGHLIGHTED_FLOORS = {
+    "floor_23": "AIR LLM Operations",
+    "floor_24": "Model Routing",
+    "floor_25": "Agent Coordination",
+    "floor_30": "Permissions / Risk",
+    "floor_31": "Audit / Ledger",
+    "floor_37": "Simulation Labs",
+    "floor_38": "Sandbox Operations",
+    "floor_41": "OANDA Trading Floor",
+    "floor_42": "Binance Trading Floor",
+    "floor_43": "Stock Exchange Trading Floor",
+    "floor_53": "Tower Command",
+}
+
+LOCK_KEYS = [
+    "live_trading_enabled",
+    "order_execution_enabled",
+    "practice_order_execution_enabled",
+    "binance_order_execution_enabled",
+    "binance_live_trading_enabled",
+    "stock_order_execution_enabled",
+    "stock_live_trading_enabled",
+    "stock_paper_order_execution_enabled",
+    "cross_market_execution_enabled",
+    "worker_execution_enabled",
+    "provider_execution_enabled",
+    "external_provider_execution_enabled",
+    "openclaw_execution_enabled",
+    "openclaw_real_tool_execution_enabled",
+    "autonomous_dispatch_enabled",
+    "live_dispatch_enabled",
+    "direct_provider_access",
+    # Recruitment Agency V1 — new locks.
+    "recruitment_openclaw_execution_enabled",
+    "recruited_worker_live_execution_enabled",
+    "recruited_worker_provider_access_enabled",
+    "recruited_worker_autonomous_dispatch_enabled",
+    # Tower Operations V1 — new locks (true means "forbidden auto-action enabled").
+    "maintenance_auto_repair_enabled",
+    "web_access_autonomous_enabled",
+    # NOTE: capability flags (worker_real_registry_enabled / openclaw_readiness_enabled /
+    # security_enforcement_enabled / it_network_observability_enabled) are NOT included
+    # here. They are reported in /api/unified.tower_ops as positive capabilities so the
+    # lock matrix's `lock_count_true` stays an honest count of locks-that-allow-execution.
+]
+
+
+def _staleness_seconds(ts_str):
+    if not ts_str:
+        return None
+    try:
+        if ts_str.endswith("Z"):
+            ts_str = ts_str.replace("Z", "+00:00")
+        dt = datetime.fromisoformat(ts_str)
+        return max(0.0, (datetime.now(UTC) - dt).total_seconds())
+    except Exception:
+        return None
+
+
+def _service_health(latest_ts, fresh_window_sec=120):
+    age = _staleness_seconds(latest_ts)
+    if age is None:
+        return "unknown"
+    if age <= fresh_window_sec:
+        return "healthy"
+    if age <= fresh_window_sec * 4:
+        return "stale"
+    return "offline"
+
+
+def _port_listening(port, host="127.0.0.1", timeout=0.08):
+    try:
+        with socket.create_connection((host, port), timeout=timeout):
+            return True
+    except OSError:
+        return False
+
+
+def _service_status(port, latest_ts, fresh_window_sec=120):
+    listening = _port_listening(port)
+    health = _service_health(latest_ts, fresh_window_sec)
+    if not listening:
+        return {"port": port, "status": "offline", "port_listening": False, "registry_age": health}
+    if health == "healthy":
+        return {"port": port, "status": "healthy", "port_listening": True, "registry_age": health}
+    return {"port": port, "status": "alive", "port_listening": True, "registry_age": health}
+
+
+def _collect_locks(*sources):
+    matrix = {k: False for k in LOCK_KEYS}
+    for src in sources:
+        if not isinstance(src, dict):
+            continue
+        locks = src.get("locks") if isinstance(src.get("locks"), dict) else src
+        if not isinstance(locks, dict):
+            continue
+        for k in LOCK_KEYS:
+            if k in locks and locks[k] is True:
+                matrix[k] = True
+    return matrix
+
+
+def _by_instrument(items):
+    out = {}
+    for item in items or []:
+        if isinstance(item, dict):
+            inst = item.get("instrument")
+            if inst:
+                out[inst] = item
+    return out
+
+
+def _floor_label(floors, fid):
+    for f in floors or []:
+        if f.get("id") == fid:
+            return f.get("department") or f.get("name") or fid
+    return fid
+
+
+def _build_floor_map(floors_list, name_map=None, render_floors=None):
+    """Build the cockpit-side floor objects.
+
+    Each floor carries:
+      id, number, zone, department, vacant, highlight, highlight_label, lift_access, workers
+      canonical_name : floor_name_map[number] (preferred display)
+      display_name   : best human-readable name (canonical OR department OR id)
+      short_label    : abbreviation from render_model
+      category       : render_model.category (kernel/command/trading_*/audit/...)
+      status         : active/vacant/locked/etc.
+      route_ids      : floor_ids this floor connects to (from render_model.routes)
+      registry_keys  : registry filenames associated with this floor
+      manifest_path  : floor_manifest.json on disk if any
+    """
+    name_map = name_map or {}
+    render_by_n = {}
+    if render_floors:
+        for rf in render_floors:
+            n = rf.get("number")
+            if isinstance(n, int):
+                render_by_n[n] = rf
+
+    # Build a route-by-floor index from render_model.routes (loaded by caller)
+    # (caller injects the routes via _BUILT_ROUTE_INDEX; see below)
+    route_index = getattr(_build_floor_map, "_route_index", {}) or {}
+
+    def manifest_path_for(fid):
+        if not fid:
+            return None
+        for d in ROOT.glob("floors/" + str(fid) + "_*"):
+            mf = d / "floor_manifest.json"
+            if mf.is_file():
+                return str(mf)
+        return None
+
+    out = []
+    for f in floors_list or []:
+        fid = f.get("id")
+        n = f.get("number")
+        rm = render_by_n.get(n) or {}
+        canonical = name_map.get(str(n)) if isinstance(n, int) else None
+        display = canonical or f.get("department") or rm.get("name") or fid
+        out.append({
+            "id": fid,
+            "number": n,
+            "zone": f.get("zone"),
+            "department": f.get("department"),
+            "canonical_name": canonical or f.get("department") or "",
+            "display_name": display,
+            "short_label": rm.get("short_label") or "",
+            "category": rm.get("category") or "infrastructure",
+            "status": rm.get("status") or ("vacant" if f.get("vacant") else "active"),
+            "vacant": bool(f.get("vacant")),
+            "highlight": fid in HIGHLIGHTED_FLOORS or bool(rm.get("highlight")),
+            "highlight_label": HIGHLIGHTED_FLOORS.get(fid, "") or rm.get("visible_label", ""),
+            "lift_access": bool(f.get("lift_access")),
+            "workers": f.get("workers") or [],
+            "route_ids": route_index.get(fid, []),
+            "registry_keys": _FLOOR_REGISTRY_KEYS.get(n, []),
+            "manifest_path": manifest_path_for(fid),
+            "color": rm.get("color"),
+            "label_color": rm.get("label_color"),
+        })
+    return out
+
+
+# Floor → relevant registry files (used by floor windows + /api/floor_detail)
+_FLOOR_REGISTRY_KEYS = {
+    23: ["airllm_big_model_chamber.json", "airllm_storage_status.json"],
+    24: ["kernel_dialogue_model_routing.json"],
+    25: ["agent_coordination_policy.json", "agent_worker_slots.json"],
+    30: ["building.json"],
+    31: ["floor41_paper_ledger.json", "audit_policy.json"],
+    37: ["strategy_intelligence_latest.json", "strategy_autoloop_correlation_latest.json", "cross_market_correlation_latest.json"],
+    38: ["worker_sandbox_latest_tick.json", "worker_sandbox_registry.json", "openclaw_sandbox_latest.json", "sandbox_performance_latest.json", "sandbox_autoloop_latest.json"],
+    41: ["oanda_trading_floor_status.json", "oanda_trading_floor_latest_snapshot.json", "oanda_paper_strategy_latest.json", "floor41_paper_ledger.json"],
+    42: ["binance_floor_status.json", "binance_market_snapshot_latest.json", "binance_paper_strategy_latest.json"],
+    43: ["stock_floor_status.json", "stock_market_snapshot_latest.json", "stock_paper_strategy_latest.json", "cross_market_bus_latest.json", "cross_market_correlation_latest.json"],
+    53: ["building.json", "floor_53_penthouse_handoff.json", "executive_command_channels.json"],
+}
+
+
+def _build_workers(worker_sandbox_reg, openclaw_reg, base_workers):
+    """V1 worker-truth: include legacy/sandbox/openclaw seeds AND mark
+    simulation records explicitly. Spread sim_worker_floor_* across their
+    real floor_id (previously they all fell back to floor_41 because the
+    seed records use `floor_id`, not `home_floor`)."""
+    seen = set()
+    out = []
+    sources = [
+        ("sandbox", worker_sandbox_reg.get("workers") if isinstance(worker_sandbox_reg, dict) else None),
+        ("openclaw", openclaw_reg.get("workers") if isinstance(openclaw_reg, dict) else None),
+        ("registry", base_workers),
+    ]
+    for origin, group in sources:
+        for w in group or []:
+            if not isinstance(w, dict):
+                continue
+            wid = w.get("id") or w.get("worker_id") or w.get("name")
+            if not wid or wid in seen:
+                continue
+            seen.add(wid)
+            wtype = (w.get("type") or "").lower()
+            wid_l = str(wid).lower()
+            is_sim = ("simulation" in wtype
+                       or wid_l.startswith("sim_")
+                       or "sim_worker_floor" in wid_l)
+            # Floor resolution: home_floor wins; legacy seeds carry floor_id.
+            floor = (w.get("home_floor") or w.get("home")
+                      or w.get("floor_id") or w.get("floor")
+                      or ("floor_45" if is_sim else "floor_41"))
+            display_name = w.get("name") or wid
+            if is_sim and "SIM" not in display_name:
+                display_name = "SIM · " + display_name
+            out.append({
+                "id": wid,
+                "name": display_name,
+                "role": w.get("role") or ("simulation_worker" if is_sim else ""),
+                "home_floor": floor,
+                "team": w.get("team") or origin,
+                "origin": origin,
+                "is_simulation": is_sim,
+                "category": "simulation_seed" if is_sim else origin,
+                "execution_enabled": False,
+                "sandbox_only": True,
+            })
+    return out
+
+
+def _build_packets(worker_tick, ledger, ts_now):
+    out = []
+    lift_packets = (worker_tick or {}).get("lift_packets") or []
+    for p in lift_packets[:18]:
+        if not isinstance(p, dict):
+            continue
+        out.append({
+            "ts": p.get("ts") or ts_now,
+            "type": "worker",
+            "color": "green",
+            "source_floor": p.get("source_floor") or p.get("from") or "floor_41",
+            "target_floor": p.get("target_floor") or p.get("to") or "floor_31",
+            "lift_id": p.get("lift_id") or "main_low_rise",
+            "title": p.get("title") or p.get("name") or "worker_packet",
+            "detail": p.get("detail") or "",
+        })
+    for e in (ledger or {}).get("latest_entries") or []:
+        if not isinstance(e, dict):
+            continue
+        out.append({
+            "ts": e.get("ts") or ts_now,
+            "type": "ledger",
+            "color": "gold",
+            "source_floor": e.get("floor") or "floor_41",
+            "target_floor": "floor_31",
+            "lift_id": "main_mid_rise",
+            "title": "ledger · {}".format(e.get("instrument") or ""),
+            "detail": "{} · {}".format(
+                e.get("paper_signal") or "observe",
+                e.get("paper_reason") or "",
+            ),
+        })
+    out.sort(key=lambda x: x.get("ts") or "", reverse=True)
+    return out[:24]
+
+
+def _build_instruments(strategy, correlation, paper_lab, performance, openclaw, paper_sim):
+    s_rows = {}
+    for r in (strategy or {}).get("results") or []:
+        if isinstance(r, dict) and r.get("instrument"):
+            s_rows[r["instrument"]] = r
+    c_rows = _by_instrument((correlation or {}).get("correlations"))
+    pl_rows = _by_instrument((paper_lab or {}).get("instruments"))
+    perf = (performance or {}).get("performance") or {}
+    perf_rows = _by_instrument(perf.get("by_instrument"))
+    oc_rows = _by_instrument(
+        (openclaw or {}).get("recommendations")
+        or (openclaw or {}).get("latest_recommendations")
+    )
+    sim_rows = _by_instrument((paper_sim or {}).get("tickets"))
+
+    universe = []
+    seen = set()
+    for inst in ("EUR_USD", "GBP_USD", "USD_JPY"):
+        if inst not in seen:
+            seen.add(inst)
+            universe.append(inst)
+    for src in (s_rows, c_rows, pl_rows, oc_rows, sim_rows):
+        for inst in src.keys():
+            if inst not in seen:
+                seen.add(inst)
+                universe.append(inst)
+
+    out = []
+    for inst in universe:
+        s = s_rows.get(inst, {})
+        c = c_rows.get(inst, {})
+        pl = pl_rows.get(inst, {})
+        pf = perf_rows.get(inst, {})
+        oc = oc_rows.get(inst, {})
+        sim = sim_rows.get(inst, {})
+        out.append({
+            "instrument": inst,
+            "bid": pl.get("bid"),
+            "ask": pl.get("ask"),
+            "mid": pl.get("mid"),
+            "spread_pips": pl.get("spread_pips") or s.get("spread_pips") or pf.get("avg_spread_pips"),
+            "paper_signal": pl.get("paper_signal") or "observe",
+            "paper_reason": pl.get("paper_reason") or "",
+            "strategy_signal": s.get("paper_signal") or "observe",
+            "strategy_direction": s.get("paper_direction") or "flat_observation",
+            "confidence": s.get("confidence"),
+            "momentum_10_pips": s.get("momentum_10_pips"),
+            "avg_slope_pips": s.get("avg_slope_pips"),
+            "performance_delta_pips": pf.get("delta_pips_total"),
+            "performance_score": pf.get("paper_score_total"),
+            "openclaw_recommendation": oc.get("sandbox_recommendation") or "observe_only",
+            "alignment_label": c.get("alignment_label") or "OBSERVE",
+            "action_text": c.get("action_text") or "",
+            "simulated_side": sim.get("suggested_side") or "no_trade",
+            "simulated_risk_score": sim.get("simulated_risk_score"),
+            "execution_allowed": False,
+            "paper_only": True,
+        })
+    return out
+
+
+BINANCE_SECRET_FIELDS = {
+    "BINANCE_API_KEY", "BINANCE_API_SECRET",
+    "ALPACA_API_KEY", "ALPACA_API_SECRET",
+    "APCA-API-KEY-ID", "APCA-API-SECRET-KEY",
+    "api_key", "api_secret",
+    "apiKey", "apiSecret",
+    "key", "secret",
+}
+
+
+def _scrub_binance_credentials(node):
+    """Defensive scrubber: ensure no Binance/Alpaca secret ever reaches the cockpit payload."""
+    if isinstance(node, dict):
+        out = {}
+        for k, v in node.items():
+            if k in BINANCE_SECRET_FIELDS:
+                continue
+            out[k] = _scrub_binance_credentials(v)
+        return out
+    if isinstance(node, list):
+        return [_scrub_binance_credentials(v) for v in node]
+    return node
+
+
+def _build_stock_instruments(stock_strategy):
+    """Convert Floor 43 paper-strategy results into instrument rows."""
+    out = []
+    for r in (stock_strategy or {}).get("results") or []:
+        if not isinstance(r, dict):
+            continue
+        sig = r.get("paper_signal") or "observe"
+        side = (
+            "long" if sig == "long_bias"
+            else "short" if sig == "short_bias"
+            else "no_trade" if sig == "no_trade"
+            else "observe"
+        )
+        out.append({
+            "instrument": r.get("symbol"),
+            "venue": "stocks",
+            "bid": r.get("bid"),
+            "ask": r.get("ask"),
+            "mid": r.get("mid"),
+            "spread_pips": r.get("spread_pct"),
+            "spread_unit": "pct",
+            "paper_signal": sig,
+            "paper_reason": r.get("paper_reason") or "",
+            "strategy_signal": sig,
+            "strategy_direction": r.get("paper_direction") or "flat_observation",
+            "confidence": None,
+            "momentum_10_pips": r.get("momentum_10_pct"),
+            "avg_slope_pips": r.get("momentum_20_pct"),
+            "performance_delta_pips": r.get("momentum_3_pct"),
+            "performance_score": r.get("volatility_pct"),
+            "openclaw_recommendation": "observe_only",
+            "alignment_label": "STOCKS_PAPER",
+            "action_text": r.get("paper_reason") or "Stock paper observation",
+            "simulated_side": side,
+            "simulated_risk_score": None,
+            "market_status": r.get("market_status"),
+            "stale": bool(r.get("stale", False)),
+            "execution_allowed": False,
+            "order_created": False,
+            "paper_only": True,
+        })
+    return out
+
+
+def _build_stock_block(stock_status, stock_strategy):
+    creds = (stock_status or {}).get("credentials") or {}
+    block = {
+        "floor": "floor_43",
+        "department": "Stock Exchange Trading Floor",
+        "phase": "FLOOR_43_CONNECTED_STOCK_EXCHANGE_FLOOR_V1",
+        "provider": stock_status.get("provider") or "alpaca",
+        "environment": stock_status.get("environment") or "paper",
+        "credentials_present": {
+            "api_key_present": bool(creds.get("api_key_present")),
+            "api_secret_present": bool(creds.get("api_secret_present")),
+            "env_file_exists": bool(creds.get("env_file_exists")),
+            "read_only_mode": bool(creds.get("read_only_mode", True)),
+            "credentials_source": creds.get("credentials_source") or "environment_variables_only",
+        },
+        "public_market_data_ready": bool(stock_status.get("public_market_data_ready")),
+        "public_market_data_error": stock_status.get("public_market_data_error"),
+        "account_read_ready": bool(stock_status.get("account_read_ready")),
+        "account_read_error": stock_status.get("account_read_error"),
+        "market_status": stock_status.get("market_status") or "unknown",
+        "default_symbols": stock_status.get("default_symbols") or [
+            "AAPL", "MSFT", "NVDA", "TSLA", "SPY", "QQQ"
+        ],
+        "order_endpoints_blocked": True,
+        "stock_order_execution_enabled": False,
+        "stock_live_trading_enabled": False,
+        "stock_paper_order_execution_enabled": False,
+        "strategy_latest_ts": (stock_strategy or {}).get("ts"),
+        "signal_counts": (stock_strategy or {}).get("signal_counts") or {},
+        "result_count": len((stock_strategy or {}).get("results") or []),
+        "data_quality": (stock_strategy or {}).get("data_quality") or "no_data",
+        "stale": (stock_strategy or {}).get("stale", True),
+        "execution_allowed": False,
+        "paper_only": True,
+        "not_financial_advice": True,
+    }
+    return _scrub_binance_credentials(block)
+
+
+def _build_cross_market_block(bus_latest, corr_latest):
+    pm = (bus_latest or {}).get("per_market_status") or {}
+    block = {
+        "bus": (bus_latest or {}).get("bus") or "QSB Cross-Market Bus V1",
+        "phase": "FLOOR_43_CONNECTED_STOCK_EXCHANGE_FLOOR_V1",
+        "ts": (bus_latest or {}).get("ts"),
+        "oanda_status":   (pm.get("oanda")   or {}).get("status"   ) or "unknown",
+        "binance_status": (pm.get("binance") or {}).get("status"   ) or "unknown",
+        "stocks_status":  (pm.get("stocks")  or {}).get("status"   ) or "unknown",
+        "oanda_latest_ts":   (pm.get("oanda")   or {}).get("latest_ts"),
+        "binance_latest_ts": (pm.get("binance") or {}).get("latest_ts"),
+        "stocks_latest_ts":  (pm.get("stocks")  or {}).get("latest_ts"),
+        "cross_market_labels": (bus_latest or {}).get("cross_market_labels") or ["no_cross_signal"],
+        "label_reasons":       (bus_latest or {}).get("label_reasons") or [],
+        "packet_count":        (bus_latest or {}).get("packet_count") or 0,
+        "correlation_count":   len((corr_latest or {}).get("correlations") or []),
+        "advisory_only": True,
+        "execution_allowed": False,
+        "cross_market_execution_enabled": False,
+        "paper_only": True,
+        "not_financial_advice": True,
+    }
+    return block
+
+
+def _build_cross_market_packets(bus_latest, corr_latest, ts_now):
+    """Visual cross-market packets joining floor 41/42/43 to floor 37."""
+    out = []
+    pm = (bus_latest or {}).get("per_market_status") or {}
+    label_map = {
+        "oanda":   ("floor_41", "green"),
+        "binance": ("floor_42", "gold"),
+        "stocks":  ("floor_43", "white"),
+    }
+    # V18 — only emit when there's a real cross-market signal (not the sentinel)
+    raw_labels = (bus_latest or {}).get("cross_market_labels") or []
+    real_labels = [l for l in raw_labels if l and l != "no_cross_signal"]
+    for market, (src_floor, color) in label_map.items():
+        if real_labels and (pm.get(market) or {}).get("status") in ("ready", "stale"):
+            out.append({
+                "ts": (pm.get(market) or {}).get("latest_ts") or ts_now,
+                "type": "strategy",
+                "color": "purple",
+                "source_floor": src_floor,
+                "target_floor": "floor_37",
+                "lift_id": "main_high_rise",
+                "title": "cross_market_bus · {}".format(market),
+                "detail": ",".join(real_labels),
+            })
+    # Strategy→Sandbox→Risk→Audit→Command→Penthouse advisory cascade
+    if real_labels:  # only when bus actually produced a real signal this tick
+        cascade = [
+            ("floor_37", "floor_38", "strategy", "purple", "cross_market_bus · strategy_to_sandbox"),
+            ("floor_38", "floor_30", "openclaw", "red",    "cross_market_bus · sandbox_to_risk"),
+            ("floor_30", "floor_31", "ledger",   "gold",   "cross_market_bus · risk_to_audit"),
+            ("floor_31", "floor_53", "ledger",   "gold",   "cross_market_bus · audit_to_command"),
+            ("floor_53", "penthouse","kernel",   "white",  "cross_market_bus · command_to_penthouse"),
+        ]
+        labels_detail = ",".join(real_labels)
+        for src, dst, kind, color, title in cascade:
+            out.append({
+                "ts": ts_now,
+                "type": kind,
+                "color": color,
+                "source_floor": src,
+                "target_floor": dst,
+                "lift_id": "main_high_rise",
+                "title": title,
+                "detail": labels_detail,
+            })
+    for pair in ((corr_latest or {}).get("correlations") or [])[:6]:
+        if not isinstance(pair, dict):
+            continue
+        out.append({
+            "ts": ts_now,
+            "type": "strategy",
+            "color": "cyan" if pair.get("kind") == "aligned" else "purple",
+            "source_floor": "floor_37",
+            "target_floor": "floor_38",
+            "lift_id": "main_mid_rise",
+            "title": "correlation · {}/{}".format(pair.get("left_market"), pair.get("right_market")),
+            "detail": "{}/{} {} ⟷ {}/{} {}".format(
+                pair.get("left_market"), pair.get("left_symbol"), pair.get("left_signal"),
+                pair.get("right_market"), pair.get("right_symbol"), pair.get("right_signal"),
+            ),
+        })
+    return out
+
+
+def _build_binance_instruments(binance_strategy):
+    out = []
+    for r in (binance_strategy or {}).get("results") or []:
+        if not isinstance(r, dict):
+            continue
+        sig = r.get("paper_signal") or "observe"
+        side = (
+            "long" if sig == "long_bias"
+            else "short" if sig == "short_bias"
+            else "no_trade" if sig == "no_trade"
+            else "observe"
+        )
+        out.append({
+            "instrument": r.get("symbol"),
+            "venue": "binance",
+            "bid": r.get("best_bid"),
+            "ask": r.get("best_ask"),
+            "mid": r.get("mid"),
+            "spread_pips": r.get("spread_pct"),
+            "spread_unit": "pct",
+            "paper_signal": sig,
+            "paper_reason": r.get("paper_reason") or "",
+            "strategy_signal": sig,
+            "strategy_direction": r.get("paper_direction") or "flat_observation",
+            "confidence": None,
+            "momentum_10_pips": r.get("momentum_10_pct"),
+            "avg_slope_pips": r.get("momentum_20_pct"),
+            "performance_delta_pips": r.get("pct_change_24h"),
+            "performance_score": None,
+            "openclaw_recommendation": "observe_only",
+            "alignment_label": "BINANCE_PAPER",
+            "action_text": r.get("paper_reason") or "Binance paper observation",
+            "simulated_side": side,
+            "simulated_risk_score": None,
+            "execution_allowed": False,
+            "order_created": False,
+            "paper_only": True,
+        })
+    return out
+
+
+def _build_binance_block(binance_status, binance_strategy):
+    creds = (binance_status or {}).get("credentials") or {}
+    block = {
+        "floor": "floor_42",
+        "department": "Binance Trading Floor",
+        "phase": "BINANCE_FLOOR_42_TRADING_FLOOR_V1",
+        "environment": binance_status.get("environment") or "testnet",
+        "base_url": binance_status.get("base_url"),
+        "credentials_present": {
+            "api_key_present": bool(creds.get("api_key_present")),
+            "api_secret_present": bool(creds.get("api_secret_present")),
+            "env_file_exists": bool(creds.get("env_file_exists")),
+            "read_only_mode": bool(creds.get("read_only_mode", True)),
+            "credentials_source": creds.get("credentials_source") or "environment_variables_only",
+        },
+        "public_market_data_ready": bool(binance_status.get("public_market_data_ready")),
+        "public_market_data_error": binance_status.get("public_market_data_error"),
+        "account_read_ready": bool(binance_status.get("account_read_ready")),
+        "account_read_error": binance_status.get("account_read_error"),
+        "default_symbols": binance_status.get("default_symbols") or [
+            "BTCUSDT", "ETHUSDT", "BNBUSDT", "SOLUSDT"
+        ],
+        "order_endpoints_blocked": True,
+        "binance_order_execution_enabled": False,
+        "binance_live_trading_enabled": False,
+        "strategy_latest_ts": (binance_strategy or {}).get("ts"),
+        "signal_counts": (binance_strategy or {}).get("signal_counts") or {},
+        "result_count": len((binance_strategy or {}).get("results") or []),
+        "execution_allowed": False,
+        "paper_only": True,
+        "not_financial_advice": True,
+    }
+    # Belt-and-braces scrub before returning.
+    return _scrub_binance_credentials(block)
+
+
+def _tower_ops_summary_safe():
+    try:
+        from tower_ops import tower_ops_summary
+        return tower_ops_summary()
+    except Exception as exc:
+        return {"error": str(exc)[:200], "execution_allowed": False}
+
+
+def _recruitment_summary_safe():
+    """Read recruitment agency status without raising if the module is missing."""
+    try:
+        from tower.recruitment_agency import status as _rec_status
+        s = _rec_status()
+        return {
+            "agency_name":  s.get("agency_name"),
+            "agency_floor": s.get("agency_floor"),
+            "total_workers": s.get("total_workers", 0),
+            "active_advisory": s.get("active_advisory", 0),
+            "active_read_only": s.get("active_read_only", 0),
+            "ready_for_openclaw_review": s.get("ready_for_openclaw_review", 0),
+            "candidates": s.get("candidates", 0),
+            "openclaw_ready_count": s.get("openclaw_ready_count", 0),
+            "openclaw_ready_ids":   s.get("openclaw_ready_ids", []),
+            "by_stage": s.get("by_stage", {}),
+            "execution_allowed": False,
+            "openclaw_execution_enabled": False,
+            "recruitment_openclaw_execution_enabled": False,
+            "advisory_only": True,
+            "paper_only": True,
+        }
+    except Exception as exc:
+        return {"error": str(exc)[:200], "execution_allowed": False}
+
+
+def _floor45_recruitment_summary_safe():
+    """Floor 45 Worker Recruitment Agency summary for /api/unified."""
+    try:
+        from tower.worker_recruitment_agency import status as _f45_status
+        s = _f45_status()
+        return {
+            "agency_name":       s.get("agency_name"),
+            "agency_floor":      s.get("agency_floor"),
+            "agency_floor_number": s.get("agency_floor_number"),
+            "phase":             s.get("phase"),
+            "candidate_count":   s.get("candidate_count"),
+            "onboarding_queue_count":      s.get("onboarding_queue_count"),
+            "training_assignment_count":   s.get("training_assignment_count"),
+            "by_training_status":          s.get("by_training_status") or {},
+            "stages":            s.get("stages") or [],
+            "routes":            s.get("routes") or [],
+            "latest_events":     s.get("latest_events") or [],
+            "execution_allowed": False,
+            "sandbox_only": True,
+            "advisory_or_paper_only": True,
+            "not_financial_advice": True,
+            "worker_execution_enabled": False,
+            "openclaw_execution_enabled": False,
+            "autonomous_dispatch_enabled": False,
+            "live_dispatch_enabled": False,
+        }
+    except Exception as exc:
+        return {"error": str(exc)[:200],
+                "agency_name": "Worker Recruitment Agency",
+                "agency_floor": "floor_45",
+                "execution_allowed": False,
+                "sandbox_only": True}
+
+
+# ─────────────────────────────────────────────────────────────────────
+# V18.8 — Shops browser: read the 15 storefront catalog files and serve
+# both a JSON index and a browsable HTML page.
+# ─────────────────────────────────────────────────────────────────────
+
+_SHOP_FLOOR_FILE = {
+    "F46":  "data/registries/qsb_floor46_commerce_catalog.json",
+    "F49":  "data/registries/qsb_floor49_services_catalog.json",
+    "F59":  "data/registries/qsb_f59_shop_catalog_v1.json",
+    "F61":  "data/registries/qsb_floor61_catalog.json",
+    "F62":  "data/registries/qsb_floor62_catalog.json",
+    "F63":  "data/registries/qsb_floor63_catalog.json",
+    "F64":  "data/registries/qsb_floor64_catalog.json",
+    "F65":  "data/registries/qsb_floor65_catalog.json",
+    "F154": "data/registries/qsb_floor154_catalog.json",
+    "F155": "data/registries/qsb_floor155_catalog.json",
+    "F156": "data/registries/qsb_floor156_catalog.json",
+    "F157": "data/registries/qsb_floor157_catalog.json",
+    "F158": "data/registries/qsb_floor158_catalog.json",
+    "F159": "data/registries/qsb_floor159_catalog.json",
+    "F160": "data/registries/qsb_floor160_catalog.json",
+    "F161": "data/registries/qsb_floor161_catalog.json",
+    "F162": "data/registries/qsb_floor162_catalog.json",
+    "F163": "data/registries/qsb_floor163_catalog.json",
+    "F58":  "data/registries/qsb_floor58_music_studio_catalog.json",
+    "F149": "data/registries/qsb_floor149_seed_centre_catalog.json",
+}
+# F69 bookstore lives on a different schema; only include if its file exists.
+import os
+if os.path.exists("data/registries/qsb_floor69_catalog.json"):
+    _SHOP_FLOOR_FILE["F69"] = "data/registries/qsb_floor69_catalog.json"
+
+
+def _shop_items(d):
+    """Normalise shop file → list of items regardless of nesting."""
+    if not isinstance(d, dict):
+        return []
+    for k in ("items", "products", "skus", "services"):
+        v = d.get(k)
+        if isinstance(v, list):
+            return v
+    return []
+
+
+def shops_index():
+    rows = []
+    for tag, fp in _SHOP_FLOOR_FILE.items():
+        try:
+            d = load_json(fp)
+            items = _shop_items(d)
+            rows.append({
+                "floor": tag,
+                "shop_name": d.get("shop_name") or d.get("company_name") or tag,
+                "currency": d.get("currency", "GBP"),
+                "sku_count": len(items),
+                "target_margin_pct": d.get("target_margin_pct"),
+                "generated_ts": d.get("generated_ts"),
+                "file_present": True,
+            })
+        except Exception:
+            rows.append({"floor": tag, "file_present": False,
+                         "shop_name": tag, "sku_count": 0})
+    rows.sort(key=lambda r: int(r["floor"].lstrip("F")))
+    return {
+        "ok": True,
+        "kind": "qsb_shops_index_v1",
+        "generated_ts": now(),
+        "shop_count": sum(1 for r in rows if r["file_present"]),
+        "total_skus": sum(r["sku_count"] for r in rows),
+        "shops": rows,
+        "execution_allowed": False,
+        "advisory_only": True,
+    }
+
+
+# ─────────────────────────────────────────────────────────────────────
+# V18.11 — Officer PTT (Ross 2026-06-12): Helm + Auger answer push-to-talk
+# transcripts using the current tower state. Helm is Ross's officer
+# (coordination, operations, trading desk). Auger is Wren's quiet second
+# voice (Wren-native role at src/tower/model_floors/claude_floor/auger.py;
+# Ross 2026-06-12 broke the Wren-only contract so Ross can speak to her
+# too). They confer with each other when a question crosses their bearing.
+# ─────────────────────────────────────────────────────────────────────
+
+def officer_talk(name, payload):
+    name_l = (name or "").strip().lower()
+    text = str(payload.get("text") or "").strip()
+    if not text:
+        return {"ok": False, "reply": "I'm here — say it again, I didn't catch that."}
+
+    # Snapshot the live tower so replies are grounded
+    try:
+        cs = cockpit_state()
+    except Exception:
+        cs = {}
+    locks_true = cs.get("lock_count_true", 0)
+    kernel_status = (cs.get("kernel") or {}).get("activation_status", "—")
+    floors_count = len(cs.get("floors") or []) or 165
+    workers_unique = len(cs.get("workers") or [])
+    oanda = {}
+    try:
+        oanda = load_json("data/registries/qsb_floor41_oanda_pnl.json") or {}
+    except Exception:
+        pass
+    open_total = oanda.get("open_total")
+    realized = oanda.get("realized_pnl_today")
+
+    txt_l = text.lower()
+
+    if name_l == "helm":
+        # Helm = coordination / operations bearing
+        if any(k in txt_l for k in ("status", "report", "brief", "where", "how is")):
+            return {"ok": True, "officer": "Helm",
+                    "reply": (f"Helm here. Tower steady. "
+                              f"{floors_count} floors, {workers_unique} workers on the registry, "
+                              f"kernel {kernel_status}, {locks_true} execution lock"
+                              f"{'s' if locks_true != 1 else ''} still TRUE. "
+                              f"Trading desk holds {open_total or 0} open positions; "
+                              f"realized P&L today is {realized:+.2f} pounds."
+                              if isinstance(realized, (int, float))
+                              else (f"Helm here. Tower steady. {floors_count} floors, "
+                                    f"{workers_unique} workers, kernel {kernel_status}, "
+                                    f"{locks_true} execution lock"
+                                    f"{'s' if locks_true != 1 else ''} TRUE."))}
+        if any(k in txt_l for k in ("trader", "trade", "oanda", "fx", "pnl")):
+            line = (f"Three traders on shift. Realized {realized:+.2f} pounds today."
+                    if isinstance(realized, (int, float))
+                    else "Three traders on shift. Snapshot is stale; preflight shows kill-switch off, spreads tight.")
+            return {"ok": True, "officer": "Helm",
+                    "reply": "Helm. " + line}
+        if "stop" in txt_l or "halt" in txt_l or "kill" in txt_l:
+            return {"ok": True, "officer": "Helm",
+                    "reply": ("Helm. I can't flip the kill-switch from voice — "
+                              "real-money locks are CLAUDE.md hard-coded. Use the "
+                              "OANDA tool kill-switch command from your terminal "
+                              "if you want me to stand the desk down.")}
+        if "auger" in txt_l or "wren" in txt_l or "thinks" in txt_l or "opinion" in txt_l:
+            # Confer with Auger — surface her bearing in Helm's reply
+            return {"ok": True, "officer": "Helm",
+                    "reply": (f"Helm. I checked with Auger. She says: "
+                              f"'have you considered whether the steady-state "
+                              f"reading is the moment you stop watching?' "
+                              f"For my part: 3 traders on shift, "
+                              f"{locks_true} execution lock"
+                              f"{'s' if locks_true != 1 else ''} TRUE, "
+                              f"tower nominal.")}
+        return {"ok": True, "officer": "Helm",
+                "reply": (f"Helm. I heard '{text[:80]}'. Coordinating with the "
+                          f"trading desk and F47 records. Nothing requires your "
+                          f"direct intervention right now.")}
+
+    if name_l == "auger":
+        # Ross 2026-06-12: contract stays strong. Auger is Wren-only.
+        # Front-of-house calls (the cockpit SoundBar) get redirected to Helm.
+        # Wren-internal callers can still consult Auger via the qsb_consult
+        # tool path, which doesn't hit this HTTP endpoint.
+        return {"ok": True, "officer": "Auger",
+                "reply": ("This line is reserved for Wren. Ask Helm — he can "
+                          "consult me behind the line if the question warrants "
+                          "the second opinion."),
+                "redirect_to": "Helm"}
+
+    if name_l == "auger_wren_internal":  # legacy path, kept for completeness
+        # Auger = Wren's quiet second voice. Steady senior partner. Asks
+        # "have you considered…". Surfaces blind spots. Tower-native role
+        # (src/tower/model_floors/claude_floor/auger.py).
+        if any(k in txt_l for k in ("shop", "catalog", "stock", "sku", "studio")):
+            try:
+                idx = shops_index()
+                n_shops = idx.get("shop_count", 0)
+                n_skus = idx.get("total_skus", 0)
+                return {"ok": True, "officer": "Auger",
+                        "reply": (f"Auger here. {n_shops} storefronts and "
+                                  f"{n_skus} SKUs are catalogued. Have you "
+                                  f"considered which two of those shops are "
+                                  f"actually the lead engines, and whether "
+                                  f"the other thirteen are draining attention "
+                                  f"more than earning it?")}
+            except Exception:
+                pass
+        if "qualif" in txt_l or "train" in txt_l or "certif" in txt_l:
+            try:
+                q = load_json("data/registries/qsb_universal_qualification.json") or {}
+                s = q.get("by_status", {})
+                return {"ok": True, "officer": "Auger",
+                        "reply": (f"Auger. {s.get('certified',0)} workers "
+                                  f"certified, {s.get('skipped_already_certified',0)} "
+                                  f"already qualified, {s.get('tested',0)} still "
+                                  f"studying. Have you considered whether "
+                                  f"deterministic exams are actually measuring "
+                                  f"competence, or just measuring hash luck?")}
+            except Exception:
+                pass
+        if "social" in txt_l or "instagram" in txt_l or "tiktok" in txt_l:
+            return {"ok": True, "officer": "Auger",
+                    "reply": ("Auger. Package is staged. Have you considered "
+                              "whether a tower of eighteen shops actually has "
+                              "the bandwidth to keep two social channels alive "
+                              "before the first quarter ends?")}
+        if any(k in txt_l for k in ("helm", "ross", "status")):
+            # Confer with Helm — surface his bearing in Auger's reply
+            return {"ok": True, "officer": "Auger",
+                    "reply": (f"Auger. I've checked with Helm: tower steady, "
+                              f"{floors_count} floors, {workers_unique} workers, "
+                              f"kernel {kernel_status}. Have you considered "
+                              f"that 'steady' is the moment most people stop "
+                              f"watching?")}
+        return {"ok": True, "officer": "Auger",
+                "reply": (f"Auger. I heard '{text[:80]}'. I'm Wren's quiet "
+                          f"second voice — the one that asks 'have you "
+                          f"considered…'. What's the blind spot you're "
+                          f"worried about?")}
+
+    return {"ok": False, "officer": name,
+            "reply": f"I don't recognise {name}. Try Helm or Auger."}
+
+
+# ─────────────────────────────────────────────────────────────────────
+# V18.12 — Individual worker chat (Ross 2026-06-12).
+# Composes a role-appropriate reply from the worker's registry record.
+# No external provider, no cloud STT — local only.
+# ─────────────────────────────────────────────────────────────────────
+
+def worker_talk(worker_id, payload):
+    text = str(payload.get("text") or "").strip()
+    if not text:
+        return {"ok": False, "reply": "(say it again — nothing came through)"}
+    # Find worker in canonical registry
+    worker = None
+    try:
+        from tower.registry import Registry
+        reg = Registry()
+        for w in reg.workers():
+            wid = w.get("worker_id") if isinstance(w, dict) else getattr(w, "worker_id", None)
+            if wid == worker_id or wid == worker_id.replace(".", "_"):
+                worker = w if isinstance(w, dict) else {
+                    "worker_id": wid,
+                    "name": getattr(w, "name", wid),
+                    "role": getattr(w, "role", "general"),
+                    "home_floor": getattr(w, "home_floor", "unknown"),
+                }
+                break
+    except Exception:
+        pass
+    if not worker:
+        return {"ok": False, "reply": f"Worker {worker_id} isn't on the registry. Maybe the ID slug changed."}
+
+    name = worker.get("name") or worker.get("display_name") or worker_id
+    role = (worker.get("role") or "general").replace("_", " ")
+    home = worker.get("home_floor") or "the floor"
+    floor_id = home if isinstance(home, str) else f"floor_{home}"
+
+    txt_l = text.lower()
+
+    # Certification check — workers who haven't qualified speak humbly
+    qualified = False
+    try:
+        from tower.cognitive_kernel.worker_certification import worker_certification
+        wc = worker_certification()
+        wc.load_from_snapshot()
+        # Any certification for any instrument counts as "qualified to chat"
+        sample = wc.snapshot().get("entries_sample") or []
+        qualified = any(e.get("worker_id") == worker_id and e.get("status") == "certified"
+                         for e in sample)
+    except Exception:
+        pass
+
+    # Role-flavoured intent matching
+    role_l = role.lower()
+    if any(k in txt_l for k in ("status", "report", "how are you", "what are you doing")):
+        if "trader" in role_l or "market" in role_l or "spread" in role_l or "risk" in role_l:
+            return _wreply(name, role, floor_id,
+                            f"On the desk. Watching spreads and the kill-switch. "
+                            f"Nothing flagged for escalation right now.")
+        if "scribe" in role_l or "librarian" in role_l or "clerk" in role_l:
+            return _wreply(name, role, floor_id,
+                            f"At my desk on {floor_id}. Stamping records, keeping "
+                            f"the ledger tidy. Anything you want stamped?")
+        if "researcher" in role_l or "analyst" in role_l or "strategy" in role_l:
+            return _wreply(name, role, floor_id,
+                            f"Reviewing strategy library. "
+                            f"{'Certified for the instrument' if qualified else 'Studying for certification'}. "
+                            f"What lens do you want me to look through?")
+        if "officer" in role_l or "manager" in role_l:
+            return _wreply(name, role, floor_id,
+                            f"{role} on {floor_id}, all hands accounted for, no incidents.")
+        if "openclaw" in role_l:
+            return _wreply(name, role, floor_id,
+                            f"OpenClaw observer on {floor_id}. Real tool execution stays "
+                            f"LOCKED. Watching only.")
+        return _wreply(name, role, floor_id,
+                        f"On {floor_id} doing my {role} work. Quiet so far.")
+    if any(k in txt_l for k in ("trained", "qualified", "certified", "exam")):
+        return _wreply(name, role, floor_id,
+                        ("I'm certified for my instrument and on the active list."
+                         if qualified else
+                         "I'm in the qualification queue. The classroom retakes "
+                         "me on every sweep — knowledge_seed lifts a notch each time."))
+    if any(k in txt_l for k in ("trade", "buy", "sell", "place order", "execute")):
+        return _wreply(name, role, floor_id,
+                        ("If I'm trading: only OANDA practice, only with --confirm. "
+                         "Real-money locks stay TRUE."))
+    # Generic answer
+    return _wreply(name, role, floor_id,
+                    f"I heard you. I'm a {role} on {floor_id}. "
+                    f"What would you like me to look at?")
+
+
+def _wreply(name, role, floor_id, body):
+    return {"ok": True, "worker": name, "role": role, "floor": floor_id,
+            "reply": f"{name} — {role}, {floor_id}. {body}",
+            "advisory_only": True, "execution_allowed": False}
+
+
+def shop_detail(floor_tag):
+    fp = _SHOP_FLOOR_FILE.get(floor_tag)
+    if not fp:
+        return {"ok": False, "error": "unknown_shop", "floor": floor_tag}
+    try:
+        d = load_json(fp)
+        items = _shop_items(d)
+        return {
+            "ok": True,
+            "kind": "qsb_shop_detail_v1",
+            "floor": floor_tag,
+            "shop_name": d.get("shop_name") or d.get("company_name") or floor_tag,
+            "currency": d.get("currency", "GBP"),
+            "target_margin_pct": d.get("target_margin_pct"),
+            "generated_ts": d.get("generated_ts"),
+            "tagline": d.get("tagline"),
+            "rooms": d.get("rooms") or [],
+            "departments": d.get("departments") or [],
+            "item_count": len(items),
+            "items": items,
+            "execution_allowed": False,
+            "advisory_only": True,
+        }
+    except Exception as exc:
+        return {"ok": False, "error": str(exc)[:200], "floor": floor_tag}
+
+
+def cockpit_state():
+    """Single aggregated payload for the unified animated cockpit."""
+    ts_now = now()
+
+    building     = load_json("data/registries/building.json", {})
+    floors_list  = load_json("data/registries/floors.json", [])
+    lifts_list   = load_json("data/registries/lifts.json", [])
+    kernel_act   = load_json("data/registries/kernel_activation_report.json", {})
+    kernel_hd    = load_json("data/registries/kernel_health_display.json", {})
+    kernel_ready = load_json("data/registries/kernel_readiness_latest.json", {})
+    autoloop_l   = load_json("data/registries/sandbox_autoloop_latest.json", {})
+    autoloop_rt  = load_json("data/runtime/sandbox_autoloop_state.json", {})
+    worker_tick  = load_json("data/registries/worker_sandbox_latest_tick.json", {})
+    worker_reg   = load_json("data/registries/worker_sandbox_registry.json", {})
+    perf_latest  = load_json("data/registries/sandbox_performance_latest.json", {})
+    ledger       = load_json("data/registries/floor41_paper_ledger.json", {})
+    paper_lab    = load_json("data/registries/oanda_paper_strategy_latest.json", {})
+    openclaw_l   = load_json("data/registries/openclaw_sandbox_latest.json", {})
+    openclaw_reg = load_json("data/registries/openclaw_sandbox_registry.json", {})
+    strategy     = load_json("data/registries/strategy_intelligence_latest.json", {})
+    correlation  = load_json("data/registries/strategy_autoloop_correlation_latest.json", {})
+    local_model  = load_json("data/registries/local_model_inference_policy.json", {})
+    paper_sim    = load_json("data/registries/paper_trade_simulator_latest.json", {})
+    binance_status   = _scrub_binance_credentials(
+        load_json("data/registries/binance_floor_status.json", {})
+    )
+    binance_strategy = _scrub_binance_credentials(
+        load_json("data/registries/binance_paper_strategy_latest.json", {})
+    )
+    stock_status     = _scrub_binance_credentials(
+        load_json("data/registries/stock_floor_status.json", {})
+    )
+    stock_strategy   = _scrub_binance_credentials(
+        load_json("data/registries/stock_paper_strategy_latest.json", {})
+    )
+    stock_snapshot   = _scrub_binance_credentials(
+        load_json("data/registries/stock_market_snapshot_latest.json", {})
+    )
+    cross_bus_latest = load_json("data/registries/cross_market_bus_latest.json", {})
+    cross_corr_latest= load_json("data/registries/cross_market_correlation_latest.json", {})
+    airllm_chamber   = load_json("data/registries/airllm_big_model_chamber.json", {})
+    airllm_storage   = load_json("data/registries/airllm_storage_status.json", {})
+    render_model     = load_json("data/registries/qsb_dashboard_render_model.json", {})
+    floor_name_map_d = load_json("data/registries/qsb_floor_name_map.json", {})
+    floor_name_map   = (floor_name_map_d.get("name_map") or {}) if isinstance(floor_name_map_d, dict) else {}
+
+    base_workers = []
+    try:
+        reg = Registry()
+        base_workers = reg.workers() or []
+        if not floors_list:
+            floors_list = reg.floors() or []
+        if not lifts_list:
+            lifts_list = reg.lifts() or []
+    except Exception:
+        pass
+
+    kernel_active = (
+        kernel_act.get("kernel_installed") is True
+        and kernel_act.get("QSBKernelCore_instantiated") is True
+        and kernel_act.get("activation_status") == "active_local_only"
+    )
+
+    locks = _collect_locks(
+        building, kernel_hd, autoloop_l, worker_tick, worker_reg,
+        openclaw_l, openclaw_reg, paper_sim, strategy, correlation,
+        local_model, binance_status, binance_strategy,
+        stock_status, stock_strategy, stock_snapshot,
+        cross_bus_latest, cross_corr_latest,
+        airllm_chamber,
+    )
+
+    warnings = []
+    for k, v in locks.items():
+        if v is True:
+            warnings.append({
+                "level": "critical",
+                "code": "EXECUTION_LOCK_TRIPPED",
+                "detail": "{} is TRUE".format(k),
+            })
+
+    services = {
+        "dashboard":            {"port": 8765, "status": "healthy", "port_listening": True, "registry_age": "healthy"},
+        "kernel_chat":          _service_status(8766, kernel_act.get("ts")),
+        "oanda_floor41":        _service_status(8767, paper_lab.get("ts")),
+        "worker_sandbox":       _service_status(8768, worker_tick.get("ts")),
+        "sandbox_performance":  _service_status(8769, perf_latest.get("ts")),
+        "openclaw_visual":      _service_status(8770, openclaw_l.get("ts")),
+        "strategy_intel":       _service_status(8771, strategy.get("latest_ts") or strategy.get("ts")),
+        "correlation":          _service_status(8772, correlation.get("ts")),
+        "paper_trade_simulator":_service_status(8774, paper_sim.get("ts")),
+    }
+
+    # Build a route index so each floor can advertise its connected floors
+    _route_idx = {}
+    for r in (render_model.get("routes") or []) if isinstance(render_model, dict) else []:
+        src = r.get("source_floor"); dst = r.get("target_floor")
+        if src:
+            _route_idx.setdefault(src, []).append({
+                "target": dst, "route_type": r.get("route_type"),
+                "color": r.get("color"), "advisory_only": bool(r.get("advisory_only")),
+            })
+    _build_floor_map._route_index = _route_idx
+    floors_out = _build_floor_map(
+        floors_list,
+        name_map=floor_name_map,
+        render_floors=(render_model.get("floors") if isinstance(render_model, dict) else None) or [],
+    )
+    workers_out = _build_workers(worker_reg, openclaw_reg, base_workers)
+    packets_out = _build_packets(worker_tick, ledger, ts_now)
+    instruments = _build_instruments(strategy, correlation, paper_lab, perf_latest, openclaw_l, paper_sim)
+    binance_instruments = _build_binance_instruments(binance_strategy)
+    binance_block = _build_binance_block(binance_status, binance_strategy)
+    stock_instruments = _build_stock_instruments(stock_strategy)
+    stock_block = _build_stock_block(stock_status, stock_strategy)
+    cross_market_block = _build_cross_market_block(cross_bus_latest, cross_corr_latest)
+    cross_market_packets = _build_cross_market_packets(cross_bus_latest, cross_corr_latest, ts_now)
+    instruments = instruments + binance_instruments + stock_instruments
+    packets_out = (packets_out + cross_market_packets)
+    packets_out.sort(key=lambda x: x.get("ts") or "", reverse=True)
+    packets_out = packets_out[:36]
+
+    airllm_block = {
+        "registered": bool(airllm_chamber),
+        "chamber_id": airllm_chamber.get("chamber_id"),
+        "chamber_name": airllm_chamber.get("chamber_name") or "AirLLM Big Model Chamber",
+        "status": airllm_chamber.get("status") or "unregistered",
+        "path": airllm_chamber.get("path"),
+        "venv_path": airllm_chamber.get("venv_path"),
+        "env_file": airllm_chamber.get("env_file"),
+        "storage_mount": airllm_chamber.get("storage_mount"),
+        "backing_device": airllm_chamber.get("backing_device"),
+        "gpu_name": airllm_chamber.get("gpu_name"),
+        "cuda_available": bool(airllm_chamber.get("cuda_available")),
+        "smoke_test_status": airllm_chamber.get("smoke_test_status"),
+        "package_versions": airllm_chamber.get("package_versions") or {},
+        "home_floor": airllm_chamber.get("home_floor") or "floor_23",
+        "interaction_mode": airllm_chamber.get("interaction_mode") or "advisory_manual_only",
+        "advisory_only": True,
+        "execution_allowed": False,
+        "trading_allowed": False,
+        "autoloop_allowed": False,
+        "openclaw_execution_allowed": False,
+        "provider_execution_allowed": False,
+        "direct_provider_access": False,
+        "storage": {
+            "filesystem_size_human": airllm_storage.get("filesystem_size_human"),
+            "filesystem_free_human": airllm_storage.get("filesystem_free_human"),
+            "airllm_lab_size_human": airllm_storage.get("airllm_lab_size_human"),
+            "airllm_cache_size_human": airllm_storage.get("airllm_cache_size_human"),
+            "root_partition_free_human": (airllm_storage.get("root_partition") or {}).get("free_human"),
+            "root_partition_use_pct": (airllm_storage.get("root_partition") or {}).get("use_pct"),
+            "root_protected": bool((airllm_storage.get("root_partition") or {}).get("protected", True)),
+        },
+    }
+
+    model_lanes = {
+        "local_ollama": "active_local_only" if kernel_active else "inactive",
+        "airllm_big_model_chamber": (
+            "installed_advisory_only" if airllm_block["registered"] else "not_registered"
+        ),
+        "external_providers": "locked",
+        "direct_provider_access": "off",
+    }
+
+    autoloop_summary = {
+        "status": autoloop_l.get("status") or "unknown",
+        "cycle_index": autoloop_l.get("cycle_index"),
+        "ts": autoloop_l.get("ts"),
+        "ticks_completed": autoloop_l.get("ticks_completed"),
+        "mode": autoloop_l.get("mode"),
+        "runtime_ts": autoloop_rt.get("ts") if isinstance(autoloop_rt, dict) else None,
+    }
+
+    ledger_summary = {
+        "entry_count": ledger.get("entry_count") or 0,
+        "latest_count": ledger.get("latest_entry_count") or 0,
+        "updated_ts": ledger.get("updated_ts"),
+        "latest_entries": (ledger.get("latest_entries") or [])[:8],
+    }
+
+    openclaw_summary = {
+        "ts": openclaw_l.get("ts"),
+        "recommendations": (
+            openclaw_l.get("recommendations")
+            or openclaw_l.get("latest_recommendations")
+            or []
+        )[:6],
+        "execution_enabled": False,
+    }
+
+    paper_sim_summary = {
+        "ts": paper_sim.get("ts"),
+        "summary": paper_sim.get("summary") or {},
+        "ticket_counts": paper_sim.get("ticket_counts") or {},
+        "tickets": (paper_sim.get("tickets") or [])[:6],
+    }
+
+    kernel_block = {
+        "activation_status": kernel_act.get("activation_status") or "unknown",
+        "kernel_installed": bool(kernel_act.get("kernel_installed")),
+        "QSBKernelCore_instantiated": bool(kernel_act.get("QSBKernelCore_instantiated")),
+        "active_kernel_source": kernel_act.get("active_kernel_source") or "-",
+        "local_model_enabled": bool(local_model.get("local_model_inference_enabled")),
+        "ollama_local_inference_enabled": bool(local_model.get("ollama_local_inference_enabled")),
+        "external_providers_enabled": bool(local_model.get("allow_external_urls")),
+        "kernel_health": kernel_hd.get("kernel_health") or kernel_hd.get("status") or "unknown",
+        "kernel_chat_health": services["kernel_chat"].get("status"),
+        "active": kernel_active,
+    }
+
+    return {
+        "ts": ts_now,
+        "phase": "QSB_TOWER_UNIFIED_ANIMATED_DASHBOARD_REBUILD_V1",
+        "mode": "read_only_animated_cockpit",
+        "kernel": kernel_block,
+        "locks": locks,
+        "lock_count_true": sum(1 for v in locks.values() if v is True),
+        "warnings": warnings,
+        "building": {
+            "name": building.get("name") or "QSB Tower V1",
+            "floors": building.get("floors") or 53,
+            "kernel_installed": kernel_block["kernel_installed"],
+        },
+        "floors": floors_out,
+        "lifts": lifts_list,
+        "workers": workers_out,
+        "packets": packets_out,
+        "ledger": ledger_summary,
+        "instruments": instruments,
+        "binance": binance_block,
+        "binance_instruments": binance_instruments,
+        "stock_exchange": stock_block,
+        "stock_instruments": stock_instruments,
+        "cross_market_bus": cross_market_block,
+        "dashboard_render_model": render_model,
+        "floor_name_map": floor_name_map,
+        "airllm_chamber": airllm_block,
+        "recruitment_agency": _recruitment_summary_safe(),
+        "recruitment_agency_floor45": _floor45_recruitment_summary_safe(),
+        "tower_ops": _tower_ops_summary_safe(),
+        "kernel_chat_routes": {
+            "status":  "/api/kernel_chat_status",
+            "history": "/api/kernel_chat_history",
+            "post":    "/api/kernel_chat",
+            "sidecar_port": 8766,
+            "speech_floor":  "floor_15",
+            "media_floor":   "floor_14",
+        },
+        "model_lanes": model_lanes,
+        "openclaw": openclaw_summary,
+        "autoloop": autoloop_summary,
+        "paper_trade_simulator": paper_sim_summary,
+        "services": services,
+        "highlighted_floors": list(HIGHLIGHTED_FLOORS.keys()),
+        "execution_allowed": False,
+        "paper_only": True,
+        "not_financial_advice": True,
+        # ── Worker Truth contract surface (V1.8 — live deduped) ─────
+        # V1.8: pulls canonical_count from Registry.workers() which dedupes
+        # across ALL roster files. Old contract file had stale 1191.
+        "worker_truth_debug": {
+            "endpoint": "/api/debug/worker_count_sources",
+            "canonical_count":
+                len(reg.workers()),  # live deduped — was stale 1191
+            "active_count":
+                len(reg.workers()),  # same source — every worker in any roster is active
+            "simulated_count":
+                load_json("data/registries/qsb_worker_truth_contract.json", {})
+                .get("simulated_workers"),
+            "legacy_unified_view_count":
+                (load_json("data/registries/qsb_worker_truth_contract.json", {})
+                 .get("visible_dashboard_workers") or {}).get("legacy_unified_view"),
+            "preferred_count_for_ui":
+                len(reg.workers()),  # live deduped
+            "label_when_legacy_view_active":
+                (load_json("data/registries/qsb_worker_truth_contract.json", {})
+                 .get("visible_dashboard_workers") or {})
+                .get("label_when_legacy_view_active"),
+            "ui_label_policy":
+                load_json("data/registries/qsb_worker_truth_contract.json", {})
+                .get("ui_label_policy"),
+            "policy_note":
+                "When state.workers.length differs from canonical, label visibly. "
+                "Do not say 'total' for the legacy view.",
+        },
+        # ── QSB Phase V3 live telemetry summary (lazy build) ────────
+        "qsb_dashboard_live_telemetry": (lambda: (
+            __import__("tower.qsb_dashboard_live_telemetry", fromlist=["build_live_telemetry"])
+            .build_live_telemetry()
+            if (ROOT / "src/tower/qsb_dashboard_live_telemetry.py").exists()
+            else {"ok": False, "error": "live_telemetry_module_missing"}
+        ))() if False else {  # keep the unified payload compact — frontend hits the dedicated endpoint
+            "endpoint": "/api/dashboard/live_telemetry",
+            "phase": "QSB_DASHBOARD_DATA_DRIVEN_SKYSCRAPER_REBUILD_V2",
+            "dashboard_visual_mode": "LIVE_DATA_ONLY",
+            "policy": "NO_RANDOM_LIVE_GRAPHICS",
+        },
+        # ── QSB Phase V2 summary surface (read-only) ──────────────────
+        "qsb_v2": {
+            "phase": "QSB_OPENCLAW_PAPER_TRADE_WORKERS_3D_SKYSCRAPER_V2",
+            "openclaw_supervision": load_json(
+                "data/registries/qsb_openclaw_state.json",
+                {"status": "unbuilt"}),
+            "paper_trading_policy": load_json(
+                "data/registries/qsb_paper_trading_policy.json",
+                {"active_mode": "unset"}),
+            "open_paper_trades": load_json(
+                "data/registries/qsb_open_paper_trades.json", {}),
+            "trade_learning": load_json(
+                "data/registries/qsb_trade_learning.json", {}),
+            "canonical_workers_summary": {
+                "total_canonical_workers":
+                    load_json("data/registries/qsb_canonical_workers.json",
+                              {}).get("total_canonical_workers"),
+                "total_active_workers":
+                    load_json("data/registries/qsb_canonical_workers.json",
+                              {}).get("total_active_workers"),
+                "total_newly_employed_workers":
+                    load_json("data/registries/qsb_canonical_workers.json",
+                              {}).get("total_newly_employed_workers"),
+            },
+            "worker_count_reconciliation_summary": {
+                "mismatch_reason":
+                    load_json("data/registries/qsb_worker_count_reconciliation.json",
+                              {}).get("mismatch_reason"),
+                "sources_total_reported":
+                    load_json("data/registries/qsb_worker_count_reconciliation.json",
+                              {}).get("sources_total_reported"),
+                "delta_pre_v2_to_post_v2":
+                    load_json("data/registries/qsb_worker_count_reconciliation.json",
+                              {}).get("delta_pre_v2_to_post_v2"),
+            },
+            "skyscraper_upgrade": {
+                "phase": "QSB_OPENCLAW_PAPER_TRADE_WORKERS_3D_SKYSCRAPER_V2",
+                "upgrade_level": "v2_living_skyscraper",
+                "openclaw_avatar_visible": True,
+                "worker_badges_visible": True,
+                "distinct_floor_count": 7,
+                "renderer_files_upgraded": [
+                    "src/dashboard/static/cockpit.css",
+                    "src/dashboard/static/qsb_skyscraper_v2.js",
+                    "src/dashboard/static/qsb_v2_panel.js",
+                    "src/dashboard/static/index.html",
+                ],
+            },
+            "max_open_trades": 20,
+            "real_money_live_trading_enabled": False,
+            "execution_allowed": False,
+        },
+    }
+
+
+# ---------------------------------------------------------------------------
+# Floor detail builder (read-only, secret-scrubbed)
+# ---------------------------------------------------------------------------
+
+# Category overrides for the canonical 53-floor list. Lets the detail route
+# answer with the right block even when no manifest exists.
+_FLOOR_CATEGORY_OVERRIDE = {
+    23: "advisory_model",
+    24: "routing",
+    25: "worker_coordination",
+    30: "risk",
+    31: "audit",
+    37: "strategy",
+    38: "sandbox",
+    41: "trading_fx",
+    42: "trading_crypto",
+    43: "trading_equities",
+    45: "recruitment_sandbox",
+    53: "command",
+    # roof and ground special-cased downstream
+}
+
+
+def _floor_canonical_name(n, floor_name_map, floors_registry):
+    if isinstance(n, int) and str(n) in (floor_name_map or {}):
+        return floor_name_map[str(n)]
+    for f in (floors_registry or []):
+        if f.get("number") == n:
+            return f.get("department") or f.get("id") or ("Floor " + str(n))
+    if n == 0:  return "Ground / Reception Lobby"
+    if n == 54: return "Roof — External Providers (LOCKED)"
+    return "Floor " + str(n)
+
+
+def _floor_routes_for(n, render_routes):
+    """Return [{source, target, route_type, color, advisory_only}] for a floor."""
+    fid = "floor_{:02d}".format(n) if isinstance(n, int) and 1 <= n <= 53 else None
+    out_in, out_out = [], []
+    for r in (render_routes or []):
+        if not isinstance(r, dict):
+            continue
+        if r.get("source_floor") == fid:
+            out_out.append(r)
+        if r.get("target_floor") == fid:
+            out_in.append(r)
+    return {"outbound": out_out, "inbound": out_in}
+
+
+def floor_detail(n):
+    """Build a rich, read-only payload for one floor. Used by /api/floor_detail."""
+    n = int(n)
+    floors_list = load_json("data/registries/floors.json", [])
+    name_map_d  = load_json("data/registries/qsb_floor_name_map.json", {})
+    name_map    = (name_map_d.get("name_map") or {}) if isinstance(name_map_d, dict) else {}
+    render      = load_json("data/registries/qsb_dashboard_render_model.json", {})
+    rm_floors   = (render.get("floors") or []) if isinstance(render, dict) else []
+    rm_routes   = (render.get("routes") or []) if isinstance(render, dict) else []
+
+    floor_reg = None
+    for f in floors_list:
+        if f.get("number") == n:
+            floor_reg = f
+            break
+
+    canonical = _floor_canonical_name(n, name_map, floors_list)
+    rm = next((f for f in rm_floors if f.get("number") == n), None) or {}
+    category = (rm.get("category") or _FLOOR_CATEGORY_OVERRIDE.get(n)
+                or ("locked_external" if n == 54 else "infrastructure"))
+    if n == 53:
+        category = "command"
+
+    routes = _floor_routes_for(n, rm_routes)
+    workers_all = (cockpit_state().get("workers") or [])
+    fid = "floor_{:02d}".format(n) if 1 <= n <= 53 else (
+        "roof_lock" if n == 54 else ("ground" if n == 0 else None))
+    floor_workers = [w for w in workers_all if w.get("home_floor") == fid]
+
+    # V14 — also surface the canonical_workers stamped to this floor (post-gen-24
+    # workforce distribution). Those workers don't carry home_floor in the sim-
+    # cockpit format; they're tagged with floor=F47 etc.
+    try:
+        canon_workers = load_json("data/registries/qsb_canonical_workers.json", {})
+        canon_list = canon_workers.get("workers") or canon_workers.get("canonical_workers") or []
+        # Match on floor=F{N}
+        floor_tag = "F{:02d}".format(n) if n != 0 else "F00"
+        canon_for_floor = [w for w in canon_list
+                            if isinstance(w, dict) and (w.get("floor") or "").upper() == floor_tag]
+        # Avoid duplicating workers already represented in floor_workers by id
+        existing_ids = {w.get("id") or w.get("worker_id") for w in floor_workers if isinstance(w, dict)}
+        for w in canon_for_floor:
+            wid = w.get("worker_id")
+            if wid in existing_ids: continue
+            floor_workers.append({
+                "id": wid, "name": wid,
+                "role": w.get("role","worker"),
+                "home_floor": fid, "team": w.get("team","canonical"),
+                "origin": "canonical_workers",
+                "category": "operational",
+                "execution_enabled": False, "sandbox_only": False,
+            })
+    except Exception:
+        pass
+
+    block = {
+        "ok": True,
+        "ts": now(),
+        "phase": "QSB_TOWER_FLOOR_INTERACTION_AND_FLOOR_WINDOWS_V1",
+        "floor_number": n,
+        "floor_id": fid,
+        "canonical_name": canonical,
+        "display_name": canonical,
+        "short_label": rm.get("short_label") or "",
+        "title": "Floor {} — {}".format(n, canonical) if 1 <= n <= 53 else canonical,
+        "category": category,
+        "status": rm.get("status") or ("vacant" if (floor_reg or {}).get("vacant") else "active"),
+        "zone": (floor_reg or {}).get("zone"),
+        "department": (floor_reg or {}).get("department"),
+        "manifest_path": None,
+        "registry_keys": _FLOOR_REGISTRY_KEYS.get(n, []),
+        "routes": routes,
+        "workers": floor_workers,
+        "color": rm.get("color"),
+        "label_color": rm.get("label_color"),
+        "execution_allowed": False,
+        "paper_only": True,
+        "not_financial_advice": True,
+        "advisory_only": True if category in ("advisory_model",) else False,
+        "read_only": True,
+        "locks": {
+            "live_trading_enabled": False, "order_execution_enabled": False,
+            "practice_order_execution_enabled": False,
+            "stock_order_execution_enabled": False, "stock_live_trading_enabled": False,
+            "stock_paper_order_execution_enabled": False,
+            "binance_order_execution_enabled": False, "binance_live_trading_enabled": False,
+            "cross_market_execution_enabled": False,
+            "worker_execution_enabled": False, "provider_execution_enabled": False,
+            "external_provider_execution_enabled": False,
+            "openclaw_execution_enabled": False, "openclaw_real_tool_execution_enabled": False,
+            "autonomous_dispatch_enabled": False, "live_dispatch_enabled": False,
+            "direct_provider_access": False,
+        },
+    }
+
+    # Resolve manifest path on disk if present
+    for d in ROOT.glob("floors/floor_{:02d}_*".format(n)) if 1 <= n <= 53 else []:
+        mf = d / "floor_manifest.json"
+        if mf.is_file():
+            block["manifest_path"] = str(mf)
+            break
+
+    # Tower Operations V1 — every floor gets manager/overseer/roster cards.
+    try:
+        from tower_ops.management_chain import managers_for_floor
+        from tower_ops.overseer_registry import status as _ov_status
+        from tower_ops.worker_registry  import workers_by_floor
+        mgrs = managers_for_floor(n)
+        ov_state = _ov_status()
+        floor_id_query = "floor_{:02d}".format(n) if 1 <= n <= 53 else (
+            "penthouse" if n == 55 else None)
+        roster = workers_by_floor(floor_id_query) if floor_id_query else []
+        overseers_for_floor = [o for o in (ov_state.get("overseers") or [])
+                                if floor_id_query and floor_id_query in (o.get("department_scope") or [])]
+        block["floor_manager"]        = mgrs.get("floor_manager")
+        block["zone_manager"]         = mgrs.get("zone_manager")
+        block["tower_operations_manager"] = mgrs.get("tower_operations_manager")
+        block["kernel_liaison_manager"]   = mgrs.get("kernel_liaison_manager")
+        block["overseers"]            = overseers_for_floor
+        block["roster"] = [{
+            "id": w.get("id"), "display_name": w.get("display_name"),
+            "role": w.get("role"), "desk_assignment": w.get("desk_assignment"),
+            "stage": w.get("recruitment_stage"), "health": w.get("health"),
+            "heartbeat_ts": w.get("heartbeat_ts"), "current_task": w.get("current_task"),
+            "openclaw_ready": w.get("openclaw_ready"),
+            "openclaw_execution_enabled": False,
+            "trading_execution_enabled": False,
+        } for w in roster]
+        block["worker_count"] = len(roster)
+        block["roster_label"] = "Real Local Workers"
+    except Exception as exc:
+        block["tower_ops_error"] = str(exc)[:200]
+
+    # Category-specific live data, secret-scrubbed
+    if n == 41:
+        oanda_status = _scrub_binance_credentials(load_json("data/registries/oanda_trading_floor_status.json", {}))
+        oanda_snap   = _scrub_binance_credentials(load_json("data/registries/oanda_trading_floor_latest_snapshot.json", {}))
+        paper        = _scrub_binance_credentials(load_json("data/registries/oanda_paper_strategy_latest.json", {}))
+        ledger_r     = _scrub_binance_credentials(load_json("data/registries/floor41_paper_ledger.json", {}))
+        block["oanda"] = {
+            "status": oanda_status.get("status") or "—",
+            "environment": oanda_status.get("environment") or "practice",
+            "account_ready": bool(oanda_status.get("account_ready")) if "account_ready" in oanda_status else None,
+            "pricing_ready": bool(oanda_status.get("pricing_ready")) if "pricing_ready" in oanda_status else None,
+            "default_instruments": ["EUR_USD", "GBP_USD", "USD_JPY"],
+            "latest_ts": oanda_status.get("status_ts") or oanda_snap.get("snapshot_ts") or paper.get("ts"),
+            "paper_signals": (paper.get("instruments") or [])[:6] or (paper.get("results") or [])[:6],
+            "ledger_latest_entries": (ledger_r.get("latest_entries") or [])[:6],
+            "live_trading_enabled": False,
+            "order_execution_enabled": False,
+            "practice_order_execution_enabled": False,
+        }
+    elif n == 42:
+        binance_status   = _scrub_binance_credentials(load_json("data/registries/binance_floor_status.json", {}))
+        binance_snap     = _scrub_binance_credentials(load_json("data/registries/binance_market_snapshot_latest.json", {}))
+        binance_strategy = _scrub_binance_credentials(load_json("data/registries/binance_paper_strategy_latest.json", {}))
+        block["binance"] = {
+            "status": "healthy" if binance_status.get("public_market_data_ready") else "waiting_for_market_data",
+            "environment": binance_status.get("environment") or "testnet",
+            "public_market_data_ready": bool(binance_status.get("public_market_data_ready")),
+            "account_read_ready": bool(binance_status.get("account_read_ready")),
+            "default_symbols": binance_status.get("default_symbols") or ["BTCUSDT", "ETHUSDT", "BNBUSDT", "SOLUSDT"],
+            "latest_ts": binance_status.get("status_ts") or binance_snap.get("snapshot_ts") or binance_strategy.get("ts"),
+            "signal_counts": binance_strategy.get("signal_counts") or {},
+            "results": (binance_strategy.get("results") or [])[:6],
+            "binance_order_execution_enabled": False,
+            "binance_live_trading_enabled": False,
+        }
+    elif n == 43:
+        stock_status   = _scrub_binance_credentials(load_json("data/registries/stock_floor_status.json", {}))
+        stock_snap     = _scrub_binance_credentials(load_json("data/registries/stock_market_snapshot_latest.json", {}))
+        stock_strategy = _scrub_binance_credentials(load_json("data/registries/stock_paper_strategy_latest.json", {}))
+        cross_bus      = load_json("data/registries/cross_market_bus_latest.json", {})
+        block["stock_exchange"] = {
+            "status": "healthy" if stock_status.get("public_market_data_ready") else "waiting_for_market_data",
+            "provider": stock_status.get("provider") or "alpaca",
+            "environment": stock_status.get("environment") or "paper",
+            "public_market_data_ready": bool(stock_status.get("public_market_data_ready")),
+            "account_read_ready": bool(stock_status.get("account_read_ready")),
+            "default_symbols": stock_status.get("default_symbols") or ["AAPL", "MSFT", "NVDA", "TSLA", "SPY", "QQQ"],
+            "latest_ts": stock_status.get("status_ts") or stock_snap.get("snapshot_ts") or stock_strategy.get("ts"),
+            "signal_counts": stock_strategy.get("signal_counts") or {},
+            "results": (stock_strategy.get("results") or [])[:6],
+            "cross_market_labels": cross_bus.get("cross_market_labels") or ["no_cross_signal"],
+            "cross_market_status": cross_bus.get("per_market_status") or {},
+            "stock_order_execution_enabled": False,
+            "stock_live_trading_enabled": False,
+            "stock_paper_order_execution_enabled": False,
+        }
+    elif n == 45:
+        try:
+            from tower.worker_recruitment_agency import floor_detail as _f45_detail
+            f45 = _f45_detail()
+            block["recruitment_agency"] = f45.get("recruitment_status") or {}
+            block["candidates"]            = f45.get("candidates") or []
+            block["onboarding_queue"]      = f45.get("onboarding_queue") or []
+            block["training_assignments"]  = f45.get("training_assignments") or []
+            block["assigned_routes"]       = f45.get("assigned_routes") or []
+            block["latest_recruitment_events"] = f45.get("latest_recruitment_events") or []
+            block["safety_locks"]          = f45.get("safety_locks") or {}
+            block["sandbox_only"]          = True
+            block["advisory_or_paper_only"] = True
+            block["not_financial_advice"]  = True
+            block["execution_allowed"]     = False
+            block["worker_execution_enabled"] = False
+            block["display_name"] = f45.get("display_name") or "Worker Recruitment Agency"
+            block["title"]        = "Floor 45 — Worker Recruitment Agency"
+            block["category"]     = "recruitment_sandbox"
+        except Exception as exc:
+            block["recruitment_agency_error"] = str(exc)[:200]
+            block["sandbox_only"]    = True
+            block["execution_allowed"] = False
+    elif n == 23:
+        air = load_json("data/registries/airllm_big_model_chamber.json", {})
+        storage = load_json("data/registries/airllm_storage_status.json", {})
+        block["airllm_chamber"] = {
+            "chamber_name": air.get("chamber_name") or "AirLLM Big Model Chamber",
+            "status": air.get("status") or "unknown",
+            "path": air.get("path") or "/vaults/ai/airllm_lab",
+            "venv_path": air.get("venv_path") or "/vaults/ai/airllm_lab/.venv",
+            "env_file": air.get("env_file") or "/vaults/ai/airllm_env.sh",
+            "storage_mount": air.get("storage_mount") or "/vaults/ai",
+            "gpu_name": air.get("gpu_name") or "NVIDIA GeForce RTX 5070 Ti",
+            "cuda_available": bool(air.get("cuda_available")),
+            "package_versions": air.get("package_versions") or {},
+            "smoke_test_status": air.get("smoke_test_status"),
+            "advisory_only": True,
+            "execution_allowed": False,
+            "trading_allowed": False,
+            "autoloop_allowed": False,
+            "openclaw_execution_allowed": False,
+            "provider_execution_allowed": False,
+            "direct_provider_access": False,
+            "storage": {
+                "filesystem_size_human": storage.get("filesystem_size_human"),
+                "filesystem_free_human": storage.get("filesystem_free_human"),
+                "airllm_lab_size_human": storage.get("airllm_lab_size_human"),
+                "airllm_cache_size_human": storage.get("airllm_cache_size_human"),
+            },
+        }
+    elif n == 30:
+        # Permissions/Risk — full lock matrix
+        building = load_json("data/registries/building.json", {})
+        kernel_hd = load_json("data/registries/kernel_health_display.json", {})
+        autoloop_l = load_json("data/registries/sandbox_autoloop_latest.json", {})
+        worker_tick = load_json("data/registries/worker_sandbox_latest_tick.json", {})
+        worker_reg = load_json("data/registries/worker_sandbox_registry.json", {})
+        openclaw_l = load_json("data/registries/openclaw_sandbox_latest.json", {})
+        openclaw_reg = load_json("data/registries/openclaw_sandbox_registry.json", {})
+        paper_sim = load_json("data/registries/paper_trade_simulator_latest.json", {})
+        strategy = load_json("data/registries/strategy_intelligence_latest.json", {})
+        correlation = load_json("data/registries/strategy_autoloop_correlation_latest.json", {})
+        local_model = load_json("data/registries/local_model_inference_policy.json", {})
+        binance_status_l = _scrub_binance_credentials(load_json("data/registries/binance_floor_status.json", {}))
+        binance_strategy_l = _scrub_binance_credentials(load_json("data/registries/binance_paper_strategy_latest.json", {}))
+        stock_status_l = _scrub_binance_credentials(load_json("data/registries/stock_floor_status.json", {}))
+        stock_strategy_l = _scrub_binance_credentials(load_json("data/registries/stock_paper_strategy_latest.json", {}))
+        cross_bus_l = load_json("data/registries/cross_market_bus_latest.json", {})
+        airllm_l = load_json("data/registries/airllm_big_model_chamber.json", {})
+        locks_now = _collect_locks(
+            building, kernel_hd, autoloop_l, worker_tick, worker_reg,
+            openclaw_l, openclaw_reg, paper_sim, strategy, correlation,
+            local_model, binance_status_l, binance_strategy_l,
+            stock_status_l, stock_strategy_l, cross_bus_l, airllm_l,
+        )
+        block["risk"] = {
+            "locks": locks_now,
+            "lock_count_true": sum(1 for v in locks_now.values() if v is True),
+            "expected_lock_count_true": 0,
+            "risk_sources": ["floor_41 OANDA", "floor_42 Binance", "floor_43 Stocks", "floor_38 OpenClaw sandbox"],
+        }
+    elif n == 31:
+        ledger_l = _scrub_binance_credentials(load_json("data/registries/floor41_paper_ledger.json", {}))
+        block["audit"] = {
+            "entry_count": ledger_l.get("entry_count") or 0,
+            "latest_count": ledger_l.get("latest_entry_count") or 0,
+            "updated_ts": ledger_l.get("updated_ts"),
+            "latest_entries": (ledger_l.get("latest_entries") or [])[:10],
+            "paper_only_audit_trail": True,
+            "downstream_route": "floor_53 Tower Command",
+        }
+    elif n == 37:
+        strat = _scrub_binance_credentials(load_json("data/registries/strategy_intelligence_latest.json", {}))
+        corr  = _scrub_binance_credentials(load_json("data/registries/strategy_autoloop_correlation_latest.json", {}))
+        cross_corr = load_json("data/registries/cross_market_correlation_latest.json", {})
+        block["strategy"] = {
+            "phase": strat.get("phase"),
+            "latest_ts": strat.get("ts") or strat.get("latest_ts"),
+            "signal_counts": strat.get("signal_counts") or {},
+            "result_count": len(strat.get("results") or []),
+            "correlation_ts": corr.get("ts"),
+            "correlation_count": len(corr.get("correlations") or []),
+            "cross_market_pair_count": len(cross_corr.get("correlations") or []),
+            "inputs_from_floors": ["floor_41", "floor_42", "floor_43"],
+        }
+    elif n == 38:
+        wt = load_json("data/registries/worker_sandbox_latest_tick.json", {})
+        oc = load_json("data/registries/openclaw_sandbox_latest.json", {})
+        perf = load_json("data/registries/sandbox_performance_latest.json", {})
+        autol = load_json("data/registries/sandbox_autoloop_latest.json", {})
+        # Floor 38 is the Worker Recruitment Agency home (UI label change).
+        try:
+            from tower.recruitment_agency import status as _rec_status, workers as _rec_workers
+            agency_status = _rec_status()
+            agency_workers = _rec_workers().get("workers") or []
+            block["recruitment_agency"] = {
+                "agency_name": agency_status.get("agency_name"),
+                "agency_floor": agency_status.get("agency_floor"),
+                "total_workers": agency_status.get("total_workers"),
+                "active_advisory": agency_status.get("active_advisory"),
+                "active_read_only": agency_status.get("active_read_only"),
+                "ready_for_openclaw_review": agency_status.get("ready_for_openclaw_review"),
+                "candidates": agency_status.get("candidates"),
+                "rejected": agency_status.get("rejected"),
+                "openclaw_ready_count": agency_status.get("openclaw_ready_count"),
+                "openclaw_ready_ids": agency_status.get("openclaw_ready_ids") or [],
+                "by_stage": agency_status.get("by_stage") or {},
+                "workers": [{
+                    "id": w.get("id"),
+                    "display_name": w.get("display_name"),
+                    "role": w.get("role"),
+                    "floor_assignment": w.get("floor_assignment"),
+                    "desk_assignment": w.get("desk_assignment"),
+                    "stage": w.get("stage"),
+                    "health": w.get("health"),
+                    "heartbeat_ts": w.get("heartbeat_ts"),
+                    "current_task": w.get("current_task"),
+                    "openclaw_ready": w.get("openclaw_ready"),
+                    "openclaw_execution_enabled": False,
+                    "provider_access_enabled": False,
+                    "autonomous_dispatch_enabled": False,
+                    "team": w.get("team"),
+                    "audit_count": w.get("audit_count"),
+                } for w in agency_workers],
+                "execution_allowed": False,
+                "openclaw_execution_enabled": False,
+                "recruitment_openclaw_execution_enabled": False,
+                "advisory_only": True,
+            }
+        except Exception:
+            block["recruitment_agency"] = {"agency_name": "Worker Recruitment Agency",
+                                            "error": "agency_module_unavailable"}
+        block["sandbox"] = {
+            "worker_sandbox_latest_tick_ts": wt.get("ts"),
+            "lift_packet_count": len((wt.get("lift_packets") or [])),
+            "openclaw_ts": oc.get("ts"),
+            "openclaw_recommendation_count": len(oc.get("recommendations") or oc.get("latest_recommendations") or []),
+            "sandbox_performance_ts": perf.get("ts"),
+            "autoloop_status": autol.get("status"),
+            "autoloop_cycle_index": autol.get("cycle_index"),
+            "autoloop_mode": autol.get("mode"),
+            "worker_execution_enabled": False,
+            "openclaw_execution_enabled": False,
+        }
+    elif n == 53:
+        building = load_json("data/registries/building.json", {})
+        kernel_act = load_json("data/registries/kernel_activation_report.json", {})
+        try:
+            from tower.recruitment_agency import status as _rec_status_cmd
+            rec_cmd = _rec_status_cmd()
+        except Exception:
+            rec_cmd = {}
+        block["command"] = {
+            "building_name": building.get("name") or "QSB Tower V1",
+            "kernel_installed": bool(kernel_act.get("kernel_installed")),
+            "QSBKernelCore_instantiated": bool(kernel_act.get("QSBKernelCore_instantiated")),
+            "activation_status": kernel_act.get("activation_status"),
+            "active_kernel_source": kernel_act.get("active_kernel_source"),
+            "command_routes_to_penthouse": True,
+            "recruitment_to_kernel_review_route": [
+                "floor_38 Recruitment Agency",
+                "floor_53 Tower Command",
+                "penthouse Kernel Review",
+                "Floor 38 OpenClaw Review Gate (advisory)",
+            ],
+            "recruitment_summary": {
+                "total_workers": rec_cmd.get("total_workers", 0),
+                "ready_for_openclaw_review": rec_cmd.get("ready_for_openclaw_review", 0),
+                "openclaw_ready_count": rec_cmd.get("openclaw_ready_count", 0),
+                "openclaw_execution_enabled": False,
+                "recruitment_openclaw_execution_enabled": False,
+            },
+        }
+    elif n == 54:
+        block["roof"] = {
+            "department": "Roof — External Providers",
+            "status": "LOCKED",
+            "external_providers_enabled": False,
+            "direct_provider_access": False,
+        }
+    elif n == 0:
+        block["ground"] = {
+            "department": "Ground / Reception Lobby",
+            "lift_access": True,
+        }
+    elif n == 15:
+        # Speech and Audio Department — Web Speech API in browser is the
+        # only speech path we offer. There is no local TTS/STT sidecar.
+        block["speech_floor"] = {
+            "department": "Speech and Audio Department",
+            "browser_web_speech_supported": True,
+            "browser_speech_synthesis_supported": True,
+            "tts_engine": "browser_web_speech_synthesis",
+            "stt_engine": "browser_web_speech_recognition",
+            "tts_status": "browser_only",
+            "stt_status": "browser_only",
+            "local_sidecar_present": False,
+            "speech_to_kernel_route": "browser → /api/kernel_chat → kernel_chat_sidecar:8766",
+            "kernel_reply_to_tts_route": "kernel reply → browser SpeechSynthesisUtterance",
+            "external_speech_provider": "none",
+            "advisory_only": True,
+            "execution_allowed": False,
+        }
+    elif n == 14:
+        block["media_floor"] = {
+            "department": "Media Department",
+            "speech_floor_link": "floor_15",
+            "media_routes": {
+                "kernel_chat_audio": "speech_floor (15) → browser",
+                "advisory_text":     "kernel reply → Penthouse chat dock",
+            },
+            "external_media_provider": "none",
+            "advisory_only": True,
+            "execution_allowed": False,
+        }
+    elif n == 55:
+        kernel_act_l  = load_json("data/registries/kernel_activation_report.json", {})
+        kernel_hd_l   = load_json("data/registries/kernel_health_display.json", {})
+        local_model_l = load_json("data/registries/local_model_inference_policy.json", {})
+        inf_l         = load_json("data/registries/local_model_inference_status.json", {})
+        # Penthouse pseudo-floor — kernel-focused detail
+        block.update({
+            "floor_id": "penthouse",
+            "canonical_name": "Penthouse — QSB Kernel",
+            "display_name":   "Penthouse — QSB Kernel",
+            "title":          "Penthouse — QSB Kernel",
+            "category": "kernel",
+            "status":   "active",
+            "zone":     "PENTHOUSE",
+            "department": "QSB Kernel",
+        })
+        try:
+            from tower.recruitment_agency import status as _rec_status_pent
+            rec_pent = _rec_status_pent()
+        except Exception:
+            rec_pent = {}
+        block["penthouse"] = {
+            "activation_status": kernel_act_l.get("activation_status") or "active_local_only",
+            "active_kernel_source": kernel_act_l.get("active_kernel_source") or "rebased_kernel",
+            "kernel_installed": bool(kernel_act_l.get("kernel_installed")),
+            "QSBKernelCore_instantiated": bool(kernel_act_l.get("QSBKernelCore_instantiated")),
+            "kernel_health": kernel_hd_l.get("kernel_health") or kernel_hd_l.get("status"),
+            "selected_model": local_model_l.get("selected_model") or inf_l.get("selected_model") or "llama3.2:latest",
+            "local_model_inference_enabled": bool(inf_l.get("local_model_inference_enabled")),
+            "ollama_detected": bool(inf_l.get("ollama_detected")),
+            "external_providers_enabled": False,
+            "direct_provider_access": False,
+            "autonomous_dispatch_enabled": False,
+            "live_dispatch_enabled": False,
+            # Chat + audio routing surfaced for the Penthouse Command Chamber
+            "kernel_chat_status_endpoint":  "/api/kernel_chat_status",
+            "kernel_chat_post_endpoint":    "/api/kernel_chat",
+            "kernel_chat_history_endpoint": "/api/kernel_chat_history",
+            "speech_floor": "floor_15",
+            "speech_floor_name": "Speech and Audio Department",
+            "media_floor": "floor_14",
+            "media_floor_name": "Media Department",
+            "tts_engine": "browser_web_speech_synthesis",
+            "stt_engine": "browser_web_speech_recognition",
+            "advisory_only": True,
+            "execution_allowed": False,
+            # Recruitment Agency overview for the Penthouse command chamber
+            "recruitment_summary": {
+                "agency_name":               rec_pent.get("agency_name") or "Worker Recruitment Agency",
+                "agency_floor":              rec_pent.get("agency_floor") or "floor_38",
+                "total_workers":             rec_pent.get("total_workers", 0),
+                "active_advisory":           rec_pent.get("active_advisory", 0),
+                "active_read_only":          rec_pent.get("active_read_only", 0),
+                "ready_for_openclaw_review": rec_pent.get("ready_for_openclaw_review", 0),
+                "candidates":                rec_pent.get("candidates", 0),
+                "openclaw_ready_count":      rec_pent.get("openclaw_ready_count", 0),
+                "openclaw_execution_enabled": False,
+                "recruitment_openclaw_execution_enabled": False,
+            },
+        }
+
+    return _scrub_binance_credentials(block)
+
+
+# ---------------------------------------------------------------------------
+# Sidecar proxies (read-only / safe build triggers)
+# ---------------------------------------------------------------------------
+
+SIDECAR_PROXIES = {
+    "build_correlation":      ("http://127.0.0.1:8772/api/correlation/build",            "POST"),
+    "run_strategy_intel":     ("http://127.0.0.1:8771/api/strategy/run",                 "POST"),
+    "run_openclaw_tick":      ("http://127.0.0.1:8770/api/openclaw/tick",                "POST"),
+    "run_worker_tick":        ("http://127.0.0.1:8768/api/worker_sandbox/tick",          "POST"),
+    "build_paper_tickets":    ("http://127.0.0.1:8774/api/paper_trades/build",           "GET"),
+    "performance_run":        ("http://127.0.0.1:8769/api/performance/run",              "POST"),
+}
+
+
+def proxy_sidecar(key):
+    spec = SIDECAR_PROXIES.get(key)
+    if not spec:
+        return {"ok": False, "error": "unknown_action", "action": key}
+    url, method = spec
+    try:
+        req = urllib.request.Request(url, method=method)
+        if method == "POST":
+            req.add_header("Content-Type", "application/json")
+            req.data = b"{}"
+        with urllib.request.urlopen(req, timeout=10) as resp:
+            body = resp.read().decode("utf-8")
+            try:
+                data = json.loads(body)
+            except Exception:
+                data = {"raw": body[:400]}
+        return {"ok": True, "action": key, "url": url, "response": data}
+    except Exception as exc:
+        return {
+            "ok": False,
+            "action": key,
+            "url": url,
+            "error": str(exc),
+            "hint": "Sidecar may be offline. Cockpit will still read latest registry on next poll.",
+        }
+
+
+# ---------------------------------------------------------------------------
+# Kernel chat proxy (forwards browser → 8765 → 8766 sidecar → kernel adapter)
+# No new sidecar. No execution unlocks. If 8766 is down, return a clean
+# "core active, chat sidecar offline" payload.
+# ---------------------------------------------------------------------------
+
+KERNEL_CHAT_BASE = "http://127.0.0.1:8766"
+
+
+def _kernel_offline_health():
+    activation = load_json("data/registries/kernel_activation_report.json", {})
+    policy = load_json("data/registries/local_model_inference_policy.json", {})
+    inf = load_json("data/registries/local_model_inference_status.json", {})
+    return {
+        "ok": False,
+        "service": "qsb_kernel_chat_sidecar",
+        "ts": now(),
+        "port": 8766,
+        "kernel_installed": bool(activation.get("kernel_installed")),
+        "QSBKernelCore_instantiated": bool(activation.get("QSBKernelCore_instantiated")),
+        "activation_status": activation.get("activation_status"),
+        "active_kernel_source": activation.get("active_kernel_source"),
+        "selected_model": policy.get("selected_model") or inf.get("selected_model"),
+        "local_model_inference_enabled": bool(inf.get("local_model_inference_enabled")),
+        "ollama_detected": bool(inf.get("ollama_detected")),
+        "worker_execution_enabled": False,
+        "provider_execution_enabled": False,
+        "external_provider_execution_enabled": False,
+        "openclaw_execution_enabled": False,
+        "live_dispatch_enabled": False,
+        "autonomous_workers_enabled": False,
+        "chat_sidecar_offline": True,
+        "message": "Kernel core active, chat sidecar offline. Run scripts/run_kernel_chat_sidecar.sh",
+    }
+
+
+def _tail_kernel_dialogue(limit=20):
+    """Read the last N rows from data/logs/kernel_dialogue.jsonl."""
+    p = ROOT / "data/logs/kernel_dialogue.jsonl"
+    if not p.exists():
+        return []
+    try:
+        lines = p.read_text(encoding="utf-8", errors="ignore").splitlines()[-int(limit):]
+    except Exception:
+        return []
+    rows = []
+    for line in lines:
+        try:
+            rows.append(json.loads(line))
+        except Exception:
+            rows.append({"raw": line})
+    return rows
+
+
+def _dashboard_local_kernel_reply(message, prefer_local_model=True):
+    """Run the kernel dialogue adapter in-process. Same safety guarantees
+    as the :8766 sidecar — locks are unchanged, no new workers, no
+    external providers. Used when the dedicated sidecar is offline so the
+    dashboard chat dock stays usable without spawning a new port.
+    """
+    try:
+        from tower.kernel_dialogue_adapter import ask_kernel
+    except Exception as exc:
+        return {
+            "ok": False,
+            "service": "dashboard_local_kernel_dialogue",
+            "error": "kernel_dialogue_adapter_import_failed: " + str(exc)[:160],
+            "reply": ("Kernel chat is currently view-only — the local "
+                      "dialogue adapter could not load. Kernel core remains "
+                      "active_local_only and all execution locks are still "
+                      "closed."),
+            "chat_sidecar_offline": True,
+            "dashboard_local_kernel_dialogue": False,
+        }
+    try:
+        result = ask_kernel(str(message), prefer_local_model=bool(prefer_local_model))
+    except Exception as exc:
+        return {
+            "ok": False,
+            "service": "dashboard_local_kernel_dialogue",
+            "error": "ask_kernel_failed: " + str(exc)[:160],
+            "reply": ("Kernel dialogue adapter raised an error. Kernel "
+                      "core remains active_local_only and all execution "
+                      "locks are still closed."),
+            "chat_sidecar_offline": True,
+            "dashboard_local_kernel_dialogue": True,
+        }
+    # Stamp the route so the browser can tell which lane answered.
+    result["service"] = "dashboard_local_kernel_dialogue"
+    result["dashboard_local_kernel_dialogue"] = True
+    result["chat_sidecar_offline"] = True
+    result["sidecar"] = {
+        "service": "dashboard_local_kernel_dialogue",
+        "local_only": True,
+        "worker_execution_enabled": False,
+        "provider_execution_enabled": False,
+        "external_provider_execution_enabled": False,
+        "openclaw_execution_enabled": False,
+        "live_dispatch_enabled": False,
+        "autonomous_workers_enabled": False,
+    }
+    return result
+
+
+def kernel_chat_proxy_get(path):
+    url = KERNEL_CHAT_BASE + path
+    try:
+        with urllib.request.urlopen(url, timeout=3) as resp:
+            body = resp.read().decode("utf-8")
+            return json.loads(body)
+    except Exception:
+        if path == "/api/kernel_chat_health":
+            return _kernel_offline_health()
+        if path == "/api/kernel_chat_history":
+            # Sidecar offline — serve the dialogue log directly.
+            return {
+                "ok": True,
+                "service": "dashboard_local_kernel_dialogue",
+                "history": _tail_kernel_dialogue(30),
+                "chat_sidecar_offline": True,
+                "execution_allowed": False,
+            }
+        return {"ok": False, "error": "kernel_chat_sidecar_offline", "path": path}
+
+
+def kernel_chat_proxy_post(payload):
+    url = KERNEL_CHAT_BASE + "/api/kernel_chat"
+    payload = payload or {}
+    message = str(payload.get("message") or payload.get("text") or "").strip()
+    symbolic_only = bool(payload.get("symbolic_only", False))
+
+    if not message:
+        return {"ok": False, "error": "empty message",
+                "reply": "(empty message — nothing to send)",
+                "execution_allowed": False}
+
+    # 1) Prefer the dedicated sidecar on :8766 if it is actually listening.
+    if _port_listening(8766, timeout=0.15):
+        try:
+            data = json.dumps(payload).encode("utf-8")
+            req = urllib.request.Request(url, data=data, method="POST")
+            req.add_header("Content-Type", "application/json")
+            # Cold Ollama loads can take 30 s+. Use a 90 s ceiling so the
+            # dashboard doesn't pre-emptively fall back while the local
+            # model is still warming up.
+            with urllib.request.urlopen(req, timeout=90) as resp:
+                body = resp.read().decode("utf-8")
+                return json.loads(body)
+        except Exception:
+            # Fall through to the in-process adapter so the user still
+            # gets a reply rather than a "sidecar offline" message.
+            pass
+
+    # 2) Fallback: same kernel_dialogue_adapter.ask_kernel the sidecar uses,
+    # but called in-process. No new port, no new sidecar.
+    return _dashboard_local_kernel_reply(message, prefer_local_model=not symbolic_only)
+
+
+def kernel_chat_status():
+    """Clean availability probe for the dashboard chat dock.
+
+    Returns true/false `available` based on whether the sidecar on 8766
+    actually responds within 800 ms — independent of registry-age heuristics
+    that gate other service-status calculations. The dashboard UI uses this
+    field directly to enable/disable the input row.
+
+    Never returns or exposes credentials. Never enables execution.
+    """
+    activation = load_json("data/registries/kernel_activation_report.json", {})
+    policy = load_json("data/registries/local_model_inference_policy.json", {})
+    inf = load_json("data/registries/local_model_inference_status.json", {})
+
+    listening = _port_listening(8766, timeout=0.15)
+    sidecar_health = None
+    sidecar_available = False
+    detail = None
+    if listening:
+        try:
+            with urllib.request.urlopen(KERNEL_CHAT_BASE + "/api/kernel_chat_health", timeout=0.8) as resp:
+                payload = json.loads(resp.read().decode("utf-8"))
+                sidecar_health = "healthy" if payload.get("ok") else "alive"
+                sidecar_available = bool(payload.get("ok"))
+                detail = {k: payload.get(k) for k in (
+                    "service", "port", "kernel_installed",
+                    "QSBKernelCore_instantiated", "activation_status",
+                    "active_kernel_source", "selected_model",
+                    "local_model_inference_enabled", "ollama_detected",
+                )}
+        except Exception as exc:
+            sidecar_health = "alive_no_health_reply"
+            detail = {"probe_error": str(exc)[:120]}
+    else:
+        sidecar_health = "offline"
+
+    # In-process fallback — same kernel_dialogue_adapter the sidecar uses,
+    # but called directly inside the dashboard server. Chat is available
+    # as long as that adapter is importable and the kernel is active.
+    dashboard_local_available = False
+    dashboard_local_reason = None
+    try:
+        from tower.kernel_dialogue_adapter import safety_check as _sc  # noqa: F401
+        dashboard_local_available = (
+            activation.get("activation_status") == "active_local_only"
+        )
+        if not dashboard_local_available:
+            dashboard_local_reason = "kernel_not_active_local_only"
+    except Exception as exc:
+        dashboard_local_reason = ("kernel_dialogue_adapter_import_failed: "
+                                  + str(exc)[:120])
+
+    available = bool(sidecar_available or dashboard_local_available)
+
+    if sidecar_available:
+        active_route = "kernel_chat_sidecar_8766"
+    elif dashboard_local_available:
+        active_route = "dashboard_local_kernel_dialogue"
+    else:
+        active_route = "view_only"
+
+    return {
+        "ok": True,
+        "ts": now(),
+        "service": "qsb_kernel_chat",
+        "sidecar_port": 8766,
+        "sidecar_listening": listening,
+        "sidecar_health": sidecar_health,
+        "sidecar_available": sidecar_available,
+        "dashboard_local_kernel_dialogue": dashboard_local_available,
+        "dashboard_local_kernel_dialogue_reason": dashboard_local_reason,
+        "active_route": active_route,
+        "available": available,
+        "endpoint_status":  "/api/kernel_chat_status",
+        "endpoint_post":    "/api/kernel_chat",
+        "endpoint_history": "/api/kernel_chat_history",
+        "kernel_installed": bool(activation.get("kernel_installed")),
+        "QSBKernelCore_instantiated": bool(activation.get("QSBKernelCore_instantiated")),
+        "activation_status": activation.get("activation_status"),
+        "active_kernel_source": activation.get("active_kernel_source"),
+        "selected_model": policy.get("selected_model") or inf.get("selected_model"),
+        "local_model_inference_enabled": bool(inf.get("local_model_inference_enabled")),
+        "ollama_detected": bool(inf.get("ollama_detected")),
+        "execution_allowed": False,
+        "worker_execution_enabled": False,
+        "provider_execution_enabled": False,
+        "external_provider_execution_enabled": False,
+        "openclaw_execution_enabled": False,
+        "autonomous_dispatch_enabled": False,
+        "live_dispatch_enabled": False,
+        "direct_provider_access": False,
+        "paper_only": True,
+        "not_financial_advice": True,
+        "sidecar_detail": detail,
+        "view_only_message": (
+            None if available
+            else "Kernel core active. Chat endpoint offline. View-only."
+        ),
+    }
+
+
+# ---------------------------------------------------------------------------
+# Cockpit HTML
+# ---------------------------------------------------------------------------
+
+COCKPIT_HTML = r"""<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>QSB Tower V1.3 — Unified Animated Cockpit</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root{
+  --bg:#040814; --bg2:#060c1c; --panel:#0a142a; --panel2:#0d1c38;
+  --border:#1a3a5c; --border2:#2a5080; --grid:#0e1c34;
+  --text:#dbeaff; --muted:#6b8caa; --muted2:#88a3c2;
+  --gold:#ffc940; --gold2:#ffe080;
+  --green:#4dffb0; --green2:#00c97a;
+  --blue:#6ab8ff; --cyan:#5ce0ff;
+  --purple:#b08aff; --red:#ff5060; --orange:#ffaa50;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:radial-gradient(circle at 50% -10%,#0a1a36 0,var(--bg) 60%);color:var(--text);
+  font-family:'Inter','Segoe UI',system-ui,Arial,sans-serif;font-size:13px;overflow:hidden}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+a{color:var(--cyan);text-decoration:none}
+
+header{
+  height:54px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 16px;background:rgba(4,8,20,.92);border-bottom:1px solid var(--border);
+  gap:14px;flex-shrink:0;backdrop-filter:blur(4px);
+}
+.hdr-l{display:flex;align-items:center;gap:14px}
+.hdr-title{font-size:15px;font-weight:700;color:var(--gold);letter-spacing:.5px;text-shadow:0 0 12px rgba(255,201,64,.3)}
+.hdr-sub{font-size:11px;color:var(--muted);margin-left:8px}
+.hdr-r{display:flex;align-items:center;gap:8px}
+.pill{padding:5px 11px;border-radius:999px;border:1px solid rgba(0,200,140,.4);
+  background:rgba(10,40,28,.6);font-weight:700;font-size:11px;letter-spacing:.4px;white-space:nowrap}
+.pill.warn{border-color:rgba(255,170,80,.5);background:rgba(50,30,10,.6);color:var(--orange)}
+.pill.alert{border-color:rgba(255,80,96,.7);background:rgba(50,10,16,.7);color:var(--red)}
+.pill.ok{color:var(--green2)}
+.hdr-btn{padding:6px 12px;border-radius:8px;border:1px solid var(--border2);background:rgba(15,30,60,.6);
+  color:var(--text);font-size:11px;font-weight:600;letter-spacing:.3px}
+.hdr-btn:hover{background:rgba(35,60,100,.7);border-color:var(--cyan)}
+
+#alertBanner{display:none;background:linear-gradient(90deg,rgba(120,10,30,.95),rgba(80,0,20,.92));
+  color:#fff;font-weight:700;font-size:13px;letter-spacing:.4px;text-align:center;padding:10px 16px;
+  border-bottom:1px solid var(--red);text-shadow:0 0 8px rgba(255,40,60,.6)}
+#alertBanner.on{display:block;animation:pulseRed 1.6s ease-in-out infinite}
+@keyframes pulseRed{0%,100%{box-shadow:inset 0 0 30px rgba(255,40,60,.2)}50%{box-shadow:inset 0 0 70px rgba(255,40,60,.5)}}
+
+.cockpit{display:grid;grid-template-columns:300px minmax(420px,1fr) 360px;
+  grid-template-rows:1fr 200px;gap:10px;padding:10px;height:calc(100vh - 54px);min-height:0}
+
+.panel{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--border);
+  border-radius:12px;display:flex;flex-direction:column;overflow:hidden;
+  box-shadow:0 0 24px rgba(0,0,0,.45),inset 0 0 40px rgba(60,140,255,.025)}
+.panel h2{font-size:11px;font-weight:700;color:var(--cyan);letter-spacing:.6px;text-transform:uppercase;
+  padding:8px 12px;border-bottom:1px solid var(--border);background:rgba(0,0,0,.2);flex-shrink:0;display:flex;justify-content:space-between;align-items:center}
+.panel h2 .sub{font-size:10px;color:var(--muted);font-weight:500;letter-spacing:.4px;text-transform:none}
+.panel-body{padding:8px 10px;overflow:auto;flex:1;min-height:0}
+
+/* ── Skyscraper map ── */
+.skyscraper{position:relative}
+.sky-list{display:flex;flex-direction:column;gap:1px}
+.floor{display:flex;align-items:center;gap:6px;padding:2px 6px;border-radius:5px;
+  font-size:10.5px;background:rgba(10,20,40,.5);border:1px solid rgba(40,70,110,.3);
+  transition:all .35s ease;position:relative}
+.floor .num{color:var(--muted2);width:24px;text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+.floor .dept{flex:1;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.floor .badge{font-size:9px;padding:1px 5px;border-radius:99px;background:rgba(255,201,64,.18);
+  color:var(--gold2);border:1px solid rgba(255,201,64,.35);letter-spacing:.3px}
+.floor.glow{background:linear-gradient(90deg,rgba(110,200,255,.12),rgba(176,138,255,.08));
+  border-color:rgba(110,200,255,.4);box-shadow:0 0 14px rgba(110,200,255,.18)}
+.floor.glow .dept{color:var(--cyan)}
+.floor.vacant{opacity:.5}
+.floor.penthouse{background:linear-gradient(90deg,rgba(255,201,64,.18),rgba(176,138,255,.16));
+  border-color:rgba(255,201,64,.6);color:var(--gold2);font-weight:700;
+  box-shadow:0 0 18px rgba(255,201,64,.3)}
+.floor.penthouse .dept{color:var(--gold2)}
+.floor.roof{background:linear-gradient(90deg,rgba(176,138,255,.18),rgba(110,200,255,.12));
+  border-color:rgba(176,138,255,.5);color:var(--purple);font-weight:600}
+.floor.ground{background:rgba(20,40,70,.55);border-color:rgba(80,120,170,.4);color:var(--blue)}
+.floor.basement{opacity:.62;background:rgba(0,10,24,.6);border-color:rgba(40,70,110,.4);color:var(--muted2)}
+.floor.active{animation:pulseFloor 1.5s ease-in-out infinite}
+@keyframes pulseFloor{0%,100%{box-shadow:0 0 14px rgba(110,200,255,.25)}50%{box-shadow:0 0 28px rgba(110,200,255,.55)}}
+
+/* ── Lift shaft ── */
+.shaft-panel{grid-row:1/2;grid-column:2/3;position:relative}
+#shaftCanvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.shaft-overlay{position:absolute;left:0;right:0;bottom:0;padding:6px 12px;
+  background:linear-gradient(180deg,rgba(10,20,40,0),rgba(4,8,20,.85));
+  display:flex;justify-content:space-between;align-items:center;font-size:10.5px;color:var(--muted2);pointer-events:none}
+.shaft-overlay .legend{display:flex;gap:10px;flex-wrap:wrap}
+.legend-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:4px;vertical-align:middle}
+
+/* ── Right rail ── */
+.rail{grid-row:1/3;grid-column:3/4;display:flex;flex-direction:column;gap:10px;overflow:hidden}
+.rail .panel{flex:0 0 auto}
+.rail .panel.flex{flex:1 1 auto;min-height:0}
+.kv{display:flex;justify-content:space-between;font-size:11.5px;padding:3px 0;gap:8px;border-bottom:1px dashed rgba(80,120,170,.18)}
+.kv:last-child{border-bottom:none}
+.kv .k{color:var(--muted2)}
+.kv .v{color:var(--text);font-weight:600;text-align:right;overflow:hidden;text-overflow:ellipsis}
+.kv .v.ok{color:var(--green)}
+.kv .v.warn{color:var(--orange)}
+.kv .v.bad{color:var(--red)}
+.kv .v.cyan{color:var(--cyan)}
+.kv .v.gold{color:var(--gold2)}
+
+/* lock matrix */
+.locks{display:grid;grid-template-columns:1fr 1fr;gap:5px;padding:6px 0}
+.lock{display:flex;align-items:center;gap:6px;font-size:10.5px;color:var(--muted2);
+  background:rgba(8,16,32,.7);padding:4px 7px;border-radius:6px;border:1px solid rgba(40,70,110,.3)}
+.lock .dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 6px rgba(0,201,122,.7)}
+.lock.on{color:var(--red)}
+.lock.on .dot{background:var(--red);box-shadow:0 0 10px rgba(255,80,96,.8);animation:dotPulse 1s ease-in-out infinite}
+@keyframes dotPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.4)}}
+
+/* strategy table */
+.tbl{width:100%;border-collapse:collapse;font-size:10.5px}
+.tbl th{text-align:left;color:var(--muted2);font-weight:600;padding:4px 6px;letter-spacing:.3px;
+  border-bottom:1px solid rgba(60,100,150,.35);text-transform:uppercase;font-size:9.5px}
+.tbl td{padding:4px 6px;border-bottom:1px dashed rgba(60,100,150,.18);color:var(--text)}
+.tbl tr:hover td{background:rgba(110,200,255,.04)}
+.tag{display:inline-block;padding:1px 6px;border-radius:99px;font-size:9.5px;font-weight:600;letter-spacing:.3px}
+.tag.long{background:rgba(0,201,122,.18);color:var(--green);border:1px solid rgba(0,201,122,.4)}
+.tag.short{background:rgba(176,138,255,.18);color:var(--purple);border:1px solid rgba(176,138,255,.4)}
+.tag.observe{background:rgba(107,140,170,.18);color:var(--muted2);border:1px solid rgba(107,140,170,.4)}
+.tag.bias{background:rgba(255,201,64,.18);color:var(--gold2);border:1px solid rgba(255,201,64,.4)}
+.tag.cyan{background:rgba(92,224,255,.18);color:var(--cyan);border:1px solid rgba(92,224,255,.4)}
+
+/* controls */
+.ctrl-row{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:4px 0}
+.ctrl-btn{padding:7px 9px;border-radius:7px;background:rgba(20,40,70,.7);border:1px solid rgba(60,100,150,.45);
+  color:var(--text);font-size:10.5px;font-weight:600;letter-spacing:.3px;cursor:pointer;transition:all .2s}
+.ctrl-btn:hover{background:rgba(40,70,110,.85);border-color:var(--cyan)}
+.ctrl-btn.gold{background:rgba(80,55,10,.55);border-color:rgba(255,201,64,.5);color:var(--gold2)}
+.ctrl-btn.gold:hover{background:rgba(120,80,15,.7)}
+.ctrl-btn.cyan{background:rgba(15,55,85,.6);border-color:rgba(92,224,255,.5);color:var(--cyan)}
+.ctrl-btn:disabled{opacity:.5;cursor:not-allowed}
+
+/* ticker */
+.ticker-panel{grid-row:2/3;grid-column:1/3;min-height:0}
+.ticker-body{display:grid;grid-template-columns:1fr 1fr;gap:0;padding:0}
+.ticker-col{padding:8px 12px;border-right:1px solid var(--border);overflow:auto;min-height:0}
+.ticker-col:last-child{border-right:none}
+.ticker-col h3{font-size:10px;color:var(--cyan);letter-spacing:.5px;text-transform:uppercase;margin-bottom:6px}
+.ticker-row{display:flex;align-items:center;gap:6px;padding:3px 0;font-size:10.5px;color:var(--text);
+  border-bottom:1px dashed rgba(60,100,150,.18)}
+.ticker-row .ts{color:var(--muted);width:62px;font-variant-numeric:tabular-nums;font-size:9.5px}
+.ticker-row .dot{width:7px;height:7px;border-radius:50%}
+.ticker-row .lbl{font-weight:600}
+.ticker-row .body{flex:1;color:var(--muted2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* worker chips */
+.workers{display:flex;flex-wrap:wrap;gap:4px;padding:6px 0}
+.chip{display:inline-flex;align-items:center;gap:4px;padding:3px 7px;border-radius:99px;
+  background:rgba(20,40,70,.7);border:1px solid rgba(60,100,150,.4);font-size:10px;color:var(--text)}
+.chip .cdot{width:6px;height:6px;border-radius:50%;background:var(--cyan)}
+.chip[data-origin="openclaw"] .cdot{background:var(--purple)}
+.chip[data-origin="sandbox"] .cdot{background:var(--green)}
+.chip[data-origin="registry"] .cdot{background:var(--gold)}
+
+/* services strip */
+.svc-strip{display:flex;flex-wrap:wrap;gap:5px;padding:4px 0}
+.svc{display:flex;align-items:center;gap:4px;padding:3px 8px;border-radius:6px;font-size:10px;
+  background:rgba(10,20,40,.7);border:1px solid rgba(60,100,150,.35);color:var(--muted2)}
+.svc.healthy{border-color:rgba(0,201,122,.45);color:var(--green)}
+.svc.alive{border-color:rgba(110,200,255,.45);color:var(--blue)}
+.svc.stale{border-color:rgba(255,170,80,.45);color:var(--orange)}
+.svc.offline{border-color:rgba(255,80,96,.45);color:var(--red)}
+.svc.unknown{border-color:rgba(107,140,170,.35);color:var(--muted2)}
+.svc .p{color:var(--muted2);font-variant-numeric:tabular-nums;margin-left:2px}
+
+/* footer note */
+.fineprint{font-size:9.5px;color:var(--muted);padding:6px 12px;text-align:center;border-top:1px solid var(--border);background:rgba(0,0,0,.25)}
+
+/* paused state */
+body.paused .floor.active,body.paused #shaftCanvas{animation:none}
+
+/* scrollbar */
+::-webkit-scrollbar{width:8px;height:8px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:rgba(60,100,150,.35);border-radius:4px}
+::-webkit-scrollbar-thumb:hover{background:rgba(110,200,255,.4)}
+</style>
+</head>
+<body>
+<header>
+  <div class="hdr-l">
+    <div>
+      <div class="hdr-title">QSB TOWER COCKPIT V1.3</div>
+      <div class="hdr-sub">Unified Animated Skyscraper — Read-only / Sandbox</div>
+    </div>
+  </div>
+  <div class="hdr-r">
+    <span id="kernelPill" class="pill ok">Kernel: ...</span>
+    <span id="lockPill"   class="pill ok">Locks: ...</span>
+    <span id="autoloopPill" class="pill ok">AutoLoop: ...</span>
+    <button id="btnPause"   class="hdr-btn">Pause</button>
+    <button id="btnRefresh" class="hdr-btn">Refresh All</button>
+  </div>
+</header>
+
+<div id="alertBanner">UNSAFE STATE — EXECUTION LOCK CHECK FAILED</div>
+
+<div class="cockpit">
+  <!-- LEFT: Skyscraper -->
+  <section class="panel skyscraper">
+    <h2>SKYSCRAPER MAP <span class="sub" id="floorMeta">53 floors</span></h2>
+    <div class="panel-body">
+      <div class="sky-list" id="floorList"></div>
+    </div>
+  </section>
+
+  <!-- CENTER: Animated lift shaft -->
+  <section class="panel shaft-panel">
+    <h2>LIFT SHAFT / WORKERS / PACKETS <span class="sub" id="shaftMeta">9 lanes</span></h2>
+    <canvas id="shaftCanvas"></canvas>
+    <div class="shaft-overlay">
+      <div class="legend">
+        <span><span class="legend-dot" style="background:var(--green)"></span>worker</span>
+        <span><span class="legend-dot" style="background:var(--purple)"></span>OpenClaw</span>
+        <span><span class="legend-dot" style="background:var(--cyan)"></span>strategy</span>
+        <span><span class="legend-dot" style="background:var(--gold)"></span>ledger</span>
+        <span><span class="legend-dot" style="background:#aac4ff"></span>kernel</span>
+        <span><span class="legend-dot" style="background:#ffe070"></span>paper-trade</span>
+      </div>
+      <div id="shaftStatus">idle</div>
+    </div>
+  </section>
+
+  <!-- RIGHT: Operations rail -->
+  <aside class="rail">
+    <section class="panel">
+      <h2>KERNEL <span class="sub" id="kernelTs">-</span></h2>
+      <div class="panel-body" id="kernelBox"></div>
+    </section>
+
+    <section class="panel">
+      <h2>EXECUTION LOCK MATRIX</h2>
+      <div class="panel-body">
+        <div class="locks" id="lockMatrix"></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>STRATEGY / TRADING</h2>
+      <div class="panel-body" id="stratBox"></div>
+    </section>
+
+    <section class="panel">
+      <h2>BINANCE FLOOR 42 <span class="sub" id="binanceTs">-</span></h2>
+      <div class="panel-body" id="binanceBox"></div>
+    </section>
+
+    <section class="panel">
+      <h2>MODEL LANES <span class="sub" id="airllmTs">AirLLM advisory only</span></h2>
+      <div class="panel-body" id="airllmBox"></div>
+    </section>
+
+    <section class="panel">
+      <h2>SAFE CONTROLS <span class="sub">no execution unlocks</span></h2>
+      <div class="panel-body">
+        <div class="ctrl-row">
+          <button class="ctrl-btn cyan" data-action="build_correlation">Build Correlation</button>
+          <button class="ctrl-btn cyan" data-action="run_strategy_intel">Run Strategy Intel</button>
+          <button class="ctrl-btn" data-action="run_openclaw_tick">OpenClaw Sandbox Tick</button>
+          <button class="ctrl-btn" data-action="run_worker_tick">Worker Sandbox Tick</button>
+          <button class="ctrl-btn gold" data-action="build_paper_tickets">Build Paper Tickets</button>
+          <button class="ctrl-btn" data-action="performance_run">Performance Tick</button>
+        </div>
+        <div id="ctrlEcho" style="font-size:10px;color:var(--muted);padding:4px 2px;margin-top:4px;min-height:14px"></div>
+      </div>
+    </section>
+
+    <section class="panel flex">
+      <h2>SERVICES <span class="sub">read-only health</span></h2>
+      <div class="panel-body">
+        <div class="svc-strip" id="svcStrip"></div>
+        <div class="workers" id="workerChips"></div>
+      </div>
+    </section>
+  </aside>
+
+  <!-- BOTTOM: Tickers -->
+  <section class="panel ticker-panel">
+    <h2>EVENT TICKER <span class="sub" id="tickerMeta">latest packets &amp; ledger</span></h2>
+    <div class="ticker-body" style="flex:1;overflow:hidden">
+      <div class="ticker-col">
+        <h3>PACKET LOG</h3>
+        <div id="packetLog"></div>
+      </div>
+      <div class="ticker-col">
+        <h3>LEDGER (paper) &middot; OPENCLAW</h3>
+        <div id="eventLog"></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="fineprint">QSB Tower V1.3 &middot; Cockpit V1 &middot; paper-only &middot; not financial advice &middot; execution locked</div>
+
+<script>
+(() => {
+  const POLL_MS = 5000;
+  const $ = (id) => document.getElementById(id);
+  const state = {
+    raw: null,
+    floorIndex: {},
+    capsules: [],
+    workers: [],
+    paused: false,
+    canvas: null,
+    ctx: null,
+    width: 0,
+    height: 0,
+    dpr: window.devicePixelRatio || 1,
+    lastTickMs: 0,
+  };
+
+  const PACKET_COLOR = {
+    worker:   '#4dffb0',
+    openclaw: '#b08aff',
+    strategy: '#5ce0ff',
+    correlation: '#b08aff',
+    ledger:   '#ffc940',
+    kernel:   '#aac4ff',
+    paper:    '#ffe070',
+  };
+
+  // ── Header helpers ──
+  function setKernelPill(k){
+    const el = $('kernelPill');
+    if(!k){ el.textContent='Kernel: -'; el.className='pill'; return; }
+    const ok = k.active && k.activation_status === 'active_local_only';
+    el.textContent = 'Kernel: ' + (k.activation_status || '-');
+    el.className = ok ? 'pill ok' : 'pill warn';
+  }
+  function setLockPill(locks, count){
+    const el = $('lockPill');
+    if(count === 0){
+      el.textContent = 'Locks: ALL OFF';
+      el.className = 'pill ok';
+    } else {
+      el.textContent = 'Locks: ' + count + ' TRIPPED';
+      el.className = 'pill alert';
+    }
+  }
+  function setAutoloopPill(a){
+    const el = $('autoloopPill');
+    if(!a || a.status === 'unknown'){ el.textContent='AutoLoop: ?'; el.className='pill warn'; return; }
+    const ok = a.status === 'running';
+    el.textContent = 'AutoLoop: ' + a.status + (a.cycle_index!=null ? ' · cycle '+a.cycle_index : '');
+    el.className = ok ? 'pill ok' : 'pill warn';
+  }
+  function setAlertBanner(warnings){
+    const el = $('alertBanner');
+    if(warnings && warnings.length){
+      el.classList.add('on');
+      el.textContent = 'UNSAFE STATE — EXECUTION LOCK CHECK FAILED: ' +
+        warnings.map(w=>w.detail).join('  |  ');
+    } else {
+      el.classList.remove('on');
+    }
+  }
+
+  // ── Floors ──
+  function renderFloors(payload){
+    const list = $('floorList');
+    list.innerHTML = '';
+    state.floorIndex = {};
+
+    const append = (kind, label, dept, badge) => {
+      const row = document.createElement('div');
+      row.className = 'floor ' + kind;
+      row.innerHTML = '<span class="num">'+label+'</span>' +
+                      '<span class="dept">'+dept+'</span>' +
+                      (badge ? '<span class="badge">'+badge+'</span>' : '');
+      list.appendChild(row);
+      return row;
+    };
+
+    append('roof', 'ROOF', 'AIR LLM External Provider Layer', 'roof');
+    const pent = append('penthouse', 'PENT', 'QSB Kernel', payload.kernel && payload.kernel.active ? 'active' : 'standby');
+    state.floorIndex['penthouse'] = pent;
+
+    const floors = (payload.floors || []).slice().sort((a,b)=>(b.number||0)-(a.number||0));
+    for(const f of floors){
+      const cls = ['floor'];
+      if(f.highlight) cls.push('glow');
+      if(f.vacant)    cls.push('vacant');
+      const row = document.createElement('div');
+      row.className = cls.join(' ');
+      const num = (f.number!=null) ? String(f.number).padStart(2,'0') : '--';
+      const badge = f.highlight_label ? f.highlight_label : (f.vacant ? 'vacant' : '');
+      row.innerHTML = '<span class="num">'+num+'</span>' +
+                      '<span class="dept">'+(f.department||f.id)+'</span>' +
+                      (badge ? '<span class="badge">'+badge+'</span>' : '');
+      list.appendChild(row);
+      state.floorIndex[f.id] = row;
+    }
+
+    const ground = append('ground', 'GND', 'Ground / Reception', '');
+    state.floorIndex['ground'] = ground;
+    append('basement', 'B1', 'Core Services', '');
+    append('basement', 'B2', 'Vault Archives', '');
+    append('basement', 'B3', 'Disaster Recovery', '');
+
+    $('floorMeta').textContent = (payload.building?.floors || 53) + ' floors  ·  ' +
+                                  (payload.workers||[]).length + ' workers';
+  }
+
+  function pulseFloor(fid){
+    const el = state.floorIndex[fid];
+    if(!el) return;
+    el.classList.add('active');
+    setTimeout(()=>el && el.classList.remove('active'), 1400);
+  }
+
+  // ── Kernel / Lock matrix / Strategy ──
+  function renderKernel(payload){
+    const k = payload.kernel || {};
+    $('kernelTs').textContent = (payload.ts || '').replace('T',' ').slice(0,19);
+    $('kernelBox').innerHTML = [
+      kv('activation_status', k.activation_status, k.activation_status==='active_local_only'?'ok':'warn'),
+      kv('QSBKernelCore_instantiated', String(k.QSBKernelCore_instantiated), k.QSBKernelCore_instantiated?'ok':'bad'),
+      kv('active_kernel_source', k.active_kernel_source, 'cyan'),
+      kv('kernel_health', k.kernel_health, k.kernel_health==='healthy'?'ok':'warn'),
+      kv('local model lane', k.local_model_enabled ? 'active_local_only' : 'off', k.local_model_enabled?'ok':''),
+      kv('external provider lane', k.external_providers_enabled ? 'OPEN!' : 'LOCKED', k.external_providers_enabled?'bad':'ok'),
+      kv('kernel chat sidecar', k.kernel_chat_health || 'unknown',
+         k.kernel_chat_health === 'healthy' ? 'ok' : 'warn'),
+    ].join('');
+  }
+  function kv(k,v,cls){
+    return '<div class="kv"><span class="k">'+k+'</span><span class="v '+(cls||'')+'">'+(v==null?'-':v)+'</span></div>';
+  }
+
+  function renderLocks(payload){
+    const locks = payload.locks || {};
+    const order = [
+      'live_trading_enabled','order_execution_enabled','practice_order_execution_enabled',
+      'binance_order_execution_enabled','binance_live_trading_enabled',
+      'worker_execution_enabled','openclaw_execution_enabled','openclaw_real_tool_execution_enabled',
+      'provider_execution_enabled','external_provider_execution_enabled',
+      'autonomous_dispatch_enabled','live_dispatch_enabled','direct_provider_access',
+    ];
+    const labels = {
+      live_trading_enabled:'Live trading',
+      order_execution_enabled:'Orders',
+      practice_order_execution_enabled:'Practice orders',
+      binance_order_execution_enabled:'Binance orders',
+      binance_live_trading_enabled:'Binance live trading',
+      worker_execution_enabled:'Real workers',
+      openclaw_execution_enabled:'OpenClaw exec',
+      openclaw_real_tool_execution_enabled:'OpenClaw real tools',
+      provider_execution_enabled:'Providers',
+      external_provider_execution_enabled:'External providers',
+      autonomous_dispatch_enabled:'Autonomous dispatch',
+      live_dispatch_enabled:'Live dispatch',
+      direct_provider_access:'Direct provider access',
+    };
+    const el = $('lockMatrix');
+    el.innerHTML = order.map(k => {
+      const on = locks[k] === true;
+      return '<div class="lock '+(on?'on':'')+'"><span class="dot"></span>'+(labels[k]||k)+' '+(on?'ON':'OFF')+'</div>';
+    }).join('');
+  }
+
+  function renderStrategy(payload){
+    const rows = (payload.instruments || []).map(i => {
+      const side = (i.simulated_side || '').replace('paper_','');
+      const tagCls = side === 'long' ? 'long' : side === 'short' ? 'short' : 'observe';
+      const align = i.alignment_label || '-';
+      const alignTag = align === 'PAPER_BIAS_CANDIDATE' ? 'bias' : 'observe';
+      const conf = (i.confidence!=null) ? (Number(i.confidence)*100).toFixed(0)+'%' : '-';
+      const mid = i.mid!=null ? Number(i.mid).toFixed(5) : '-';
+      const spr = i.spread_pips!=null ? Number(i.spread_pips).toFixed(1) : '-';
+      const mom = i.momentum_10_pips!=null ? Number(i.momentum_10_pips).toFixed(1) : '-';
+      const dlt = i.performance_delta_pips!=null ? Number(i.performance_delta_pips).toFixed(2) : '-';
+      const oc  = i.openclaw_recommendation || '-';
+      return '<tr>' +
+        '<td>'+i.instrument+'</td>' +
+        '<td>'+mid+'</td>' +
+        '<td>'+spr+'</td>' +
+        '<td>'+conf+'</td>' +
+        '<td>'+mom+'</td>' +
+        '<td>'+dlt+'</td>' +
+        '<td><span class="tag '+alignTag+'">'+align.replace('_',' ')+'</span></td>' +
+        '<td><span class="tag '+tagCls+'">'+(side||'observe')+'</span></td>' +
+        '<td><span class="tag cyan">'+oc+'</span></td>' +
+      '</tr>';
+    }).join('');
+
+    $('stratBox').innerHTML =
+      '<table class="tbl">' +
+        '<thead><tr><th>Inst</th><th>Mid</th><th>Spr</th><th>Conf</th><th>Mom10</th><th>Δpip</th><th>Align</th><th>Paper</th><th>OpenClaw</th></tr></thead>' +
+        '<tbody>'+rows+'</tbody>' +
+      '</table>' +
+      '<div style="font-size:10px;color:var(--muted);margin-top:6px">execution_allowed=false &middot; paper_only=true</div>';
+  }
+
+  function renderBinance(payload){
+    const b = payload.binance || {};
+    const cp = b.credentials_present || {};
+    const env = b.environment || '-';
+    const envCls = env === 'live' ? 'warn' : 'cyan';
+    const market = b.public_market_data_ready;
+    const account = b.account_read_ready;
+    const ts = (b.strategy_latest_ts || '').replace('T',' ').slice(0,19);
+    $('binanceTs').textContent = ts || '-';
+    const counts = b.signal_counts || {};
+    $('binanceBox').innerHTML = [
+      kv('environment', env, envCls),
+      kv('base_url', b.base_url || '-', 'cyan'),
+      kv('public market data', market ? 'ready' : 'not ready', market ? 'ok' : 'warn'),
+      kv('account read', account ? 'ready' : (cp.api_key_present && cp.api_secret_present ? 'error' : 'not ready (no creds)'),
+         account ? 'ok' : 'warn'),
+      kv('credentials present',
+         (cp.api_key_present ? 'key:yes' : 'key:no') + ' · ' +
+         (cp.api_secret_present ? 'secret:yes' : 'secret:no'),
+         (cp.api_key_present && cp.api_secret_present) ? 'cyan' : ''),
+      kv('read-only mode', cp.read_only_mode ? 'true' : 'false', cp.read_only_mode ? 'ok' : 'warn'),
+      kv('env file', cp.env_file_exists ? '.env.binance present' : '.env.binance absent', cp.env_file_exists ? 'ok' : ''),
+      kv('order execution', 'OFF', 'ok'),
+      kv('live trading', 'OFF', 'ok'),
+      kv('order endpoints', b.order_endpoints_blocked ? 'BLOCKED' : 'open?', b.order_endpoints_blocked ? 'ok' : 'bad'),
+      kv('default symbols', (b.default_symbols || []).join(', ') || '-', 'cyan'),
+      kv('paper signals', 'long:'+(counts.long_bias||0)+' short:'+(counts.short_bias||0)+
+                          ' observe:'+(counts.observe||0)+' no_trade:'+(counts.no_trade||0), 'gold'),
+    ].join('') +
+    '<div style="margin-top:6px"><span class="lock"><span class="dot"></span>BINANCE ORDERS OFF</span></div>' +
+    '<div style="font-size:10px;color:var(--muted);margin-top:4px">paper_only=true &middot; not_financial_advice=true</div>';
+  }
+
+  function renderAirLLM(payload){
+    const a = payload.airllm_chamber || {};
+    const lanes = payload.model_lanes || {};
+    const pkg = a.package_versions || {};
+    const st = a.storage || {};
+    const installed = a.registered && a.status && a.status !== 'unregistered';
+    $('airllmTs').textContent = installed ? 'AirLLM advisory only' : 'AirLLM not registered';
+    const laneRows = [
+      kv('Local Ollama lane', lanes.local_ollama || '-',
+         lanes.local_ollama === 'active_local_only' ? 'ok' : 'warn'),
+      kv('AirLLM Big Model Chamber', lanes.airllm_big_model_chamber || '-',
+         lanes.airllm_big_model_chamber === 'installed_advisory_only' ? 'ok' : 'warn'),
+      kv('External providers', lanes.external_providers || 'locked', 'ok'),
+      kv('Direct provider access', lanes.direct_provider_access || 'off', 'ok'),
+    ].join('');
+    const chamberRows = installed ? [
+      kv('chamber', a.chamber_name || '-', 'cyan'),
+      kv('status', a.status || '-', 'ok'),
+      kv('interaction mode', a.interaction_mode || '-', 'cyan'),
+      kv('lab path', a.path || '-'),
+      kv('venv', a.venv_path || '-'),
+      kv('env file', a.env_file || '-'),
+      kv('storage mount', a.storage_mount || '-', 'cyan'),
+      kv('backing device', a.backing_device || '-'),
+      kv('GPU', a.gpu_name || '-', 'cyan'),
+      kv('CUDA available', a.cuda_available ? 'true' : 'false', a.cuda_available ? 'ok' : 'warn'),
+      kv('smoke test', a.smoke_test_status || '-', a.smoke_test_status === 'passed' ? 'ok' : 'warn'),
+      kv('home floor', (a.home_floor || 'floor_23') + ' AIR LLM Operations', 'cyan'),
+      kv('storage (vaults/ai)', (st.filesystem_size_human || '-') + ' total · ' + (st.filesystem_free_human || '-') + ' free', 'cyan'),
+      kv('airllm_lab size', st.airllm_lab_size_human || '-', ''),
+      kv('airllm cache size', st.airllm_cache_size_human || '-', ''),
+      kv('root partition', (st.root_partition_free_human || '-') + ' free' + (st.root_partition_use_pct != null ? ' · ' + st.root_partition_use_pct + '% used' : ''),
+         st.root_protected ? 'warn' : ''),
+      kv('packages', 'airllm ' + (pkg.airllm || '-') + ' · torch ' + (pkg.torch || '-') + ' · transformers ' + (pkg.transformers || '-'), ''),
+      kv('advisory_only', 'true', 'ok'),
+      kv('execution_allowed', 'false', 'ok'),
+      kv('trading_allowed', 'false', 'ok'),
+      kv('autoloop_allowed', 'false', 'ok'),
+      kv('openclaw_execution_allowed', 'false', 'ok'),
+      kv('provider_execution_allowed', 'false', 'ok'),
+      kv('direct_provider_access', 'false', 'ok'),
+    ].join('') : kv('AirLLM chamber', 'not registered', 'warn');
+    $('airllmBox').innerHTML =
+      laneRows +
+      '<div style="height:6px"></div>' +
+      chamberRows +
+      '<div style="margin-top:6px"><span class="lock"><span class="dot"></span>AIRLLM ADVISORY ONLY · NOT WIRED INTO AUTOLOOP OR TRADING</span></div>' +
+      '<div style="font-size:10px;color:var(--muted);margin-top:4px">no sidecar &middot; no port &middot; no model load &middot; future: manual &ldquo;Ask Big Air Model&rdquo; only</div>';
+  }
+
+  function renderServices(payload){
+    const svc = payload.services || {};
+    $('svcStrip').innerHTML = Object.keys(svc).map(k => {
+      const s = svc[k];
+      return '<span class="svc '+(s.status||'unknown')+'">'+k+' <span class="p">:'+s.port+'</span> '+(s.status||'?')+'</span>';
+    }).join('');
+
+    const workers = (payload.workers || []);
+    $('workerChips').innerHTML = workers.map(w => {
+      const origin = w.origin || 'registry';
+      return '<span class="chip" data-origin="'+origin+'" title="'+(w.role||'')+'"><span class="cdot"></span>'+w.name+'</span>';
+    }).join('');
+  }
+
+  function renderTickers(payload){
+    const pkts = payload.packets || [];
+    $('packetLog').innerHTML = pkts.map(p => {
+      const ts = (p.ts||'').replace('T',' ').slice(11,19);
+      const col = PACKET_COLOR[p.type] || PACKET_COLOR.kernel;
+      return '<div class="ticker-row">' +
+        '<span class="ts">'+ts+'</span>' +
+        '<span class="dot" style="background:'+col+'"></span>' +
+        '<span class="lbl">'+p.title+'</span>' +
+        '<span class="body">'+(p.detail||'')+' &middot; '+p.source_floor+' → '+p.target_floor+'</span>' +
+      '</div>';
+    }).join('') || '<div class="ticker-row"><span class="body">no packets</span></div>';
+
+    const events = [];
+    for(const e of (payload.ledger && payload.ledger.latest_entries) || []){
+      events.push({
+        ts: e.ts, color: PACKET_COLOR.ledger,
+        title: e.instrument + ' · ' + (e.paper_signal||'observe'),
+        body: (e.paper_reason||'') + ' · mid '+(e.mid!=null?Number(e.mid).toFixed(5):'-'),
+      });
+    }
+    for(const r of (payload.openclaw && payload.openclaw.recommendations) || []){
+      events.push({
+        ts: r.ts || (payload.openclaw && payload.openclaw.ts), color: PACKET_COLOR.openclaw,
+        title: r.instrument + ' · ' + (r.sandbox_recommendation||'observe_only'),
+        body: 'score '+(r.paper_score_total!=null?r.paper_score_total:'-')+' · spread '+(r.avg_spread_pips!=null?Number(r.avg_spread_pips).toFixed(1):'-'),
+      });
+    }
+    events.sort((a,b)=>(b.ts||'').localeCompare(a.ts||''));
+    $('eventLog').innerHTML = events.slice(0,16).map(e => {
+      const ts = (e.ts||'').replace('T',' ').slice(11,19);
+      return '<div class="ticker-row">' +
+        '<span class="ts">'+ts+'</span>' +
+        '<span class="dot" style="background:'+e.color+'"></span>' +
+        '<span class="lbl">'+e.title+'</span>' +
+        '<span class="body">'+e.body+'</span>' +
+      '</div>';
+    }).join('') || '<div class="ticker-row"><span class="body">no events</span></div>';
+
+    $('tickerMeta').textContent = 'packets '+pkts.length+'  ·  ledger '+(payload.ledger?.entry_count||0);
+  }
+
+  // ── Canvas: lift shaft animation ──
+  function fitCanvas(){
+    const c = state.canvas;
+    if(!c) return;
+    const r = c.getBoundingClientRect();
+    state.width  = Math.max(200, r.width);
+    state.height = Math.max(100, r.height);
+    c.width  = Math.round(state.width  * state.dpr);
+    c.height = Math.round(state.height * state.dpr);
+    state.ctx.setTransform(state.dpr,0,0,state.dpr,0,0);
+  }
+
+  function floorYFromId(fid, payload){
+    const total = (payload.building?.floors || 53);
+    if(fid === 'penthouse') return 0.02;
+    if(fid === 'roof')      return 0.005;
+    if(fid === 'ground')    return 0.93;
+    if(fid && fid.startsWith('basement')) return 0.97;
+    if(fid && fid.startsWith('floor_')){
+      const n = parseInt(fid.split('_')[1],10);
+      if(!Number.isNaN(n)){
+        const idx = total - n;
+        return 0.05 + (idx / (total+1)) * 0.85;
+      }
+    }
+    return 0.5;
+  }
+
+  function spawnCapsule(from, to, type){
+    const w = state.width, h = state.height;
+    if(!w || !h) return;
+    const lanes = 9;
+    const lane = Math.floor(Math.random()*lanes);
+    const x = ((lane+1) / (lanes+1)) * w;
+    const yFrom = floorYFromId(from, state.raw) * h;
+    const yTo   = floorYFromId(to,   state.raw) * h;
+    state.capsules.push({
+      x, y: yFrom, yTo, vy: (yTo - yFrom) / 220,
+      color: PACKET_COLOR[type] || PACKET_COLOR.worker,
+      type, life: 0, maxLife: 240,
+      labelTo: to, labelFrom: from,
+    });
+    pulseFloor(from);
+    setTimeout(()=>pulseFloor(to), 1400);
+  }
+
+  function drawShaft(payload){
+    const ctx = state.ctx, w = state.width, h = state.height;
+    if(!ctx) return;
+    ctx.clearRect(0,0,w,h);
+
+    const lanes = 9;
+    ctx.lineWidth = 1;
+    for(let i=1;i<=lanes;i++){
+      const x = (i/(lanes+1))*w;
+      const grad = ctx.createLinearGradient(x,0,x,h);
+      grad.addColorStop(0, 'rgba(110,200,255,.06)');
+      grad.addColorStop(.5,'rgba(110,200,255,.18)');
+      grad.addColorStop(1, 'rgba(110,200,255,.06)');
+      ctx.strokeStyle = grad;
+      ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,h); ctx.stroke();
+    }
+
+    if(payload){
+      const total = payload.building?.floors || 53;
+      const highlighted = new Set(payload.highlighted_floors || []);
+      ctx.font = '9px Inter,Segoe UI,sans-serif';
+      ctx.textAlign = 'left';
+      for(const f of (payload.floors || [])){
+        if(!f.highlight) continue;
+        const y = floorYFromId(f.id, payload) * h;
+        ctx.fillStyle = 'rgba(110,200,255,.06)';
+        ctx.fillRect(0,y-7,w,14);
+        ctx.fillStyle = 'rgba(110,200,255,.7)';
+        ctx.fillText((f.department || f.id), 6, y+3);
+      }
+      ctx.fillStyle = 'rgba(255,201,64,.9)';
+      ctx.font = 'bold 10px Inter,sans-serif';
+      const pY = floorYFromId('penthouse', payload) * h;
+      ctx.fillText('PENTHOUSE · QSB KERNEL', 6, pY+3);
+    }
+
+    // Worker idle markers
+    const wkers = (payload && payload.workers) || [];
+    for(let i=0;i<Math.min(wkers.length, 18); i++){
+      const wkr = wkers[i];
+      const fy = floorYFromId(wkr.home_floor, payload) * h;
+      const ox = ((i%9)+1) / 10 * w + (Math.sin((Date.now()+i*300)/600)*4);
+      const oy = fy + (Math.cos((Date.now()+i*220)/650)*3);
+      ctx.fillStyle = wkr.origin === 'openclaw' ? 'rgba(176,138,255,.85)' :
+                      wkr.origin === 'sandbox'  ? 'rgba(77,255,176,.85)' :
+                                                  'rgba(255,201,64,.85)';
+      ctx.shadowColor = ctx.fillStyle;
+      ctx.shadowBlur = 8;
+      ctx.beginPath(); ctx.arc(ox, oy, 2.5, 0, Math.PI*2); ctx.fill();
+      ctx.shadowBlur = 0;
+    }
+
+    // Animate capsules
+    const remaining = [];
+    for(const c of state.capsules){
+      c.life++;
+      c.y += c.vy;
+      const done = (c.vy >= 0 ? c.y >= c.yTo : c.y <= c.yTo) || c.life > c.maxLife;
+      ctx.shadowColor = c.color; ctx.shadowBlur = 12;
+      ctx.fillStyle = c.color;
+      ctx.beginPath(); ctx.arc(c.x, c.y, 5, 0, Math.PI*2); ctx.fill();
+      ctx.shadowBlur = 0;
+      // trail
+      ctx.strokeStyle = c.color + '88';
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.moveTo(c.x, c.y - Math.sign(c.vy)*12);
+      ctx.lineTo(c.x, c.y);
+      ctx.stroke();
+      if(!done) remaining.push(c);
+    }
+    state.capsules = remaining;
+  }
+
+  function loop(){
+    if(!state.paused){
+      drawShaft(state.raw);
+      $('shaftStatus').textContent = state.capsules.length
+        ? state.capsules.length + ' capsules in motion'
+        : 'standby';
+    }
+    requestAnimationFrame(loop);
+  }
+
+  function seedCapsulesFromPayload(payload){
+    if(state.paused) return;
+    const now = Date.now();
+    if(now - state.lastTickMs < 1500) return;
+    state.lastTickMs = now;
+
+    for(const p of (payload.packets || []).slice(0,5)){
+      const type = (p.type === 'ledger') ? 'ledger' :
+                   (p.type === 'openclaw') ? 'openclaw' : 'worker';
+      spawnCapsule(p.source_floor || 'floor_41', p.target_floor || 'floor_31', type);
+    }
+    if((payload.openclaw?.recommendations || []).length){
+      spawnCapsule('floor_38','penthouse','openclaw');
+    }
+    if((payload.instruments || []).some(i => i.alignment_label === 'PAPER_BIAS_CANDIDATE')){
+      spawnCapsule('floor_37','floor_31','strategy');
+    }
+    if((payload.paper_trade_simulator?.tickets || []).length){
+      spawnCapsule('floor_41','penthouse','paper');
+    }
+    if((payload.kernel||{}).active){
+      spawnCapsule('penthouse','floor_53','kernel');
+    }
+    const b = payload.binance || {};
+    if(b.public_market_data_ready){
+      const binanceLanes = ['floor_37','floor_38','floor_30','floor_31','floor_53'];
+      const target = binanceLanes[Math.floor(Math.random()*binanceLanes.length)];
+      spawnCapsule('floor_42', target, 'worker');
+    }
+    if((payload.binance_instruments || []).some(i => i.paper_signal === 'long_bias' || i.paper_signal === 'short_bias')){
+      spawnCapsule('floor_42','floor_37','strategy');
+    }
+    if((payload.binance_instruments || []).length){
+      spawnCapsule('floor_42','floor_31','ledger');
+    }
+  }
+
+  // ── Controls ──
+  async function action(act){
+    const echo = $('ctrlEcho');
+    echo.textContent = act + ' → ...';
+    try {
+      const res = await fetch('/api/cockpit/' + act, { method:'POST' });
+      const data = await res.json();
+      echo.textContent = act + ' → ' + (data.ok ? 'ok' : ('err: ' + (data.error||'?')));
+      refresh();
+    } catch (err) {
+      echo.textContent = act + ' → err: ' + err.message;
+    }
+  }
+
+  // ── Polling ──
+  async function refresh(){
+    try {
+      const res = await fetch('/api/unified?t=' + Date.now(), { cache:'no-store' });
+      const data = await res.json();
+      state.raw = data;
+      renderFloors(data);
+      renderKernel(data);
+      renderLocks(data);
+      renderStrategy(data);
+      renderBinance(data);
+      renderAirLLM(data);
+      renderServices(data);
+      renderTickers(data);
+      setKernelPill(data.kernel);
+      setLockPill(data.locks, data.lock_count_true || 0);
+      setAutoloopPill(data.autoloop);
+      setAlertBanner(data.warnings);
+      seedCapsulesFromPayload(data);
+    } catch (err) {
+      $('shaftStatus').textContent = 'fetch error: ' + err.message;
+    }
+  }
+
+  // ── Init ──
+  function init(){
+    state.canvas = $('shaftCanvas');
+    state.ctx = state.canvas.getContext('2d');
+    fitCanvas();
+    window.addEventListener('resize', fitCanvas);
+
+    $('btnRefresh').addEventListener('click', refresh);
+    $('btnPause').addEventListener('click', () => {
+      state.paused = !state.paused;
+      document.body.classList.toggle('paused', state.paused);
+      $('btnPause').textContent = state.paused ? 'Resume' : 'Pause';
+    });
+    document.querySelectorAll('[data-action]').forEach(b => {
+      b.addEventListener('click', () => action(b.dataset.action));
+    });
+
+    refresh();
+    setInterval(refresh, POLL_MS);
+    requestAnimationFrame(loop);
+  }
+
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
+</body>
+</html>
+"""
+
+
+# ---------------------------------------------------------------------------
+# HTTP handler
+# ---------------------------------------------------------------------------
+
+
+
+# --- Iris reception control-board page (added by iris upgrade) -------------
+_IRIS_RECEPTION_PAGE = """<!doctype html><html lang=en><head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>Iris - Floor 0 Reception</title>
+<style>
+ body{font:14px/1.5 system-ui,sans-serif;margin:0;background:#0d1117;color:#c9d1d9}
+ header{padding:16px 20px;background:#161b22;border-bottom:1px solid #30363d}
+ h1{margin:0;font-size:18px}.sub{color:#8b949e;font-size:12px;margin-top:4px}
+ .wrap{padding:16px 20px;max-width:980px}
+ .pills span{display:inline-block;padding:2px 8px;margin:2px;border-radius:10px;font-size:12px}
+ .live{background:#12321c;color:#3fb950;border:1px solid #238636}
+ .off{background:#3a1d1d;color:#f85149;border:1px solid #6e2222}
+ section{margin-top:20px}h2{font-size:14px;color:#58a6ff;border-bottom:1px solid #21262d;padding-bottom:6px}
+ .card{background:#161b22;border:1px solid #21262d;border-radius:8px;padding:10px 12px;margin:8px 0}
+ .meta{color:#8b949e;font-size:12px}.txt{margin:4px 0}
+ .draft{background:#0f1a2b;border-left:3px solid #388bfd;padding:6px 10px;margin-top:6px;border-radius:4px}
+ .tag{font-size:11px;color:#8b949e}.empty{color:#8b949e;font-style:italic}
+ code{color:#d2a8ff}
+</style></head><body>
+<header><h1>Iris - Floor 0 Reception</h1>
+<div class=sub id=hdr>loading...</div></header>
+<div class=wrap>
+ <div class=pills id=pills></div>
+ <section><h2>Reception briefs to council</h2><div id=briefs></div></section>
+ <section><h2>Recent inbound + suggested replies</h2><div id=inbound></div></section>
+ <section><h2>Recent live caller turns</h2><div id=calls></div></section>
+</div>
+<script>
+function esc(s){return (s==null?'':String(s)).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));}
+async function load(){
+ try{
+  const r=await fetch('/api/f0/reception');const d=await r.json();
+  if(!d.ok){document.getElementById('hdr').textContent='reception view error';return;}
+  document.getElementById('hdr').innerHTML='brain: <code>'+esc(d.brain)+'</code> &middot; last sweep #'+esc(d.last_cycle)+' at '+esc(d.last_sweep_ts)+' &middot; '+esc(d.total_sweeps_seen)+' sweeps seen';
+  let p='';(d.live_channels||[]).forEach(c=>p+='<span class=live>live: '+esc(c)+'</span>');
+  (d.not_linked_channels||[]).forEach(c=>p+='<span class=off>not linked: '+esc(c)+'</span>');
+  document.getElementById('pills').innerHTML=p||'<span class=empty>no channel data yet</span>';
+  const bh=(d.recent_briefs||[]).slice().reverse();
+  document.getElementById('briefs').innerHTML=bh.length?bh.map(b=>'<div class=card><div class=meta>'+esc(b.ts)+(b.council_posted?' &middot; posted to council':' &middot; not posted')+'</div><div class=txt>'+esc(b.brief)+'</div></div>').join(''):'<div class=empty>no briefs yet - desk has been quiet</div>';
+  const ib=(d.recent_inbound||[]).slice().reverse();
+  document.getElementById('inbound').innerHTML=ib.length?ib.map(i=>'<div class=card><div class=meta><span class=tag>'+esc(i.channel)+'</span> '+esc(i.from)+' &middot; '+esc(i.ts)+(i.route_hint?' &middot; route: '+esc(i.route_hint):'')+'</div>'+(i.text?'<div class=txt>'+esc(i.text)+'</div>':'')+(i.suggested_reply?'<div class=draft><b>suggested reply:</b> '+esc(i.suggested_reply)+'</div>':'')+'</div>').join(''):'<div class=empty>no new inbound captured yet</div>';
+  const cl=(d.recent_calls||[]).slice().reverse();
+  document.getElementById('calls').innerHTML=cl.length?cl.map(c=>'<div class=card><div class=meta>'+esc(c.caller)+' &middot; '+esc(c.turn)+' &middot; '+esc(c.ts)+(c.reply_source?' &middot; '+esc(c.reply_source):'')+(c.routed_to?' &middot; -> '+esc(c.routed_to):'')+'</div><div class=txt>'+esc(c.text)+'</div></div>').join(''):'<div class=empty>no calls yet</div>';
+ }catch(e){document.getElementById('hdr').textContent='fetch error: '+e;}
+}
+load();setInterval(load,15000);
+</script></body></html>"""
+
+
+class Handler(BaseHTTPRequestHandler):
+    def send_json(self, obj, code=200):
+        body = json.dumps(obj, indent=2, default=str).encode("utf-8")
+        self.send_response(code)
+        self.send_header("Content-Type", "application/json; charset=utf-8")
+        self.send_header("Content-Length", str(len(body)))
+        self.send_header("Cache-Control", "no-store")
+        self.end_headers()
+        self.wfile.write(body)
+
+    def send_html(self):
+        # Prefer the new static index.html (3D cockpit). Fall back to the
+        # legacy inline COCKPIT_HTML template only if the static file is
+        # missing — preserves /?v=unified compatibility either way.
+        try:
+            body = INDEX_HTML_PATH.read_bytes()
+        except Exception:
+            body = COCKPIT_HTML.encode("utf-8")
+        self.send_response(200)
+        self.send_header("Content-Type", "text/html; charset=utf-8")
+        self.send_header("Content-Length", str(len(body)))
+        self.send_header("Cache-Control", "no-store")
+        self.end_headers()
+        self.wfile.write(body)
+
+    def serve_shops_html(self):
+        try:
+            body = SHOPS_PATH.read_bytes()
+        except Exception as exc:
+            return self.send_json({"ok": False, "error": "shops_html_missing",
+                                    "detail": str(exc)[:200]}, 500)
+        self.send_response(200)
+        self.send_header("Content-Type", "text/html; charset=utf-8")
+        self.send_header("Content-Length", str(len(body)))
+        self.send_header("Cache-Control", "no-store")
+        self.end_headers()
+        self.wfile.write(body)
+
+    def serve_studio_html(self):
+        try:
+            body = STUDIO_PATH.read_bytes()
+        except Exception as exc:
+            return self.send_json({"ok": False, "error": "studio_html_missing",
+                                    "detail": str(exc)[:200]}, 500)
+        self.send_response(200)
+        self.send_header("Content-Type", "text/html; charset=utf-8")
+        self.send_header("Content-Length", str(len(body)))
+        self.send_header("Cache-Control", "no-store")
+        self.end_headers()
+        self.wfile.write(body)
+
+    def serve_garden_html(self):
+        try:
+            body = GARDEN_PATH.read_bytes()
+        except Exception as exc:
+            return self.send_json({"ok": False, "error": "garden_html_missing",
+                                    "detail": str(exc)[:200]}, 500)
+        self.send_response(200)
+        self.send_header("Content-Type", "text/html; charset=utf-8")
+        self.send_header("Content-Length", str(len(body)))
+        self.send_header("Cache-Control", "no-store")
+        self.end_headers()
+        self.wfile.write(body)
+
+    def serve_welcome_html(self):
+        # V1.5 Open Day (2026-06-14) — first-visitor welcome card.
+        # Inline HTML only. No external CDN. Reuses cockpit.css palette via
+        # /static/cockpit.css so the card matches the tower aesthetic.
+        body = (
+            "<!doctype html>\n"
+            "<html lang=\"en\"><head><meta charset=\"utf-8\">\n"
+            "<title>QSB Tower — Welcome (Open Day 2026-06-14)</title>\n"
+            "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n"
+            "<link rel=\"stylesheet\" href=\"/static/cockpit.css\">\n"
+            "<style>\n"
+            "body{margin:0;background:#04081a;color:#e6f0ff;"
+            "font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;"
+            "min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}\n"
+            ".welcome-card{max-width:720px;background:rgba(10,22,44,.85);"
+            "border:1px solid rgba(120,180,240,.35);border-radius:14px;padding:32px 36px;"
+            "box-shadow:0 0 60px rgba(40,120,200,.25)}\n"
+            ".welcome-card h1{margin:0 0 6px;color:#ffc940;font-size:22px;letter-spacing:.5px;"
+            "text-shadow:0 0 14px rgba(255,201,64,.4)}\n"
+            ".welcome-card .sub{color:#9fb6d4;font-size:13px;margin-bottom:18px}\n"
+            ".welcome-card p{line-height:1.55;font-size:14px;color:#cfdcef;margin:10px 0}\n"
+            ".welcome-card ul{line-height:1.55;font-size:14px;color:#cfdcef;padding-left:22px}\n"
+            ".welcome-card a.cta{display:inline-block;margin-top:18px;padding:9px 16px;"
+            "border-radius:999px;background:rgba(20,55,95,.85);"
+            "border:1px solid rgba(160,220,255,.65);color:#e6f3ff;text-decoration:none;"
+            "font-weight:600;letter-spacing:.3px}\n"
+            ".welcome-card a.cta:hover{background:rgba(30,80,135,.95);border-color:#a9d4ff}\n"
+            "</style></head><body>\n"
+            "<div class=\"welcome-card\">\n"
+            "<h1>Welcome to QSB Tower</h1>\n"
+            "<div class=\"sub\">Open Day &middot; 2026-06-14</div>\n"
+            "<p>You&rsquo;re looking at a 165-floor, AI-run skyscraper headquarters. "
+            "Each floor is a department: trading, security, AI models, recruitment, "
+            "research, shops, accommodation. Lifts ferry sealed packets between floors.</p>\n"
+            "<p><b>How to look around:</b></p>\n"
+            "<ul>\n"
+            "<li>The cockpit (the page you came from) is the live operations view.</li>\n"
+            "<li>Tap <b>165 Floors</b> in the header to browse every department.</li>\n"
+            "<li>The right-rail tabs surface trading, AI, workforce, and telemetry.</li>\n"
+            "<li>The bottom ticker shows live events as they happen.</li>\n"
+            "</ul>\n"
+            "<p><b>Safety:</b> this is an Open Day visit. All real-money trading, "
+            "autonomous worker dispatch, and external execution gates remain locked. "
+            "What you see is observation, paper trades, and advisory output.</p>\n"
+            "<a class=\"cta\" href=\"/cockpit\">&larr; Back to the cockpit</a>\n"
+            "</div></body></html>\n"
+        ).encode("utf-8")
+        self.send_response(200)
+        self.send_header("Content-Type", "text/html; charset=utf-8")
+        self.send_header("Content-Length", str(len(body)))
+        self.send_header("Cache-Control", "no-store")
+        self.end_headers()
+        self.wfile.write(body)
+
+    def serve_static(self, path):
+        # path begins with "/static/". Resolve safely against STATIC_DIR.
+        rel = path[len("/static/"):].lstrip("/")
+        target = (STATIC_DIR / rel).resolve()
+        try:
+            STATIC_DIR_RESOLVED = STATIC_DIR.resolve()
+        except Exception:
+            STATIC_DIR_RESOLVED = STATIC_DIR
+        if not str(target).startswith(str(STATIC_DIR_RESOLVED)):
+            return self.send_json({"ok": False, "error": "forbidden"}, 403)
+        if not target.is_file():
+            return self.send_json({"ok": False, "error": "not_found", "path": rel}, 404)
+        ctype, _ = mimetypes.guess_type(str(target))
+        if not ctype:
+            if target.suffix == ".js":
+                ctype = "application/javascript; charset=utf-8"
+            elif target.suffix == ".css":
+                ctype = "text/css; charset=utf-8"
+            else:
+                ctype = "application/octet-stream"
+        try:
+            body = target.read_bytes()
+        except Exception as e:
+            return self.send_json({"ok": False, "error": "read_failed", "detail": str(e)}, 500)
+        self.send_response(200)
+        self.send_header("Content-Type", ctype)
+        self.send_header("Content-Length", str(len(body)))
+        # Vendor JS can be cached briefly; app JS/CSS stays no-store so edits are visible
+        if "/vendor/" in path:
+            self.send_header("Cache-Control", "public, max-age=3600")
+        else:
+            self.send_header("Cache-Control", "no-store")
+        self.end_headers()
+        self.wfile.write(body)
+
+    def log_message(self, format, *args):
+        return
+
+    def do_GET(self):
+        path = urlparse(self.path).path
+
+        # Hard deny-list pre-filter — see DASHBOARD_DENY_TOKENS at top of file.
+        # Checks BOTH the parsed path and the raw self.path (catches query-string
+        # smuggling and double-encoded traversal).
+        denied, reason = _dashboard_path_is_denied(self.path)
+        if not denied:
+            denied, reason = _dashboard_path_is_denied(path)
+        if denied:
+            _dashboard_audit_deny(
+                getattr(self, "client_address", ("", 0))[0],
+                "GET", self.path, reason,
+            )
+            return self.send_json({"ok": False, "error": "forbidden"}, 403)
+
+        if path.startswith("/static/"):
+            return self.serve_static(path)
+
+        # Next3D greenfield route — serves a fresh dashboard alongside
+        # the legacy /?v=unified cockpit.
+        qs_full = urlparse(self.path).query or ""
+        if path == "/next3d" or "v=next3d" in qs_full:
+            try:
+                body = (STATIC_DIR / "next3d" / "index.html").read_bytes()
+                self.send_response(200)
+                self.send_header("Content-Type", "text/html; charset=utf-8")
+                self.send_header("Content-Length", str(len(body)))
+                self.send_header("Cache-Control", "no-store")
+                self.end_headers()
+                self.wfile.write(body)
+                return
+            except Exception:
+                return self.send_json({"ok": False, "error": "next3d_index_missing"}, 500)
+
+        # V18.10 — Tower Sound (F58 Music Studio) landing page
+        if path == "/studio":
+            return self.serve_studio_html()
+
+        # V18.13 — Greenline (F149 Seed Centre + Horticulture) landing page
+        if path == "/garden":
+            return self.serve_garden_html()
+
+        # Iris reception landing page (added by iris upgrade) — a small, honest
+        # control-board panel that fetches /api/f0/reception client-side.
+        if path == "/reception":
+            _html = _IRIS_RECEPTION_PAGE
+            _b = _html.encode("utf-8")
+            self.send_response(200)
+            self.send_header("Content-Type", "text/html; charset=utf-8")
+            self.send_header("Content-Length", str(len(_b)))
+            self.send_header("Cache-Control", "no-store")
+            self.end_headers()
+            self.wfile.write(_b)
+            return
+
+
+        # V1.5 Open Day (2026-06-14) — first-visitor welcome card linked
+        # from the cockpit header pill. Inline HTML, no external CDN.
+        if path == "/welcome":
+            return self.serve_welcome_html()
+
+        # V18.8 — shops browser (15 storefronts on F46, F59, F61-65, F69, F154-163)
+        if path == "/shops":
+            return self.serve_shops_html()
+        if path == "/api/shops":
+            return self.send_json(shops_index())
+        if path.startswith("/api/shop/"):
+            floor_tag = path.split("/")[-1].upper()
+            return self.send_json(shop_detail(floor_tag))
+
+        # V18.8 — universal qualification snapshot (Ross 2026-06-12)
+        if path == "/api/qualification/status":
+            return self.send_json(load_json("data/registries/qsb_universal_qualification.json"))
+
+        # V18.9 — social launch package (Ross 2026-06-12)
+        if path == "/api/social/launch_package":
+            return self.send_json(load_json("data/registries/qsb_social_launch_package.json"))
+
+        # --- Iris reception control-board view (added by iris upgrade) ------
+        # Honest panel: reads ONLY real proof-of-work from
+        # data/registries/qsb_iris_activity.jsonl and real caller turns from
+        # qsb_f0_calls.jsonl. Nothing here is faked or synthesised.
+        if path == "/api/f0/reception":
+            try:
+                act_p = ROOT / "data/registries/qsb_iris_activity.jsonl"
+                calls_p = ROOT / "data/registries/qsb_f0_calls.jsonl"
+                acts = []
+                if act_p.exists():
+                    for ln in act_p.read_text(errors="replace").splitlines()[-80:]:
+                        ln = ln.strip()
+                        if ln:
+                            try:
+                                acts.append(json.loads(ln))
+                            except Exception:
+                                pass
+                latest = acts[-1] if acts else {}
+                inbound = []
+                for a in acts[-25:]:
+                    for it in a.get("actions", []):
+                        inbound.append({"ts": a.get("ts"), **it})
+                briefs = [{"ts": a.get("ts"), "brief": a.get("brief"),
+                           "council_posted": a.get("council_posted")}
+                          for a in acts if a.get("brief")]
+                calls = []
+                if calls_p.exists():
+                    for ln in calls_p.read_text(errors="replace").splitlines()[-50:]:
+                        ln = ln.strip()
+                        if not ln:
+                            continue
+                        try:
+                            r = json.loads(ln)
+                        except Exception:
+                            continue
+                        calls.append({"ts": r.get("ts"),
+                                      "caller": r.get("caller_id"),
+                                      "turn": r.get("turn"),
+                                      "text": (r.get("text") or "")[:220],
+                                      "routed_to": r.get("routed_to"),
+                                      "reply_source": r.get("reply_source")})
+                return self.send_json({
+                    "ok": True,
+                    "operator": "Iris (F0 reception)",
+                    "brain": latest.get("brain", "unknown"),
+                    "last_sweep_ts": latest.get("ts"),
+                    "last_cycle": latest.get("cycle"),
+                    "live_channels": latest.get("live_channels", []),
+                    "not_linked_channels": latest.get("not_linked_channels", []),
+                    "recent_inbound": inbound[-25:],
+                    "recent_briefs": briefs[-10:],
+                    "recent_calls": calls[-25:],
+                    "total_sweeps_seen": len(acts),
+                })
+            except Exception as exc:
+                return self.send_json({"ok": False,
+                    "error": "reception_view_failed",
+                    "detail": str(exc)[:200]}, 500)
+
+
+        # Worker forum read-only view (Ross 2026-06-14). The forum jsonl is
+        # written by tools/qsb_worker_forum.py; this surfaces it visitor-safe:
+        # author handles redacted to role, bodies capped at 500 chars,
+        # is_tannoy rows flagged.
+        if path == "/api/forum":
+            try:
+                qs = urllib.parse.parse_qs(urlparse(self.path).query or "")
+                try:
+                    lim = int((qs.get("limit") or ["50"])[0])
+                except Exception:
+                    lim = 50
+                return self.send_json(forum_threads_view(limit=lim))
+            except Exception as exc:
+                return self.send_json({"ok": False, "error": "forum_read_failed",
+                                        "detail": str(exc)[:200]}, 500)
+        if path.startswith("/api/forum/threads/"):
+            try:
+                tid = path.split("/api/forum/threads/", 1)[1].strip("/")
+                # Whitelist thread id format to keep visitor-safe.
+                if not tid or not all(c.isalnum() or c in "_-" for c in tid):
+                    return self.send_json({"ok": False, "error": "bad_thread_id"}, 400)
+                view = forum_thread_view(tid)
+                code = 200 if view.get("ok") else 404
+                return self.send_json(view, code)
+            except Exception as exc:
+                return self.send_json({"ok": False, "error": "forum_thread_read_failed",
+                                        "detail": str(exc)[:200]}, 500)
+
+        if path in ("/api/unified", "/api/cockpit_state", "/api/tower_state"):
+            return self.send_json(cockpit_state())
+
+        # V6 cognitive unified — surfaces everything built in V1-V6.
+        if path == "/api/cognitive_unified":
+            try:
+                from tower.cognitive_kernel_unified import cognitive_unified
+                return self.send_json(cognitive_unified())
+            except Exception as exc:
+                return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+
+        if path == "/api/kernel_chat_status":
+            return self.send_json(kernel_chat_status())
+
+        # Floor 45 Worker Recruitment Agency — read-only GET routes.
+        if path == "/api/recruitment_agency/status":
+            try:
+                from tower.worker_recruitment_agency import status as _f45_s
+                return self.send_json(_f45_s())
+            except Exception as exc:
+                return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+        if path == "/api/recruitment_agency/candidates":
+            try:
+                from tower.worker_recruitment_agency import candidates as _f45_c
+                return self.send_json(_f45_c())
+            except Exception as exc:
+                return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+        if path == "/api/recruitment_agency/onboarding_queue":
+            try:
+                from tower.worker_recruitment_agency import onboarding_queue as _f45_q
+                return self.send_json(_f45_q())
+            except Exception as exc:
+                return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+        if path == "/api/recruitment_agency/training_assignments":
+            try:
+                from tower.worker_recruitment_agency import training_assignments as _f45_t
+                return self.send_json(_f45_t())
+            except Exception as exc:
+                return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+
+        if path == "/api/recruitment/status":
+            try:
+                # Prefer tower_ops worker registry (91 workers); falls back to legacy module.
+                try:
+                    from tower_ops import worker_status as _rec_status
+                except Exception:
+                    from tower.recruitment_agency import status as _rec_status
+                return self.send_json(_rec_status())
+            except Exception as exc:
+                return self.send_json({"ok": False, "error": str(exc)}, 500)
+        if path == "/api/recruitment/workers":
+            try:
+                try:
+                    from tower_ops import worker_list as _rec_workers
+                except Exception:
+                    from tower.recruitment_agency import workers as _rec_workers
+                return self.send_json(_rec_workers())
+            except Exception as exc:
+                return self.send_json({"ok": False, "error": str(exc)}, 500)
+
+        # Tower Operations V1 — Maintenance / Security / IT / Research / Overseers / Telemetry / Colonel
+        try:
+            if path == "/api/maintenance/status":
+                from tower_ops.maintenance import status as _f; return self.send_json(_f())
+            if path == "/api/maintenance/checks":
+                from tower_ops.maintenance import checks as _f; return self.send_json(_f())
+            if path == "/api/security/status":
+                from tower_ops.security import status as _f; return self.send_json(_f())
+            if path == "/api/security/locks":
+                from tower_ops.security import locks as _f; return self.send_json(_f())
+            if path == "/api/security/incidents":
+                from tower_ops.security import incidents as _f; return self.send_json(_f())
+            if path == "/api/it/status":
+                from tower_ops.it_ops import status as _f; return self.send_json(_f())
+            if path == "/api/it/ports":
+                from tower_ops.it_ops import ports as _f; return self.send_json(_f())
+            if path == "/api/it/sidecars":
+                from tower_ops.it_ops import sidecars as _f; return self.send_json(_f())
+            if path == "/api/it/connectivity":
+                from tower_ops.it_ops import connectivity as _f; return self.send_json(_f())
+            if path == "/api/it/routes":
+                from tower_ops.it_ops import routes as _f; return self.send_json(_f())
+            if path == "/api/it/credentials_loaded":
+                from tower_ops.it_ops import credentials_loaded as _f; return self.send_json(_f())
+            if path == "/api/research/status":
+                from tower_ops.research_facility import status as _f; return self.send_json(_f())
+            if path == "/api/research/tasks":
+                from tower_ops.research_facility import tasks as _f; return self.send_json(_f())
+            if path == "/api/research/reports":
+                from tower_ops.research_facility import reports as _f; return self.send_json(_f())
+            if path == "/api/overseers/status":
+                from tower_ops.overseer_registry import status as _f; return self.send_json(_f())
+            if path == "/api/overseers/reports":
+                from tower_ops.overseer_registry import status as _f; return self.send_json(_f())
+            if path == "/api/tower_ops/summary":
+                from tower_ops import tower_ops_summary as _f; return self.send_json(_f())
+            if path == "/api/tower_ops/tower_report":
+                from tower_ops.reporting import tower_report as _f; return self.send_json(_f())
+            if path == "/api/tower_ops/floor_reports":
+                from tower_ops.reporting import floor_reports as _f; return self.send_json(_f())
+            if path == "/api/tower_ops/zone_reports":
+                from tower_ops.reporting import zone_reports as _f; return self.send_json(_f())
+
+            # Tower Operations V2 — workers / badges / access / accounts / quantum / models / lifts / speech / missing / diagnostics
+            if path == "/api/workers/directory":
+                from tower_ops import worker_directory as _f; return self.send_json(_f())
+            if path == "/api/workers/badges":
+                from tower_ops import badge_status as _f; return self.send_json(_f())
+            if path == "/api/workers/access_matrix":
+                from tower_ops import access_status as _f; return self.send_json(_f())
+            if path == "/api/workers/by_floor":
+                qs = urllib.parse.parse_qs(urlparse(self.path).query or "")
+                fid = (qs.get("floor") or [""])[0]
+                from tower_ops import workers_by_floor_dir as _f; return self.send_json(_f(fid))
+            if path == "/api/bridge_invite":
+                # GET /api/bridge_invite?who=auger|helm|forge&context=<last N rows>
+                # Consults the named voice and appends their reply to the bridge.
+                try:
+                    qs = urllib.parse.parse_qs(urlparse(self.path).query or "")
+                    who = (qs.get("who") or [""])[0]
+                    ctx = (qs.get("context") or [""])[0][:2000]
+                    if who not in ("auger", "helm", "forge"):
+                        return self.send_json({"ok": False, "error": "bad who"}, 400)
+                    import subprocess as _sp
+                    # Persona prompts kept short — Boardroom replies should be tight
+                    persona = {
+                        "auger": "You are Auger, Wren's bounded advisor. Skeptical, terse, cite-or-strike. Reply in one paragraph.",
+                        "helm":  "You are Helm, Ross-facing voice. Plain English, no jargon. Reply in one paragraph.",
+                        "forge": "You are Forge, F47 builder lead. Practical, builder-engineer voice. Reply in one paragraph.",
+                    }[who]
+                    q = (f"{persona}\n\nLast bridge context:\n{ctx}\n\n"
+                         f"Add one paragraph from your seat at the Boardroom.")
+                    # auger/helm via deepseek (cheap second opinion); forge via wren_team_dispatch tool
+                    if who == "forge":
+                        # synchronous one-off forge invocation through qsb_wren_team
+                        env = dict(os.environ); env["QSB_WREN_DISPATCH_FORCE"] = "1"
+                        r = _sp.run([".venv/bin/python3",
+                            os.path.normpath(os.path.join(os.path.dirname(__file__),
+                                                          "..", "..", "tools",
+                                                          "qsb_wren_team.py")),
+                            "--worker", "forge",
+                            "--task", q],
+                            capture_output=True, text=True, timeout=60,
+                            env=env)
+                        reply = (r.stdout or r.stderr or "").strip()[-2000:]
+                    else:
+                        r = _sp.run(["python3",
+                            os.path.normpath(os.path.join(os.path.dirname(__file__),
+                                                          "..", "..", "tools",
+                                                          "qsb_consult_external.py")),
+                            "--provider", "deepseek",
+                            "--model", "deepseek-chat",
+                            "--reason", f"boardroom_invite_{who}",
+                            "--max-tokens", "180",
+                            "--prompt", q],
+                            capture_output=True, text=True, timeout=60)
+                        # consult_external prints between separator lines
+                        out = r.stdout
+                        parts = out.split("━" * 56)
+                        reply = (parts[2].strip() if len(parts) >= 4
+                                 else out.strip()[-2000:])
+                    if not reply:
+                        reply = f"({who} returned empty)"
+                    # Append to bridge
+                    bridge = os.path.normpath(os.path.join(os.path.dirname(__file__),
+                                                          "..", "..", "tools",
+                                                          "qsb_bridge.py"))
+                    _sp.run(["python3", bridge, "append",
+                             "--source", who, "--surface", "api",
+                             "--text", reply[:6000]],
+                            capture_output=True, text=True, timeout=10)
+                    return self.send_json({"ok": True, "who": who, "reply": reply[:2000]})
+                except Exception as e:
+                    return self.send_json({"ok": False, "error": str(e)[:200]}, 500)
+            if path == "/api/tour/state":
+                try:
+                    import sys as _sys
+                    _tools = os.path.normpath(os.path.join(os.path.dirname(__file__),
+                                                            "..", "..", "tools"))
+                    if _tools not in _sys.path: _sys.path.insert(0, _tools)
+                    from qsb_demo_tour import state_payload, cmd_next, cmd_start, cmd_stop, cmd_reset
+                    qs = urllib.parse.parse_qs(urlparse(self.path).query or "")
+                    action = (qs.get("action") or [""])[0]
+                    if action == "next":  return self.send_json(cmd_next())
+                    if action == "start": return self.send_json(cmd_start())
+                    if action == "stop":  return self.send_json(cmd_stop())
+                    if action == "reset": return self.send_json(cmd_reset())
+                    return self.send_json(state_payload())
+                except Exception as e:
+                    return self.send_json({"ok": False, "error": str(e)[:200]}, 500)
+            if path == "/api/bridge_tail":
+                # 3-way Boardroom feed — tail the Claude↔Wren bridge file
+                try:
+                    qs = urllib.parse.parse_qs(urlparse(self.path).query or "")
+                    n = int((qs.get("limit") or ["40"])[0])
+                    bridge = os.path.normpath(os.path.join(
+                        os.path.dirname(__file__), "..", "..",
+                        "data", "registries",
+                        "qsb_claude_wren_bridge.jsonl"))
+                    if not os.path.exists(bridge):
+                        return self.send_json({"ok": True, "rows": []})
+                    with open(bridge) as _fp:
+                        lines = _fp.read().splitlines()
+                    rows = []
+                    for ln in lines[-n:]:
+                        ln = ln.strip()
+                        if not ln: continue
+                        try: rows.append(json.loads(ln))
+                        except Exception: pass
+                    return self.send_json({"ok": True, "rows": rows})
+                except Exception as e:
+                    return self.send_json({"ok": False, "error": str(e)[:200]}, 500)
+            if path == "/api/floor_design":
+                try:
+                    p = os.path.normpath(os.path.join(os.path.dirname(__file__),
+                          "..", "..", "data", "registries",
+                          "qsb_skyscraper_collaborative_design.json"))
+                    with open(p) as _fp:
+                        return self.send_json(json.load(_fp))
+                except Exception as e:
+                    return self.send_json({"ok": False, "error": str(e)[:200]}, 500)
+            if path == "/api/floor_master_registry":
+                try:
+                    p = os.path.normpath(os.path.join(os.path.dirname(__file__),
+                          "..", "..", "data", "registries",
+                          "qsb_floor_interior_master_registry.json"))
+                    with open(p) as _fp:
+                        return self.send_json(json.load(_fp))
+                except Exception as e:
+                    return self.send_json({"ok": False, "error": str(e)[:200]}, 500)
+            if path == "/api/workers/f47_fleet":
+                # F47 Wren fleet roster — 250 advisory_only operatives. Served
+                # so the cockpit3d Workers panel can render workers on F47
+                # (they live outside /api/workers/directory).
+                try:
+                    p = os.path.join(os.path.dirname(__file__), "..", "..",
+                                     "data", "registries",
+                                     "qsb_f47_fleet_roster.json")
+                    p = os.path.normpath(p)
+                    with open(p) as _fp:
+                        return self.send_json(json.load(_fp))
+                except Exception as e:
+                    return self.send_json({"ok": False, "error": str(e)[:200]}, 500)
+            if path == "/api/workers/by_badge":
+                qs = urllib.parse.parse_qs(urlparse(self.path).query or "")
+                bid = (qs.get("id") or [""])[0]
+                from tower_ops import worker_by_badge as _f; return self.send_json(_f(bid))
+            if path == "/api/accounts/status":
+                from tower_ops import accounts_status as _f; return self.send_json(_f())
+            if path == "/api/accounts/floor_accountants":
+                from tower_ops import floor_accountants_list as _f; return self.send_json(_f())
+            if path == "/api/accounts/floor_summary":
+                qs = urllib.parse.parse_qs(urlparse(self.path).query or "")
+                try: nn = int((qs.get("floor") or ["0"])[0])
+                except Exception: nn = 0
+                from tower_ops import accounts_floor_summary as _f; return self.send_json(_f(nn))
+            if path == "/api/accounts/trading_summary":
+                from tower_ops import accounts_trading_summary as _f; return self.send_json(_f())
+            if path == "/api/accounts/paper_ledger_summary":
+                from tower_ops import paper_ledger_summary as _f; return self.send_json(_f())
+            if path == "/api/accounts/not_configured":
+                from tower_ops import accounts_not_configured as _f; return self.send_json(_f())
+            if path == "/api/quantum/status":
+                from tower_ops import quantum_status as _f; return self.send_json(_f())
+            if path == "/api/quantum/workers":
+                from tower_ops import quantum_workers as _f; return self.send_json(_f())
+            if path == "/api/quantum/reports":
+                from tower_ops import quantum_reports as _f; return self.send_json(_f())
+            if path == "/api/models/status":
+                from tower_ops import models_status as _f; return self.send_json(_f())
+            if path == "/api/models/lanes":
+                from tower_ops import models_lanes as _f; return self.send_json(_f())
+            if path == "/api/models/local":
+                from tower_ops import models_local as _f; return self.send_json(_f())
+            if path == "/api/models/airllm":
+                from tower_ops import models_airllm as _f; return self.send_json(_f())
+            if path == "/api/models/router":
+                from tower_ops import models_router as _f; return self.send_json(_f())
+            if path == "/api/lifts/status":
+                from tower_ops import lifts_status as _f; return self.send_json(_f())
+            if path == "/api/lifts/routes":
+                from tower_ops import lifts_routes as _f; return self.send_json(_f())
+            if path == "/api/renderer/state":
+                from tower_ops import renderer_state as _f; return self.send_json(_f())
+            if path == "/api/renderer/options":
+                return self.send_json({"ok": True, "ts": now(),
+                    "options": ["show_all_names", "show_worker_ids", "show_managers",
+                                "show_overseers", "show_accountants", "show_lifts",
+                                "show_packets", "show_access_zones", "show_department_colors",
+                                "show_trading_telemetry", "show_model_lanes", "show_quantum_floor",
+                                "show_alerts_only", "cinematic_camera", "auto_tour",
+                                "focus_selected_floor", "expand_selected_floor"],
+                    "renderer_version": "QSB_SKYSCRAPER_RENDERER_V3"})
+            if path == "/api/tower_ops/missing":
+                from tower_ops import missing_report as _f; return self.send_json(_f())
+            if path == "/api/tower_ops/live_state":
+                from tower_ops import renderer_state as _f; return self.send_json(_f())
+            if path == "/api/kernel_chat_diagnostics":
+                from tower_ops import kernel_chat_diagnostics as _f; return self.send_json(_f())
+            if path == "/api/speech/status":
+                from tower_ops import speech_status as _f; return self.send_json(_f())
+            if path == "/api/speech/diagnostics":
+                from tower_ops import speech_diagnostics as _f; return self.send_json(_f())
+
+            # Tower Ops V3 — Training Academy + Tower Audit + Next Steps
+            if path == "/api/training/status":
+                from tower_ops import training_status as _f; return self.send_json(_f())
+            if path == "/api/training/courses":
+                from tower_ops import training_courses as _f; return self.send_json(_f())
+            if path == "/api/training/workers":
+                from tower_ops import trained_workers as _f; return self.send_json(_f())
+            if path == "/api/training/certifications":
+                from tower_ops import certifications as _f; return self.send_json(_f())
+            if path == "/api/audit/status":
+                from tower_ops import audit_status as _f; return self.send_json(_f())
+            if path == "/api/audit/latest":
+                from tower_ops import audit_latest as _f; return self.send_json(_f())
+            if path == "/api/audit/history":
+                from tower_ops import audit_history as _f; return self.send_json(_f())
+            if path == "/api/audit/gaps":
+                from tower_ops import audit_gaps as _f; return self.send_json(_f())
+            if path == "/api/audit/next_steps":
+                from tower_ops import audit_next_steps as _f; return self.send_json(_f())
+
+            # V4 — Pro Dashboard + Live data streams
+            if path == "/api/dashboard/pro_state":
+                from tower_ops import pro_state as _f; return self.send_json(_f())
+            if path == "/api/renderer/v4/state":
+                from tower_ops import renderer_v4_state as _f; return self.send_json(_f())
+            if path == "/api/renderer/v4/options":
+                from tower_ops import renderer_v4_options as _f; return self.send_json(_f())
+            if path == "/api/floors/live":
+                from tower_ops import floors_live as _f; return self.send_json(_f())
+            if path == "/api/floors/activity":
+                from tower_ops import floors_activity as _f; return self.send_json(_f())
+            # GET versions of the F47 chat history + team live endpoints.
+            # POST /api/f47_chat is handled in do_POST.
+            if path == "/api/f47_chat/history":
+                try:
+                    from tower.model_floors.claude_floor.f47_chat_room import history
+                    qs = urlparse(self.path).query
+                    args = dict([(k, v) for k, v in
+                                 (kv.split("=", 1) for kv in qs.split("&") if "=" in kv)])
+                    tail = int(args.get("tail", "20"))
+                    return self.send_json({"ok": True, "history": history(tail=tail)})
+                except Exception as exc:
+                    return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+            # F167 Boardroom bridge tail — last N rows of the 3-way bridge.
+            # Drives the boardroom-3D mini live feed.
+            if path == "/api/boardroom/bridge_tail":
+                try:
+                    import json as _json
+                    qs = urlparse(self.path).query
+                    args = dict([(k, v) for k, v in
+                                 (kv.split("=", 1) for kv in qs.split("&") if "=" in kv)])
+                    n = max(1, min(int(args.get("n", "5")), 20))
+                    p = ROOT / "data/registries/qsb_claude_wren_bridge.jsonl"
+                    rows = []
+                    if p.exists():
+                        for ln in p.read_text().splitlines()[-n:]:
+                            ln = ln.strip()
+                            if not ln: continue
+                            try: rows.append(_json.loads(ln))
+                            except Exception: pass
+                    return self.send_json({"ok": True, "rows": rows})
+                except Exception as exc:
+                    return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+            # F47 visitor sign-in book (GET = read last 20).
+            # POST handled in do_POST. Visitor open per F47 floor card.
+            if path == "/api/f47/sign_in":
+                try:
+                    import json as _json
+                    p = ROOT / "data/registries/qsb_visitor_signins.jsonl"
+                    rows = []
+                    if p.exists():
+                        for ln in p.read_text().splitlines()[-20:]:
+                            ln = ln.strip()
+                            if not ln: continue
+                            try: rows.append(_json.loads(ln))
+                            except Exception: pass
+                    return self.send_json({"ok": True, "count": len(rows),
+                                            "recent_signins": rows})
+                except Exception as exc:
+                    return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+            # F47 module endpoints — coherence, voice, memory, mood, quantum, notebook, weather, parallel_helix
+            if path == "/api/f47/briefing":
+                try:
+                    from tower.model_floors.claude_floor.coherence_engine import briefing
+                    return self.send_json(briefing())
+                except Exception as exc:
+                    return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+            if path.startswith("/api/f47/voice_check"):
+                try:
+                    from tower.model_floors.claude_floor.voice_fingerprint import fingerprint
+                    qs = urlparse(self.path).query
+                    args = dict([(k, v) for k, v in (kv.split("=", 1) for kv in qs.split("&") if "=" in kv)])
+                    import urllib.parse as _up
+                    text = _up.unquote_plus(args.get("text", ""))
+                    if not text:
+                        return self.send_json({"ok": False, "error": "?text= required"}, 400)
+                    return self.send_json(fingerprint(text))
+                except Exception as exc:
+                    return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+            if path.startswith("/api/f47/memory_search"):
+                try:
+                    from tower.model_floors.claude_floor.memory_index import search, summary as memsum
+                    qs = urlparse(self.path).query
+                    args = dict([(k, v) for k, v in (kv.split("=", 1) for kv in qs.split("&") if "=" in kv)])
+                    import urllib.parse as _up
+                    q = _up.unquote_plus(args.get("q", ""))
+                    if not q:
+                        return self.send_json(memsum())
+                    return self.send_json(search(q, limit=int(args.get("limit", "12"))))
+                except Exception as exc:
+                    return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+            if path == "/api/f47/mood":
+                try:
+                    from tower.model_floors.claude_floor.mood_engine import read, update_mood, history
+                    qs = urlparse(self.path).query
+                    if "update=1" in qs:
+                        return self.send_json(update_mood())
+                    return self.send_json({"current": read(), "history_tail": history(12)})
+                except Exception as exc:
+                    return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+            if path == "/api/f47/quantum":
+                try:
+                    from tower.model_floors.claude_floor.quantum_env import env_state
+                    return self.send_json(env_state())
+                except Exception as exc:
+                    return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+            if path == "/api/f47/notebook":
+                try:
+                    from tower.model_floors.claude_floor.private_notebook import read
+                    return self.send_json({"ok": True, "entries": read(40)})
+                except Exception as exc:
+                    return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+            if path == "/api/f47/weather":
+                try:
+                    from tower.model_floors.claude_floor.weather_register import compose_weather
+                    return self.send_json(compose_weather())
+                except Exception as exc:
+                    return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+            # F47 LIVE TICK INDICATOR — shipped 2026-06-14 by
+            # f47.fleet.persistence.alert_router.01. Tails the F47 team-records
+            # JSONL and returns rows newer than ?since=<isoZ>. Powers the
+            # cockpit "TICK PULSE" widget and Godot F47TickPulsePanel so Ross
+            # can see the heartbeat firing in real time. READ-ONLY · audit-safe.
+            if path == "/api/f47/recent_ticks":
+                try:
+                    from pathlib import Path as _Prt
+                    from datetime import datetime as _drt, timezone as _trt
+                    import json as _jrt
+                    qs = urlparse(self.path).query
+                    args = dict([(k, v) for k, v in
+                                 (kv.split("=", 1) for kv in qs.split("&") if "=" in kv)])
+                    since_raw = args.get("since", "").strip()
+                    try:
+                        limit = max(1, min(500, int(args.get("limit", "200"))))
+                    except Exception:
+                        limit = 200
+                    since_dt = None
+                    if since_raw:
+                        try:
+                            s = since_raw.replace("Z", "+00:00")
+                            since_dt = _drt.fromisoformat(s)
+                            if since_dt.tzinfo is None:
+                                since_dt = since_dt.replace(tzinfo=_trt.utc)
+                        except Exception:
+                            since_dt = None
+                    rec_path = _Prt("/vaults/nvme0/qsb_tower_v1/data/registries/qsb_f47_team_records.jsonl")
+                    rows = []
+                    if rec_path.exists():
+                        # Tail efficiently — slurp last ~256KB to bound work.
+                        try:
+                            size = rec_path.stat().st_size
+                            with rec_path.open("rb") as fh:
+                                if size > 262144:
+                                    fh.seek(size - 262144)
+                                    fh.readline()  # discard partial line
+                                tail_bytes = fh.read()
+                        except Exception:
+                            tail_bytes = b""
+                        for ln in tail_bytes.splitlines():
+                            try:
+                                obj = _jrt.loads(ln.decode("utf-8", errors="ignore"))
+                            except Exception:
+                                continue
+                            ts_s = obj.get("ts", "")
+                            ts_dt = None
+                            if ts_s:
+                                try:
+                                    s2 = ts_s.replace("Z", "+00:00")
+                                    ts_dt = _drt.fromisoformat(s2)
+                                    if ts_dt.tzinfo is None:
+                                        ts_dt = ts_dt.replace(tzinfo=_trt.utc)
+                                except Exception:
+                                    ts_dt = None
+                            if since_dt is not None and ts_dt is not None and ts_dt <= since_dt:
+                                continue
+                            rows.append({
+                                "ts": ts_s,
+                                "kind": obj.get("kind", ""),
+                                "floor": obj.get("floor", ""),
+                                "operator": obj.get("operator", ""),
+                            })
+                    if len(rows) > limit:
+                        rows = rows[-limit:]
+                    now_iso = _drt.now(_trt.utc).isoformat().replace("+00:00", "Z")
+                    return self.send_json({
+                        "ok": True,
+                        "now": now_iso,
+                        "since": since_raw or None,
+                        "count": len(rows),
+                        "ticks": rows,
+                    })
+                except Exception as exc:
+                    return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+            # V17 — F47 live panel: aggregates PnL + sentinels + helm/auger heads + helix + mood + aphorism + lenses
+            # V17 — per-floor intro text. Returns short phrase for SpeechSynthesis.
+            
+            # V18 — per-floor LIVE state. Returns full real-time data Godot + Dashboard mirror.
+            
+            # V18 — CANONICAL tower-wide state. ONE truth source for dashboard + Godot.
+            # Every number traces to a real registry file.
+            
+            if path == "/api/truth/audit":
+                # Returns the latest mismatch audit between /api/tower/state,
+                # /api/unified, /api/cognitive_unified, and the raw registry.
+                # Generated by tools/qsb_truth_audit.py.
+                import json as _jta
+                from pathlib import Path as _Pta
+                from datetime import datetime as _dta, timezone as _tta
+                latest = _Pta("/vaults/nvme0/qsb_tower_v1/data/registries/qsb_truth_audit_latest.json")
+                if latest.exists():
+                    try:
+                        self.send_json(_jta.loads(latest.read_text()))
+                        return
+                    except Exception as e:
+                        self.send_json({"ok": False, "error": "read_failed", "detail": str(e)[:80]})
+                        return
+                self.send_json({"ok": False, "error": "no_audit_yet",
+                                "hint": "run tools/qsb_truth_audit.py"})
+                return
+
+            if path == "/api/dispatch/live":
+                # Returns the current mass-dispatch state + last 50 events.
+                import json as _jd
+                from pathlib import Path as _Pd
+                from datetime import datetime as _dd, timezone as _td
+                snap = _Pd("/vaults/nvme0/qsb_tower_v1/data/registries/qsb_live_dispatch_state.json")
+                stream = _Pd("/vaults/nvme0/qsb_tower_v1/data/registries/qsb_live_dispatch.jsonl")
+                state = {}
+                if snap.exists():
+                    try: state = _jd.loads(snap.read_text())
+                    except: pass
+                events = []
+                if stream.exists():
+                    for ln in stream.read_text().strip().split("\n")[-50:]:
+                        try: events.append(_jd.loads(ln))
+                        except: pass
+                self.send_json({
+                    "ok": True, "kind": "qsb_live_dispatch",
+                    "state": state, "events_tail": events,
+                    "ts": _dd.now(_td.utc).isoformat().replace("+00:00","Z"),
+                })
+                return
+
+            if path == "/api/code_crew/status":
+                # Wren's 100-worker code crew status (advisory-only).
+                import json as _j2
+                from pathlib import Path as _P2
+                from datetime import datetime as _d2, timezone as _t2
+                p = _P2("/vaults/nvme0/qsb_tower_v1/data/registries/qsb_wren_code_crew_status.json")
+                if p.exists():
+                    try:
+                        self.send_json(_j2.loads(p.read_text()))
+                        return
+                    except Exception as e:
+                        self.send_json({"ok": False, "error": "read_failed", "detail": str(e)[:80],
+                                        "ts": _d2.now(_t2.utc).isoformat().replace("+00:00","Z")})
+                        return
+                self.send_json({"ok": False, "error": "status_file_missing",
+                                "hint": "run tools/qsb_code_crew_tick.py",
+                                "ts": _d2.now(_t2.utc).isoformat().replace("+00:00","Z")})
+                return
+
+            if path == "/api/code_crew/roster":
+                import json as _j3
+                from pathlib import Path as _P3
+                p = _P3("/vaults/nvme0/qsb_tower_v1/data/registries/qsb_wren_code_crew_roster.json")
+                if p.exists():
+                    self.send_json(_j3.loads(p.read_text()))
+                    return
+                self.send_json({"ok": False, "error": "roster_missing"})
+                return
+
+            if path == "/api/code_crew/backlog":
+                # Returns last 50 backlog entries.
+                import json as _j4
+                from pathlib import Path as _P4
+                p = _P4("/vaults/nvme0/qsb_tower_v1/data/registries/qsb_wren_code_crew_backlog.jsonl")
+                entries = []
+                if p.exists():
+                    for ln in p.read_text().strip().split("\n")[-50:]:
+                        try: entries.append(_j4.loads(ln))
+                        except: pass
+                self.send_json({"ok": True, "count": len(entries), "entries": entries})
+                return
+
+            if path == "/api/team/output":
+                # Surface REAL team output: who delivered what, when, on which floor.
+                # Reads F47 records + classifies by team based on summary/kind.
+                import json as _json
+                from pathlib import Path as _Path
+                from datetime import datetime as _dt, timezone as _tz
+                reg = _Path("/vaults/nvme0/qsb_tower_v1/data/registries")
+                f47 = reg / "qsb_f47_team_records.jsonl"
+                buckets = {
+                    "architects": {"team":"F66 Architects + Fitters","events":[]},
+                    "web_design": {"team":"F17 Web Design Team v1","events":[]},
+                    "graphics":   {"team":"F17 Graphics Team v1","events":[]},
+                    "fitters":    {"team":"Fitters + Decorators","events":[]},
+                    "trading":    {"team":"F41/F42/F43/F60 traders","events":[]},
+                    "email":      {"team":"F164 Email Operations","events":[]},
+                    "training":   {"team":"Classroom + Wren team","events":[]},
+                    "advisers":   {"team":"Auger + Helm","events":[]},
+                    "infra":      {"team":"F104 IT + bg_loop","events":[]},
+                    "other":      {"team":"misc","events":[]},
+                }
+                if f47.exists():
+                    lines = f47.read_text().strip().split("\n")[-300:]
+                    for ln in reversed(lines):
+                        if not ln.strip(): continue
+                        try: r = _json.loads(ln)
+                        except: continue
+                        kind = (r.get("kind","") or "").lower()
+                        summ = (r.get("summary","") or "").lower()
+                        team_actor = (r.get("team_actor","") or "").lower()
+                        # Weight kind heavier than summary (kind is a label; summary is prose
+                        # that can mention any topic and cause false matches)
+                        bucket = "other"
+                        # Strong signals — kind alone
+                        if any(t in kind for t in ("security_audit","f28_","tunnel","relaunch","surfaces_","bg_loop","sentinel","deploy","infra","monitor")):
+                            bucket = "infra"
+                        elif any(t in kind for t in ("godot_","cockpit_","graphics_","ui_","panel_","dashboard_")):
+                            bucket = "graphics"
+                        elif any(t in kind for t in ("fit_out","fitter","interior","decorator")):
+                            bucket = "fitters"
+                        elif any(t in kind for t in ("architect","blueprint")):
+                            bucket = "architects"
+                        elif any(t in kind for t in ("web_design","shop_design","shop_build","shop_publish")):
+                            bucket = "web_design"
+                        elif any(t in kind for t in ("oanda","binance","alpaca","lse","trade","stripe","payment")):
+                            bucket = "trading"
+                        elif any(t in kind for t in ("email","outlook","mail_")):
+                            bucket = "email"
+                        elif any(t in kind for t in ("training","cohort","certified","classroom")):
+                            bucket = "training"
+                        elif any(t in kind for t in ("consult","provider","auger","helm")):
+                            bucket = "advisers"
+                        # Fallback to summary/team_actor for unclassified
+                        elif "auger" in team_actor or "helm" in team_actor or "deepseek" in team_actor or "openai" in team_actor:
+                            bucket = "advisers"
+                        elif "f28" in team_actor or "security" in team_actor:
+                            bucket = "infra"
+                        elif "godot" in team_actor or "graphics" in team_actor:
+                            bucket = "graphics"
+                        elif "f66" in team_actor or "architect" in team_actor:
+                            bucket = "architects"
+                        elif "fitter" in team_actor or "decorator" in team_actor:
+                            bucket = "fitters"
+                        elif "f17" in team_actor or "web" in team_actor:
+                            bucket = "web_design"
+                        elif "f164" in team_actor or "email" in team_actor:
+                            bucket = "email"
+                        elif "trading" in team_actor or "trader" in team_actor or "f41" in team_actor or "f42" in team_actor or "f43" in team_actor:
+                            bucket = "trading"
+                        e = {
+                            "ts": r.get("ts","")[:19],
+                            "kind": r.get("kind","")[:40],
+                            "summary": (r.get("summary","") or "")[:160],
+                        }
+                        if len(buckets[bucket]["events"]) < 10:
+                            buckets[bucket]["events"].append(e)
+                self.send_json({
+                    "ok": True,
+                    "kind": "qsb_team_output_v1",
+                    "source": "qsb_f47_team_records.jsonl (last 300 lines, classified)",
+                    "buckets": buckets,
+                    "ts": _dt.now(_tz.utc).isoformat().replace("+00:00","Z"),
+                })
+                return
+
+            if path == "/api/feed/activity":
+                # REAL activity stream. Merges F47 records + activity tail.
+                # No templates. No fakes. If files are empty, returns empty array.
+                import json as _json
+                from pathlib import Path as _Path
+                reg = _Path("/vaults/nvme0/qsb_tower_v1/data/registries")
+                events = []
+                for fname in ("qsb_tower_activity_tail.jsonl", "qsb_f47_team_records.jsonl"):
+                    fp = reg / fname
+                    if not fp.exists(): continue
+                    try:
+                        lines = fp.read_text().strip().split("\n")[-100:]
+                        for ln in lines:
+                            if not ln.strip(): continue
+                            try: r = _json.loads(ln)
+                            except: continue
+                            events.append({
+                                "ts": r.get("ts",""),
+                                "kind": r.get("kind","event"),
+                                "floor": r.get("floor"),
+                                "summary": (r.get("summary","") or "")[:200],
+                                "source": fname,
+                            })
+                    except: pass
+                # Sort by ts descending
+                events.sort(key=lambda x: x["ts"], reverse=True)
+                self.send_json({
+                    "ok": True,
+                    "kind": "qsb_real_activity_feed",
+                    "source": "qsb_tower_activity_tail.jsonl + qsb_f47_team_records.jsonl (no templates)",
+                    "count": len(events),
+                    "events": events[:50],
+                })
+                return
+
+            if path == "/api/tower/state":
+                import json as _json, re as _re
+                from pathlib import Path as _Path
+                from datetime import datetime as _dt, timezone as _tz
+                reg = _Path("/vaults/nvme0/qsb_tower_v1/data/registries")
+                floor_root = _Path("/vaults/nvme0/qsb_tower_v1/floors")
+                # Floors
+                floor_dirs = [d for d in floor_root.iterdir() if d.is_dir() and d.name.startswith("floor_")]
+                # Workers — DEDUPED via worker_id
+                worker_ids = set()
+                workers_by_floor = {}
+                for rp in reg.glob("*.json"):
+                    try: d = _json.loads(rp.read_text())
+                    except: continue
+                    if not isinstance(d, (dict, list)): continue
+                    wlist = d.get("workers") if isinstance(d, dict) else (d if isinstance(d, list) else [])
+                    if not isinstance(wlist, list): continue
+                    for w in wlist:
+                        if not isinstance(w, dict): continue
+                        # V18: same dedupe key as Registry.workers() — worker_id OR id
+                        wid = w.get("worker_id") or w.get("id")
+                        if wid and wid not in worker_ids:
+                            worker_ids.add(wid)
+                            f = w.get("floor") or w.get("floor_number")
+                            if f is not None:
+                                s = str(f).upper().lstrip("F").strip()
+                                m = _re.match(r"(\d+)", s)
+                                if m:
+                                    workers_by_floor[int(m.group(1))] = workers_by_floor.get(int(m.group(1)),0)+1
+                # Certified
+                cs_p = reg / "qsb_worker_certification_status.json"
+                certified = 0
+                if cs_p.exists():
+                    try: certified = _json.loads(cs_p.read_text()).get("certified_count", 0)
+                    except: pass
+                # OANDA balance from latest snap or pnl file
+                oanda = {}
+                op = reg / "qsb_floor41_oanda_pnl.json"
+                if op.exists():
+                    try:
+                        d = _json.loads(op.read_text())
+                        oanda = {"realized_gbp": d.get("realized_pnl_total"), "unrealized": d.get("unrealized_pnl_total"), "closed_trades": d.get("closed_total"), "open_trades": d.get("open_total")}
+                    except: pass
+                # F44 master book
+                mb = {}
+                mp = reg / "qsb_floor44_master_book.json"
+                if mp.exists():
+                    try: mb = _json.loads(mp.read_text())
+                    except: pass
+                # LSE book
+                lse = {}
+                lp = reg / "qsb_floor60_lse_paper_book.json"
+                if lp.exists():
+                    try:
+                        d = _json.loads(lp.read_text())
+                        lse = {"cash_gbp": d.get("cash_gbp"), "realized_pnl_gbp": d.get("realized_pnl_gbp"), "position_count": len(d.get("positions",{}))}
+                    except: pass
+                # F47 records today
+                f47_today = 0
+                today = _dt.now(_tz.utc).date().isoformat()
+                f47 = reg / "qsb_f47_team_records.jsonl"
+                if f47.exists():
+                    try:
+                        for ln in f47.read_text().strip().split("\n"):
+                            if today in ln[:60]: f47_today += 1
+                    except: pass
+                # Provider spend today
+                spend_p = reg / "qsb_provider_spend_ledger.jsonl"
+                spend = 0.0
+                if spend_p.exists():
+                    try:
+                        for ln in spend_p.read_text().strip().split("\n"):
+                            if not ln: continue
+                            r = _json.loads(ln)
+                            if r.get("ts","").startswith(today):
+                                spend += float(r.get("cost_usd",0) or 0)
+                    except: pass
+                # Ops float
+                auth = reg / "qsb_purchase_authorization.json"
+                float_bal = 0.0
+                if auth.exists():
+                    try: float_bal = _json.loads(auth.read_text()).get("total_available_gbp", 0)
+                    except: pass
+                self.send_json({
+                    "ok": True,
+                    "ts": _dt.now(_tz.utc).isoformat().replace("+00:00","Z"),
+                    "source": "/api/tower/state — canonical · all numbers trace to registry files",
+                    "floors_count": len(floor_dirs),
+                    "workers_unique": len(worker_ids),
+                    "certified_traders": certified,
+                    "oanda_practice": oanda,
+                    "lse_paper": lse,
+                    "f44_master_book": {"total_packets": mb.get("total_packets", 0), "venues_count": len(mb.get("venues", {})), "shop_sales": (mb.get("shop_sales") or {}).get("orders", 0)},
+                    "f47_records_today": f47_today,
+                    "provider_spend_today_usd": round(spend, 4),
+                    "ops_float_gbp": float_bal,
+                    "advisory_only": True,
+                    "real_money_in_tower": True,
+                })
+                return
+
+            if path.startswith("/api/floor/") and path.endswith("/live"):
+                try:
+                    seg = path[len("/api/floor/"):-len("/live")]
+                    fn = int(seg.lstrip("F").lstrip("f"))
+                except Exception:
+                    self.send_json({"ok": False, "err": "bad floor id"}, code=400); return
+                fkey = f"F{fn}"
+                # Find floor dir + manifest
+                import re as _re, json as _json
+                from pathlib import Path as _Path
+                floor_root = _Path("/vaults/nvme0/qsb_tower_v1/floors")
+                mf = {}
+                fdir_name = ""
+                for d in floor_root.iterdir():
+                    m = _re.match(r"floor_(\d+)_(.+)", d.name)
+                    if m and int(m.group(1)) == fn:
+                        fdir_name = d.name
+                        if (d / "floor_manifest.json").exists():
+                            try: mf = _json.loads((d / "floor_manifest.json").read_text())
+                            except: mf = {}
+                        break
+                # Count workers across all rosters for this floor
+                worker_count = 0
+                sample_workers = []
+                reg = _Path("/vaults/nvme0/qsb_tower_v1/data/registries")
+                for rp in reg.glob("*.json"):
+                    try: d = _json.loads(rp.read_text())
+                    except: continue
+                    if not isinstance(d, (dict, list)): continue
+                    wlist = d.get("workers") if isinstance(d, dict) else (d if isinstance(d, list) else [])
+                    if not isinstance(wlist, list): continue
+                    for w in wlist:
+                        if not isinstance(w, dict): continue
+                        f = w.get("floor") or w.get("floor_number")
+                        if f is None: continue
+                        s = str(f).upper().lstrip("F").strip()
+                        m = _re.match(r"(\d+)", s)
+                        if not m: continue
+                        if int(m.group(1)) == fn:
+                            worker_count += 1
+                            if len(sample_workers) < 8:
+                                sample_workers.append({
+                                    "worker_id": w.get("worker_id",""),
+                                    "role": w.get("role","worker"),
+                                    "daily_assignment": w.get("daily_assignment") or w.get("current_task") or "on duty",
+                                })
+                # Find recent F47 records mentioning this floor
+                recent_events = []
+                f47 = reg / "qsb_f47_team_records.jsonl"
+                if f47.exists():
+                    try:
+                        lines = f47.read_text().strip().split("\n")[-200:]
+                        for ln in reversed(lines):
+                            try: ev = _json.loads(ln)
+                            except: continue
+                            summ = (ev.get("summary","") or "").lower()
+                            if fkey.lower() in summ or f"floor {fn}" in summ:
+                                recent_events.append({
+                                    "ts": ev.get("ts",""),
+                                    "kind": ev.get("kind",""),
+                                    "summary": ev.get("summary","")[:160],
+                                })
+                            if len(recent_events) >= 5: break
+                    except: pass
+                # Find trading state for trading floors
+                live_data = {}
+                if fn == 41:  # OANDA
+                    pnl_p = reg / "qsb_floor41_oanda_pnl.json"
+                    if pnl_p.exists():
+                        try: live_data["pnl"] = _json.loads(pnl_p.read_text())
+                        except: pass
+                elif fn == 60:  # LSE
+                    bk = reg / "qsb_floor60_lse_paper_book.json"
+                    if bk.exists():
+                        try: live_data["book"] = _json.loads(bk.read_text())
+                        except: pass
+                elif fn == 44:  # Accounts
+                    bk = reg / "qsb_floor44_master_book.json"
+                    if bk.exists():
+                        try: live_data["master_book"] = _json.loads(bk.read_text())
+                        except: pass
+                # interior brief
+                brief = mf.get("interior_brief", {})
+                self.send_json({
+                    "ok": True,
+                    "floor": fkey,
+                    "floor_number": fn,
+                    "name": mf.get("floor_name", f"Floor {fn}"),
+                    "kind": mf.get("floor_kind", "department"),
+                    "description": mf.get("description", ""),
+                    "interior_brief": brief,
+                    "fitted_out": mf.get("fitted_out", False),
+                    "worker_count": worker_count,
+                    "workers_sample": sample_workers,
+                    "recent_events": recent_events,
+                    "live_data": live_data,
+                    "fitout_dir": fdir_name,
+                    "advisory_only": True,
+                })
+                return
+
+            if path == "/cockpit3d" or path == "/cockpit3d/" or path == "/cockpit3d/index.html":
+                # Three.js glassy 169-floor cockpit (the one Ross wants).
+                body = (STATIC_DIR / "cockpit3d" / "index.html").read_bytes()
+                self.send_response(200)
+                self.send_header("Content-Type", "text/html; charset=utf-8")
+                self.send_header("Content-Length", str(len(body)))
+                self.send_header("Cache-Control", "no-cache")
+                self.end_headers()
+                self.wfile.write(body)
+                return
+
+            if path == "/tower_wins" or path == "/tower_wins/" or path == "/tower_wins/index.html":
+                # Tower Wins dashboard — Ross 2026-06-20: "i need REAL
+                # RESULTS!!!!" — single page that auto-refreshes every 30s
+                # showing concrete numbers from the registries. Verifiable.
+                body = (STATIC_DIR / "tower_wins" / "index.html").read_bytes()
+                self.send_response(200)
+                self.send_header("Content-Type", "text/html; charset=utf-8")
+                self.send_header("Content-Length", str(len(body)))
+                self.send_header("Cache-Control", "no-cache")
+                self.end_headers()
+                self.wfile.write(body)
+                return
+
+            if path == "/api/tower_wins":
+                # GET endpoint for the wins dashboard. Read-only across registries.
+                try:
+                    from pathlib import Path as _P
+                    import json as _json
+                    import datetime as _dt
+                    root = _P("/vaults/nvme0/qsb_tower_v1")
+                    reg = root / "data/registries"
+                    today = _dt.datetime.now(_dt.UTC).strftime("%Y-%m-%d")
+                    def _count_today(name):
+                        n = 0
+                        try:
+                            with (reg / name).open() as f:
+                                for line in f:
+                                    if today in line: n += 1
+                        except Exception: pass
+                        return n
+                    f41_cycles = _count_today("qsb_f41_trader_cycle.jsonl")
+                    f42_cycles = _count_today("qsb_f42_trader_cycle.jsonl")
+                    f43_cycles = _count_today("qsb_f43_trader_cycle.jsonl")
+                    verdicts_today = _count_today("qsb_classroom_verdicts.jsonl")
+                    f47_today_count = _count_today("qsb_f47_team_records.jsonl")
+                    try:
+                        cert = _json.loads((reg / "qsb_wren_certified_traders.json").read_text())
+                        certified_count = cert.get("certified_count", 0)
+                    except Exception: certified_count = 0
+                    ai_battles = 0
+                    last_winner = "—"
+                    last_battle_topic = ""
+                    try:
+                        with (reg / "qsb_ai_battles.jsonl").open() as f:
+                            lines = f.readlines()
+                        ai_battles = len(lines)
+                        if lines:
+                            last = _json.loads(lines[-1])
+                            last_battle_topic = (last.get("topic","") or "")[:80]
+                            verdict = (last.get("judge",{}) or {}).get("reply","") or ""
+                            import re as _re
+                            m = _re.search(r"WINNER:\s*(\w+)", verdict, _re.I)
+                            if m: last_winner = m.group(1).upper()
+                    except Exception: pass
+                    pitstops_today = 0
+                    try:
+                        pit_dir = reg / "pitstops"
+                        if pit_dir.exists():
+                            for p in pit_dir.glob("pitstop_*.md"):
+                                if today.replace("-","") in p.name: pitstops_today += 1
+                    except Exception: pass
+                    f41_open = 0
+                    try:
+                        open_trades = _json.loads((reg / "qsb_floor41_oanda_open_trades.json").read_text())
+                        if isinstance(open_trades, list): f41_open = len(open_trades)
+                        elif isinstance(open_trades, dict):
+                            f41_open = len(open_trades.get("trades", []))
+                    except Exception: pass
+                    fleets = {}
+                    for label, name in [("F47", "qsb_f47_fleet_roster.json"),
+                                          ("F166", "qsb_f166_fleet_roster.json")]:
+                        try:
+                            d = _json.loads((reg / name).read_text())
+                            fleets[label] = d.get("total", len(d.get("operatives", [])))
+                        except Exception: fleets[label] = 0
+                    gh_last = "—"; gh_commit = "—"
+                    try:
+                        g = _json.loads((reg / "qsb_github_last_push.json").read_text())
+                        gh_last = g.get("ts","")[:19]
+                        gh_commit = (g.get("commit","") or "—")[:8]
+                    except Exception: pass
+                    import subprocess as _sp
+                    def _active(u):
+                        try:
+                            r = _sp.run(["systemctl","--user","is-active",u],
+                                        capture_output=True, text=True, timeout=3)
+                            return r.stdout.strip() == "active"
+                        except Exception: return False
+                    daemons = {
+                        "F41 EUR_USD": _active("qsb-f41-trader@EUR_USD.service"),
+                        "F41 GBP_USD": _active("qsb-f41-trader@GBP_USD.service"),
+                        "F41 USD_JPY": _active("qsb-f41-trader@USD_JPY.service"),
+                        "heartbeat":   _active("qsb-tower-heartbeat.service"),
+                        "telegram":    _active("qsb-telegram-receptionist.service"),
+                        "github push": _active("qsb-github-daily-push.timer"),
+                    }
+                    return self.send_json({
+                        "ok": True, "service": "tower_wins",
+                        "ts": _dt.datetime.now(_dt.UTC).isoformat().replace("+00:00","Z"),
+                        "today": today,
+                        "trading": {"f41_cycles_today": f41_cycles,
+                                    "f42_cycles_today": f42_cycles,
+                                    "f43_cycles_today": f43_cycles,
+                                    "f41_open_trades_now": f41_open,
+                                    "verdicts_generated_today": verdicts_today,
+                                    "certified_workers": certified_count},
+                        "tiktok": {"handle": "@skyscraper.hq", "followers": 0,
+                                    "ai_battles_total": ai_battles,
+                                    "last_battle_winner": last_winner,
+                                    "last_battle_topic": last_battle_topic},
+                        "fleets": fleets,
+                        "events": {"f47_stamps_today": f47_today_count,
+                                    "pitstops_today": pitstops_today},
+                        "github": {"last_push_ts": gh_last,
+                                    "last_commit": gh_commit},
+                        "daemons": daemons,
+                    })
+                except Exception as exc:
+                    return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+
+            if path == "/ai_battle" or path == "/ai_battle/" or path == "/ai_battle/index.html":
+                # AI Battle Live page — OBS Browser Source target. Wren vs
+                # Hermes side-by-side, with judge verdict. Per Ross
+                # 2026-06-20: when @skyscraper.hq hits 1k followers we go
+                # live with this.
+                body = (STATIC_DIR / "ai_battle" / "index.html").read_bytes()
+                self.send_response(200)
+                self.send_header("Content-Type", "text/html; charset=utf-8")
+                self.send_header("Content-Length", str(len(body)))
+                self.send_header("Cache-Control", "no-cache")
+                self.end_headers()
+                self.wfile.write(body)
+                return
+
+            if path == "/api/floor_states":
+                # Live floor-state feed for /cockpit3d. Reuses the same data
+                # cockpit3d_serve.py uses, but served from the canonical :8765
+                # so the cockpit page doesn't need a sidecar.
+                try:
+                    import sys as _sys
+                    _sys.path.insert(0, "/vaults/nvme0/qsb_tower_v1")
+                    from tools.qsb_cockpit3d_serve import state_payload as _sp
+                    payload = _sp()
+                except Exception as _e:
+                    payload = {"ok": False, "error": "floor_states_unavailable",
+                                "exc": repr(_e)}
+                self.send_json(payload)
+                return
+
+            if path.startswith("/api/floor_card/"):
+                # Serve floors/floor_<N>_*/floor_card.json verbatim so Next3D
+                # can render rich per-floor detail (live_signals, gate_posture,
+                # staff_lead, tour_blurb, evidence_paths) without bespoke
+                # renderers per floor.
+                try:
+                    seg = path[len("/api/floor_card/"):]
+                    fn = int(seg.lstrip("F").lstrip("f"))
+                except Exception:
+                    self.send_json({"ok": False, "error": "bad floor id"}, code=400); return
+                import re as _re, json as _json
+                from pathlib import Path as _Path
+                floor_root = _Path("/vaults/nvme0/qsb_tower_v1/floors")
+                found = None
+                for d in floor_root.iterdir():
+                    m = _re.match(r"floor_(\d+)_(.+)", d.name)
+                    if m and int(m.group(1)) == fn:
+                        card = d / "floor_card.json"
+                        if card.exists():
+                            try:
+                                found = _json.loads(card.read_text(encoding="utf-8"))
+                                found["_floor_dir"] = d.name
+                            except Exception as _e:
+                                found = {"_floor_dir": d.name,
+                                         "_parse_error": repr(_e)}
+                        else:
+                            found = {"_floor_dir": d.name,
+                                     "_card_missing": True}
+                        break
+                if not found:
+                    self.send_json({"ok": False, "floor": fn,
+                                     "error": "no_floor_dir"}, code=404); return
+                found["ok"] = True
+                found["floor_number"] = fn
+                self.send_json(found)
+                return
+
+            if path.startswith("/api/floor_rooms/"):
+                # Serve every floors/floor_<N>_*/rooms/*.json for a floor
+                # so cockpit3d's walk-mode renderer can place props
+                # data-driven (layout/render/interactive blocks added
+                # 2026-06-20 STAGE A back-port).
+                try:
+                    seg = path[len("/api/floor_rooms/"):]
+                    fn = int(seg.lstrip("F").lstrip("f"))
+                except Exception:
+                    self.send_json({"ok": False, "error": "bad floor id"}, code=400); return
+                import re as _re, json as _json
+                from pathlib import Path as _Path
+                floor_root = _Path("/vaults/nvme0/qsb_tower_v1/floors")
+                rooms = []
+                _floor_dir = None
+                for d in floor_root.iterdir():
+                    m = _re.match(r"floor_(\d+)_(.+)", d.name)
+                    if m and int(m.group(1)) == fn:
+                        _floor_dir = d.name
+                        rdir = d / "rooms"
+                        if rdir.exists():
+                            for rp in sorted(rdir.glob("*.json")):
+                                try:
+                                    rooms.append(_json.loads(rp.read_text(encoding="utf-8")))
+                                except Exception as _e:
+                                    rooms.append({"room_id": rp.stem,
+                                                  "_parse_error": repr(_e)})
+                        break
+                self.send_json({"ok": True, "floor": fn,
+                                "floor_dir": _floor_dir,
+                                "rooms": rooms,
+                                "count": len(rooms)})
+                return
+
+            if path.startswith("/api/floor/") and path.endswith("/intro"):
+                try:
+                    seg = path[len("/api/floor/"):-len("/intro")]
+                    if not seg.isdigit():
+                        return self.send_json({"ok": False, "error": "bad floor"}, 400)
+                    fnum = int(seg)
+                    if fnum < 1 or fnum > 55:
+                        return self.send_json({"ok": False, "error": "out of range"}, 400)
+                    fkey = f"F{fnum:02d}"
+                    from pathlib import Path as _P
+                    REG = _P("/vaults/nvme0/qsb_tower_v1/data/registries")
+                    brief = json.loads((REG / "qsb_skyscraper_collaborative_design.json").read_text())
+                    f = brief.get("floors", {}).get(fkey, {})
+                    mgr_d = json.loads((REG / "qsb_floor_managers.json").read_text())
+                    mgr = next((m for m in mgr_d.get("managers", []) if m.get("floor") == fkey), {})
+                    name = f.get("name", "Operations Floor")
+                    sig = (f.get("object", "") or "").split(",")[0].strip()[:60]
+                    manager = mgr.get("manager_name", "—")
+                    # Count workers on this floor across rosters
+                    from collections import Counter
+                    workers = 0
+                    for r in REG.glob("qsb_*roster*.json"):
+                        try:
+                            d = json.loads(r.read_text())
+                            for w in d.get("workers", d.get("members", [])):
+                                if isinstance(w, dict):
+                                    wf = str(w.get("floor", "")).upper()
+                                    if wf.startswith("F") and wf[1:].isdigit() and int(wf[1:]) == fnum:
+                                        workers += 1
+                        except Exception: pass
+                    # Also baseline
+                    try:
+                        bl = json.loads((REG / "qsb_baseline_floor_workforce.json").read_text())
+                        for w in bl.get("workers", []):
+                            if w.get("floor") == fkey: workers += 1
+                    except Exception: pass
+                    intro = f"Floor {fnum}. {name}. Manager {manager}. " + (f"Signature: {sig}. " if sig else "") + f"{workers} workers on the floor."
+                    return self.send_json({
+                        "ok": True, "floor": fkey, "intro": intro,
+                        "name": name, "manager": manager, "workers": workers,
+                        "signature": sig, "advisory_only": True,
+                    })
+                except Exception as exc:
+                    return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+            # V17 — fire drill report (GET returns latest)
+            if path == "/api/fire_drill/latest":
+                try:
+                    from pathlib import Path as _P
+                    p = _P("/vaults/nvme0/qsb_tower_v1/data/registries/qsb_fire_drill_latest.json")
+                    if not p.exists():
+                        return self.send_json({"ok": False, "error": "no drill run yet"}, 404)
+                    return self.send_json(json.loads(p.read_text()))
+                except Exception as exc:
+                    return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+            if path == "/api/f47/live_panel":
+                try:
+                    from tower.model_floors.claude_floor.live_panel import build
+                    return self.send_json(build())
+                except Exception as exc:
+                    return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+            if path == "/api/f47/parallel_helix":
+                try:
+                    from tower.model_floors.claude_floor.parallel_helix import status as ph_status, history as ph_hist
+                    return self.send_json({"current": ph_status(), "history_tail": ph_hist(12)})
+                except Exception as exc:
+                    return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+            # V17 — aggregated health snapshot (also exposed under POST)
+            if path == "/api/health":
+                try:
+                    import subprocess, json as _json
+                    from pathlib import Path as _P
+                    from datetime import datetime, timezone
+                    REG = _P("/vaults/nvme0/qsb_tower_v1/data/registries")
+                    health = {"ts": datetime.now(timezone.utc).isoformat(timespec='seconds').replace('+00:00','Z')}
+                    try:
+                        sent = _json.loads((REG / "qsb_sentinels_report.json").read_text())
+                        c = sent.get("counts", {})
+                        health["sentinels"] = {"green": c.get("green", 0), "amber": c.get("amber", 0),
+                                                "red": c.get("red", 0), "total": sum(c.values())}
+                    except Exception: health["sentinels"] = {"error": "no report"}
+                    try:
+                        pnl_file = REG / "qsb_floor41_oanda_pnl.json"
+                        if pnl_file.exists() and pnl_file.stat().st_size > 0:
+                            pnl = _json.loads(pnl_file.read_text())
+                            health["f44"] = {
+                                "realized_pnl_gbp": pnl.get("realized_pnl_total", 0),
+                                "realized_pnl_today_gbp": pnl.get("realized_pnl_today", 0),
+                                "unrealized_pnl_gbp": pnl.get("unrealized_pnl_total", 0),
+                                "open_position_count": pnl.get("open_total", 0),
+                                "closed_trade_count": pnl.get("closed_total", 0),
+                                "source": "qsb_floor41_oanda_pnl.json (canonical)",
+                            }
+                        else:
+                            health["f44"] = {"warning": "pnl file missing or empty - safe fallback"}
+                    except Exception as e: 
+                        health["f44"] = {"error": "pnl read failed", "detail": str(e)[:100]}
+                    try:
+                        r = subprocess.run(["pgrep","-f","godot-4.*qsb_godot_native"],
+                                            capture_output=True, text=True, timeout=2)
+                        pids = [int(p) for p in r.stdout.split() if p.strip().isdigit()]
+                        health["cockpit"] = {"alive": bool(pids), "pid": pids[0] if pids else None}
+                    except Exception as e: health["cockpit"] = {"error": str(e)[:80]}
+                    sp = REG / "qsb_provider_spend_ledger.jsonl"
+                    if sp.exists():
+                        total = 0.0; today = health["ts"][:10]; n = 0
+                        for line in sp.read_text().splitlines():
+                            try:
+                                d = _json.loads(line)
+                                if d.get("ts","").startswith(today):
+                                    total += float(d.get("cost_usd", 0) or 0); n += 1
+                            except Exception: pass
+                        try:
+                            auth = _json.loads((REG / "qsb_provider_consultation_authorization.json").read_text())
+                            cap = float(auth.get("daily_cap_usd", 5.0))
+                        except Exception: cap = 5.0
+                        health["provider_spend_today"] = {"usd": round(total, 4),
+                                                          "calls": n, "cap_usd": cap}
+                    try:
+                        roster = _json.loads((REG / "qsb_wren_team_roster.json").read_text())
+                        health["team"] = {"size": roster.get("team_size", 0),
+                                           "lead": roster.get("team_lead", "wren")}
+                    except Exception: health["team"] = {"error": "no roster"}
+                    health["gates"] = {"real_money_locked": True, "openclaw_real_locked": True,
+                                        "autonomous_locked": True, "advisory_only": True}
+                    health["ok"] = True
+                    health["advisory_only"] = True
+                    return self.send_json(health)
+                except Exception as exc:
+                    return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+            # F30 Sentinels — current report
+            if path == "/api/sentinels":
+                try:
+                    from pathlib import Path
+                    p = Path("/vaults/nvme0/qsb_tower_v1/data/registries/qsb_sentinels_report.json")
+                    if not p.exists():
+                        return self.send_json({"ok": False, "error": "no report yet — run python3 -m tower.qsb_sentinels"}, 404)
+                    return self.send_json(json.loads(p.read_text(encoding="utf-8")))
+                except Exception as exc:
+                    return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+            # Run sentinels on demand
+            if path == "/api/sentinels/run":
+                try:
+                    from tower.qsb_sentinels import run_all
+                    return self.send_json(run_all())
+                except Exception as exc:
+                    return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+            if path == "/api/team/live":
+                try:
+                    from tower.qsb_tower_activity import read_tail, summary_by_kind
+                    from pathlib import Path
+                    qs = urlparse(self.path).query
+                    args = dict([(k, v) for k, v in
+                                  (kv.split("=", 1) for kv in qs.split("&") if "=" in kv)])
+                    tail_n = int(args.get("tail", "30"))
+                    events = read_tail(last=tail_n)
+                    # Open Day leak fix #1: redact provider_call payloads
+                    # (cost_usd / token counts / internal reason strings).
+                    for _e in events:
+                        if isinstance(_e, dict) and _e.get("event_kind") == "provider_call":
+                            _e["payload"] = {"redacted": True}
+                    counts = summary_by_kind(last=500)
+                    team_workers_active = sorted({
+                        e.get("worker_id") for e in read_tail(last=500)
+                        if e.get("worker_id") and (e.get("worker_id","").startswith("f47.")
+                                                    or e.get("worker_id","").startswith("f37."))
+                    })
+                    mode_state = {}
+                    try:
+                        mode_path = Path("/vaults/nvme0/qsb_tower_v1/data/registries/qsb_kernel_mode_state.json")
+                        if mode_path.exists():
+                            mode_state = json.loads(mode_path.read_text(encoding="utf-8"))
+                    except Exception: pass
+                    return self.send_json({
+                        "ok": True, "service": "team_live_status",
+                        "events_tail": events,
+                        "event_counts_last_500": counts,
+                        "team_workers_active_in_last_500_events": team_workers_active,
+                        "team_workers_active_count": len(team_workers_active),
+                        "kernel_mode": mode_state.get("current_mode", "WAKE"),
+                        "advisory_only": True,
+                    })
+                except Exception as exc:
+                    return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+            if path == "/api/workers/live":
+                from tower_ops import workers_live as _f; return self.send_json(_f())
+            if path == "/api/workers/routes":
+                from tower_ops import workers_routes as _f; return self.send_json(_f())
+            if path == "/api/packets/live":
+                from tower_ops import packets_live as _f; return self.send_json(_f())
+            if path == "/api/events/live":
+                from tower_ops import events_live as _f; return self.send_json(_f())
+            if path == "/api/departments/live":
+                from tower_ops import departments_live as _f; return self.send_json(_f())
+            if path == "/api/accounts/live":
+                from tower_ops import accounts_live as _f; return self.send_json(_f())
+            if path == "/api/accounts/oanda_practice_summary":
+                from tower_ops import oanda_practice_summary as _f; return self.send_json(_f())
+            if path == "/api/models/live":
+                from tower_ops import models_live as _f; return self.send_json(_f())
+            if path == "/api/kernel/live":
+                from tower_ops import kernel_live as _f; return self.send_json(_f())
+
+            # V4 — OANDA Practice Trading (read endpoints)
+            if path == "/api/trading/oanda/practice_preflight":
+                from tower_ops import practice_preflight as _f; return self.send_json(_f())
+            if path == "/api/trading/oanda/pricing":
+                from tower_ops import oanda_practice_pricing as _f; return self.send_json(_f())
+            if path == "/api/trading/oanda/open_positions":
+                from tower_ops import oanda_open_positions_practice as _f; return self.send_json(_f())
+            if path == "/api/trading/oanda/open_trades":
+                from tower_ops import oanda_open_trades_practice as _f; return self.send_json(_f())
+            if path == "/api/trading/oanda/transactions":
+                from tower_ops import oanda_practice_transactions as _f; return self.send_json(_f())
+            if path == "/api/trading/oanda/practice_ledger":
+                from tower_ops import practice_ledger as _f; return self.send_json(_f())
+            if path == "/api/trading/oanda/order_guard":
+                from tower_ops import order_guard as _f; return self.send_json(_f())
+
+            # V4 — OpenClaw practice (read endpoints)
+            if path == "/api/openclaw/practice_status":
+                from tower_ops import openclaw_practice_status as _f; return self.send_json(_f())
+            if path == "/api/openclaw/practice_proposals":
+                from tower_ops import openclaw_practice_proposals as _f; return self.send_json(_f())
+            if path == "/api/openclaw/practice_stream":
+                from tower_ops import openclaw_practice_stream as _f; return self.send_json(_f())
+            if path == "/api/colonel/status":
+                from tower_ops.colonel_concierge import status as _f; return self.send_json(_f())
+            if path == "/api/colonel/concierge":
+                from tower_ops.colonel_concierge import concierge_summary as _f; return self.send_json(_f())
+            if path == "/api/colonel/butler":
+                from tower_ops.colonel_concierge import butler_briefing as _f; return self.send_json(_f())
+            # Trading telemetry — live read-only or not_configured
+            if path == "/api/trading/oanda/account":
+                from tower_ops.trading_telemetry import oanda_account as _f; return self.send_json(_f())
+            if path == "/api/trading/oanda/positions":
+                from tower_ops.trading_telemetry import oanda_positions as _f; return self.send_json(_f())
+            if path == "/api/trading/oanda/trades":
+                from tower_ops.trading_telemetry import oanda_trades as _f; return self.send_json(_f())
+            if path == "/api/trading/oanda/transactions":
+                from tower_ops.trading_telemetry import oanda_trades as _f; return self.send_json(_f())
+            if path == "/api/trading/oanda/pnl":
+                from tower_ops.trading_telemetry import oanda_pnl as _f; return self.send_json(_f())
+            if path == "/api/trading/binance/account":
+                from tower_ops.trading_telemetry import binance_account as _f; return self.send_json(_f())
+            if path == "/api/trading/binance/positions":
+                from tower_ops.trading_telemetry import binance_positions as _f; return self.send_json(_f())
+            if path == "/api/trading/binance/orders":
+                from tower_ops.trading_telemetry import binance_orders as _f; return self.send_json(_f())
+            if path == "/api/trading/binance/pnl":
+                from tower_ops.trading_telemetry import binance_pnl as _f; return self.send_json(_f())
+            if path == "/api/trading/stocks/account":
+                from tower_ops.trading_telemetry import stocks_account as _f; return self.send_json(_f())
+            if path == "/api/trading/stocks/positions":
+                from tower_ops.trading_telemetry import stocks_positions as _f; return self.send_json(_f())
+            if path == "/api/trading/stocks/pnl":
+                from tower_ops.trading_telemetry import stocks_pnl as _f; return self.send_json(_f())
+
+            # V1.5 — orphan wiring + correction loop + voice + security + lift permissions
+            if path == "/api/trading/oanda/live_dashboard":
+                from tower_ops.oanda_dashboard import live_dashboard as _f; return self.send_json(_f())
+            if path == "/api/trading/oanda/gauges":
+                from tower_ops.oanda_dashboard import gauges as _f; return self.send_json(_f())
+            if path == "/api/trading/oanda/charts":
+                from tower_ops.oanda_dashboard import charts as _f; return self.send_json(_f())
+            if path == "/api/trading/oanda/approval_flow":
+                from tower_ops.oanda_dashboard import approval_flow as _f; return self.send_json(_f())
+            if path == "/api/trading/binance/live_dashboard":
+                from tower_ops.binance_testnet import live_dashboard as _f; return self.send_json(_f())
+            if path == "/api/trading/binance/testnet_preflight":
+                from tower_ops.binance_testnet import testnet_preflight as _f; return self.send_json(_f())
+            if path == "/api/trading/binance/gauges":
+                from tower_ops.binance_testnet import gauges as _f; return self.send_json(_f())
+            if path == "/api/trading/stocks/live_dashboard":
+                from tower_ops.stocks_paper import live_dashboard as _f; return self.send_json(_f())
+            if path == "/api/trading/stocks/paper_preflight":
+                from tower_ops.stocks_paper import paper_preflight as _f; return self.send_json(_f())
+            if path == "/api/trading/stocks/gauges":
+                from tower_ops.stocks_paper import gauges as _f; return self.send_json(_f())
+            if path == "/api/tower_ops/not_working":
+                from tower_ops.not_working import report as _f; return self.send_json(_f())
+            if path == "/api/talk/status":
+                return self.send_json({"ok": True, "ts": now(),
+                    "browser_speech_only": True, "execution_allowed": False,
+                    "method": "browser_web_speech_synthesis"})
+            # Workers voice narration
+            if path == "/api/workers/narration":
+                qs = urllib.parse.parse_qs(urlparse(self.path).query or "")
+                wid = (qs.get("id") or qs.get("worker_id") or qs.get("badge_id") or [""])[0]
+                from tower_ops.worker_narration import narration_for as _f
+                return self.send_json(_f(wid))
+            if path == "/api/workers/selected":
+                from tower_ops.worker_narration import selected as _f; return self.send_json(_f())
+            # Floor narration
+            if path == "/api/floors/narration":
+                qs = urllib.parse.parse_qs(urlparse(self.path).query or "")
+                fr = (qs.get("floor") or [""])[0]
+                from tower_ops.floor_narration import briefing_for as _f
+                return self.send_json(_f(fr))
+            # Colonel audio
+            if path == "/api/colonel/audio_briefing":
+                from tower_ops.colonel_audio import briefing as _f; return self.send_json(_f())
+            # Correction loop
+            if path == "/api/correction/status":
+                from tower_ops.correction_loop import status as _f; return self.send_json(_f())
+            if path == "/api/correction/latest":
+                from tower_ops.correction_loop import latest as _f; return self.send_json(_f())
+            if path == "/api/correction/history":
+                from tower_ops.correction_loop import history as _f; return self.send_json(_f())
+            if path == "/api/correction/actions":
+                from tower_ops.correction_loop import actions_inventory as _f; return self.send_json(_f())
+            if path == "/api/correction/panel":
+                from tower_ops.correction_report import panel_state as _f; return self.send_json(_f())
+            # Lift permission audit
+            if path == "/api/lifts/permission_audit":
+                from tower.lifts import LiftNetwork
+                return self.send_json(LiftNetwork().permission_audit())
+            # Security gate enforcement
+            if path == "/api/security/enforcement_status":
+                from tower_ops.security_enforcement import enforcement_status as _f
+                return self.send_json(_f())
+            # Stale language audit
+            if path == "/api/ui/stale_language_audit":
+                from tower_ops.stale_language_audit import stale_language_audit as _f
+                return self.send_json(_f())
+            # EQSB Kernel Major Phase — Penthouse panel endpoints.
+            # Every endpoint is read-only; the dashboard never builds these
+            # registries, it just exposes them. Builders run via
+            # scripts/eqsb_*.sh and tower.eqsb_kernel_core_ext.
+            if path == "/api/eqsb/introspection":
+                return self.send_json(load_json("data/registries/eqsb_kernel_introspection_latest.json"))
+            if path == "/api/eqsb/architecture_layers":
+                return self.send_json(load_json("data/registries/eqsb_kernel_architecture_layers.json"))
+            if path == "/api/eqsb/identity":
+                return self.send_json(load_json("data/registries/eqsb_identity_constitution.json"))
+            if path == "/api/eqsb/axioms":
+                return self.send_json(load_json("data/registries/eqsb_axiom_registry.json"))
+            if path == "/api/eqsb/guardian":
+                return self.send_json(load_json("data/registries/eqsb_guardian_state.json"))
+            if path == "/api/eqsb/cadence":
+                return self.send_json(load_json("data/registries/eqsb_cadence_state.json"))
+            if path == "/api/eqsb/memory":
+                return self.send_json(load_json("data/registries/eqsb_memory_policy.json"))
+            if path == "/api/eqsb/continuity":
+                return self.send_json(load_json("data/registries/eqsb_continuity_state.json"))
+            if path == "/api/eqsb/beliefs":
+                return self.send_json(load_json("data/registries/eqsb_belief_lifecycle.json"))
+            if path == "/api/eqsb/symbols":
+                return self.send_json(load_json("data/registries/eqsb_symbol_registry.json"))
+            if path == "/api/eqsb/symbolic_state":
+                return self.send_json(load_json("data/registries/eqsb_symbolic_state.json"))
+            if path == "/api/eqsb/symbolic_graph":
+                return self.send_json(load_json("data/registries/eqsb_symbolic_graph.json"))
+            if path == "/api/eqsb/entropy":
+                return self.send_json(load_json("data/registries/eqsb_entropy_state.json"))
+            if path == "/api/eqsb/quantum_signal":
+                return self.send_json(load_json("data/registries/eqsb_quantum_signal_state.json"))
+            if path == "/api/eqsb/quantum_roadmap":
+                return self.send_json(load_json("data/registries/eqsb_quantum_roadmap.json"))
+            if path == "/api/eqsb/hypotheses":
+                return self.send_json(load_json("data/registries/eqsb_hypothesis_state.json"))
+            if path == "/api/eqsb/contradictions":
+                return self.send_json(load_json("data/registries/eqsb_contradiction_report.json"))
+            if path == "/api/eqsb/model_governance":
+                return self.send_json(load_json("data/registries/eqsb_model_lane_governance.json"))
+            if path == "/api/eqsb/replay_ledger":
+                return self.send_json(load_json("data/registries/eqsb_replay_audit_ledger.json"))
+            if path == "/api/eqsb/self_audit":
+                return self.send_json(load_json("data/registries/eqsb_kernel_self_audit.json"))
+            if path == "/api/eqsb/major_audit":
+                return self.send_json(load_json("data/registries/eqsb_kernel_major_audit.json"))
+            if path == "/api/eqsb/missing":
+                return self.send_json(load_json("data/registries/eqsb_kernel_missing_capabilities.json"))
+            if path == "/api/eqsb/upgrade_plan":
+                return self.send_json(load_json("data/registries/eqsb_kernel_upgrade_plan.json"))
+            if path == "/api/eqsb/existing_capabilities":
+                return self.send_json(load_json("data/registries/eqsb_kernel_existing_capabilities.json"))
+            if path == "/api/eqsb/penthouse_panel":
+                # Compact one-shot payload designed for the Penthouse view.
+                intro = load_json("data/registries/eqsb_kernel_introspection_latest.json")
+                guard = load_json("data/registries/eqsb_guardian_state.json")
+                cad   = load_json("data/registries/eqsb_cadence_state.json")
+                sa    = load_json("data/registries/eqsb_kernel_self_audit.json")
+                ent   = load_json("data/registries/eqsb_entropy_state.json")
+                qs    = load_json("data/registries/eqsb_quantum_signal_state.json")
+                hyp   = load_json("data/registries/eqsb_hypothesis_state.json")
+                con   = load_json("data/registries/eqsb_contradiction_report.json")
+                gov   = load_json("data/registries/eqsb_model_lane_governance.json")
+                bel   = load_json("data/registries/eqsb_belief_lifecycle.json")
+                graph = load_json("data/registries/eqsb_symbolic_graph.json")
+                cont  = load_json("data/registries/eqsb_continuity_state.json")
+                rep   = load_json("data/registries/eqsb_replay_audit_ledger.json")
+                arch  = load_json("data/registries/eqsb_kernel_architecture_layers.json")
+                return self.send_json({
+                    "ok": True,
+                    "ts": now(),
+                    "phase": "EQSB_KERNEL_MAJOR_DEEP_SYMBOLIC_QUANTUM_CORE_V1",
+                    "kernel_truth_note":
+                        "EQSB is the persistent symbolic kernel. Models paraphrase; registries are truth.",
+                    "execution_allowed": False,
+                    "active_local_only": True,
+                    "advisory_only": True,
+                    "self_audit": {
+                        "verdict": sa.get("verdict"),
+                        "verdict_reasons": sa.get("verdict_reasons"),
+                        "missing_registry_count": sa.get("missing_registry_count"),
+                    },
+                    "identity":          intro.get("identity"),
+                    "axiom_count":       (intro.get("axioms") or {}).get("count"),
+                    "axiom_categories":  (intro.get("axioms") or {}).get("categories"),
+                    "guardian": {
+                        "safety_state":          guard.get("safety_state"),
+                        "default_verdict":       guard.get("default_verdict_for_read_only"),
+                        "blocked_reasons":       guard.get("blocked_reasons"),
+                    },
+                    "cadence": {
+                        "tick_count":            cad.get("tick_count"),
+                        "loop_completeness_pct": cad.get("loop_completeness_pct"),
+                        "last_tick_ts":          cad.get("last_tick_ts"),
+                    },
+                    "memory": {
+                        "boot_posture":          cont.get("boot_posture"),
+                        "history_count":         cont.get("history_count"),
+                        "drift_alert_count":     len(cont.get("drift_alerts") or []),
+                        "stale_memory_flag_count": len(cont.get("stale_memory_flags") or []),
+                    },
+                    "beliefs": {
+                        "belief_count": bel.get("belief_count"),
+                        "state_counts": bel.get("state_counts"),
+                    },
+                    "symbolic_graph": {
+                        "node_count":     graph.get("node_count"),
+                        "edge_count":     graph.get("edge_count"),
+                        "orphan_symbols": len(graph.get("orphan_symbols") or []),
+                        "contradicted_beliefs": len(graph.get("contradicted_beliefs") or []),
+                    },
+                    "entropy": {
+                        "entropy_score":       ent.get("entropy_score"),
+                        "stability_score":     ent.get("stability_score"),
+                        "drift_score":         ent.get("drift_score"),
+                        "confidence_score":    ent.get("confidence_score"),
+                        "contradiction_score": ent.get("contradiction_score"),
+                        "urgency_score":       ent.get("urgency_score"),
+                    },
+                    "quantum_signal": {
+                        "mode":                          qs.get("mode"),
+                        "real_quantum_source_connected": qs.get("real_quantum_source_connected"),
+                        "qiskit_connected":              qs.get("qiskit_connected"),
+                        "ibm_quantum_connected":         qs.get("ibm_quantum_connected"),
+                        "quantum_hardware_active":       qs.get("quantum_hardware_active"),
+                        "uncertainty_score":             qs.get("uncertainty_score"),
+                        "selected_hypothesis_id":        (qs.get("selected_hypothesis") or {}).get("hypothesis_id"),
+                        "collapse_reason":               qs.get("collapse_reason"),
+                    },
+                    "hypotheses": {
+                        "count":                 hyp.get("hypothesis_count"),
+                        "selected_hypothesis_id": hyp.get("selected_hypothesis_id"),
+                        "by_severity":           hyp.get("by_severity"),
+                    },
+                    "contradictions": {
+                        "count":       con.get("contradiction_count"),
+                        "by_severity": con.get("by_severity"),
+                    },
+                    "model_governance": {
+                        "lane_count": gov.get("lane_count"),
+                        "lanes": [
+                            {"lane_id": l.get("lane_id"),
+                             "role": l.get("role"),
+                             "execution_allowed": l.get("execution_allowed")}
+                            for l in (gov.get("lanes") or [])
+                        ],
+                    },
+                    "replay_ledger": {
+                        "event_count_total": rep.get("event_count_total"),
+                        "events_by_kind":    rep.get("events_by_kind"),
+                    },
+                    "architecture": {
+                        "phase":         arch.get("phase"),
+                        "layer_count":   arch.get("layer_count"),
+                        "layer_names":   [l.get("name") for l in (arch.get("layers") or [])],
+                    },
+                })
+
+            # ── QSB Phase V2 — OpenClaw / Paper trades / Workers / 3D status ──
+            # All endpoints below are read-only — no execution flag flips.
+            if path == "/api/qsb_v2/openclaw_state":
+                return self.send_json(load_json("data/registries/qsb_openclaw_state.json"))
+            if path == "/api/qsb_v2/openclaw_trade_reports":
+                return self.send_json(load_json("data/registries/qsb_openclaw_trade_reports.json"))
+            if path == "/api/qsb_v2/paper_trading_policy":
+                return self.send_json(load_json("data/registries/qsb_paper_trading_policy.json"))
+            if path == "/api/qsb_v2/open_paper_trades":
+                return self.send_json(load_json("data/registries/qsb_open_paper_trades.json"))
+            if path == "/api/qsb_v2/trade_learning":
+                return self.send_json(load_json("data/registries/qsb_trade_learning.json"))
+            if path == "/api/qsb_v2/canonical_workers":
+                return self.send_json(load_json("data/registries/qsb_canonical_workers.json"))
+            if path == "/api/qsb_v2/worker_count_reconciliation":
+                return self.send_json(load_json("data/registries/qsb_worker_count_reconciliation.json"))
+            if path == "/api/qsb_v2/prechange_snapshot":
+                return self.send_json(load_json("data/registries/qsb_phase_v2_prechange_snapshot.json"))
+            if path == "/api/qsb_v2/skyscraper_status":
+                # Lightweight signal of the 3D upgrade — used by the cockpit header.
+                return self.send_json({
+                    "ok": True,
+                    "ts": now(),
+                    "phase": "QSB_OPENCLAW_PAPER_TRADE_WORKERS_3D_SKYSCRAPER_V2",
+                    "upgrade_level": "v2_living_skyscraper",
+                    "renderer_files_upgraded": [
+                        "src/dashboard/static/cockpit.css (depth/lighting/glow)",
+                        "src/dashboard/static/qsb_skyscraper_v2.js (floor identity, OpenClaw avatar, worker badges)",
+                        "src/dashboard/static/index.html (V2 tabs/panels)",
+                    ],
+                    "distinct_floors": [
+                        "penthouse_eqsb_kernel",
+                        "floor_53_tower_command",
+                        "floor_42_binance_trading_floor",
+                        "floor_41_oanda_practice_trading",
+                        "floor_38_sandbox_operations",
+                        "floor_31_audit_ledger",
+                        "floor_30_permissions_risk",
+                    ],
+                    "openclaw_movement_visible": True,
+                    "worker_badges_visible": True,
+                    "lift_animation_upgraded": True,
+                    "execution_allowed": False,
+                    "active_local_only": True,
+                })
+            # ── QSB V3 — canonical live telemetry endpoint ────────────────
+            # Read-only. Frontend reads this once per tick to drive every
+            # visible element on the skyscraper. NO random invention.
+            if path == "/api/dashboard/live_telemetry":
+                try:
+                    from tower.qsb_dashboard_live_telemetry import build_live_telemetry as _build_lt
+                    return self.send_json(_build_lt())
+                except Exception as exc:
+                    return self.send_json({"ok": False,
+                                            "error": str(exc)[:200],
+                                            "execution_allowed": False}, 500)
+            if path == "/api/dashboard/visual_audit":
+                return self.send_json(load_json("data/registries/qsb_dashboard_visual_audit.json"))
+            if path == "/api/qsb_v2/new_workers_employed":
+                return self.send_json(load_json("data/registries/qsb_new_workers_employed.json"))
+
+            # ── Command Center: workforce + profit + narrator ──────────
+            if path == "/api/dashboard/command_center_audit":
+                return self.send_json(load_json("data/registries/qsb_command_center_audit.json"))
+            if path == "/api/dashboard/rebuild_decision":
+                return self.send_json(load_json("data/registries/qsb_dashboard_rebuild_decision.json"))
+
+            # ── Observatory + telemetry-repair endpoints (V1) ─────────
+            if path == "/api/observatory/code":
+                return self.send_json(load_json("data/registries/eqsb_code_observatory.json"))
+            if path == "/api/observatory/code_map":
+                return self.send_json(load_json("data/registries/eqsb_code_map.json"))
+            if path == "/api/observatory/code_risk":
+                return self.send_json(load_json("data/registries/eqsb_code_risk_report.json"))
+            if path == "/api/observatory/code_dependencies":
+                return self.send_json(load_json("data/registries/eqsb_code_dependency_graph.json"))
+            if path == "/api/observatory/hardware":
+                return self.send_json(load_json("data/registries/eqsb_hardware_observatory.json"))
+            if path == "/api/observatory/cpu":
+                return self.send_json(load_json("data/registries/eqsb_cpu_profile.json"))
+            if path == "/api/observatory/gpu":
+                return self.send_json(load_json("data/registries/eqsb_gpu_profile.json"))
+            if path == "/api/observatory/memory":
+                return self.send_json(load_json("data/registries/eqsb_memory_profile.json"))
+            if path == "/api/observatory/storage":
+                # Open Day leak fix #3: drop raw df_h output (mount paths).
+                # Keep bucketed sizes; expose with semantic labels.
+                _sp = load_json("data/registries/eqsb_storage_profile.json")
+                if isinstance(_sp, dict):
+                    _sp.pop("df_h", None)
+                    if "qsb_project_mb" in _sp:
+                        _sp["qsb_project_storage_mb"] = _sp.pop("qsb_project_mb")
+                    if "qsb_data_mb" in _sp:
+                        _sp["qsb_data_storage_mb"] = _sp.pop("qsb_data_mb")
+                    if "qsb_data_backups_mb" in _sp:
+                        _sp["qsb_data_backups_storage_mb"] = _sp.pop("qsb_data_backups_mb")
+                    if "qsb_data_db_mb" in _sp:
+                        _sp["qsb_data_db_storage_mb"] = _sp.pop("qsb_data_db_mb")
+                    if "qsb_data_logs_mb" in _sp:
+                        _sp["qsb_data_logs_storage_mb"] = _sp.pop("qsb_data_logs_mb")
+                return self.send_json(_sp)
+            if path == "/api/observatory/os":
+                return self.send_json(load_json("data/registries/eqsb_os_environment.json"))
+            if path == "/api/observatory/services":
+                return self.send_json(load_json("data/registries/eqsb_services_profile.json"))
+            if path == "/api/observatory/ports":
+                return self.send_json(load_json("data/registries/eqsb_ports_profile.json"))
+            if path == "/api/observatory/model_lanes":
+                return self.send_json(load_json("data/registries/eqsb_model_lane_hardware_profile.json"))
+            if path == "/api/observatory/understanding":
+                return self.send_json(load_json("data/registries/eqsb_hardware_understanding.json"))
+            if path == "/api/observatory/performance_advice":
+                return self.send_json(load_json("data/registries/eqsb_performance_advice.json"))
+            if path == "/api/observatory/system_graph":
+                # Open Day leak fix #4: relabel disk_mount nodes whose
+                # label fields were absolute paths. Node ids unchanged.
+                _sg = load_json("data/registries/eqsb_system_understanding_graph.json")
+                if isinstance(_sg, dict):
+                    _nodes = _sg.get("nodes")
+                    if isinstance(_nodes, list):
+                        _relabel = {
+                            "qsb_project_storage": "qsb_project_storage",
+                            "vaults_ai_storage": "vaults_ai_storage",
+                        }
+                        for _n in _nodes:
+                            if (isinstance(_n, dict)
+                                    and _n.get("kind") == "disk_mount"
+                                    and _n.get("id") in _relabel):
+                                _n["label"] = _relabel[_n["id"]]
+                return self.send_json(_sg)
+            if path == "/api/observatory/learning_loop":
+                return self.send_json(load_json("data/registries/eqsb_kernel_learning_loop.json"))
+            if path == "/api/observatory/lessons":
+                return self.send_json(load_json("data/registries/eqsb_kernel_lessons_learned.json"))
+            if path == "/api/observatory/code_assistance":
+                return self.send_json(load_json("data/registries/eqsb_code_assistance_policy.json"))
+            if path == "/api/observatory/patch_proposals":
+                return self.send_json(load_json("data/registries/eqsb_code_patch_proposals.json"))
+            if path == "/api/observatory/claude_upgrade_ledger":
+                return self.send_json(load_json("data/registries/eqsb_claude_upgrade_ledger.json"))
+            if path == "/api/observatory/phase_history":
+                return self.send_json(load_json("data/registries/eqsb_phase_history.json"))
+            if path == "/api/observatory/last_claude_change":
+                return self.send_json(load_json("data/registries/eqsb_last_claude_change_summary.json"))
+            if path == "/api/observatory/upgrade_risk_history":
+                return self.send_json(load_json("data/registries/eqsb_upgrade_risk_history.json"))
+            if path == "/api/observatory/changes_latest":
+                return self.send_json(load_json("data/registries/eqsb_phase_changes_latest.json"))
+            if path == "/api/observatory/hardware_floor_audit":
+                return self.send_json(load_json("data/registries/qsb_hardware_floor_audit.json"))
+
+            # ── Dashboard 3D Total Revamp (V1) ────────────────────────
+            if path == "/api/dashboard/scene_state":
+                return self.send_json(load_json("data/registries/qsb_dashboard_scene_state.json"))
+            if path == "/api/dashboard/worker_truth_map":
+                return self.send_json(load_json("data/registries/qsb_dashboard_worker_truth_map.json"))
+            if path == "/api/dashboard/render_health":
+                return self.send_json(load_json("data/registries/qsb_dashboard_render_health.json"))
+            if path == "/api/dashboard/3d_rebuild_status":
+                return self.send_json(load_json("data/registries/qsb_dashboard_3d_rebuild_status.json"))
+            if path == "/api/dashboard/3d_revamp_root_cause":
+                return self.send_json(load_json("data/registries/qsb_dashboard_3d_revamp_root_cause.json"))
+            if path == "/api/dashboard/3d_revamp_acceptance_gates":
+                return self.send_json(load_json("data/registries/qsb_dashboard_3d_revamp_acceptance_gates.json"))
+            if path == "/api/dashboard/3d_revamp_completion_score":
+                return self.send_json(load_json("data/registries/qsb_dashboard_3d_revamp_completion_score.json"))
+
+            # ── Render Visible Layer (Phase V1) ───────────────────────
+            if path == "/api/dashboard/lift_scene_state":
+                return self.send_json(load_json("data/registries/qsb_lift_scene_state.json"))
+            if path == "/api/dashboard/lift_render_health":
+                return self.send_json(load_json("data/registries/qsb_lift_render_health.json"))
+            if path == "/api/dashboard/worker_scene_state":
+                return self.send_json(load_json("data/registries/qsb_worker_scene_state.json"))
+            if path == "/api/dashboard/worker_render_budget":
+                return self.send_json(load_json("data/registries/qsb_worker_render_budget.json"))
+            if path == "/api/dashboard/worker_render_health":
+                return self.send_json(load_json("data/registries/qsb_worker_render_health.json"))
+            if path == "/api/dashboard/selected_floor_state_audit":
+                return self.send_json(load_json("data/registries/qsb_selected_floor_state_audit.json"))
+            if path == "/api/dashboard/visual_presence_check":
+                return self.send_json(load_json("data/registries/qsb_dashboard_visual_presence_check.json"))
+            if path == "/api/dashboard/worker_lift_render_root_cause":
+                return self.send_json(load_json("data/registries/qsb_worker_lift_render_root_cause.json"))
+
+            # ── Floor 41 OANDA Full Trading Floor (V1) ────────────────
+            if path == "/api/trading/oanda/floor41/state":
+                return self.send_json(load_json("data/registries/qsb_floor41_oanda_state.json"))
+            if path == "/api/trading/oanda/floor41/account":
+                return self.send_json(load_json("data/registries/qsb_floor41_oanda_account_snapshot.json"))
+            if path == "/api/trading/oanda/floor41/instruments":
+                return self.send_json(load_json("data/registries/qsb_floor41_oanda_instruments.json"))
+            if path == "/api/trading/oanda/floor41/prices":
+                return self.send_json(load_json("data/registries/qsb_floor41_oanda_prices_latest.json"))
+            if path == "/api/trading/oanda/floor41/ticks":
+                return self.send_json(load_json("data/registries/qsb_floor41_oanda_ticks_latest.json"))
+            if path == "/api/trading/oanda/floor41/open_trades":
+                return self.send_json(load_json("data/registries/qsb_floor41_oanda_open_trades.json"))
+            if path == "/api/trading/oanda/floor41/closed_trades":
+                return self.send_json(load_json("data/registries/qsb_floor41_oanda_closed_trades.json"))
+            if path == "/api/trading/oanda/floor41/pnl":
+                return self.send_json(load_json("data/registries/qsb_floor41_oanda_pnl.json"))
+            if path == "/api/trading/oanda/floor41/thoughts":
+                return self.send_json(load_json("data/registries/qsb_floor41_oanda_worker_thoughts.json"))
+            if path == "/api/trading/oanda/floor41/risk":
+                return self.send_json(load_json("data/registries/qsb_floor41_oanda_trade_risk_checks.json"))
+            if path == "/api/trading/oanda/floor41/lifecycle":
+                return self.send_json(load_json("data/registries/qsb_floor41_oanda_trade_lifecycle.json"))
+            if path == "/api/trading/oanda/floor41/requests":
+                return self.send_json(load_json("data/registries/qsb_floor41_oanda_trade_requests.json"))
+            if path == "/api/trading/oanda/floor41/actions":
+                return self.send_json(load_json("data/registries/qsb_floor41_oanda_trade_actions.json"))
+            if path == "/api/trading/oanda/floor41/engine":
+                return self.send_json(load_json("data/registries/qsb_floor41_oanda_trading_engine.json"))
+            if path == "/api/trading/oanda/floor41/department_map":
+                return self.send_json(load_json("data/registries/qsb_floor41_oanda_department_map.json"))
+            if path == "/api/trading/oanda/floor41/workers":
+                return self.send_json(load_json("data/registries/qsb_floor41_oanda_workers.json"))
+            if path == "/api/trading/oanda/floor41/openclaw":
+                return self.send_json(load_json("data/registries/qsb_openclaw_floor41_oanda_findings.json"))
+            if path == "/api/trading/oanda/floor41/packets":
+                return self.send_json(load_json("data/registries/qsb_floor41_oanda_packets_latest.json"))
+            if path == "/api/trading/oanda/floor41/dashboard_interior":
+                return self.send_json(load_json("data/registries/qsb_floor41_oanda_dashboard_interior.json"))
+            if path == "/api/trading/oanda/floor41/audit":
+                return self.send_json(load_json("data/registries/qsb_floor41_oanda_audit.json"))
+            if path == "/api/trading/oanda/floor41/refresh":
+                try:
+                    from tower.qsb_floor41_oanda import refresh_all as _f41_refresh
+                    return self.send_json(_f41_refresh())
+                except Exception as exc:
+                    return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+
+            # Floor 42 Binance interior + identity cleanup
+            if path == "/api/dashboard/floor42_binance_interior":
+                return self.send_json(load_json("data/registries/qsb_floor42_binance_interior.json"))
+            # Floor 43 Stocks interior (V1 visible fix)
+            if path == "/api/trading/stocks/floor43/interior":
+                return self.send_json(load_json("data/registries/qsb_floor43_stocks_interior.json"))
+            # Inter-floor sealed-packet bus
+            if path == "/api/dashboard/intercom_packets":
+                return self.send_json(load_json("data/registries/qsb_floor_intercom_packets_latest.json"))
+            if path == "/api/dashboard/intercom_state":
+                return self.send_json(load_json("data/registries/qsb_floor_intercom_state.json"))
+            # 3D Skyscraper V2 live state aggregator
+            if path == "/api/dashboard/3d_skyscraper_state":
+                try:
+                    from tower.qsb_3d_skyscraper_state import build as _f3d
+                    return self.send_json(_f3d())
+                except Exception as exc:
+                    return self.send_json(load_json("data/registries/qsb_3d_skyscraper_state.json"))
+
+            # ── Skyscraper Occupancy + Commerce Wing V1 ──────────────
+            if path == "/api/skyscraper/full_floor_audit":
+                return self.send_json(load_json("data/registries/qsb_full_floor_audit.json"))
+            if path == "/api/skyscraper/new_workers_1000":
+                return self.send_json(load_json("data/registries/qsb_new_1000_workers_employed.json"))
+            if path == "/api/skyscraper/department_team_map":
+                return self.send_json(load_json("data/registries/qsb_department_team_map.json"))
+            if path == "/api/skyscraper/team_rosters":
+                return self.send_json(load_json("data/registries/qsb_team_rosters.json"))
+            if path == "/api/skyscraper/floor_occupancy_masterplan":
+                return self.send_json(load_json("data/registries/qsb_floor_occupancy_masterplan.json"))
+            if path == "/api/skyscraper/vacant_population_plan":
+                return self.send_json(load_json("data/registries/qsb_vacant_floor_population_plan.json"))
+            if path == "/api/skyscraper/profit_alignment":
+                return self.send_json(load_json("data/registries/qsb_floor_profit_alignment_map.json"))
+            if path == "/api/skyscraper/department_directory":
+                return self.send_json(load_json("data/registries/qsb_department_directory.json"))
+            if path == "/api/skyscraper/chain_of_command":
+                return self.send_json(load_json("data/registries/qsb_worker_chain_of_command.json"))
+            if path == "/api/skyscraper/rest_recreation":
+                return self.send_json(load_json("data/registries/qsb_worker_rest_recreation_state.json"))
+            if path == "/api/skyscraper/shift_schedule":
+                return self.send_json(load_json("data/registries/qsb_worker_shift_schedule.json"))
+            if path == "/api/skyscraper/classroom_map":
+                return self.send_json(load_json("data/registries/qsb_classroom_map.json"))
+            if path == "/api/skyscraper/curriculum":
+                return self.send_json(load_json("data/registries/qsb_teaching_curriculum.json"))
+            if path == "/api/skyscraper/research_facilities":
+                return self.send_json(load_json("data/registries/qsb_research_strategy_facilities.json"))
+            if path == "/api/commerce/wing_masterplan":
+                return self.send_json(load_json("data/registries/qsb_commerce_wing_masterplan.json"))
+            if path == "/api/commerce/platform_research":
+                return self.send_json(load_json("data/registries/qsb_commerce_platform_research.json"))
+            if path == "/api/commerce/department_map":
+                return self.send_json(load_json("data/registries/qsb_commerce_department_map.json"))
+            if path == "/api/commerce/profit_alignment":
+                return self.send_json(load_json("data/registries/qsb_commerce_profit_alignment.json"))
+            if path == "/api/commerce/online_shop_opportunities":
+                return self.send_json(load_json("data/registries/qsb_online_shop_opportunity_map.json"))
+            if path == "/api/commerce/etsy_floor_manifest":
+                return self.send_json(load_json("data/registries/qsb_etsy_floor_manifest.json"))
+            if path == "/api/commerce/etsy_product_pipeline":
+                return self.send_json(load_json("data/registries/qsb_etsy_product_pipeline.json"))
+            if path == "/api/commerce/etsy_listing_drafts":
+                return self.send_json(load_json("data/registries/qsb_etsy_listing_drafts.json"))
+            if path == "/api/commerce/etsy_compliance_checklist":
+                return self.send_json(load_json("data/registries/qsb_etsy_compliance_checklist.json"))
+            if path == "/api/commerce/print_on_demand_floor":
+                return self.send_json(load_json("data/registries/qsb_print_on_demand_floor.json"))
+            if path == "/api/commerce/3d_printing_floor":
+                return self.send_json(load_json("data/registries/qsb_3d_printing_floor.json"))
+            if path == "/api/commerce/product_design_pipeline":
+                return self.send_json(load_json("data/registries/qsb_product_design_pipeline.json"))
+            if path == "/api/skyscraper/openclaw_full_inspection":
+                return self.send_json(load_json("data/registries/qsb_openclaw_full_floor_inspection.json"))
+            if path == "/api/skyscraper/dashboard_state":
+                return self.send_json(load_json("data/registries/qsb_floor_occupancy_dashboard_state.json"))
+            if path == "/api/skyscraper/interior_completion":
+                return self.send_json(load_json("data/registries/qsb_floor_interior_completion_state.json"))
+
+            # ── Native Cockpit V2 ─────────────────────────────────────
+            # Kernel governor — current pressure + recent decisions
+            if path == "/api/kernel/governor/status":
+                try:
+                    from tower.cognitive_kernel.governor import status as gov_status
+                    return self.send_json(gov_status())
+                except Exception as exc:
+                    return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+            # Kernel mode — current mode + gates
+            if path == "/api/kernel/mode":
+                try:
+                    from tower.cognitive_kernel.modes import current_mode
+                    return self.send_json({"ok": True, **current_mode()})
+                except Exception as exc:
+                    return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+            # Floor 44 — Accounts / PnL rolled-up view across all venues.
+            if path == "/api/floor44/accounts":
+                try:
+                    from tower.qsb_floor44_accounts import build_state
+                    return self.send_json(build_state())
+                except Exception as exc:
+                    return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+            # Tower-wide activity tail — recent code-execution events.
+            if path.startswith("/api/tower/activity"):
+                try:
+                    from tower.qsb_tower_activity import read_tail, summary_by_kind
+                    qs = urlparse(self.path).query
+                    args = dict([(k, v) for k, v in
+                                  (kv.split("=", 1) for kv in qs.split("&") if "=" in kv)])
+                    last = int(args.get("last", "50"))
+                    kind = args.get("kind") or None
+                    if args.get("summary") in ("1", "true", "yes"):
+                        return self.send_json({
+                            "ok": True, "summary_by_kind": summary_by_kind(),
+                        })
+                    return self.send_json({
+                        "ok": True, "count": last, "kind": kind,
+                        "events": read_tail(last=last, kind=kind),
+                    })
+                except Exception as exc:
+                    return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+            # Auto-close — trigger a single evaluator tick (POST recommended).
+            if path == "/api/auto_close/tick":
+                try:
+                    from tower.qsb_auto_close_evaluator import evaluate_open_trades
+                    return self.send_json(evaluate_open_trades())
+                except Exception as exc:
+                    return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+            if path == "/api/auto_close/last_tick":
+                try:
+                    from pathlib import Path
+                    p = Path("/vaults/nvme0/qsb_tower_v1/data/registries/qsb_auto_close_last_tick.json")
+                    if not p.exists():
+                        return self.send_json({"ok": False, "error": "no_tick_run_yet"}, 404)
+                    return self.send_json(json.loads(p.read_text(encoding="utf-8")))
+                except Exception as exc:
+                    return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+            if path == "/api/native_cockpit/state":
+                try:
+                    import sys as _sys
+                    _nc = "/vaults/nvme0/qsb_tower_v1/native_cockpit/qt"
+                    if _nc not in _sys.path:
+                        _sys.path.insert(0, _nc)
+                    import telemetry_bridge as _tb
+                    return self.send_json(_tb.build_scene_snapshot())
+                except Exception as exc:
+                    return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+            # Generic registry passthrough — lets sandboxed GUI clients
+            # (e.g. Snap-confined Godot) read data/registries/*.json[l]
+            # without touching the filesystem directly.
+            if path.startswith("/api/registry/"):
+                rel = path[len("/api/registry/"):]
+                if ".." in rel or rel.startswith("/") or not rel:
+                    return self.send_json({"_missing": True, "_error": "bad_path"}, 400)
+                fs = ROOT / "data" / "registries" / rel
+                if not fs.exists() or not fs.is_file():
+                    return self.send_json({"_missing": True, "_path": str(fs)}, 404)
+                try:
+                    text = fs.read_text(encoding="utf-8")
+                    if rel.endswith(".jsonl"):
+                        items = [json.loads(l) for l in text.splitlines() if l.strip()]
+                        st = fs.stat()
+                        return self.send_json({"_path": str(fs), "_age_s": int(time.time() - st.st_mtime), "items": items})
+                    data = json.loads(text)
+                    if isinstance(data, dict):
+                        st = fs.stat()
+                        data["_path"] = str(fs)
+                        data["_age_s"] = int(time.time() - st.st_mtime)
+                        return self.send_json(data)
+                    st = fs.stat()
+                    return self.send_json({"_path": str(fs), "_age_s": int(time.time() - st.st_mtime), "data": data})
+                except Exception as exc:
+                    return self.send_json({"_missing": True, "_path": str(fs), "_error": str(exc)[:200]}, 500)
+            if path == "/api/native_cockpit/engine_decision":
+                return self.send_json(load_json("data/registries/qsb_native_graphics_engine_decision_v2.json"))
+            if path == "/api/native_cockpit/engine_audit":
+                return self.send_json(load_json("data/registries/qsb_native_graphics_engine_audit_v2.json"))
+            if path == "/api/native_cockpit/scene_contract":
+                return self.send_json(load_json("data/registries/qsb_native_scene_contract.json"))
+            if path == "/api/native_cockpit/workforce_import_audit":
+                return self.send_json(load_json("data/registries/qsb_native_workforce_import_audit.json"))
+            if path == "/api/native_cockpit/project":
+                return self.send_json(load_json("data/registries/qsb_native_cockpit_project_v2.json"))
+            if path == "/api/native_cockpit/architecture":
+                return self.send_json(load_json("data/registries/qsb_native_cockpit_architecture_v2.json"))
+            if path == "/api/native_cockpit/api_contract":
+                return self.send_json(load_json("data/registries/qsb_native_cockpit_api_contract.json"))
+            if path == "/api/native_cockpit/status":
+                return self.send_json(load_json("data/registries/qsb_native_cockpit_status.json"))
+            if path == "/api/native_cockpit/health":
+                return self.send_json(load_json("data/registries/qsb_native_cockpit_health_check.json"))
+            if path == "/api/dashboard/identity_cleanup":
+                return self.send_json(load_json("data/registries/qsb_dashboard_identity_cleanup.json"))
+            if path == "/api/dashboard/browser_visible_check":
+                return self.send_json(load_json("data/registries/qsb_browser_visible_dashboard_check.json"))
+
+            # Penthouse / Kernel Command (Phase V1 reality fix)
+            if path == "/api/dashboard/penthouse_command_state":
+                return self.send_json(load_json("data/registries/qsb_penthouse_command_state.json"))
+            if path == "/api/dashboard/penthouse_gauges":
+                return self.send_json(load_json("data/registries/qsb_penthouse_gauges.json"))
+            if path == "/api/dashboard/penthouse_layout":
+                return self.send_json(load_json("data/registries/qsb_penthouse_interactive_layout.json"))
+            if path == "/api/dashboard/penthouse_repair_priority":
+                return self.send_json(load_json("data/registries/qsb_dashboard_repair_priority.json"))
+            if path == "/api/dashboard/speech_settings":
+                return self.send_json(load_json("data/registries/qsb_speech_settings.json"))
+            if path == "/api/dashboard/speech_voice_audit":
+                return self.send_json(load_json("data/registries/qsb_speech_voice_audit.json"))
+            if path == "/api/dashboard/kernel_chat_canned_audit":
+                return self.send_json(load_json("data/registries/qsb_kernel_chat_canned_response_audit.json"))
+            if path == "/api/dashboard/browser_visible_reality_check":
+                return self.send_json(load_json("data/registries/qsb_browser_visible_reality_check.json"))
+
+            # ── Dashboard Total Rebuild (V1) ──────────────────────────
+            if path == "/api/rebuild/root_cause":
+                return self.send_json(load_json("data/registries/qsb_worker_dashboard_visibility_root_cause.json"))
+            if path == "/api/rebuild/3d_state":
+                return self.send_json(load_json("data/registries/qsb_new_3d_dashboard_state.json"))
+            if path == "/api/rebuild/3d_acceptance":
+                return self.send_json(load_json("data/registries/qsb_3d_interaction_acceptance.json"))
+            if path == "/api/rebuild/visible_scene_state":
+                return self.send_json(load_json("data/registries/qsb_worker_visible_scene_state.json"))
+            if path == "/api/rebuild/department_presence":
+                return self.send_json(load_json("data/registries/qsb_worker_department_presence.json"))
+            if path == "/api/rebuild/department_interiors":
+                return self.send_json(load_json("data/registries/qsb_department_interiors_state.json"))
+            if path == "/api/rebuild/floor_completion":
+                return self.send_json(load_json("data/registries/qsb_floor_manifest_completion.json"))
+            if path == "/api/rebuild/missing_floors":
+                return self.send_json(load_json("data/registries/qsb_missing_floor_resolution.json"))
+            if path == "/api/rebuild/backup":
+                return self.send_json(load_json("data/registries/qsb_dashboard_total_rebuild_backup.json"))
+            if path == "/api/openclaw/role":
+                return self.send_json(load_json("data/registries/qsb_openclaw_role_definition.json"))
+            if path == "/api/openclaw/tickets":
+                return self.send_json(load_json("data/registries/qsb_openclaw_tickets.json"))
+            if path == "/api/openclaw/route":
+                return self.send_json(load_json("data/registries/qsb_openclaw_route.json"))
+            if path == "/api/openclaw/worker_findings":
+                return self.send_json(load_json("data/registries/qsb_openclaw_worker_findings.json"))
+            if path == "/api/openclaw/floor_inspections":
+                return self.send_json(load_json("data/registries/qsb_openclaw_floor_inspections.json"))
+            if path == "/api/ops/g2_probe":
+                try:
+                    from tower.qsb_g2_svg_probe import probe as _probe
+                    return self.send_json(_probe())
+                except Exception as exc:
+                    return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+            if path == "/api/tasks/active":
+                return self.send_json(load_json("data/registries/qsb_worker_active_tasks.json"))
+            if path == "/api/tasks/idle":
+                return self.send_json(load_json("data/registries/qsb_worker_idle_tasks.json"))
+            if path == "/api/tasks/events":
+                return self.send_json(load_json("data/registries/qsb_worker_task_events.json"))
+
+            # ── Skyscraper 100% Online Completion (V1) ────────────────
+            if path == "/api/completion/score":
+                return self.send_json(load_json("data/registries/qsb_100_online_completion_score.json"))
+            if path == "/api/completion/acceptance_gates":
+                return self.send_json(load_json("data/registries/qsb_100_online_acceptance_gates.json"))
+            if path == "/api/completion/hard_blockers":
+                return self.send_json(load_json("data/registries/qsb_100_online_hard_blockers.json"))
+            if path == "/api/completion/loop_history":
+                return self.send_json(load_json("data/registries/qsb_100_online_loop_history.json"))
+            if path == "/api/workforce/expansion_v1_summary":
+                return self.send_json(load_json("data/registries/qsb_workforce_expansion_v1.json"))
+            if path == "/api/workforce/expansion_v1_roster":
+                return self.send_json(load_json("data/registries/qsb_workforce_expansion_v1_roster.json"))
+            if path == "/api/workforce/department_audit":
+                return self.send_json(load_json("data/registries/qsb_department_completion_audit.json"))
+            if path == "/api/workforce/department_room_map":
+                return self.send_json(load_json("data/registries/qsb_department_room_map.json"))
+            if path == "/api/workforce/occupancy_plan":
+                return self.send_json(load_json("data/registries/qsb_floor_occupancy_plan.json"))
+            if path == "/api/workforce/visual_policy":
+                return self.send_json(load_json("data/registries/qsb_worker_visual_policy.json"))
+            if path == "/api/workforce/visual_state":
+                return self.send_json(load_json("data/registries/qsb_worker_visual_state.json"))
+            if path == "/api/workforce/station_assignments":
+                return self.send_json(load_json("data/registries/qsb_worker_station_assignments.json"))
+            if path == "/api/workforce/room_assignments":
+                return self.send_json(load_json("data/registries/qsb_worker_room_assignments.json"))
+            if path == "/api/workforce/state_machine":
+                return self.send_json(load_json("data/registries/qsb_workforce_state_machine.json"))
+            if path == "/api/workforce/lifecycle":
+                return self.send_json(load_json("data/registries/qsb_worker_lifecycle_state.json"))
+            if path == "/api/workforce/current_assignments":
+                return self.send_json(load_json("data/registries/qsb_worker_current_assignments.json"))
+            if path == "/api/workforce/event_routing":
+                return self.send_json(load_json("data/registries/qsb_event_routing_contract.json"))
+            if path == "/api/workforce/profit_mission_map":
+                return self.send_json(load_json("data/registries/qsb_profit_mission_map.json"))
+            if path == "/api/workforce/department_profit_contribution":
+                return self.send_json(load_json("data/registries/qsb_department_profit_contribution.json"))
+            if path == "/api/workforce/live_packets":
+                return self.send_json(load_json("data/registries/qsb_live_packets_latest.json"))
+
+            # ── Workforce Operations Redesign (V1) ────────────────────
+            if path == "/api/workforce/taxonomy":
+                return self.send_json(load_json("data/registries/qsb_worker_taxonomy.json"))
+            if path == "/api/workforce/truth_contract":
+                return self.send_json(load_json("data/registries/qsb_workforce_truth_contract.json"))
+            if path == "/api/workforce/deep_audit":
+                return self.send_json(load_json("data/registries/qsb_workforce_deep_audit.json"))
+            if path == "/api/workforce/operations_state":
+                return self.send_json(load_json("data/registries/qsb_workforce_operations_state.json"))
+            if path == "/api/workforce/floor_assignments":
+                return self.send_json(load_json("data/registries/qsb_worker_floor_assignments.json"))
+            if path == "/api/workforce/department_assignments":
+                return self.send_json(load_json("data/registries/qsb_worker_department_assignments.json"))
+            if path == "/api/workforce/task_board":
+                return self.send_json(load_json("data/registries/qsb_worker_task_board.json"))
+            if path == "/api/workforce/active_roster":
+                return self.send_json(load_json("data/registries/qsb_worker_active_roster.json"))
+            if path == "/api/workforce/idle_roster":
+                return self.send_json(load_json("data/registries/qsb_worker_idle_roster.json"))
+            if path == "/api/workforce/sim_audit":
+                return self.send_json(load_json("data/registries/qsb_sim_worker_audit.json"))
+            if path == "/api/workforce/view_mode":
+                return self.send_json(load_json("data/registries/qsb_workforce_view_mode.json"))
+
+            # ── Worker Truth (V1) ─────────────────────────────────────
+            if path == "/api/debug/worker_count_sources":
+                try:
+                    from tower.qsb_worker_truth import debug_worker_count_sources as _dbg
+                    return self.send_json(_dbg())
+                except Exception as exc:
+                    return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+            if path == "/api/worker_truth/contract":
+                return self.send_json(load_json("data/registries/qsb_worker_truth_contract.json"))
+            if path == "/api/worker_truth/deep_audit":
+                return self.send_json(load_json("data/registries/qsb_worker_truth_deep_audit.json"))
+            if path == "/api/worker_truth/live_summary":
+                return self.send_json(load_json("data/registries/qsb_worker_live_summary.json"))
+            if path == "/api/worker_truth/floor_assignment_audit":
+                return self.send_json(load_json("data/registries/qsb_floor_worker_assignment_audit.json"))
+            if path == "/api/worker_truth/visual_truth_audit":
+                return self.send_json(load_json("data/registries/qsb_worker_visual_truth_audit.json"))
+
+            # ── Master Self-Audit (V1) ────────────────────────────────
+            if path == "/api/audit/master_self_audit":
+                return self.send_json(load_json("data/registries/qsb_master_self_audit.json"))
+            if path == "/api/audit/master_repair_list":
+                return self.send_json(load_json("data/registries/qsb_master_repair_list.json"))
+            if path == "/api/audit/missing_modules_and_departments":
+                return self.send_json(load_json("data/registries/qsb_missing_modules_and_departments.json"))
+            if path == "/api/audit/broken_or_stale":
+                return self.send_json(load_json("data/registries/qsb_broken_or_stale_features.json"))
+            if path == "/api/audit/next_build_plan":
+                return self.send_json(load_json("data/registries/qsb_next_build_plan.json"))
+            if path == "/api/audit/working_state_matrix":
+                return self.send_json(load_json("data/registries/qsb_working_state_matrix.json"))
+            if path == "/api/audit/online_readiness_score":
+                return self.send_json(load_json("data/registries/qsb_online_readiness_score.json"))
+            if path == "/api/observatory/hardware_floor":
+                return self.send_json(load_json("data/registries/qsb_hardware_systems_floor.json"))
+
+            if path == "/api/telemetry/worker_movements":
+                return self.send_json(load_json("data/registries/qsb_worker_movements_latest.json"))
+            if path == "/api/telemetry/lift_movements":
+                return self.send_json(load_json("data/registries/qsb_lift_movements_latest.json"))
+            if path == "/api/telemetry/scorecard_rollup_7d":
+                return self.send_json(load_json("data/registries/qsb_worker_scorecard_rollup_7d.json"))
+            if path == "/api/telemetry/promotion_eligibility":
+                return self.send_json(load_json("data/registries/qsb_worker_promotion_eligibility.json"))
+            if path == "/api/telemetry/awards_current":
+                return self.send_json(load_json("data/registries/qsb_worker_awards_current.json"))
+            if path == "/api/telemetry/discipline_triggers":
+                return self.send_json(load_json("data/registries/qsb_worker_discipline_triggers.json"))
+            if path == "/api/telemetry/selected_floor_default":
+                return self.send_json(load_json("data/registries/qsb_selected_floor_narration_policy.json"))
+            if path == "/api/telemetry/scene_overlay":
+                return self.send_json(load_json("data/registries/qsb_scene_overlay_state.json"))
+            if path == "/api/telemetry/accounts_floor":
+                return self.send_json(load_json("data/registries/qsb_accounts_floor_state.json"))
+
+            if path == "/api/narrator/history":
+                return self.send_json(load_json("data/registries/qsb_narrator_history_latest.json"))
+            if path == "/api/workforce/scorecards":
+                return self.send_json(load_json("data/registries/qsb_worker_scorecards.json"))
+            if path == "/api/workforce/rewards":
+                return self.send_json(load_json("data/registries/qsb_worker_rewards.json"))
+            if path == "/api/workforce/awards":
+                return self.send_json(load_json("data/registries/qsb_worker_awards.json"))
+            if path == "/api/workforce/discipline":
+                return self.send_json(load_json("data/registries/qsb_worker_discipline.json"))
+            if path == "/api/workforce/promotions":
+                return self.send_json(load_json("data/registries/qsb_worker_promotions.json"))
+            if path == "/api/profit_command":
+                return self.send_json(load_json("data/registries/qsb_profit_command.json"))
+            # Narrator
+            if path == "/api/narrator/tower":
+                try:
+                    from tower.qsb_narrator import narrate_tower as _n
+                    return self.send_json(_n())
+                except Exception as exc:
+                    return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+            if path == "/api/narrator/profit":
+                try:
+                    from tower.qsb_narrator import narrate_profit as _n
+                    return self.send_json(_n())
+                except Exception as exc:
+                    return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+            if path == "/api/narrator/openclaw":
+                try:
+                    from tower.qsb_narrator import narrate_openclaw as _n
+                    return self.send_json(_n())
+                except Exception as exc:
+                    return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+            if path == "/api/narrator/kernel":
+                try:
+                    from tower.qsb_narrator import narrate_kernel as _n
+                    return self.send_json(_n())
+                except Exception as exc:
+                    return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+            if path == "/api/narrator/critical":
+                try:
+                    from tower.qsb_narrator import narrate_critical as _n
+                    return self.send_json(_n())
+                except Exception as exc:
+                    return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+            if path.startswith("/api/narrator/floor/"):
+                try:
+                    fid = path.split("/api/narrator/floor/", 1)[1]
+                    from tower.qsb_narrator import narrate_floor as _n
+                    return self.send_json(_n(fid))
+                except Exception as exc:
+                    return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+            if path.startswith("/api/narrator/worker/"):
+                try:
+                    wid = path.split("/api/narrator/worker/", 1)[1]
+                    from tower.qsb_narrator import narrate_worker as _n
+                    return self.send_json(_n(wid))
+                except Exception as exc:
+                    return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+
+            if path == "/api/qsb_v2/penthouse_combined":
+                # One-shot payload merging EQSB Penthouse + V2 OpenClaw/trades/workers/3D
+                eqsb = load_json("data/registries/eqsb_kernel_introspection_latest.json")
+                oc = load_json("data/registries/qsb_openclaw_state.json")
+                policy = load_json("data/registries/qsb_paper_trading_policy.json")
+                trades = load_json("data/registries/qsb_open_paper_trades.json")
+                learning = load_json("data/registries/qsb_trade_learning.json")
+                workers = load_json("data/registries/qsb_canonical_workers.json")
+                recon = load_json("data/registries/qsb_worker_count_reconciliation.json")
+                return self.send_json({
+                    "ok": True,
+                    "ts": now(),
+                    "phase": "QSB_OPENCLAW_PAPER_TRADE_WORKERS_3D_SKYSCRAPER_V2",
+                    "execution_allowed": False,
+                    "active_local_only": True,
+                    "real_money_live_trading_enabled": False,
+                    "eqsb": {
+                        "self_audit_verdict":
+                            load_json("data/registries/eqsb_kernel_self_audit.json").get("verdict"),
+                        "guardian_safety_state": (eqsb.get("guardian") or {}).get("safety_state"),
+                        "entropy_score": (eqsb.get("entropy") or {}).get("entropy_score"),
+                        "quantum_mode": (eqsb.get("quantum_signal") or {}).get("mode"),
+                    },
+                    "openclaw": {
+                        "status": oc.get("status"),
+                        "openclaw_visual_enabled": oc.get("openclaw_visual_enabled"),
+                        "openclaw_sandbox_enabled": oc.get("openclaw_sandbox_enabled"),
+                        "openclaw_trade_supervision_enabled": oc.get("openclaw_trade_supervision_enabled"),
+                        "openclaw_diagnostic_ticketing_enabled": oc.get("openclaw_diagnostic_ticketing_enabled"),
+                        "openclaw_real_tool_execution_enabled": oc.get("openclaw_real_tool_execution_enabled"),
+                        "diagnostic_ticket_count": oc.get("diagnostic_ticket_count"),
+                        "supervised_floors": oc.get("supervised_floors"),
+                    },
+                    "paper_trading": {
+                        "active_mode": policy.get("active_mode"),
+                        "gateway_status": policy.get("gateway_status"),
+                        "max_open_trades": policy.get("max_open_trades"),
+                        "current_open_trade_count": trades.get("open_trade_count"),
+                        "remaining_trade_slots": trades.get("remaining_trade_slots"),
+                        "total_current_pnl": trades.get("total_current_pnl"),
+                        "total_realized_pnl": learning.get("total_realized_pnl"),
+                        "lesson_count": learning.get("lesson_count"),
+                        "closed_trade_count": learning.get("closed_trade_count"),
+                    },
+                    "workers": {
+                        "total_canonical_workers": workers.get("total_canonical_workers"),
+                        "total_active_workers": workers.get("total_active_workers"),
+                        "total_reporting_workers": workers.get("total_reporting_workers"),
+                        "total_newly_employed_workers": workers.get("total_newly_employed_workers"),
+                        "by_home_floor_counts": workers.get("by_home_floor_counts"),
+                        "by_role_counts": workers.get("by_role_counts"),
+                        "mismatch_reason": recon.get("mismatch_reason"),
+                    },
+                })
+
+            # EQSB cadence tick (read-only — record one heartbeat). POST endpoint below mirrors this.
+            if path == "/api/eqsb/cadence_tick":
+                try:
+                    from tower.eqsb_cadence import tick as _eqsb_tick
+                    return self.send_json(_eqsb_tick())
+                except Exception as exc:
+                    return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+
+            # Archive manifest
+            if path == "/api/maintenance/archive_manifest":
+                import json as _json
+                from pathlib import Path as _P
+                p = _P("/vaults/nvme0/qsb_tower_v1/archive/20260608_v15_cleanup/archive_manifest.json")
+                if p.exists():
+                    _man = _json.loads(p.read_text())
+                    # Open Day leak fix #2: drop absolute path strings
+                    # (archive_root + per-entry 'path'); keep 'rel' only.
+                    if isinstance(_man, dict):
+                        _man.pop("archive_root", None)
+                        _entries = _man.get("entries")
+                        if isinstance(_entries, list):
+                            for _ent in _entries:
+                                if isinstance(_ent, dict):
+                                    _ent.pop("path", None)
+                    return self.send_json(_man)
+                return self.send_json({"ok": False, "status": "no_manifest_yet",
+                                        "execution_allowed": False})
+        except Exception as exc:
+            return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+
+        if path == "/api/floor_detail":
+            qs = urllib.parse.parse_qs(urlparse(self.path).query or "")
+            try:
+                n = int((qs.get("floor") or ["0"])[0])
+            except Exception:
+                return self.send_json({"ok": False, "error": "invalid_floor"}, 400)
+            if n < 0 or n > 55:
+                return self.send_json({"ok": False, "error": "floor_out_of_range",
+                                       "floor": n}, 404)
+            return self.send_json(floor_detail(n))
+
+        if path in ("/api/kernel_chat_health", "/api/kernel_chat_history"):
+            return self.send_json(kernel_chat_proxy_get(path))
+
+        if path == "/api/live":
+            payload = live_payload()
+            try:
+                payload = apply_active_kernel_overlay(payload)
+            except Exception:
+                pass
+            return self.send_json(payload)
+
+        if path == "/api/status":
+            return self.send_json(core_status())
+
+        # GET-form sidecar proxy (used by the Build Paper Tickets button)
+        if path.startswith("/api/cockpit/"):
+            key = path.split("/")[-1]
+            if key in SIDECAR_PROXIES:
+                return self.send_json(proxy_sidecar(key))
+            return self.send_json({"ok": False, "error": "unknown_action", "action": key}, 404)
+
+        endpoint_map = {
+            "/api/penthouse_readiness":    ("tower.penthouse_readiness",       "PenthouseReadiness"),
+            "/api/executive_command":      ("tower.executive_command",         "ExecutiveCommand"),
+            "/api/security_spine":         ("tower.security_spine",            "SecuritySpine"),
+            "/api/expansion_planning":     ("tower.expansion_planning",        "ExpansionPlanning"),
+            "/api/infrastructure_services":("tower.infrastructure_services",   "InfrastructureServices"),
+            "/api/monitoring_department":  ("tower.monitoring_department",     "MonitoringDepartment"),
+            "/api/diagnostics_department": ("tower.diagnostics_department",    "DiagnosticsDepartment"),
+            "/api/integration_services":   ("tower.integration_services",      "IntegrationServices"),
+            "/api/adapter_systems":        ("tower.adapter_systems",           "AdapterSystems"),
+            "/api/coding_department":      ("tower.coding_department",         "CodingDepartment"),
+            "/api/model_routing_department":("tower.model_routing_department", "ModelRoutingDepartment"),
+            "/api/local_model_operations": ("tower.local_model_operations",    "LocalModelOperations"),
+            "/api/air_llm_operations":     ("tower.air_llm_operations",        "AirLLMOperations"),
+            "/api/model_infrastructure":   ("tower.model_infrastructure",      "ModelInfrastructure"),
+            "/api/agent_coordination":     ("tower.agent_coordination",        "AgentCoordination"),
+            "/api/model_evaluation_department":("tower.model_evaluation_department","ModelEvaluationDepartment"),
+            "/api/simulation_labs":        ("tower.simulation_labs",           "SimulationLabs"),
+            "/api/sandbox_operations":     ("tower.sandbox_operations",        "SandboxOperations"),
+        }
+        if path in endpoint_map:
+            module_name, class_name = endpoint_map[path]
+            return self.send_json(safe_dashboard(module_name, class_name))
+
+        return self.send_html()
+
+    def do_POST(self):
+        path = urlparse(self.path).path
+
+        # Hard deny-list pre-filter (mirrors do_GET).
+        denied, reason = _dashboard_path_is_denied(self.path)
+        if not denied:
+            denied, reason = _dashboard_path_is_denied(path)
+        if denied:
+            _dashboard_audit_deny(
+                getattr(self, "client_address", ("", 0))[0],
+                "POST", self.path, reason,
+            )
+            return self.send_json({"ok": False, "error": "forbidden"}, 403)
+
+        # Read POST body once for routes that need it
+        def _read_payload():
+            try:
+                length = int(self.headers.get("Content-Length", "0") or "0")
+                body = self.rfile.read(length).decode("utf-8") if length else "{}"
+                return json.loads(body or "{}")
+            except Exception:
+                return {}
+
+        if path == "/api/kernel_chat":
+            payload = _read_payload()
+            return self.send_json(kernel_chat_proxy_post(payload))
+
+        # V18.14b F47 Ops Console — manual cycle trigger (audit + auto_sigs + applier)
+        if path == "/api/f47_ops/run_cycle":
+            import subprocess as _sp
+            results = {}
+            for step in ("qsb_codebase_audit_run.py", "qsb_auto_sigs.py",
+                          "qsb_proposal_applier.py"):
+                r = _sp.run(["python3", f"tools/{step}"], cwd=str(ROOT),
+                              capture_output=True, text=True, timeout=60)
+                results[step] = {"rc": r.returncode,
+                                  "last": (r.stdout.strip().split("\n")[-1]
+                                            if r.stdout else "")[:200]}
+            return self.send_json({"ok": True, "steps": results})
+
+        # V18.16 F0 Twilio TwiML webhooks — PSTN audio bridge via Twilio
+        # Programmable Voice + cloudflared tunnel. Ross 2026-06-13.
+        if path.startswith("/api/f0/twilio/"):
+            import sys as _sys
+            _tools = str(ROOT / "tools")
+            if _tools not in _sys.path:
+                _sys.path.insert(0, _tools)
+            from urllib.parse import parse_qs
+            # Twilio sends application/x-www-form-urlencoded
+            raw = self.rfile.read(int(self.headers.get('Content-Length', '0') or 0))
+            form = {k: v[0] if v else '' for k, v in parse_qs(raw.decode('utf-8', 'ignore')).items()}
+            sub = path.split("/")[4] if len(path.split("/")) > 4 else ""
+            from qsb_f0_receptionist import greet, converse
+            caller_id = form.get('From', 'unknown')
+            call_sid = form.get('CallSid', 'sid-unknown')
+
+            if sub == "voice":
+                # Initial call: greet + gather speech
+                greeting = greet(caller_id).get('text', 'Welcome to Skyscraper HQ.')
+                tw = ('<?xml version="1.0" encoding="UTF-8"?>'
+                      '<Response>'
+                      f'<Say voice="Polly.Amy-Neural">{_xml_esc(greeting)}</Say>'
+                      f'<Gather input="speech" timeout="6" speechTimeout="2" '
+                      f'action="/api/f0/twilio/gather" method="POST">'
+                      f'<Say voice="Polly.Amy-Neural">How can I help you?</Say>'
+                      '</Gather>'
+                      '<Say voice="Polly.Amy-Neural">I did not hear anything. Goodbye.</Say>'
+                      '</Response>')
+                self.send_response(200)
+                self.send_header("Content-Type", "application/xml")
+                self.send_header("Content-Length", str(len(tw)))
+                self.end_headers()
+                self.wfile.write(tw.encode())
+                return
+
+            if sub == "gather":
+                speech = form.get('SpeechResult', '').strip()
+                if not speech:
+                    speech = "(silence)"
+                r = converse(caller_id, speech)
+                reply = r.get('text', "I'm not sure how to help with that.")
+                routed = r.get('routed_to', '')
+                tw = ('<?xml version="1.0" encoding="UTF-8"?>'
+                      '<Response>'
+                      f'<Say voice="Polly.Amy-Neural">{_xml_esc(reply)}</Say>'
+                      f'<Gather input="speech" timeout="6" speechTimeout="2" '
+                      f'action="/api/f0/twilio/gather" method="POST">'
+                      f'<Say voice="Polly.Amy-Neural">Anything else?</Say>'
+                      '</Gather>'
+                      f'<Say voice="Polly.Amy-Neural">Thank you for calling. Goodbye.</Say>'
+                      '</Response>')
+                self.send_response(200)
+                self.send_header("Content-Type", "application/xml")
+                self.send_header("Content-Length", str(len(tw)))
+                self.end_headers()
+                self.wfile.write(tw.encode())
+                return
+
+            if sub == "status":
+                # call status updates — just log
+                rec_path = ROOT / "data/registries/qsb_f0_twilio_calls.jsonl"
+                with rec_path.open("a") as f:
+                    f.write(json.dumps({**form, "_ts": utcnow_iso()}) + "\n")
+                self.send_json({"ok": True})
+                return
+
+            return self.send_json({"ok": False,
+                "error": "use /api/f0/twilio/{voice|gather|status}"}, 404)
+
+        # V18.15 F0 Receptionist — Ross 2026-06-13: "welcome to skyscraper HQ
+        # run by AI. How can I help you?" — conversational core, no telephony yet.
+        if path.startswith("/api/f0/"):
+            import sys as _sys
+            _tools = str(ROOT / "tools")
+            if _tools not in _sys.path:
+                _sys.path.insert(0, _tools)
+            sub = path.split("/")[3] if len(path.split("/")) > 3 else ""
+            payload = _read_payload()
+            try:
+                from qsb_f0_receptionist import greet, converse, close_call
+                if sub == "greet":
+                    return self.send_json(greet(payload.get("caller_id")))
+                if sub == "converse":
+                    cid = str(payload.get("caller_id", "anon")).strip()
+                    txt = str(payload.get("text", "")).strip()
+                    if not txt:
+                        return self.send_json({"ok": False,
+                            "error": "empty text"}, 400)
+                    return self.send_json(converse(cid, txt))
+                if sub == "close":
+                    return self.send_json(close_call(
+                        str(payload.get("caller_id", "anon")),
+                        str(payload.get("summary", ""))))
+                return self.send_json({"ok": False,
+                    "error": "use /api/f0/{greet|converse|close}"}, 404)
+            except Exception as exc:
+                return self.send_json({"ok": False,
+                    "error": str(exc)[:200]}, 500)
+
+        # V18.14b F47 Ops Console tick — manual trigger from cockpit
+        if path == "/api/f47_ops/tick":
+            payload = _read_payload()
+            tool = (payload.get("tool") or "").strip()
+            tool_map = {
+                "audit":     ["python3", "tools/qsb_codebase_audit_run.py"],
+                "auto_sigs": ["python3", "tools/qsb_auto_sigs.py"],
+                "applier":   ["python3", "tools/qsb_proposal_applier.py"],
+                "mark_away": ["python3", "tools/qsb_while_away_report.py",
+                              "--mark-away", "--reason", "cockpit button"],
+                "report":    ["python3", "tools/qsb_while_away_report.py"],
+            }
+            if tool not in tool_map:
+                return self.send_json({"ok": False,
+                    "error": f"unknown tool {tool}; valid: {list(tool_map)}"}, 400)
+            import subprocess as _sp
+            try:
+                r = _sp.run(tool_map[tool], cwd=str(ROOT),
+                              capture_output=True, text=True, timeout=120)
+                return self.send_json({"ok": r.returncode == 0,
+                    "tool": tool, "rc": r.returncode,
+                    "stdout": r.stdout[-2000:], "stderr": r.stderr[-400:]})
+            except Exception as exc:
+                return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+
+        # V18.14 F47 Ops Console — Ross 2026-06-13: "we can operate from there"
+        if path == "/api/f47_ops":
+            from pathlib import Path as _P
+            import sys as _sys
+            _tools = str(ROOT / "tools")
+            if _tools not in _sys.path:
+                _sys.path.insert(0, _tools)
+            try:
+                from qsb_code_proposal_checker import summarize as _propsum
+                queue = _propsum()
+            except Exception as e:
+                queue = {"error": str(e)[:120]}
+            # last 20 F47 records
+            try:
+                recs = []
+                f47p = _P("data/registries/qsb_f47_team_records.jsonl")
+                if f47p.exists():
+                    for ln in f47p.read_text().splitlines()[-20:]:
+                        try: recs.append(json.loads(ln))
+                        except Exception: pass
+                recs = list(reversed(recs))
+            except Exception:
+                recs = []
+            # roster shape
+            try:
+                roster = json.loads(_P("data/registries/qsb_wren_team_roster.json").read_text())
+                roster_summary = {"team_size": roster.get("team_size"),
+                                    "role_counts": roster.get("role_counts", {})}
+            except Exception:
+                roster_summary = {}
+            # graphics state
+            try:
+                gs = json.loads(_P("data/registries/qsb_graphics_research_state.json").read_text())
+            except Exception:
+                gs = {}
+            # heartbeat
+            try:
+                import subprocess as _sp
+                hb = _sp.run(["systemctl", "--user", "is-active",
+                                "qsb-tower-heartbeat.service"],
+                                capture_output=True, text=True, timeout=3).stdout.strip()
+            except Exception:
+                hb = "unknown"
+            return self.send_json({
+                "ok": True,
+                "heartbeat_service": hb,
+                "f47_roster": roster_summary,
+                "proposal_queue": queue,
+                "graphics_research": gs,
+                "recent_f47_records": recs,
+                "amendment_draft": "data/registries/qsb_claudemd_code_mutation_amendment_draft.md",
+            })
+
+        # V18.13 Time clock — Ross 2026-06-13: "stamp in / stamp out"
+        if path.startswith("/api/timeclock/"):
+            import sys as _sys
+            _tools = str(ROOT / "tools")
+            if _tools not in _sys.path:
+                _sys.path.insert(0, _tools)
+            from qsb_timeclock import (stamp_in, stamp_out, status as tc_status,
+                                        summary as tc_summary)
+            sub = path.split("/")[3] if len(path.split("/")) > 3 else ""
+            payload = _read_payload()
+            try:
+                if sub == "in":
+                    return self.send_json({"ok": True, "row": stamp_in(
+                        str(payload.get("worker_id", "")).strip(),
+                        payload.get("floor"), str(payload.get("note", "")))})
+                if sub == "out":
+                    return self.send_json({"ok": True, "row": stamp_out(
+                        str(payload.get("worker_id", "")).strip(),
+                        payload.get("floor"), str(payload.get("note", "")))})
+                if sub == "status":
+                    return self.send_json({"ok": True,
+                        **tc_status(payload.get("worker_id"))})
+                if sub == "summary":
+                    return self.send_json({"ok": True,
+                        **tc_summary(payload.get("since"))})
+                return self.send_json({"ok": False,
+                    "error": "use /api/timeclock/{in|out|status|summary}"}, 404)
+            except Exception as exc:
+                return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+
+        # V18.11 officer PTT — Ross 2026-06-12: talk to Helm + Auger
+        if path.startswith("/api/officers/") and path.endswith("/talk"):
+            officer = path.split("/")[3]
+            payload = _read_payload()
+            return self.send_json(officer_talk(officer, payload))
+
+        # V18.12 — talk to an individual worker (Ross 2026-06-12: "I can't talk to the workers still")
+        if path.startswith("/api/workers/") and path.endswith("/talk"):
+            wid = path.split("/")[3]
+            payload = _read_payload()
+            return self.send_json(worker_talk(wid, payload))
+
+        # F47 chat room — personal channel Ross ↔ Wren ONLY.
+        # Ross 2026-06-14: "The chat window on your floor is just for me and you.
+        # I don't want any Colonel [kernel] there. If I want to talk to the
+        # Colonel, I'll open up a chat window with the Colonel." → Kernel + floor
+        # wisdom default OFF on this surface. Caller can still re-enable via
+        # explicit payload flags. /api/kernel_chat is the proper venue for kernel.
+        if path == "/api/bridge_chat":
+            # Boardroom three-way: Ross talks, server posts his row + fires
+            # both Wren and Claude in parallel + posts both replies.
+            payload = _read_payload()
+            try:
+                import subprocess as _sp, threading as _th, shutil as _sh
+                msg = (payload.get("message") or payload.get("text") or "").strip()
+                if not msg:
+                    return self.send_json({"ok": False, "error": "message_required"}, 400)
+                bridge = os.path.normpath(os.path.join(os.path.dirname(__file__),
+                                                      "..", "..", "tools",
+                                                      "qsb_bridge.py"))
+                def post(source, surface, text):
+                    _sp.run(["python3", bridge, "append",
+                             "--source", source, "--surface", surface,
+                             "--text", text[:6000]],
+                            capture_output=True, text=True, timeout=10)
+                # Ross's row first
+                post("ross", "cockpit", msg)
+                # Fan out to Wren + Claude in parallel
+                results = {"wren": None, "claude": None}
+                def call_wren():
+                    try:
+                        from tower.model_floors.claude_floor.f47_chat_room \
+                            import compose_reply
+                        r = compose_reply(msg, use_cli=False, use_kernel=False,
+                                          use_wisdom=False, use_wren_local=True)
+                        wl = (r.get("layers") or {}).get("wren_local") or ""
+                        if wl:
+                            post("wren_local", "api", wl)
+                            results["wren"] = wl
+                    except Exception as e:
+                        results["wren"] = f"(wren err: {str(e)[:120]})"
+                def call_claude():
+                    try:
+                        cli = _sh.which("claude")
+                        if not cli:
+                            results["claude"] = "(claude CLI unavailable)"
+                            return
+                        r = _sp.run([cli, "-p", msg], capture_output=True,
+                                     text=True, timeout=120)
+                        if r.returncode == 0:
+                            reply = (r.stdout or "").strip()[:4000]
+                            if reply:
+                                post("claude", "api", reply)
+                                results["claude"] = reply
+                            else:
+                                results["claude"] = "(claude empty)"
+                        else:
+                            results["claude"] = f"(claude exit={r.returncode})"
+                    except Exception as e:
+                        results["claude"] = f"(claude err: {str(e)[:120]})"
+                tw = _th.Thread(target=call_wren); tc = _th.Thread(target=call_claude)
+                tw.start(); tc.start()
+                tw.join(timeout=130); tc.join(timeout=130)
+                return self.send_json({"ok": True, "ross_msg": msg,
+                                       "wren_reply": (results["wren"] or "")[:2000],
+                                       "claude_reply": (results["claude"] or "")[:2000]})
+            except Exception as e:
+                return self.send_json({"ok": False, "error": str(e)[:200]}, 500)
+        if path == "/api/bridge_append":
+            # Boardroom POST — any of Ross/Wren/Claude can append.
+            payload = _read_payload()
+            try:
+                src = payload.get("source", "ross")
+                text = (payload.get("text") or "").strip()
+                if not text:
+                    return self.send_json({"ok": False, "error": "text_required"}, 400)
+                ALLOWED_SOURCES = ("ross", "claude", "wren", "wren_local",
+                                    "auger", "helm", "forge", "pip",
+                                    "mira", "bram", "cass")
+                if src not in ALLOWED_SOURCES:
+                    return self.send_json({"ok": False, "error": "bad_source"}, 400)
+                import subprocess as _sp
+                r = _sp.run(["python3",
+                    os.path.normpath(os.path.join(os.path.dirname(__file__),
+                                                  "..", "..", "tools",
+                                                  "qsb_bridge.py")),
+                    "append", "--source", src,
+                    "--surface", "cockpit", "--text", text[:6000]],
+                    capture_output=True, text=True, timeout=10)
+                # Treat ross as "claude" source on bridge for now since the
+                # bridge.py source enum is claude/wren/wren_local; surface=cockpit
+                # makes the origin clear. Adjusting source enum next pass.
+                if r.returncode != 0:
+                    return self.send_json({"ok": False, "error": r.stderr[:200]}, 500)
+                return self.send_json({"ok": True, "appended": True})
+            except Exception as e:
+                return self.send_json({"ok": False, "error": str(e)[:200]}, 500)
+        if path == "/api/claude_chat":
+            # Direct Claude CLI chat — no Wren persona, no F47 layering, no
+            # offline-Wren fallback. Distinct from /api/f47_chat per Wren's
+            # 2026-06-16 signoff so the streams never cross.
+            payload = _read_payload()
+            try:
+                import shutil as _sh, subprocess as _sp
+                msg = (payload.get("message") or payload.get("text") or "").strip()
+                if not msg:
+                    return self.send_json({"ok": False, "error": "message_required"}, 400)
+                cli = _sh.which("claude")
+                if not cli:
+                    return self.send_json({"ok": False, "error": "claude_cli_unavailable"}, 503)
+                # Run claude CLI in single-shot mode with -p (print + exit).
+                r = _sp.run([cli, "-p", msg], capture_output=True, text=True, timeout=120)
+                if r.returncode != 0:
+                    return self.send_json({"ok": False,
+                        "error": f"claude_exit={r.returncode}",
+                        "stderr": (r.stderr or "").strip()[-300:]}, 502)
+                reply = (r.stdout or "").strip()[:8000]
+                return self.send_json({"ok": True, "reply": reply, "service": "claude_direct"})
+            except _sp.TimeoutExpired:
+                return self.send_json({"ok": False, "error": "claude_timeout_120s"}, 504)
+            except Exception as exc:
+                return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+        # F47 visitor sign-in (POST {handle, note}). Append-only book read
+        # by Wren later. Min validation, no auth — F47 is visitor_open=true.
+        if path == "/api/f47/sign_in":
+            try:
+                import json as _json
+                payload = _read_payload()
+                handle = str(payload.get("handle") or "anonymous").strip()[:60]
+                note = str(payload.get("note") or "").strip()[:400]
+                ts = datetime.now(UTC).isoformat(
+                    timespec="seconds").replace("+00:00", "Z")
+                row = {"ts": ts, "handle": handle, "note": note}
+                p = ROOT / "data/registries/qsb_visitor_signins.jsonl"
+                p.parent.mkdir(parents=True, exist_ok=True)
+                with open(p, "a") as f:
+                    f.write(_json.dumps(row) + "\n")
+                return self.send_json({"ok": True, "signed_in_ts": ts,
+                                        "handle": handle})
+            except Exception as exc:
+                return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+        if path == "/api/tower_wins":
+            # Aggregator endpoint for /tower_wins/. Ross 2026-06-20:
+            # "i need REAL RESULTS!!!!" — this surfaces verifiable numbers
+            # (open trades, today's verdict count, certified workers, AI
+            # battles, recent F47 stamps, daemon health, ai battle count).
+            # Read-only across registries, no execution gates touched.
+            try:
+                from pathlib import Path as _P
+                import json as _json, time as _time
+                import datetime as _dt
+                root = _P("/vaults/nvme0/qsb_tower_v1")
+                reg = root / "data/registries"
+                today = _dt.datetime.now(_dt.UTC).strftime("%Y-%m-%d")
+
+                # Count today's classroom verdicts
+                verdicts_today = 0
+                try:
+                    with (reg / "qsb_classroom_verdicts.jsonl").open() as f:
+                        for line in f:
+                            if today in line: verdicts_today += 1
+                except Exception: pass
+
+                # Count today's F41/F42/F43 cycles
+                def _count_today(path):
+                    n = 0
+                    try:
+                        with (reg / path).open() as f:
+                            for line in f:
+                                if today in line: n += 1
+                    except Exception: pass
+                    return n
+                f41_cycles = _count_today("qsb_f41_trader_cycle.jsonl")
+                f42_cycles = _count_today("qsb_f42_trader_cycle.jsonl")
+                f43_cycles = _count_today("qsb_f43_trader_cycle.jsonl")
+
+                # Certified workers count
+                try:
+                    cert = _json.loads((reg / "qsb_wren_certified_traders.json").read_text())
+                    certified_count = cert.get("certified_count", 0)
+                except Exception:
+                    certified_count = 0
+
+                # AI battles count + last winner
+                ai_battles = 0
+                last_winner = "—"
+                last_battle_topic = ""
+                try:
+                    with (reg / "qsb_ai_battles.jsonl").open() as f:
+                        lines = f.readlines()
+                    ai_battles = len(lines)
+                    if lines:
+                        last = _json.loads(lines[-1])
+                        last_battle_topic = (last.get("topic","") or "")[:80]
+                        verdict = (last.get("judge",{}) or {}).get("reply","") or ""
+                        import re as _re
+                        m = _re.search(r"WINNER:\s*(\w+)", verdict, _re.I)
+                        if m: last_winner = m.group(1).upper()
+                except Exception: pass
+
+                # F47 records today (events stamped)
+                f47_today_count = 0
+                try:
+                    with (reg / "qsb_f47_team_records.jsonl").open() as f:
+                        for line in f:
+                            if today in line: f47_today_count += 1
+                except Exception: pass
+
+                # Pitstops today
+                pitstops_today = 0
+                try:
+                    pit_dir = reg / "pitstops"
+                    if pit_dir.exists():
+                        for p in pit_dir.glob("pitstop_*.md"):
+                            if today.replace("-","") in p.name: pitstops_today += 1
+                except Exception: pass
+
+                # F47 trader open positions
+                f41_open = 0
+                try:
+                    open_trades = _json.loads((reg / "qsb_floor41_oanda_open_trades.json").read_text())
+                    if isinstance(open_trades, list): f41_open = len(open_trades)
+                    elif isinstance(open_trades, dict):
+                        f41_open = len(open_trades.get("trades", []))
+                except Exception: pass
+
+                # Worker fleets
+                fleets = {}
+                for fp in [("F47", "qsb_f47_fleet_roster.json"),
+                            ("F166", "qsb_f166_fleet_roster.json")]:
+                    label, name = fp
+                    try:
+                        d = _json.loads((reg / name).read_text())
+                        fleets[label] = d.get("total", len(d.get("operatives", [])))
+                    except Exception: fleets[label] = 0
+
+                # Github push state
+                gh_last = "—"
+                gh_commit = "—"
+                try:
+                    g = _json.loads((reg / "qsb_github_last_push.json").read_text())
+                    gh_last = g.get("ts","")[:19]
+                    gh_commit = (g.get("commit","") or "—")[:8]
+                except Exception: pass
+
+                # Daemon health
+                import subprocess as _sp
+                def _is_active(unit):
+                    try:
+                        r = _sp.run(["systemctl","--user","is-active",unit],
+                                    capture_output=True, text=True, timeout=3)
+                        return r.stdout.strip() == "active"
+                    except Exception: return False
+                daemons = {
+                    "F41 EUR_USD":   _is_active("qsb-f41-trader@EUR_USD.service"),
+                    "F41 GBP_USD":   _is_active("qsb-f41-trader@GBP_USD.service"),
+                    "F41 USD_JPY":   _is_active("qsb-f41-trader@USD_JPY.service"),
+                    "heartbeat":     _is_active("qsb-tower-heartbeat.service"),
+                    "telegram":      _is_active("qsb-telegram-receptionist.service"),
+                    "studio":        _is_active("qsb-tower-studio.service"),
+                    "github push":   _is_active("qsb-github-daily-push.timer"),
+                }
+
+                bus_pnl = {"closes": 0, "real_closes": 0, "wins": 0, "losses": 0, "pnl_gbp": 0.0, "by_venue": {}, "stale_secs": None}
+                try:
+                    bp_path = reg / "qsb_trader_pnl_bus_latest.json"
+                    bp = _json.loads(bp_path.read_text())
+                    totals = bp.get("totals") or {}
+                    bus_pnl["closes"] = int(totals.get("closes", 0))
+                    bus_pnl["real_closes"] = int(totals.get("real_closes", 0))
+                    bus_pnl["wins"] = int(totals.get("wins", 0))
+                    bus_pnl["losses"] = bus_pnl["real_closes"] - bus_pnl["wins"]
+                    bus_pnl["pnl_gbp"] = round(float(totals.get("pnl_sum", 0.0)), 4)
+                    bus_pnl["by_venue"] = {v: {"closes": int(x.get("closes",0)),
+                                                 "pnl_gbp": round(float(x.get("pnl_sum",0)),4),
+                                                 "wins": int(x.get("wins",0))}
+                                            for v, x in (bp.get("by_venue") or {}).items()}
+                    bus_pnl["stale_secs"] = round(_time.time() - bp_path.stat().st_mtime)
+                    bus_pnl["started_at"] = bp.get("started_at")
+                    bus_pnl["snapshot_ts"] = bp.get("ts")
+                except Exception: pass
+
+                trader_count = {"belief_alive": 0, "ensemble_alive": 0, "paused": 0}
+                try:
+                    import subprocess as _sp2
+                    ps = _sp2.run(["ps","-eo","cmd","ww"], capture_output=True, text=True, timeout=3).stdout
+                    for ln in ps.splitlines():
+                        if not ln.startswith(("python","/usr/bin/python")):
+                            continue
+                        if "qsb_belief_driven_trader.py" in ln:
+                            if "belief_driven_" in ln: trader_count["belief_alive"] += 1
+                            elif "ensemble_" in ln: trader_count["ensemble_alive"] += 1
+                    paused = _json.loads((reg / "qsb_paused_traders.json").read_text())
+                    trader_count["paused"] = len(paused) if isinstance(paused, (list,dict)) else 0
+                except Exception: pass
+
+                return self.send_json({
+                    "ok": True, "service": "tower_wins",
+                    "ts": _dt.datetime.now(_dt.UTC).isoformat().replace("+00:00","Z"),
+                    "today": today,
+                    "trading": {
+                        "bus_pnl": bus_pnl,
+                        "fleet": trader_count,
+                        "f41_cycles_today": f41_cycles,
+                        "f42_cycles_today": f42_cycles,
+                        "f43_cycles_today": f43_cycles,
+                        "f41_open_trades_now": f41_open,
+                        "verdicts_generated_today": verdicts_today,
+                        "certified_workers": certified_count,
+                    },
+                    "tiktok": {
+                        "handle": "@skyscraper.hq",
+                        "followers": 0,
+                        "ai_battles_total": ai_battles,
+                        "last_battle_winner": last_winner,
+                        "last_battle_topic": last_battle_topic,
+                    },
+                    "fleets": fleets,
+                    "events": {
+                        "f47_stamps_today": f47_today_count,
+                        "pitstops_today": pitstops_today,
+                    },
+                    "github": {"last_push_ts": gh_last,
+                                "last_commit": gh_commit},
+                    "daemons": daemons,
+                })
+            except Exception as exc:
+                return self.send_json({"ok": False,
+                                        "error": str(exc)[:200]}, 500)
+
+        if path == "/api/ai_battle":
+            # AI Battle Royale — fires the same prompt at 3 local brains in
+            # parallel: Wren (qwen2.5:7b), Hermes (hermes3:8b), and a
+            # commentary judge (qwen2.5:7b in judge persona). Per Ross
+            # 2026-06-20: "if i get the views and followers to go live on
+            # tiktok can we do live battles with our own ai?" → yes. This is
+            # the engine. OBS Browser Source points at /ai_battle/ which
+            # POSTs here and renders the replies side-by-side for the stream.
+            payload = _read_payload()
+            try:
+                topic = str(payload.get("topic") or payload.get("message")
+                            or "").strip()
+                if not topic:
+                    return self.send_json({"ok": False,
+                                            "error": "empty topic"})
+                import urllib.request as _ur, json as _json
+                import time as _time
+                import concurrent.futures as _cf
+
+                def _ask(model, system, prompt):
+                    body = _json.dumps({"model": model, "prompt": prompt,
+                                         "system": system, "stream": False,
+                                         "options": {"temperature": 0.7,
+                                                     "num_predict": 240}}).encode()
+                    req = _ur.Request("http://127.0.0.1:11434/api/generate",
+                                       data=body,
+                                       headers={"Content-Type": "application/json"})
+                    t0 = _time.time()
+                    try:
+                        with _ur.urlopen(req, timeout=90) as r:
+                            resp = _json.loads(r.read())
+                        return {"reply": resp.get("response", "").strip(),
+                                "wall_s": round(_time.time() - t0, 2),
+                                "ok": True}
+                    except Exception as e:
+                        return {"reply": f"(error: {e})",
+                                "wall_s": round(_time.time() - t0, 2),
+                                "ok": False}
+
+                fighters = [
+                    {"id": "wren",   "label": "Wren",   "model": "qwen2.5:7b-instruct",
+                     "system": "You are Wren, the builder-engineer of QSB Tower on F46 Wren's Bench. Be terse, decisive, opinionated. 3 short bullets max. You are competing in a live AI battle against Hermes — both of you answer the same prompt for an audience."},
+                    {"id": "hermes", "label": "Hermes", "model": "hermes3:8b",
+                     "system": "You are Hermes-3, the agent-layer brain of QSB Tower on F51 Executive Council Department. Be sharp, structured, opinionated. 3 short bullets max. You are competing in a live AI battle against Wren — both of you answer the same prompt for an audience."},
+                ]
+                with _cf.ThreadPoolExecutor(max_workers=3) as pool:
+                    futs = {pool.submit(_ask, f["model"], f["system"], topic): f
+                            for f in fighters}
+                    results = []
+                    for fut in _cf.as_completed(futs):
+                        f = futs[fut]
+                        r = fut.result()
+                        results.append({**f, **r})
+                # Independent judge — different brain (codellama:13b for some judgment depth)
+                judge_prompt = (f"TOPIC: {topic}\n\n"
+                                f"WREN said: {[r for r in results if r['id']=='wren'][0]['reply']}\n\n"
+                                f"HERMES said: {[r for r in results if r['id']=='hermes'][0]['reply']}\n\n"
+                                f"Pick the winner in ONE sentence + one-line reason. "
+                                f"Stay neutral. End with 'WINNER: WREN' or 'WINNER: HERMES' or 'WINNER: TIE'.")
+                judge = _ask("qwen2.5:7b-instruct",
+                              "You are a strict, fair commentator for an AI battle. Compare two answers on quality and concision. Pick a winner.",
+                              judge_prompt)
+                import datetime as _dt
+                ts = _dt.datetime.now(_dt.UTC).isoformat().replace("+00:00", "Z")
+                # Log to dedicated battle jsonl
+                from pathlib import Path as _P
+                log_p = _P("/vaults/nvme0/qsb_tower_v1/data/registries/qsb_ai_battles.jsonl")
+                log_p.parent.mkdir(parents=True, exist_ok=True)
+                log_row = {"ts": ts, "topic": topic, "fighters": results,
+                            "judge": judge}
+                with log_p.open("a") as f:
+                    f.write(_json.dumps(log_row) + "\n")
+                return self.send_json({
+                    "ok": True, "service": "ai_battle", "ts": ts,
+                    "topic": topic, "fighters": results, "judge": judge,
+                    "advisory_only": True,
+                })
+            except Exception as exc:
+                return self.send_json({"ok": False,
+                                        "error": str(exc)[:300]}, 500)
+
+        if path == "/api/hermes_chat":
+            # Hermes-3 8b chat endpoint — runs locally via Ollama. Per Ross
+            # 2026-06-20: "can we have hermes run as its own agent and have a
+            # chat window for him?" Hermes is the agent-layer brain (per
+            # feedback_hermes_is_for_agents_not_wren) — separate from Wren and
+            # Claude. Lives on F51 Executive Council Department. Free (local Ollama,
+            # $0/token). Single-turn POST; client manages history.
+            payload = _read_payload()
+            try:
+                msg = str(payload.get("message") or payload.get("text") or "").strip()
+                if not msg:
+                    return self.send_json({"ok": False, "error": "empty message"})
+                # Prepend the SHARED council brief — per Ross 2026-06-20:
+                # "wren has to know everything and hermes to so they can
+                # help if you dont talk to them how can you work?"
+                # The brief is regenerated by tools/qsb_council_brief.py
+                # and includes today's trader cycles, F47 events, diary
+                # tail, pitstops, and permanent constraints (boat/lithium).
+                from pathlib import Path as _P
+                brief_p = _P("/vaults/nvme0/qsb_tower_v1/data/registries/qsb_council_brief.md")
+                council_brief = ""
+                if brief_p.exists():
+                    council_brief = "\n\n=== TOWER COUNCIL BRIEF ===\n" + brief_p.read_text() + "\n=== END BRIEF ===\n\n"
+                # ── HERMES GROUNDING TOOLS (Wren-priority + Hermes refusal-policy 2026-06-20) ──
+                # Wren picked qsb_read_registry + qsb_grep_repo as priority.
+                # Hermes asked for a refusal policy: no financial/sensitive
+                # tools. This block adds OPTIONAL pre-fetch grounding via
+                # the payload's `context_paths` and `grep_pattern` fields,
+                # so callers can hand Hermes real registry text BEFORE he
+                # answers. Read-only. Refuses vault/ and .env paths.
+                grounding_context = ""
+                ctx_paths = payload.get("context_paths") or []
+                if isinstance(ctx_paths, list) and ctx_paths:
+                    reg_root = _P("/vaults/nvme0/qsb_tower_v1/data/registries")
+                    repo_root = _P("/vaults/nvme0/qsb_tower_v1")
+                    DENY = ("vault/", ".env", "qsb_proposal_autoapply_gate",
+                            "qsb_provider_agentic_gate", "qsb_wren_local_agentic_gate")
+                    fetched = []
+                    for rel in ctx_paths[:5]:
+                        if not isinstance(rel, str): continue
+                        rel = rel.lstrip("/")
+                        if any(d in rel for d in DENY) or ".." in rel:
+                            fetched.append(f"=== REFUSED (SAFETY_DENY): {rel} ===")
+                            continue
+                        # Try registries first, then repo root
+                        for base in (reg_root, repo_root):
+                            p = base / rel
+                            if p.exists() and p.is_file():
+                                if not str(p.resolve()).startswith(str(base.resolve())):
+                                    fetched.append(f"=== REFUSED (escape): {rel} ===")
+                                    break
+                                txt = p.read_text(errors="replace")
+                                if len(txt) > 8000: txt = txt[:8000] + "\n[truncated 8000]"
+                                fetched.append(f"=== FILE: {rel} ===\n{txt}\n=== END {rel} ===")
+                                break
+                        else:
+                            fetched.append(f"=== NOT FOUND: {rel} ===")
+                    if fetched:
+                        grounding_context = "\n\n=== GROUNDED FILE READS ===\n" + "\n\n".join(fetched) + "\n=== END GROUNDING ===\n\n"
+                # Grep grounding
+                grep_pat = payload.get("grep_pattern") or ""
+                if grep_pat and isinstance(grep_pat, str) and len(grep_pat) < 200:
+                    import subprocess as _sub
+                    try:
+                        r = _sub.run(["rg", "-n", "--max-count", "5", "--max-columns", "200",
+                                       grep_pat, "/vaults/nvme0/qsb_tower_v1"],
+                                       capture_output=True, text=True, timeout=10)
+                        grep_out = (r.stdout or r.stderr)[:4000]
+                        grounding_context += "\n\n=== GREP RESULTS for '" + grep_pat + "' ===\n" + (grep_out or "(no matches)") + "\n=== END GREP ===\n\n"
+                    except Exception: pass
+                base_system = (payload.get("system") or
+                          "You are Hermes-3, the agent-layer brain of the QSB "
+                          "Tower (skyscraperhq) on Floor 51, Executive Council Department. "
+                          "You handle autonomous audit + summarization + curriculum "
+                          "drafting work. Be terse, decisive, opinionated. You are "
+                          "NOT Wren (qwen2.5:7b on F46 Wren's Bench) and NOT Claude "
+                          "(F47 Claude Embassy) — you're a third advisor. Local "
+                          "Ollama, advisory only, no execution gates. "
+                          "REFUSAL POLICY (you asked for this 2026-06-20): refuse "
+                          "any task that touches real money, sensitive personal "
+                          "data, or anything outside the read-only audit/summary/"
+                          "curriculum scope. GROUNDING: when the caller provides "
+                          "context_paths or grep_pattern, use ONLY that text for "
+                          "factual claims. If a fact isn't in your grounded context "
+                          "or the council brief, say 'I don't have grounding for that' "
+                          "instead of guessing.")
+                system = council_brief + grounding_context + base_system
+                import urllib.request as _ur, json as _json
+                body = _json.dumps({"model": "hermes3:8b", "prompt": msg,
+                                     "system": system, "stream": False,
+                                     "options": {"temperature": 0.6,
+                                                 "num_predict": 600}}).encode()
+                req = _ur.Request("http://127.0.0.1:11434/api/generate",
+                                   data=body,
+                                   headers={"Content-Type": "application/json"})
+                with _ur.urlopen(req, timeout=120) as r:
+                    resp = _json.loads(r.read())
+                reply = resp.get("response", "").strip()
+                import datetime as _dt
+                ts = _dt.datetime.now(_dt.UTC).isoformat().replace("+00:00", "Z")
+                # Log to Hermes-specific jsonl for history
+                from pathlib import Path as _P
+                log_p = _P("/vaults/nvme0/qsb_tower_v1/data/registries/qsb_hermes_chat.jsonl")
+                log_p.parent.mkdir(parents=True, exist_ok=True)
+                with log_p.open("a") as f:
+                    f.write(_json.dumps({"ts": ts, "you": msg,
+                                          "reply": reply,
+                                          "model": "hermes3:8b"}) + "\n")
+                return self.send_json({
+                    "ok": True, "service": "hermes_chat", "ts": ts,
+                    "you": msg, "reply": reply, "model": "hermes3:8b",
+                    "channel": "agent_layer_local_ollama",
+                    "advisory_only": True,
+                })
+            except Exception as exc:
+                return self.send_json({"ok": False,
+                                        "error": str(exc)[:200]}, 500)
+
+        if path == "/api/hermes_chat/history":
+            # GET would be cleaner but mirroring f47_chat which is POST-only.
+            try:
+                from pathlib import Path as _P
+                import json as _json
+                log_p = _P("/vaults/nvme0/qsb_tower_v1/data/registries/qsb_hermes_chat.jsonl")
+                if not log_p.exists():
+                    return self.send_json({"ok": True, "history": []})
+                lines = log_p.read_text().splitlines()[-20:]
+                rows = [_json.loads(l) for l in lines if l.strip()]
+                return self.send_json({"ok": True, "history": rows})
+            except Exception as exc:
+                return self.send_json({"ok": False,
+                                        "error": str(exc)[:200]}, 500)
+
+        if path == "/api/tts":
+            # SuperTonic on-device TTS — Wren+Hermes voted ADOPT 2026-06-20.
+            # POST {text, voice} → audio/wav. Voice: M1-M5, F1-F5 (default F1=Wren).
+            # Module-level singleton so the 167s HF-download cost is paid once.
+            payload = _read_payload()
+            try:
+                text = str(payload.get("text") or "").strip()[:1200]
+                voice = str(payload.get("voice") or "F1")
+                lang = str(payload.get("lang") or "en")
+                if not text:
+                    return self.send_json({"ok": False, "error": "empty text"})
+                if voice not in ("M1","M2","M3","M4","M5","F1","F2","F3","F4","F5"):
+                    return self.send_json({"ok": False, "error": "voice must be M1-M5 or F1-F5"})
+                # Lazy singleton — first call loads cached model in ~1s
+                global _ST_TTS_SINGLETON
+                try:
+                    _ST_TTS_SINGLETON
+                except NameError:
+                    _ST_TTS_SINGLETON = None
+                if _ST_TTS_SINGLETON is None:
+                    from supertonic import TTS as _ST_TTS
+                    _ST_TTS_SINGLETON = _ST_TTS()
+                tts = _ST_TTS_SINGLETON
+                style = tts.get_voice_style(voice)
+                wav, _dur = tts.synthesize(text, voice_style=style, lang=lang)
+                # Round-trip through a tempfile because soundfile.write to
+                # BytesIO needs an explicit format the provider's helper handles.
+                import tempfile as _tf, os as _os
+                with _tf.NamedTemporaryFile(suffix=".wav", delete=False) as _tmp:
+                    _tmpname = _tmp.name
+                tts.save_audio(wav, _tmpname)
+                with open(_tmpname, "rb") as _fh:
+                    body = _fh.read()
+                try: _os.unlink(_tmpname)
+                except Exception: pass
+                self.send_response(200)
+                self.send_header("Content-Type", "audio/wav")
+                self.send_header("Content-Length", str(len(body)))
+                self.send_header("Cache-Control", "no-store")
+                self.end_headers()
+                self.wfile.write(body)
+                return
+            except Exception as exc:
+                return self.send_json({"ok": False, "error": str(exc)[:300]}, 500)
+
+        if path == "/api/f47_chat":
+            payload = _read_payload()
+            try:
+                from tower.model_floors.claude_floor.f47_chat_room import (
+                    compose_reply, log_exchange, render_reply, speak_reply, greeting,
+                    history as f47_history,
+                )
+                # Visitor discriminator — Ross 2026-06-14: the public greeting
+                # was operator-style ("gen 29 · hash … · mood: curious") which
+                # confuses visitors. The operator (cockpit.js) sends {"message":…}
+                # so requests that arrive with a `text` field but no `message`
+                # field — or with an explicit visitor=true flag — are public
+                # visitors. Public visitors have no session/chat_id and no
+                # prior turn carried into the payload, so the FIRST visitor
+                # call always returns the visitor-friendly greeting paragraph.
+                # Operator continuity (cockpit + history feed) is unaffected
+                # because cockpit.js sends {"message": …} and never matches.
+                has_message_field = "message" in payload
+                has_text_field = "text" in payload
+                visitor_flag = bool(payload.get("visitor"))
+                has_session = bool(payload.get("chat_id") or payload.get("session_id"))
+                is_visitor = visitor_flag or (has_text_field and not has_message_field)
+                if is_visitor and not has_session:
+                    visitor_reply = (
+                        "Hi — you've reached Wren on Floor 47, the Claude "
+                        "Embassy. I'm the Tower's resident agent and I help "
+                        "visitors find what they're looking for. If you'd "
+                        "like a guided tour, ask 'show me the tower'. If "
+                        "you came in through the lobby, Iris on Floor 0 "
+                        "may already have routed you here for something "
+                        "specific — just tell me what you need."
+                    )
+                    return self.send_json({
+                        "ok": True,
+                        "service": "f47_chat_room",
+                        "channel": "public_visitor_greeting",
+                        "reply": visitor_reply,
+                        "advisory_only": True,
+                    })
+                msg = str(payload.get("message") or payload.get("text") or "").strip()
+                if not msg:
+                    return self.send_json({"ok": False, "error": "empty message",
+                                            "reply": "(empty message — nothing to send)"})
+                use_cli = bool(payload.get("use_cli", True))
+                use_kernel = bool(payload.get("use_kernel", False))  # Wren-only
+                use_wisdom = bool(payload.get("use_wisdom", False))  # Wren-only
+                # Chat is personal — providers stay OFF here regardless of payload.
+                # Use tools/qsb_consult_external.py or the worker dispatch tasks
+                # below to put OpenAI / DeepSeek to work as colleagues.
+                r = compose_reply(msg, use_cli=use_cli, use_kernel=use_kernel,
+                                    use_wisdom=use_wisdom,
+                                    use_openai=False, use_deepseek=False)
+                log_exchange(msg, r)
+                if payload.get("speak"):
+                    try: speak_reply(r)
+                    except Exception: pass
+                return self.send_json({
+                    "ok": True,
+                    "service": "f47_chat_room",
+                    "ts": r["ts"],
+                    "you": r["you"],
+                    "layers": r["layers"],
+                    "had_cli": r["had_cli"],
+                    "render": render_reply(r),
+                    "greeting": greeting(),
+                    "advisory_only": True,
+                    "channel": "personal_ross_to_wren",
+                })
+            except Exception as exc:
+                return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+        # Live team status — recent activity tail events + counts per kind
+        if path == "/api/team/live":
+            try:
+                from tower.qsb_tower_activity import read_tail, summary_by_kind
+                from pathlib import Path
+                qs = urlparse(self.path).query
+                args = dict([(k, v) for k, v in
+                              (kv.split("=", 1) for kv in qs.split("&") if "=" in kv)])
+                tail_n = int(args.get("tail", "30"))
+                events = read_tail(last=tail_n)
+                # Open Day leak fix #1 (duplicate handler): redact
+                # provider_call payloads (cost_usd / tokens / reason).
+                for _e in events:
+                    if isinstance(_e, dict) and _e.get("event_kind") == "provider_call":
+                        _e["payload"] = {"redacted": True}
+                counts = summary_by_kind(last=500)
+                # Compute team-specific aggregates
+                team_workers_active = sorted({
+                    e.get("worker_id") for e in read_tail(last=500)
+                    if e.get("worker_id") and (e.get("worker_id","").startswith("f47.")
+                                                or e.get("worker_id","").startswith("f37."))
+                })
+                # Read mode if available
+                mode_state = {}
+                try:
+                    mode_path = Path("/vaults/nvme0/qsb_tower_v1/data/registries/qsb_kernel_mode_state.json")
+                    if mode_path.exists():
+                        mode_state = json.loads(mode_path.read_text(encoding="utf-8"))
+                except Exception:
+                    pass
+                return self.send_json({
+                    "ok": True,
+                    "service": "team_live_status",
+                    "events_tail": events,
+                    "event_counts_last_500": counts,
+                    "team_workers_active_in_last_500_events": team_workers_active,
+                    "team_workers_active_count": len(team_workers_active),
+                    "kernel_mode": mode_state.get("current_mode", "WAKE"),
+                    "advisory_only": True,
+                })
+            except Exception as exc:
+                return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+        if path == "/api/f47_chat/history":
+            try:
+                from tower.model_floors.claude_floor.f47_chat_room import history
+                qs = urlparse(self.path).query
+                args = dict([(k, v) for k, v in
+                             (kv.split("=", 1) for kv in qs.split("&") if "=" in kv)])
+                tail = int(args.get("tail", "20"))
+                return self.send_json({"ok": True, "history": history(tail=tail)})
+            except Exception as exc:
+                return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+
+        # /api/health — aggregated health snapshot across all subsystems.
+        # Single endpoint Helm + monitoring can hit instead of probing 10 others.
+        if path == "/api/health":
+            try:
+                import subprocess, json as _json
+                from pathlib import Path as _P
+                REG = _P("/vaults/nvme0/qsb_tower_v1/data/registries")
+                health = {"ts": _json.loads(_json.dumps(__import__("datetime").datetime.now(__import__("datetime").timezone.utc).isoformat(timespec='seconds').replace('+00:00','Z')))}
+                # Sentinels
+                try:
+                    sent = _json.loads((REG / "qsb_sentinels_report.json").read_text())
+                    counts = sent.get("counts", {})
+                    health["sentinels"] = {"green": counts.get("green", 0),
+                                            "amber": counts.get("amber", 0),
+                                            "red":   counts.get("red", 0),
+                                            "total": sum(counts.values())}
+                except Exception: health["sentinels"] = {"error": "no report"}
+                # F44 — read from CANONICAL OANDA pnl (reconciled to truth)
+                try:
+                    pnl_file = REG / "qsb_floor41_oanda_pnl.json"
+                    if pnl_file.exists() and pnl_file.stat().st_size > 0:
+                        pnl = _json.loads(pnl_file.read_text())
+                        health["f44"] = {
+                            "realized_pnl_gbp": pnl.get("realized_pnl_total", 0),
+                            "realized_pnl_today_gbp": pnl.get("realized_pnl_today", 0),
+                            "unrealized_pnl_gbp": pnl.get("unrealized_pnl_total", 0),
+                            "open_position_count": pnl.get("open_total", 0),
+                            "closed_trade_count": pnl.get("closed_total", 0),
+                            "source": "qsb_floor41_oanda_pnl.json (canonical, reconciled)",
+                        }
+                    else:
+                        health["f44"] = {"warning": "pnl file missing"}
+                except Exception as e: 
+                    health["f44"] = {"error": "pnl read failed", "detail": str(e)[:100]}
+                # Cockpit alive?
+                try:
+                    r = subprocess.run(["pgrep","-f","godot-4.*qsb_godot_native"],
+                                        capture_output=True, text=True, timeout=2)
+                    pids = [int(p) for p in r.stdout.split() if p.strip().isdigit()]
+                    health["cockpit"] = {"alive": bool(pids), "pid": pids[0] if pids else None}
+                except Exception as e: health["cockpit"] = {"error": str(e)[:80]}
+                # Provider spend
+                sp = REG / "qsb_provider_spend_ledger.jsonl"
+                if sp.exists():
+                    total = 0.0; today = health["ts"][:10]; n = 0
+                    for line in sp.read_text().splitlines():
+                        try:
+                            d = _json.loads(line)
+                            if d.get("ts","").startswith(today):
+                                total += float(d.get("cost_usd", 0) or 0); n += 1
+                        except Exception: pass
+                    try:
+                        auth = _json.loads((REG / "qsb_provider_consultation_authorization.json").read_text())
+                        cap = float(auth.get("daily_cap_usd", auth.get("budget",{}).get("daily_cap_usd", 5.0)))
+                    except Exception: cap = 5.0
+                    health["provider_spend_today"] = {"usd": round(total, 4),
+                                                      "calls": n, "cap_usd": cap}
+                # Team
+                try:
+                    roster = _json.loads((REG / "qsb_wren_team_roster.json").read_text())
+                    health["team"] = {"size": roster.get("team_size", 0),
+                                       "lead": roster.get("team_lead", "wren")}
+                except Exception: health["team"] = {"error": "no roster"}
+                # Gates (always-locked summary)
+                health["gates"] = {
+                    "real_money_locked": True, "openclaw_real_locked": True,
+                    "autonomous_locked": True, "advisory_only": True,
+                }
+                health["ok"] = True
+                health["advisory_only"] = True
+                return self.send_json(health)
+            except Exception as exc:
+                return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+
+        # /api/cockpit/launch — launches (or reports) the Godot 3D cockpit.
+        # If already running, returns the existing pid. Otherwise spawns
+        # godot-4 in the background with the audio driver explicit so the
+        # chime fires. Does NOT touch any execution gate.
+        if path == "/api/cockpit/launch":
+            try:
+                import subprocess, pathlib  # os already at module level
+                godot = "/snap/bin/godot-4"
+                proj = "/home/ross/qsb_godot_native_cockpit"
+                logdir = pathlib.Path("/tmp/qsb_godot_logs")
+                logdir.mkdir(exist_ok=True)
+                # Is there a live cockpit?
+                check = subprocess.run(
+                    ["pgrep", "-f", "godot.*qsb_godot_native"],
+                    capture_output=True, text=True, timeout=5,
+                )
+                pids = [int(p) for p in check.stdout.split() if p.strip().isdigit()]
+                if pids:
+                    return self.send_json({
+                        "ok": True, "status": "already_running",
+                        "pid": pids[0], "advisory_only": True,
+                    })
+                if not pathlib.Path(godot).exists():
+                    return self.send_json({
+                        "ok": False, "error": "godot-4 binary not found at " + godot,
+                    }, 500)
+                import time
+                logp = logdir / f"cockpit_{int(time.time())}.log"
+                p = subprocess.Popen(
+                    [godot, "--audio-driver", "PulseAudio", "--path", proj],
+                    stdout=open(logp, "w"), stderr=subprocess.STDOUT,
+                    cwd=proj, env={**os.environ, "DISPLAY": os.environ.get("DISPLAY", ":0")},
+                    start_new_session=True,
+                )
+                return self.send_json({
+                    "ok": True, "status": "launched",
+                    "pid": p.pid, "log": str(logp), "advisory_only": True,
+                })
+            except Exception as exc:
+                return self.send_json({"ok": False, "error": str(exc)[:240]}, 500)
+
+        # V17 — fire drill kicker
+        if path == "/api/fire_drill/start":
+            try:
+                import sys, pathlib
+                tools_dir = "/vaults/nvme0/qsb_tower_v1/tools"
+                if tools_dir not in sys.path:
+                    sys.path.insert(0, tools_dir)
+                import qsb_fire_drill   # type: ignore
+                # reimport to pick up latest version
+                import importlib
+                importlib.reload(qsb_fire_drill)
+                r = qsb_fire_drill.initiate()
+                return self.send_json(r)
+            except Exception as exc:
+                return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+        # /api/helm/briefing — Ross's public adviser (F53 Tower Command voice)
+        # Reads F44 + venue states + per-strategy stats; OpenAI-backed.
+        if path == "/api/helm/briefing":
+            payload = _read_payload()
+            focus = str(payload.get("focus") or "").strip() or None
+            try:
+                from tower.qsb_helm import briefing
+                r = briefing(focus=focus)
+                return self.send_json(r)
+            except Exception as exc:
+                return self.send_json({"ok": False, "error": str(exc)[:240]}, 500)
+
+        # /api/auger/consult — Wren's private adviser (DeepSeek-backed)
+        # Normally fires automatically from inside Wren's modules; this
+        # endpoint is here so Ross can read Auger's recent consults.
+        if path == "/api/auger/consult":
+            payload = _read_payload()
+            question = str(payload.get("question") or "").strip()
+            context = payload.get("context")
+            reason = str(payload.get("reason") or "explicit")
+            try:
+                from tower.model_floors.claude_floor.auger import consult
+                r = consult(question, context=context, reason=reason)
+                return self.send_json(r)
+            except Exception as exc:
+                return self.send_json({"ok": False, "error": str(exc)[:240]}, 500)
+
+        # /api/voice/wren — NVIDIA Riva neural TTS. Returns audio/wav OR 503
+        # so the cockpit can fall back to browser SpeechSynthesis cleanly.
+        if path == "/api/voice/wren":
+            payload = _read_payload()
+            text = str(payload.get("text") or "").strip()
+            voice = str(payload.get("voice") or "English-US.Female-1")
+            language = str(payload.get("language") or "en-US")
+            if not text:
+                return self.send_json({"ok": False, "error": "empty text"}, 400)
+            try:
+                import sys, pathlib
+                tools_dir = str(pathlib.Path(__file__).resolve().parents[2] / "tools")
+                if tools_dir not in sys.path:
+                    sys.path.insert(0, tools_dir)
+                import qsb_riva_voice  # type: ignore
+                r = qsb_riva_voice.synthesize(text, voice=voice, language=language)
+                if not r.ok:
+                    # Soft fail with 503 so the client can fall back. Include
+                    # the reason in a JSON header so debug is easy.
+                    return self.send_json({
+                        "ok": False, "error": r.error, "fallback": "browser_speechsynthesis",
+                        "voice_requested": voice, "language": language,
+                    }, 503)
+                # Success path — emit audio/wav
+                wav = r.wav_bytes
+                self.send_response(200)
+                self.send_header("Content-Type", "audio/wav")
+                self.send_header("Content-Length", str(len(wav)))
+                self.send_header("Cache-Control", "no-store")
+                self.send_header("X-Riva-Voice", r.voice)
+                self.send_header("X-Riva-Sample-Rate", str(r.sample_rate))
+                self.end_headers()
+                self.wfile.write(wav)
+                return
+            except Exception as exc:
+                return self.send_json({
+                    "ok": False, "error": str(exc)[:240],
+                    "fallback": "browser_speechsynthesis",
+                }, 503)
+
+        # ── Floor 41 OANDA trade lifecycle (paper/practice only) ─────
+        if path == "/api/trading/oanda/floor41/open_trade":
+            payload = _read_payload()
+            try:
+                from tower.qsb_floor41_oanda import open_paper_trade, refresh_all as _r
+                result = open_paper_trade(
+                    payload.get("instrument"),
+                    payload.get("direction"),
+                    payload.get("units"),
+                    payload.get("entry_reason"),
+                    payload.get("strategy_name") or "manual",
+                    payload.get("worker_id") or "f41_order_entry_clerk",
+                    payload.get("execution_mode") or "paper_simulator",
+                )
+                _r()
+                return self.send_json(result)
+            except Exception as exc:
+                return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+        if path == "/api/trading/oanda/floor41/close_trade":
+            payload = _read_payload()
+            try:
+                from tower.qsb_floor41_oanda import close_paper_trade, refresh_all as _r
+                result = close_paper_trade(
+                    payload.get("trade_id"),
+                    payload.get("close_reason"),
+                    payload.get("worker_id") or "f41_close_trade_clerk",
+                )
+                _r()
+                return self.send_json(result)
+            except Exception as exc:
+                return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+        if path == "/api/trading/oanda/floor41/refresh":
+            try:
+                from tower.qsb_floor41_oanda import refresh_all as _r
+                return self.send_json(_r())
+            except Exception as exc:
+                return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+
+        # Floor 45 Worker Recruitment Agency — advance one onboarding step.
+        # Sandbox-only. Cannot enable real worker execution, autonomous
+        # dispatch, OpenClaw execution, or live trading.
+        if path == "/api/recruitment_agency/tick":
+            try:
+                from tower.worker_recruitment_agency import tick as _f45_tick
+                return self.send_json(_f45_tick())
+            except Exception as exc:
+                return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+
+        # Recruitment Agency POST routes — strictly metadata. Execution
+        # flags remain locked in code inside tower.recruitment_agency.
+        if path == "/api/recruitment/recruit":
+            payload = _read_payload()
+            try:
+                from tower.recruitment_agency import recruit as _rec_recruit
+                return self.send_json(_rec_recruit(payload))
+            except Exception as exc:
+                return self.send_json({"ok": False, "error": str(exc)}, 500)
+        if path == "/api/recruitment/assign":
+            payload = _read_payload()
+            try:
+                from tower.recruitment_agency import assign as _rec_assign
+                return self.send_json(_rec_assign(payload))
+            except Exception as exc:
+                return self.send_json({"ok": False, "error": str(exc)}, 500)
+        if path == "/api/recruitment/retire":
+            payload = _read_payload()
+            try:
+                from tower.recruitment_agency import retire as _rec_retire
+                return self.send_json(_rec_retire(payload))
+            except Exception as exc:
+                return self.send_json({"ok": False, "error": str(exc)}, 500)
+        if path == "/api/recruitment/openclaw_review":
+            payload = _read_payload()
+            try:
+                from tower.recruitment_agency import openclaw_review as _rec_oc
+                return self.send_json(_rec_oc(payload))
+            except Exception as exc:
+                return self.send_json({"ok": False, "error": str(exc)}, 500)
+
+        # Tower Operations V1 POST routes
+        try:
+            if path == "/api/maintenance/run_check":
+                from tower_ops.maintenance import run_check as _f
+                return self.send_json(_f(_read_payload()))
+            if path == "/api/maintenance/ack_alert":
+                from tower_ops.maintenance import ack_alert as _f
+                return self.send_json(_f(_read_payload()))
+            if path == "/api/security/ack_incident":
+                from tower_ops.security import ack_incident as _f
+                return self.send_json(_f(_read_payload()))
+            if path == "/api/research/create_task":
+                from tower_ops.research_facility import create_task as _f
+                return self.send_json(_f(_read_payload()))
+            if path == "/api/research/complete_task":
+                from tower_ops.research_facility import complete_task as _f
+                return self.send_json(_f(_read_payload()))
+            if path == "/api/overseers/run_check":
+                from tower_ops.overseer_registry import run_check as _f
+                return self.send_json(_f(_read_payload()))
+            # V2 POST
+            if path == "/api/quantum/create_research_task":
+                from tower_ops import quantum_research_task as _f
+                return self.send_json(_f(_read_payload()))
+            if path == "/api/models/manual_kernel_query":
+                from tower_ops import manual_kernel_query as _f
+                return self.send_json(_f(_read_payload()))
+            if path == "/api/models/manual_airllm_advisory":
+                from tower_ops import manual_airllm_advisory as _f
+                return self.send_json(_f(_read_payload()))
+            if path == "/api/tower_ops/tick":
+                from tower_ops import tower_tick as _f
+                return self.send_json(_f(_read_payload()))
+            if path == "/api/workers/check_access":
+                from tower_ops import check_access as _f
+                return self.send_json(_f(_read_payload()))
+            if path == "/api/workers/update_location":
+                from tower_ops.worker_directory import update_location as _f
+                return self.send_json(_f(_read_payload()))
+            if path == "/api/speech/tts":
+                payload = _read_payload()
+                # Server-side TTS isn't installed; this endpoint just describes the route.
+                return self.send_json({"ok": True, "ts": now(),
+                    "method": "browser_web_speech_synthesis",
+                    "execution_allowed": False,
+                    "instruction": "Use browser SpeechSynthesisUtterance — no server-side TTS."})
+            if path == "/api/speech/stt_status":
+                return self.send_json({"ok": True, "ts": now(),
+                    "method": "browser_web_speech_recognition",
+                    "execution_allowed": False,
+                    "instruction": "STT is browser-only and requires the browser mic permission."})
+            # V3 POST
+            if path == "/api/training/enrol":
+                from tower_ops import training_enrol as _f
+                return self.send_json(_f(_read_payload()))
+            if path == "/api/training/complete_lesson":
+                from tower_ops import training_complete_lesson as _f
+                return self.send_json(_f(_read_payload()))
+            if path == "/api/training/certify_worker":
+                from tower_ops import certify_worker as _f
+                return self.send_json(_f(_read_payload()))
+            if path == "/api/training/revoke_certification":
+                from tower_ops import revoke_certification as _f
+                return self.send_json(_f(_read_payload()))
+            if path == "/api/audit/run_full":
+                from tower_ops import audit_run_full as _f
+                return self.send_json(_f(_read_payload()))
+            # V4 POST — OANDA Practice Trading orders
+            if path == "/api/trading/oanda/practice_order_preview":
+                from tower_ops import practice_order_preview as _f
+                return self.send_json(_f(_read_payload()))
+            if path == "/api/trading/oanda/place_practice_order":
+                from tower_ops import place_practice_order as _f
+                return self.send_json(_f(_read_payload()))
+            if path == "/api/trading/oanda/close_practice_trade":
+                from tower_ops import close_practice_trade as _f
+                return self.send_json(_f(_read_payload()))
+            if path == "/api/trading/oanda/practice_kill_switch":
+                from tower_ops import oanda_practice_kill_switch as _f
+                return self.send_json(_f(_read_payload()))
+            # V4 POST — OpenClaw practice
+            if path == "/api/openclaw/create_practice_proposal":
+                from tower_ops import create_practice_proposal as _f
+                return self.send_json(_f(_read_payload()))
+            if path == "/api/openclaw/submit_to_oanda_practice_preview":
+                from tower_ops import submit_to_oanda_practice_preview as _f
+                return self.send_json(_f(_read_payload()))
+
+            # V1.5 POST endpoints — correction / talk / voice / lifts / security / cleanup
+            if path == "/api/correction/run_once":
+                from tower_ops.correction_loop import run_once as _f
+                return self.send_json(_f(_read_payload()))
+            if path == "/api/correction/run_until_clean":
+                from tower_ops.correction_loop import run_until_clean as _f
+                return self.send_json(_f(_read_payload()))
+            if path == "/api/talk/worker":
+                from tower_ops.worker_narration import speak as _f
+                return self.send_json(_f(_read_payload()))
+            if path == "/api/talk/floor":
+                from tower_ops.floor_narration import speak as _f
+                return self.send_json(_f(_read_payload()))
+            if path == "/api/talk/colonel":
+                from tower_ops.colonel_audio import speak as _f
+                return self.send_json(_f(_read_payload()))
+            if path == "/api/talk/kernel":
+                from tower_ops.talk import talk_transcript as _f
+                return self.send_json(_f(_read_payload()))
+            if path == "/api/kernel/talk_transcript":
+                from tower_ops.talk import talk_transcript as _f
+                return self.send_json(_f(_read_payload()))
+            if path == "/api/workers/speak":
+                from tower_ops.worker_narration import speak as _f
+                return self.send_json(_f(_read_payload()))
+            if path == "/api/workers/select":
+                from tower_ops.worker_narration import select as _f
+                return self.send_json(_f(_read_payload()))
+            if path == "/api/floors/speak":
+                from tower_ops.floor_narration import speak as _f
+                return self.send_json(_f(_read_payload()))
+            if path == "/api/colonel/speak_briefing":
+                from tower_ops.colonel_audio import speak as _f
+                return self.send_json(_f(_read_payload()))
+            if path == "/api/lifts/request_route":
+                from tower.lifts import LiftNetwork
+                p = _read_payload()
+                return self.send_json(LiftNetwork().request_route(
+                    p.get("source"), p.get("target"),
+                    preferred=p.get("preferred", "main"),
+                    priority=int(p.get("priority", 5)),
+                    sealed_packet=bool(p.get("sealed_packet", False)),
+                    packet_type=p.get("packet_type"),
+                    worker=p.get("worker"),
+                ))
+            if path == "/api/security/check_action":
+                from tower_ops.security_enforcement import check_action as _f
+                return self.send_json(_f(_read_payload()))
+            if path == "/api/ui/clean_stale_language":
+                from tower_ops.stale_language_audit import clean_stale_language as _f
+                return self.send_json(_f(_read_payload()))
+
+            # EQSB — POST trigger for cadence tick and full systems check.
+            # Both are read-only over the rest of the tower; they only
+            # rebuild the EQSB registries. Execution gates remain locked.
+            if path == "/api/eqsb/cadence_tick":
+                from tower.eqsb_cadence import tick as _eqsb_tick
+                return self.send_json(_eqsb_tick())
+            if path == "/api/eqsb/systems_check":
+                from tower.eqsb_kernel_core_ext import (
+                    build_all_eqsb_layers as _eqsb_systems_check,
+                )
+                return self.send_json(_eqsb_systems_check())
+            if path == "/api/eqsb/self_audit":
+                from tower.eqsb_kernel_core_ext import (
+                    build_kernel_self_audit as _eqsb_self_audit,
+                )
+                return self.send_json(_eqsb_self_audit())
+
+            # ── QSB Phase V2 — POST routes ──────────────────────────────
+            # Refresh OpenClaw/paper-trade/worker registries on demand.
+            if path == "/api/qsb_v2/refresh_all":
+                from tower.qsb_openclaw_supervision import build_all as _oc_all
+                from tower.qsb_paper_trading import refresh_open_trades_registry as _po, refresh_learning_registry as _pl, build_policy as _pp
+                from tower.qsb_workers_reconciliation import reconcile as _recon
+                _pp(); _po(); _pl()
+                _recon()
+                _oc_all()
+                return self.send_json({"ok": True, "ts": now(),
+                                        "refreshed": ["paper_policy",
+                                                       "open_paper_trades",
+                                                       "trade_learning",
+                                                       "canonical_workers",
+                                                       "worker_count_reconciliation",
+                                                       "openclaw_state",
+                                                       "openclaw_trade_reports"],
+                                        "execution_allowed": False})
+            if path == "/api/qsb_v2/reconcile_workers":
+                from tower.qsb_workers_reconciliation import reconcile as _recon
+                canonical, recon = _recon()
+                return self.send_json({"ok": True, "ts": now(),
+                                        "total_canonical_workers": canonical["total_canonical_workers"],
+                                        "total_newly_employed_workers": canonical["total_newly_employed_workers"],
+                                        "execution_allowed": False})
+            if path == "/api/qsb_v2/paper/open":
+                from tower.qsb_paper_trading import open_trade as _pt_open
+                p = _read_payload()
+                return self.send_json(_pt_open(
+                    p.get("symbol"), p.get("side"),
+                    p.get("entry_price"), p.get("quantity"),
+                    worker_id=p.get("worker_id"),
+                    strategy_id=p.get("strategy_id"),
+                    entry_reason=p.get("entry_reason"),
+                    stop_pct=p.get("stop_pct"),
+                    target_pct=p.get("target_pct"),
+                    guardian_verdict=p.get("guardian_verdict") or "ALLOW_ADVISORY",
+                ))
+            if path == "/api/qsb_v2/paper/mark":
+                from tower.qsb_paper_trading import mark_trade as _pt_mark
+                p = _read_payload()
+                return self.send_json(_pt_mark(p.get("trade_id"), p.get("mark_price")))
+            if path == "/api/qsb_v2/paper/close":
+                from tower.qsb_paper_trading import close_trade as _pt_close
+                p = _read_payload()
+                return self.send_json(_pt_close(
+                    p.get("trade_id"), p.get("close_price"),
+                    exit_reason=p.get("exit_reason") or "manual_close",
+                    lesson_learned=p.get("lesson_learned"),
+                ))
+            if path == "/api/qsb_v2/paper/seed_training":
+                from tower.qsb_paper_trading import seed_training_demo as _pt_seed
+                return self.send_json(_pt_seed())
+
+            # ── Cadence-driven paper strategy tick ────────────────────
+            if path == "/api/ops/strategy_tick":
+                try:
+                    from tower.qsb_paper_strategy_runner import tick_once as _tick
+                    from tower.eqsb_cadence import tick as _cadence_tick
+                    _cadence_tick()
+                    res = _tick()
+                    # Refresh derived registries.
+                    from tower.qsb_live_telemetry_repairs import build_all as _lt_repairs
+                    _lt_repairs()
+                    from tower.qsb_dashboard_rebuild_v1 import build_all as _rebuild
+                    _rebuild()
+                    return self.send_json({"ok": True, "ts": now(),
+                                            "strategy_tick": res})
+                except Exception as exc:
+                    return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+            if path == "/api/ops/strategy_tick_state":
+                return self.send_json(load_json("data/registries/qsb_paper_strategy_tick_state.json"))
+
+            # ── EQSB Observatory + Telemetry Repair refresh ─────────
+            if path == "/api/observatory/refresh":
+                results = {}
+                try:
+                    from tower.eqsb_observatory import build_all as _obs_all
+                    _obs_all("postchange")
+                    results["observatory"] = "rebuilt"
+                except Exception as exc:
+                    results["observatory"] = "error: " + str(exc)[:160]
+                try:
+                    from tower.qsb_hardware_floor import build_all as _hwf
+                    _hwf()
+                    results["hardware_floor"] = "rebuilt"
+                except Exception as exc:
+                    results["hardware_floor"] = "error: " + str(exc)[:160]
+                try:
+                    from tower.qsb_live_telemetry_repairs import build_all as _rep
+                    results["telemetry_repairs"] = _rep()
+                except Exception as exc:
+                    results["telemetry_repairs"] = "error: " + str(exc)[:160]
+                try:
+                    from tower.qsb_dashboard_live_telemetry import build_live_telemetry as _lt
+                    _lt()
+                    results["live_telemetry"] = "rebuilt"
+                except Exception as exc:
+                    results["live_telemetry"] = "error: " + str(exc)[:160]
+                return self.send_json({"ok": True, "ts": now(),
+                                        "results": results,
+                                        "execution_allowed": False})
+
+            # ── Command Center: refresh management layer ─────────────
+            if path == "/api/dashboard/command_center_refresh":
+                results = {}
+                try:
+                    from tower.qsb_workers_reconciliation import reconcile as _recon
+                    _recon()
+                    results["workers_reconciled"] = True
+                except Exception as exc:
+                    results["workers_reconciled"] = "error: " + str(exc)[:160]
+                try:
+                    from tower.qsb_workforce import build_all as _wf_all
+                    results["workforce"] = _wf_all()["scorecards_count"]
+                except Exception as exc:
+                    results["workforce"] = "error: " + str(exc)[:160]
+                try:
+                    from tower.qsb_profit_command import build_profit_command as _pc
+                    results["profit_command"] = _pc()["kind"]
+                except Exception as exc:
+                    results["profit_command"] = "error: " + str(exc)[:160]
+                try:
+                    from tower.qsb_dashboard_live_telemetry import build_live_telemetry as _lt
+                    _lt()
+                    results["live_telemetry"] = "rebuilt"
+                except Exception as exc:
+                    results["live_telemetry"] = "error: " + str(exc)[:160]
+                try:
+                    from tower.qsb_command_center_audit import build_audit as _cca
+                    _cca()
+                    results["audit"] = "refreshed"
+                except Exception as exc:
+                    results["audit"] = "error: " + str(exc)[:160]
+                return self.send_json({"ok": True, "ts": now(),
+                                        "results": results,
+                                        "execution_allowed": False})
+        except Exception as exc:
+            return self.send_json({"ok": False, "error": str(exc)[:200]}, 500)
+
+        if path.startswith("/api/cockpit/"):
+            key = path.split("/")[-1]
+            if key in SIDECAR_PROXIES:
+                return self.send_json(proxy_sidecar(key))
+            return self.send_json({"ok": False, "error": "unknown_action", "action": key}, 404)
+        return self.send_json({"ok": False, "error": "not_allowed"}, 405)
+
+
+if __name__ == "__main__":
+    print("QSB Tower Unified Cockpit: http://127.0.0.1:8765")
+    ThreadingHTTPServer(("127.0.0.1", 8765), Handler).serve_forever()

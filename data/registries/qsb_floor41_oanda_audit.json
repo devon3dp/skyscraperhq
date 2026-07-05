@@ -1,0 +1,94 @@
+{
+  "ok": true,
+  "kind": "qsb_floor41_oanda_audit",
+  "phase": "QSB_FLOOR_41_OANDA_FULL_TRADING_FLOOR_REBUILD_V1",
+  "generated_ts": "2026-06-09T12:30:00+00:00",
+  "summary": "Floor 41 has an existing manifest at floors/floor_41_oanda_trading_floor/floor_manifest.json and a working OANDA practice integration (oanda_trading_floor.py, oanda_paper_strategy_lab.py, floor41_paper_ledger.py). Practice credentials are configured in .env.oanda_practice. The existing implementation produces oanda_trading_floor_status, latest_snapshot, paper_strategy_latest, paper_ledger. What is missing is the dashboard interior (rooms/workers visible when floor=41 selected), a complete trade lifecycle with reason+risk+Guardian gates, worker thoughts, OpenClaw Floor 41 findings, and the qsb_floor41_oanda_* registry family that the new V1 frontend layer expects.",
+  "questions": {
+    "does_floor_41_have_real_manifest": "Yes — floors/floor_41_oanda_trading_floor/floor_manifest.json (zone C, oanda_environment=practice, paper_trading_enabled=true, live_trading_enabled=false).",
+    "does_floor_41_have_workers": "Yes — V1 canonical has 8 workers home_floor=41 (paper_strategy_analyst, market_scout, momentum_scout, breakout_watcher, spread_watcher, spread_gatekeeper, openclaw_market_probe, wrk_trading_floor_visual_reporter) + sandbox seeds.",
+    "does_floor_41_have_live_paper_data": "Yes — oanda_trading_floor_latest_snapshot.json holds account_summary + pricing. status_ts: 2026-06-08T21:13:58.941150+00:00 (stale ~16h at audit time).",
+    "does_floor_41_have_open_trade_data": "Partial — /api/trading/oanda/open_trades exists and oanda_open_trades_practice fetches from the API. No qsb_floor41 lifecycle store yet.",
+    "does_floor_41_have_closed_trade_data": "Partial — floor41_paper_ledger.json holds 503 entries but only the paper-strategy lab format. No dedicated closed_trades registry.",
+    "does_floor_41_have_pnl_data": "Implicit — derivable from the ledger entries but no consolidated qsb_floor41_oanda_pnl.json exists.",
+    "does_floor_41_have_tick_price_data": "Yes — oanda_trading_floor_latest_snapshot.json.pricing carries bid/ask, and tower_ops.oanda_practice_pricing exposes live prices.",
+    "does_floor_41_have_dashboard_interior_data": "No — the qsb_3d_workers floor inspector currently has 8 workers in 4 rooms after this morning's render-visible phase, but no OANDA-specific cards, tables, boards or trade panels.",
+    "does_floor_41_support_opening_closing_practice_trades": "Yes at the OANDA API level (paper_trading_enabled=true, practice base URL) — but NOT yet wired to a Floor 41 dashboard panel with reason+risk+Guardian gates.",
+    "real_vs_simulated_vs_stale_vs_missing": {
+      "real": [
+        "manifest",
+        "credentials (.env.oanda_practice)",
+        "oanda_trading_floor_status",
+        "oanda_paper_strategy_latest",
+        "floor41_paper_ledger (503 entries)"
+      ],
+      "simulated": [
+        "paper_strategy_lab signals",
+        "qsb_paper_strategy_runner cadence tick"
+      ],
+      "stale": [
+        "oanda_trading_floor_latest_snapshot.snapshot_ts (~16h old at audit)"
+      ],
+      "missing": [
+        "qsb_floor41_oanda_state",
+        "qsb_floor41_oanda_department_map",
+        "qsb_floor41_oanda_workers",
+        "qsb_floor41_oanda_trading_engine",
+        "qsb_floor41_oanda_account_snapshot",
+        "qsb_floor41_oanda_instruments",
+        "qsb_floor41_oanda_prices_latest",
+        "qsb_floor41_oanda_ticks_latest",
+        "qsb_floor41_oanda_open_trades",
+        "qsb_floor41_oanda_closed_trades",
+        "qsb_floor41_oanda_pnl",
+        "qsb_floor41_oanda_trade_lifecycle",
+        "qsb_floor41_oanda_trade_requests",
+        "qsb_floor41_oanda_trade_actions",
+        "qsb_floor41_oanda_trade_risk_checks",
+        "qsb_floor41_oanda_worker_thoughts",
+        "qsb_floor41_oanda_packets_latest",
+        "qsb_openclaw_floor41_oanda_findings",
+        "qsb_floor41_oanda_dashboard_interior",
+        "Floor 41 interior frontend panel",
+        "Floor 41 kernel chat topic",
+        "11 /api/trading/oanda/floor41/* endpoints",
+        "6 scripts"
+      ]
+    }
+  },
+  "existing_modules": [
+    "src/tower/oanda_trading_floor.py",
+    "src/tower/oanda_paper_strategy_lab.py",
+    "src/tower/floor41_paper_ledger.py",
+    "src/tower/qsb_paper_trading.py",
+    "src/tower/qsb_paper_strategy_runner.py",
+    "src/tower/paper_trade_simulator.py",
+    "src/tower_ops/autonomous_oanda_practice.py",
+    "src/tower_ops/trading_telemetry.py"
+  ],
+  "existing_endpoints": [
+    "/api/trading/oanda/practice_preflight",
+    "/api/trading/oanda/pricing",
+    "/api/trading/oanda/open_positions",
+    "/api/trading/oanda/open_trades",
+    "/api/trading/oanda/transactions",
+    "/api/trading/oanda/practice_ledger",
+    "/api/trading/oanda/order_guard",
+    "/api/trading/oanda/account",
+    "/api/accounts/oanda_practice_summary"
+  ],
+  "existing_credentials_state": {
+    "env_file_present": true,
+    "account_id_present": true,
+    "token_present": true,
+    "credentials_source": "environment_variables_only",
+    "base_url": "https://api-fxpractice.oanda.com"
+  },
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "oanda_practice_paper_trading_allowed": true,
+  "real_money_live_trading_enabled": false,
+  "oanda_live_environment_allowed": false,
+  "openclaw_real_tool_execution_enabled": false
+}

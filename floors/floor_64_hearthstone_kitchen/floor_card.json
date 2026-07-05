@@ -1,0 +1,70 @@
+{
+  "floor_id": "floor_64",
+  "floor_number": 64,
+  "floor_name": "Hearthstone Kitchen",
+  "department": "public_dropship_storefront_v1",
+  "zone": "ZONE D \u00b7 COMMERCE WING",
+  "archetype": "public_dropship_storefront_v1",
+  "staff_lead": "TBD",
+  "tour_blurb": "Hearthstone \u2014 kitchens come alive.",
+  "visitor_open": false,
+  "advisory_only": true,
+  "execution_mode": "PREVIEW_ONLY",
+  "skeleton": true,
+  "skeleton_source": "floor_manifest.json",
+  "skeleton_generated_ts": "2026-06-17",
+  "live_signals": {
+    "theme": "kitchen_and_home_gadgets",
+    "categories": [
+      "gadgets",
+      "prep_tools",
+      "storage",
+      "smart",
+      "barware"
+    ],
+    "palette": "warm oak / sage / brass",
+    "tagline": "Hearthstone \u2014 kitchens come alive."
+  },
+  "gate_posture": {
+    "advisory_only": true,
+    "execution_allowed": false,
+    "live_payments_enabled": false
+  },
+  "team_roster": [
+    {
+      "id": "f064.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "spawned_id": "3513837cf4",
+      "spawned_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F064",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f064.operator.01",
+      "spawned_id": "967a767244"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F064",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f064.operator.02",
+      "spawned_id": "909e5b9ee5"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F064",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f064.operator.03",
+      "spawned_id": "c70f8cee79"
+    }
+  ],
+  "floor_manager": "f064.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

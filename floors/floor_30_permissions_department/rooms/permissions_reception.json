@@ -1,0 +1,34 @@
+{
+  "room_id": "permissions_reception",
+  "name": "Reception Area",
+  "category": "reception",
+  "purpose": "This room is for welcoming visitors and staff.",
+  "concierge_blurb": "A warm space with a reception desk and seating area.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "right_wall",
+    "offset_x": 8.0,
+    "offset_z": -2.0,
+    "footprint_m": [
+      3.5,
+      4.0
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "reception",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Reception Area",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_30"
+}

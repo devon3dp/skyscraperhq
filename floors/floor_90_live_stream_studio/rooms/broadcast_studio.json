@@ -1,0 +1,31 @@
+{
+  "room_id": "broadcast_studio",
+  "name": "Broadcast Studio",
+  "category": "operations",
+  "purpose": "Holds the actual broadcast sessions.",
+  "concierge_blurb": "This is where the broadcasts happen live.",
+  "current_state": "already_exists",
+  "visitor_open": false,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -8.0,
+    "offset_z": 4.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 3.0
+  },
+  "render": {
+    "primary_prop": "stage",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Broadcast Studio",
+    "glow": true
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_90"
+}

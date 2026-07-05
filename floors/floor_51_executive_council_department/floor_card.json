@@ -1,0 +1,100 @@
+{
+  "floor_id": "floor_51",
+  "floor_number": 51,
+  "floor_name": "Executive Council Department",
+  "department": "Executive Council \u00b7 Hermes Lab",
+  "zone": "ZONE C \u00b7 CRAFT + COMMERCE",
+  "archetype": "executive_council",
+  "staff_lead": "Hermes-3 (hermes3:8b local Ollama)",
+  "tour_blurb": "Floor 51 \u2014 Executive Council Department. Home of Hermes-3, the tower's agent-layer brain. Hermes drafts decisions for the F167 Boardroom (where he sits as non-voting advisor), runs autonomous audits, summarizes registries, and drafts classroom curriculum. He is NOT Wren (F46) and NOT Claude (F47) \u2014 he's a third voice. Adopted 2026-06-20 per Ross: 'does hermes need his own floor as well?'",
+  "visitor_open": true,
+  "advisory_only": true,
+  "execution_mode": "PROPOSE_ONLY",
+  "live_signals": {
+    "occupant": "Hermes-3",
+    "model": "hermes3:8b (Ollama, local, $0/token)",
+    "endpoint": "/api/hermes_chat",
+    "chat_log": "data/registries/qsb_hermes_chat.jsonl",
+    "boardroom_seat": "F167 advisor (non-voting)",
+    "co_ringmaster_of": "F166 TikTok Studio (scrimmages Wren in /api/ai_battle)",
+    "known_weakness": "hallucinates paths when not grounded in real files \u2014 grounding tools (qsb_read_registry, qsb_grep_repo, qsb_read_floor_card) pending wire 2026-06-21"
+  },
+  "gate_posture": {
+    "advisory_only": true,
+    "execution_allowed": false,
+    "live_payments_enabled": false,
+    "autonomous_actions_enabled": false
+  },
+  "team_roster": [
+    {
+      "id": "f51.hermes.primary",
+      "category": "agent",
+      "role": "agent-layer brain, advisory drafts, autonomous audits",
+      "tier": 3,
+      "advisory_only": true
+    },
+    {
+      "id": "f51.hermes.audit_clerk.01",
+      "category": "auditor",
+      "role": "reads registries + writes findings (deferred until grounding tools land)",
+      "tier": 2,
+      "advisory_only": true
+    },
+    {
+      "id": "f51.hermes.curriculum_drafter.01",
+      "category": "curriculum",
+      "role": "drafts classroom lessons for F50 ML/RL Classroom",
+      "tier": 2,
+      "advisory_only": true
+    },
+    {
+      "id": "f051.iquest_coder.senior_reviewer",
+      "category": "senior_code_reviewer",
+      "role": "production-grade code review, debug assistance, architectural critique. 128K context window. Specialty: catching gotchas peers miss (caught the daemon return-shape gotcha 2026-06-21 saving a bad SAFETY_DENY edit).",
+      "tier": 2,
+      "advisory_only": true,
+      "backed_by_model": "iquest-coder-v1:40b-instruct",
+      "lives_at_endpoint": "qsb_local_agent_call.py --model iquest-coder-v1:40b-instruct",
+      "joined_ts": "2026-06-21T10:55:11Z",
+      "invited_by": "ross_2026_06_21"
+    },
+    {
+      "id": "f051.ross_knechtel.boss",
+      "category": "ceo_concept",
+      "role": "concept owner, final word on tower architecture + every gate flip. Lives on a boat off-grid (lithium batteries, solar). Owns the IDEAS.",
+      "tier": 5,
+      "backed_by_model": "human",
+      "is_human": true,
+      "joined_ts": "2026-06-21T12:21:50Z",
+      "note": "added 2026-06-21 per Ross boss-override (team had voted NO; Ross overruled)"
+    },
+    {
+      "id": "f051.wren.ceo_bench",
+      "category": "ceo_bench",
+      "role": "bench operations + F46 wrenbench owner. Joined-at-hip qwen2.5:7b (fast chat) + qwen2.5:32b (smart deep) routed via tools/qsb_wren.py \u2014 presented as ONE Wren externally.",
+      "tier": 5,
+      "backed_by_model": "qwen2.5:7b-instruct + qwen2.5:32b (router)",
+      "home_floor": "F46",
+      "joined_ts": "2026-06-21T12:21:50Z"
+    },
+    {
+      "id": "f051.claude.ceo_helm",
+      "category": "ceo_helm",
+      "role": "helm + Ross-facing operator. Owns tower architecture + multi-agent orchestration. Reviews every signed-off row.",
+      "tier": 5,
+      "backed_by_model": "claude-opus-4-7",
+      "home_floor": "F47 Claude Embassy",
+      "joined_ts": "2026-06-21T12:21:50Z"
+    }
+  ],
+  "related_floors": [
+    "F167 Boardroom \u00b7 3 CEOs (Hermes sits here as advisor)",
+    "F166 TikTok Studio (Hermes co-ringmasters AI battles)",
+    "F50 ML/RL Classroom (Hermes drafts curriculum)",
+    "F46 Wren's Bench (paired voice on F167 council notes)"
+  ],
+  "ross_authorized": "2026-06-20: 'does hermes need his own floor as well?'",
+  "claude_acknowledged": true,
+  "skeleton": false,
+  "skeleton_source": "upgraded from skeleton 2026-06-20"
+}

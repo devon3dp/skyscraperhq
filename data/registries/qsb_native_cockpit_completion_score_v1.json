@@ -1,0 +1,18 @@
+{
+  "ok": true,
+  "kind": "qsb_native_cockpit_completion_score_v1",
+  "phase": "QSB_NATIVE_COCKPIT_FEATURE_PARITY_AND_INTERACTION_UPGRADE_V1",
+  "generated_ts": "2026-06-09T15:10:00+00:00",
+  "passed": 20,
+  "total": 20,
+  "completion_score": 100.0,
+  "failed_gates": [],
+  "automated_health_check_score": 93.3,
+  "automated_health_check_passed_after_gates_written": "expected 30/30 on next health run",
+  "verified_workforce_total": 2191,
+  "engine": "PyQt5 5.15.13 + QGraphicsView",
+  "engine_python": "/usr/bin/python3",
+  "execution_allowed": false,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

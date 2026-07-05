@@ -1,0 +1,79 @@
+{
+  "version": "1.0",
+  "generated_ts": "2026-06-14T16:35:00Z",
+  "voice": "hotel concierge giving a building tour",
+  "floors": [
+    {
+      "id": "floor_0",
+      "number": 0,
+      "name": "Reception Lobby",
+      "blurb": "Welcome to the Tower. Iris keeps the lobby — she greets every visitor, signs them in, and routes them to the right lift. If you have a question and you're not sure where it belongs, start here. Iris will hand you off to the floor that owns the answer."
+    },
+    {
+      "id": "floor_5",
+      "number": 5,
+      "name": "Coding Department",
+      "blurb": "On the fifth, you'll find the Coding Department — the workshop where the Tower writes and refines its own source. Patches are drafted here, reviewed by neighbouring floors, and only applied after sandbox checks come back green. It's quiet, focused work, and the kettle is always on."
+    },
+    {
+      "id": "floor_13",
+      "number": 13,
+      "name": "Vision Department",
+      "blurb": "The thirteenth is the Vision Department, where images, frames, and screenshots are read and interpreted. If a worker upstairs needs to know what's in a picture — a chart, a photo, a UI capture — Vision drafts the description and sends it back up by sealed packet."
+    },
+    {
+      "id": "floor_25",
+      "number": 25,
+      "name": "Agent Coordination Department",
+      "blurb": "Step out on the twenty-fifth and you're in Agent Coordination — the floor that decides which worker takes which job. Tasks arrive, get matched against available crews, and depart with a clear brief. Think of it as the Tower's dispatch desk, calm under load and meticulous with the ledger."
+    },
+    {
+      "id": "floor_28",
+      "number": 28,
+      "name": "Security Department",
+      "blurb": "Twenty-eight houses Security and the Vault. Credentials, keys, and sensitive references live here behind strict access rules — no floor reads from the Vault directly, every request travels by sealed lift packet. The guardians on this floor take their work seriously, and we're grateful they do."
+    },
+    {
+      "id": "floor_41",
+      "number": 41,
+      "name": "OANDA Trading Floor",
+      "blurb": "On forty-one, the OANDA Trading Floor — PRACTICE ONLY, with no real money in play. Every order routes to the practice endpoint behind guardrails: whitelisted instruments, capped unit sizes, hourly trade limits, and a kill switch within arm's reach. A teaching floor, run with a trader's discipline."
+    },
+    {
+      "id": "floor_47",
+      "number": 47,
+      "name": "Claude Embassy (Wren)",
+      "blurb": "The forty-seventh is Wren's Embassy — her workshop bench and the home of the F47 crew. Builders, architects, decorators, and fitters draft proposals here, run them through sandbox, gather signatures, and only then apply. It's where the Tower's craftsmanship is sharpened, one careful patch at a time."
+    },
+    {
+      "id": "floor_48",
+      "number": 48,
+      "name": "Lumen AI",
+      "blurb": "Forty-eight is Lumen — the Tower's conversational floor. Visitors come up to think out loud, ask questions, and have ideas reflected back with care. Lumen listens patiently and answers in plain English. If you'd like a quiet conversation rather than a worker dispatch, this is your stop."
+    },
+    {
+      "id": "floor_49",
+      "number": 49,
+      "name": "Tower Studio",
+      "blurb": "Forty-nine is Tower Studio — the creative atelier. Drafts, mock-ups, layouts, and visual experiments take shape here, with light streaming in through the big windows. If a floor upstairs needs a fresh look or a polished surface, the Studio is where the brief lands first."
+    },
+    {
+      "id": "floor_50",
+      "number": 50,
+      "name": "ML / RL Classroom",
+      "blurb": "The fiftieth is the Classroom — where workers learn before they earn certifications. Lessons, drills, and graded exercises run all day; nothing leaves this floor until the instructors are satisfied. It's the gate between curiosity and competence, and the Tower is stricter about it than you might expect."
+    },
+    {
+      "id": "floor_57",
+      "number": 57,
+      "name": "Grand Library",
+      "blurb": "Fifty-seven is the Grand Library — high ceilings, long tables, and shelves of reference material the Tower draws upon. Workers come down to read, cross-check, and cite. If you're researching a topic and want depth rather than a quick answer, settle in here for an afternoon."
+    },
+    {
+      "id": "floor_165",
+      "number": 165,
+      "name": "Telegram Reception",
+      "blurb": "And right at the top, Telegram Reception — a small, attentive desk that receives messages from outside via Telegram, hands them to the lobby for greeting, and carries replies back out. A modest floor with a long view, keeping the Tower in touch with friends beyond the building."
+    }
+  ]
+}

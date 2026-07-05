@@ -1,0 +1,209 @@
+{
+  "ok": true,
+  "kind": "qsb_commerce_platform_research",
+  "phase": "QSB_FULL_SKYSCRAPER_OCCUPANCY_COMMERCE_WORKFORCE_EXPANSION_V1",
+  "generated_ts": "2026-06-30T13:46:36.978332+00:00",
+  "platform_count": 10,
+  "platforms": [
+    {
+      "platform": "Etsy",
+      "api_availability": "Etsy Open API v3 (requires OAuth2, app review for write scope)",
+      "authentication": "OAuth2 with keystring + shared secret",
+      "allowed_automation": "draft listing JSON locally; publishing requires user click",
+      "listing_api_support": true,
+      "order_api_support": true,
+      "fulfilment_support": "via Etsy Shop API",
+      "fees_risks_to_check_manually": "Etsy listing fee, transaction fee, payment processing fee, advertising fee",
+      "terms_compliance_risk": "must follow Seller Policy + Intellectual Property Policy",
+      "required_credentials": [
+        "ETSY_API_KEY",
+        "ETSY_SHARED_SECRET",
+        "ETSY_SHOP_ID",
+        "ETSY_OAUTH_TOKEN"
+      ],
+      "safe_test_or_manual_mode": "store drafts locally; render listing JSON; never POST without user approval",
+      "recommended_floor": 6,
+      "recommended_team": "etsy_team",
+      "build_now_or_later": "now (draft-only)"
+    },
+    {
+      "platform": "Shopify",
+      "api_availability": "Shopify Admin API + Storefront API",
+      "authentication": "API key + access token (private app) OR OAuth (public app)",
+      "allowed_automation": "draft products + themes locally; no writes until approved",
+      "listing_api_support": true,
+      "order_api_support": true,
+      "fulfilment_support": "via Shopify fulfilment endpoints",
+      "fees_risks_to_check_manually": "Shopify plan fees, transaction fees if not using Shopify Payments",
+      "terms_compliance_risk": "Shopify ToS + acceptable use policy",
+      "required_credentials": [
+        "SHOPIFY_STORE_DOMAIN",
+        "SHOPIFY_ADMIN_API_TOKEN"
+      ],
+      "safe_test_or_manual_mode": "development store + draft product JSON",
+      "recommended_floor": 7,
+      "recommended_team": "shopify_team",
+      "build_now_or_later": "later (after Etsy proves the pipeline)"
+    },
+    {
+      "platform": "Printful",
+      "api_availability": "Printful API v2",
+      "authentication": "Bearer token",
+      "allowed_automation": "draft products + mockups",
+      "listing_api_support": true,
+      "order_api_support": true,
+      "fulfilment_support": "Printful fulfils + ships directly",
+      "fees_risks_to_check_manually": "Printful product cost + shipping cost + Printful markup",
+      "terms_compliance_risk": "Printful Acceptable Use + IP policies",
+      "required_credentials": [
+        "PRINTFUL_API_TOKEN"
+      ],
+      "safe_test_or_manual_mode": "mockup generation API has no commitment; orders require manual approval",
+      "recommended_floor": 14,
+      "recommended_team": "pod_team",
+      "build_now_or_later": "now (mockup-only)"
+    },
+    {
+      "platform": "Printify",
+      "api_availability": "Printify API v1",
+      "authentication": "Personal Access Token (Bearer)",
+      "allowed_automation": "draft products + mockups",
+      "listing_api_support": true,
+      "order_api_support": true,
+      "fulfilment_support": "Printify fulfils + ships directly",
+      "fees_risks_to_check_manually": "Printify product cost + shipping cost",
+      "terms_compliance_risk": "Printify ToS + IP policies",
+      "required_credentials": [
+        "PRINTIFY_API_TOKEN"
+      ],
+      "safe_test_or_manual_mode": "API supports unsubmitted drafts; orders require manual approval",
+      "recommended_floor": 14,
+      "recommended_team": "pod_team",
+      "build_now_or_later": "later (after Printful proves pipeline)"
+    },
+    {
+      "platform": "Gumroad",
+      "api_availability": "Gumroad API v2",
+      "authentication": "OAuth access token",
+      "allowed_automation": "draft products + price changes (with approval)",
+      "listing_api_support": true,
+      "order_api_support": true,
+      "fulfilment_support": "Gumroad delivers digital downloads",
+      "fees_risks_to_check_manually": "Gumroad transaction fee",
+      "terms_compliance_risk": "Gumroad ToS",
+      "required_credentials": [
+        "GUMROAD_ACCESS_TOKEN"
+      ],
+      "safe_test_or_manual_mode": "draft products; publishing needs human approval",
+      "recommended_floor": 6,
+      "recommended_team": "etsy_team",
+      "build_now_or_later": "later"
+    },
+    {
+      "platform": "Payhip",
+      "api_availability": "Payhip API",
+      "authentication": "API key",
+      "allowed_automation": "draft listings",
+      "listing_api_support": true,
+      "order_api_support": true,
+      "fulfilment_support": "Digital downloads",
+      "fees_risks_to_check_manually": "Payhip processing fee",
+      "terms_compliance_risk": "Payhip ToS",
+      "required_credentials": [
+        "PAYHIP_API_KEY"
+      ],
+      "safe_test_or_manual_mode": "draft only",
+      "recommended_floor": 6,
+      "recommended_team": "etsy_team",
+      "build_now_or_later": "later"
+    },
+    {
+      "platform": "Ko-fi",
+      "api_availability": "Webhook receive only (no full REST)",
+      "authentication": "Webhook secret",
+      "allowed_automation": "receive notifications for incoming support",
+      "listing_api_support": false,
+      "order_api_support": false,
+      "fulfilment_support": "Manual / digital download",
+      "fees_risks_to_check_manually": "Ko-fi Gold fee (membership tier)",
+      "terms_compliance_risk": "Ko-fi creator guidelines",
+      "required_credentials": [
+        "KOFI_WEBHOOK_SECRET"
+      ],
+      "safe_test_or_manual_mode": "webhook listener only",
+      "recommended_floor": 6,
+      "recommended_team": "etsy_team",
+      "build_now_or_later": "later"
+    },
+    {
+      "platform": "eBay",
+      "api_availability": "eBay Trading + Browse API",
+      "authentication": "OAuth2 + Developer App ID",
+      "allowed_automation": "research only; listing API restricted",
+      "listing_api_support": true,
+      "order_api_support": true,
+      "fulfilment_support": "Seller fulfils",
+      "fees_risks_to_check_manually": "eBay insertion fees + final value fee",
+      "terms_compliance_risk": "eBay seller policies are strict",
+      "required_credentials": [
+        "EBAY_APP_ID",
+        "EBAY_CERT_ID",
+        "EBAY_OAUTH"
+      ],
+      "safe_test_or_manual_mode": "sandbox environment available",
+      "recommended_floor": 11,
+      "recommended_team": "research_team",
+      "build_now_or_later": "research only \u2014 do not build"
+    },
+    {
+      "platform": "Amazon Handmade / Merch",
+      "api_availability": "Selling Partner API (SP-API) \u2014 gated approval",
+      "authentication": "SP-API LWA + IAM role",
+      "allowed_automation": "tightly gated",
+      "listing_api_support": true,
+      "order_api_support": true,
+      "fulfilment_support": "Amazon FBA optional",
+      "fees_risks_to_check_manually": "Amazon referral fees + FBA fees",
+      "terms_compliance_risk": "very high \u2014 strict policy enforcement",
+      "required_credentials": [
+        "AMZ_LWA_CLIENT_ID",
+        "AMZ_LWA_CLIENT_SECRET",
+        "AMZ_REFRESH_TOKEN",
+        "AMZ_AWS_ACCESS_KEY",
+        "AMZ_AWS_SECRET_KEY"
+      ],
+      "safe_test_or_manual_mode": "research only \u2014 do not build",
+      "recommended_floor": 11,
+      "recommended_team": "research_team",
+      "build_now_or_later": "research only"
+    },
+    {
+      "platform": "Local Direct Storefront",
+      "api_availability": "n/a \u2014 local Flask/FastAPI page",
+      "authentication": "n/a",
+      "allowed_automation": "full local control",
+      "listing_api_support": true,
+      "order_api_support": false,
+      "fulfilment_support": "manual",
+      "fees_risks_to_check_manually": "n/a (no platform)",
+      "terms_compliance_risk": "low (no platform terms)",
+      "required_credentials": [],
+      "safe_test_or_manual_mode": "local-only catalog page",
+      "recommended_floor": 7,
+      "recommended_team": "shopify_team",
+      "build_now_or_later": "now (preview catalog only)"
+    }
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "worker_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "live_payments_enabled": false,
+  "live_listings_publishing_enabled": false,
+  "external_api_calls_enabled": false,
+  "secrets_in_logs": false,
+  "manual_approval_required_for_commerce": true
+}

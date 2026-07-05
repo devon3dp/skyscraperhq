@@ -1,0 +1,31 @@
+{
+  "room_id": "strategy_room",
+  "name": "Strategy Room",
+  "category": "audit",
+  "purpose": "A private room for strategic planning and team discussions.",
+  "concierge_blurb": "A quiet space for deep strategy sessions.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "center",
+    "offset_x": 0.5,
+    "offset_z": -6.5,
+    "footprint_m": [
+      10,
+      7
+    ],
+    "height_m": 2.4
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Strat.Rm",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_18"
+}

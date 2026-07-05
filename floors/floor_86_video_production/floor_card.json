@@ -1,0 +1,72 @@
+{
+  "floor_id": "floor_86",
+  "floor_number": 86,
+  "floor_name": "Video Production",
+  "department": "designed_by_f66_architects_v1",
+  "zone": "ZONE D \u00b7 COMMERCE WING",
+  "archetype": "designed_by_f66_architects_v1",
+  "staff_lead": "F66 Architects' Office",
+  "tour_blurb": "short-form + ads",
+  "visitor_open": false,
+  "advisory_only": true,
+  "execution_mode": "PREVIEW_ONLY",
+  "skeleton": true,
+  "skeleton_source": "floor_manifest.json",
+  "skeleton_generated_ts": "2026-06-17",
+  "live_signals": {
+    "theme": null,
+    "categories": null,
+    "palette": null,
+    "tagline": null
+  },
+  "gate_posture": {
+    "advisory_only": true,
+    "execution_allowed": false,
+    "live_payments_enabled": false
+  },
+  "team_roster": [
+    {
+      "id": "f086.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "spawned_id": "7d796ef006",
+      "spawned_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F086",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f086.operator.01",
+      "spawned_id": "41d4274146"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F086",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f086.operator.02",
+      "spawned_id": "f6aa81c085"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F086",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f086.operator.03",
+      "spawned_id": "50faa80dd7"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F086",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f086.operator.04",
+      "spawned_id": "464a00c114"
+    }
+  ],
+  "floor_manager": "f086.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

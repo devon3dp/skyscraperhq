@@ -1,0 +1,34 @@
+{
+  "room_id": "conference_room",
+  "name": "Production Conference Room",
+  "category": "reception",
+  "purpose": "This room is for meetings and conferences.",
+  "concierge_blurb": "Join the team in our dedicated conference space for important discussions.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 0.0,
+    "offset_z": 8.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Conf Room",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_87"
+}

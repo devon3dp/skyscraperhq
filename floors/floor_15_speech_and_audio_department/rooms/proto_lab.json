@@ -1,0 +1,34 @@
+{
+  "room_id": "proto_lab",
+  "name": "Prototype Lab",
+  "category": "workshop",
+  "purpose": "Lab for developing and testing voice commerce technologies.",
+  "concierge_blurb": "Innovating the future of voice commerce here.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -6.0,
+    "offset_z": 4.0,
+    "footprint_m": [
+      10,
+      8
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "server_rack",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Proto Lab",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/proto_tests.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 30
+  },
+  "floor": "floor_15"
+}

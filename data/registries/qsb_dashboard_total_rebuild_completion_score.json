@@ -1,0 +1,18 @@
+{
+  "ok": true,
+  "phase": "QSB_DASHBOARD_TOTAL_REBUILD_3D_WORKERS_OPENCLAW_ONLINE_V1",
+  "kind": "qsb_dashboard_total_rebuild_completion_score",
+  "generated_ts": "2026-06-09T11:27:18.385664+00:00",
+  "iteration": 1,
+  "completion_score": 100.0,
+  "passed": 18,
+  "total": 18,
+  "is_100_complete": true,
+  "failed_gates": [],
+  "failed_details": [],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

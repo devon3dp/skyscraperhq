@@ -1,0 +1,61 @@
+{
+  "ts": "2026-06-30T18:46:13Z",
+  "paused": {
+    "belief_driven_btc": {
+      "paused": true,
+      "paused_at": "2026-06-30T18:25:04Z",
+      "reason": "loss_streak_3_sum=-1.73",
+      "killed_procs": 2
+    }
+  },
+  "active_workers": {
+    "belief_driven_msft": {
+      "n_recent": 2,
+      "recent_pnl": 0.37000000000000455
+    },
+    "belief_driven_spy": {
+      "n_recent": 2,
+      "recent_pnl": 0.28499999999996817
+    },
+    "belief_driven_eurgbp": {
+      "n_recent": 1,
+      "recent_pnl": 0.10000000000010001
+    },
+    "belief_driven_coin": {
+      "n_recent": 1,
+      "recent_pnl": 0.160000000000025
+    },
+    "belief_driven_wheat": {
+      "n_recent": 1,
+      "recent_pnl": 0.34999999999998366
+    },
+    "ensemble_gbpusd": {
+      "n_recent": 1,
+      "recent_pnl": 0.19000000000035655
+    },
+    "belief_driven_gld": {
+      "n_recent": 1,
+      "recent_pnl": 0.2799999999999727
+    },
+    "ensemble_btcusdt": {
+      "n_recent": 5,
+      "recent_pnl": 0.0010279029547869693
+    },
+    "ensemble_bnbusdt": {
+      "n_recent": 5,
+      "recent_pnl": -0.011172514418609664
+    },
+    "ensemble_ethusdt": {
+      "n_recent": 5,
+      "recent_pnl": 0.0015809844237139896
+    },
+    "belief_driven_eth": {
+      "n_recent": 5,
+      "recent_pnl": -0.0877446377203875
+    },
+    "belief_driven_xrp": {
+      "n_recent": 2,
+      "recent_pnl": 0.25999999999999357
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "room_id": "email_outbox_kiosks",
+  "name": "Outbound Reply Kiosks",
+  "category": "operations",
+  "purpose": "Preparing and sending out emails.",
+  "concierge_blurb": "Here, replies are drafted and dispatched with precision.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 8.0,
+    "offset_z": -2.0,
+    "footprint_m": [
+      10,
+      6
+    ],
+    "height_m": 1.5
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Reply Kiosks",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/outbox_status.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 60
+  },
+  "floor": "floor_164"
+}

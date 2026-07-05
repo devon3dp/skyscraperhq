@@ -1,0 +1,72 @@
+{
+  "floor_id": "floor_117",
+  "floor_number": 117,
+  "floor_name": "Robotics Lab",
+  "department": "designed_by_f66_architects_v1",
+  "zone": "ZONE E \u00b7 MID-RISE",
+  "archetype": "designed_by_f66_architects_v1",
+  "staff_lead": "F66 Architects' Office",
+  "tour_blurb": "manipulators + autonomy",
+  "visitor_open": false,
+  "advisory_only": true,
+  "execution_mode": "PREVIEW_ONLY",
+  "skeleton": true,
+  "skeleton_source": "floor_manifest.json",
+  "skeleton_generated_ts": "2026-06-17",
+  "live_signals": {
+    "theme": null,
+    "categories": null,
+    "palette": null,
+    "tagline": null
+  },
+  "gate_posture": {
+    "advisory_only": true,
+    "execution_allowed": false,
+    "live_payments_enabled": false
+  },
+  "team_roster": [
+    {
+      "id": "f117.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "spawned_id": "b71e985601",
+      "spawned_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F117",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f117.operator.01",
+      "spawned_id": "97474130ed"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F117",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f117.operator.02",
+      "spawned_id": "c494780189"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F117",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f117.operator.03",
+      "spawned_id": "c8c858118d"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F117",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f117.operator.04",
+      "spawned_id": "f80103f90e"
+    }
+  ],
+  "floor_manager": "f117.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

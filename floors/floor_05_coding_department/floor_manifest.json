@@ -1,0 +1,48 @@
+{
+  "floor_id": "floor_05",
+  "department": "Coding Department",
+  "version": "1.1",
+  "role": "coding_workspace_and_request_origin",
+  "kernel_required": false,
+  "models_required": false,
+  "direct_provider_access": false,
+  "routes_through": "floor_24",
+  "first_lift": "service_lift",
+  "queues": [
+    "request_queue",
+    "patch_queue",
+    "review_queue",
+    "test_queue"
+  ],
+  "ports": [
+    "claude_code_port",
+    "local_coder_port",
+    "future_coding_provider_port"
+  ],
+  "notice": "Floor 5 prepares coding work and sends sealed requests to Floor 24. It does not execute AI providers directly.",
+  "interior_brief": {
+    "archetype": "dev_lab",
+    "palette": [
+      "#1e2740",
+      "#2a4d80",
+      "#4ade80"
+    ],
+    "furniture": [
+      "desks",
+      "meeting area",
+      "common space",
+      "storage"
+    ],
+    "lighting": "task + ambient",
+    "mood": "focused",
+    "designed_by": "F66 Architects + F17 Graphics + Fitters team",
+    "fitted_at": "2026-06-11T14:39:45.620109Z",
+    "godot_scene_brief": "render an generic floor with neutral grey + accent per floor theme palette, professional mood, key furniture: desks, meeting area, common space",
+    "signature": "Standing desks, dual monitors, whiteboard wall, debug pit",
+    "diversified_ts": "2026-06-11T17:57:45Z",
+    "diversified_by": "qsb_archetype_diversifier_v1"
+  },
+  "fitted_out": true,
+  "fit_out_ts": "2026-06-11T14:39:45.620109Z",
+  "floor_name": "Coding"
+}

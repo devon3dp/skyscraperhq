@@ -1,0 +1,92 @@
+{
+  "room_id": "blueprint_file",
+  "name": "Blueprint File",
+  "category": "archive",
+  "floor": "floor_47",
+  "purpose": "this file holds the SVG floor plan of F47 itself.",
+  "concierge_blurb": "A printed plan of this floor lives here, kept current as rooms are added. Guests are welcome to glance at it on their way through.",
+  "current_state": "to_build",
+  "visitor_open": true,
+  "evidence_paths": [
+    "floors/floor_47_executive_operations_department/floor_manifest.json",
+    "floors/floor_47_executive_operations_department/sketches/blueprint_file.md",
+    "data/registries/qsb_f47_floor_buildout_plan.json"
+  ],
+  "live_signals": {
+    "inline_svg_present": true,
+    "room_count": 25,
+    "svg_source": "floors/floor_47_executive_operations_department/sketches/blueprint_file.md",
+    "zones": {
+      "workshop": [
+        "workshop_bench",
+        "sandbox_lab",
+        "fitter_bench"
+      ],
+      "audit": [
+        "signoff_desk",
+        "kill_switch_chamber",
+        "audit_board",
+        "health_pulse_panel"
+      ],
+      "operations": [
+        "applier_room",
+        "helm_auger_conferring_room",
+        "proposals_desk",
+        "morning_briefing_podium",
+        "night_mode_panel"
+      ],
+      "design_studio": [
+        "architect_drawing_table",
+        "graphic_designer_corner"
+      ],
+      "atelier": [
+        "decorator_atelier"
+      ],
+      "archive": [
+        "wren_letter_archive",
+        "blueprint_file"
+      ],
+      "library": [
+        "library_shelf"
+      ],
+      "reception": [
+        "f47_reception_desk",
+        "visitor_sign_in_book",
+        "kernel_chat_sidecar"
+      ],
+      "social": [
+        "worker_forum_corner",
+        "kettle_break_area"
+      ],
+      "vista": [
+        "view_from_window"
+      ]
+    },
+    "advisory_only": true
+  },
+  "built_at": "2026-06-14T17:15:00Z",
+  "built_by": "f47_floor_buildout_batch_2",
+  "lessons_learned_for_next_agent": "The SVG plan is best laid out by category-zone rather than by build batch \u2014 visitors should be able to walk one zone at a time. I grouped the 25 rooms into 10 zones using the 'category' field from the plan. Future agents adding rooms should extend the zone map rather than appending arbitrarily.",
+  "layout": {
+    "zone": "center",
+    "offset_x": 0.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      1.1,
+      1.1
+    ],
+    "height_m": 2.8
+  },
+  "render": {
+    "primary_prop": "display",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "HELIX",
+    "glow": true
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/qsb_helix_state.json",
+    "display": "status_dot",
+    "refresh_seconds": 120
+  }
+}

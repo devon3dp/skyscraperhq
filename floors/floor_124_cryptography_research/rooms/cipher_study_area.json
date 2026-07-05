@@ -1,0 +1,34 @@
+{
+  "room_id": "cipher_study_area",
+  "name": "Cipher Study Area",
+  "category": "workshop",
+  "purpose": "A space for in-depth analysis of cryptographic algorithms.",
+  "concierge_blurb": "Explore the complexities of post-quantum cryptography here.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 1.5
+  },
+  "render": {
+    "primary_prop": "desk",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Cipher Study",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/ciphers_in_use.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_124"
+}

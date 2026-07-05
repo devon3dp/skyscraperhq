@@ -1,0 +1,34 @@
+{
+  "room_id": "analytical_spectroscopy_room",
+  "name": "Analytical Spectroscopy Room",
+  "category": "lab",
+  "purpose": "A space for analyzing the properties of substances using spectroscopic techniques.",
+  "concierge_blurb": "This room houses state-of-the-art instruments for detailed chemical analysis.",
+  "current_state": "already_exists",
+  "visitor_open": false,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 6.0,
+    "offset_z": 4.0,
+    "footprint_m": [
+      12,
+      9
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "lab",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Spectroscopy Lab",
+    "glow": true
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/spectral_readings.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_127"
+}

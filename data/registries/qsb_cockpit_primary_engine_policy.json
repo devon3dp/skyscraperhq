@@ -1,0 +1,40 @@
+{
+  "ok": true,
+  "kind": "qsb_cockpit_primary_engine_policy",
+  "phase": "QSB_GODOT_NATIVE_COCKPIT_PRIMARY_GRAPHICS_ENGINE_SWITCH_V1",
+  "generated_ts": "2026-06-09T20:32:00+00:00",
+  "policy": "Godot is the primary professional graphics engine. Browser dashboard is legacy fallback. PyQt is admin fallback only. Reports must not claim success based on browser dashboard.",
+  "primary": {
+    "engine": "godot",
+    "version": "4.6.1 stable mono",
+    "role": "primary_professional_graphics_engine",
+    "project_path": "/home/ross/qsb_godot_native_cockpit",
+    "qsb_path": "native_cockpit/godot_qsb",
+    "launch_command": "./scripts/qsb_godot_run.sh",
+    "primary_status_command": "./scripts/qsb_godot_primary_status.sh",
+    "launch_check_command": "./scripts/qsb_godot_launch_check.sh",
+    "professional_upgrade_status_command": "./scripts/qsb_godot_professional_upgrade_status.sh"
+  },
+  "fallback_browser_dashboard": {
+    "engine": "browser_dashboard",
+    "role": "legacy_fallback_dashboard",
+    "url": "http://127.0.0.1:8765/?v=unified",
+    "do_not_use_as_visual_success": true,
+    "purpose": "telemetry source + admin-style HTML view; not the visual success target"
+  },
+  "fallback_pyqt": {
+    "engine": "pyqt5",
+    "role": "fallback_admin_only",
+    "do_not_use_as_visual_success": true,
+    "purpose": "command-line and admin-only fallback; not the visual success target"
+  },
+  "safety_envelope": {
+    "execution_allowed": false,
+    "live_trading_enabled": false,
+    "live_payments_enabled": false,
+    "live_listings_publishing_enabled": false,
+    "openclaw_real_tool_execution_enabled": false,
+    "autonomous_dispatch_enabled": false,
+    "external_api_calls_enabled": false
+  }
+}

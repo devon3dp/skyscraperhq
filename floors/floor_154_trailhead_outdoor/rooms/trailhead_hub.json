@@ -1,0 +1,34 @@
+{
+  "room_id": "trailhead_hub",
+  "name": "Trailhead Hub",
+  "category": "operations",
+  "purpose": "Central hub for coordinating and launching expeditions.",
+  "concierge_blurb": "Coordinate your next adventure from here!",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -5.0,
+    "offset_z": 2.0,
+    "footprint_m": [
+      8,
+      3
+    ],
+    "height_m": 1.2
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Trailhead Hub",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 0
+  },
+  "floor": "floor_154"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "train_L5_everyone_plays",
+  "title": "Level 5 — Dispatch Hermes + iQuest + save to team sandbox",
+  "stages": [
+    {
+      "kind": "hermes",
+      "prompt": "Use wren_dispatch_hermes with task='In ONE sentence: what is a good default keep-alive strategy for a 15-node council of local Ollama models sharing a single GPU?'. STAGE_OUT: Hermes's reply first 200 chars."
+    },
+    {
+      "kind": "iquest",
+      "prompt": "Use wren_dispatch_iquest with task='In 4 lines of Python: a function called warm_hi(name) that returns a greeting including today date in ISO format'. STAGE_OUT: iQuest's code first 300 chars."
+    },
+    {
+      "kind": "save",
+      "prompt": "Use wren_write_file with path='data/team_sandbox/L5_wren_hermes_iquest.md' and content='# L5 team result\\n\\n## Hermes said\\n<paste from prior stage 1>\\n\\n## iQuest said\\n```python\\n<paste from prior stage 2>\\n```\\n'. STAGE_OUT: tool result."
+    },
+    {
+      "kind": "verdict",
+      "prompt": "Use wren_bash cmd='wc -l data/team_sandbox/L5_wren_hermes_iquest.md && cat data/team_sandbox/L5_wren_hermes_iquest.md'. STAGE_OUT: the file content, then a final line: 'L5 VERDICT: team_playing=<yes|no>, sandbox_saved=<yes|no>'."
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "room_id": "command_center",
+  "name": "Command Center",
+  "category": "operations",
+  "purpose": "This room is for overseeing the entire tower's operations.",
+  "concierge_blurb": "A large dais with a holographic interface for command and control.",
+  "current_state": "already_exists",
+  "visitor_open": false,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Command Center",
+    "glow": true
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/tower_status.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 60
+  },
+  "floor": "floor_53"
+}

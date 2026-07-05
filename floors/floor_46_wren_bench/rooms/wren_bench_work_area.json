@@ -1,0 +1,34 @@
+{
+  "room_id": "wren_bench_work_area",
+  "name": "Wren's Work Area",
+  "category": "workshop",
+  "purpose": "This area is dedicated to Wren's daily coding and proposal work.",
+  "concierge_blurb": "A sleek, tech-focused workspace with a large monitor and keyboard setup.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      15,
+      7
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "desk",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Wren's Desk",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/proposals.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_46"
+}

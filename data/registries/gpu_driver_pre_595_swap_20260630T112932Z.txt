@@ -1,0 +1,57 @@
+=== TS: 20260630T112932Z ===
+=== uname ===
+Linux 24.04ubuntu 6.17.0-35-generic #35~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue May 26 19:30:42 UTC 2 x86_64 x86_64 x86_64 GNU/Linux
+
+=== ubuntu-drivers devices ===
+udevadm hwdb is deprecated. Use systemd-hwdb instead.
+udevadm hwdb is deprecated. Use systemd-hwdb instead.
+udevadm hwdb is deprecated. Use systemd-hwdb instead.
+udevadm hwdb is deprecated. Use systemd-hwdb instead.
+udevadm hwdb is deprecated. Use systemd-hwdb instead.
+udevadm hwdb is deprecated. Use systemd-hwdb instead.
+udevadm hwdb is deprecated. Use systemd-hwdb instead.
+udevadm hwdb is deprecated. Use systemd-hwdb instead.
+udevadm hwdb is deprecated. Use systemd-hwdb instead.
+udevadm hwdb is deprecated. Use systemd-hwdb instead.
+udevadm hwdb is deprecated. Use systemd-hwdb instead.
+udevadm hwdb is deprecated. Use systemd-hwdb instead.
+== /sys/devices/pci0000:00/0000:00:01.1/0000:01:00.0 ==
+modalias : pci:v000010DEd00002C05sv00001462sd00005315bc03sc00i00
+vendor   : NVIDIA Corporation
+driver   : nvidia-driver-595 - distro non-free
+driver   : nvidia-driver-580-server-open - distro non-free
+driver   : nvidia-driver-575 - third-party non-free
+driver   : nvidia-driver-570 - third-party non-free
+driver   : nvidia-driver-595-open - distro non-free recommended
+driver   : nvidia-driver-575-open - third-party non-free
+driver   : nvidia-driver-580 - third-party non-free
+driver   : nvidia-driver-570-open - third-party non-free
+driver   : nvidia-driver-580-server - distro non-free
+driver   : nvidia-driver-595-server - distro non-free
+driver   : nvidia-driver-595-server-open - distro non-free
+driver   : nvidia-driver-580-open - third-party non-free
+driver   : xserver-xorg-video-nouveau - distro free builtin
+
+
+=== current nvidia package list ===
+rc  libnvidia-compute-535:amd64                      535.288.01-0ubuntu1                              amd64        NVIDIA libcompute package
+rc  libnvidia-compute-550:amd64                      550.163.01-0ubuntu1                              amd64        NVIDIA libcompute package
+rc  libnvidia-compute-565:amd64                      565.57.01-0ubuntu1                               amd64        NVIDIA libcompute package
+rc  libnvidia-compute-565-server:amd64               565.57.01-0ubuntu0.24.04.3                       amd64        NVIDIA libcompute package
+rc  libnvidia-compute-570:amd64                      570.172.08-0ubuntu1                              amd64        NVIDIA libcompute package
+rc  libnvidia-compute-580:amd64                      580.159.04-1ubuntu1                              amd64        NVIDIA libcompute package
+rc  linux-modules-nvidia-550-6.11.0-17-generic       6.11.0-17.17~24.04.2+1                           amd64        Linux kernel nvidia modules for version 6.11.0-17
+rc  linux-objects-nvidia-550-6.11.0-17-generic       6.11.0-17.17~24.04.2+1                           amd64        Linux kernel nvidia modules for version 6.11.0-17 (objects)
+rc  nvidia-dkms-580-open                             580.159.04-1ubuntu1                              amd64        NVIDIA DKMS package (open kernel module)
+rc  nvidia-kernel-common-580                         580.159.04-1ubuntu1                              amd64        Shared files used with the kernel module
+rc  nvidia-persistenced                              610.43.02-1ubuntu1                               amd64        daemon to maintain persistent software state in the NVIDIA driver
+rc  nvidia-settings                                  610.43.02-1ubuntu1                               amd64        Tool for configuring the NVIDIA graphics driver
+ii  nvtop                                            3.0.2-1                                          amd64        Interactive NVIDIA GPU process monitor
+ii  sdkmanager                                       2.4.1-13536                                      amd64        NVIDIA SDK Manager
+
+=== nvidia services ===
+nvidia-persistenced.service                            masked          enabled
+
+=== nvidia-smi (probably broken) ===
+MISSING
+/bin/bash: line 71: nvidia-smi: command not found

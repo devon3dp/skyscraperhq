@@ -1,0 +1,31 @@
+{
+  "ok": true,
+  "kind": "qsb_scene_overlay_state",
+  "phase": "EQSB_SYSTEM_OBSERVATORY_HARDWARE_FLOOR_LIVE_TELEMETRY_REPAIR_V1",
+  "generated_ts": "2026-06-30T13:46:34.578426+00:00",
+  "guardian_safety_state": "OK",
+  "contradiction_count": 0,
+  "per_floor_safety_state": {
+    "30": "OK",
+    "31": "OK",
+    "29": "OK",
+    "53": "OK",
+    "41": "OK_PAPER_ONLY",
+    "42": "OK_PAPER_ONLY",
+    "43": "OK_PAPER_ONLY"
+  },
+  "penthouse_glow": {
+    "source": "eqsb_cadence_state.tick_count",
+    "tick_count": 72,
+    "glow_phase_0_to_1": 0.2,
+    "intensity_hint": "normal"
+  },
+  "openclaw_avatar_target_floor": 30,
+  "policy": "Per-floor safety badge and Penthouse crown glow are sourced from EQSB Guardian + cadence \u2014 never fabricated.",
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

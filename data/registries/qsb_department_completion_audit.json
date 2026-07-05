@@ -1,0 +1,175 @@
+{
+  "ok": true,
+  "phase": "QSB_SKYSCRAPER_100_PERCENT_ONLINE_INTERACTIVE_3D_WORKFORCE_COMPLETION_V1",
+  "kind": "qsb_department_completion_audit",
+  "generated_ts": "2026-06-30T13:46:34.680908+00:00",
+  "total_departments": 9,
+  "complete_count": 9,
+  "items": [
+    {
+      "department": "Recruitment Agency",
+      "floor": "floor_45_worker_recruitment_agency",
+      "floor_number": 45,
+      "rooms_built": [
+        "Candidate Intake",
+        "Screening Desk",
+        "Hiring Desk",
+        "Assignment Board",
+        "New Worker Orientation"
+      ],
+      "worker_count": 80,
+      "class": "candidate_worker",
+      "default_state": "awaiting_assignment",
+      "status": "complete",
+      "rooms_complete": 5,
+      "manifest_path": "floors/floor_45_worker_recruitment_agency/recruitment_agency_manifest.json"
+    },
+    {
+      "department": "Training Academy",
+      "floor": "floor_36_expansion_planning_department",
+      "floor_number": 36,
+      "rooms_built": [
+        "Training Pods",
+        "Simulation Room",
+        "Strategy Classroom",
+        "Safety Rules Classroom",
+        "Graduation Desk"
+      ],
+      "worker_count": 150,
+      "class": "training_worker",
+      "default_state": "training",
+      "status": "complete",
+      "rooms_complete": 5,
+      "manifest_path": "floors/floor_36_expansion_planning_department/training_academy_manifest.json"
+    },
+    {
+      "department": "Lessons Room",
+      "floor": "floor_38_sandbox_operations",
+      "floor_number": 38,
+      "rooms_built": [
+        "Mistake Review Desk",
+        "Lesson Library",
+        "Repeated Error Board",
+        "Redemption Desk",
+        "Cleared Worker Board"
+      ],
+      "worker_count": 50,
+      "class": "lesson_worker",
+      "default_state": "reviewing_lesson",
+      "status": "complete",
+      "rooms_complete": 5,
+      "manifest_path": "floors/floor_38_sandbox_operations/lessons_room_manifest.json"
+    },
+    {
+      "department": "Worker Operations Control",
+      "floor": "floor_47_executive_operations_department",
+      "floor_number": 47,
+      "rooms_built": [
+        "Task Dispatch Board",
+        "Movement Control",
+        "Floor Assignment Desk",
+        "Idle Worker Roster",
+        "Active Worker Roster"
+      ],
+      "worker_count": 90,
+      "class": "operational_worker",
+      "default_state": "idle_at_station",
+      "status": "complete",
+      "rooms_complete": 5,
+      "manifest_path": "floors/floor_47_executive_operations_department/worker_operations_control_manifest.json"
+    },
+    {
+      "department": "Rewards Office",
+      "floor": "floor_44_accounts_department",
+      "floor_number": 44,
+      "rooms_built": [
+        "Worker of the Day",
+        "Worker of the Week",
+        "Worker of the Month",
+        "Medal Cabinet",
+        "Reward Point Ledger"
+      ],
+      "worker_count": 60,
+      "class": "operational_worker",
+      "default_state": "idle_at_station",
+      "status": "complete",
+      "rooms_complete": 5,
+      "manifest_path": "floors/floor_44_accounts_department/rewards_office_manifest.json"
+    },
+    {
+      "department": "Promotion Board",
+      "floor": "floor_44_accounts_department",
+      "floor_number": 44,
+      "rooms_built": [
+        "Promotion Review Table",
+        "Eligible Workers Board",
+        "Pending Colonel Approval",
+        "Rank Ladder"
+      ],
+      "worker_count": 40,
+      "class": "operational_worker",
+      "default_state": "idle_at_station",
+      "status": "complete",
+      "rooms_complete": 4,
+      "manifest_path": "floors/floor_44_accounts_department/promotion_board_manifest.json"
+    },
+    {
+      "department": "Disciplinary Review Board",
+      "floor": "floor_30_permissions_department",
+      "floor_number": 30,
+      "rooms_built": [
+        "Strike Desk",
+        "Guardian Block Review",
+        "Retraining Orders",
+        "Suspension Board",
+        "Redemption Path"
+      ],
+      "worker_count": 70,
+      "class": "operational_worker",
+      "default_state": "idle_at_station",
+      "status": "complete",
+      "rooms_complete": 5,
+      "manifest_path": "floors/floor_30_permissions_department/disciplinary_review_board_manifest.json"
+    },
+    {
+      "department": "Rest / Dormitory Floor",
+      "floor": "floor_49_resource_management_department",
+      "floor_number": 49,
+      "rooms_built": [
+        "Rest Pods",
+        "Standby Lounge",
+        "Shift Change Desk",
+        "Offline Worker Bay"
+      ],
+      "worker_count": 280,
+      "class": "resting_worker",
+      "default_state": "resting",
+      "status": "complete",
+      "rooms_complete": 4,
+      "manifest_path": "floors/floor_49_resource_management_department/rest_dormitory_floor_manifest.json"
+    },
+    {
+      "department": "Floor Operations Department",
+      "floor": "floor_52_infrastructure_command_department",
+      "floor_number": 52,
+      "rooms_built": [
+        "Floor Directory",
+        "Department Registry",
+        "Floor Health Board",
+        "Missing Room Board"
+      ],
+      "worker_count": 180,
+      "class": "operational_worker",
+      "default_state": "idle_at_station",
+      "status": "complete",
+      "rooms_complete": 4,
+      "manifest_path": "floors/floor_52_infrastructure_command_department/floor_operations_department_manifest.json"
+    }
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

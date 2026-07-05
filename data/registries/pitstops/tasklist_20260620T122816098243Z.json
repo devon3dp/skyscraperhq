@@ -1,0 +1,8 @@
+[
+  {"id":"1","subject":"Finish Qwen2.5-32B download","status":"in_progress","note":"55+ GB / ~63 GB. 13 of 17 shards complete. ETA <1h."},
+  {"id":"7","subject":"Close Phase 2 of trader learning loop","status":"pending"},
+  {"id":"9","subject":"Per-floor walkable 3D interiors","status":"in_progress","note":"STAGE A+B+C + skyscraper-scale dims SHIPPED. Carpark IIFE verified. Heartbeat tmp-snapshot wired."},
+  {"id":"11","subject":"Launch godot dashboard alongside browser cockpit","status":"in_progress","note":"Standalone godot 4.7 binary at /vaults/ai/cache/godot_binary/. Running with Vulkan. Mouse fix not yet verified by Ross click-test."},
+  {"id":"12","subject":"Wire godot to /api/floor_rooms/<n>","status":"in_progress","note":"Read FloorInteriorRenderer.gd — uses tower-scale (FLOOR_HEIGHT=1.4, TOWER_HALF_WIDTH=4.2), no walk mode. Pivot to scale-down: each room becomes small accent on the floor slab. NOT YET CODED."},
+  {"id":"14","subject":"TikTok @skyscraperhq account creation","status":"in_progress","note":"@skyscraperhq is AVAILABLE on TikTok. hqskyscraper@gmail.com is the email (memory saved at reference_tower_email.md). Galaxy is signed in to that Google account. Play Store install prompt is currently up on Galaxy (showing 'Open with: Galaxy Store / Google Play Store'). Was about to tap Google Play Store + Always. PAUSED HERE BY PITSTOP."}
+]

@@ -1,0 +1,92 @@
+[
+  {
+    "name": "nomic-embed-text:latest",
+    "provider": "ollama",
+    "status": "detected",
+    "detected_ts": "2026-06-07T16:14:36.234161+00:00"
+  },
+  {
+    "name": "qwen3.5:9b",
+    "provider": "ollama",
+    "status": "detected",
+    "detected_ts": "2026-06-07T16:14:36.234176+00:00"
+  },
+  {
+    "name": "llama3.2:latest",
+    "provider": "ollama",
+    "status": "detected",
+    "detected_ts": "2026-06-07T16:14:36.234179+00:00"
+  },
+  {
+    "name": "neural-chat:7b",
+    "provider": "ollama",
+    "status": "detected",
+    "detected_ts": "2026-06-07T16:14:36.234183+00:00"
+  },
+  {
+    "name": "mistral:7b",
+    "provider": "ollama",
+    "status": "detected",
+    "detected_ts": "2026-06-07T16:14:36.234185+00:00"
+  },
+  {
+    "name": "codellama:13b",
+    "provider": "ollama",
+    "status": "detected",
+    "detected_ts": "2026-06-07T16:14:36.234187+00:00"
+  },
+  {
+    "name": "llama2:13b",
+    "provider": "ollama",
+    "status": "detected",
+    "detected_ts": "2026-06-07T16:14:36.234189+00:00"
+  },
+  {
+    "name": "llama2-uncensored:7b",
+    "provider": "ollama",
+    "status": "detected",
+    "detected_ts": "2026-06-07T16:14:36.234190+00:00"
+  },
+  {
+    "name": "qwen2.5:7b-instruct",
+    "provider": "ollama",
+    "status": "detected",
+    "detected_ts": "2026-06-07T16:14:36.234191+00:00"
+  },
+  {
+    "name": "qwen2.5-coder:7b-instruct",
+    "provider": "ollama",
+    "status": "detected",
+    "detected_ts": "2026-06-07T16:14:36.234193+00:00"
+  },
+  {
+    "name": "qwen2.5:7b",
+    "provider": "ollama",
+    "status": "detected",
+    "detected_ts": "2026-06-07T16:14:36.234194+00:00"
+  },
+  {
+    "name": "iquest-coder-v1:40b-instruct",
+    "provider": "ollama",
+    "status": "detected",
+    "detected_ts": "2026-06-07T16:14:36.234196+00:00"
+  },
+  {
+    "name": "llava:7b",
+    "provider": "ollama",
+    "status": "detected",
+    "detected_ts": "2026-06-07T16:14:36.234197+00:00"
+  },
+  {
+    "name": "deepseek-coder:latest",
+    "provider": "ollama",
+    "status": "detected",
+    "detected_ts": "2026-06-07T16:14:36.234198+00:00"
+  },
+  {
+    "name": "llama3:8b",
+    "provider": "ollama",
+    "status": "detected",
+    "detected_ts": "2026-06-07T16:14:36.234200+00:00"
+  }
+]

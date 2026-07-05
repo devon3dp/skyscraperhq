@@ -1,0 +1,73 @@
+{
+  "ts": "2026-07-01T07:15:23.017103Z",
+  "kind": "5item_winplan_proof",
+  "ship_summary": {
+    "item_1_trade_less": {
+      "file": "belief_updater_math.py",
+      "wr_gate": "0.35\u21920.42",
+      "regime_gate": "0.40\u21920.65",
+      "converge_dims": "2\u21923 of 4"
+    },
+    "item_2_uncertainty_gated_sizing": {
+      "file": "belief_updater_math.py",
+      "formula": "\u00d7 1/(1 + 20\u00b7step_std)"
+    },
+    "item_3_asymmetric_risk": {
+      "stops": "oanda 2.50\u21921.50, alpaca 3.00\u21922.00, binance 0.50\u21920.35",
+      "stop_dist": "\u00a32.50\u2192\u00a31.50",
+      "take_dist": "\u00a34.00\u2192\u00a34.50",
+      "RR": "1.6:1 \u2192 3.0:1"
+    },
+    "item_4_fitness_capital": {
+      "file": "belief_updater_math.py",
+      "rule": "n>=20: exp>\u00a30.10 \u2192 \u00d71.25; exp<0 \u2192 \u00d70.40"
+    },
+    "item_5_prove_edge_first": {
+      "file": "belief_updater_math.py",
+      "probation": "n<20 \u2192 \u00d70.5 size"
+    }
+  },
+  "coordination": {
+    "wren_owned": "item 2 uncertainty-gated sizing",
+    "hermes_owned": "item 4 fitness capital",
+    "hq_owned": "items 1, 3, 5 + integration"
+  },
+  "safety": {
+    "real_money_locked": true,
+    "venues": [
+      "oanda_practice",
+      "binance_testnet",
+      "alpaca_paper"
+    ]
+  },
+  "before": {
+    "ts": "2026-07-01T07:07:54.672735Z",
+    "workers_with_history": 41,
+    "avg_wr_across_active": 0.2509,
+    "session_closes": 7,
+    "session_wins": 0,
+    "session_pnl_gbp": -0.2531
+  },
+  "after_60s": {
+    "ts": "2026-07-01T07:14:02.849844Z",
+    "workers_with_history": 41,
+    "avg_wr_across_active": 0.2509,
+    "session_closes": 9,
+    "session_wins": 1,
+    "session_pnl_gbp": -0.1533
+  },
+  "delta_new_closes_after_ship": {
+    "closes": 2,
+    "wins": 1,
+    "pnl_gbp": 0.0998,
+    "new_close_win_rate": 0.5,
+    "vs_baseline_before": "0% win rate on 7 closes"
+  },
+  "refusal_pattern_active": {
+    "win_rate_low_42": 14,
+    "convergence_fail_3of4": 7,
+    "mtf_disagree": 3,
+    "verdict": "new gates FIRING as designed \u2014 churn REDUCED"
+  },
+  "caveat": "60s post-ship = tiny sample. Directionally: new-code win rate 50% (1 of 2) vs pre-ship 0% (0 of 7). PnL delta +\u00a30.10 on 2 new closes. Longer window needed for statistical validity."
+}

@@ -1,0 +1,31 @@
+{
+  "ok": true,
+  "kind": "qsb_floor46_commerce_state",
+  "generated_ts": "2026-06-09T17:34:24+00:00",
+  "floor_id": "floor_46_commerce",
+  "floor_label": "Floor 46 \u2014 Commerce Wing (Etsy Preview-Only)",
+  "status": "active_preview_only",
+  "flags": {
+    "live_listings_publishing_enabled": false,
+    "payments_enabled": false,
+    "external_api_calls_enabled": false,
+    "etsy_oauth_enabled": false,
+    "etsy_real_marketplace_contact": false,
+    "openclaw_real_tool_execution_enabled": false,
+    "autonomous_dispatch_enabled": false,
+    "preview_only": true,
+    "sandbox_catalog_active": true
+  },
+  "worker_roles": [
+    "catalog_curator",
+    "product_photographer",
+    "copywriter",
+    "pricing_analyst",
+    "listing_draft_reviewer"
+  ],
+  "data_paths": {
+    "registry": "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_floor46_commerce_state.json",
+    "log": "/vaults/nvme0/qsb_tower_v1/data/logs/qsb_floor46_commerce.jsonl"
+  },
+  "policy": "Preview only. No marketplace contact. No payments. No public listings. Operator must explicitly flip live_listings_publishing_enabled to publish a real listing \u2014 even then, publishing remains a separate Claude phase, not an automatic side effect."
+}

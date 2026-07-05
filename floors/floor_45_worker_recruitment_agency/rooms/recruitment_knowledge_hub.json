@@ -1,0 +1,34 @@
+{
+  "room_id": "recruitment_knowledge_hub",
+  "name": "Knowledge Hub",
+  "category": "library",
+  "purpose": "Resource center for recruitment materials and training.",
+  "concierge_blurb": "A library filled with books, articles, and resources on best practices in hiring.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 4.0,
+    "offset_z": -2.0,
+    "footprint_m": [
+      8,
+      6
+    ],
+    "height_m": 1.5
+  },
+  "render": {
+    "primary_prop": "library_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Knowledge Hub",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_45"
+}

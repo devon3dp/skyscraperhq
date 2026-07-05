@@ -1,0 +1,34 @@
+{
+  "room_id": "econ_analysis_room",
+  "name": "Macroeconomic Analysis Lab",
+  "category": "lab",
+  "purpose": "A space for conducting complex economic analysis and data modeling.",
+  "concierge_blurb": "Witness the tools of macroeconomic research in action.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_right",
+    "offset_x": 8.0,
+    "offset_z": 5.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 1.5
+  },
+  "render": {
+    "primary_prop": "workstation",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Macroecon Lab",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 0
+  },
+  "floor": "floor_140"
+}

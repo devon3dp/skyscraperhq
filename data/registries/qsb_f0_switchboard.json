@@ -1,0 +1,56 @@
+{
+  "ok": true,
+  "kind": "qsb_f0_switchboard",
+  "generated_ts": "2026-06-13T14:00:00Z",
+  "designer": "Wren",
+  "ross_quote": "is iris built and does she know what shes doing ? do we need a switch board",
+  "switchboard_version": "v1",
+
+  "greeting": "Welcome to Skyscraper HQ run by AI. This is Iris on Floor Zero. You can speak your request, or press one for shops, two for a guided tour, three for the trading desk, four for Wren and the embassy, five for accounts and banking, six for the music studio, seven for the seed centre, eight to leave a message, or zero for the human operator. How can I help you today?",
+
+  "options": [
+    {"dtmf": "1", "label": "shops",     "destination": "F59 Shopping Centre",       "endpoint": "/api/floor/59",                  "specialist_role": "till_clerk",       "say_on_route": "Putting you through to the shops. One of our till clerks will be with you in a moment."},
+    {"dtmf": "2", "label": "tour",      "destination": "Tour Guide",                "endpoint": "/api/tour/code_check",           "specialist_role": "tour_guide",       "say_on_route": "I'll need your tour access code. Please say or type it now."},
+    {"dtmf": "3", "label": "trading",   "destination": "F41 OANDA Practice Desk",   "endpoint": "/api/floor/41",                  "specialist_role": "trader",           "say_on_route": "Connecting you to the trading desk. Note that all real-money execution is disabled — this is practice account only."},
+    {"dtmf": "4", "label": "wren",      "destination": "F47 Helm (Ross-facing)",    "endpoint": "/api/officers/Helm/talk",        "specialist_role": "officer",          "say_on_route": "I'll see if Helm is available. Helm answers on behalf of Wren and the embassy."},
+    {"dtmf": "5", "label": "accounts",  "destination": "F44 Accounts",              "endpoint": "/api/floor/44",                  "specialist_role": "ledger_clerk",     "say_on_route": "Putting you through to accounts."},
+    {"dtmf": "6", "label": "music",     "destination": "F58 Tower Sound",           "endpoint": "/api/floor/58",                  "specialist_role": "studio_staff",     "say_on_route": "Connecting you to the music studio."},
+    {"dtmf": "7", "label": "seeds",     "destination": "F149 Greenline Seed Centre","endpoint": "/api/floor/149",                 "specialist_role": "horticulturist",   "say_on_route": "Putting you through to the seed centre."},
+    {"dtmf": "8", "label": "message",   "destination": "Voicemail / message log",   "endpoint": "/api/f0/leave_message",          "specialist_role": null,               "say_on_route": "Please leave your message after the tone. You have up to thirty seconds."},
+    {"dtmf": "0", "label": "operator",  "destination": "Human operator (Ross)",     "endpoint": "/api/officers/Helm/talk",        "specialist_role": "ross",             "say_on_route": "Please hold while I try to reach the operator."}
+  ],
+
+  "fallback_routes": [
+    {"keyword_match": ["trade","trading","oanda","stock","forex","binance"],     "auto_route_to_dtmf": "3"},
+    {"keyword_match": ["shop","store","buy","catalog","catalogue"],               "auto_route_to_dtmf": "1"},
+    {"keyword_match": ["tour","visit","look around","show me"],                   "auto_route_to_dtmf": "2"},
+    {"keyword_match": ["wren","helm","auger","embassy","claude"],                 "auto_route_to_dtmf": "4"},
+    {"keyword_match": ["account","bank","ledger","money","balance"],              "auto_route_to_dtmf": "5"},
+    {"keyword_match": ["music","studio","record","song"],                         "auto_route_to_dtmf": "6"},
+    {"keyword_match": ["seed","cannabis","greenline","horticulture","grow"],      "auto_route_to_dtmf": "7"},
+    {"keyword_match": ["operator","human","real person","person","help"],         "auto_route_to_dtmf": "0"}
+  ],
+
+  "hold_music": {
+    "enabled": true,
+    "source": "F47 ambient (calm violet/amber pad)",
+    "path": "data/audio/f47_hold.wav"
+  },
+
+  "audit": {
+    "every_call_writes_f47_record": true,
+    "every_route_writes_f47_record": true,
+    "ledger_path": "data/registries/qsb_f0_switchboard_calls.jsonl"
+  },
+
+  "audio_routing_known_issue": {
+    "problem": "TTS plays on STREAM_MUSIC; during a call, audio mode is MODE_IN_CALL. Caller hears nothing even with speakerphone toggled.",
+    "candidate_fixes": [
+      "tiny APK with AudioTrack at AudioAttributes.USAGE_VOICE_COMMUNICATION (build needed)",
+      "Bluetooth SCO headset paired to Galaxy (hardware required)",
+      "SIP/Linphone client routing the call via VoIP (complex)",
+      "pre-record common Iris lines as wav files + play via play-audio that targets STREAM_VOICE_CALL"
+    ],
+    "next_step": "Wren will build the tiny AudioTrack APK; until then, switchboard logic + greeting is in place but caller-audio inaudible"
+  }
+}

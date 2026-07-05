@@ -1,0 +1,826 @@
+{
+  "ok": true,
+  "phase": "QSB_SKYSCRAPER_100_PERCENT_ONLINE_INTERACTIVE_3D_WORKFORCE_COMPLETION_V1",
+  "kind": "qsb_100_online_loop_history",
+  "generated_ts": "2026-06-30T13:46:37.032160+00:00",
+  "iteration_count": 64,
+  "iterations": [
+    {
+      "ts": "2026-06-09T10:44:46.850566+00:00",
+      "iteration": 1,
+      "completion_score": 96.2,
+      "passed": 25,
+      "total": 26,
+      "failed_gates": [
+        "G6"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-09T10:45:39.157508+00:00",
+      "iteration": 2,
+      "completion_score": 100.0,
+      "passed": 26,
+      "total": 26,
+      "failed_gates": [],
+      "is_100_online": true
+    },
+    {
+      "ts": "2026-06-09T10:47:01.727998+00:00",
+      "iteration": 1,
+      "completion_score": 100.0,
+      "passed": 26,
+      "total": 26,
+      "failed_gates": [],
+      "is_100_online": true
+    },
+    {
+      "ts": "2026-06-09T10:52:44.826785+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-09T10:52:52.577423+00:00",
+      "iteration": 1,
+      "completion_score": 100.0,
+      "passed": 26,
+      "total": 26,
+      "failed_gates": [],
+      "is_100_online": true
+    },
+    {
+      "ts": "2026-06-09T11:08:22.438887+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-09T11:10:25.733397+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-09T11:11:29.941257+00:00",
+      "iteration": 8,
+      "completion_score": 100.0,
+      "passed": 26,
+      "total": 26,
+      "failed_gates": [],
+      "is_100_online": true
+    },
+    {
+      "ts": "2026-06-09T11:27:00.141215+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-09T11:27:26.426890+00:00",
+      "iteration": 99,
+      "completion_score": 100.0,
+      "passed": 26,
+      "total": 26,
+      "failed_gates": [],
+      "is_100_online": true
+    },
+    {
+      "ts": "2026-06-09T11:57:04.376977+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-09T12:12:39.705118+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-09T12:31:59.728854+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-09T12:43:53.642891+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-09T12:58:24.491600+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-09T13:07:18.419709+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-09T13:18:53.606809+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-09T13:35:53.353493+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-09T13:50:44.522388+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-09T14:05:48.201668+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-09T19:06:57.759517+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-09T19:15:05.325673+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-09T19:20:54.808822+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-09T19:23:21.750749+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-10T12:13:28.859910+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-10T12:17:35.077858+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-10T20:15:06.455241+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-10T20:25:58.386255+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-10T20:32:24.866606+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-10T21:04:10.844801+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-10T21:28:03.930587+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-10T21:44:31.298568+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-10T21:48:55.663181+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-10T21:50:17.447328+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-10T22:10:38.800775+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-10T22:12:23.204583+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-10T22:22:24.923550+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-10T22:47:06.834732+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-10T22:58:09.814996+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-10T23:02:43.860951+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-16T11:49:06.141285+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-16T13:32:24.920076+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-16T15:13:35.494248+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-16T19:07:54.297619+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-16T19:25:53.931500+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-16T23:37:23.531868+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-16T23:50:33.583784+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-17T00:07:05.772419+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-17T00:22:51.151503+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-17T00:45:06.980285+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-17T00:47:27.688410+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-17T01:03:15.819623+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-17T01:13:16.464143+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-17T01:55:59.631316+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-17T02:08:51.336494+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-17T10:41:12.241649+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-17T11:59:43.941590+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-17T12:31:36.846704+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-17T12:38:52.025312+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-17T15:15:19.252678+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-17T15:17:43.163274+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-17T15:36:31.987727+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-17T17:18:07.593522+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    },
+    {
+      "ts": "2026-06-30T13:46:37.031983+00:00",
+      "iteration": 0,
+      "completion_score": 88.5,
+      "passed": 23,
+      "total": 26,
+      "failed_gates": [
+        "G1",
+        "G4",
+        "G25"
+      ],
+      "is_100_online": false
+    }
+  ],
+  "latest_score": 88.5,
+  "latest_is_100_online": false,
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false
+}

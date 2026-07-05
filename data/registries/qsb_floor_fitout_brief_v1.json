@@ -1,0 +1,444 @@
+{
+  "ok": true,
+  "kind": "qsb_floor_fitout_brief_v1",
+  "ts": "2026-06-10T22:31:53Z",
+  "decorators": [
+    "openai_gpt-4o-mini",
+    "deepseek_chat"
+  ],
+  "decorator_role": "fitter \u2014 proposes physical fixtures from Wren's collaborative_design brief",
+  "wren_role": "architect \u2014 accepts/rejects fit-outs; pulls colors from collaborative_design palette",
+  "floor_count": 55,
+  "floors": {
+    "F01": {
+      "signature": "Holo map w/ kinetic sculpture",
+      "secondary": "Brushed silver accents",
+      "wall": "Sky blue walls",
+      "ceiling": "Recessed white LED",
+      "floor": "Polished white tile"
+    },
+    "F02": {
+      "signature": "Rotating exhibit wall",
+      "secondary": "Bright white frames",
+      "wall": "Sage green walls",
+      "ceiling": "Track spotlights",
+      "floor": "Moss carpet tiles"
+    },
+    "F03": {
+      "signature": "AI prompt wall",
+      "secondary": "Brass fixtures",
+      "wall": "Charcoal accent wall",
+      "ceiling": "Pendant brass lamp",
+      "floor": "Paper-white vinyl"
+    },
+    "F04": {
+      "signature": "Living wall floor-to-ceiling",
+      "secondary": "Terracotta planters",
+      "wall": "Soft green walls",
+      "ceiling": "Skylight LED panel",
+      "floor": "Terracotta tile"
+    },
+    "F05": {
+      "signature": "5 soundproof recline pods",
+      "secondary": "Pastel blue pods",
+      "wall": "Soft gray walls",
+      "ceiling": "Dimmable downlights",
+      "floor": "Terracotta carpet"
+    },
+    "F06": {
+      "signature": "Tiered debate half-bowl",
+      "secondary": "Oak trim",
+      "wall": "Warm taupe walls",
+      "ceiling": "Bowl pendant light",
+      "floor": "Oak plank flooring"
+    },
+    "F07": {
+      "signature": "Modular standing tables",
+      "secondary": "Movable whiteboards",
+      "wall": "Lavender walls",
+      "ceiling": "Soft yellow pendants",
+      "floor": "White LVT"
+    },
+    "F08": {
+      "signature": "12 desks, 2 whiteboards",
+      "secondary": "Violet lectern",
+      "wall": "Violet accent wall",
+      "ceiling": "Linear ceiling lights",
+      "floor": "Oak laminate"
+    },
+    "F09": {
+      "signature": "Floor-to-ceiling writable walls",
+      "secondary": "Central ideation pit",
+      "wall": "Muted tangerine walls",
+      "ceiling": "Ocean teal cove light",
+      "floor": "Paper-white epoxy"
+    },
+    "F10": {
+      "signature": "Black-box VR chamber",
+      "secondary": "Hidden RGB strips",
+      "wall": "Charcoal walls",
+      "ceiling": "RGB strip lighting",
+      "floor": "Black carpet"
+    },
+    "F11": {
+      "signature": "Generative art printer",
+      "secondary": "Display loop",
+      "wall": "White walls",
+      "ceiling": "Cyan cove light",
+      "floor": "Magenta accent floor"
+    },
+    "F12": {
+      "signature": "copper pendant",
+      "secondary": "linen drapes",
+      "wall": "chalkboard paint",
+      "ceiling": "track spotlights",
+      "floor": "wide-plank oak"
+    },
+    "F14": {
+      "signature": "orb sconces",
+      "secondary": "brass handrails",
+      "wall": "mirror tiles",
+      "ceiling": "ice-blue LEDs",
+      "floor": "charcoal carpet tiles"
+    },
+    "F22": {
+      "signature": "leather tufted bench",
+      "secondary": "art deco screen",
+      "wall": "velvet wallpaper",
+      "ceiling": "crystal drop lights",
+      "floor": "herringbone parquet"
+    },
+    "F31": {
+      "signature": "wire-cage lanterns",
+      "secondary": "barn doors",
+      "wall": "distressed timber",
+      "ceiling": "vintage bulb arrays",
+      "floor": "quarry tile"
+    },
+    "F47": {
+      "signature": "milk glass globes",
+      "secondary": "chrome trim",
+      "wall": "beadboard wainscot",
+      "ceiling": "linear fluorescent",
+      "floor": "terrazzo floors"
+    },
+    "F13": {
+      "signature": "4-printer bay + cooling rack",
+      "secondary": "silver",
+      "wall": "sound-absorbent panels",
+      "ceiling": "low blue LED strips",
+      "floor": "raised access tiles",
+      "source": "deterministic_fallback_archetype"
+    },
+    "F15": {
+      "signature": "Hydroponic vertical growing wall + harvest bench",
+      "secondary": "earthy brown",
+      "wall": "walls with recycled timber, glass ceiling",
+      "ceiling": "cool overhead LED panels",
+      "floor": "white epoxy sealed",
+      "source": "deterministic_fallback_archetype"
+    },
+    "F16": {
+      "signature": "Hands-on prototyping benches + tool wall",
+      "secondary": "steel gray",
+      "wall": "roll-up glass doors for flexibility",
+      "ceiling": "cool overhead LED panels",
+      "floor": "white epoxy sealed",
+      "source": "deterministic_fallback_archetype"
+    },
+    "F17": {
+      "signature": "Curated rotating screen art on monolithic frames",
+      "secondary": "monochrome",
+      "wall": "neutral matte walls for art highlight",
+      "ceiling": "dim blue ambient + screen glow",
+      "floor": "dark grid carpet",
+      "source": "deterministic_fallback_archetype"
+    },
+    "F18": {
+      "signature": "Three isolation booths around shared mixing console",
+      "secondary": "neon teal accents",
+      "wall": "soundproof walls with textured felt",
+      "ceiling": "dim blue ambient + screen glow",
+      "floor": "dark grid carpet",
+      "source": "deterministic_fallback_archetype"
+    },
+    "F19": {
+      "signature": "Open mat floor + ballet rail",
+      "secondary": "soft coral",
+      "wall": "wall mirrors for open feel",
+      "ceiling": "soft warm coves",
+      "floor": "warm carpet tiles",
+      "source": "deterministic_fallback_archetype"
+    },
+    "F20": {
+      "signature": "Telescope eye + fiber-optic star ceiling",
+      "secondary": "white",
+      "wall": "panoramic skyline windows",
+      "ceiling": "soft warm coves",
+      "floor": "warm carpet tiles",
+      "source": "deterministic_fallback_archetype"
+    },
+    "F21": {
+      "signature": "Two demo cooking stations + tasting counter",
+      "secondary": "cream",
+      "wall": "easy-clean tile with soundproof core",
+      "ceiling": "warm pendant lights",
+      "floor": "easy-clean tile",
+      "source": "deterministic_fallback_archetype"
+    },
+    "F23": {
+      "signature": "12 student desks + 2 whiteboards + violet lectern",
+      "secondary": "beige",
+      "wall": "white walls + acoustic ceiling",
+      "ceiling": "dimmable warm downlights",
+      "floor": "felt-wrapped acoustic",
+      "source": "deterministic_fallback_archetype"
+    },
+    "F24": {
+      "signature": "Server racks & HVAC chase",
+      "secondary": "silver",
+      "wall": "perforated metal panels + acoustic foam",
+      "ceiling": "low blue LED strips",
+      "floor": "raised access tiles",
+      "source": "deterministic_fallback_archetype"
+    },
+    "F25": {
+      "signature": "Interview booths & holographic job boards",
+      "secondary": "charcoal",
+      "wall": "curved frosted glass partitions",
+      "ceiling": "soft warm coves",
+      "floor": "warm carpet tiles",
+      "source": "deterministic_fallback_archetype"
+    },
+    "F26": {
+      "signature": "Open-plan desks & mobile partitions",
+      "secondary": "warm beige",
+      "wall": "lightweight fabric-wrapped panels",
+      "ceiling": "dimmable warm downlights",
+      "floor": "felt-wrapped acoustic",
+      "source": "deterministic_fallback_archetype"
+    },
+    "F27": {
+      "signature": "Print/copy stations & supply lockers",
+      "secondary": "industrial yellow",
+      "wall": "solid white laminate with bumper rails",
+      "ceiling": "low blue LED strips",
+      "floor": "raised access tiles",
+      "source": "deterministic_fallback_archetype"
+    },
+    "F28": {
+      "signature": "Vault door with crimson wheel + 13 lock pillars",
+      "secondary": "crimson",
+      "wall": "armoured concrete + steel cladding",
+      "ceiling": "soft warm coves",
+      "floor": "warm carpet tiles",
+      "source": "deterministic_fallback_archetype"
+    },
+    "F29": {
+      "signature": "Break room with kiosks & vending",
+      "secondary": "navy",
+      "wall": "glossy tile half-wall, painted upper",
+      "ceiling": "warm pendant lights",
+      "floor": "easy-clean tile",
+      "source": "deterministic_fallback_archetype"
+    },
+    "F30": {
+      "signature": "Sentinel watchwall (12 live components)",
+      "secondary": "indicator green",
+      "wall": "matte panels with live status displays",
+      "ceiling": "skylight panels + grow lamps",
+      "floor": "natural slate or composite",
+      "source": "deterministic_fallback_archetype"
+    },
+    "F32": {
+      "signature": "Shredder + hard-drive destruction cell",
+      "secondary": "red",
+      "wall": "reinforced concrete with anti-frag film",
+      "ceiling": "stark white floods",
+      "floor": "concrete with anti-frag",
+      "source": "deterministic_fallback_archetype"
+    },
+    "F33": {
+      "signature": "Cluster of birch phone booths",
+      "secondary": "sage green",
+      "wall": "floor-to-ceiling felt + transparent doors",
+      "ceiling": "dimmable warm downlights",
+      "floor": "felt-wrapped acoustic",
+      "source": "deterministic_fallback_archetype"
+    },
+    "F34": {
+      "signature": "Mail room + package sorting line",
+      "secondary": "safety yellow",
+      "wall": "ribbed metal wainscot + mesh ceiling",
+      "ceiling": "soft warm coves",
+      "floor": "warm carpet tiles",
+      "source": "deterministic_fallback_archetype"
+    },
+    "F35": {
+      "signature": "6 server racks + diagnostic console + 28-LED status wall",
+      "secondary": "slate",
+      "wall": "perforated panel + cable trays",
+      "ceiling": "skylight panels + grow lamps",
+      "floor": "natural slate or composite",
+      "source": "deterministic_fallback_archetype"
+    },
+    "F36": {
+      "signature": "Inventory staging + caged storage",
+      "secondary": "orange hazard stripes",
+      "wall": "welded wire mesh + concrete block",
+      "ceiling": "soft warm coves",
+      "floor": "warm carpet tiles",
+      "source": "deterministic_fallback_archetype"
+    },
+    "F37": {
+      "signature": "100 worker pods + strategy refinement wall",
+      "secondary": "violet",
+      "wall": "frosted glass partitions + writable panels",
+      "ceiling": "soft warm coves",
+      "floor": "warm carpet tiles",
+      "source": "deterministic_fallback_archetype"
+    },
+    "F38": {
+      "signature": "VR & prototype testing zone with modular panels",
+      "secondary": "light gray",
+      "wall": "modular smooth drywall with magnetic panels",
+      "ceiling": "soft warm coves",
+      "floor": "warm carpet tiles",
+      "source": "deterministic_fallback_archetype"
+    },
+    "F39": {
+      "signature": "Soft seating in a quiet zone",
+      "secondary": "slate blue",
+      "wall": "textile-wrapped acoustic panels + stained wood slats",
+      "ceiling": "soft warm coves",
+      "floor": "warm carpet tiles",
+      "source": "deterministic_fallback_archetype"
+    },
+    "F40": {
+      "signature": "Kitchenette + micro-office",
+      "secondary": "stainless",
+      "wall": "glossy ceramic wainscot + drywall",
+      "ceiling": "warm pendant lights",
+      "floor": "easy-clean tile",
+      "source": "deterministic_fallback_archetype"
+    },
+    "F41": {
+      "signature": "8 trader stations + ticker ribbon + market wall",
+      "secondary": "gold",
+      "wall": "screen wall + brushed steel",
+      "ceiling": "skylight panels + grow lamps",
+      "floor": "natural slate or composite",
+      "source": "deterministic_fallback_archetype"
+    },
+    "F42": {
+      "signature": "8 trader stations + ticker ribbon + market wall",
+      "secondary": "gold",
+      "wall": "screen wall + brushed steel",
+      "ceiling": "skylight panels + grow lamps",
+      "floor": "natural slate or composite",
+      "source": "deterministic_fallback_archetype"
+    },
+    "F43": {
+      "signature": "8 trader stations + ticker ribbon + market wall",
+      "secondary": "gold",
+      "wall": "screen wall + brushed steel",
+      "ceiling": "skylight panels + grow lamps",
+      "floor": "natural slate or composite",
+      "source": "deterministic_fallback_archetype"
+    },
+    "F44": {
+      "signature": "Roll-up board + summary dais",
+      "secondary": "gold",
+      "wall": "wood-veneer + accounting accent",
+      "ceiling": "soft warm coves",
+      "floor": "warm carpet tiles",
+      "source": "deterministic_fallback_archetype"
+    },
+    "F45": {
+      "signature": "Agency desks & candidate screening booths",
+      "secondary": "brass",
+      "wall": "tongue-and-groove wood + etched glass",
+      "ceiling": "dimmable warm downlights",
+      "floor": "felt-wrapped acoustic",
+      "source": "deterministic_fallback_archetype"
+    },
+    "F46": {
+      "signature": "6 ledger desks + central scales",
+      "secondary": "brass",
+      "wall": "marble veneer + brass trim",
+      "ceiling": "dimmable warm downlights",
+      "floor": "felt-wrapped acoustic",
+      "source": "deterministic_fallback_archetype"
+    },
+    "F48": {
+      "signature": "Conversation pod + 5 floating chat-bubble spheres",
+      "secondary": "cream",
+      "wall": "caf\u00e9 tile + textile acoustic",
+      "ceiling": "soft warm coves",
+      "floor": "warm carpet tiles",
+      "source": "deterministic_fallback_archetype"
+    },
+    "F49": {
+      "signature": "3 drafting tables + 6-monitor wall + mood-board strips",
+      "secondary": "paper-white",
+      "wall": "studio drywall + pin-up boards",
+      "ceiling": "skylight panels + grow lamps",
+      "floor": "natural slate or composite",
+      "source": "deterministic_fallback_archetype"
+    },
+    "F50": {
+      "signature": "12 student desks + 2 whiteboards + violet lectern",
+      "secondary": "beige",
+      "wall": "white walls + acoustic ceiling",
+      "ceiling": "dimmable warm downlights",
+      "floor": "felt-wrapped acoustic",
+      "source": "deterministic_fallback_archetype"
+    },
+    "F51": {
+      "signature": "Lab benches",
+      "secondary": "micro-centrifuge",
+      "wall": "white phenolic resin panels + sealed cove base + eye wash",
+      "ceiling": "cool overhead LED panels",
+      "floor": "white epoxy sealed",
+      "source": "deterministic_fallback_archetype"
+    },
+    "F52": {
+      "signature": "Single cushion",
+      "secondary": "bare bulb",
+      "wall": "unpainted textured concrete + acoustic felt + shallow shelf",
+      "ceiling": "soft warm coves",
+      "floor": "warm carpet tiles",
+      "source": "deterministic_fallback_archetype"
+    },
+    "F53": {
+      "signature": "Holographic globe + multi-screen console + comms headset",
+      "secondary": "cobalt glass",
+      "wall": "curved frosted glass + dark metal grid + blackout blinds",
+      "ceiling": "dim blue ambient + screen glow",
+      "floor": "dark grid carpet",
+      "source": "deterministic_fallback_archetype"
+    },
+    "F54": {
+      "signature": "Raised planter boxes",
+      "secondary": "aluminum trellis",
+      "wall": "low glass parapet + white-lime stucco + sky-blue ceiling",
+      "ceiling": "skylight panels + grow lamps",
+      "floor": "natural slate or composite",
+      "source": "deterministic_fallback_archetype"
+    },
+    "F55": {
+      "signature": "Amber thinking orb + 5 concentric layer rings + creed wall",
+      "secondary": "obsidian",
+      "wall": "obsidian panels + back-wall creed text",
+      "ceiling": "skylight panels + grow lamps",
+      "floor": "natural slate or composite",
+      "source": "deterministic_fallback_archetype"
+    }
+  },
+  "advisory_only": true,
+  "notes": "Both providers truncated. Floors specced here are F01-F10 (DeepSeek) + filler from OpenAI. Remaining floors fall back to the 9-archetype builder in FloorInteriorRenderer.",
+  "ts_v2_extension": "2026-06-10T22:38:03Z",
+  "v2_added": 5,
+  "ts_v3_fallback": "2026-06-10T22:38:41Z",
+  "v3_fallback_added": 39
+}

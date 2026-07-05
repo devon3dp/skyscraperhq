@@ -1,0 +1,34 @@
+{
+  "room_id": "mission_control_center",
+  "name": "Mission Control Center",
+  "category": "operations",
+  "purpose": "Coordinate and monitor space missions.",
+  "concierge_blurb": "A control room with multiple screens for mission oversight.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -6.0,
+    "offset_z": 5.0,
+    "footprint_m": [
+      8.0,
+      4.0
+    ],
+    "height_m": 1.2
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Mission Cntrl",
+    "glow": true
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/missions.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 30
+  },
+  "floor": "floor_131"
+}

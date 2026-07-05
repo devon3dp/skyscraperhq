@@ -1,0 +1,37 @@
+{
+  "record_id": "f47_floor_buildout_batch_5_kernel_chat_sidecar",
+  "ts_utc": "2026-06-14T18:10:00Z",
+  "floor": "floor_47",
+  "batch": "5_ambience_and_pulse",
+  "builder": "f47_floor_buildout_batch_5 (claude opus 4.7)",
+  "authorization": "CLAUDE.md 2026-06-13 workshop bench amendment + Ross 2026-06-14 helm window",
+  "items_built": [
+    "kernel_chat_sidecar"
+  ],
+  "artifacts_written": [
+    "floors/floor_47_executive_operations_department/rooms/kernel_chat_sidecar.json"
+  ],
+  "verification": {
+    "room_json_present": true,
+    "schema_matches_prior_rooms": true,
+    "visitor_open": true,
+    "endpoint_recorded": "/api/f47_chat",
+    "advisory_only_flag": true,
+    "provider_costs_leaked_assertion": false,
+    "history_count_from_wc_l": 87,
+    "chat_history_path_exists": true,
+    "evidence_paths_all_exist": true,
+    "constraints_respected": {
+      "no_claude_md_edit": true,
+      "no_vault_edit": true,
+      "no_env_edit": true,
+      "no_gate_edit": true,
+      "no_cost_usd_in_descriptor": true,
+      "no_model_names_in_descriptor": true,
+      "no_provider_names_in_descriptor": true,
+      "visitor_safe_concierge_blurb": true
+    }
+  },
+  "lessons_appended_to": "data/registries/qsb_f47_agent_lessons.jsonl",
+  "advisory_only": true
+}

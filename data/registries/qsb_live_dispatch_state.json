@@ -1,0 +1,361 @@
+{
+  "ok": true,
+  "ts": "2026-06-24T08:30:18Z",
+  "kind": "qsb_live_dispatch_state",
+  "teams_dispatched": 12,
+  "tasks_assigned": 25,
+  "tasks_complete": 25,
+  "tasks_error": 0,
+  "live_jobs": [
+    {
+      "ts": "2026-06-21T18:49:25Z",
+      "team": "F65 Operational Adviser",
+      "task": "report helm cadence",
+      "status": "ASSIGNED",
+      "detail": "Recent advisers count"
+    },
+    {
+      "ts": "2026-06-21T18:49:25Z",
+      "team": "F65 Operational Adviser",
+      "task": "report helm cadence",
+      "status": "COMPLETE",
+      "detail": "0 adviser-touched records in last 200 F47 stamps"
+    },
+    {
+      "ts": "2026-06-21T18:54:27Z",
+      "team": "F66 Architects",
+      "task": "verify floor manifests",
+      "status": "ASSIGNED",
+      "detail": "Walk floors/floor_*/floor_manifest.json"
+    },
+    {
+      "ts": "2026-06-21T18:54:27Z",
+      "team": "F66 Architects",
+      "task": "verify floor manifests",
+      "status": "COMPLETE",
+      "detail": "160 floors checked \u00b7 1 missing name \u00b7 2 missing brief"
+    },
+    {
+      "ts": "2026-06-21T18:54:27Z",
+      "team": "F47.CODE Crew Lead",
+      "task": "code tick + commentary",
+      "status": "ASSIGNED",
+      "detail": "Run qsb_code_crew_tick"
+    },
+    {
+      "ts": "2026-06-21T18:54:28Z",
+      "team": "F47.CODE Crew Lead",
+      "task": "code tick + commentary",
+      "status": "COMPLETE",
+      "detail": "Wren just touched qsb_live_dispatch_state.json (36 files in last 15m). 2 TODO/FIXME markers in those files. \u26a0 1 dashboard mismatches across 1 concept(s): floors_count."
+    },
+    {
+      "ts": "2026-06-21T18:54:28Z",
+      "team": "F17 Web Design",
+      "task": "audit shop pages",
+      "status": "ASSIGNED",
+      "detail": "GET /web/shops/* HTTP codes"
+    },
+    {
+      "ts": "2026-06-21T18:54:28Z",
+      "team": "F17 Web Design",
+      "task": "audit shop pages",
+      "status": "COMPLETE",
+      "detail": "3 shop pages on disk; preview server serving from web/shops/"
+    },
+    {
+      "ts": "2026-06-21T18:54:28Z",
+      "team": "F17 Graphics",
+      "task": "verify Godot floor data",
+      "status": "ASSIGNED",
+      "detail": "Load floor_fitout.json"
+    },
+    {
+      "ts": "2026-06-21T18:54:28Z",
+      "team": "F17 Graphics",
+      "task": "verify Godot floor data",
+      "status": "COMPLETE",
+      "detail": "164 floors in fit-out brief"
+    },
+    {
+      "ts": "2026-06-21T18:54:28Z",
+      "team": "F164 Email Ops",
+      "task": "verify email vault",
+      "status": "ASSIGNED",
+      "detail": "vault outlook/gmail"
+    },
+    {
+      "ts": "2026-06-21T18:54:28Z",
+      "team": "F164 Email Ops",
+      "task": "verify email vault",
+      "status": "COMPLETE",
+      "detail": "1 email creds in vault: .env.outlook"
+    },
+    {
+      "ts": "2026-06-21T18:54:28Z",
+      "team": "F41 OANDA",
+      "task": "reconcile practice pnl",
+      "status": "ASSIGNED",
+      "detail": "Read qsb_floor41_oanda_pnl.json"
+    },
+    {
+      "ts": "2026-06-21T18:54:28Z",
+      "team": "F41 OANDA",
+      "task": "reconcile practice pnl",
+      "status": "COMPLETE",
+      "detail": "realized \u00a3-225.176, closed 975 (0 W / 649 L)"
+    },
+    {
+      "ts": "2026-06-21T18:54:28Z",
+      "team": "F28 Security",
+      "task": "audit listening ports",
+      "status": "ASSIGNED",
+      "detail": "ss -tlnp localhost"
+    },
+    {
+      "ts": "2026-06-21T18:54:28Z",
+      "team": "F28 Security",
+      "task": "audit listening ports",
+      "status": "COMPLETE",
+      "detail": "12 localhost-bound, 3 public \u2014 all should be localhost"
+    },
+    {
+      "ts": "2026-06-21T18:54:28Z",
+      "team": "F45 Library",
+      "task": "tally code crew curriculum",
+      "status": "ASSIGNED",
+      "detail": "Read crew roster"
+    },
+    {
+      "ts": "2026-06-21T18:54:28Z",
+      "team": "F45 Library",
+      "task": "tally code crew curriculum",
+      "status": "COMPLETE",
+      "detail": "10 modules each \u00b7 100/100 certified"
+    },
+    {
+      "ts": "2026-06-21T18:54:28Z",
+      "team": "F31 Audit",
+      "task": "tally F47 by kind",
+      "status": "ASSIGNED",
+      "detail": "Read qsb_f47_team_records.jsonl"
+    },
+    {
+      "ts": "2026-06-21T18:54:28Z",
+      "team": "F31 Audit",
+      "task": "tally F47 by kind",
+      "status": "COMPLETE",
+      "detail": "22117 records, top: mass_dispatch_run(1704), heartbeat_tick(1632), proposal_queue_summary(1614)"
+    },
+    {
+      "ts": "2026-06-21T18:54:28Z",
+      "team": "F104 IT",
+      "task": "health check all surfaces",
+      "status": "ASSIGNED",
+      "detail": "curl + pgrep"
+    },
+    {
+      "ts": "2026-06-21T18:54:28Z",
+      "team": "F104 IT",
+      "task": "health check all surfaces",
+      "status": "COMPLETE",
+      "detail": "dashboard:8765=UP, preview:9876=DOWN, lumen:8788=DOWN, cloudflared=DOWN, godot-4 --path=DOWN, qsb_ops_tick=DOWN, qsb_code_crew_tick=DOWN"
+    },
+    {
+      "ts": "2026-06-21T18:54:28Z",
+      "team": "F49 Studio",
+      "task": "verify Godot project",
+      "status": "ASSIGNED",
+      "detail": "Check project.godot + scripts"
+    },
+    {
+      "ts": "2026-06-21T18:54:28Z",
+      "team": "F49 Studio",
+      "task": "verify Godot project",
+      "status": "COMPLETE",
+      "detail": "75 .gd scripts in project"
+    },
+    {
+      "ts": "2026-06-21T18:54:28Z",
+      "team": "F65 Operational Adviser",
+      "task": "report helm cadence",
+      "status": "ASSIGNED",
+      "detail": "Recent advisers count"
+    },
+    {
+      "ts": "2026-06-21T18:54:28Z",
+      "team": "F65 Operational Adviser",
+      "task": "report helm cadence",
+      "status": "COMPLETE",
+      "detail": "0 adviser-touched records in last 200 F47 stamps"
+    },
+    {
+      "ts": "2026-06-24T08:30:17Z",
+      "team": "F66 Architects",
+      "task": "verify floor manifests",
+      "status": "ASSIGNED",
+      "detail": "Walk floors/floor_*/floor_manifest.json"
+    },
+    {
+      "ts": "2026-06-24T08:30:17Z",
+      "team": "F66 Architects",
+      "task": "verify floor manifests",
+      "status": "COMPLETE",
+      "detail": "160 floors checked \u00b7 1 missing name \u00b7 2 missing brief"
+    },
+    {
+      "ts": "2026-06-24T08:30:17Z",
+      "team": "F47.CODE Crew Lead",
+      "task": "code tick + commentary",
+      "status": "ASSIGNED",
+      "detail": "Run qsb_code_crew_tick"
+    },
+    {
+      "ts": "2026-06-24T08:30:18Z",
+      "team": "F47.CODE Crew Lead",
+      "task": "code tick + commentary",
+      "status": "COMPLETE",
+      "detail": "Wren just touched qsb_live_dispatch_state.json (40 files in last 15m). 6 TODO/FIXME markers in those files. \u26a0 1 dashboard mismatches across 1 concept(s): floors_count."
+    },
+    {
+      "ts": "2026-06-24T08:30:18Z",
+      "team": "F17 Web Design",
+      "task": "audit shop pages",
+      "status": "ASSIGNED",
+      "detail": "GET /web/shops/* HTTP codes"
+    },
+    {
+      "ts": "2026-06-24T08:30:18Z",
+      "team": "F17 Web Design",
+      "task": "audit shop pages",
+      "status": "COMPLETE",
+      "detail": "3 shop pages on disk; preview server serving from web/shops/"
+    },
+    {
+      "ts": "2026-06-24T08:30:18Z",
+      "team": "F17 Graphics",
+      "task": "verify Godot floor data",
+      "status": "ASSIGNED",
+      "detail": "Load floor_fitout.json"
+    },
+    {
+      "ts": "2026-06-24T08:30:18Z",
+      "team": "F17 Graphics",
+      "task": "verify Godot floor data",
+      "status": "COMPLETE",
+      "detail": "164 floors in fit-out brief"
+    },
+    {
+      "ts": "2026-06-24T08:30:18Z",
+      "team": "F164 Email Ops",
+      "task": "verify email vault",
+      "status": "ASSIGNED",
+      "detail": "vault outlook/gmail"
+    },
+    {
+      "ts": "2026-06-24T08:30:18Z",
+      "team": "F164 Email Ops",
+      "task": "verify email vault",
+      "status": "COMPLETE",
+      "detail": "1 email creds in vault: .env.outlook"
+    },
+    {
+      "ts": "2026-06-24T08:30:18Z",
+      "team": "F41 OANDA",
+      "task": "reconcile practice pnl",
+      "status": "ASSIGNED",
+      "detail": "Read qsb_floor41_oanda_pnl.json"
+    },
+    {
+      "ts": "2026-06-24T08:30:18Z",
+      "team": "F41 OANDA",
+      "task": "reconcile practice pnl",
+      "status": "COMPLETE",
+      "detail": "realized \u00a3-225.176, closed 975 (0 W / 649 L)"
+    },
+    {
+      "ts": "2026-06-24T08:30:18Z",
+      "team": "F28 Security",
+      "task": "audit listening ports",
+      "status": "ASSIGNED",
+      "detail": "ss -tlnp localhost"
+    },
+    {
+      "ts": "2026-06-24T08:30:18Z",
+      "team": "F28 Security",
+      "task": "audit listening ports",
+      "status": "COMPLETE",
+      "detail": "9 localhost-bound, 4 public \u2014 all should be localhost"
+    },
+    {
+      "ts": "2026-06-24T08:30:18Z",
+      "team": "F45 Library",
+      "task": "tally code crew curriculum",
+      "status": "ASSIGNED",
+      "detail": "Read crew roster"
+    },
+    {
+      "ts": "2026-06-24T08:30:18Z",
+      "team": "F45 Library",
+      "task": "tally code crew curriculum",
+      "status": "COMPLETE",
+      "detail": "10 modules each \u00b7 100/100 certified"
+    },
+    {
+      "ts": "2026-06-24T08:30:18Z",
+      "team": "F31 Audit",
+      "task": "tally F47 by kind",
+      "status": "ASSIGNED",
+      "detail": "Read qsb_f47_team_records.jsonl"
+    },
+    {
+      "ts": "2026-06-24T08:30:18Z",
+      "team": "F31 Audit",
+      "task": "tally F47 by kind",
+      "status": "COMPLETE",
+      "detail": "23158 records, top: mass_dispatch_run(1705), heartbeat_tick(1633), proposal_queue_summary(1615)"
+    },
+    {
+      "ts": "2026-06-24T08:30:18Z",
+      "team": "F104 IT",
+      "task": "health check all surfaces",
+      "status": "ASSIGNED",
+      "detail": "curl + pgrep"
+    },
+    {
+      "ts": "2026-06-24T08:30:18Z",
+      "team": "F104 IT",
+      "task": "health check all surfaces",
+      "status": "COMPLETE",
+      "detail": "dashboard:8765=DOWN, preview:9876=DOWN, lumen:8788=DOWN, cloudflared=DOWN, godot-4 --path=DOWN, qsb_ops_tick=DOWN, qsb_code_crew_tick=DOWN"
+    },
+    {
+      "ts": "2026-06-24T08:30:18Z",
+      "team": "F49 Studio",
+      "task": "verify Godot project",
+      "status": "ASSIGNED",
+      "detail": "Check project.godot + scripts"
+    },
+    {
+      "ts": "2026-06-24T08:30:18Z",
+      "team": "F49 Studio",
+      "task": "verify Godot project",
+      "status": "COMPLETE",
+      "detail": "75 .gd scripts in project"
+    },
+    {
+      "ts": "2026-06-24T08:30:18Z",
+      "team": "F65 Operational Adviser",
+      "task": "report helm cadence",
+      "status": "ASSIGNED",
+      "detail": "Recent advisers count"
+    },
+    {
+      "ts": "2026-06-24T08:30:18Z",
+      "team": "F65 Operational Adviser",
+      "task": "report helm cadence",
+      "status": "COMPLETE",
+      "detail": "0 adviser-touched records in last 200 F47 stamps"
+    }
+  ]
+}

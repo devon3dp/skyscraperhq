@@ -1,0 +1,13 @@
+{
+  "_doc": "Daemons listed here are TOMBSTONED. Supervisors / revivers MUST skip them. Reversible: remove a name from `tombstoned` to allow revival again.",
+  "tombstoned": ["cloudflared"],
+  "history": [
+    {
+      "ts": "2026-06-14T00:00:00Z",
+      "daemon": "cloudflared",
+      "action": "tombstone",
+      "by": "Ross",
+      "reason": "Stop public tunnel auto-revive; receptionist uses Telegram + ngrok-less paths now."
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "floor_id": "floor_71",
+  "floor_number": 71,
+  "floor_name": "Art Gallery",
+  "department": "designed_by_f66_architects_v1",
+  "zone": "ZONE D \u00b7 COMMERCE WING",
+  "archetype": "designed_by_f66_architects_v1",
+  "staff_lead": "F66 Architects' Office",
+  "tour_blurb": "rotating exhibitions + sales",
+  "visitor_open": false,
+  "advisory_only": true,
+  "execution_mode": "PREVIEW_ONLY",
+  "skeleton": true,
+  "skeleton_source": "floor_manifest.json",
+  "skeleton_generated_ts": "2026-06-17",
+  "live_signals": {
+    "theme": null,
+    "categories": null,
+    "palette": null,
+    "tagline": null
+  },
+  "gate_posture": {
+    "advisory_only": true,
+    "execution_allowed": false,
+    "live_payments_enabled": false
+  },
+  "team_roster": [
+    {
+      "id": "f071.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "spawned_id": "f74bcb3278",
+      "spawned_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F071",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f071.operator.01",
+      "spawned_id": "4968b8f114"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F071",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f071.operator.02",
+      "spawned_id": "ac008e4fa1"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F071",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f071.operator.03",
+      "spawned_id": "60a6c7e29e"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F071",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f071.operator.04",
+      "spawned_id": "5eda380964"
+    }
+  ],
+  "floor_manager": "f071.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

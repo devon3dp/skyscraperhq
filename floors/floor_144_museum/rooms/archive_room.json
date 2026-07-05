@@ -1,0 +1,34 @@
+{
+  "room_id": "archive_room",
+  "name": "Archive Room",
+  "category": "operations",
+  "purpose": "For preserving and managing historical records.",
+  "concierge_blurb": "Preserving the past for future generations.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "right_wall",
+    "offset_x": 8.0,
+    "offset_z": 6.5,
+    "footprint_m": [
+      15,
+      24
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "archive_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Archive",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": null,
+    "refresh_seconds": null
+  },
+  "floor": "floor_144"
+}

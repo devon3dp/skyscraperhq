@@ -1,0 +1,30 @@
+[
+  {
+    "slot_id": "general_reasoning_slot",
+    "role": "general_reasoning",
+    "recommended_model": "llama3.2:latest",
+    "status": "recommended_not_bound",
+    "reason": "Model has capability for general_reasoning. Binding is not automatic."
+  },
+  {
+    "slot_id": "coding_model_slot",
+    "role": "coding",
+    "recommended_model": "codellama:13b",
+    "status": "recommended_not_bound",
+    "reason": "Model has capability for coding. Binding is not automatic."
+  },
+  {
+    "slot_id": "vision_model_slot",
+    "role": "vision",
+    "recommended_model": "llava:7b",
+    "status": "recommended_not_bound",
+    "reason": "Model has capability for vision. Binding is not automatic."
+  },
+  {
+    "slot_id": "research_model_slot",
+    "role": "research",
+    "recommended_model": "qwen3.5:9b",
+    "status": "recommended_not_bound",
+    "reason": "Model has capability for research. Binding is not automatic."
+  }
+]

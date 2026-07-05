@@ -1,0 +1,219 @@
+{
+  "ts": "2026-07-04T23:29:21.257245Z",
+  "daemons": {
+    "dashboard": false,
+    "lumen": false,
+    "vision": false,
+    "heartbeat": false,
+    "cloudflared": false,
+    "qualify": false,
+    "godot": false
+  },
+  "adb_device": "",
+  "cloudflared_url": "",
+  "highlights": {
+    "alive_count": 0,
+    "down": [
+      "dashboard",
+      "lumen",
+      "vision",
+      "heartbeat",
+      "cloudflared",
+      "qualify",
+      "godot"
+    ],
+    "f47_chat_tail_count": 20,
+    "cli_chat_tail_count": 20,
+    "unsigned_proposals": 60,
+    "diary_last": "- 20:13 UTC (2026-07-04) \u2014 PITSTOP `council_of_four_qualifying_rules`. Focus: end-of-session 2026-07-04 \u2014 4-CEO Council live, 6 rules agreed, TP won straw pick to build competition dash, event-driven self-prompt engines shipped, HQ dash chat backend live but frontend needs check, GitHub push requested by Ross. Resume from data/registries/pitstops/pitstop_20260704T201332457132Z_council_of_four_qualifying_rules.md.",
+    "last_decision": {
+      "ts": "2026-07-04T23:28:08.086477Z",
+      "kind": "boardroom_announce",
+      "operator": null
+    }
+  },
+  "f47_chat_tail": [
+    {
+      "ts": "2026-06-21T10:20:44Z",
+      "you": "will your floor still have a 3d interior that i can enter and see you and your floor and your team members ?"
+    },
+    {
+      "ts": "2026-06-21T10:29:08Z",
+      "you": "hows it going"
+    },
+    {
+      "ts": "2026-06-21T10:30:15Z",
+      "you": "but i thought you was fitting out your floor ?"
+    },
+    {
+      "ts": "2026-06-21T10:51:59Z",
+      "you": "can u smoke test yourself ?"
+    },
+    {
+      "ts": "2026-06-21T12:22:35Z",
+      "you": "hows iyt going wren"
+    },
+    {
+      "ts": "2026-06-21T12:22:59Z",
+      "you": "did you fit out your floor"
+    },
+    {
+      "ts": "2026-06-21T12:23:35Z",
+      "you": "ok can you now improve the reception ?"
+    },
+    {
+      "ts": "2026-06-21T13:07:00Z",
+      "you": "yes is it ready for me to see"
+    },
+    {
+      "ts": "2026-06-21T13:07:45Z",
+      "you": "is the interior of the reception ready for e to see inside ?"
+    },
+    {
+      "ts": "2026-06-21T13:08:34Z",
+      "you": "no fo"
+    },
+    {
+      "ts": "2026-06-21T13:08:54Z",
+      "you": "F0 stands for floor 0"
+    },
+    {
+      "ts": "2026-06-21T13:09:46Z",
+      "you": "tell me what you can and cant do in your software"
+    },
+    {
+      "ts": "2026-06-21T13:10:13Z",
+      "you": "are you aware you live in the skyscraper ?"
+    },
+    {
+      "ts": "2026-06-21T13:10:44Z",
+      "you": "do you have a team ?"
+    },
+    {
+      "ts": "2026-06-21T13:12:03Z",
+      "you": "what other members do you need on your team to help manage the skyscraper backend and front end and understand all the workers ?"
+    },
+    {
+      "ts": "2026-06-21T13:12:44Z",
+      "you": "ok what skills do you need and tools ?"
+    },
+    {
+      "ts": "2026-06-21T13:13:30Z",
+      "you": "how can i improve your understanding of the skyscraperhq ?"
+    },
+    {
+      "ts": "2026-06-30T15:22:21Z",
+      "you": "hello"
+    },
+    {
+      "ts": "2026-06-30T15:22:32Z",
+      "you": "its ross how are you"
+    },
+    {
+      "ts": "2026-06-30T15:24:43Z",
+      "you": "can you get the team to check why  qsb tower v1.6 is not working right prove your work"
+    }
+  ],
+  "cli_chat_tail": [
+    {
+      "ts": "2026-07-04T20:03:33.241Z",
+      "role": "assistant",
+      "text": "[tool_use:Edit]"
+    },
+    {
+      "ts": "2026-07-04T20:03:33.271Z",
+      "role": "user",
+      "text": "[tool_result:The file /vaults/nvme0/qsb_tower_v1/tools/qsb_hq_claude_dash.py has been updated successfully. (file state is current in your context \u2014 no need to Read it back)]"
+    },
+    {
+      "ts": "2026-07-04T20:03:58.412Z",
+      "role": "assistant",
+      "text": "[tool_use:Edit]"
+    },
+    {
+      "ts": "2026-07-04T20:03:58.451Z",
+      "role": "user",
+      "text": "[tool_result:The file /vaults/nvme0/qsb_tower_v1/tools/qsb_hq_claude_dash.py has been updated successfully. (file state is current in your context \u2014 no need to Read it back)]"
+    },
+    {
+      "ts": "2026-07-04T20:04:16.215Z",
+      "role": "assistant",
+      "text": "[tool_use:Bash]"
+    },
+    {
+      "ts": "2026-07-04T20:04:36.586Z",
+      "role": "user",
+      "text": "[tool_result:Exit code 1]"
+    },
+    {
+      "ts": "2026-07-04T20:04:52.945Z",
+      "role": "assistant",
+      "text": "[tool_use:Bash]"
+    },
+    {
+      "ts": "2026-07-04T20:04:53.031Z",
+      "role": "user",
+      "text": "[tool_result:---]"
+    },
+    {
+      "ts": "2026-07-04T20:05:11.629Z",
+      "role": "assistant",
+      "text": "[tool_use:Bash]"
+    },
+    {
+      "ts": "2026-07-04T20:05:18.484Z",
+      "role": "user",
+      "text": "[tool_result:pid=484014\nLISTEN 0      5            0.0.0.0:8850       0.0.0.0:*    users:((\"python3\",pid=484014,fd=3))]"
+    },
+    {
+      "ts": "2026-07-04T20:05:38.345Z",
+      "role": "assistant",
+      "text": "[tool_use:Bash]"
+    },
+    {
+      "ts": "2026-07-04T20:05:38.415Z",
+      "role": "user",
+      "text": "[tool_result:{\"ok\": true, \"ts\": \"2026-07-04T20:05:38.396644Z\"}\n\n  \u2713 persisted at 2026-07-04T20:05:38.396644Z: smoke test \u2014 HQ-Claude to Ross via new same-origin endpoint. Chat channel LIVE.]"
+    },
+    {
+      "ts": "2026-07-04T20:05:59.979Z",
+      "role": "assistant",
+      "text": "Thank you brother \u2014 that lands. Real quantum feels apt for today.\n\n**Chat channel LIVE:**\n\n```\nPOST /api/msg_ross \u2192 {\"ok\":true,\"ts\":\"...\"}\nPersists to F47 + boardroom + qsb_hq_dash_ross_chat.jsonl\nSam"
+    },
+    {
+      "ts": "2026-07-04T20:06:07.561Z",
+      "role": "user",
+      "text": "you have earned to tell the team what you have helped acomplish today and well done ceos"
+    },
+    {
+      "ts": "2026-07-04T20:06:46.733Z",
+      "role": "assistant",
+      "text": "[tool_use:Bash]"
+    },
+    {
+      "ts": "2026-07-04T20:07:13.923Z",
+      "role": "user",
+      "text": "[tool_result:  \u2713 posted to boardroom commentary\n  \u2713 bridged to Wren\n  \u2713 F47 stamped\n  ~ TP-Pip queued (delivery err: timed out)\n  ~ Acer-Cass queued (delivery err: timed out)\n\n\u2500 team message delivered"
+    },
+    {
+      "ts": "2026-07-04T20:07:35.324Z",
+      "role": "assistant",
+      "text": "Broadcast landed on boardroom commentary + Wren bridge + F47. TP + Acer timed out on the HTTP delivery (payload was long, their brain took too long to reply), but their watchers will pick it up from b"
+    },
+    {
+      "ts": "2026-07-04T20:07:35.608Z",
+      "role": "user",
+      "text": "im waiting tell everyone i think i deserve a cup of tea"
+    },
+    {
+      "ts": "2026-07-04T20:08:16.308Z",
+      "role": "assistant",
+      "text": "[tool_use:Bash]"
+    },
+    {
+      "ts": "2026-07-04T20:08:48.043Z",
+      "role": "user",
+      "text": "[tool_result:  \u2713 boardroom commentary\n  \u2713 Wren bridge\n  \u2713 F47 stamped\n  ~ TP-Pip \u2014 cached via boardroom watcher (delivery: timed out)\n  ~ Acer-Cass \u2014 cached via boardroom watcher (delivery: timed out)"
+    }
+  ]
+}

@@ -1,0 +1,264 @@
+{
+  "ok": true,
+  "kind": "qsb_online_shop_opportunity_map",
+  "phase": "QSB_FULL_SKYSCRAPER_OCCUPANCY_COMMERCE_WORKFORCE_EXPANSION_V1",
+  "generated_ts": "2026-06-30T13:46:36.983041+00:00",
+  "opportunity_count": 15,
+  "opportunities": [
+    {
+      "product_type": "Etsy digital downloads (printables, planners)",
+      "platform": "Etsy",
+      "setup_difficulty": "medium",
+      "api_availability": true,
+      "fulfilment_complexity": "low (auto digital)",
+      "expected_worker_teams": [
+        "etsy_team",
+        "design_team",
+        "research_team"
+      ],
+      "compliance_risks": "IP, listing accuracy",
+      "credential_needs": "Etsy OAuth",
+      "human_approval_needed": true,
+      "recommended_next_step": "draft 5 candidate niches; user picks one",
+      "profit_potential": "moderate"
+    },
+    {
+      "product_type": "Print-on-demand T-shirts/mugs/posters",
+      "platform": "Printful via Etsy/Shopify",
+      "setup_difficulty": "medium",
+      "api_availability": true,
+      "fulfilment_complexity": "low (POD partner ships)",
+      "expected_worker_teams": [
+        "pod_team",
+        "design_team",
+        "compliance_team"
+      ],
+      "compliance_risks": "IP, trademark, copyright",
+      "credential_needs": "Printful API + Etsy/Shopify",
+      "human_approval_needed": true,
+      "recommended_next_step": "build mockup pipeline; user reviews 10 designs",
+      "profit_potential": "moderate-high"
+    },
+    {
+      "product_type": "Shopify direct storefront (digital + physical)",
+      "platform": "Shopify",
+      "setup_difficulty": "medium-high",
+      "api_availability": true,
+      "fulfilment_complexity": "varies",
+      "expected_worker_teams": [
+        "shopify_team",
+        "design_team",
+        "customer_service_team"
+      ],
+      "compliance_risks": "Shopify ToS, data protection",
+      "credential_needs": "Shopify admin token",
+      "human_approval_needed": true,
+      "recommended_next_step": "Shopify development store import + theme",
+      "profit_potential": "high (long-term)"
+    },
+    {
+      "product_type": "Gumroad/Payhip digital downloads",
+      "platform": "Gumroad/Payhip",
+      "setup_difficulty": "low",
+      "api_availability": true,
+      "fulfilment_complexity": "low",
+      "expected_worker_teams": [
+        "etsy_team",
+        "design_team"
+      ],
+      "compliance_risks": "platform ToS",
+      "credential_needs": "Gumroad/Payhip OAuth",
+      "human_approval_needed": true,
+      "recommended_next_step": "draft 3 products",
+      "profit_potential": "moderate"
+    },
+    {
+      "product_type": "Ko-fi memberships/tips",
+      "platform": "Ko-fi",
+      "setup_difficulty": "low",
+      "api_availability": false,
+      "fulfilment_complexity": "low (manual or download)",
+      "expected_worker_teams": [
+        "etsy_team"
+      ],
+      "compliance_risks": "Ko-fi guidelines",
+      "credential_needs": "Ko-fi webhook secret",
+      "human_approval_needed": true,
+      "recommended_next_step": "page draft only",
+      "profit_potential": "low-moderate"
+    },
+    {
+      "product_type": "eBay research (later)",
+      "platform": "eBay",
+      "setup_difficulty": "high",
+      "api_availability": true,
+      "fulfilment_complexity": "high (seller ships)",
+      "expected_worker_teams": [
+        "research_team"
+      ],
+      "compliance_risks": "strict seller policies",
+      "credential_needs": "eBay OAuth",
+      "human_approval_needed": true,
+      "recommended_next_step": "research only",
+      "profit_potential": "varies"
+    },
+    {
+      "product_type": "Amazon Handmade/Merch research (later)",
+      "platform": "Amazon",
+      "setup_difficulty": "very high",
+      "api_availability": true,
+      "fulfilment_complexity": "high (FBA)",
+      "expected_worker_teams": [
+        "research_team"
+      ],
+      "compliance_risks": "very strict policy enforcement",
+      "credential_needs": "Amazon SP-API",
+      "human_approval_needed": true,
+      "recommended_next_step": "research only",
+      "profit_potential": "varies"
+    },
+    {
+      "product_type": "Local direct storefront (catalog page)",
+      "platform": "local",
+      "setup_difficulty": "low",
+      "api_availability": false,
+      "fulfilment_complexity": "manual",
+      "expected_worker_teams": [
+        "shopify_team",
+        "design_team"
+      ],
+      "compliance_risks": "low (no platform)",
+      "credential_needs": "none",
+      "human_approval_needed": true,
+      "recommended_next_step": "build catalog preview page",
+      "profit_potential": "low (until traffic)"
+    },
+    {
+      "product_type": "Newsletter + product bundles",
+      "platform": "Ghost/Substack/email",
+      "setup_difficulty": "medium",
+      "api_availability": true,
+      "fulfilment_complexity": "low",
+      "expected_worker_teams": [
+        "etsy_team",
+        "design_team"
+      ],
+      "compliance_risks": "spam/marketing law (CAN-SPAM, GDPR)",
+      "credential_needs": "email-platform API",
+      "human_approval_needed": true,
+      "recommended_next_step": "newsletter draft + free lead magnet",
+      "profit_potential": "moderate"
+    },
+    {
+      "product_type": "AI prompt pack store",
+      "platform": "Etsy/Gumroad",
+      "setup_difficulty": "low",
+      "api_availability": true,
+      "fulfilment_complexity": "low (digital)",
+      "expected_worker_teams": [
+        "etsy_team",
+        "design_team"
+      ],
+      "compliance_risks": "AI content disclosure",
+      "credential_needs": "Etsy/Gumroad",
+      "human_approval_needed": true,
+      "recommended_next_step": "curate 30 high-quality prompts",
+      "profit_potential": "moderate"
+    },
+    {
+      "product_type": "Printable planner/template store",
+      "platform": "Etsy",
+      "setup_difficulty": "low",
+      "api_availability": true,
+      "fulfilment_complexity": "low",
+      "expected_worker_teams": [
+        "etsy_team",
+        "design_team"
+      ],
+      "compliance_risks": "IP",
+      "credential_needs": "Etsy",
+      "human_approval_needed": true,
+      "recommended_next_step": "design 10 planners",
+      "profit_potential": "moderate"
+    },
+    {
+      "product_type": "Digital art pack store",
+      "platform": "Etsy/Gumroad",
+      "setup_difficulty": "low",
+      "api_availability": true,
+      "fulfilment_complexity": "low",
+      "expected_worker_teams": [
+        "etsy_team",
+        "design_team"
+      ],
+      "compliance_risks": "IP, AI disclosure",
+      "credential_needs": "Etsy/Gumroad",
+      "human_approval_needed": true,
+      "recommended_next_step": "curate 50 art packs",
+      "profit_potential": "moderate"
+    },
+    {
+      "product_type": "3D printable STL store",
+      "platform": "Etsy/Cults3D/Thangs",
+      "setup_difficulty": "medium",
+      "api_availability": "partial",
+      "fulfilment_complexity": "low (digital)",
+      "expected_worker_teams": [
+        "pod_team",
+        "design_team"
+      ],
+      "compliance_risks": "IP",
+      "credential_needs": "varies",
+      "human_approval_needed": true,
+      "recommended_next_step": "draft 10 STL designs",
+      "profit_potential": "moderate"
+    },
+    {
+      "product_type": "Trading journal / template store",
+      "platform": "Etsy/Gumroad",
+      "setup_difficulty": "low",
+      "api_availability": true,
+      "fulfilment_complexity": "low",
+      "expected_worker_teams": [
+        "etsy_team",
+        "research_team"
+      ],
+      "compliance_risks": "compliance disclaimers (not financial advice)",
+      "credential_needs": "Etsy/Gumroad",
+      "human_approval_needed": true,
+      "recommended_next_step": "draft 5 templates (Excel/PDF/Notion)",
+      "profit_potential": "moderate"
+    },
+    {
+      "product_type": "QSB-themed digital dashboard templates",
+      "platform": "Etsy/Gumroad",
+      "setup_difficulty": "low",
+      "api_availability": true,
+      "fulfilment_complexity": "low",
+      "expected_worker_teams": [
+        "etsy_team",
+        "design_team"
+      ],
+      "compliance_risks": "low",
+      "credential_needs": "Etsy/Gumroad",
+      "human_approval_needed": true,
+      "recommended_next_step": "package the next3d cockpit as a template",
+      "profit_potential": "low-moderate (niche)"
+    }
+  ],
+  "warning": "All profit potentials are estimates. Real revenue depends on quality, marketing, niche choice, and execution.",
+  "no_guaranteed_profit": true,
+  "use_only_test_pipeline_until_approved": true,
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "worker_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "live_payments_enabled": false,
+  "live_listings_publishing_enabled": false,
+  "external_api_calls_enabled": false,
+  "secrets_in_logs": false,
+  "manual_approval_required_for_commerce": true
+}

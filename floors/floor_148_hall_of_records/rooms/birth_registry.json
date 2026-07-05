@@ -1,0 +1,34 @@
+{
+  "room_id": "birth_registry",
+  "name": "Birth Registry Room",
+  "category": "operations",
+  "purpose": "Keeps records of births and important events.",
+  "concierge_blurb": "Review the birth registry to see significant moments in history.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.0,
+    "offset_z": 8.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "desk",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "BIRTH REG.",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_148"
+}

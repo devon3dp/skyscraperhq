@@ -1,0 +1,34 @@
+{
+  "room_id": "econ_micro_analysis_room",
+  "name": "Microeconomic Analysis Room",
+  "category": "workshop",
+  "purpose": "A space for conducting detailed microeconomic analysis and research.",
+  "concierge_blurb": "Discover the methods used in microeconomic studies.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -6.0,
+    "offset_z": 2.0,
+    "footprint_m": [
+      10,
+      8
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "workbench",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Micro Econ",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 0
+  },
+  "floor": "floor_140"
+}

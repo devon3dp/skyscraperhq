@@ -1,0 +1,19 @@
+{
+  "enabled": true,
+  "enabled_ts": "2026-06-13T08:55:00Z",
+  "enabled_by": "Ross (1234 agreed) → Wren applied amendment",
+  "amendment_in_claudemd": "2026-06-13 Ross authorization — bounded code mutation via sandbox + multi-sig",
+  "sig_threshold": 3,
+  "sig_classes": ["coders_team", "team_assistants", "wren_crew",
+                   "wren_herself", "ross"],
+  "kill_switch_note": "Flip enabled=false to halt all auto-apply. Surfacing-as-ready continues.",
+  "safety_paths_refused": [
+    "CLAUDE.md",
+    "floors/floor_28_security_department/vault/",
+    "tools/qsb_consult_external.py",
+    "tools/qsb_oanda.py",
+    "src/tower/qsb_floor41_oanda",
+    ".env",
+    "data/registries/qsb_proposal_autoapply_gate.json"
+  ]
+}

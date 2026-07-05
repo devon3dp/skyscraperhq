@@ -1,0 +1,21 @@
+{
+  "version": "1.1",
+  "floor": "floor_26",
+  "department": "Model Evaluation Department",
+  "role": "Evaluate candidate workers, model pools, and external provider sockets before any future activation.",
+  "kernel_required": false,
+  "kernel_installed": false,
+  "kernel_logic_present": false,
+  "models_required": false,
+  "execution_enabled": false,
+  "worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "model_inference_enabled": false,
+  "autonomous_workers_enabled": false,
+  "live_dispatch_enabled": false,
+  "evaluation_mode": "static_registry_metadata_only",
+  "providers_are_external": true,
+  "models_are_temporary_tenants": true,
+  "principle": "Floor 26 evaluates readiness and risk. It never calls models or activates workers.",
+  "notice": "Evaluation is based only on tower registries, manifests, policies, and candidate metadata."
+}

@@ -1,0 +1,34 @@
+{
+  "room_id": "bakery_inventory_control",
+  "name": "Inventory Control Room",
+  "category": "audit",
+  "purpose": "Monitor and manage inventory levels.",
+  "concierge_blurb": "See how we keep track of ingredients and products.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      9,
+      6
+    ],
+    "height_m": 1.5
+  },
+  "render": {
+    "primary_prop": "archive_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Inventory",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/inventory_levels.jsonl",
+    "display": "big_number",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_76"
+}

@@ -1,0 +1,31 @@
+{
+  "room_id": "seminar_room",
+  "name": "Seminar Room",
+  "category": "reception",
+  "purpose": "A place for meetings and presentations.",
+  "concierge_blurb": "Visitors see a dais with seating around it.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "right_wall",
+    "offset_x": 8.0,
+    "offset_z": -2.0,
+    "footprint_m": [
+      15,
+      3
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Seminar Rm",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_126"
+}

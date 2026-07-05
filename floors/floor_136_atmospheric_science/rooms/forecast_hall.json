@@ -1,0 +1,34 @@
+{
+  "room_id": "forecast_hall",
+  "name": "Long-Term Forecast Hall",
+  "category": "display",
+  "purpose": "This hall displays long-term weather forecasts and predictions.",
+  "concierge_blurb": "Viewing future atmospheric trends.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": -4.0,
+    "footprint_m": [
+      15,
+      8
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "wall_panel",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Forecast",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/long_term_forecasts.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 60
+  },
+  "floor": "floor_136"
+}

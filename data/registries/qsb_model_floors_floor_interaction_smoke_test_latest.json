@@ -1,0 +1,38 @@
+{
+  "ok": true,
+  "kind": "qsb_model_floors_floor_interaction_smoke_test_latest",
+  "ts": "2026-06-09T22:39:54Z",
+  "fails": [],
+  "results": [
+    {
+      "floor_id": "F47",
+      "provider": "claude",
+      "ok": true,
+      "rooms": 18,
+      "workers": 10,
+      "template": "ClaudeEmbassyInterior",
+      "simulated_enter": "ok",
+      "simulated_back": "ok"
+    },
+    {
+      "floor_id": "F48",
+      "provider": "gpt",
+      "ok": true,
+      "rooms": 10,
+      "workers": 6,
+      "template": "GPTEmbassyInterior",
+      "simulated_enter": "ok",
+      "simulated_back": "ok"
+    },
+    {
+      "floor_id": "F49",
+      "provider": "deepseek",
+      "ok": true,
+      "rooms": 10,
+      "workers": 6,
+      "template": "DeepSeekEmbassyInterior",
+      "simulated_enter": "ok",
+      "simulated_back": "ok"
+    }
+  ]
+}

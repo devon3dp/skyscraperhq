@@ -1,0 +1,14 @@
+local_model_operations:
+  version: 1.1
+  floor_id: floor_27
+  role: optional_local_model_inventory
+  models_required: false
+  kernel_required: false
+  execution_enabled: false
+  hardwired_models: false
+  provider: ollama_optional
+
+lifts:
+  incoming_from_model_routing: model_lift
+
+principle: Floor 27 inventories optional local models and recommends worker roles. It does not execute inference yet.

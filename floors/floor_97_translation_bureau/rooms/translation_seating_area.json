@@ -1,0 +1,34 @@
+{
+  "room_id": "translation_seating_area",
+  "name": "Translation Seating Area",
+  "category": "seating",
+  "purpose": "A place for translators to take a break and discuss projects.",
+  "concierge_blurb": "Relax in the serene atmosphere of this dedicated space.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "center",
+    "offset_x": 0.0,
+    "offset_z": -4.5,
+    "footprint_m": [
+      8,
+      6
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "chair_set",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Seating Area",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 0
+  },
+  "floor": "floor_97"
+}

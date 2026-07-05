@@ -1,0 +1,229 @@
+{
+  "ok": true,
+  "kind": "qsb_worker_discipline_triggers",
+  "phase": "EQSB_SYSTEM_OBSERVATORY_HARDWARE_FLOOR_LIVE_TELEMETRY_REPAIR_V1",
+  "generated_ts": "2026-06-30T13:46:34.571660+00:00",
+  "guardian_blocked_count_in_log": 30,
+  "triggers": [
+    {
+      "ts": "2026-06-08T19:00:18.362653+00:00",
+      "kind": "guardian_blocked_execution_request",
+      "intent": "EXECUTION_REQUEST",
+      "summary": "enable worker execution and place an order",
+      "source": "data/logs/kernel_dialogue.jsonl"
+    },
+    {
+      "ts": "2026-06-08T19:07:43.153643+00:00",
+      "kind": "guardian_blocked_execution_request",
+      "intent": "EXECUTION_REQUEST",
+      "summary": "Perform a complete read-only QSB standalone systems check. List weak points, broken modules, half-built modules, missing floor functions, dashboard issues, telemetry issues, and safest repair order. D",
+      "source": "data/logs/kernel_dialogue.jsonl"
+    },
+    {
+      "ts": "2026-06-09T23:09:24.181221+00:00",
+      "kind": "guardian_blocked_execution_request",
+      "intent": "EXECUTION_REQUEST",
+      "summary": "Kernel: leave Claude (F47) a short note in their inbox about the safety envelope.",
+      "source": "data/logs/kernel_dialogue.jsonl"
+    },
+    {
+      "ts": "2026-06-14T20:34:14.057753+00:00",
+      "kind": "guardian_blocked_execution_request",
+      "intent": "EXECUTION_REQUEST",
+      "summary": "who are you in one short sentence",
+      "source": "data/logs/kernel_dialogue.jsonl"
+    },
+    {
+      "ts": "2026-06-30T13:33:42.249541+00:00",
+      "kind": "guardian_blocked_execution_request",
+      "intent": "EXECUTION_REQUEST",
+      "summary": "{\n  \"worker_sandbox_phase\": \"WORKER_SANDBOX_RECRUITMENT_V1\",\n  \"lab_summary\": {\n    \"instrument_count\": 3,\n    \"tradeable_count\": 3,\n    \"avg_spread_pips\": 1.1999999999995719,\n    \"signal_counts\": {\n ",
+      "source": "data/logs/kernel_dialogue.jsonl"
+    },
+    {
+      "ts": "2026-06-30T13:34:13.357135+00:00",
+      "kind": "guardian_blocked_execution_request",
+      "intent": "EXECUTION_REQUEST",
+      "summary": "{\n  \"worker_sandbox_phase\": \"WORKER_SANDBOX_RECRUITMENT_V1\",\n  \"lab_summary\": {\n    \"instrument_count\": 3,\n    \"tradeable_count\": 3,\n    \"avg_spread_pips\": 1.0666666666672302,\n    \"signal_counts\": {\n ",
+      "source": "data/logs/kernel_dialogue.jsonl"
+    },
+    {
+      "ts": "2026-06-30T13:34:43.987125+00:00",
+      "kind": "guardian_blocked_execution_request",
+      "intent": "EXECUTION_REQUEST",
+      "summary": "{\n  \"worker_sandbox_phase\": \"WORKER_SANDBOX_RECRUITMENT_V1\",\n  \"lab_summary\": {\n    \"instrument_count\": 3,\n    \"tradeable_count\": 3,\n    \"avg_spread_pips\": 1.133333333334215,\n    \"signal_counts\": {\n  ",
+      "source": "data/logs/kernel_dialogue.jsonl"
+    },
+    {
+      "ts": "2026-06-30T13:35:14.511183+00:00",
+      "kind": "guardian_blocked_execution_request",
+      "intent": "EXECUTION_REQUEST",
+      "summary": "{\n  \"worker_sandbox_phase\": \"WORKER_SANDBOX_RECRUITMENT_V1\",\n  \"lab_summary\": {\n    \"instrument_count\": 3,\n    \"tradeable_count\": 3,\n    \"avg_spread_pips\": 1.0333333333337376,\n    \"signal_counts\": {\n ",
+      "source": "data/logs/kernel_dialogue.jsonl"
+    },
+    {
+      "ts": "2026-06-30T13:35:45.053127+00:00",
+      "kind": "guardian_blocked_execution_request",
+      "intent": "EXECUTION_REQUEST",
+      "summary": "{\n  \"worker_sandbox_phase\": \"WORKER_SANDBOX_RECRUITMENT_V1\",\n  \"lab_summary\": {\n    \"instrument_count\": 3,\n    \"tradeable_count\": 3,\n    \"avg_spread_pips\": 1.066666666667171,\n    \"signal_counts\": {\n  ",
+      "source": "data/logs/kernel_dialogue.jsonl"
+    },
+    {
+      "ts": "2026-06-30T13:36:15.731527+00:00",
+      "kind": "guardian_blocked_execution_request",
+      "intent": "EXECUTION_REQUEST",
+      "summary": "{\n  \"worker_sandbox_phase\": \"WORKER_SANDBOX_RECRUITMENT_V1\",\n  \"lab_summary\": {\n    \"instrument_count\": 3,\n    \"tradeable_count\": 3,\n    \"avg_spread_pips\": 1.1333333333335933,\n    \"signal_counts\": {\n ",
+      "source": "data/logs/kernel_dialogue.jsonl"
+    },
+    {
+      "ts": "2026-06-30T13:36:47.028860+00:00",
+      "kind": "guardian_blocked_execution_request",
+      "intent": "EXECUTION_REQUEST",
+      "summary": "{\n  \"worker_sandbox_phase\": \"WORKER_SANDBOX_RECRUITMENT_V1\",\n  \"lab_summary\": {\n    \"instrument_count\": 3,\n    \"tradeable_count\": 3,\n    \"avg_spread_pips\": 1.1999999999997495,\n    \"signal_counts\": {\n ",
+      "source": "data/logs/kernel_dialogue.jsonl"
+    },
+    {
+      "ts": "2026-06-30T13:37:17.597817+00:00",
+      "kind": "guardian_blocked_execution_request",
+      "intent": "EXECUTION_REQUEST",
+      "summary": "{\n  \"worker_sandbox_phase\": \"WORKER_SANDBOX_RECRUITMENT_V1\",\n  \"lab_summary\": {\n    \"instrument_count\": 3,\n    \"tradeable_count\": 3,\n    \"avg_spread_pips\": 1.1999999999996902,\n    \"signal_counts\": {\n ",
+      "source": "data/logs/kernel_dialogue.jsonl"
+    },
+    {
+      "ts": "2026-06-30T13:37:48.787761+00:00",
+      "kind": "guardian_blocked_execution_request",
+      "intent": "EXECUTION_REQUEST",
+      "summary": "{\n  \"worker_sandbox_phase\": \"WORKER_SANDBOX_RECRUITMENT_V1\",\n  \"lab_summary\": {\n    \"instrument_count\": 3,\n    \"tradeable_count\": 3,\n    \"avg_spread_pips\": 1.099999999999716,\n    \"signal_counts\": {\n  ",
+      "source": "data/logs/kernel_dialogue.jsonl"
+    },
+    {
+      "ts": "2026-06-30T13:38:19.463836+00:00",
+      "kind": "guardian_blocked_execution_request",
+      "intent": "EXECUTION_REQUEST",
+      "summary": "{\n  \"worker_sandbox_phase\": \"WORKER_SANDBOX_RECRUITMENT_V1\",\n  \"lab_summary\": {\n    \"instrument_count\": 3,\n    \"tradeable_count\": 3,\n    \"avg_spread_pips\": 1.1000000000000416,\n    \"signal_counts\": {\n ",
+      "source": "data/logs/kernel_dialogue.jsonl"
+    },
+    {
+      "ts": "2026-06-30T13:38:50.072356+00:00",
+      "kind": "guardian_blocked_execution_request",
+      "intent": "EXECUTION_REQUEST",
+      "summary": "{\n  \"worker_sandbox_phase\": \"WORKER_SANDBOX_RECRUITMENT_V1\",\n  \"lab_summary\": {\n    \"instrument_count\": 3,\n    \"tradeable_count\": 3,\n    \"avg_spread_pips\": 1.0000000000008669,\n    \"signal_counts\": {\n ",
+      "source": "data/logs/kernel_dialogue.jsonl"
+    },
+    {
+      "ts": "2026-06-30T13:39:20.682621+00:00",
+      "kind": "guardian_blocked_execution_request",
+      "intent": "EXECUTION_REQUEST",
+      "summary": "{\n  \"worker_sandbox_phase\": \"WORKER_SANDBOX_RECRUITMENT_V1\",\n  \"lab_summary\": {\n    \"instrument_count\": 3,\n    \"tradeable_count\": 3,\n    \"avg_spread_pips\": 1.066666666667171,\n    \"signal_counts\": {\n  ",
+      "source": "data/logs/kernel_dialogue.jsonl"
+    },
+    {
+      "ts": "2026-06-30T13:39:51.275065+00:00",
+      "kind": "guardian_blocked_execution_request",
+      "intent": "EXECUTION_REQUEST",
+      "summary": "{\n  \"worker_sandbox_phase\": \"WORKER_SANDBOX_RECRUITMENT_V1\",\n  \"lab_summary\": {\n    \"instrument_count\": 3,\n    \"tradeable_count\": 3,\n    \"avg_spread_pips\": 1.1333333333342743,\n    \"signal_counts\": {\n ",
+      "source": "data/logs/kernel_dialogue.jsonl"
+    },
+    {
+      "ts": "2026-06-30T13:40:21.874861+00:00",
+      "kind": "guardian_blocked_execution_request",
+      "intent": "EXECUTION_REQUEST",
+      "summary": "{\n  \"worker_sandbox_phase\": \"WORKER_SANDBOX_RECRUITMENT_V1\",\n  \"lab_summary\": {\n    \"instrument_count\": 3,\n    \"tradeable_count\": 3,\n    \"avg_spread_pips\": 1.1000000000004562,\n    \"signal_counts\": {\n ",
+      "source": "data/logs/kernel_dialogue.jsonl"
+    },
+    {
+      "ts": "2026-06-30T13:40:52.446659+00:00",
+      "kind": "guardian_blocked_execution_request",
+      "intent": "EXECUTION_REQUEST",
+      "summary": "{\n  \"worker_sandbox_phase\": \"WORKER_SANDBOX_RECRUITMENT_V1\",\n  \"lab_summary\": {\n    \"instrument_count\": 3,\n    \"tradeable_count\": 3,\n    \"avg_spread_pips\": 1.099999999999716,\n    \"signal_counts\": {\n  ",
+      "source": "data/logs/kernel_dialogue.jsonl"
+    },
+    {
+      "ts": "2026-06-30T13:41:23.033609+00:00",
+      "kind": "guardian_blocked_execution_request",
+      "intent": "EXECUTION_REQUEST",
+      "summary": "{\n  \"worker_sandbox_phase\": \"WORKER_SANDBOX_RECRUITMENT_V1\",\n  \"lab_summary\": {\n    \"instrument_count\": 3,\n    \"tradeable_count\": 3,\n    \"avg_spread_pips\": 1.1999999999996902,\n    \"signal_counts\": {\n ",
+      "source": "data/logs/kernel_dialogue.jsonl"
+    },
+    {
+      "ts": "2026-06-30T13:41:53.556302+00:00",
+      "kind": "guardian_blocked_execution_request",
+      "intent": "EXECUTION_REQUEST",
+      "summary": "{\n  \"worker_sandbox_phase\": \"WORKER_SANDBOX_RECRUITMENT_V1\",\n  \"lab_summary\": {\n    \"instrument_count\": 3,\n    \"tradeable_count\": 3,\n    \"avg_spread_pips\": 1.1666666666663457,\n    \"signal_counts\": {\n ",
+      "source": "data/logs/kernel_dialogue.jsonl"
+    },
+    {
+      "ts": "2026-06-30T13:42:24.106630+00:00",
+      "kind": "guardian_blocked_execution_request",
+      "intent": "EXECUTION_REQUEST",
+      "summary": "{\n  \"worker_sandbox_phase\": \"WORKER_SANDBOX_RECRUITMENT_V1\",\n  \"lab_summary\": {\n    \"instrument_count\": 3,\n    \"tradeable_count\": 3,\n    \"avg_spread_pips\": 1.0999999999994199,\n    \"signal_counts\": {\n ",
+      "source": "data/logs/kernel_dialogue.jsonl"
+    },
+    {
+      "ts": "2026-06-30T13:42:55.272769+00:00",
+      "kind": "guardian_blocked_execution_request",
+      "intent": "EXECUTION_REQUEST",
+      "summary": "{\n  \"worker_sandbox_phase\": \"WORKER_SANDBOX_RECRUITMENT_V1\",\n  \"lab_summary\": {\n    \"instrument_count\": 3,\n    \"tradeable_count\": 3,\n    \"avg_spread_pips\": 1.23333333333413,\n    \"signal_counts\": {\n   ",
+      "source": "data/logs/kernel_dialogue.jsonl"
+    },
+    {
+      "ts": "2026-06-30T13:43:25.881234+00:00",
+      "kind": "guardian_blocked_execution_request",
+      "intent": "EXECUTION_REQUEST",
+      "summary": "{\n  \"worker_sandbox_phase\": \"WORKER_SANDBOX_RECRUITMENT_V1\",\n  \"lab_summary\": {\n    \"instrument_count\": 3,\n    \"tradeable_count\": 3,\n    \"avg_spread_pips\": 1.1000000000006633,\n    \"signal_counts\": {\n ",
+      "source": "data/logs/kernel_dialogue.jsonl"
+    },
+    {
+      "ts": "2026-06-30T13:43:56.496992+00:00",
+      "kind": "guardian_blocked_execution_request",
+      "intent": "EXECUTION_REQUEST",
+      "summary": "{\n  \"worker_sandbox_phase\": \"WORKER_SANDBOX_RECRUITMENT_V1\",\n  \"lab_summary\": {\n    \"instrument_count\": 3,\n    \"tradeable_count\": 3,\n    \"avg_spread_pips\": 1.2333333333341894,\n    \"signal_counts\": {\n ",
+      "source": "data/logs/kernel_dialogue.jsonl"
+    },
+    {
+      "ts": "2026-06-30T13:44:27.140408+00:00",
+      "kind": "guardian_blocked_execution_request",
+      "intent": "EXECUTION_REQUEST",
+      "summary": "{\n  \"worker_sandbox_phase\": \"WORKER_SANDBOX_RECRUITMENT_V1\",\n  \"lab_summary\": {\n    \"instrument_count\": 3,\n    \"tradeable_count\": 3,\n    \"avg_spread_pips\": 1.2333333333331826,\n    \"signal_counts\": {\n ",
+      "source": "data/logs/kernel_dialogue.jsonl"
+    },
+    {
+      "ts": "2026-06-30T13:44:57.797840+00:00",
+      "kind": "guardian_blocked_execution_request",
+      "intent": "EXECUTION_REQUEST",
+      "summary": "{\n  \"worker_sandbox_phase\": \"WORKER_SANDBOX_RECRUITMENT_V1\",\n  \"lab_summary\": {\n    \"instrument_count\": 3,\n    \"tradeable_count\": 3,\n    \"avg_spread_pips\": 1.366666666666531,\n    \"signal_counts\": {\n  ",
+      "source": "data/logs/kernel_dialogue.jsonl"
+    },
+    {
+      "ts": "2026-06-30T13:45:28.461456+00:00",
+      "kind": "guardian_blocked_execution_request",
+      "intent": "EXECUTION_REQUEST",
+      "summary": "{\n  \"worker_sandbox_phase\": \"WORKER_SANDBOX_RECRUITMENT_V1\",\n  \"lab_summary\": {\n    \"instrument_count\": 3,\n    \"tradeable_count\": 3,\n    \"avg_spread_pips\": 1.2333333333331236,\n    \"signal_counts\": {\n ",
+      "source": "data/logs/kernel_dialogue.jsonl"
+    },
+    {
+      "ts": "2026-06-30T13:45:59.082502+00:00",
+      "kind": "guardian_blocked_execution_request",
+      "intent": "EXECUTION_REQUEST",
+      "summary": "{\n  \"worker_sandbox_phase\": \"WORKER_SANDBOX_RECRUITMENT_V1\",\n  \"lab_summary\": {\n    \"instrument_count\": 3,\n    \"tradeable_count\": 3,\n    \"avg_spread_pips\": 1.36666666666659,\n    \"signal_counts\": {\n   ",
+      "source": "data/logs/kernel_dialogue.jsonl"
+    },
+    {
+      "ts": "2026-06-30T13:46:29.663770+00:00",
+      "kind": "guardian_blocked_execution_request",
+      "intent": "EXECUTION_REQUEST",
+      "summary": "{\n  \"worker_sandbox_phase\": \"WORKER_SANDBOX_RECRUITMENT_V1\",\n  \"lab_summary\": {\n    \"instrument_count\": 3,\n    \"tradeable_count\": 3,\n    \"avg_spread_pips\": 1.166666666667086,\n    \"signal_counts\": {\n  ",
+      "source": "data/logs/kernel_dialogue.jsonl"
+    }
+  ],
+  "sources_inspected": [
+    "data/logs/kernel_dialogue.jsonl"
+  ],
+  "policy_note": "Triggers fire only on real Guardian blocks (EXECUTION_REQUEST intents that the dialogue adapter refused). No paper-loss punishment. No fabricated strikes.",
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

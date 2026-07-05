@@ -1,0 +1,212 @@
+{
+  "ok": true,
+  "kind": "qsb_social_launch_package_v1",
+  "generated_ts": "2026-06-12T18:08:29.312267+00:00",
+  "policy": "Tower stages everything; account creation is Ross-only because web_access_autonomous_enabled=false in CLAUDE.md and ToS verification requires a human.",
+  "brand_kit": {
+    "company_name": "Skyscraper HQ",
+    "tagline": "Eighteen shops, one tower.",
+    "preferred_handle": "@skyscraperhq",
+    "alt_handles": [
+      "@skyscraper.hq",
+      "@skyhq.shops",
+      "@skyscraperhq_uk"
+    ],
+    "bio_short": "QSB Tower V1.5 \u00b7 18 storefronts on 165 floors \u00b7 Beauty \u00b7 Tech \u00b7 Pets \u00b7 Outdoor \u00b7 Wellness \u00b7 UK",
+    "bio_tiktok": "Eighteen shops. One tower. We post the prep, the pricing, and the picks.",
+    "link_tree": [
+      {
+        "label": "Shop catalog",
+        "url": "https://qsb-tower-shops.example/"
+      },
+      {
+        "label": "Lumen chat AI",
+        "url": "https://qsb-lumen.example/"
+      },
+      {
+        "label": "Tower cockpit",
+        "url": "https://qsb-tower.example/cockpit"
+      }
+    ],
+    "brand_colors": {
+      "primary": "#ffd76b",
+      "accent": "#b08aff",
+      "ink": "#dfeaff",
+      "bg": "#070d1a"
+    },
+    "logo_concept": "Glowing penthouse halo over a vertical tower silhouette"
+  },
+  "calendar_7_day": [
+    {
+      "theme": "Tower-of-shops tour",
+      "image_prompt": "Hero shot of the 18-floor shop ring \u2014 neon teal/orange/gold zone bands",
+      "caption_template": "18 shops, one tower. Welcome to Skyscraper HQ. {handle}",
+      "hashtags": [
+        "#SkyscraperHQ",
+        "#UKShops",
+        "#OnlineShopping"
+      ],
+      "cta": "tap link in bio \u00b7 today's pick is the F61 brightening serum",
+      "date": "2026-06-12",
+      "day_of_week": "Friday"
+    },
+    {
+      "theme": "F61 \u00b7 Lumi\u00e8re Beauty walkthrough",
+      "image_prompt": "Flat-lay of Vitamin C Serum, Jade Roller, Hyaluronic Moisturiser",
+      "caption_template": "Three skincare picks from the F61 floor. {handle}",
+      "hashtags": [
+        "#Skincare",
+        "#Vitamins",
+        "#Beauty"
+      ],
+      "cta": "shop F61 \u2014 link in bio",
+      "date": "2026-06-13",
+      "day_of_week": "Saturday"
+    },
+    {
+      "theme": "F65 \u00b7 Vector Tech daily driver",
+      "image_prompt": "Compact gadget on a slate desk, soft window light",
+      "caption_template": "F65 Vector Tech \u2014 honest spec, no marketing fluff. {handle}",
+      "hashtags": [
+        "#Tech",
+        "#Gadgets",
+        "#UK"
+      ],
+      "cta": "see the spec sheet \u2014 link in bio",
+      "date": "2026-06-14",
+      "day_of_week": "Sunday"
+    },
+    {
+      "theme": "F63 \u00b7 Pawsworth \u2014 for the four-legged household member",
+      "image_prompt": "Dog napping on a memory-foam bed in soft golden light",
+      "caption_template": "F63 Pawsworth picks. Vet-tested, easy to clean. {handle}",
+      "hashtags": [
+        "#Pets",
+        "#DogsOfInstagram",
+        "#CatsOfInstagram"
+      ],
+      "cta": "F63 catalog \u2014 link in bio",
+      "date": "2026-06-15",
+      "day_of_week": "Monday"
+    },
+    {
+      "theme": "Behind the scenes \u00b7 How the tower picks its stock",
+      "image_prompt": "Dark dashboard screen with 165 floor labels, gold penthouse halo",
+      "caption_template": "Margin math, ledger checks, classroom-trained sourcing. {handle}",
+      "hashtags": [
+        "#Behindthescenes",
+        "#Retail",
+        "#UKBusiness"
+      ],
+      "cta": "watch the build \u2014 link in bio",
+      "date": "2026-06-16",
+      "day_of_week": "Tuesday"
+    },
+    {
+      "theme": "F154 \u00b7 Trailhead Outdoor weekend kit",
+      "image_prompt": "Lightweight rucksack and weatherproof jacket on a wet stile",
+      "caption_template": "Built for a UK weekend. F154 Trailhead Outdoor. {handle}",
+      "hashtags": [
+        "#Outdoor",
+        "#Hiking",
+        "#UKHikes"
+      ],
+      "cta": "F154 \u2014 link in bio",
+      "date": "2026-06-17",
+      "day_of_week": "Wednesday"
+    },
+    {
+      "theme": "Operator Q&A \u00b7 How we test before we trade",
+      "image_prompt": "Cockpit 3D tower at twilight with traders standing on F41-45",
+      "caption_template": "Every trader passes the classroom before they place. {handle}",
+      "hashtags": [
+        "#FinTech",
+        "#Trading",
+        "#PaperTrading"
+      ],
+      "cta": "DM your question \u2014 we'll answer in stories",
+      "date": "2026-06-18",
+      "day_of_week": "Thursday"
+    }
+  ],
+  "drafts_ready": [
+    {
+      "platform": "instagram",
+      "draft_for_date": "2026-06-12",
+      "kind": "feed_post",
+      "caption": "18 shops, one tower.\n\nSkyscraper HQ is QSB Tower V1.5 \u2014 a 165-floor advisory AI building running 18 storefronts on its commerce floors. From Lumi\u00e8re Beauty on F61 to Maker Lane on F163, every catalog is sourced, margin-checked and served by trained staff.\n\nWelcome. Tap the link in bio.\n\n#SkyscraperHQ #UKShops #OnlineShopping #Curated",
+      "image_brief": "Hero render of the tower at twilight, penthouse halo glowing, 18 shop floors visible. 1080\u00d71350. Bottom: 'SKYSCRAPER HQ' wordmark in tower gold."
+    },
+    {
+      "platform": "tiktok",
+      "draft_for_date": "2026-06-12",
+      "kind": "vertical_video",
+      "caption": "18 shops in 1 tower \ud83c\udfd9\ufe0f #SkyscraperHQ\n\nToday: skincare from floor 61.\nTomorrow: tech from floor 65.\nDrop floor numbers \u2014 we'll tour them.",
+      "video_brief": "20s vertical reel. Open on the 3D cockpit camera zooming up the tower. Floor 61 highlights orange. Cut to a flat-lay of the 3 F61 skincare picks. Voiceover: scripted from the caption. Outro: tower logo with 'link in bio'."
+    },
+    {
+      "platform": "instagram",
+      "draft_for_date": "2026-06-13",
+      "kind": "carousel",
+      "caption": "F61 \u00b7 Lumi\u00e8re Beauty \u00b7 three picks under \u00a320.\n\n1. Vitamin C Brightening Serum 30ml \u00b7 \u00a314.99\n2. Jade Roller + Gua Sha Set \u00b7 \u00a312.99\n3. Hyaluronic Acid Daily Moisturiser \u00b7 \u00a318.99\n\nSourced via AliExpress \u00b7 dropship \u00b7 7-day lead time.\n\n#Skincare #UKBeauty #Vitamins",
+      "image_brief": "3 cards, 1080\u00d71080 each. Card 1: Vitamin C serum. Card 2: Jade roller. Card 3: Moisturiser pot. Same lighting, tower-gold accent strip on each."
+    }
+  ],
+  "ross_checklist": [
+    {
+      "step": 1,
+      "what": "Confirm handle availability",
+      "where": "instagram.com/skyscraperhq + tiktok.com/@skyscraperhq",
+      "if_taken": "Fall back to one of: @skyscraper.hq, @skyhq.shops, @skyscraperhq_uk",
+      "automatable": false,
+      "reason": "ToS requires human acceptance"
+    },
+    {
+      "step": 2,
+      "what": "Open Instagram business account",
+      "where": "instagram.com \u2192 Sign up \u2192 Business",
+      "needs": [
+        "working email (knechtelross@gmail.com fine?)",
+        "phone for 2FA",
+        "business category: Retail",
+        "bio text (see brand_kit.bio_short)"
+      ],
+      "automatable": false,
+      "reason": "Email + phone verification"
+    },
+    {
+      "step": 3,
+      "what": "Open TikTok for Business account",
+      "where": "ads.tiktok.com or tiktok.com \u2192 Sign up \u2192 For Business",
+      "needs": [
+        "same email + phone",
+        "business category: E-commerce / Retail",
+        "bio text (see brand_kit.bio_tiktok)"
+      ],
+      "automatable": false,
+      "reason": "Email + phone verification"
+    },
+    {
+      "step": 4,
+      "what": "Link both accounts back to this tool",
+      "where": "Tell Wren the URLs you got and the screenshot of the verify steps",
+      "automatable": false,
+      "reason": "Wren stamps F47 record with the actual handles"
+    },
+    {
+      "step": 5,
+      "what": "Post draft #1 (Instagram hero) using the image_brief",
+      "where": "Instagram \u2192 New post \u2192 upload hero render",
+      "automatable": "advisory-only",
+      "reason": "Tower can generate caption + hashtags; Ross posts"
+    }
+  ],
+  "safety_envelope": {
+    "real_account_creation_attempted": false,
+    "web_access_autonomous_enabled": false,
+    "execution_allowed": false,
+    "advisory_only": true,
+    "tower_will_NOT_attempt_account_creation": true
+  },
+  "next_action": "Ross: walk through ross_checklist[step 1..3] and report the handles back. Wren stamps F47 + adds the URLs to brand_kit.link_tree."
+}

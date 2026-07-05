@@ -1,0 +1,169 @@
+{
+  "ok": true,
+  "kind": "qsb_narrator_history_latest",
+  "phase": "EQSB_SYSTEM_OBSERVATORY_HARDWARE_FLOOR_LIVE_TELEMETRY_REPAIR_V1",
+  "generated_ts": "2026-06-30T13:46:34.514756+00:00",
+  "history_log_path": "data/logs/qsb_narrator_history.jsonl",
+  "recent_utterance_count": 40,
+  "by_mode_counts": {
+    "tower_summary": 40
+  },
+  "recent_utterances_tail": [
+    {
+      "utterance_id": "utt_20260614T173147101199Z",
+      "mode": "tower_summary",
+      "text": "Tower status report. EQSB Kernel is active, local only. Guardian safety state OK. Entropy score 17.2. Workforce: 1191 canonical workers, 1191 active and reporting, 49 newly employed. Paper trading desk: 17 open trades out of 20 allowed. Realized PnL 2696.9792 across 6 closed trades, 6 lessons learned. OpenClaw is active with 3 diagnostic tickets. No discipline alerts. The skyscraper is steady. Real-money trading remains disabled. Execution gates are locked.",
+      "selected_floor": null,
+      "sources": "qsb_narrator",
+      "ts": "2026-06-14T17:31:47.101190+00:00",
+      "char_count": 461,
+      "execution_allowed": false
+    },
+    {
+      "utterance_id": "utt_20260614T173209472623Z",
+      "mode": "tower_summary",
+      "text": "Tower status report. EQSB Kernel is active, local only. Guardian safety state OK. Entropy score 17.2. Workforce: 1191 canonical workers, 1191 active and reporting, 49 newly employed. Paper trading desk: 17 open trades out of 20 allowed. Realized PnL 2696.9792 across 6 closed trades, 6 lessons learned. OpenClaw is active with 3 diagnostic tickets. No discipline alerts. The skyscraper is steady. Real-money trading remains disabled. Execution gates are locked.",
+      "selected_floor": null,
+      "sources": "qsb_narrator",
+      "ts": "2026-06-14T17:32:09.472615+00:00",
+      "char_count": 461,
+      "execution_allowed": false
+    },
+    {
+      "utterance_id": "utt_20260614T173231468767Z",
+      "mode": "tower_summary",
+      "text": "Tower status report. EQSB Kernel is active, local only. Guardian safety state OK. Entropy score 17.2. Workforce: 1191 canonical workers, 1191 active and reporting, 49 newly employed. Paper trading desk: 17 open trades out of 20 allowed. Realized PnL 2696.9792 across 6 closed trades, 6 lessons learned. OpenClaw is active with 3 diagnostic tickets. No discipline alerts. The skyscraper is steady. Real-money trading remains disabled. Execution gates are locked.",
+      "selected_floor": null,
+      "sources": "qsb_narrator",
+      "ts": "2026-06-14T17:32:31.468753+00:00",
+      "char_count": 461,
+      "execution_allowed": false
+    },
+    {
+      "utterance_id": "utt_20260614T173253493003Z",
+      "mode": "tower_summary",
+      "text": "Tower status report. EQSB Kernel is active, local only. Guardian safety state OK. Entropy score 17.2. Workforce: 1191 canonical workers, 1191 active and reporting, 49 newly employed. Paper trading desk: 17 open trades out of 20 allowed. Realized PnL 2696.9792 across 6 closed trades, 6 lessons learned. OpenClaw is active with 3 diagnostic tickets. No discipline alerts. The skyscraper is steady. Real-money trading remains disabled. Execution gates are locked.",
+      "selected_floor": null,
+      "sources": "qsb_narrator",
+      "ts": "2026-06-14T17:32:53.492990+00:00",
+      "char_count": 461,
+      "execution_allowed": false
+    },
+    {
+      "utterance_id": "utt_20260614T173315468586Z",
+      "mode": "tower_summary",
+      "text": "Tower status report. EQSB Kernel is active, local only. Guardian safety state OK. Entropy score 17.2. Workforce: 1191 canonical workers, 1191 active and reporting, 49 newly employed. Paper trading desk: 17 open trades out of 20 allowed. Realized PnL 2696.9792 across 6 closed trades, 6 lessons learned. OpenClaw is active with 3 diagnostic tickets. No discipline alerts. The skyscraper is steady. Real-money trading remains disabled. Execution gates are locked.",
+      "selected_floor": null,
+      "sources": "qsb_narrator",
+      "ts": "2026-06-14T17:33:15.468577+00:00",
+      "char_count": 461,
+      "execution_allowed": false
+    },
+    {
+      "utterance_id": "utt_20260614T173337470378Z",
+      "mode": "tower_summary",
+      "text": "Tower status report. EQSB Kernel is active, local only. Guardian safety state OK. Entropy score 17.2. Workforce: 1191 canonical workers, 1191 active and reporting, 49 newly employed. Paper trading desk: 17 open trades out of 20 allowed. Realized PnL 2696.9792 across 6 closed trades, 6 lessons learned. OpenClaw is active with 3 diagnostic tickets. No discipline alerts. The skyscraper is steady. Real-money trading remains disabled. Execution gates are locked.",
+      "selected_floor": null,
+      "sources": "qsb_narrator",
+      "ts": "2026-06-14T17:33:37.470369+00:00",
+      "char_count": 461,
+      "execution_allowed": false
+    },
+    {
+      "utterance_id": "utt_20260614T173359483802Z",
+      "mode": "tower_summary",
+      "text": "Tower status report. EQSB Kernel is active, local only. Guardian safety state OK. Entropy score 17.2. Workforce: 1191 canonical workers, 1191 active and reporting, 49 newly employed. Paper trading desk: 17 open trades out of 20 allowed. Realized PnL 2696.9792 across 6 closed trades, 6 lessons learned. OpenClaw is active with 3 diagnostic tickets. No discipline alerts. The skyscraper is steady. Real-money trading remains disabled. Execution gates are locked.",
+      "selected_floor": null,
+      "sources": "qsb_narrator",
+      "ts": "2026-06-14T17:33:59.483792+00:00",
+      "char_count": 461,
+      "execution_allowed": false
+    },
+    {
+      "utterance_id": "utt_20260614T173421483599Z",
+      "mode": "tower_summary",
+      "text": "Tower status report. EQSB Kernel is active, local only. Guardian safety state OK. Entropy score 17.2. Workforce: 1191 canonical workers, 1191 active and reporting, 49 newly employed. Paper trading desk: 17 open trades out of 20 allowed. Realized PnL 2696.9792 across 6 closed trades, 6 lessons learned. OpenClaw is active with 3 diagnostic tickets. No discipline alerts. The skyscraper is steady. Real-money trading remains disabled. Execution gates are locked.",
+      "selected_floor": null,
+      "sources": "qsb_narrator",
+      "ts": "2026-06-14T17:34:21.483590+00:00",
+      "char_count": 461,
+      "execution_allowed": false
+    },
+    {
+      "utterance_id": "utt_20260614T173443484348Z",
+      "mode": "tower_summary",
+      "text": "Tower status report. EQSB Kernel is active, local only. Guardian safety state OK. Entropy score 17.2. Workforce: 1191 canonical workers, 1191 active and reporting, 49 newly employed. Paper trading desk: 17 open trades out of 20 allowed. Realized PnL 2696.9792 across 6 closed trades, 6 lessons learned. OpenClaw is active with 3 diagnostic tickets. No discipline alerts. The skyscraper is steady. Real-money trading remains disabled. Execution gates are locked.",
+      "selected_floor": null,
+      "sources": "qsb_narrator",
+      "ts": "2026-06-14T17:34:43.484335+00:00",
+      "char_count": 461,
+      "execution_allowed": false
+    },
+    {
+      "utterance_id": "utt_20260614T173506408498Z",
+      "mode": "tower_summary",
+      "text": "Tower status report. EQSB Kernel is active, local only. Guardian safety state OK. Entropy score 17.2. Workforce: 1191 canonical workers, 1191 active and reporting, 49 newly employed. Paper trading desk: 17 open trades out of 20 allowed. Realized PnL 2696.9792 across 6 closed trades, 6 lessons learned. OpenClaw is active with 3 diagnostic tickets. No discipline alerts. The skyscraper is steady. Real-money trading remains disabled. Execution gates are locked.",
+      "selected_floor": null,
+      "sources": "qsb_narrator",
+      "ts": "2026-06-14T17:35:06.408487+00:00",
+      "char_count": 461,
+      "execution_allowed": false
+    },
+    {
+      "utterance_id": "utt_20260614T173528707539Z",
+      "mode": "tower_summary",
+      "text": "Tower status report. EQSB Kernel is active, local only. Guardian safety state OK. Entropy score 17.2. Workforce: 1191 canonical workers, 1191 active and reporting, 49 newly employed. Paper trading desk: 17 open trades out of 20 allowed. Realized PnL 2696.9792 across 6 closed trades, 6 lessons learned. OpenClaw is active with 3 diagnostic tickets. No discipline alerts. The skyscraper is steady. Real-money trading remains disabled. Execution gates are locked.",
+      "selected_floor": null,
+      "sources": "qsb_narrator",
+      "ts": "2026-06-14T17:35:28.707530+00:00",
+      "char_count": 461,
+      "execution_allowed": false
+    },
+    {
+      "utterance_id": "utt_20260614T173550867875Z",
+      "mode": "tower_summary",
+      "text": "Tower status report. EQSB Kernel is active, local only. Guardian safety state OK. Entropy score 17.2. Workforce: 1191 canonical workers, 1191 active and reporting, 49 newly employed. Paper trading desk: 17 open trades out of 20 allowed. Realized PnL 2696.9792 across 6 closed trades, 6 lessons learned. OpenClaw is active with 3 diagnostic tickets. No discipline alerts. The skyscraper is steady. Real-money trading remains disabled. Execution gates are locked.",
+      "selected_floor": null,
+      "sources": "qsb_narrator",
+      "ts": "2026-06-14T17:35:50.867861+00:00",
+      "char_count": 461,
+      "execution_allowed": false
+    },
+    {
+      "utterance_id": "utt_20260614T173613075790Z",
+      "mode": "tower_summary",
+      "text": "Tower status report. EQSB Kernel is active, local only. Guardian safety state OK. Entropy score 17.2. Workforce: 1191 canonical workers, 1191 active and reporting, 49 newly employed. Paper trading desk: 17 open trades out of 20 allowed. Realized PnL 2696.9792 across 6 closed trades, 6 lessons learned. OpenClaw is active with 3 diagnostic tickets. No discipline alerts. The skyscraper is steady. Real-money trading remains disabled. Execution gates are locked.",
+      "selected_floor": null,
+      "sources": "qsb_narrator",
+      "ts": "2026-06-14T17:36:13.075779+00:00",
+      "char_count": 461,
+      "execution_allowed": false
+    },
+    {
+      "utterance_id": "utt_20260614T173635382696Z",
+      "mode": "tower_summary",
+      "text": "Tower status report. EQSB Kernel is active, local only. Guardian safety state OK. Entropy score 17.2. Workforce: 1191 canonical workers, 1191 active and reporting, 49 newly employed. Paper trading desk: 17 open trades out of 20 allowed. Realized PnL 2696.9792 across 6 closed trades, 6 lessons learned. OpenClaw is active with 3 diagnostic tickets. No discipline alerts. The skyscraper is steady. Real-money trading remains disabled. Execution gates are locked.",
+      "selected_floor": null,
+      "sources": "qsb_narrator",
+      "ts": "2026-06-14T17:36:35.382685+00:00",
+      "char_count": 461,
+      "execution_allowed": false
+    },
+    {
+      "utterance_id": "utt_20260614T173657754573Z",
+      "mode": "tower_summary",
+      "text": "Tower status report. EQSB Kernel is active, local only. Guardian safety state OK. Entropy score 17.2. Workforce: 1191 canonical workers, 1191 active and reporting, 49 newly employed. Paper trading desk: 17 open trades out of 20 allowed. Realized PnL 2696.9792 across 6 closed trades, 6 lessons learned. OpenClaw is active with 3 diagnostic tickets. No discipline alerts. The skyscraper is steady. Real-money trading remains disabled. Execution gates are locked.",
+      "selected_floor": null,
+      "sources": "qsb_narrator",
+      "ts": "2026-06-14T17:36:57.754563+00:00",
+      "char_count": 461,
+      "execution_allowed": false
+    }
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

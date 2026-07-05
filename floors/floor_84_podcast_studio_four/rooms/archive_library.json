@@ -1,0 +1,34 @@
+{
+  "room_id": "archive_library",
+  "name": "Podcast Archive Library",
+  "category": "library",
+  "purpose": "This room houses a comprehensive collection of past podcast episodes.",
+  "concierge_blurb": "Explore the vast archive of completed podcasts.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -5.0,
+    "offset_z": -8.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 1.8
+  },
+  "render": {
+    "primary_prop": "archive_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Podcast Archive",
+    "glow": true
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/archive_inventory.jsonl",
+    "display": "big_number",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_84"
+}

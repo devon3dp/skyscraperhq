@@ -1,0 +1,31 @@
+{
+  "room_id": "presentation_gallery",
+  "name": "Presentation Gallery",
+  "category": "display",
+  "purpose": "A space to showcase and present marketing materials.",
+  "concierge_blurb": "View our latest marketing campaigns on display here.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_right",
+    "offset_x": 7.5,
+    "offset_z": -8.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 1.9
+  },
+  "render": {
+    "primary_prop": "display",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Pres.Gal.",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_18"
+}

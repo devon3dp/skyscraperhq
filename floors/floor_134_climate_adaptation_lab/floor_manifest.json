@@ -1,0 +1,35 @@
+{
+  "ok": true,
+  "floor_number": 134,
+  "floor_name": "Climate Adaptation Lab",
+  "floor_kind": "designed_by_f66_architects_v1",
+  "description": "engineering + policy",
+  "designed_by": "F66 Architects' Office",
+  "designed_ts": "2026-06-11T09:13:04.497262Z",
+  "role_inventory": [
+    "Lab Director",
+    "Civil Engineer",
+    "Policy Researcher",
+    "Material Specialist",
+    "Geo Engineer",
+    "Postdoc"
+  ],
+  "advisory_only": true,
+  "interior_brief": {
+    "archetype": "lab",
+    "palette": "white + matte stainless",
+    "furniture": [
+      "lab benches",
+      "equipment racks",
+      "data terminals",
+      "safety cabinets"
+    ],
+    "lighting": "cool task LEDs",
+    "mood": "precise + clean",
+    "designed_by": "F66 Architects + F17 Graphics + Fitters team",
+    "fitted_at": "2026-06-11T14:39:45.620109Z",
+    "godot_scene_brief": "render an lab floor with white + matte stainless palette, precise + clean mood, key furniture: lab benches, equipment racks, data terminals"
+  },
+  "fitted_out": true,
+  "fit_out_ts": "2026-06-11T14:39:45.620109Z"
+}

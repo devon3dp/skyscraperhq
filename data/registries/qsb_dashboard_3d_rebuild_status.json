@@ -1,0 +1,28 @@
+{
+  "ok": true,
+  "phase": "QSB_DASHBOARD_3D_TOTAL_REVAMP_WORKERS_OPENCLAW_V1",
+  "kind": "qsb_dashboard_3d_rebuild_status",
+  "generated_ts": "2026-06-30T13:46:34.878087+00:00",
+  "files_added": [
+    "src/dashboard/static/qsb_3d_app.js",
+    "src/dashboard/static/qsb_3d_floors.js",
+    "src/dashboard/static/qsb_3d_workers.js",
+    "src/dashboard/static/qsb_3d_openclaw.js",
+    "src/dashboard/static/qsb_3d_telemetry.js",
+    "src/dashboard/static/qsb_3d_dashboard.css",
+    "src/tower/qsb_dashboard_3d_revamp.py"
+  ],
+  "visual_transformations": [
+    "left activity rail with class breakdown per floor",
+    "fixed-position selected-floor interior panel (rows, not dots)",
+    "OpenClaw supervisor card bottom-right",
+    "telemetry truth overlay top-left with class counts + reasons",
+    "deeper SVG glow + tower edge brightening"
+  ],
+  "backup_location": "data/backups/dashboard_3d_total_revamp_<ts>/",
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

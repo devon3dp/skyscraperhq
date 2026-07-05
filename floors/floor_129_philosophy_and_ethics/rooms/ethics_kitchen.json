@@ -1,0 +1,34 @@
+{
+  "room_id": "ethics_kitchen",
+  "name": "Ethics Kitchen",
+  "category": "kitchen",
+  "purpose": "A space for preparing and sharing ethical-themed meals.",
+  "concierge_blurb": "Join us in a culinary exploration of moral values.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -6.0,
+    "offset_z": 8.0,
+    "footprint_m": [
+      4,
+      4
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "kitchen_line",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Ethics Ktch",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_129"
+}

@@ -1,0 +1,34 @@
+{
+  "room_id": "nano_research_lab",
+  "name": "Nano Research Lab",
+  "category": "lab",
+  "purpose": "This lab focuses on researching new materials at the nano scale.",
+  "concierge_blurb": "A cutting-edge research lab for studying nanomaterials.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 7.5,
+    "offset_z": 8.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 1.5
+  },
+  "render": {
+    "primary_prop": "plinth",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Nano Lab",
+    "glow": true
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/nano_research.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_119"
+}

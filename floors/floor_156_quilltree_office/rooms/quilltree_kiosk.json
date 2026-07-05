@@ -1,0 +1,34 @@
+{
+  "room_id": "quilltree_kiosk",
+  "name": "Customer Service Kiosk",
+  "category": "reception",
+  "purpose": "Serves as the initial point of contact for customers.",
+  "concierge_blurb": "Welcome to Quilltree \u2014 your one-stop shop for all things dropshipping.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      5,
+      3
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "reception",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Customer Service",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": null,
+    "refresh_seconds": 0
+  },
+  "floor": "floor_156"
+}

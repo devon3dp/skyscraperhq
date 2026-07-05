@@ -1,0 +1,21 @@
+{
+  "ok": true,
+  "kind": "qsb_godot_audio_voice_migration_status",
+  "phase": "QSB_OLD_DASHBOARD_TO_GODOT_FEATURE_MIGRATION_V1",
+  "generated_ts": "2026-06-09T21:35:00+00:00",
+  "godot_files": [
+    "scripts/AudioControlPanel.gd",
+    "scripts/TalkBridge.gd",
+    "scripts/VoiceControlBridge.gd"
+  ],
+  "controls": {
+    "talk":       {"present": true, "wired": false, "note": "scaffold — no mic capture"},
+    "voice":      {"present": true, "wired": true},
+    "sound":      {"present": true, "wired": true},
+    "commentary": {"present": true, "wired": false, "note": "ticker rotation; TTS stub"},
+    "mute_all":   {"present": true, "wired": true}
+  },
+  "local_tts": false,
+  "external_tts_provider": "NONE (gated by external_api_calls_enabled=False)",
+  "fails_silently": false
+}

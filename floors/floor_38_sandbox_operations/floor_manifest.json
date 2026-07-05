@@ -1,0 +1,69 @@
+{
+  "floor_id": "floor_38",
+  "number": 38,
+  "department": "Sandbox Operations",
+  "version": "1.1",
+  "zone": "ZONE C",
+  "status": "online",
+  "role": "Isolated dry-run containment for simulated tasks and candidate worker envelopes.",
+  "floor": "floor_38",
+  "sandbox_only": true,
+  "dry_run_only": true,
+  "containment_mode": "sealed_metadata_envelopes_only",
+  "kernel_installed": false,
+  "kernel_logic_present": false,
+  "execution_enabled": false,
+  "worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "model_inference_enabled": false,
+  "autonomous_workers_enabled": false,
+  "live_dispatch_enabled": false,
+  "shell_execution_enabled": false,
+  "filesystem_write_enabled": false,
+  "network_enabled": false,
+  "real_process_spawn_enabled": false,
+  "notice": "Floor 38 contains simulated task envelopes only. It does not execute workers, providers, models, shell commands, or kernel logic.",
+  "hardwired_providers": false,
+  "providers_are_external": true,
+  "models_are_temporary_tenants": true,
+  "lift_access": [
+    "main_high_rise",
+    "service_lift",
+    "security_lift",
+    "emergency_stairwell"
+  ],
+  "routes_through": {
+    "simulation_labs": "floor_37",
+    "candidate_workers": "floor_25",
+    "model_evaluation": "floor_26",
+    "security": "floor_28_floor_32",
+    "diagnostics": "floor_33",
+    "monitoring": "floor_34"
+  },
+  "created_or_verified": "2026-06-07T18:21:43.119801+00:00",
+  "interior_brief": {
+    "archetype": "ops_hub",
+    "palette": [
+      "#102030",
+      "#3060a0",
+      "#80b2ff"
+    ],
+    "furniture": [
+      "desks",
+      "meeting area",
+      "common space",
+      "storage"
+    ],
+    "lighting": "task + ambient",
+    "mood": "command-and-control",
+    "designed_by": "F66 Architects + F17 Graphics + Fitters team",
+    "fitted_at": "2026-06-11T14:39:45.620109Z",
+    "godot_scene_brief": "render an generic floor with neutral grey + accent per floor theme palette, professional mood, key furniture: desks, meeting area, common space",
+    "signature": "Curved console arc, status walls, ops director's chair",
+    "diversified_ts": "2026-06-11T17:57:45Z",
+    "diversified_by": "qsb_archetype_diversifier_v1"
+  },
+  "fitted_out": true,
+  "fit_out_ts": "2026-06-11T14:39:45.620109Z",
+  "floor_name": "Sandbox Operations"
+}

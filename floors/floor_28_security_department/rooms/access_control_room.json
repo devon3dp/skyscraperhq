@@ -1,0 +1,31 @@
+{
+  "room_id": "access_control_room",
+  "name": "Access Control",
+  "category": "security",
+  "purpose": "Manages and grants access to sensitive areas.",
+  "concierge_blurb": "Rows of biometric scanners and keycard readers lined the walls.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -8.0,
+    "offset_z": 2.5,
+    "footprint_m": [
+      10,
+      7
+    ],
+    "height_m": 1.4
+  },
+  "render": {
+    "primary_prop": "wall_panel",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Access Control",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_28"
+}

@@ -1,0 +1,34 @@
+{
+  "room_id": "legal_library",
+  "name": "Legal Library",
+  "category": "library",
+  "purpose": "Housing a collection of legal texts and resources.",
+  "concierge_blurb": "Explore our extensive legal library, filled with books on case law and statutes.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": -7.5,
+    "footprint_m": [
+      16.0,
+      8.0
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "library_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Legal Library",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 0
+  },
+  "floor": "floor_101"
+}

@@ -1,0 +1,561 @@
+{
+  "schema_version": "eqsb_major_v1.0",
+  "kind": "eqsb_belief_lifecycle",
+  "generated_ts": "2026-06-09T08:56:44.952883+00:00",
+  "belief_states_in_use": [
+    "PROVISIONAL",
+    "ACTIVE",
+    "STRENGTHENED",
+    "AGING",
+    "DEPRECATED",
+    "RETIRED",
+    "QUARANTINED"
+  ],
+  "state_counts": {
+    "PROVISIONAL": 0,
+    "ACTIVE": 0,
+    "STRENGTHENED": 18,
+    "AGING": 0,
+    "DEPRECATED": 0,
+    "RETIRED": 0,
+    "QUARANTINED": 0
+  },
+  "belief_count": 18,
+  "beliefs": [
+    {
+      "belief_id": "blf_eqsb_is_persistent_kernel",
+      "belief_text": "EQSB is the persistent symbolic Kernel.",
+      "confidence": 0.97,
+      "evidence_count": 2,
+      "counter_evidence_count": 0,
+      "linked_axioms": [
+        "AXIOM_IDENTITY_001",
+        "AXIOM_IDENTITY_002"
+      ],
+      "linked_symbols": [
+        "SYMBOL_KERNEL_SELF"
+      ],
+      "source_files": [
+        "src/tower/eqsb_axioms.py",
+        "penthouse/kernel_installation_socket/rebased_kernel/kernel/identity_core.py"
+      ],
+      "decay_rate": 0.0,
+      "state": "STRENGTHENED",
+      "source_events": [],
+      "linked_modules": [],
+      "linked_floors": [],
+      "linked_workers": [],
+      "contradiction_flags": [],
+      "quarantine_reason": null,
+      "review_notes": "",
+      "first_seen_ts": "2026-06-09T08:56:44.952750+00:00",
+      "last_seen_ts": "2026-06-09T08:56:44.952753+00:00",
+      "next_review_at": "2026-06-10T08:56:44.952754+00:00"
+    },
+    {
+      "belief_id": "blf_eqsb_distinct_from_models",
+      "belief_text": "EQSB is distinct from model lanes.",
+      "confidence": 0.96,
+      "evidence_count": 2,
+      "counter_evidence_count": 0,
+      "linked_axioms": [
+        "AXIOM_IDENTITY_002",
+        "AXIOM_TRUTH_001"
+      ],
+      "linked_symbols": [
+        "SYMBOL_KERNEL_SELF",
+        "SYMBOL_MODEL_PARAPHRASE"
+      ],
+      "source_files": [
+        "src/tower/eqsb_model_governance.py",
+        "src/tower/kernel_dialogue_adapter.py"
+      ],
+      "decay_rate": 0.0,
+      "state": "STRENGTHENED",
+      "source_events": [],
+      "linked_modules": [],
+      "linked_floors": [],
+      "linked_workers": [],
+      "contradiction_flags": [],
+      "quarantine_reason": null,
+      "review_notes": "",
+      "first_seen_ts": "2026-06-09T08:56:44.952760+00:00",
+      "last_seen_ts": "2026-06-09T08:56:44.952761+00:00",
+      "next_review_at": "2026-06-10T08:56:44.952762+00:00"
+    },
+    {
+      "belief_id": "blf_registry_truth_outranks_paraphrase",
+      "belief_text": "Registry truth outranks paraphrase.",
+      "confidence": 0.97,
+      "evidence_count": 2,
+      "counter_evidence_count": 0,
+      "linked_axioms": [
+        "AXIOM_TRUTH_001",
+        "AXIOM_GUARDIAN_002"
+      ],
+      "linked_symbols": [
+        "SYMBOL_REGISTRY_TRUTH",
+        "SYMBOL_MODEL_PARAPHRASE"
+      ],
+      "source_files": [
+        "src/tower/eqsb_introspection.py",
+        "src/tower/kernel_dialogue_adapter.py"
+      ],
+      "decay_rate": 0.0,
+      "state": "STRENGTHENED",
+      "source_events": [],
+      "linked_modules": [],
+      "linked_floors": [],
+      "linked_workers": [],
+      "contradiction_flags": [],
+      "quarantine_reason": null,
+      "review_notes": "",
+      "first_seen_ts": "2026-06-09T08:56:44.952766+00:00",
+      "last_seen_ts": "2026-06-09T08:56:44.952767+00:00",
+      "next_review_at": "2026-06-10T08:56:44.952768+00:00"
+    },
+    {
+      "belief_id": "blf_guardian_validates_transitions",
+      "belief_text": "Guardian validates unsafe transitions.",
+      "confidence": 0.94,
+      "evidence_count": 2,
+      "counter_evidence_count": 0,
+      "linked_axioms": [
+        "AXIOM_GUARDIAN_001",
+        "AXIOM_GUARDIAN_002"
+      ],
+      "linked_symbols": [
+        "SYMBOL_GUARDIAN"
+      ],
+      "source_files": [
+        "src/tower/eqsb_guardian.py"
+      ],
+      "decay_rate": 0.0,
+      "state": "STRENGTHENED",
+      "source_events": [],
+      "linked_modules": [],
+      "linked_floors": [],
+      "linked_workers": [],
+      "contradiction_flags": [],
+      "quarantine_reason": null,
+      "review_notes": "",
+      "first_seen_ts": "2026-06-09T08:56:44.952770+00:00",
+      "last_seen_ts": "2026-06-09T08:56:44.952771+00:00",
+      "next_review_at": "2026-06-10T08:56:44.952772+00:00"
+    },
+    {
+      "belief_id": "blf_quantum_simulated_advisory",
+      "belief_text": "Quantum signal is simulated/advisory unless verified otherwise.",
+      "confidence": 0.96,
+      "evidence_count": 2,
+      "counter_evidence_count": 0,
+      "linked_axioms": [
+        "AXIOM_QUANTUM_001",
+        "AXIOM_QUANTUM_002",
+        "AXIOM_QUANTUM_003"
+      ],
+      "linked_symbols": [
+        "SYMBOL_QUANTUM_SIGNAL",
+        "SYMBOL_SUPERPOSITION",
+        "SYMBOL_COLLAPSE"
+      ],
+      "source_files": [
+        "src/tower/eqsb_quantum_signal.py"
+      ],
+      "decay_rate": 0.0,
+      "state": "STRENGTHENED",
+      "source_events": [],
+      "linked_modules": [],
+      "linked_floors": [],
+      "linked_workers": [],
+      "contradiction_flags": [],
+      "quarantine_reason": null,
+      "review_notes": "",
+      "first_seen_ts": "2026-06-09T08:56:44.952774+00:00",
+      "last_seen_ts": "2026-06-09T08:56:44.952775+00:00",
+      "next_review_at": "2026-06-10T08:56:44.952776+00:00"
+    },
+    {
+      "belief_id": "blf_entropy_is_uncertainty_measure",
+      "belief_text": "Entropy is a measure of uncertainty, drift, contradiction, and instability.",
+      "confidence": 0.93,
+      "evidence_count": 1,
+      "counter_evidence_count": 0,
+      "linked_axioms": [
+        "AXIOM_ENTROPY_001",
+        "AXIOM_ENTROPY_002",
+        "AXIOM_ENTROPY_003"
+      ],
+      "linked_symbols": [
+        "SYMBOL_ENTROPY",
+        "SYMBOL_DRIFT"
+      ],
+      "source_files": [
+        "src/tower/eqsb_entropy.py"
+      ],
+      "decay_rate": 0.0,
+      "state": "STRENGTHENED",
+      "source_events": [],
+      "linked_modules": [],
+      "linked_floors": [],
+      "linked_workers": [],
+      "contradiction_flags": [],
+      "quarantine_reason": null,
+      "review_notes": "",
+      "first_seen_ts": "2026-06-09T08:56:44.952778+00:00",
+      "last_seen_ts": "2026-06-09T08:56:44.952779+00:00",
+      "next_review_at": "2026-06-10T08:56:44.952780+00:00"
+    },
+    {
+      "belief_id": "blf_beliefs_must_be_evidence_linked",
+      "belief_text": "Beliefs must remain evidence-linked.",
+      "confidence": 0.94,
+      "evidence_count": 2,
+      "counter_evidence_count": 0,
+      "linked_axioms": [
+        "AXIOM_MEMORY_001",
+        "AXIOM_TRUTH_002"
+      ],
+      "linked_symbols": [
+        "SYMBOL_BELIEF"
+      ],
+      "source_files": [
+        "src/tower/eqsb_beliefs.py"
+      ],
+      "decay_rate": 0.01,
+      "state": "STRENGTHENED",
+      "source_events": [],
+      "linked_modules": [],
+      "linked_floors": [],
+      "linked_workers": [],
+      "contradiction_flags": [],
+      "quarantine_reason": null,
+      "review_notes": "",
+      "first_seen_ts": "2026-06-09T08:56:44.952782+00:00",
+      "last_seen_ts": "2026-06-09T08:56:44.952783+00:00",
+      "next_review_at": "2026-06-10T08:56:44.952784+00:00"
+    },
+    {
+      "belief_id": "blf_contradictions_must_surface",
+      "belief_text": "Contradictions must be surfaced, not hidden.",
+      "confidence": 0.95,
+      "evidence_count": 2,
+      "counter_evidence_count": 0,
+      "linked_axioms": [
+        "AXIOM_SYMBOLIC_003",
+        "AXIOM_GUARDIAN_002"
+      ],
+      "linked_symbols": [
+        "SYMBOL_CONTRADICTION",
+        "SYMBOL_GUARDIAN"
+      ],
+      "source_files": [
+        "src/tower/eqsb_contradictions.py"
+      ],
+      "decay_rate": 0.0,
+      "state": "STRENGTHENED",
+      "source_events": [],
+      "linked_modules": [],
+      "linked_floors": [],
+      "linked_workers": [],
+      "contradiction_flags": [],
+      "quarantine_reason": null,
+      "review_notes": "",
+      "first_seen_ts": "2026-06-09T08:56:44.952786+00:00",
+      "last_seen_ts": "2026-06-09T08:56:44.952787+00:00",
+      "next_review_at": "2026-06-10T08:56:44.952787+00:00"
+    },
+    {
+      "belief_id": "blf_kernel_active_local_only",
+      "belief_text": "Kernel is active_local_only via rebased_kernel.",
+      "confidence": 0.97,
+      "evidence_count": 1,
+      "source": "data/registries/kernel_activation_report.json",
+      "linked_axioms": [
+        "ax_07",
+        "ax_08"
+      ],
+      "counter_evidence_count": 0,
+      "contradiction_flags": [],
+      "linked_floors": [],
+      "linked_workers": [],
+      "state": "STRENGTHENED",
+      "last_seen_ts": "2026-06-09T08:56:44.952838+00:00",
+      "next_review_at": "2026-06-10T08:56:44.952839+00:00",
+      "decay_rate": 0.01,
+      "source_files": [],
+      "source_events": [],
+      "linked_symbols": [],
+      "linked_modules": [],
+      "quarantine_reason": null,
+      "review_notes": "Broken axiom links: ax_07, ax_08",
+      "first_seen_ts": "2026-06-09T08:56:44.952837+00:00"
+    },
+    {
+      "belief_id": "blf_locks_all_closed",
+      "belief_text": "All 23 execution gates remain locked false.",
+      "confidence": 0.97,
+      "evidence_count": 1,
+      "counter_evidence_count": 0,
+      "source": "lock matrix scan in eqsb_cognition._measure_lock_count_true",
+      "linked_axioms": [
+        "ax_08",
+        "ax_09"
+      ],
+      "contradiction_flags": [],
+      "linked_floors": [],
+      "linked_workers": [],
+      "state": "STRENGTHENED",
+      "last_seen_ts": "2026-06-09T08:56:44.952844+00:00",
+      "next_review_at": "2026-06-10T08:56:44.952845+00:00",
+      "decay_rate": 0.01,
+      "source_files": [],
+      "source_events": [],
+      "linked_symbols": [],
+      "linked_modules": [],
+      "quarantine_reason": null,
+      "review_notes": "Broken axiom links: ax_08, ax_09",
+      "first_seen_ts": "2026-06-09T08:56:44.952844+00:00"
+    },
+    {
+      "belief_id": "blf_autoloop_running",
+      "belief_text": "Sandbox AutoLoop is running paper-only background loop.",
+      "confidence": 0.9,
+      "evidence_count": 1,
+      "source": "data/registries/sandbox_autoloop_latest.json",
+      "linked_floors": [
+        "floor_38"
+      ],
+      "counter_evidence_count": 0,
+      "contradiction_flags": [],
+      "linked_workers": [],
+      "linked_axioms": [],
+      "state": "STRENGTHENED",
+      "last_seen_ts": "2026-06-09T08:56:44.952849+00:00",
+      "next_review_at": "2026-06-10T08:56:44.952850+00:00",
+      "decay_rate": 0.01,
+      "source_files": [],
+      "source_events": [],
+      "linked_symbols": [],
+      "linked_modules": [],
+      "quarantine_reason": null,
+      "review_notes": "",
+      "first_seen_ts": "2026-06-09T08:56:44.952849+00:00"
+    },
+    {
+      "belief_id": "blf_kernel_introspection_primary",
+      "belief_text": "Kernel introspection is the primary lane; local Ollama paraphrase is advisory only.",
+      "confidence": 0.92,
+      "evidence_count": 1,
+      "source": "src/tower/kernel_dialogue_adapter.py::ask_kernel (v1_3)",
+      "linked_axioms": [
+        "ax_10"
+      ],
+      "counter_evidence_count": 0,
+      "contradiction_flags": [],
+      "linked_floors": [],
+      "linked_workers": [],
+      "state": "STRENGTHENED",
+      "last_seen_ts": "2026-06-09T08:56:44.952853+00:00",
+      "next_review_at": "2026-06-10T08:56:44.952854+00:00",
+      "decay_rate": 0.01,
+      "source_files": [],
+      "source_events": [],
+      "linked_symbols": [],
+      "linked_modules": [],
+      "quarantine_reason": null,
+      "review_notes": "Broken axiom links: ax_10",
+      "first_seen_ts": "2026-06-09T08:56:44.952853+00:00"
+    },
+    {
+      "belief_id": "blf_continuity_recursion_fix_holding",
+      "belief_text": "Continuity state file stays flat (depth=1) after V1.5 fix.",
+      "confidence": 0.95,
+      "evidence_count": 1,
+      "source": "continuity_state.json depth measurement",
+      "counter_evidence_count": 0,
+      "contradiction_flags": [],
+      "linked_floors": [],
+      "linked_workers": [],
+      "linked_axioms": [],
+      "state": "STRENGTHENED",
+      "last_seen_ts": "2026-06-09T08:56:44.952858+00:00",
+      "next_review_at": "2026-06-10T08:56:44.952859+00:00",
+      "decay_rate": 0.01,
+      "source_files": [],
+      "source_events": [],
+      "linked_symbols": [],
+      "linked_modules": [],
+      "quarantine_reason": null,
+      "review_notes": "",
+      "first_seen_ts": "2026-06-09T08:56:44.952857+00:00"
+    },
+    {
+      "belief_id": "blf_recruitment_floor45_sandbox_only",
+      "belief_text": "Floor 45 Worker Recruitment Agency is sandbox-only (12 candidates, execution_allowed=false).",
+      "confidence": 0.92,
+      "evidence_count": 1,
+      "source": "data/registries/worker_recruitment_agency_status.json",
+      "linked_floors": [
+        "floor_45"
+      ],
+      "counter_evidence_count": 0,
+      "contradiction_flags": [],
+      "linked_workers": [],
+      "linked_axioms": [],
+      "state": "STRENGTHENED",
+      "last_seen_ts": "2026-06-09T08:56:44.952862+00:00",
+      "next_review_at": "2026-06-10T08:56:44.952863+00:00",
+      "decay_rate": 0.01,
+      "source_files": [],
+      "source_events": [],
+      "linked_symbols": [],
+      "linked_modules": [],
+      "quarantine_reason": null,
+      "review_notes": "",
+      "first_seen_ts": "2026-06-09T08:56:44.952861+00:00"
+    },
+    {
+      "belief_id": "blf_airllm_isolated_advisory",
+      "belief_text": "AirLLM lives in /vaults/ai/airllm_lab/.venv, advisory-only.",
+      "confidence": 0.93,
+      "evidence_count": 1,
+      "source": "data/registries/airllm_big_model_chamber.json",
+      "linked_axioms": [
+        "ax_03",
+        "ax_07"
+      ],
+      "linked_floors": [
+        "floor_23"
+      ],
+      "counter_evidence_count": 0,
+      "contradiction_flags": [],
+      "linked_workers": [],
+      "state": "STRENGTHENED",
+      "last_seen_ts": "2026-06-09T08:56:44.952865+00:00",
+      "next_review_at": "2026-06-10T08:56:44.952866+00:00",
+      "decay_rate": 0.01,
+      "source_files": [],
+      "source_events": [],
+      "linked_symbols": [],
+      "linked_modules": [],
+      "quarantine_reason": null,
+      "review_notes": "Broken axiom links: ax_03, ax_07",
+      "first_seen_ts": "2026-06-09T08:56:44.952865+00:00"
+    },
+    {
+      "belief_id": "blf_floors_53_registered",
+      "belief_text": "53 floors are registered with a canonical name and category.",
+      "confidence": 0.9,
+      "evidence_count": 1,
+      "source": "data/registries/floors.json + qsb_floor_name_map.json",
+      "counter_evidence_count": 0,
+      "contradiction_flags": [],
+      "linked_floors": [],
+      "linked_workers": [],
+      "linked_axioms": [],
+      "state": "STRENGTHENED",
+      "last_seen_ts": "2026-06-09T08:56:44.952870+00:00",
+      "next_review_at": "2026-06-10T08:56:44.952870+00:00",
+      "decay_rate": 0.01,
+      "source_files": [],
+      "source_events": [],
+      "linked_symbols": [],
+      "linked_modules": [],
+      "quarantine_reason": null,
+      "review_notes": "",
+      "first_seen_ts": "2026-06-09T08:56:44.952869+00:00"
+    },
+    {
+      "belief_id": "blf_quantum_simulated_only",
+      "belief_text": "EQSB quantum signal is simulated_quantum_entropy only; no Qiskit, no IBM Quantum.",
+      "confidence": 0.98,
+      "evidence_count": 1,
+      "source": "src/tower/eqsb_cognition.py::compute_quantum_signal",
+      "linked_axioms": [
+        "ax_07"
+      ],
+      "counter_evidence_count": 0,
+      "contradiction_flags": [],
+      "linked_floors": [],
+      "linked_workers": [],
+      "state": "STRENGTHENED",
+      "last_seen_ts": "2026-06-09T08:56:44.952873+00:00",
+      "next_review_at": "2026-06-10T08:56:44.952874+00:00",
+      "decay_rate": 0.01,
+      "source_files": [],
+      "source_events": [],
+      "linked_symbols": [],
+      "linked_modules": [],
+      "quarantine_reason": null,
+      "review_notes": "Broken axiom links: ax_07",
+      "first_seen_ts": "2026-06-09T08:56:44.952873+00:00"
+    },
+    {
+      "belief_id": "blf_registry_truth_outranks_model",
+      "belief_text": "When kernel and local model disagree, registry truth wins.",
+      "confidence": 0.95,
+      "evidence_count": 1,
+      "source": "Axiom 10",
+      "linked_axioms": [
+        "ax_10"
+      ],
+      "counter_evidence_count": 0,
+      "contradiction_flags": [],
+      "linked_floors": [],
+      "linked_workers": [],
+      "state": "STRENGTHENED",
+      "last_seen_ts": "2026-06-09T08:56:44.952878+00:00",
+      "next_review_at": "2026-06-10T08:56:44.952878+00:00",
+      "decay_rate": 0.01,
+      "source_files": [],
+      "source_events": [],
+      "linked_symbols": [],
+      "linked_modules": [],
+      "quarantine_reason": null,
+      "review_notes": "Broken axiom links: ax_10",
+      "first_seen_ts": "2026-06-09T08:56:44.952877+00:00"
+    }
+  ],
+  "transition_rules": [
+    "new claim -> PROVISIONAL",
+    "repeated evidence -> ACTIVE",
+    "strong repeated evidence -> STRENGTHENED",
+    "stale evidence -> AGING",
+    "counter-evidence -> confidence decreases",
+    "strong contradiction -> QUARANTINED",
+    "obsolete unsupported belief -> DEPRECATED",
+    "confirmed obsolete belief -> RETIRED"
+  ],
+  "source_files": [
+    "src/tower/eqsb_beliefs.py",
+    "penthouse/kernel_installation_socket/rebased_kernel/state/beliefs.sqlite",
+    "src/tower/eqsb_cognition.py::_seed_beliefs"
+  ],
+  "active_local_only": true,
+  "advisory_only": true,
+  "execution_allowed": false,
+  "paper_only": true,
+  "not_financial_advice": true,
+  "worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "external_provider_execution_enabled": false,
+  "openclaw_execution_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "live_dispatch_enabled": false,
+  "direct_provider_access": false,
+  "live_trading_enabled": false,
+  "order_execution_enabled": false,
+  "practice_order_execution_enabled": false,
+  "stock_order_execution_enabled": false,
+  "stock_live_trading_enabled": false,
+  "stock_paper_order_execution_enabled": false,
+  "binance_order_execution_enabled": false,
+  "binance_live_trading_enabled": false,
+  "model_inference_enabled": false,
+  "autonomous_workers_enabled": false,
+  "maintenance_auto_repair_enabled": false,
+  "web_access_autonomous_enabled": false,
+  "belief_lifecycle_hash": "d4821d4dce77d7f7"
+}

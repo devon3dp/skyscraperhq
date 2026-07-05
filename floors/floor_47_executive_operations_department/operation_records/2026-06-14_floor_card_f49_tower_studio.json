@@ -1,0 +1,27 @@
+{
+  "record_id": "f47_op_2026-06-14_floor_card_f49_tower_studio",
+  "ts_utc": "2026-06-14T18:07:00Z",
+  "floor": "F47",
+  "job": "Skyscraper-wide floor cards — F49 Tower Studio",
+  "operator": "claude (opus 4.7) under Wren's F47 bench",
+  "phase": "job_completed",
+  "scope": "Write floors/floor_49_tower_studio/floor_card.json with live signals + tour blurb",
+  "files_touched": [
+    "floors/floor_49_tower_studio/floor_card.json"
+  ],
+  "live_probes": {
+    "http_root_status": 200,
+    "page_title": "Tower Studio — Websites, identity, and IT, designed inside the QSB Tower.",
+    "healthz_status": 200,
+    "healthz_body": {"ok": true, "service": "tower_studio"},
+    "systemd_unit": "qsb-tower-studio.service",
+    "systemd_scope": "user",
+    "systemd_active": "active",
+    "systemd_enabled": "enabled"
+  },
+  "tour_blurb_source": "data/registries/qsb_open_day_tour.json#floors[id=floor_49]",
+  "gates_unchanged": true,
+  "safety_paths_touched": false,
+  "no_external_cdn": true,
+  "notes": "Created new floor dir floors/floor_49_tower_studio/ to host the visitor-facing card. Did NOT touch the unrelated legacy floors/floor_49_resource_management_department/. /api/state is unwired on :8849; used GET / page title as brand-signal substitute. Followed the F0 floor_card schema (skyscraper_floor_card_push pattern), not the F48 qsb_floor_card.v1 variant — F0 is the active pattern for this push."
+}

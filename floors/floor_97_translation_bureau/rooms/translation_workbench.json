@@ -1,0 +1,34 @@
+{
+  "room_id": "translation_workbench",
+  "name": "Translation Workbench",
+  "category": "workshop",
+  "purpose": "This room is for translators and linguists to collaborate on multilingual documents.",
+  "concierge_blurb": "Explore the intricate process of translating languages into harmony.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      8,
+      4
+    ],
+    "height_m": 1.2
+  },
+  "render": {
+    "primary_prop": "desk",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Translation Desk",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 0
+  },
+  "floor": "floor_97"
+}

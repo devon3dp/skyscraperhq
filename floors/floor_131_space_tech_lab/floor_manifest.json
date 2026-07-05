@@ -1,0 +1,35 @@
+{
+  "ok": true,
+  "floor_number": 131,
+  "floor_name": "Space Tech Lab",
+  "floor_kind": "designed_by_f66_architects_v1",
+  "description": "satellites + propulsion",
+  "designed_by": "F66 Architects' Office",
+  "designed_ts": "2026-06-11T09:13:04.497262Z",
+  "role_inventory": [
+    "Lab Director",
+    "Aerospace Engineer",
+    "Propulsion Engineer",
+    "Satellite Engineer",
+    "Mission Designer",
+    "Research Assistant"
+  ],
+  "advisory_only": true,
+  "interior_brief": {
+    "archetype": "shop",
+    "palette": "brand-led",
+    "furniture": [
+      "display cases",
+      "reception desk",
+      "customer chairs",
+      "packaging station"
+    ],
+    "lighting": "warm spots + display LEDs",
+    "mood": "welcoming + on-brand",
+    "designed_by": "F66 Architects + F17 Graphics + Fitters team",
+    "fitted_at": "2026-06-11T14:39:45.620109Z",
+    "godot_scene_brief": "render an shop floor with brand-led palette, welcoming + on-brand mood, key furniture: display cases, reception desk, customer chairs"
+  },
+  "fitted_out": true,
+  "fit_out_ts": "2026-06-11T14:39:45.620109Z"
+}

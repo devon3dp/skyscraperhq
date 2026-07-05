@@ -1,0 +1,31 @@
+{
+  "room_id": "break_room",
+  "name": "Break Room",
+  "category": "kitchen",
+  "purpose": "A place for staff to take a break and socialize.",
+  "concierge_blurb": "Relax, recharge, and catch up with colleagues.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "right_wall",
+    "offset_x": 6.0,
+    "offset_z": -1.5,
+    "footprint_m": [
+      4.0,
+      8.0
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "kitchen_line",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Break Room",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_104"
+}

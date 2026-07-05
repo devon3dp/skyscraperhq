@@ -1,0 +1,199 @@
+{
+  "ok": true,
+  "phase": "QSB_MASTER_SYSTEM_SELF_AUDIT_AND_REPAIR_ROADMAP_V1",
+  "kind": "qsb_master_repair_list",
+  "generated_ts": "2026-06-30T13:46:37.770329+00:00",
+  "total_repairs_needed": 11,
+  "by_severity": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 5,
+    "P3": 6
+  },
+  "repairs": [
+    {
+      "item_id": "A_kernel_chat_route",
+      "area": "Kernel",
+      "feature_name": "Kernel chat route /api/kernel_chat",
+      "status": "partial",
+      "severity": "P2",
+      "recommended_fix": "Replace symbolic_reply's static template with a short, query-derived summary that quotes the structured block rendered above it. Keep the kernel-introspection block first.",
+      "new_module_needed": false,
+      "new_department_needed": false,
+      "new_floor_needed": false,
+      "suggested_phase": "QSB_KERNEL_CHAT_TAIL_DEDUPE_AND_DIVERSITY_V1",
+      "estimated_risk": "low",
+      "validation_command": "python -m tower.kernel_dialogue_adapter --symbolic-only \"<question>\"",
+      "source_files": [
+        "src/tower/kernel_dialogue_adapter.py"
+      ]
+    },
+    {
+      "item_id": "D_discipline_triggers_actionable",
+      "area": "Workers",
+      "feature_name": "Strike triggers raise actual scorecard strikes",
+      "status": "partial",
+      "severity": "P2",
+      "recommended_fix": "Add a worker_id tag to chat sessions (e.g. operator badge), then map kernel_dialogue refusals to worker_id strikes.",
+      "new_module_needed": false,
+      "new_department_needed": false,
+      "new_floor_needed": false,
+      "suggested_phase": "QSB_DISCIPLINE_AUTOATTRIBUTION_V1",
+      "estimated_risk": "low",
+      "validation_command": "",
+      "source_files": [
+        "src/tower/qsb_workforce.py",
+        "src/tower/qsb_live_telemetry_repairs.py"
+      ]
+    },
+    {
+      "item_id": "D_promotion_eligibility_static",
+      "area": "Workers",
+      "feature_name": "Promotion ladder advances on real signals",
+      "status": "partial",
+      "severity": "P2",
+      "recommended_fix": "Add promote_workers() that increments rank when eligibility AND a Colonel-approval signal both present.",
+      "new_module_needed": false,
+      "new_department_needed": true,
+      "new_floor_needed": false,
+      "suggested_phase": "QSB_PROMOTION_BOARD_V1",
+      "estimated_risk": "low",
+      "validation_command": "",
+      "source_files": [
+        "src/tower/qsb_workforce.py"
+      ]
+    },
+    {
+      "item_id": "E_training_academy_floor",
+      "area": "Floors",
+      "feature_name": "Dedicated Training Academy floor",
+      "status": "missing",
+      "severity": "P2",
+      "recommended_fix": "",
+      "new_module_needed": false,
+      "new_department_needed": true,
+      "new_floor_needed": true,
+      "suggested_phase": "QSB_TRAINING_ACADEMY_FLOOR_V1",
+      "estimated_risk": "low",
+      "validation_command": "",
+      "source_files": []
+    },
+    {
+      "item_id": "F_manager_approval_workflow",
+      "area": "Trading/Paper",
+      "feature_name": "Colonel/Manager approval workflow for paper trades",
+      "status": "missing",
+      "severity": "P2",
+      "recommended_fix": "",
+      "new_module_needed": true,
+      "new_department_needed": false,
+      "new_floor_needed": false,
+      "suggested_phase": "QSB_MANAGER_APPROVAL_WORKFLOW_V1",
+      "estimated_risk": "low",
+      "validation_command": "",
+      "source_files": []
+    },
+    {
+      "item_id": "B_babylon_openclaw_mesh",
+      "area": "Dashboard",
+      "feature_name": "Babylon 3D OpenClaw mesh",
+      "status": "partial",
+      "severity": "P3",
+      "recommended_fix": "Add Babylon mesh for OpenClaw mirroring the SVG avatar.",
+      "new_module_needed": false,
+      "new_department_needed": false,
+      "new_floor_needed": false,
+      "suggested_phase": "QSB_BABYLON_OPENCLAW_MESH_AND_FLOOR_PULSES_V1",
+      "estimated_risk": "low",
+      "validation_command": "",
+      "source_files": [
+        "src/dashboard/static/qsb_scene.js",
+        "src/dashboard/static/qsb_skyscraper_v2.js"
+      ]
+    },
+    {
+      "item_id": "C_unified_phase_label",
+      "area": "Live Telemetry",
+      "feature_name": "/api/unified.phase should reflect current dashboard phase",
+      "status": "stale",
+      "severity": "P3",
+      "recommended_fix": "Derive phase from eqsb_claude_upgrade_ledger.latest_phase at request time.",
+      "new_module_needed": false,
+      "new_department_needed": false,
+      "new_floor_needed": false,
+      "suggested_phase": null,
+      "estimated_risk": "low",
+      "validation_command": "",
+      "source_files": [
+        "src/dashboard/server.py"
+      ]
+    },
+    {
+      "item_id": "E_legacy_floor_44_vacant_dir",
+      "area": "Floors",
+      "feature_name": "Legacy floor_44_future_systems_vacant directory",
+      "status": "stale",
+      "severity": "P3",
+      "recommended_fix": "Add a SUPERSEDED.md note inside floor_44_future_systems_vacant pointing to the new directory.",
+      "new_module_needed": false,
+      "new_department_needed": false,
+      "new_floor_needed": false,
+      "suggested_phase": null,
+      "estimated_risk": "low",
+      "validation_command": "",
+      "source_files": [
+        "floors/floor_44_future_systems_vacant"
+      ]
+    },
+    {
+      "item_id": "E_narration_broadcast_floor",
+      "area": "Floors",
+      "feature_name": "Dedicated Narration / Commentary department",
+      "status": "missing",
+      "severity": "P3",
+      "recommended_fix": "",
+      "new_module_needed": false,
+      "new_department_needed": true,
+      "new_floor_needed": false,
+      "suggested_phase": "QSB_NARRATION_DEPARTMENT_V1",
+      "estimated_risk": "low",
+      "validation_command": "",
+      "source_files": []
+    },
+    {
+      "item_id": "E_profit_command_floor",
+      "area": "Floors",
+      "feature_name": "Profit Command department",
+      "status": "partial",
+      "severity": "P3",
+      "recommended_fix": "",
+      "new_module_needed": false,
+      "new_department_needed": true,
+      "new_floor_needed": false,
+      "suggested_phase": null,
+      "estimated_risk": "low",
+      "validation_command": "",
+      "source_files": []
+    },
+    {
+      "item_id": "G_openclaw_visual_svg_only",
+      "area": "OpenClaw",
+      "feature_name": "OpenClaw 3D mesh equivalent",
+      "status": "partial",
+      "severity": "P3",
+      "recommended_fix": "",
+      "new_module_needed": false,
+      "new_department_needed": false,
+      "new_floor_needed": false,
+      "suggested_phase": "QSB_BABYLON_OPENCLAW_MESH_AND_FLOOR_PULSES_V1",
+      "estimated_risk": "low",
+      "validation_command": "",
+      "source_files": []
+    }
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false
+}

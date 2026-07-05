@@ -1,0 +1,31 @@
+{
+  "ok": true,
+  "kind": "qsb_speech_settings",
+  "phase": "QSB_KERNEL_CHAT_PENTHOUSE_AND_3D_DASHBOARD_REALITY_FIX_V1",
+  "generated_ts": "2026-06-09T13:10:00+00:00",
+  "default_voice_priority": ["en-GB", "en-US", "en-AU", "en-IE", "en-CA", "en-IN", "en"],
+  "default_lang": "en-GB",
+  "default_rate": 1.0,
+  "default_volume": 1.0,
+  "default_pitch": 1.0,
+  "rate_min": 0.5,
+  "rate_max": 1.8,
+  "volume_min": 0.0,
+  "volume_max": 1.0,
+  "browser_default_blocked": "any voice with lang !startsWith('en') is rejected unless user explicitly selected it",
+  "selector_id": "qsbVoiceSelect",
+  "test_button_id": "qsbVoiceTest",
+  "fallback_warning_when_no_english_voice": "Browser has no English voice available. Speech is disabled.",
+  "localstorage_keys": {
+    "voice_name": "qsb.speech.voiceName",
+    "voice_lang": "qsb.speech.voiceLang",
+    "rate": "qsb.speech.rate",
+    "volume": "qsb.speech.volume",
+    "user_explicit_non_english": "qsb.speech.allowNonEnglish"
+  },
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

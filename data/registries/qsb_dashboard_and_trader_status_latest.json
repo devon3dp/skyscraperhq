@@ -1,0 +1,34 @@
+{
+  "ts": "2026-06-29T08:56:44Z",
+  "fleet": {
+    "belief_traders_alive": 54,
+    "ensembles_alive": 24,
+    "bus_processes": 1,
+    "belief_updater_processes": 2,
+    "regime_detector_processes": 2,
+    "stream_clients": 3
+  },
+  "dashboards": {
+    "qsb_traders_live_serve_8847": "200",
+    "qsb_studio_serve_8849": "200",
+    "lumen_8848": "000000"
+  },
+  "unreal": {
+    "editor_pid": "none",
+    "tcp_55557_listening": 0,
+    "live_pulse_pid": "none"
+  },
+  "vault_creds_present": {
+    "alpaca": "no",
+    "oanda": "no",
+    "binance": "no"
+  },
+  "pot": {
+    "open_positions": 41,
+    "committed_gbp": 2548.645766231987,
+    "json_age_seconds": 2
+  },
+  "trader_activity_5m": "active(latest=trader_btc_momentum.log)",
+  "bus_journal_age_seconds": 0,
+  "oanda_realized_today_gbp_from_snapshot": "not_checked"
+}

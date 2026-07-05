@@ -1,0 +1,34 @@
+{
+  "room_id": "adapter_kitchen",
+  "name": "Adapter Kitchen",
+  "category": "kitchen",
+  "purpose": "To provide refreshments for the team.",
+  "concierge_blurb": "A place to grab a snack and collaborate over coffee.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "left_wall",
+    "offset_x": -8.0,
+    "offset_z": 1.5,
+    "footprint_m": [
+      6,
+      15
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "kitchen_line",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Kitchen",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_21"
+}

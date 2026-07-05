@@ -1,0 +1,34 @@
+{
+  "room_id": "coding_library",
+  "name": "Coding Library",
+  "category": "library",
+  "purpose": "A collection of resources for developers to learn and improve their skills.",
+  "concierge_blurb": "Shelves lined with technical books, manuals, and reference materials.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "left_wall",
+    "offset_x": -8.0,
+    "offset_z": 4.5,
+    "footprint_m": [
+      6,
+      3
+    ],
+    "height_m": 2.1
+  },
+  "render": {
+    "primary_prop": "bookshelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Dev Library",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": null,
+    "refresh_seconds": 600
+  },
+  "floor": "floor_5"
+}

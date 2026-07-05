@@ -1,0 +1,31 @@
+{
+  "room_id": "research_and_development_lab",
+  "name": "Research and Development Lab",
+  "category": "lab",
+  "purpose": "Conduct R&D for new technologies.",
+  "concierge_blurb": "A well-equipped lab with cutting-edge tools.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -6.0,
+    "offset_z": 8.5,
+    "footprint_m": [
+      7.0,
+      4.5
+    ],
+    "height_m": 1.2
+  },
+  "render": {
+    "primary_prop": "bench",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "R&D Lab",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_131"
+}

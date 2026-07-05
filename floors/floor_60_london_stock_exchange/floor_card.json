@@ -1,0 +1,64 @@
+{
+  "floor_id": "floor_60",
+  "floor_number": 60,
+  "floor_name": "London Stock Exchange",
+  "department": "lse_paper_trading_floor_v1",
+  "zone": "ZONE D \u00b7 COMMERCE WING",
+  "archetype": "lse_paper_trading_floor_v1",
+  "staff_lead": "TBD",
+  "tour_blurb": "UK equities paper-trading floor. Real Yahoo Finance prices, local paper book, no broker hookup yet.",
+  "visitor_open": false,
+  "advisory_only": true,
+  "execution_mode": "PREVIEW_ONLY",
+  "skeleton": true,
+  "skeleton_source": "floor_manifest.json",
+  "skeleton_generated_ts": "2026-06-17",
+  "live_signals": {
+    "theme": null,
+    "categories": null,
+    "palette": null,
+    "tagline": null
+  },
+  "gate_posture": {
+    "advisory_only": true,
+    "execution_allowed": false,
+    "live_payments_enabled": false
+  },
+  "team_roster": [
+    {
+      "id": "f060.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "spawned_id": "12fd63443d",
+      "spawned_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F060",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f060.operator.01",
+      "spawned_id": "88183d508d"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F060",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f060.operator.02",
+      "spawned_id": "3b8b43a1e5"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F060",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f060.operator.03",
+      "spawned_id": "6c0a30cd0f"
+    }
+  ],
+  "floor_manager": "f060.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

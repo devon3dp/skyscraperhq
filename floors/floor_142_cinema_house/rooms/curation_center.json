@@ -1,0 +1,34 @@
+{
+  "room_id": "curation_center",
+  "name": "Curation Center",
+  "category": "workshop",
+  "purpose": "Curates and curtails film selections.",
+  "concierge_blurb": "Where films are chosen for screening.",
+  "current_state": "already_exists",
+  "visitor_open": false,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "center",
+    "offset_x": 0.0,
+    "offset_z": -4.0,
+    "footprint_m": [
+      16,
+      8
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "desk",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "CURATION",
+    "glow": true
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 0
+  },
+  "floor": "floor_142"
+}

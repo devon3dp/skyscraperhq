@@ -1,0 +1,31 @@
+{
+  "room_id": "data_center",
+  "name": "Data Center",
+  "category": "audit",
+  "purpose": "Houses the servers and data storage for Air Llm's operations.",
+  "concierge_blurb": "A secure room with server racks lining the walls.",
+  "current_state": "already_exists",
+  "visitor_open": false,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": -4.0,
+    "footprint_m": [
+      12,
+      8
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "server_rack",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Data Center",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_23"
+}

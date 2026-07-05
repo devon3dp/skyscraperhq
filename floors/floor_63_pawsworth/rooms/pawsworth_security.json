@@ -1,0 +1,31 @@
+{
+  "room_id": "pawsworth_security",
+  "name": "Pawsworth Security Room",
+  "category": "security",
+  "purpose": "Monitors and protects the operations of Pawsworth.",
+  "concierge_blurb": "This is where we ensure everything runs smoothly.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_right",
+    "offset_x": 8.0,
+    "offset_z": -5.0,
+    "footprint_m": [
+      4,
+      6
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "wall_panel",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Security Room",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_63"
+}

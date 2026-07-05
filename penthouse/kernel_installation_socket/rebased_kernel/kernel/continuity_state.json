@@ -1,0 +1,26 @@
+{
+  "ts": "2026-06-07T15:42:19.690449+00:00",
+  "identity_hash": "c9e449ec53d92309f7a531726e46ba8d27666fbe244db1eaa9a3e6e651e54710",
+  "constitution_hash": "3d3e94664f93db137713529909bf369b374f20db493bbb4cd0d225afd6111c4f",
+  "symbolic_hash": "c65a425223c720244dbd6e69084814de083ad3258cb403e239bcfcf25270a1ef",
+  "penthouse_hash": "8699bd66683a32ce8317f5901990bf7aaa9829dabe5a0fad3a4889287d931da5",
+  "memory_db_exists": true,
+  "knowledge_db_exists": true,
+  "mission_db_exists": true,
+  "lift_db_exists": true,
+  "drift": [],
+  "status": "CONTINUITY_CONFIRMED",
+  "previous": {
+    "ts": "2026-06-07T15:38:31.146228+00:00",
+    "identity_hash": "c9e449ec53d92309f7a531726e46ba8d27666fbe244db1eaa9a3e6e651e54710",
+    "constitution_hash": "3d3e94664f93db137713529909bf369b374f20db493bbb4cd0d225afd6111c4f",
+    "symbolic_hash": "c65a425223c720244dbd6e69084814de083ad3258cb403e239bcfcf25270a1ef",
+    "penthouse_hash": "9d2423a92bcc87d3ca8ebaacd56cdca9940ecdb254007d764d1acce6672f68c4",
+    "memory_db_exists": true,
+    "knowledge_db_exists": true,
+    "mission_db_exists": true,
+    "lift_db_exists": true,
+    "status": "FIRST_KERNEL_BOOT",
+    "previous": null
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "room_id": "hearthstone_kitchen_prep",
+  "name": "Hearthstone Kitchen Prep Area",
+  "category": "workshop",
+  "purpose": "Prepares ingredients for daily use.",
+  "concierge_blurb": "See the chefs at work in our bustling prep area.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -6.0,
+    "offset_z": 8.0,
+    "footprint_m": [
+      12,
+      4
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Prep Area",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": null,
+    "refresh_seconds": 600
+  },
+  "floor": "floor_64"
+}

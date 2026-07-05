@@ -1,0 +1,118 @@
+{
+  "ok": true,
+  "phase": "QSB_WORKER_TRUTH_AND_VISUAL_ROUTE_REPAIR_V1",
+  "kind": "qsb_worker_truth_deep_audit",
+  "generated_ts": "2026-06-30T13:46:34.622760+00:00",
+  "sources": {
+    "canonical_v1": {
+      "source_path": "data/registries/qsb_canonical_workers.json",
+      "count": 1190,
+      "active": 1190,
+      "reporting": 1190,
+      "newly_employed": 49,
+      "canonical": true,
+      "stale": false,
+      "kind": "registry",
+      "label_for_ui": "canonical workers"
+    },
+    "tower_sqlite_legacy": {
+      "source_path": "data/db/tower.sqlite (table workers via tower.registry.Registry)",
+      "count": 0,
+      "sample_ids": [],
+      "canonical": false,
+      "stale": true,
+      "kind": "legacy_seed",
+      "label_for_ui": "simulation seed workers (sim_worker_floor_*)",
+      "note": "Default pins every record to floor_41 and uses sim_worker_floor_NN names. Drives the legacy /api/unified.workers[] view + sidebar."
+    },
+    "worker_sandbox_registry": {
+      "source_path": "data/registries/worker_sandbox_registry.json",
+      "count": 12,
+      "canonical": false,
+      "stale": false,
+      "kind": "sandbox_seed",
+      "label_for_ui": "sandbox workers"
+    },
+    "openclaw_sandbox_registry": {
+      "source_path": "data/registries/openclaw_sandbox_registry.json",
+      "count": 4,
+      "canonical": false,
+      "stale": false,
+      "kind": "openclaw_seed",
+      "label_for_ui": "openclaw sandbox workers"
+    },
+    "api_unified_workers_view": {
+      "source_path": "/api/unified.workers[] (computed by dashboard server.py:_build_workers)",
+      "count_observed_today": 64,
+      "count_explained": "12 sandbox + 4 openclaw + 0 tower_sqlite_legacy (sim_worker_floor_*), deduplicated by id \u2014 visible total in sidebar is 64",
+      "merge_function": "src/dashboard/server.py:_build_workers",
+      "canonical": false,
+      "stale": true,
+      "label_for_ui": "showing 64 of 1190 (legacy view, includes simulation seed workers)"
+    },
+    "tower_ops_worker_directory": {
+      "source_path": "/api/workers/directory (tower_ops.worker_directory)",
+      "count": 174,
+      "sample_ids": [
+        "w_4f08a66788",
+        "w_8e5a08d265",
+        "w_8c65ce9391",
+        "w_5a21e44daa",
+        "w_6d75d0ed21"
+      ],
+      "canonical": false,
+      "stale": false,
+      "kind": "v2_directory",
+      "label_for_ui": "tower_ops directory workers",
+      "note": "Different reconciliation path than the V1 canonical registry; predates V1. Closer to canonical than legacy SQLite, but does not include the 21 V1+V2+V3 new hires that V1 employed."
+    },
+    "recruitment_workers": {
+      "source_path": "data/registries/recruitment_workers.json",
+      "count": 22,
+      "canonical": false,
+      "stale": false,
+      "kind": "recruitment_seed",
+      "label_for_ui": "recruitment workers"
+    },
+    "binance_120_search_result": {
+      "value_found_explicitly": false,
+      "matches": [],
+      "best_explanation": "120 is not present in any registry as a literal worker count. Likely originates from the floor_42 inspector when it queries /api/floor_detail?floor=42 *and* the user is reading a tower_ops aggregation that includes spare seed records (48 + 23 recruitment + 12 sandbox + 4 openclaw + 21 V2/V3 employed across floor_42 ~ 108-120 depending on dedup). Not a single registry \u2014 an aggregation artifact."
+    }
+  },
+  "summary": {
+    "canonical_count": 1190,
+    "tower_ops_count": 174,
+    "legacy_unified_count": 64,
+    "sim_worker_floor_count": 0,
+    "delta_canonical_minus_tower_ops": 1016,
+    "delta_canonical_minus_legacy_unified": 1126
+  },
+  "audit_answers": {
+    "why_sidebar_says_64": "The sidebar reads /api/unified.workers[]. The dashboard's _build_workers() helper merges worker_sandbox_registry (12) + openclaw_sandbox_registry (4) + tower.sqlite legacy seeds (48 sim_worker_floor_*), dedups by id, and yields 64. The sim_worker_floor_* records are simulation seed workers \u2014 not real operational workers \u2014 and most pin to floor_41 by default.",
+    "why_header_says_64": "Same source. The header's worker pill counts state.workers.length.",
+    "why_other_panels_say_191": "V3 HUD + V1 panels + /api/dashboard/live_telemetry read qsb_canonical_workers.json which holds the reconciled canonical roster (V1 + V2 + V3 + observatory hires = 191).",
+    "why_prior_report_said_170": "tower_ops.worker_directory was the V2 reconciliation count and returns 170. It predates the V1 observatory's 14 new hires.",
+    "why_binance_appears_high": "No single registry says 120 for floor_42. The number comes from the floor inspector when it joins multiple seed lists; aggregation artifact, not a real assignment count.",
+    "which_endpoint_each_panel_uses": {
+      "sidebar": "/api/unified -> .workers",
+      "tower_header": "/api/unified -> .workers.length",
+      "v3_hud_overlay": "/api/dashboard/live_telemetry -> .worker_counts.total_canonical",
+      "v3_right_rail": "/api/dashboard/live_telemetry -> .worker_counts",
+      "qsb_v2_panel": "/api/qsb_v2/canonical_workers",
+      "profit_command": "/api/profit_command",
+      "kernel_chat_workforce": "qsb_canonical_workers.json (direct file read)"
+    },
+    "which_count_is_canonical": "qsb_canonical_workers.json (V1 reconciled) \u2014 191 unique worker_id.",
+    "which_counts_are_stale_or_legacy_or_simulated": [
+      "tower.sqlite legacy seeds (48 sim_worker_floor_*) \u2014 SIMULATION seeds",
+      "/api/unified.workers[] -- LEGACY view (includes the sim seeds)",
+      "tower_ops.worker_directory (170) -- V2 reconciliation, predates V1"
+    ]
+  },
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false
+}

@@ -1,0 +1,31 @@
+{
+  "room_id": "contract_review_room",
+  "name": "Contract Review Room",
+  "category": "audit",
+  "purpose": "Reviewing and signing vendor contracts.",
+  "concierge_blurb": "A quiet room for reviewing and finalizing contracts.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 7.0,
+    "offset_z": -3.5,
+    "footprint_m": [
+      12,
+      8
+    ],
+    "height_m": 1.8
+  },
+  "render": {
+    "primary_prop": "desk",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Contract Review",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_112"
+}

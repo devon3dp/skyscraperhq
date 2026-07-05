@@ -1,0 +1,34 @@
+{
+  "room_id": "organic_chemistry_laboratory",
+  "name": "Organic Chemistry Lab",
+  "category": "lab",
+  "purpose": "A space for synthesizing and analyzing organic compounds.",
+  "concierge_blurb": "Here's where the magic of chemistry happens, one molecule at a time.",
+  "current_state": "already_exists",
+  "visitor_open": false,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      18,
+      9
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "lab",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Org Chem Lab",
+    "glow": true
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/reagent_levels.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_127"
+}

@@ -1,0 +1,34 @@
+{
+  "room_id": "team_room",
+  "name": "Team Room",
+  "category": "seating",
+  "purpose": "This room is for team meetings and casual discussions.",
+  "concierge_blurb": "Visitors see a comfortable seating area with team members gathered around.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -8.0,
+    "offset_z": 4.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 2.3
+  },
+  "render": {
+    "primary_prop": "sofa_set",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Team Room",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_92"
+}

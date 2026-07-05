@@ -1,0 +1,57 @@
+# QSB Tower — Caddy reverse proxy for the Oracle Cloud A1 VM.
+# Auto-TLS via Let's Encrypt on `tower.<your-domain>.tld`.
+# Replace REPLACE_DOMAIN with the actual hostname before reloading.
+
+REPLACE_DOMAIN {
+    encode zstd gzip
+
+    # Public surface: the browser cockpit + the per-section endpoints.
+    handle /cockpit* {
+        reverse_proxy localhost:8765
+    }
+    handle /api/* {
+        reverse_proxy localhost:8765
+    }
+
+    handle /studio* {
+        reverse_proxy localhost:8849
+    }
+
+    handle /lumen* {
+        reverse_proxy localhost:8848
+    }
+
+    # Local TTS — only reachable from same tailnet, but expose for the
+    # operator-mobile use case (Wren narration to phone).
+    handle /kokoro/tts {
+        reverse_proxy localhost:8851
+    }
+
+    # Reception webhook (long-poll style alternative for the Telegram bot
+    # if we ever swap to webhook mode).
+    handle /tg/* {
+        reverse_proxy localhost:8852
+    }
+
+    # Default deny so 404 is the worst outcome on an undefined path.
+    handle {
+        respond "QSB Tower — endpoint not exposed" 404
+    }
+
+    log {
+        output file /var/log/caddy/qsb.access.log {
+            roll_size 50mb
+            roll_keep 5
+        }
+    }
+}
+
+# Tailscale-only management plane: no TLS, no public route.
+# Reachable only via the tailnet IP.
+:9090 {
+    bind tailscale0
+    respond /healthz "ok" 200
+    handle /metrics {
+        reverse_proxy localhost:8765
+    }
+}

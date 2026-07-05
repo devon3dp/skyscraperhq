@@ -1,0 +1,10 @@
+{
+  "ok": true, "kind": "qsb_tower_data_source_status", "ts": "2026-06-09T22:06:58Z",
+  "sources_read_in_godot": [
+    "data/registries/qsb_floor_interior_master_registry.json",
+    "data/registries/qsb_floor_activity_stream_latest.json",
+    "data/registries/qsb_tower_lift_positions.json",
+    "data/registries/qsb_tower_worker_density_map.json"
+  ],
+  "missing_source_behavior": "warning issued; safe placeholder visualization used; no crash; no fake live claim"
+}

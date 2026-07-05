@@ -1,0 +1,34 @@
+{
+  "room_id": "inkwell_info_kiosk",
+  "name": "Info Kiosk",
+  "category": "reception",
+  "purpose": "A place to get information and assistance.",
+  "concierge_blurb": "Need help? Our staff can assist you in finding what you need.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.0,
+    "offset_z": -1.5,
+    "footprint_m": [
+      3,
+      2
+    ],
+    "height_m": 1.8
+  },
+  "render": {
+    "primary_prop": "reception",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Info Kiosk",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": null,
+    "refresh_seconds": 600
+  },
+  "floor": "floor_160"
+}

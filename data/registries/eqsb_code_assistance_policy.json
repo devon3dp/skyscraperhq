@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "kind": "eqsb_code_assistance_policy",
+  "generated_ts": "2026-06-30T13:46:34.324989+00:00",
+  "may_propose": [
+    "patch plans",
+    "refactor plans",
+    "risk reviews",
+    "file ownership maps",
+    "dashboard fix plans",
+    "test plans",
+    "rollback plans",
+    "optimization plans"
+  ],
+  "may_not_directly_overwrite_code": true,
+  "execution_allowed": false,
+  "requires_human_approval_for_all_writes": true,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

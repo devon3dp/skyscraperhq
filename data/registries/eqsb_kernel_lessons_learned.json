@@ -1,0 +1,21 @@
+{
+  "ok": true,
+  "kind": "eqsb_kernel_lessons_learned",
+  "generated_ts": "2026-06-30T13:46:34.324821+00:00",
+  "lessons": [
+    "Visuals must be data-driven (LIVE_DATA_ONLY) \u2014 random orbits looked alive but lied.",
+    "Hire one canonical workforce registry before letting subsystems publish counts.",
+    "Add try/catch around every dashboard fetch \u2014 one panel must not break the cockpit.",
+    "Idempotent reconcilers + start scripts pay back fast.",
+    "Hardware observation is advisory; never modify drivers/services.",
+    "Browser SpeechSynthesis is enough \u2014 no server-side TTS dependency.",
+    "Strikes punish discipline violations, not paper losses.",
+    "Always capture a pre-change snapshot so phase diffs are explicit."
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

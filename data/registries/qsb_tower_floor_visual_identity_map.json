@@ -1,0 +1,40 @@
+{
+  "ok": true, "kind": "qsb_tower_floor_visual_identity_map", "ts": "2026-06-09T22:06:58Z",
+  "key_floors": {
+    "F55": {"name":"Penthouse / Kernel","band_color":"gold","markers":["kernel_chamber_glow","guardian_beacon","openclaw_command_rail","model_lane_indicators","attention_reflection_pulse"]},
+    "F54": {"name":"Roof / Tower Ops","markers":["antenna_beacon","telemetry_mast","event_signal_pulse"]},
+    "F53": {"name":"Tower Command","markers":["command_label"]},
+    "F44": {"name":"Accounts / PnL","band_color":"blue","markers":["ledger_band","qbc_indicator","audit_pulse"]},
+    "F43": {"name":"Stocks (paper)","band_color":"blue","markers":["research_marker","portfolio_pulse"]},
+    "F42": {"name":"Binance (testnet)","band_color":"blue","markers":["testnet_marker","order_locked_symbol"]},
+    "F41": {"name":"OANDA Trading","band_color":"blue","markers":["trading_band","paper_practice_marker","market_pulse","risk_lock_icon"]},
+    "F35": {"name":"Hardware","band_color":"amber","markers":["server_band","cpu_ram_gpu_indicator","storage_pulse"]},
+    "F30": {"name":"Guardian / Risk","band_color":"red","markers":["vault_risk_band","lock_markers"]},
+    "F28": {"name":"Security / Secrets","band_color":"red","markers":["vault_lock_markers"]},
+    "F50": {"name":"ML/RL Lab","band_color":"violet","markers":["training_pulse","classroom_band"]},
+    "F23": {"name":"AirLLM Chamber","band_color":"violet","markers":["model_lane_pulse"]},
+    "F08": {"name":"Training Academy","band_color":"violet","markers":["classroom_band","training_pulse"]},
+    "F22": {"name":"Lifts Dept","band_color":"cyan","markers":["lift_indicator"]},
+    "F46": {"name":"Commerce Wing","band_color":"pink","markers":["compliance_band","manual_lock_indicator"]},
+    "F14": {"name":"Print-on-Demand","band_color":"pink","markers":["compliance_band"]},
+    "F06": {"name":"Etsy Shop Floor","band_color":"pink","markers":["compliance_band"]}
+  },
+  "bands": [
+    {"start":1,"end":5,"name":"Foundations"},
+    {"start":6,"end":14,"name":"Commerce"},
+    {"start":15,"end":21,"name":"Operations"},
+    {"start":22,"end":22,"name":"Lifts"},
+    {"start":23,"end":24,"name":"Models"},
+    {"start":25,"end":27,"name":"Recruitment"},
+    {"start":28,"end":31,"name":"Security/Audit"},
+    {"start":32,"end":34,"name":"Ops"},
+    {"start":35,"end":36,"name":"Hardware"},
+    {"start":37,"end":40,"name":"Research"},
+    {"start":41,"end":44,"name":"Trading"},
+    {"start":45,"end":49,"name":"Recruitment/Ops"},
+    {"start":50,"end":52,"name":"ML/RL"},
+    {"start":53,"end":53,"name":"Tower Command"},
+    {"start":54,"end":54,"name":"Roof Ops"},
+    {"start":55,"end":55,"name":"Penthouse / Kernel"}
+  ]
+}

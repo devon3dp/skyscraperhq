@@ -1,0 +1,465 @@
+{
+  "ts": "2026-06-09T09:52:31.154024+00:00",
+  "floor": "floor_35",
+  "department": "Infrastructure Services Department",
+  "version": "1.1",
+  "status": "healthy",
+  "execution_enabled": false,
+  "kernel_required": false,
+  "models_required": false,
+  "critical_issues": [],
+  "warnings": [],
+  "script_checks": [
+    {
+      "id": "setup_script",
+      "path": "setup.sh",
+      "purpose": "Initial tower installation",
+      "required": false,
+      "exists": true,
+      "executable": true,
+      "execution_enabled": false,
+      "status": "pass",
+      "severity": "info"
+    },
+    {
+      "id": "run_script",
+      "path": "run.sh",
+      "purpose": "Start dashboard service",
+      "required": true,
+      "exists": true,
+      "executable": true,
+      "execution_enabled": false,
+      "status": "pass",
+      "severity": "info"
+    },
+    {
+      "id": "stop_script",
+      "path": "stop.sh",
+      "purpose": "Stop dashboard service",
+      "required": true,
+      "exists": true,
+      "executable": true,
+      "execution_enabled": false,
+      "status": "pass",
+      "severity": "info"
+    },
+    {
+      "id": "restart_script",
+      "path": "restart.sh",
+      "purpose": "Restart dashboard service",
+      "required": true,
+      "exists": true,
+      "executable": true,
+      "execution_enabled": false,
+      "status": "pass",
+      "severity": "info"
+    },
+    {
+      "id": "status_script",
+      "path": "status.sh",
+      "purpose": "Check dashboard service status",
+      "required": true,
+      "exists": true,
+      "executable": true,
+      "execution_enabled": false,
+      "status": "pass",
+      "severity": "info"
+    },
+    {
+      "id": "diagnostics_script",
+      "path": "scripts/run_floor_33_diagnostics.sh",
+      "purpose": "Run Floor 33 diagnostics",
+      "required": true,
+      "exists": true,
+      "executable": true,
+      "execution_enabled": false,
+      "status": "pass",
+      "severity": "info"
+    },
+    {
+      "id": "monitoring_script",
+      "path": "scripts/run_floor_34_monitoring.sh",
+      "purpose": "Run Floor 34 monitoring snapshot",
+      "required": true,
+      "exists": true,
+      "executable": true,
+      "execution_enabled": false,
+      "status": "pass",
+      "severity": "info"
+    }
+  ],
+  "runtime_checks": [
+    {
+      "name": "runtime_directory",
+      "path": "/vaults/nvme0/qsb_tower_v1/data/runtime",
+      "exists": true,
+      "status": "pass"
+    },
+    {
+      "name": "dashboard_pid",
+      "path": "/vaults/nvme0/qsb_tower_v1/data/runtime/dashboard.pid",
+      "exists": true,
+      "pid": 2252443,
+      "running": true,
+      "status": "pass"
+    }
+  ],
+  "database_checks": {
+    "database_directory": {
+      "path": "/vaults/nvme0/qsb_tower_v1/data/db",
+      "exists": true,
+      "status": "pass"
+    },
+    "sqlite_files": [
+      {
+        "name": "adapter_systems.sqlite",
+        "path": "data/db/adapter_systems.sqlite",
+        "size_bytes": 28672,
+        "status": "pass"
+      },
+      {
+        "name": "agent_coordination.sqlite",
+        "path": "data/db/agent_coordination.sqlite",
+        "size_bytes": 249532416,
+        "status": "pass"
+      },
+      {
+        "name": "air_llm_operations.sqlite",
+        "path": "data/db/air_llm_operations.sqlite",
+        "size_bytes": 28672,
+        "status": "pass"
+      },
+      {
+        "name": "coding_department.sqlite",
+        "path": "data/db/coding_department.sqlite",
+        "size_bytes": 24576,
+        "status": "pass"
+      },
+      {
+        "name": "diagnostics_department.sqlite",
+        "path": "data/db/diagnostics_department.sqlite",
+        "size_bytes": 505696256,
+        "status": "pass"
+      },
+      {
+        "name": "executive_command.sqlite",
+        "path": "data/db/executive_command.sqlite",
+        "size_bytes": 404979712,
+        "status": "pass"
+      },
+      {
+        "name": "expansion_planning.sqlite",
+        "path": "data/db/expansion_planning.sqlite",
+        "size_bytes": 159444992,
+        "status": "pass"
+      },
+      {
+        "name": "infrastructure_services.sqlite",
+        "path": "data/db/infrastructure_services.sqlite",
+        "size_bytes": 1116495872,
+        "status": "pass"
+      },
+      {
+        "name": "integration_services.sqlite",
+        "path": "data/db/integration_services.sqlite",
+        "size_bytes": 84578304,
+        "status": "pass"
+      },
+      {
+        "name": "kernel_readiness.sqlite",
+        "path": "data/db/kernel_readiness.sqlite",
+        "size_bytes": 143360,
+        "status": "pass"
+      },
+      {
+        "name": "local_model_operations.sqlite",
+        "path": "data/db/local_model_operations.sqlite",
+        "size_bytes": 24576,
+        "status": "pass"
+      },
+      {
+        "name": "model_evaluation.sqlite",
+        "path": "data/db/model_evaluation.sqlite",
+        "size_bytes": 107724800,
+        "status": "pass"
+      },
+      {
+        "name": "model_infrastructure.sqlite",
+        "path": "data/db/model_infrastructure.sqlite",
+        "size_bytes": 28672,
+        "status": "pass"
+      },
+      {
+        "name": "model_routing_department.sqlite",
+        "path": "data/db/model_routing_department.sqlite",
+        "size_bytes": 20480,
+        "status": "pass"
+      },
+      {
+        "name": "monitoring_department.sqlite",
+        "path": "data/db/monitoring_department.sqlite",
+        "size_bytes": 290324480,
+        "status": "pass"
+      },
+      {
+        "name": "penthouse_readiness.sqlite",
+        "path": "data/db/penthouse_readiness.sqlite",
+        "size_bytes": 51134464,
+        "status": "pass"
+      },
+      {
+        "name": "qsb_paper_trading.sqlite",
+        "path": "data/db/qsb_paper_trading.sqlite",
+        "size_bytes": 24576,
+        "status": "pass"
+      },
+      {
+        "name": "sandbox_operations.sqlite",
+        "path": "data/db/sandbox_operations.sqlite",
+        "size_bytes": 25944064,
+        "status": "pass"
+      },
+      {
+        "name": "security_spine.sqlite",
+        "path": "data/db/security_spine.sqlite",
+        "size_bytes": 46460928,
+        "status": "pass"
+      },
+      {
+        "name": "simulation_labs.sqlite",
+        "path": "data/db/simulation_labs.sqlite",
+        "size_bytes": 69394432,
+        "status": "pass"
+      },
+      {
+        "name": "tower.sqlite",
+        "path": "data/db/tower.sqlite",
+        "size_bytes": 28672,
+        "status": "pass"
+      }
+    ]
+  },
+  "log_checks": {
+    "log_directory": "/vaults/nvme0/qsb_tower_v1/data/logs",
+    "exists": true,
+    "log_files": [
+      "data/logs/airllm_chamber_registry.jsonl",
+      "data/logs/binance_floor.jsonl",
+      "data/logs/binance_paper_strategy_lab.jsonl",
+      "data/logs/cross_market_bus.jsonl",
+      "data/logs/dashboard.log",
+      "data/logs/dashboard_latest.log",
+      "data/logs/eqsb_claude_changes.jsonl",
+      "data/logs/eqsb_code_observatory.jsonl",
+      "data/logs/eqsb_deep_kernel_audit.jsonl",
+      "data/logs/eqsb_hardware_observatory.jsonl",
+      "data/logs/eqsb_kernel_events.jsonl",
+      "data/logs/eqsb_kernel_learning_loop.jsonl",
+      "data/logs/eqsb_kernel_major_audit.jsonl",
+      "data/logs/eqsb_phase_prechange_snapshot.txt",
+      "data/logs/floor41_paper_ledger.jsonl",
+      "data/logs/kernel_chat_sidecar.out",
+      "data/logs/kernel_collaboration_probe.txt",
+      "data/logs/kernel_dialogue.jsonl",
+      "data/logs/kernel_guided_audit_pre_repair.txt",
+      "data/logs/kernel_guided_repair_iterations.txt",
+      "data/logs/kernel_guided_repair_plan.txt",
+      "data/logs/kernel_talk.jsonl",
+      "data/logs/local_model_inference.jsonl",
+      "data/logs/oanda_floor41_sidecar.out",
+      "data/logs/oanda_paper_strategy_lab.jsonl",
+      "data/logs/oanda_trading_floor.jsonl",
+      "data/logs/openclaw_sandbox_layer.jsonl",
+      "data/logs/openclaw_visual_sidecar.out",
+      "data/logs/paper_trade_simulator.jsonl",
+      "data/logs/paper_trade_simulator_sidecar.out",
+      "data/logs/qsb_command_center_audit.txt",
+      "data/logs/qsb_dashboard_frontend_check.txt",
+      "data/logs/qsb_dashboard_visual_audit.txt",
+      "data/logs/qsb_full_system_inventory.jsonl",
+      "data/logs/qsb_lift_movements.jsonl",
+      "data/logs/qsb_openclaw_events.jsonl",
+      "data/logs/qsb_phase_v2_prechange.txt",
+      "data/logs/qsb_standalone_system_audit.jsonl",
+      "data/logs/qsb_trade_events.jsonl",
+      "data/logs/qsb_v2_full_system_recheck.txt",
+      "data/logs/qsb_worker_movements.jsonl",
+      "data/logs/qsb_worker_performance_events.jsonl",
+      "data/logs/qsb_worker_reconciliation.jsonl",
+      "data/logs/recruitment_agency.jsonl",
+      "data/logs/sandbox_autoloop.jsonl",
+      "data/logs/sandbox_autoloop.out",
+      "data/logs/sandbox_performance_loop.jsonl",
+      "data/logs/sandbox_performance_sidecar.out",
+      "data/logs/stock_floor.jsonl",
+      "data/logs/stock_paper_strategy_lab.jsonl",
+      "data/logs/strategy_autoloop_correlation.jsonl",
+      "data/logs/strategy_autoloop_correlation_sidecar.out",
+      "data/logs/strategy_intelligence.jsonl",
+      "data/logs/strategy_intelligence_sidecar.out",
+      "data/logs/worker_recruitment_agency.jsonl",
+      "data/logs/worker_sandbox.jsonl",
+      "data/logs/worker_sandbox_sidecar.out"
+    ],
+    "status": "pass"
+  },
+  "backup_readiness": {
+    "backup_directory": "/vaults/nvme0/qsb_tower_v1/data/backups",
+    "exists": true,
+    "tower_free_gb": 129.45,
+    "ready": true,
+    "execution_enabled": false,
+    "status": "ready"
+  },
+  "hook_checks": {
+    "repair_hooks": [
+      {
+        "id": "repair_lift_network",
+        "name": "Lift Network Repair Hook",
+        "target": "src/tower/lifts.py",
+        "status": "registered_not_executable",
+        "execution_enabled": false
+      },
+      {
+        "id": "repair_monitoring",
+        "name": "Monitoring Repair Hook",
+        "target": "src/tower/monitoring_department.py",
+        "status": "registered_not_executable",
+        "execution_enabled": false
+      },
+      {
+        "id": "repair_dashboard",
+        "name": "Dashboard Repair Hook",
+        "target": "src/dashboard/server.py",
+        "status": "registered_not_executable",
+        "execution_enabled": false
+      },
+      {
+        "id": "repair_registries",
+        "name": "Registry Repair Hook",
+        "target": "data/registries",
+        "status": "registered_not_executable",
+        "execution_enabled": false
+      }
+    ],
+    "maintenance_hooks": [
+      {
+        "id": "maintenance_database_check",
+        "name": "Database File Check",
+        "status": "registered_not_executable",
+        "execution_enabled": false
+      },
+      {
+        "id": "maintenance_log_rotation_ready",
+        "name": "Log Rotation Readiness",
+        "status": "registered_not_executable",
+        "execution_enabled": false
+      },
+      {
+        "id": "maintenance_backup_ready",
+        "name": "Backup Readiness",
+        "status": "registered_not_executable",
+        "execution_enabled": false
+      },
+      {
+        "id": "maintenance_runtime_cleanup_ready",
+        "name": "Runtime Cleanup Readiness",
+        "status": "registered_not_executable",
+        "execution_enabled": false
+      }
+    ],
+    "repair_count": 4,
+    "maintenance_count": 4,
+    "execution_enabled": false,
+    "status": "registered"
+  },
+  "service_control": [
+    {
+      "service": {
+        "id": "dashboard_service",
+        "name": "Dashboard Service",
+        "type": "local_http_service",
+        "pid_file": "data/runtime/dashboard.pid",
+        "start_script": "run.sh",
+        "stop_script": "stop.sh",
+        "status_script": "status.sh",
+        "execution_enabled": false
+      },
+      "execution_enabled": false,
+      "action_allowed": false,
+      "message": "Service control is visible but disabled until explicitly enabled later."
+    },
+    {
+      "service": {
+        "id": "registry_service",
+        "name": "Registry Service",
+        "type": "file_registry",
+        "root": "data/registries",
+        "execution_enabled": false
+      },
+      "execution_enabled": false,
+      "action_allowed": false,
+      "message": "Service control is visible but disabled until explicitly enabled later."
+    },
+    {
+      "service": {
+        "id": "database_service",
+        "name": "SQLite Database Service",
+        "type": "sqlite_files",
+        "root": "data/db",
+        "execution_enabled": false
+      },
+      "execution_enabled": false,
+      "action_allowed": false,
+      "message": "Service control is visible but disabled until explicitly enabled later."
+    },
+    {
+      "service": {
+        "id": "packet_service",
+        "name": "Sealed Packet Store",
+        "type": "sqlite_packet_records",
+        "root": "data/packets",
+        "execution_enabled": false
+      },
+      "execution_enabled": false,
+      "action_allowed": false,
+      "message": "Service control is visible but disabled until explicitly enabled later."
+    },
+    {
+      "service": {
+        "id": "runtime_service",
+        "name": "Runtime State Service",
+        "type": "runtime_files",
+        "root": "data/runtime",
+        "execution_enabled": false
+      },
+      "execution_enabled": false,
+      "action_allowed": false,
+      "message": "Service control is visible but disabled until explicitly enabled later."
+    },
+    {
+      "service": {
+        "id": "log_service",
+        "name": "Log Service",
+        "type": "local_logs",
+        "root": "data/logs",
+        "execution_enabled": false
+      },
+      "execution_enabled": false,
+      "action_allowed": false,
+      "message": "Service control is visible but disabled until explicitly enabled later."
+    },
+    {
+      "service": {
+        "id": "backup_service",
+        "name": "Backup Readiness Service",
+        "type": "readiness_only",
+        "root": "data/backups",
+        "execution_enabled": false
+      },
+      "execution_enabled": false,
+      "action_allowed": false,
+      "message": "Service control is visible but disabled until explicitly enabled later."
+    }
+  ]
+}

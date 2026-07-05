@@ -1,0 +1,54 @@
+[
+  {
+    "id": "dashboard_service",
+    "name": "Dashboard Service",
+    "type": "local_http_service",
+    "pid_file": "data/runtime/dashboard.pid",
+    "start_script": "run.sh",
+    "stop_script": "stop.sh",
+    "status_script": "status.sh",
+    "execution_enabled": false
+  },
+  {
+    "id": "registry_service",
+    "name": "Registry Service",
+    "type": "file_registry",
+    "root": "data/registries",
+    "execution_enabled": false
+  },
+  {
+    "id": "database_service",
+    "name": "SQLite Database Service",
+    "type": "sqlite_files",
+    "root": "data/db",
+    "execution_enabled": false
+  },
+  {
+    "id": "packet_service",
+    "name": "Sealed Packet Store",
+    "type": "sqlite_packet_records",
+    "root": "data/packets",
+    "execution_enabled": false
+  },
+  {
+    "id": "runtime_service",
+    "name": "Runtime State Service",
+    "type": "runtime_files",
+    "root": "data/runtime",
+    "execution_enabled": false
+  },
+  {
+    "id": "log_service",
+    "name": "Log Service",
+    "type": "local_logs",
+    "root": "data/logs",
+    "execution_enabled": false
+  },
+  {
+    "id": "backup_service",
+    "name": "Backup Readiness Service",
+    "type": "readiness_only",
+    "root": "data/backups",
+    "execution_enabled": false
+  }
+]

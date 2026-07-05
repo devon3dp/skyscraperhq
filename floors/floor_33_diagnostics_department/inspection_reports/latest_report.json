@@ -1,0 +1,537 @@
+{
+  "summary": {
+    "ts": "2026-06-09T09:52:31.110870+00:00",
+    "floor": "floor_33",
+    "department": "Diagnostics Department",
+    "version": "1.1",
+    "status": "degraded",
+    "execution_enabled": false,
+    "kernel_required": false,
+    "models_required": false,
+    "checks_run": 52,
+    "critical_failures": 0,
+    "warning_failures": 1,
+    "passed": 51,
+    "info": 0
+  },
+  "items": [
+    {
+      "category": "imports",
+      "name": "tower.registry",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Module import passed.",
+      "details": {}
+    },
+    {
+      "category": "imports",
+      "name": "tower.database",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Module import passed.",
+      "details": {}
+    },
+    {
+      "category": "imports",
+      "name": "tower.lifts",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Module import passed.",
+      "details": {}
+    },
+    {
+      "category": "imports",
+      "name": "tower.model_infrastructure",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Module import passed.",
+      "details": {}
+    },
+    {
+      "category": "imports",
+      "name": "tower.coding_department",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Module import passed.",
+      "details": {}
+    },
+    {
+      "category": "imports",
+      "name": "tower.adapter_systems",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Module import passed.",
+      "details": {}
+    },
+    {
+      "category": "imports",
+      "name": "tower.integration_services",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Module import passed.",
+      "details": {}
+    },
+    {
+      "category": "imports",
+      "name": "tower.model_routing_department",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Module import passed.",
+      "details": {}
+    },
+    {
+      "category": "imports",
+      "name": "tower.local_model_operations",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Module import passed.",
+      "details": {}
+    },
+    {
+      "category": "imports",
+      "name": "tower.air_llm_operations",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Module import passed.",
+      "details": {}
+    },
+    {
+      "category": "registries",
+      "name": "data/registries/provider_sockets.json",
+      "status": "pass",
+      "severity": "critical",
+      "message": "JSON file valid.",
+      "details": {
+        "records": 8
+      }
+    },
+    {
+      "category": "registries",
+      "name": "data/registries/model_request_paths.json",
+      "status": "pass",
+      "severity": "critical",
+      "message": "JSON file valid.",
+      "details": {
+        "records": 4
+      }
+    },
+    {
+      "category": "registries",
+      "name": "data/registries/adapter_sockets.json",
+      "status": "pass",
+      "severity": "critical",
+      "message": "JSON file valid.",
+      "details": {
+        "records": 9
+      }
+    },
+    {
+      "category": "registries",
+      "name": "data/registries/integration_service_map.json",
+      "status": "pass",
+      "severity": "critical",
+      "message": "JSON file valid.",
+      "details": {
+        "records": 5
+      }
+    },
+    {
+      "category": "registries",
+      "name": "data/registries/local_model_roles.json",
+      "status": "pass",
+      "severity": "warning",
+      "message": "JSON file valid.",
+      "details": {
+        "records": 7
+      }
+    },
+    {
+      "category": "registries",
+      "name": "data/registries/external_provider_capabilities.json",
+      "status": "pass",
+      "severity": "warning",
+      "message": "JSON file valid.",
+      "details": {
+        "records": 6
+      }
+    },
+    {
+      "category": "floor_manifests",
+      "name": "floors/floor_05_coding_department/floor_manifest.json",
+      "status": "pass",
+      "severity": "critical",
+      "message": "JSON file valid.",
+      "details": {
+        "records": 12
+      }
+    },
+    {
+      "category": "floor_manifests",
+      "name": "floors/floor_21_adapter_systems_department/floor_manifest.json",
+      "status": "pass",
+      "severity": "critical",
+      "message": "JSON file valid.",
+      "details": {
+        "records": 11
+      }
+    },
+    {
+      "category": "floor_manifests",
+      "name": "floors/floor_22_integration_services_department/floor_manifest.json",
+      "status": "pass",
+      "severity": "critical",
+      "message": "JSON file valid.",
+      "details": {
+        "records": 12
+      }
+    },
+    {
+      "category": "floor_manifests",
+      "name": "floors/floor_23_air_llm_operations_department/floor_manifest.json",
+      "status": "pass",
+      "severity": "critical",
+      "message": "JSON file valid.",
+      "details": {
+        "records": 13
+      }
+    },
+    {
+      "category": "floor_manifests",
+      "name": "floors/floor_24_model_routing_department/floor_manifest.json",
+      "status": "pass",
+      "severity": "critical",
+      "message": "JSON file valid.",
+      "details": {
+        "records": 13
+      }
+    },
+    {
+      "category": "floor_manifests",
+      "name": "floors/floor_27_local_model_operations_department/floor_manifest.json",
+      "status": "pass",
+      "severity": "critical",
+      "message": "JSON file valid.",
+      "details": {
+        "records": 11
+      }
+    },
+    {
+      "category": "floor_manifests",
+      "name": "floors/floor_33_diagnostics_department/floor_manifest.json",
+      "status": "pass",
+      "severity": "critical",
+      "message": "JSON file valid.",
+      "details": {
+        "records": 10
+      }
+    },
+    {
+      "category": "tower_registry",
+      "name": "floor_count",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Floors registered: 53",
+      "details": {
+        "expected": 53,
+        "actual": 53
+      }
+    },
+    {
+      "category": "tower_registry",
+      "name": "vacant_floors",
+      "status": "fail",
+      "severity": "warning",
+      "message": "Vacant floors registered: 0",
+      "details": {
+        "expected": 5,
+        "actual": 0
+      }
+    },
+    {
+      "category": "tower_registry",
+      "name": "lift_count",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Lifts registered: 9",
+      "details": {
+        "actual": 9
+      }
+    },
+    {
+      "category": "tower_registry",
+      "name": "worker_count",
+      "status": "pass",
+      "severity": "warning",
+      "message": "Workers registered: 48",
+      "details": {
+        "actual": 48
+      }
+    },
+    {
+      "category": "tower_registry",
+      "name": "provider_count",
+      "status": "pass",
+      "severity": "warning",
+      "message": "Providers registered: 7",
+      "details": {
+        "actual": 7
+      }
+    },
+    {
+      "category": "lift_routes",
+      "name": "floor_05->floor_24",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Expected service_lift, selected service_lift.",
+      "details": {
+        "source": "floor_05",
+        "target": "floor_24",
+        "preferred": "service_lift",
+        "selected": "service_lift"
+      }
+    },
+    {
+      "category": "lift_routes",
+      "name": "floor_24->floor_27",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Expected model_lift, selected model_lift.",
+      "details": {
+        "source": "floor_24",
+        "target": "floor_27",
+        "preferred": "model_lift",
+        "selected": "model_lift"
+      }
+    },
+    {
+      "category": "lift_routes",
+      "name": "floor_24->floor_23",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Expected model_lift, selected model_lift.",
+      "details": {
+        "source": "floor_24",
+        "target": "floor_23",
+        "preferred": "model_lift",
+        "selected": "model_lift"
+      }
+    },
+    {
+      "category": "lift_routes",
+      "name": "floor_21->floor_24",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Expected service_lift, selected service_lift.",
+      "details": {
+        "source": "floor_21",
+        "target": "floor_24",
+        "preferred": "service_lift",
+        "selected": "service_lift"
+      }
+    },
+    {
+      "category": "lift_routes",
+      "name": "floor_23->roof",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Expected model_lift, selected model_lift.",
+      "details": {
+        "source": "floor_23",
+        "target": "roof",
+        "preferred": "model_lift",
+        "selected": "model_lift"
+      }
+    },
+    {
+      "category": "packet_integrity",
+      "name": "recent_packets",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Recent packets checked: 20. Bad packets: 0.",
+      "details": {
+        "recent_count": 20,
+        "bad_count": 0,
+        "bad_packets": []
+      }
+    },
+    {
+      "category": "packet_integrity",
+      "name": "packet_lift_distribution",
+      "status": "pass",
+      "severity": "info",
+      "message": "Packet lift distribution recorded.",
+      "details": {
+        "by_lift": {
+          "main_low_rise": 4,
+          "service_lift": 7,
+          "model_lift": 4,
+          "main_mid_rise": 5
+        }
+      }
+    },
+    {
+      "category": "model_stack",
+      "name": "coding_department",
+      "status": "pass",
+      "severity": "critical",
+      "message": "coding_department dashboard available. execution_enabled=False.",
+      "details": {
+        "floor": "floor_05",
+        "department": "Coding Department",
+        "execution_enabled": false
+      }
+    },
+    {
+      "category": "model_stack",
+      "name": "adapter_systems",
+      "status": "pass",
+      "severity": "critical",
+      "message": "adapter_systems dashboard available. execution_enabled=False.",
+      "details": {
+        "floor": "floor_21",
+        "department": "Adapter Systems Department",
+        "execution_enabled": false
+      }
+    },
+    {
+      "category": "model_stack",
+      "name": "integration_services",
+      "status": "pass",
+      "severity": "critical",
+      "message": "integration_services dashboard available. execution_enabled=False.",
+      "details": {
+        "floor": "floor_22",
+        "department": "Integration Services Department",
+        "execution_enabled": false
+      }
+    },
+    {
+      "category": "model_stack",
+      "name": "model_routing_department",
+      "status": "pass",
+      "severity": "critical",
+      "message": "model_routing_department dashboard available. execution_enabled=False.",
+      "details": {
+        "floor": "floor_24",
+        "department": "Model Routing Department",
+        "execution_enabled": false
+      }
+    },
+    {
+      "category": "model_stack",
+      "name": "local_model_operations",
+      "status": "pass",
+      "severity": "critical",
+      "message": "local_model_operations dashboard available. execution_enabled=False.",
+      "details": {
+        "floor": "floor_27",
+        "department": "Local Model Operations Department",
+        "execution_enabled": false
+      }
+    },
+    {
+      "category": "model_stack",
+      "name": "air_llm_operations",
+      "status": "pass",
+      "severity": "critical",
+      "message": "air_llm_operations dashboard available. execution_enabled=False.",
+      "details": {
+        "floor": "floor_23",
+        "department": "AIR LLM Operations Department",
+        "execution_enabled": false
+      }
+    },
+    {
+      "category": "model_stack",
+      "name": "model_infrastructure",
+      "status": "pass",
+      "severity": "critical",
+      "message": "model_infrastructure dashboard available. execution_enabled=False.",
+      "details": {
+        "floor": null,
+        "department": null,
+        "execution_enabled": false
+      }
+    },
+    {
+      "category": "dashboard",
+      "name": "/api/status",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Endpoint found in dashboard server.",
+      "details": {}
+    },
+    {
+      "category": "dashboard",
+      "name": "/api/model_infrastructure",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Endpoint found in dashboard server.",
+      "details": {}
+    },
+    {
+      "category": "dashboard",
+      "name": "/api/coding_department",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Endpoint found in dashboard server.",
+      "details": {}
+    },
+    {
+      "category": "dashboard",
+      "name": "/api/adapter_systems",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Endpoint found in dashboard server.",
+      "details": {}
+    },
+    {
+      "category": "dashboard",
+      "name": "/api/integration_services",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Endpoint found in dashboard server.",
+      "details": {}
+    },
+    {
+      "category": "dashboard",
+      "name": "/api/model_routing_department",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Endpoint found in dashboard server.",
+      "details": {}
+    },
+    {
+      "category": "dashboard",
+      "name": "/api/local_model_operations",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Endpoint found in dashboard server.",
+      "details": {}
+    },
+    {
+      "category": "dashboard",
+      "name": "/api/air_llm_operations",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Endpoint found in dashboard server.",
+      "details": {}
+    },
+    {
+      "category": "dashboard",
+      "name": "/api/diagnostics_department",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Endpoint found in dashboard server.",
+      "details": {}
+    },
+    {
+      "category": "dashboard_live",
+      "name": "/api/status",
+      "status": "pass",
+      "severity": "info",
+      "message": "Live endpoint responded with 200.",
+      "details": {}
+    }
+  ]
+}

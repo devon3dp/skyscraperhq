@@ -1,0 +1,34 @@
+{
+  "room_id": "wellness_studio_meditation",
+  "name": "Meditation Room",
+  "category": "workshop",
+  "purpose": "This room is for guided meditation and relaxation.",
+  "concierge_blurb": "Find peace and tranquility in this serene space.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      15,
+      20
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "plinth",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Meditation Room",
+    "glow": true
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_67"
+}

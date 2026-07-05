@@ -1,0 +1,20 @@
+{
+  "ts": "2026-06-28T14:50:10Z",
+  "scene_actor_count": err:timed out,
+  "tiktok_reference_frames_count": 0,
+  "scores_0_10": {
+    "tower_silhouette":     5,
+    "material_quality":     0,
+    "lighting_quality":     3,
+    "city_background":      6,
+    "hud_professional":     0,
+    "lift_visibility":      4,
+    "worker_visibility":    3,
+    "floor_detail":         3,
+    "motion_animation":     4,
+    "cinematic_camera":     2,
+    "similarity_to_target": 2,
+    "overall_professional": 3
+  },
+  "verdict": "still a blockout — no materials, no Unreal HUD, no animated cabs, no cinematic camera. Tower silhouette + helix + city ring are the only things that have moved above 5."
+}

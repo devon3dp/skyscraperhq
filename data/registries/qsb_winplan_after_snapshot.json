@@ -1,0 +1,534 @@
+{
+  "ts": "2026-07-01T07:14:02.849844Z",
+  "kind": "after_snapshot_5item_winplan",
+  "overall": {
+    "workers_with_trade_history": 41,
+    "avg_win_rate_active": 0.2509,
+    "session_bus_totals": {
+      "closes": 9,
+      "pnl_sum": -0.15329293810676892,
+      "real_closes": 9,
+      "wins": 1
+    }
+  },
+  "per_worker": {
+    "belief_driven_us10y": {
+      "instrument": "USB10Y_USD",
+      "win_rate": 0.0,
+      "expectancy_gbp": 0.0,
+      "n_trades": 0,
+      "regime_confidence": 1.0
+    },
+    "belief_driven_msft": {
+      "instrument": "MSFT",
+      "win_rate": 0.27749999999999997,
+      "expectancy_gbp": 0.18500000000000227,
+      "n_trades": 2,
+      "regime_confidence": 1.0
+    },
+    "belief_driven_btc": {
+      "instrument": "BTCUSDT",
+      "win_rate": 0.4059406862413394,
+      "expectancy_gbp": -1.709356751441166e-145,
+      "n_trades": 810,
+      "regime_confidence": 1.0
+    },
+    "belief_driven_natgas": {
+      "instrument": "NATGAS_USD",
+      "win_rate": 0.15,
+      "expectancy_gbp": 0.050000000000000044,
+      "n_trades": 1,
+      "regime_confidence": 1.0
+    },
+    "belief_driven_eur_meanrevert": {
+      "instrument": "EUR_USD",
+      "win_rate": 0.0,
+      "expectancy_gbp": 0.0,
+      "n_trades": 0,
+      "regime_confidence": 1.0
+    },
+    "belief_driven_de30": {
+      "instrument": "DE30_EUR",
+      "win_rate": 0.1275,
+      "expectancy_gbp": 0.001953125,
+      "n_trades": 2,
+      "regime_confidence": 1.0
+    },
+    "belief_driven_link": {
+      "instrument": "LINKUSDT",
+      "win_rate": 0.15,
+      "expectancy_gbp": 0.007187500000000041,
+      "n_trades": 1,
+      "regime_confidence": 1.0
+    },
+    "belief_driven_btc_ta": {
+      "instrument": "BTCUSDT",
+      "win_rate": 0.4059406862413394,
+      "expectancy_gbp": -1.7093567514411654e-145,
+      "n_trades": 6,
+      "regime_confidence": 1.0
+    },
+    "belief_driven_eurgbp": {
+      "instrument": "EUR_GBP",
+      "win_rate": 0.15,
+      "expectancy_gbp": 0.012500000000012501,
+      "n_trades": 1,
+      "regime_confidence": 1.0
+    },
+    "belief_driven_wti": {
+      "instrument": "WTICO_USD",
+      "win_rate": 0.27749999999999997,
+      "expectancy_gbp": 0.0007031250000000266,
+      "n_trades": 2,
+      "regime_confidence": 1.0
+    },
+    "belief_driven_ada": {
+      "instrument": "ADAUSDT",
+      "win_rate": 0.0,
+      "expectancy_gbp": 0.0,
+      "n_trades": 0,
+      "regime_confidence": 1.0
+    },
+    "belief_driven_btc_momentum": {
+      "instrument": "BTCUSDT",
+      "win_rate": 0.4059406862413394,
+      "expectancy_gbp": -1.709356751441166e-145,
+      "n_trades": 476,
+      "regime_confidence": 1.0
+    },
+    "belief_driven_xag": {
+      "instrument": "XAG_USD",
+      "win_rate": 0.0,
+      "expectancy_gbp": -0.02187499999999898,
+      "n_trades": 1,
+      "regime_confidence": 1.0
+    },
+    "belief_driven_dia": {
+      "instrument": "DIA",
+      "win_rate": 0.0,
+      "expectancy_gbp": 0.0,
+      "n_trades": 0,
+      "regime_confidence": 1.0
+    },
+    "belief_driven_spy": {
+      "instrument": "SPY",
+      "win_rate": 0.27749999999999997,
+      "expectancy_gbp": 0.14249999999998408,
+      "n_trades": 2,
+      "regime_confidence": 1.0
+    },
+    "belief_driven_bnb": {
+      "instrument": "BNBUSDT",
+      "win_rate": 0.38986570065732584,
+      "expectancy_gbp": -4.674884728181376e-56,
+      "n_trades": 170,
+      "regime_confidence": 1.0
+    },
+    "belief_driven_nas": {
+      "instrument": "NAS100_USD",
+      "win_rate": 0.15,
+      "expectancy_gbp": -0.05000000000006821,
+      "n_trades": 2,
+      "regime_confidence": 1.0
+    },
+    "belief_driven_xlf": {
+      "instrument": "XLF",
+      "win_rate": 0.15,
+      "expectancy_gbp": 0.15000000000000568,
+      "n_trades": 1,
+      "regime_confidence": 1.0
+    },
+    "belief_driven_eur": {
+      "instrument": "EUR_USD",
+      "win_rate": 0.337239806748117,
+      "expectancy_gbp": -1.884458070737542e-08,
+      "n_trades": 91,
+      "regime_confidence": 1.0
+    },
+    "belief_driven_tsla": {
+      "instrument": "TSLA",
+      "win_rate": 0.15,
+      "expectancy_gbp": 0.09062499999999929,
+      "n_trades": 1,
+      "regime_confidence": 1.0
+    },
+    "belief_driven_jpy_meanrevert": {
+      "instrument": "USD_JPY",
+      "win_rate": 0.0,
+      "expectancy_gbp": 0.0,
+      "n_trades": 0,
+      "regime_confidence": 1.0
+    },
+    "belief_driven_gld": {
+      "instrument": "GLD",
+      "win_rate": 0.15,
+      "expectancy_gbp": 0.2799999999999727,
+      "n_trades": 1,
+      "regime_confidence": 1.0
+    },
+    "belief_driven_eur_ta": {
+      "instrument": "EUR_USD",
+      "win_rate": 0.0,
+      "expectancy_gbp": 0.0,
+      "n_trades": 0,
+      "regime_confidence": 1.0
+    },
+    "belief_driven_uk10y": {
+      "instrument": "UK10YB_GBP",
+      "win_rate": 0.0,
+      "expectancy_gbp": 0.0,
+      "n_trades": 0,
+      "regime_confidence": 1.0
+    },
+    "belief_driven_iwm": {
+      "instrument": "IWM",
+      "win_rate": 0.0,
+      "expectancy_gbp": 0.0,
+      "n_trades": 0,
+      "regime_confidence": 1.0
+    },
+    "belief_driven_sol": {
+      "instrument": "SOLUSDT",
+      "win_rate": 0.0,
+      "expectancy_gbp": 0.0,
+      "n_trades": 0,
+      "regime_confidence": 1.0
+    },
+    "belief_driven_coin": {
+      "instrument": "COIN",
+      "win_rate": 0.15,
+      "expectancy_gbp": 0.0800000000000125,
+      "n_trades": 1,
+      "regime_confidence": 1.0
+    },
+    "belief_driven_qqq": {
+      "instrument": "QQQ",
+      "win_rate": 0.15,
+      "expectancy_gbp": 0.08343750000000227,
+      "n_trades": 1,
+      "regime_confidence": 1.0
+    },
+    "belief_driven_aud": {
+      "instrument": "AUD_USD",
+      "win_rate": 0.15,
+      "expectancy_gbp": 0.0005468750000001132,
+      "n_trades": 1,
+      "regime_confidence": 1.0
+    },
+    "belief_driven_xcu": {
+      "instrument": "XCU_USD",
+      "win_rate": 0.27749999999999997,
+      "expectancy_gbp": 0.001156249999999942,
+      "n_trades": 2,
+      "regime_confidence": 1.0
+    },
+    "belief_driven_jp225": {
+      "instrument": "JP225_USD",
+      "win_rate": 0.41543749999999996,
+      "expectancy_gbp": -0.10416666666666667,
+      "n_trades": 3,
+      "regime_confidence": 1.0
+    },
+    "belief_driven_jpy_breakout": {
+      "instrument": "USD_JPY",
+      "win_rate": 0.0,
+      "expectancy_gbp": 0.0,
+      "n_trades": 0,
+      "regime_confidence": 1.0
+    },
+    "belief_driven_xrp": {
+      "instrument": "XRPUSDT",
+      "win_rate": 0.27749999999999997,
+      "expectancy_gbp": 0.016249999999999598,
+      "n_trades": 2,
+      "regime_confidence": 1.0
+    },
+    "belief_driven_avax": {
+      "instrument": "AVAXUSDT",
+      "win_rate": 0.0,
+      "expectancy_gbp": 0.0,
+      "n_trades": 0,
+      "regime_confidence": 1.0
+    },
+    "belief_driven_gbp_ta": {
+      "instrument": "GBP_USD",
+      "win_rate": 0.0,
+      "expectancy_gbp": 0.0,
+      "n_trades": 0,
+      "regime_confidence": 1.0
+    },
+    "belief_driven_dot": {
+      "instrument": "DOTUSDT",
+      "win_rate": 0.0,
+      "expectancy_gbp": 0.0,
+      "n_trades": 0,
+      "regime_confidence": 1.0
+    },
+    "belief_driven_aapl": {
+      "instrument": "AAPL",
+      "win_rate": 0.15,
+      "expectancy_gbp": 0.008749999999999147,
+      "n_trades": 1,
+      "regime_confidence": 1.0
+    },
+    "belief_driven_wheat": {
+      "instrument": "WHEAT_USD",
+      "win_rate": 0.15,
+      "expectancy_gbp": 0.34999999999998366,
+      "n_trades": 1,
+      "regime_confidence": 1.0
+    },
+    "belief_driven_nvda": {
+      "instrument": "NVDA",
+      "win_rate": 0.15,
+      "expectancy_gbp": 0.03375000000000483,
+      "n_trades": 1,
+      "regime_confidence": 1.0
+    },
+    "belief_driven_jpy_momentum": {
+      "instrument": "USD_JPY",
+      "win_rate": 0.0,
+      "expectancy_gbp": 0.0,
+      "n_trades": 0,
+      "regime_confidence": 1.0
+    },
+    "belief_driven_bco": {
+      "instrument": "BCO_USD",
+      "win_rate": 0.27749999999999997,
+      "expectancy_gbp": 0.03781250000000291,
+      "n_trades": 2,
+      "regime_confidence": 1.0
+    },
+    "belief_driven_xau_breakout": {
+      "instrument": "XAU_USD",
+      "win_rate": 0.15,
+      "expectancy_gbp": 0.006249999999994316,
+      "n_trades": 1,
+      "regime_confidence": 1.0
+    },
+    "belief_driven_spx": {
+      "instrument": "SPX500_USD",
+      "win_rate": 0.15,
+      "expectancy_gbp": 0.014062499999994316,
+      "n_trades": 1,
+      "regime_confidence": 1.0
+    },
+    "belief_driven_xau": {
+      "instrument": "XAU_USD",
+      "win_rate": 0.0,
+      "expectancy_gbp": -0.06484375000006537,
+      "n_trades": 1,
+      "regime_confidence": 1.0
+    },
+    "belief_driven_dow": {
+      "instrument": "US30_USD",
+      "win_rate": 0.15,
+      "expectancy_gbp": 0.02734375,
+      "n_trades": 1,
+      "regime_confidence": 1.0
+    },
+    "belief_driven_chf": {
+      "instrument": "USD_CHF",
+      "win_rate": 0.15,
+      "expectancy_gbp": 0.0010156250000001484,
+      "n_trades": 1,
+      "regime_confidence": 1.0
+    },
+    "belief_driven_eth_ta": {
+      "instrument": "ETHUSDT",
+      "win_rate": 0.4347707165212483,
+      "expectancy_gbp": -1.1946043259319993e-123,
+      "n_trades": 3,
+      "regime_confidence": 1.0
+    },
+    "belief_driven_jpy": {
+      "instrument": "USD_JPY",
+      "win_rate": 0.33037760825203616,
+      "expectancy_gbp": 3.5537165257832513e-07,
+      "n_trades": 84,
+      "regime_confidence": 1.0
+    },
+    "belief_driven_gbp": {
+      "instrument": "GBP_USD",
+      "win_rate": 0.8517028007271978,
+      "expectancy_gbp": 1.1652811529774525e-05,
+      "n_trades": 166,
+      "regime_confidence": 1.0
+    },
+    "belief_driven_jpy_ta": {
+      "instrument": "USD_JPY",
+      "win_rate": 0.0,
+      "expectancy_gbp": 0.0,
+      "n_trades": 0,
+      "regime_confidence": 1.0
+    },
+    "belief_driven_eth": {
+      "instrument": "ETHUSDT",
+      "win_rate": 0.43477071652124855,
+      "expectancy_gbp": -1.1946043259319993e-123,
+      "n_trades": 407,
+      "regime_confidence": 1.0
+    },
+    "ensemble_msft": {
+      "instrument": "MSFT",
+      "win_rate": 0.0,
+      "expectancy_gbp": 0.0,
+      "n_trades": 0,
+      "regime_confidence": 1.0
+    },
+    "ensemble_qqq": {
+      "instrument": "QQQ",
+      "win_rate": 0.0,
+      "expectancy_gbp": 0.0,
+      "n_trades": 0,
+      "regime_confidence": 1.0
+    },
+    "ensemble_audusd": {
+      "instrument": "AUD_USD",
+      "win_rate": 0.0,
+      "expectancy_gbp": 0.0,
+      "n_trades": 0,
+      "regime_confidence": 1.0
+    },
+    "ensemble_btcusdt": {
+      "instrument": "BTCUSDT",
+      "win_rate": 0.40594068624133944,
+      "expectancy_gbp": -1.7093567514411654e-145,
+      "n_trades": 1259,
+      "regime_confidence": 1.0
+    },
+    "ensemble_xauusd": {
+      "instrument": "XAU_USD",
+      "win_rate": 0.0,
+      "expectancy_gbp": 0.0,
+      "n_trades": 0,
+      "regime_confidence": 1.0
+    },
+    "ensemble_gbpusd": {
+      "instrument": "GBP_USD",
+      "win_rate": 0.15,
+      "expectancy_gbp": 0.0029687492090077973,
+      "n_trades": 2,
+      "regime_confidence": 1.0
+    },
+    "ensemble_usdchf": {
+      "instrument": "USD_CHF",
+      "win_rate": 0.0,
+      "expectancy_gbp": 0.0,
+      "n_trades": 0,
+      "regime_confidence": 1.0
+    },
+    "ensemble_nas100usd": {
+      "instrument": "NAS100_USD",
+      "win_rate": 0.0,
+      "expectancy_gbp": 0.0,
+      "n_trades": 0,
+      "regime_confidence": 1.0
+    },
+    "ensemble_xagusd": {
+      "instrument": "XAG_USD",
+      "win_rate": 0.0,
+      "expectancy_gbp": 0.0,
+      "n_trades": 0,
+      "regime_confidence": 1.0
+    },
+    "ensemble_spy": {
+      "instrument": "SPY",
+      "win_rate": 0.0,
+      "expectancy_gbp": 0.0,
+      "n_trades": 0,
+      "regime_confidence": 1.0
+    },
+    "ensemble_natgasusd": {
+      "instrument": "NATGAS_USD",
+      "win_rate": 0.0,
+      "expectancy_gbp": 0.0,
+      "n_trades": 0,
+      "regime_confidence": 1.0
+    },
+    "ensemble_spx500usd": {
+      "instrument": "SPX500_USD",
+      "win_rate": 0.0,
+      "expectancy_gbp": 0.0,
+      "n_trades": 0,
+      "regime_confidence": 1.0
+    },
+    "ensemble_us30usd": {
+      "instrument": "US30_USD",
+      "win_rate": 0.0,
+      "expectancy_gbp": 0.0,
+      "n_trades": 0,
+      "regime_confidence": 1.0
+    },
+    "ensemble_aapl": {
+      "instrument": "AAPL",
+      "win_rate": 0.0,
+      "expectancy_gbp": 0.0,
+      "n_trades": 0,
+      "regime_confidence": 1.0
+    },
+    "ensemble_eurgbp": {
+      "instrument": "EUR_GBP",
+      "win_rate": 0.0,
+      "expectancy_gbp": 0.0,
+      "n_trades": 0,
+      "regime_confidence": 1.0
+    },
+    "ensemble_wticousd": {
+      "instrument": "WTICO_USD",
+      "win_rate": 0.0,
+      "expectancy_gbp": 0.0,
+      "n_trades": 0,
+      "regime_confidence": 1.0
+    },
+    "ensemble_bcousd": {
+      "instrument": "BCO_USD",
+      "win_rate": 0.0,
+      "expectancy_gbp": 0.0,
+      "n_trades": 0,
+      "regime_confidence": 1.0
+    },
+    "ensemble_eurusd": {
+      "instrument": "EUR_USD",
+      "win_rate": 0.15,
+      "expectancy_gbp": 2.3858129527923316e-06,
+      "n_trades": 1,
+      "regime_confidence": 1.0
+    },
+    "ensemble_ethusdt": {
+      "instrument": "ETHUSDT",
+      "win_rate": 0.4347707165212483,
+      "expectancy_gbp": -1.1946043259319996e-123,
+      "n_trades": 192,
+      "regime_confidence": 1.0
+    },
+    "ensemble_nvda": {
+      "instrument": "NVDA",
+      "win_rate": 0.0,
+      "expectancy_gbp": 0.0,
+      "n_trades": 0,
+      "regime_confidence": 1.0
+    },
+    "ensemble_bnbusdt": {
+      "instrument": "BNBUSDT",
+      "win_rate": 0.38986570065732584,
+      "expectancy_gbp": -4.674884728181378e-56,
+      "n_trades": 77,
+      "regime_confidence": 1.0
+    },
+    "ensemble_usdjpy": {
+      "instrument": "USD_JPY",
+      "win_rate": 0.0,
+      "expectancy_gbp": 0.0,
+      "n_trades": 0,
+      "regime_confidence": 1.0
+    },
+    "ensemble_tsla": {
+      "instrument": "TSLA",
+      "win_rate": 0.0,
+      "expectancy_gbp": 0.0,
+      "n_trades": 0,
+      "regime_confidence": 1.0
+    }
+  }
+}

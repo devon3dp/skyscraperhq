@@ -1,0 +1,34 @@
+{
+  "room_id": "email_inbox_bays",
+  "name": "Inbound Sorting Bays",
+  "category": "operations",
+  "purpose": "Sorting incoming emails.",
+  "concierge_blurb": "Rows of sorting stations buzz with activity as emails are triaged and routed.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      12,
+      8
+    ],
+    "height_m": 1.5
+  },
+  "render": {
+    "primary_prop": "desk",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Inbox Bays",
+    "glow": false
+  },
+  "interactive": {
+    "type": "count",
+    "source_path": "data/registries/inbox_count.jsonl",
+    "display": "big_number",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_164"
+}

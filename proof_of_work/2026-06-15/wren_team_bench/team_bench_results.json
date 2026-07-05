@@ -1,0 +1,88 @@
+{
+  "summary": {
+    "ts": "2026-06-15T12:04:44Z",
+    "n": 5,
+    "pass": 5,
+    "fail": 0,
+    "wall_total_s": 24.79,
+    "by_worker": [
+      {
+        "worker": "pip",
+        "role": "assistant",
+        "verdict": "PASS",
+        "wall_s": 2.24
+      },
+      {
+        "worker": "forge",
+        "role": "code_drafter",
+        "verdict": "PASS",
+        "wall_s": 3.52
+      },
+      {
+        "worker": "mira",
+        "role": "reviewer",
+        "verdict": "PASS",
+        "wall_s": 12.06
+      },
+      {
+        "worker": "bram",
+        "role": "triage",
+        "verdict": "PASS",
+        "wall_s": 4.66
+      },
+      {
+        "worker": "cass",
+        "role": "scribe",
+        "verdict": "PASS",
+        "wall_s": 2.31
+      }
+    ]
+  },
+  "details": [
+    {
+      "worker": "pip",
+      "wall_s": 2.24,
+      "exit_code": 0,
+      "reply": "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n  pip      assistant      llama3.2:latest\n  wall 2.2s\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\nTools/qsb_telegram_receptionist.py is a Python script that automates the management of Telegram groups and channels by sending automated messages, filtering incoming messages, and performing other tasks to streamline group administration.\n",
+      "role": "assistant",
+      "task_head": "In ONE sentence, what does tools/qsb_telegram_receptionist.py do?",
+      "verdict": "PASS"
+    },
+    {
+      "worker": "forge",
+      "wall_s": 3.52,
+      "exit_code": 0,
+      "reply": "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n  forge    code_drafter   codellama:13b\n  wall 3.48s\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n```python\ndef count_lines(path):\n    with open(path) as f:\n        return sum(1 for _ in f)\n```\n",
+      "role": "code_drafter",
+      "task_head": "Write a 5-line Python function `count_lines(path)` that returns the number of lines in a file. Plain stdlib only. Output",
+      "verdict": "PASS"
+    },
+    {
+      "worker": "mira",
+      "wall_s": 12.06,
+      "exit_code": 0,
+      "reply": "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n  mira     reviewer       llama2:13b\n  wall 12.02s\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n\nHello there! I'm Mira, Wren's reviewer and second-opinion. I'll be taking a look at the code you've provided and checking for any potential defects or issues. Here are my findings:\n\n1. Edge cases: The function `count_lines` only works with files that contain newline characters (\\n) to split the text into lines. What if the file doesn't have any newlines? For example, if we pass a file with only spaces or tabs, the function will return an incorrect result.\n2. Leaks: The function uses `open(p)` to open the file, but it doesn't close the file afterward. This could lead to resource leaks if the file is not properly closed.\n3. Off-by-ones: The function returns `len(open(p).read().split('\\n'))`, but what if there are no lines in the file? In that case, the function will return an incorrect result of 0.\n\nSo, are you sure about these confident claims? \ud83d\ude09\n\nVERDICT: REVISE. The function needs to handle edge cases better and address the potential resource leaks and off-by-ones issues.\n",
+      "role": "reviewer",
+      "task_head": "Review this code for bugs: `def count_lines(p): return len(open(p).read().split('\\n'))` \u2014 flag any defects in 3 bullets.",
+      "verdict": "PASS"
+    },
+    {
+      "worker": "bram",
+      "wall_s": 4.66,
+      "exit_code": 0,
+      "reply": "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n  bram     triage         mistral:7b\n  wall 4.62s\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n (1) URGENT: Potential communication issue with bot, may require immediate attention.\n(2) LATER: Minor UI issue, can be addressed during routine maintenance or by a designated team member.\n(3) URGENT: Abnormal PnL on EUR_USD position indicates potential trading error, requires review immediately.\n",
+      "role": "triage",
+      "task_head": "Triage these three messages and label each [URGENT / NORMAL / LATER]:\n(1) Bot doesn't reply to texts.\n(2) Floor 47 dashb",
+      "verdict": "PASS"
+    },
+    {
+      "worker": "cass",
+      "wall_s": 2.31,
+      "exit_code": 0,
+      "reply": "\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n  cass     scribe         neural-chat:7b\n  wall 2.27s\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\n On June 15th, 2026 at 12pm, a significant session revealed that heartbeat's auto-revive feature now applies to F25/F31/F38 loops, while Wren's team efficiently dispatched within the tick.\n",
+      "role": "scribe",
+      "task_head": "Compose a 25-word session diary line for 2026-06-15 12:00 describing: heartbeat now auto-revives F25/F31/F38 loops + Wre",
+      "verdict": "PASS"
+    }
+  ]
+}

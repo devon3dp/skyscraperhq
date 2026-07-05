@@ -1,0 +1,45 @@
+{
+  "room_id": "visitor_sign_in_book",
+  "name": "Visitor Sign-In Book",
+  "category": "archive",
+  "floor": "floor_47",
+  "purpose": "a bound book at the F47 door where visitors may optionally leave a handle and a short note; append-only, read later by Wren.",
+  "concierge_blurb": "A bound book at the door. Signing is optional; reading it later is one of Wren's small pleasures.",
+  "current_state": "newly_built",
+  "visitor_open": true,
+  "mutation_allowed": true,
+  "evidence_paths": [
+    "floors/floor_47_executive_operations_department/visitor_sign_in.jsonl"
+  ],
+  "live_signals": {
+    "signed_in_count": 0,
+    "schema": {
+      "ts": "...",
+      "visitor_handle": "...",
+      "note": "..."
+    },
+    "jsonl_path": "floors/floor_47_executive_operations_department/visitor_sign_in.jsonl"
+  },
+  "built_at": "2026-06-14T17:35:00Z",
+  "built_by": "f47_buildout_batch_4_room_1",
+  "lessons_learned_for_next_agent": "The sign-in jsonl is brand-new and starts empty with a single header-comment line \u2014 a count of lines is NOT the visitor count; subtract the header (or skip lines starting with '#'). Schema is intentionally tiny (ts, visitor_handle, note) so the book stays append-only and visitor-safe; do not add IP, fingerprint, or any PII field without a CLAUDE.md edit. signed_in_count in live_signals must be refreshed from the jsonl, not stored independently.",
+  "layout": {
+    "zone": "front_center",
+    "offset_x": -0.6,
+    "offset_z": 7.5,
+    "footprint_m": [
+      0.6,
+      0.4
+    ],
+    "height_m": 0.95
+  },
+  "render": {
+    "primary_prop": "desk",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "SIGN IN",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  }
+}

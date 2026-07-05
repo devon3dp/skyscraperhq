@@ -1,0 +1,170 @@
+{
+  "schema_version": "1.0.0",
+  "status": "team_approved_v1_1",
+  "team_decisions": {
+    "transport": "uds_jsonl",
+    "transport_vote": "wren_yes hermes_yes claude_yes deepseek_dissent_for_mmap_ring",
+    "socket_path": "/vaults/nvme0/qsb_tower_v1/state/qsb_bus.sock",
+    "persistence_file": "data/registries/qsb_bus_journal.jsonl",
+    "journal_size_events": 1000,
+    "journal_replay_window_minutes": 10,
+    "approved_for_bus_daemon_implementation": ["wren_fast", "hermes_8b", "deepseek_advisor", "claude_helm"]
+  },
+  "co_authors": ["wren_fast_qwen7b", "hermes_8b", "deepseek_advisor", "claude_helm"],
+  "mandate": "Ross 2026-06-21 16:55 UTC — skyscraper goes loop-free + intelligence-driven NOW. No timers anywhere. Real intelligence everywhere. Workers + team-members + traders all event-driven.",
+  "ross_quote": "no loops any were even with the team we need real intelligence in the system",
+  "principles": [
+    "Workers block on bus socket (Unix domain socket); zero CPU when idle.",
+    "Each event has dot-namespaced name + typed payload + ts field.",
+    "Workers register subscription lists; bus delivers matching events.",
+    "Worker decision trivium: yes / no / escalate. Escalation flows up symmetric CEO chain (Wren / Hermes / Claude).",
+    "Bus journals last N events to mmap'd file for cross-session replay (DeepSeek)."
+  ],
+  "events": {
+    "market.tick.binance": {
+      "payload": {"instrument": "str", "price": "float", "qty": "float", "trade_id": "int", "ts": "iso8601"},
+      "emitted_by": "qsb_f42_binance_stream",
+      "purpose": "Binance public trade-level tick",
+      "proposed_by": ["claude", "deepseek", "hermes"]
+    },
+    "market.tick.oanda": {
+      "payload": {"instrument": "str", "bid": "float", "ask": "float", "mid": "float", "spread": "float", "ts": "iso8601"},
+      "emitted_by": "qsb_f41_oanda_stream",
+      "purpose": "OANDA practice pricing tick",
+      "proposed_by": ["claude", "deepseek", "hermes"]
+    },
+    "market.tick.alpaca": {
+      "payload": {"instrument": "str", "price": "float", "qty": "int", "exchange": "str", "ts": "iso8601"},
+      "emitted_by": "qsb_f43_alpaca_stream",
+      "purpose": "Alpaca v2/iex trade tick",
+      "proposed_by": ["claude", "deepseek", "hermes"]
+    },
+    "market.level_breach": {
+      "payload": {"venue": "str", "instrument": "str", "price": "float", "prev_price": "float", "delta_bps": "float"},
+      "emitted_by": "stream_clients",
+      "purpose": "Significant price move since last tick",
+      "proposed_by": ["claude", "deepseek"]
+    },
+    "market.regime_shift": {
+      "payload": {"venue": "str", "instrument": "str", "from_regime": "str", "to_regime": "str", "confidence": "float"},
+      "emitted_by": "regime_detector",
+      "purpose": "Regime classifier detected trend/range/volatile/quiet transition",
+      "proposed_by": ["claude"]
+    },
+    "trade.opened": {
+      "payload": {"floor": "str", "worker_id": "str", "venue": "str", "instrument": "str", "side": "str", "qty": "float", "entry_px": "float", "broker_order_id": "str", "ts": "iso8601"},
+      "emitted_by": "any_floor_placement_module",
+      "purpose": "Position opened on any venue",
+      "proposed_by": ["claude", "wren", "hermes", "deepseek"]
+    },
+    "trade.closed": {
+      "payload": {"floor": "str", "worker_id": "str", "venue": "str", "instrument": "str", "exit_px": "float", "pnl": "float", "won": "bool", "ts": "iso8601"},
+      "emitted_by": "any_floor_close_module",
+      "purpose": "Position closed; feeds learning + peer chat board + genetics",
+      "proposed_by": ["claude", "wren", "hermes", "deepseek"]
+    },
+    "trade.rejected": {
+      "payload": {"floor": "str", "order_id": "str", "reason": "str", "ts": "iso8601"},
+      "emitted_by": "broker_gateway",
+      "purpose": "Order rejected by venue or risk check; F47 audit must capture",
+      "proposed_by": ["deepseek"]
+    },
+    "pnl.update": {
+      "payload": {"floor": "str", "worker_id": "str", "total_pnl": "float", "session_pnl": "float", "ts": "iso8601"},
+      "emitted_by": "f44_pnl_aggregator",
+      "purpose": "Per-worker realised PnL update; F44 reads this",
+      "proposed_by": ["hermes", "wren"]
+    },
+    "worker.escalation": {
+      "payload": {"worker_id": "str", "decision_context": "object", "confidence": "float", "severity": "str", "trace_id": "str", "ts": "iso8601"},
+      "emitted_by": "any_worker",
+      "purpose": "Worker hit decision trivium 'escalate' (confidence < 0.7); travels to Hermes then Claude then Ross",
+      "proposed_by": ["claude", "deepseek", "wren", "hermes"]
+    },
+    "team.dispatch": {
+      "payload": {"from": "str", "to": "str", "brief": "str", "awaiting_reply": "bool", "f47_row_id": "str", "ts": "iso8601"},
+      "emitted_by": "any_team_member",
+      "purpose": "Wren/Hermes/Claude call each other; replaces direct CLI invocation",
+      "proposed_by": ["claude"]
+    },
+    "team.message": {
+      "payload": {"author": "str", "channel": "str", "content": "str", "ts": "iso8601"},
+      "emitted_by": "any_team_member_or_ross",
+      "purpose": "Free-form team message; F166 may publish if channel=public",
+      "proposed_by": ["deepseek"]
+    },
+    "team.signoff": {
+      "payload": {"f47_row_id": "str", "signer": "str", "verdict": "str", "reason": "str", "ts": "iso8601"},
+      "emitted_by": "any_signer",
+      "purpose": "Universal sign-off rule fires (per Ross 2026-06-21); audit closure event",
+      "proposed_by": ["claude", "hermes"]
+    },
+    "board.decision": {
+      "payload": {"meeting_topic": "str", "decision": "str", "votes": "object", "ts": "iso8601"},
+      "emitted_by": "f51_executive_council",
+      "purpose": "F51 board decision row",
+      "proposed_by": ["hermes"]
+    },
+    "ross.input": {
+      "payload": {"channel": "str", "content": "str", "ts": "iso8601"},
+      "emitted_by": "claude_cli_or_telegram_or_dashboard",
+      "purpose": "Direct human message lands on bus",
+      "proposed_by": ["claude"]
+    },
+    "kernel.proposal": {
+      "payload": {"proposer": "str", "target_path": "str", "sandbox_verdict": "str", "sigs": "list", "ts": "iso8601"},
+      "emitted_by": "bench_multi_sig",
+      "purpose": "F46 bench proposal lifecycle event",
+      "proposed_by": ["claude"]
+    },
+    "kernel.learning_event": {
+      "payload": {"learner_id": "str", "metric_before": "float", "metric_after": "float", "weight_delta_hash": "str", "ts": "iso8601"},
+      "emitted_by": "f46_wren_bench_learners",
+      "purpose": "Learner parameter update; F51 board votes promotion to production",
+      "proposed_by": ["deepseek", "hermes", "wren"]
+    },
+    "kernel.anomaly": {
+      "payload": {"detector_id": "str", "z_score": "float", "instrument": "str", "window_ms": "int", "ts": "iso8601"},
+      "emitted_by": "anomaly_detectors_on_f44_or_f47",
+      "purpose": "Real-time outlier detection; persistent anomaly auto-emits worker.escalation",
+      "proposed_by": ["deepseek"]
+    },
+    "system.heartbeat": {
+      "payload": {"worker_id": "str", "status": "str", "uptime_ms": "int", "last_processed_event_id": "str", "ts": "iso8601"},
+      "emitted_by": "every_persistent_worker",
+      "purpose": "LOOP-FREE safety signal — emitted only on external trigger (file write or socket signal). F44 daemon validates linearity.",
+      "proposed_by": ["deepseek"]
+    },
+    "system.heartbeat.alive": {
+      "payload": {"daemon_pid": "int", "uptime_s": "int", "rx_counter": "int", "tx_counter": "int", "ts": "iso8601"},
+      "emitted_by": "any_persistent_daemon_on_subscribe",
+      "purpose": "Dead-man-switch monitoring — subscribers emit alive on initial connect AND on each event processed. Supervisor detects silent daemons by stale rx_counter.",
+      "proposed_by": ["deepseek"]
+    },
+    "system.safety_alert": {
+      "payload": {"alert_type": "str", "impacted_systems": "list", "severity": "str", "ts": "iso8601"},
+      "emitted_by": "watchdog_or_audit",
+      "purpose": "Critical safety event; immediate Ross-input candidate",
+      "proposed_by": ["hermes", "wren", "deepseek"]
+    },
+    "system.crash": {
+      "payload": {"component": "str", "traceback": "str", "severity": "str", "ts": "iso8601"},
+      "emitted_by": "any_process_via_atexit",
+      "purpose": "Process crash; supervisor must restart per restart policy",
+      "proposed_by": ["claude"]
+    },
+    "tiktok.stream_event": {
+      "payload": {"event_type": "str", "video_id": "str", "ts": "iso8601"},
+      "emitted_by": "f166_tiktok_studio",
+      "purpose": "TikTok pipeline event; replaces F166 poll loop",
+      "proposed_by": ["hermes"]
+    }
+  },
+  "bus_transport_options_to_debate": [
+    "Unix domain socket + JSON lines (simplest)",
+    "mmap'd ring buffer (DeepSeek's pick, zero-copy)",
+    "Redis pub/sub (already in repo as dep? unknown — verify before commit)"
+  ],
+  "persistence_design_open": "DeepSeek proposes Hermes journals last N events to mmap'd file; any restarting participant replays the tail. Claude session-boundary reconnection uses this.",
+  "next_step": "Hermes writes bus daemon with this taxonomy as input; Wren reviews mid-write; Claude integrates + signs off."
+}

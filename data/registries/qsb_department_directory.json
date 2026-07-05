@@ -1,0 +1,337 @@
+{
+  "ok": true,
+  "kind": "qsb_department_directory",
+  "generated_ts": "2026-06-30T13:46:36.986824+00:00",
+  "departments": [
+    {
+      "floor": 1,
+      "primary": "Operations",
+      "secondary": "Order Fulfilment Hub",
+      "purpose": "physical/digital order fulfilment dispatch"
+    },
+    {
+      "floor": 2,
+      "primary": "Memory",
+      "secondary": "Customer Memory Vault",
+      "purpose": "customer history + repeat-purchase memory"
+    },
+    {
+      "floor": 3,
+      "primary": "Research",
+      "secondary": "Product Research Lab",
+      "purpose": "commerce + product research"
+    },
+    {
+      "floor": 4,
+      "primary": "Knowledge",
+      "secondary": "Knowledge Library + Classroom Wing",
+      "purpose": "training resources + classroom content"
+    },
+    {
+      "floor": 5,
+      "primary": "Coding",
+      "secondary": "Code Observatory + Dev Squad",
+      "purpose": "claude-change tracking + repo health"
+    },
+    {
+      "floor": 6,
+      "primary": "Engineering",
+      "secondary": "Etsy Shop Floor",
+      "purpose": "digital products listing pipeline (manual approval)"
+    },
+    {
+      "floor": 7,
+      "primary": "Architecture",
+      "secondary": "Shopify Storefront Floor",
+      "purpose": "direct storefront design + theme work"
+    },
+    {
+      "floor": 8,
+      "primary": "Training Academy",
+      "secondary": "Trading + Commerce Classrooms",
+      "purpose": "curriculum + cohort teaching"
+    },
+    {
+      "floor": 9,
+      "primary": "Quality Assurance",
+      "secondary": "Design Quality Review + Mistake Lab",
+      "purpose": "design QA + lessons-from-mistakes review"
+    },
+    {
+      "floor": 10,
+      "primary": "Trading Simulation",
+      "secondary": "Strategy Lab + Sandbox Coupling",
+      "purpose": "extend Floor 38 sandbox with strategy scenarios"
+    },
+    {
+      "floor": 11,
+      "primary": "Market Intelligence",
+      "secondary": "Demand + Competitor Watch",
+      "purpose": "cross-platform demand watching"
+    },
+    {
+      "floor": 12,
+      "primary": "Risk Analysis",
+      "secondary": "Commerce + Trading Risk Bench",
+      "purpose": "unified risk view across trading + commerce"
+    },
+    {
+      "floor": 13,
+      "primary": "Vision",
+      "secondary": "Product Image Studio + Mockup Wall",
+      "purpose": "mockup + product image previews"
+    },
+    {
+      "floor": 14,
+      "primary": "Media",
+      "secondary": "Print-on-Demand Floor",
+      "purpose": "POD product design + Printful/Printify drafts"
+    },
+    {
+      "floor": 15,
+      "primary": "Speech & Audio",
+      "secondary": "Voice Commerce Studio",
+      "purpose": "audio narration + customer voice replies (draft only)"
+    },
+    {
+      "floor": 16,
+      "primary": "Document Processing",
+      "secondary": "Listing Writer + SEO Lab",
+      "purpose": "listing copy + SEO + tags"
+    },
+    {
+      "floor": 17,
+      "primary": "Graphics & Design",
+      "secondary": "Product Design Studio + Prompt-to-Product",
+      "purpose": "design asset generation + prompt iteration"
+    },
+    {
+      "floor": 18,
+      "primary": "Automation",
+      "secondary": "Marketing + Promotion Floor",
+      "purpose": "campaign drafts + scheduled posts (manual approval)"
+    },
+    {
+      "floor": 19,
+      "primary": "Workflow Management",
+      "secondary": "Customer Service Floor",
+      "purpose": "customer messaging drafts + ticket triage"
+    },
+    {
+      "floor": 20,
+      "primary": "API Services",
+      "secondary": "Platform Integration Bench",
+      "purpose": "API watchers + integration health (test/sandbox only)"
+    },
+    {
+      "floor": 21,
+      "primary": "Adapter Systems",
+      "secondary": "Format / Schema Translation",
+      "purpose": "data format translation between commerce + kernel"
+    },
+    {
+      "floor": 22,
+      "primary": "Integration Services",
+      "secondary": "Lifts Department Operations",
+      "purpose": "lift + sealed-packet routing"
+    },
+    {
+      "floor": 23,
+      "primary": "AIR LLM Operations",
+      "secondary": "AirLLM Chamber",
+      "purpose": "local model advisory only"
+    },
+    {
+      "floor": 24,
+      "primary": "Model Routing",
+      "secondary": "Lane Governance",
+      "purpose": "route prompts between local lanes"
+    },
+    {
+      "floor": 25,
+      "primary": "Agent Coordination",
+      "secondary": "OpenClaw Coordination Office",
+      "purpose": "openclaw read-only supervision dispatch"
+    },
+    {
+      "floor": 26,
+      "primary": "Model Evaluation",
+      "secondary": "Commerce Accounting Floor",
+      "purpose": "commerce PnL + tax-ready ledger"
+    },
+    {
+      "floor": 27,
+      "primary": "Local Model Ops",
+      "secondary": "Local Model Drafting Bench",
+      "purpose": "local-only LLM draft surfaces"
+    },
+    {
+      "floor": 28,
+      "primary": "Security",
+      "secondary": "Security Operations Center",
+      "purpose": "security observability + secret vault audit"
+    },
+    {
+      "floor": 29,
+      "primary": "Guardian",
+      "secondary": "Guardian Watch",
+      "purpose": "guardian state + lock map watch"
+    },
+    {
+      "floor": 30,
+      "primary": "Permissions",
+      "secondary": "Permissions / Risk Department",
+      "purpose": "13-lock execution permissions"
+    },
+    {
+      "floor": 31,
+      "primary": "Audit",
+      "secondary": "Audit / Ledger Department",
+      "purpose": "ledger fan-in + audit reports"
+    },
+    {
+      "floor": 32,
+      "primary": "Compliance",
+      "secondary": "Platform Compliance Office",
+      "purpose": "platform terms + compliance checklists"
+    },
+    {
+      "floor": 33,
+      "primary": "Diagnostics",
+      "secondary": "Refund / Dispute Desk + Diagnostics",
+      "purpose": "refund handling + system diagnostics"
+    },
+    {
+      "floor": 34,
+      "primary": "Monitoring",
+      "secondary": "Storefront Analytics Room",
+      "purpose": "cross-store analytics + telemetry"
+    },
+    {
+      "floor": 35,
+      "primary": "Infrastructure Svcs",
+      "secondary": "Hardware Systems Floor",
+      "purpose": "CPU/GPU/RAM/disk observatory"
+    },
+    {
+      "floor": 36,
+      "primary": "Expansion Planning",
+      "secondary": "Workforce Expansion Planning",
+      "purpose": "workforce expansion + onboarding plans"
+    },
+    {
+      "floor": 37,
+      "primary": "Simulation Labs",
+      "secondary": "Strategy Labs",
+      "purpose": "strategy scenarios + backtesting"
+    },
+    {
+      "floor": 38,
+      "primary": "Sandbox Operations",
+      "secondary": "Sandbox Ops Coupling",
+      "purpose": "sandbox lift packets + market sim"
+    },
+    {
+      "floor": 39,
+      "primary": "Development Labs",
+      "secondary": "Worker Recreation Floor",
+      "purpose": "recreation + recovery after shifts"
+    },
+    {
+      "floor": 40,
+      "primary": "Prototype Systems",
+      "secondary": "Worker Rest / Dormitory Floor",
+      "purpose": "sleep pods + standby for off-shift workers"
+    },
+    {
+      "floor": 41,
+      "primary": "OANDA Trading Floor",
+      "secondary": "OANDA Practice Trading",
+      "purpose": "FX paper/practice trading"
+    },
+    {
+      "floor": 42,
+      "primary": "Binance Trading",
+      "secondary": "Binance Testnet Preview",
+      "purpose": "crypto testnet preview only"
+    },
+    {
+      "floor": 43,
+      "primary": "Stock Exchange",
+      "secondary": "Stocks Paper Preview",
+      "purpose": "equities paper preview only"
+    },
+    {
+      "floor": 44,
+      "primary": "Accounts Department",
+      "secondary": "Trading + Commerce Accounting",
+      "purpose": "PnL ledger for trading + commerce"
+    },
+    {
+      "floor": 45,
+      "primary": "Recruitment Agency",
+      "secondary": "Worker Recruitment",
+      "purpose": "candidate intake + assignment"
+    },
+    {
+      "floor": 46,
+      "primary": "Executive Support",
+      "secondary": "Executive Liaison + Concierge",
+      "purpose": "executive support + colonel concierge"
+    },
+    {
+      "floor": 47,
+      "primary": "Executive Operations",
+      "secondary": "Executive Ops Department",
+      "purpose": "executive operations + governance"
+    },
+    {
+      "floor": 48,
+      "primary": "Strategic Planning",
+      "secondary": "Strategic Plan Office",
+      "purpose": "long-term planning + roadmap"
+    },
+    {
+      "floor": 49,
+      "primary": "Resource Management",
+      "secondary": "Resource Mgmt Department",
+      "purpose": "resource allocation"
+    },
+    {
+      "floor": 50,
+      "primary": "Building Governance",
+      "secondary": "Building Governance Council",
+      "purpose": "building rules + governance"
+    },
+    {
+      "floor": 51,
+      "primary": "Executive Council",
+      "secondary": "Executive Council Office",
+      "purpose": "executive council convenings"
+    },
+    {
+      "floor": 52,
+      "primary": "Infrastructure Cmd",
+      "secondary": "Infrastructure Command",
+      "purpose": "infrastructure command"
+    },
+    {
+      "floor": 53,
+      "primary": "Tower Command",
+      "secondary": "Tower Command Department",
+      "purpose": "tower command + colonel observation"
+    }
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "worker_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "live_payments_enabled": false,
+  "live_listings_publishing_enabled": false,
+  "external_api_calls_enabled": false,
+  "secrets_in_logs": false,
+  "manual_approval_required_for_commerce": true
+}

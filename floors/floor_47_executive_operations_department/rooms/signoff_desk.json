@@ -1,0 +1,50 @@
+{
+  "room_id": "signoff_desk",
+  "name": "Sign-Off Desk",
+  "category": "audit",
+  "floor": "floor_47",
+  "purpose": "this desk is for collecting the three unique-class signatures required by the bench.",
+  "concierge_blurb": "Three independent classes must sign before a change is applied: crew, Wren, and Ross. The Sign-Off Desk is where their seals are gathered.",
+  "current_state": "partial",
+  "visitor_open": true,
+  "evidence_paths": [
+    "tools/qsb_proposal_sign.py",
+    "data/registries/qsb_code_proposals.jsonl"
+  ],
+  "live_signals": {
+    "signature_threshold": 3,
+    "pending_count": 0,
+    "signature_classes": [
+      "coders_team",
+      "team_assistants",
+      "wren_crew",
+      "wren_herself",
+      "ross"
+    ],
+    "pending_source": "data/registries/qsb_code_proposals.jsonl (status=pending)"
+  },
+  "built_at": "2026-06-14T17:10:00Z",
+  "built_by": "f47_floor_buildout_batch_1",
+  "layout": {
+    "zone": "back_right",
+    "offset_x": 3.0,
+    "offset_z": -7.5,
+    "footprint_m": [
+      2.6,
+      1.4
+    ],
+    "height_m": 0.85
+  },
+  "render": {
+    "primary_prop": "desk",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "SIGN-OFF DESK \u00b7 3 seals",
+    "glow": false
+  },
+  "interactive": {
+    "type": "tail",
+    "source_path": "data/registries/qsb_claude_signoff_queue.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 30
+  }
+}

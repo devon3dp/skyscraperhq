@@ -1,0 +1,69 @@
+{
+  "ok": true,
+  "kind": "qsb_purchase_authorization",
+  "per_request_cap_gbp": 100.0,
+  "per_day_cap_gbp": 200.0,
+  "total_available_gbp": 77.33,
+  "authorized_vendors": [
+    "namecheap.com",
+    "netlify.com",
+    "wise.com",
+    "stripe.com",
+    "squareup.com",
+    "aliexpress.com",
+    "alibaba.com",
+    "cloudflare.com"
+  ],
+  "authorized_categories": [
+    "domain",
+    "hosting",
+    "supplier_order",
+    "operations",
+    "tooling"
+  ],
+  "ross_verbal_authorization_2026_06_11": {
+    "authorized_by": "Ross Knechtel",
+    "authorization_text": "Ross Knechtel grants 100% authorization for the skyscraper team to pay in/out real money on his account. Wren reports every action transparently. Ross gives final verification on critical/large actions. The skyscraper runs autonomously.",
+    "authorized_ts": "2026-06-11T10:16:27.397965Z",
+    "mode": "transparent_autonomous_with_critical_verification",
+    "real_money_inbound_allowed": true,
+    "real_money_outbound_allowed": true,
+    "gates_flipped_TRUE": [
+      "live_payments_enabled (e-commerce inbound)",
+      "operational_spend_via_purchase_request (outbound up to caps)",
+      "wise_card_charges_allowed (when added)",
+      "square_charges_allowed (when added)"
+    ],
+    "gates_remaining_LOCKED": [
+      "real_money_live_trading_enabled (CLAUDE.md still locks; not authorized)",
+      "openclaw_real_tool_execution_enabled (not authorized)"
+    ],
+    "transparency_rules": [
+      "every real-money action stamps F47 + activity tail",
+      "every spend reports to Ross in chat immediately",
+      "critical_actions need explicit ross OK: spend > \u00a350, vendor change, gate flip",
+      "daily/weekly summary of total flows"
+    ],
+    "critical_threshold_gbp": 50
+  },
+  "updated_ts": "2026-06-11T13:06:32.703778Z",
+  "advisory_only": false,
+  "ross_browser_control_authorization_2026_06_11": {
+    "authorized_by": "Ross Knechtel",
+    "authorization_text": "Ross Knechtel authorizes Wren and the skyscraper to take 100% control over browser-based interactions on his accounts: opening web pages, screenshotting, analyzing, filling forms, submitting. Skyscraper has 100% control. Skyscraper reports every action to Ross afterward.",
+    "authorized_ts": "2026-06-11T10:34:07.661175Z",
+    "tools_authorized": [
+      "headless_browser_playwright_or_chromium",
+      "screenshot_capture",
+      "vision_llm_analysis",
+      "form_fill_and_submit"
+    ],
+    "reporting_rule": "every browser action stamps F47 + sends summary to Ross",
+    "safety_rails": [
+      "never enter live Stripe keys into a non-stripe.com domain",
+      "never enter bank account credentials anywhere except stripe.com or his bank",
+      "never approve a transaction over per_request_cap (\u00a3100) without Ross OK",
+      "always screenshot before AND after each form submission for audit"
+    ]
+  }
+}

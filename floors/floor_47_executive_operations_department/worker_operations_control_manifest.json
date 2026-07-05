@@ -1,0 +1,34 @@
+{
+  "ok": true,
+  "kind": "department_manifest",
+  "phase": "QSB_SKYSCRAPER_100_PERCENT_ONLINE_INTERACTIVE_3D_WORKFORCE_COMPLETION_V1",
+  "generated_ts": "2026-06-30T13:46:34.685182+00:00",
+  "floor_id": "floor_47",
+  "department": "Worker Operations Control",
+  "sub_department": "worker_operations_control",
+  "co_located_on_floor": "floor_47_executive_operations_department",
+  "purpose": "Operational interior for Worker Operations Control. Workers stationed at real rooms with real roles; no random visuals.",
+  "rooms": [
+    "Task Dispatch Board",
+    "Movement Control",
+    "Floor Assignment Desk",
+    "Idle Worker Roster",
+    "Active Worker Roster"
+  ],
+  "roles": [
+    "dispatcher",
+    "movement_controller",
+    "assignment_officer",
+    "roster_clerk",
+    "operations_supervisor"
+  ],
+  "worker_count": 90,
+  "default_class": "operational_worker",
+  "default_state": "idle_at_station",
+  "advisory_only": true,
+  "execution_allowed": false,
+  "active_local_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

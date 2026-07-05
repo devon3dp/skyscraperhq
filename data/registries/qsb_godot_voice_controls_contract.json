@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "kind": "qsb_godot_voice_controls_contract",
+  "phase": "QSB_GODOT_PROFESSIONAL_3D_DASHBOARD_UPGRADE_V1",
+  "generated_ts": "2026-06-09T15:52:38+00:00",
+  "controls": [
+    "sound",
+    "speech",
+    "commentary",
+    "mute_all",
+    "talk"
+  ],
+  "v1_status": "scaffolded \u2014 buttons present on top control bar; toggles emit state_changed; no fake TTS",
+  "v2_plan": "wire DisplayServer.tts_speak (Godot 4 native TTS); add voice selector dropdown",
+  "no_fake_voice": true,
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "live_payments_enabled": false,
+  "live_listings_publishing_enabled": false
+}

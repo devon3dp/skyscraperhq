@@ -1,0 +1,154 @@
+#cloud-config
+# QSB Tower — Oracle Cloud A1 ARM Ubuntu 24.04 first-boot config.
+# Paste this into "User data" on instance launch.
+#
+# Hardens UFW + Oracle iptables, sets up 8 GB swap (free tier disk is slow,
+# but RAM is generous so we lean on it), installs base packages, and pulls
+# Tailscale so the cloud VM joins the desktop tailnet without an open SSH
+# port to the internet.
+
+hostname: qsb-tower-cloud
+manage_etc_hosts: true
+locale: en_GB.UTF-8
+timezone: Etc/UTC
+
+users:
+  - default
+  - name: ross
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    shell: /bin/bash
+    groups: [users, sudo]
+    lock_passwd: true
+    ssh_authorized_keys:
+      # REPLACE with `cat ~/.ssh/id_ed25519.pub` from the desktop
+      - "ssh-ed25519 REPLACE_WITH_DESKTOP_PUBKEY ross@desktop"
+
+package_update: true
+package_upgrade: true
+packages:
+  - fail2ban
+  - ufw
+  - git
+  - python3-pip
+  - python3-venv
+  - python3-dev
+  - build-essential
+  - jq
+  - ripgrep
+  - rsync
+  - htop
+  - iotop
+  - tmux
+  - curl
+  - wget
+  - ca-certificates
+  - gnupg
+  - lsb-release
+  - debian-keyring
+  - debian-archive-keyring
+  - apt-transport-https
+  - iptables-persistent
+  - netfilter-persistent
+
+write_files:
+  - path: /etc/sysctl.d/99-qsb.conf
+    content: |
+      net.core.somaxconn = 1024
+      vm.swappiness = 10
+      vm.overcommit_memory = 1
+      net.ipv4.tcp_fin_timeout = 30
+    permissions: '0644'
+
+  - path: /etc/fail2ban/jail.d/sshd.local
+    content: |
+      [sshd]
+      enabled = true
+      maxretry = 5
+      bantime = 1h
+      findtime = 10m
+    permissions: '0644'
+
+  - path: /etc/systemd/system/tailscale-up.service
+    content: |
+      [Unit]
+      Description=One-shot tailscale up with --ssh on first boot
+      After=network-online.target tailscaled.service
+      Wants=network-online.target tailscaled.service
+      ConditionPathExists=!/var/lib/tailscale-firstboot.done
+
+      [Service]
+      Type=oneshot
+      ExecStart=/bin/sh -c '/usr/bin/tailscale up --ssh --hostname=qsb-tower-cloud --accept-routes && touch /var/lib/tailscale-firstboot.done'
+      RemainAfterExit=true
+
+      [Install]
+      WantedBy=multi-user.target
+    permissions: '0644'
+
+runcmd:
+  # ── UFW (host-side firewall) ──────────────────────────────────────
+  - ufw default deny incoming
+  - ufw default allow outgoing
+  - ufw allow OpenSSH
+  - ufw allow in on tailscale0
+  - ufw --force enable
+
+  # ── Oracle's iptables (image-level — UFW alone isn't enough) ──────
+  # Drop the broad REJECT rules Oracle ships with; UFW rules take effect.
+  - iptables -F INPUT
+  - iptables -P INPUT ACCEPT
+  - iptables -P FORWARD ACCEPT
+  - netfilter-persistent save
+
+  # ── 8 GB swap on boot volume ──────────────────────────────────────
+  - fallocate -l 8G /swapfile
+  - chmod 600 /swapfile
+  - mkswap /swapfile
+  - swapon /swapfile
+  - sh -c 'grep -q swapfile /etc/fstab || echo "/swapfile none swap sw 0 0" >> /etc/fstab'
+
+  # ── sysctl reload ─────────────────────────────────────────────────
+  - sysctl --system
+
+  # ── fail2ban ──────────────────────────────────────────────────────
+  - systemctl enable --now fail2ban
+
+  # ── Tailscale install (ARM64 noble) ───────────────────────────────
+  - sh -c 'curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/noble.noarmor.gpg | tee /usr/share/keyrings/tailscale-archive-keyring.gpg > /dev/null'
+  - sh -c 'curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/noble.tailscale-keyring.list | tee /etc/apt/sources.list.d/tailscale.list'
+  - apt-get update
+  - apt-get install -y tailscale
+  - systemctl enable --now tailscaled
+  - systemctl enable tailscale-up.service
+  # Manual step on first ssh: `tailscale login` to attach to your tailnet.
+
+  # ── Caddy install (auto-TLS reverse proxy) ────────────────────────
+  - sh -c 'curl -1sLf https://dl.cloudsmith.io/public/caddy/stable/gpg.key | gpg --dearmor -o /usr/share/keyrings/caddy-stable-archive-keyring.gpg'
+  - sh -c 'curl -1sLf https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt | tee /etc/apt/sources.list.d/caddy-stable.list'
+  - apt-get update
+  - apt-get install -y caddy
+
+  # ── linger for ross's user services ───────────────────────────────
+  - loginctl enable-linger ross
+
+  # ── Ollama (ARM build) for local Qwen — pinned to 3B for the
+  # ── 12 GB cut taking effect 15 June 2026. Comment this block out
+  # ── if you don't want LLM workloads on the cloud VM.
+  - sh -c 'curl -fsSL https://ollama.com/install.sh | sh'
+  - sudo -u ross ollama pull qwen2.5:3b || true
+
+final_message: |
+  QSB Tower cloud-init complete. Next manual steps:
+    1. ssh ross@<public-ip>
+    2. sudo tailscale up --ssh --hostname=qsb-tower-cloud
+       (open the printed URL in a browser to authenticate)
+    3. rsync the QSB Tower repo from the desktop:
+       rsync -avz --exclude=.venv --exclude=external_oss/ \
+         ross@desktop-tailnet:/vaults/nvme0/qsb_tower_v1/ /home/ross/qsb_tower_v1/
+    4. cd /home/ross/qsb_tower_v1 && python3 -m venv .venv
+       && .venv/bin/pip install -r requirements.txt
+    5. cp deploy/systemd-user/*.service ~/.config/systemd/user/
+       && systemctl --user daemon-reload
+       && systemctl --user enable --now qsb-tower-heartbeat.service
+    6. sudo cp infra/oracle/Caddyfile /etc/caddy/Caddyfile
+       && sudo systemctl reload caddy

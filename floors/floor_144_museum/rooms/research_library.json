@@ -1,0 +1,34 @@
+{
+  "room_id": "research_library",
+  "name": "Research Library",
+  "category": "library",
+  "purpose": "For in-depth study and research.",
+  "concierge_blurb": "Dive deep into the archives of knowledge.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "left_wall",
+    "offset_x": -8.0,
+    "offset_z": 6.5,
+    "footprint_m": [
+      15,
+      24
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "library_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Library",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": null,
+    "refresh_seconds": null
+  },
+  "floor": "floor_144"
+}

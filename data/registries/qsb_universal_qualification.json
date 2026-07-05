@@ -1,0 +1,17 @@
+{
+  "ok": true,
+  "kind": "qsb_universal_qualification_v1",
+  "generated_ts": "2026-06-21T18:54:00.679407+00:00",
+  "workers_in_sweep": 9995,
+  "elapsed_seconds": 0.02,
+  "by_status": {
+    "certified": 0,
+    "tested": 7,
+    "skipped_already_certified": 9988
+  },
+  "by_floor_pass": {},
+  "by_instrument_pass": {},
+  "policy": "Every worker runs the classroom written + 20-sim-trade exam for an instrument matched to their home floor. Passing requires 9/12 written AND win_rate >= 0.55 AND worst loss <= 0.5% AND avg hold <= 600s. Idempotent: workers already certified for their floor's instrument are skipped.",
+  "real_money": false,
+  "advisory_only": true
+}

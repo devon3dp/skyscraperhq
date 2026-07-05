@@ -1,0 +1,34 @@
+{
+  "room_id": "art_station",
+  "name": "Art Station",
+  "category": "workshop",
+  "purpose": "This room is for creating and refining art assets.",
+  "concierge_blurb": "Visitors see artists working on detailed digital art pieces.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 8.0,
+    "offset_z": -4.0,
+    "footprint_m": [
+      10,
+      5
+    ],
+    "height_m": 2.3
+  },
+  "render": {
+    "primary_prop": "digital_paint_station",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Art Station",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_92"
+}

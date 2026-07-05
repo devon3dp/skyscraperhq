@@ -1,0 +1,31 @@
+{
+  "room_id": "admin_office",
+  "name": "Admin Office",
+  "category": "admin",
+  "purpose": "This room handles administrative tasks and record-keeping.",
+  "concierge_blurb": "Step into the Admin Office for official correspondence.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_right",
+    "offset_x": 6.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      12,
+      8
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "desk",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Admin Offc",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_51"
+}

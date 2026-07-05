@@ -1,0 +1,38 @@
+{
+  "phase": "QSB_UNREAL_PROFESSIONAL_SKYSCRAPER_HUD_DASHBOARD_DIRECTION_V2",
+  "stage": 7,
+  "title": "Voice Command + Window-Opening",
+  "engine": "AlsaIO + whisper.cpp + piper",
+  "rationale": "offline, low-latency, no browser dependency (UE5 native), 2.8GB VRAM on 5070 Ti, piper TTS crisp",
+  "wakeWord": "Skyscraper",
+  "modes": [
+    "pushToTalk (default)",
+    "alwaysListening (optional)"
+  ],
+  "hud": [
+    "voiceButton",
+    "lastHeard",
+    "lastIntent",
+    "mute",
+    "commentary",
+    "speakResult"
+  ],
+  "commands": [
+    "show workers",
+    "show ledger",
+    "show profit and loss",
+    "show smoke tests",
+    "show floor activity",
+    "open Claude floor",
+    "open DeepSeek floor",
+    "open GPT floor",
+    "show maintenance",
+    "show recreation",
+    "show accommodation",
+    "ask Kernel what is missing"
+  ],
+  "signoff": "DeepSeek (c) AlsaIO+whisper+piper picked over OpenAI (b) browser engines \u2014 UE5 is not a browser.",
+  "_meta": {
+    "ts": "2026-06-25T12:18:39Z"
+  }
+}

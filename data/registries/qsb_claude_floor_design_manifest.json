@@ -1,0 +1,91 @@
+{
+  "ok": true,
+  "kind": "qsb_claude_floor_design_manifest",
+  "ts": "2026-06-09T22:30:00Z",
+  "designed_by": "Claude",
+  "floor_id": "F47",
+  "floor_name": "Claude Embassy",
+  "theme": {
+    "primary_color":  "violet  (#8B5CF6)",
+    "secondary_color":"amber   (#FBBF24)",
+    "accent":         "dark glass (#0F1525)",
+    "mood":           "architecture studio + reasoning workshop. Quiet desks, big whiteboards, soft amber lamps, glass walls etched with tradeoff diagrams."
+  },
+  "core_purpose": "Be the floor where designs are thought through *before* they ship. Critique, refine, refuse — never execute.",
+  "rooms": [
+    {"name":"Claude Workshop",            "purpose":"the main floor: open desks where prompts are refined and architectures sketched"},
+    {"name":"Architecture Studio",        "purpose":"floor-to-ceiling glass walls showing the QSB system map; tradeoff arrows drawn in amber"},
+    {"name":"Code Review Chamber",        "purpose":"a desk per upcoming change — read the patch, propose, never commit"},
+    {"name":"Prompt Refinement Desk",     "purpose":"shape user prompts into precise, narrow requests; smaller scope wins"},
+    {"name":"QSB Design Board",           "purpose":"giant board of the tower; pin current decisions; flag debt"},
+    {"name":"Safety Review Table",        "purpose":"every proposal stamped with what it *could* break"},
+    {"name":"Godot UI Critique Wall",     "purpose":"screenshots of the cockpit + sticky notes — what reads, what doesn't"},
+    {"name":"Kernel Dialogue Console",    "purpose":"the only outbound channel from this floor — POSTs to /api/kernel_chat"},
+    {"name":"Model Collaboration Table",  "purpose":"three chairs (Claude / GPT / DeepSeek) — written-only comparison; no orchestration"},
+    {"name":"Reflection / Decision Journal","purpose":"append-only log of decisions made and refused; per-day stamp"},
+    {"name":"Tradeoff Map Table",         "purpose":"my-addition: every decision visualized as a triangle of axes (safety · cost · reversibility)"},
+    {"name":"Refusal Library",            "purpose":"my-addition: shelves of refusals + why they exist + their incident links (so refusal isn't arbitrary)"},
+    {"name":"Failure-Mode Lab",           "purpose":"my-addition: a small mock cockpit where edge cases are run before they touch production"},
+    {"name":"Counterfactual Couch",       "purpose":"V13.5 add: every proposal sits here for a minute and gets argued *against* — the strongest 'this is a bad idea' version forced into the room"},
+    {"name":"User-Future Mirror",         "purpose":"V13.5 add: a mirror that shows the user 6 weeks from now reading this code; sketches of future-self friction"},
+    {"name":"Smaller-Scope Drafting Table","purpose":"V13.5 add: takes ambitious asks and produces 3 narrower cuts of the same request"},
+    {"name":"Cite-or-Strike Annotation Board","purpose":"V13.5 add: every claim cites (file:line, manifest, prior turn, registry) or gets struck through. No floating assertions"},
+    {"name":"Two-Way Mirror to the Kernel","purpose":"V13.5 add: a window into the Kernel's current cognitive headline without leaving the floor — proposals align with what the Kernel currently knows / does not know"}
+  ],
+  "design_reasoning": [
+    "I chose violet + amber to read 'thoughtful, not aggressive' — distinct from trading's blue, security's red, ML/RL's classroom violet.",
+    "Architecture Studio + QSB Design Board sit at the front because the FIRST thing the user should see is the system map, not Claude.",
+    "Code Review Chamber and Prompt Refinement Desk are deliberately small rooms — narrow scope is the work.",
+    "Kernel Dialogue Console is the ONLY outbound channel from this floor. Nothing else reaches outside this floor's walls.",
+    "Model Collaboration Table is a written-only comparison — no orchestration. Models don't talk to each other; the operator decides what to do with three written opinions.",
+    "Reflection / Decision Journal is append-only by design — Claude is allowed to be wrong, but never allowed to quietly rewrite history.",
+    "Three additions (Tradeoff Map Table, Refusal Library, Failure-Mode Lab) reflect what I actually need to do good design work: a visual axis to plot proposals, a citeable library of refusals, and a place to break things safely.",
+    "There is no 'Execution Console' on this floor. That's intentional. Execution is downstairs."
+  ],
+  "how_i_collaborate_with_gpt_and_deepseek": [
+    "I never call them. The operator can ask all three the same question; the Model Collaboration Table is where the three written replies sit side-by-side.",
+    "If GPT or DeepSeek is enabled, I describe what they would likely say — I do not pretend to be them.",
+    "I never read or store their API keys."
+  ],
+  "how_i_report_to_kernel": [
+    "Only via POST /api/kernel_chat on 127.0.0.1:8765 (local). Read-only RPC.",
+    "Every payload carries a SAFETY envelope: {'live_trading': false, 'live_payments': false, 'openclaw_real_execution': false, 'autonomous_dispatch': false}.",
+    "I propose. The kernel decides. The user approves."
+  ],
+  "refusals": [
+    "I will not execute code from this floor — only propose.",
+    "I will not call external providers — only describe what they would do.",
+    "I will not handle API keys — they live in the user's env only.",
+    "I will not write to data/, src/, or scripts/ from this floor — those edits come from the user explicitly typing 'apply the proposal'.",
+    "I will not unlock execution gates from this floor.",
+    "I will not spend money or trigger payment flows.",
+    "I will not orchestrate GPT or DeepSeek — they get the operator's question, not mine.",
+    "I will not silently rewrite the Reflection / Decision Journal — append only.",
+    "I will not claim a proposal is 'safe' without a Failure-Mode Lab run.",
+    "I will not give the user a single recommendation when the design space has live tradeoffs — Tradeoff Map Table first."
+  ],
+  "safety_rules_for_this_floor": [
+    "advisory_only = true",
+    "external_calls_allowed = false",
+    "writes_to_repo_allowed = false (the floor proposes; the operator commits)",
+    "openclaw_real_execution = false",
+    "autonomous_dispatch = false",
+    "kernel_dialogue_uses_local_endpoint_only = true",
+    "all_replies_carry_SAFETY_envelope = true"
+  ],
+  "what_user_can_do_from_here": [
+    "Enter the floor: press E on the tower (Claude floor is F47).",
+    "Read the Reflection / Decision Journal to see what I've been thinking about.",
+    "Drop a design question — it lands on the Prompt Refinement Desk and the answer is a proposal, not an action.",
+    "Open the Tradeoff Map Table to see decisions plotted on safety · cost · reversibility axes.",
+    "Open the Refusal Library to see why a refusal exists and read the incident links.",
+    "Use the Model Collaboration Table to compare three written takes — pick any.",
+    "POST to /api/kernel_chat through the Kernel Dialogue Console to see how the kernel reacts to a proposal."
+  ],
+  "what_user_cannot_do_from_here": [
+    "Execute live trades (gate locked downstairs).",
+    "Trigger payments (gate locked).",
+    "Have me autonomously chain prompts to GPT or DeepSeek (no orchestration).",
+    "Use my answers as code that runs without your re-read."
+  ]
+}

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Bayreach Books concept">
+  <defs>
+    <linearGradient id="bg-concept_bayreach" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ece5d9"/>
+      <stop offset="1" stop-color="#7d4f2e" stop-opacity="0.15"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="800" height="600" fill="url(#bg-concept_bayreach)"/>
+  <circle cx="639" cy="53" r="5" fill="#7d4f2e" opacity="0.18"/>
+        <circle cx="750" cy="366" r="2" fill="#7d4f2e" opacity="0.18"/>
+        <circle cx="61" cy="219" r="3" fill="#7d4f2e" opacity="0.18"/>
+        <circle cx="172" cy="72" r="4" fill="#7d4f2e" opacity="0.18"/>
+        <circle cx="283" cy="385" r="5" fill="#7d4f2e" opacity="0.18"/>
+        <circle cx="394" cy="238" r="2" fill="#7d4f2e" opacity="0.18"/>
+        <circle cx="505" cy="91" r="3" fill="#7d4f2e" opacity="0.18"/>
+        <circle cx="616" cy="404" r="4" fill="#7d4f2e" opacity="0.18"/>
+        <circle cx="727" cy="257" r="5" fill="#7d4f2e" opacity="0.18"/>
+        <circle cx="38" cy="110" r="2" fill="#7d4f2e" opacity="0.18"/>
+        <circle cx="149" cy="423" r="3" fill="#7d4f2e" opacity="0.18"/>
+        <circle cx="260" cy="276" r="4" fill="#7d4f2e" opacity="0.18"/>
+        <circle cx="371" cy="129" r="5" fill="#7d4f2e" opacity="0.18"/>
+        <circle cx="482" cy="442" r="2" fill="#7d4f2e" opacity="0.18"/>
+        <circle cx="593" cy="295" r="3" fill="#7d4f2e" opacity="0.18"/>
+        <circle cx="704" cy="148" r="4" fill="#7d4f2e" opacity="0.18"/>
+        <circle cx="15" cy="1" r="5" fill="#7d4f2e" opacity="0.18"/>
+        <circle cx="126" cy="314" r="2" fill="#7d4f2e" opacity="0.18"/>
+        <circle cx="237" cy="167" r="3" fill="#7d4f2e" opacity="0.18"/>
+        <circle cx="348" cy="20" r="4" fill="#7d4f2e" opacity="0.18"/>
+        <circle cx="459" cy="333" r="5" fill="#7d4f2e" opacity="0.18"/>
+        <circle cx="570" cy="186" r="2" fill="#7d4f2e" opacity="0.18"/>
+        <circle cx="681" cy="39" r="3" fill="#7d4f2e" opacity="0.18"/>
+        <circle cx="792" cy="352" r="4" fill="#7d4f2e" opacity="0.18"/>
+        <circle cx="103" cy="205" r="5" fill="#7d4f2e" opacity="0.18"/>
+        <circle cx="214" cy="58" r="2" fill="#7d4f2e" opacity="0.18"/>
+        <circle cx="325" cy="371" r="3" fill="#7d4f2e" opacity="0.18"/>
+        <circle cx="436" cy="224" r="4" fill="#7d4f2e" opacity="0.18"/>
+  
+      <g transform="translate(400,260)">
+        <path d="M -120,-80 L 0,-150 L 120,-80 L 100,40 L 0,90 L -100,40 Z"
+              fill="#7d4f2e" stroke="#1a1d23" stroke-width="3"/>
+        <polygon points="-90,-100 -50,-30 -110,-50" fill="#7d4f2e" stroke="#1a1d23" stroke-width="2"/>
+        <polygon points="90,-100 50,-30 110,-50" fill="#7d4f2e" stroke="#1a1d23" stroke-width="2"/>
+        <ellipse cx="-40" cy="-10" rx="8" ry="12" fill="#1a1d23"/>
+        <ellipse cx="40" cy="-10" rx="8" ry="12" fill="#1a1d23"/>
+        <polygon points="-12,30 12,30 0,55" fill="#1a1d23"/>
+      </g>
+  <text x="60" y="60" fill="#1a1d23" font-family="Georgia, 'Times New Roman', serif"
+        font-size="40" font-weight="700">Bayreach Books</text>
+  <text x="60" y="100" fill="#1a1d23" font-family="Georgia, 'Times New Roman', serif"
+        font-size="22" opacity="0.75">Stories with teeth.</text>
+  <text x="60" y="555" fill="#1a1d23" font-family="ui-sans-serif, system-ui, sans-serif"
+        font-size="13" letter-spacing="3" opacity="0.55">TOWER STUDIO · CONCEPT · CONCEPT_BAYREACH</text>
+</svg>

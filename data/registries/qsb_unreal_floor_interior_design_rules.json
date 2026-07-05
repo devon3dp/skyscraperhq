@@ -1,0 +1,30 @@
+{
+  "phase": "QSB_UNREAL_PROFESSIONAL_SKYSCRAPER_HUD_DASHBOARD_DIRECTION_V2",
+  "stage": 5,
+  "title": "Floor Interior Design Rules",
+  "template": "Modular Grid Room \u2014 3x3 cells, manager-center, worker-perimeter",
+  "rules": {
+    "managerZone": "1 center cell \u2014 manager desk + command panel",
+    "workerCells": "8 perimeter cells \u2014 stations themed by floor department",
+    "activityWall": "1 full wall = live data stream surface from /api/traders_live",
+    "commandPanel": "floating buttons above manager desk \u2014 actions vary by department",
+    "backToTower": "Escape key OR click button \u2014 camera animates zoom-out",
+    "departmentTheming": "color band + furniture set per department type"
+  },
+  "departmentVariations": {
+    "command_kernel_model": "terminal racks, server cabinets, big screens",
+    "trading_research": "multi-monitor desks, ticker tape, PnL boards",
+    "worker_operations": "workshop benches, tool walls, queue boards",
+    "training_classroom": "desks facing front board, projector",
+    "ledger_accounting": "archive shelves, paper drifts, calculator desks",
+    "banking_commerce": "vault visible, tellers, queue",
+    "maintenance": "tool cages, pipes visible, gritty texture",
+    "recreation": "sofas, plants, vending machines",
+    "accommodation": "bunks, lockers, soft lighting",
+    "security_rules_inspection": "cameras visible, OpenClaw bench, audit log wall"
+  },
+  "signoff": "DeepSeek modular-grid pattern accepted; OpenAI generic template rejected as too vague",
+  "_meta": {
+    "ts": "2026-06-25T12:18:39Z"
+  }
+}

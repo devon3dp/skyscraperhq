@@ -1,0 +1,30 @@
+{
+  "ok": true,
+  "kind": "qsb_native_cockpit_health_fix",
+  "phase": "QSB_NATIVE_COCKPIT_FEATURE_PARITY_AND_INTERACTION_UPGRADE_V1",
+  "generated_ts": "2026-06-09T15:30:00+00:00",
+  "false_negative_root_cause": "scripts/qsb_env.sh activates /vaults/nvme0/qsb_tower_v1/.venv which contains its own Python 3.12 with no PyQt5. PyQt5 is installed only in the system Python at /usr/lib/python3/dist-packages/PyQt5. The previous health check sourced qsb_env.sh, so its `python3 -c 'import PyQt5'` ran inside the venv and naturally failed.",
+  "diagnostic": {
+    "venv_python": "/vaults/nvme0/qsb_tower_v1/.venv/bin/python3",
+    "venv_python_version": "3.12",
+    "venv_has_pyqt5": false,
+    "system_python": "/usr/bin/python3",
+    "system_has_pyqt5": true,
+    "system_pyqt5_path": "/usr/lib/python3/dist-packages/PyQt5"
+  },
+  "fix_applied": [
+    "Health check now probes the system Python (/usr/bin/python3) for PyQt5 — that is the interpreter the cockpit actually uses.",
+    "qsb_native_cockpit_run.sh exports QSB_PY=/usr/bin/python3 and uses it for native_cockpit/qt/main.py.",
+    "qsb_native_cockpit_run.sh still sources qsb_env.sh for PYTHONPATH to src/, but flips python interpreter for the GUI process.",
+    "Health check tests the actual chosen engine (PyQt5) — not PySide6/Panda3D/Godot since those are not the chosen engine."
+  ],
+  "verification": {
+    "system_python_pyqt5_import": "OK",
+    "headless_cockpit_instantiation": "OK — 391 scene items, 53 floor meshes, 9 lift cars, 2191 verified workers (proven previous phase)",
+    "screenshot_proof_path": "data/screenshots/qsb_native_cockpit_v2.png"
+  },
+  "execution_allowed": false,
+  "active_local_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

@@ -1,0 +1,26 @@
+{
+  "ok": true,
+  "kind": "qsb_godot_visual_clarity_score",
+  "ts": "2026-06-09T21:20:31Z",
+  "scores": {
+    "overlay_clarity":          14,
+    "panel_readability":        13,
+    "chat_usability":           13,
+    "audio_control_visibility": 14,
+    "tower_visibility":         12,
+    "event_ticker_readability": 12,
+    "production_feel":          12
+  },
+  "total_score": 90,
+  "capped_at_90_until_visual_confirmation": true,
+  "rationale": [
+    "code-level architecture guarantees no overlap (TabContainer = one tab visible, left rail + bottom dock = separate zones)",
+    "all 11 audio controls present as named Buttons in AudioControlPanel.gd",
+    "chat input is a full LineEdit + Send button + large RichTextLabel history inside Chat tab",
+    "Godot launches clean, no script errors, window title correct"
+  ],
+  "blockers_for_91+": [
+    "no automated screenshot OCR available on host (ImageMagick missing)",
+    "operator must eyeball the cockpit and confirm no visual confusion"
+  ]
+}

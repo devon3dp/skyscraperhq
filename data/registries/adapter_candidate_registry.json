@@ -1,0 +1,149 @@
+[
+  {
+    "candidate_id": "claude_code_adapter",
+    "name": "Claude Code Adapter",
+    "type": "coding_tool_adapter_candidate",
+    "source": "anthropic_external",
+    "target_floor": "floor_21",
+    "routes_to": "floor_05",
+    "current_status": "socket_ready_not_connected",
+    "allowed_initial_mode": "socket_placeholder",
+    "blocked_initial_actions": [
+      "execute_code", "write_files", "install_packages", "connect_provider"
+    ],
+    "required_before_activation": [
+      "model_evaluation_approval", "kernel_installed", "tower_operator_approval"
+    ],
+    "security_required": true,
+    "source_audit_required": false,
+    "sandbox_required": false,
+    "model_evaluation_required": true,
+    "kernel_required_before_execution": true,
+    "execution_enabled": false,
+    "hardwired": false,
+    "notes": "Claude Code adapter socket. Routes coding requests from Floor 21 to Floor 5."
+  },
+  {
+    "candidate_id": "openclaw_adapter",
+    "name": "OpenClaw Adapter",
+    "type": "external_worker_adapter_candidate",
+    "source": "unknown_external_not_audited",
+    "target_floor": "floor_21",
+    "routes_to": "floor_25",
+    "current_status": "candidate_only",
+    "allowed_initial_mode": "registry_placeholder_only",
+    "blocked_initial_actions": [
+      "install", "execute", "dispatch", "connect"
+    ],
+    "required_before_activation": [
+      "source_audit_complete", "sandbox_approval",
+      "model_evaluation_approval", "kernel_installed", "tower_operator_approval"
+    ],
+    "security_required": true,
+    "source_audit_required": true,
+    "sandbox_required": true,
+    "model_evaluation_required": true,
+    "kernel_required_before_execution": true,
+    "execution_enabled": false,
+    "hardwired": false,
+    "notes": "OpenClaw adapter. Placeholder only. Not installed, not audited."
+  },
+  {
+    "candidate_id": "openclaw_pixel_adapter",
+    "name": "OpenClaw Pixel Agent Adapter",
+    "type": "pixel_agent_adapter_candidate",
+    "source": "unknown_external_not_audited",
+    "target_floor": "floor_21",
+    "routes_to": "floor_25",
+    "current_status": "candidate_only",
+    "allowed_initial_mode": "registry_placeholder_only",
+    "blocked_initial_actions": [
+      "install", "execute", "dispatch", "screen_access", "connect"
+    ],
+    "required_before_activation": [
+      "source_audit_complete", "sandbox_containment_verified",
+      "pixel_agent_isolation_verified", "kernel_installed", "tower_operator_approval"
+    ],
+    "security_required": true,
+    "source_audit_required": true,
+    "sandbox_required": true,
+    "model_evaluation_required": true,
+    "kernel_required_before_execution": true,
+    "execution_enabled": false,
+    "hardwired": false,
+    "notes": "Pixel agent adapter. Screen and input control must be isolated. Candidate only."
+  },
+  {
+    "candidate_id": "ollama_adapter",
+    "name": "Ollama Local Model Adapter",
+    "type": "local_model_adapter_candidate",
+    "source": "local_optional",
+    "target_floor": "floor_21",
+    "routes_to": "floor_27",
+    "current_status": "socket_ready_optional",
+    "allowed_initial_mode": "inventory_probe_only",
+    "blocked_initial_actions": [
+      "run_inference", "load_model", "dispatch_task"
+    ],
+    "required_before_activation": [
+      "ollama_installed_locally", "model_inventory_verified",
+      "model_evaluation_approval", "kernel_installed", "tower_operator_approval"
+    ],
+    "security_required": false,
+    "source_audit_required": false,
+    "sandbox_required": false,
+    "model_evaluation_required": true,
+    "kernel_required_before_execution": true,
+    "execution_enabled": false,
+    "hardwired": false,
+    "notes": "Ollama adapter for local model routing. Socket ready; actual inference requires kernel."
+  },
+  {
+    "candidate_id": "air_llm_adapter",
+    "name": "AIR LLM Adapter Socket",
+    "type": "external_provider_adapter_candidate",
+    "source": "air_llm_external",
+    "target_floor": "floor_21",
+    "routes_to": "floor_23",
+    "current_status": "socket_ready_not_connected",
+    "allowed_initial_mode": "socket_placeholder",
+    "blocked_initial_actions": [
+      "call_provider", "execute_inference", "dispatch_task"
+    ],
+    "required_before_activation": [
+      "air_llm_credentials_available",
+      "model_evaluation_approval", "kernel_installed", "tower_operator_approval"
+    ],
+    "security_required": true,
+    "source_audit_required": false,
+    "sandbox_required": false,
+    "model_evaluation_required": true,
+    "kernel_required_before_execution": true,
+    "execution_enabled": false,
+    "hardwired": false,
+    "notes": "AIR LLM cloud adapter. External provider. Socket ready; no calls executed."
+  },
+  {
+    "candidate_id": "future_provider_adapter",
+    "name": "Future Provider Adapter Placeholder",
+    "type": "future_adapter_placeholder",
+    "source": "placeholder",
+    "target_floor": "floor_21",
+    "routes_to": "floor_23",
+    "current_status": "candidate_only",
+    "allowed_initial_mode": "registry_placeholder_only",
+    "blocked_initial_actions": ["any_action"],
+    "required_before_activation": [
+      "provider_selected", "source_audit_complete",
+      "kernel_installed", "tower_operator_approval"
+    ],
+    "security_required": true,
+    "source_audit_required": true,
+    "sandbox_required": true,
+    "model_evaluation_required": true,
+    "kernel_required_before_execution": true,
+    "execution_enabled": false,
+    "hardwired": false,
+    "notes": "Slot for a future provider adapter not yet selected."
+  }
+]

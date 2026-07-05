@@ -1,0 +1,56 @@
+{
+  "floor_id": "floor_55",
+  "floor_number": 55,
+  "floor_name": "Cafeteria",
+  "department": "recreation_and_accommodation_v1",
+  "zone": "ZONE C \u00b7 CRAFT + COMMERCE",
+  "archetype": "recreation_and_accommodation_v1",
+  "staff_lead": "TBD",
+  "tour_blurb": "main dining hall for 500, full kitchen, caf\u00e9 counter, juice bar",
+  "visitor_open": false,
+  "advisory_only": true,
+  "execution_mode": "PREVIEW_ONLY",
+  "skeleton": true,
+  "skeleton_source": "floor_manifest.json",
+  "skeleton_generated_ts": "2026-06-17",
+  "live_signals": {
+    "theme": null,
+    "categories": null,
+    "palette": null,
+    "tagline": null
+  },
+  "gate_posture": {
+    "advisory_only": true,
+    "execution_allowed": false,
+    "live_payments_enabled": false
+  },
+  "team_roster": [
+    {
+      "id": "f055.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "spawned_id": "b41c3313e1",
+      "spawned_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F055",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f055.operator.01",
+      "spawned_id": "775266e1b5"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F055",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f055.operator.02",
+      "spawned_id": "79719bf3dc"
+    }
+  ],
+  "floor_manager": "f055.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

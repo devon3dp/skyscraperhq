@@ -1,0 +1,64 @@
+{
+  "floor_id": "floor_26",
+  "number": 26,
+  "department": "Model Evaluation Department",
+  "version": "1.1",
+  "zone": "ZONE B",
+  "status": "online",
+  "role": "Static candidate/model/provider evaluation before any future activation.",
+  "kernel_required": false,
+  "kernel_installed": false,
+  "kernel_logic_present": false,
+  "models_required": false,
+  "execution_enabled": false,
+  "worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "model_inference_enabled": false,
+  "autonomous_workers_enabled": false,
+  "live_dispatch_enabled": false,
+  "evaluation_mode": "static_registry_metadata_only",
+  "hardwired_providers": false,
+  "providers_are_external": true,
+  "models_are_temporary_tenants": true,
+  "lift_access": [
+    "main_mid_rise",
+    "service_lift",
+    "model_lift",
+    "security_lift",
+    "emergency_stairwell"
+  ],
+  "routes_through": {
+    "candidate_workers": "floor_25",
+    "model_routing": "floor_24",
+    "local_model_inventory": "floor_27",
+    "external_provider_sockets": "floor_23",
+    "security": "floor_28_floor_32"
+  },
+  "created_or_verified": "2026-06-07T18:14:26.765129+00:00",
+  "notice": "Floor 26 evaluates candidates only. It does not call models, providers, workers, or the kernel.",
+  "interior_brief": {
+    "archetype": "ops_floor",
+    "palette": [
+      "#1a1e2a",
+      "#3a4050",
+      "#6a90c0"
+    ],
+    "furniture": [
+      "desks",
+      "meeting area",
+      "common space",
+      "storage"
+    ],
+    "lighting": "task + ambient",
+    "mood": "professional",
+    "designed_by": "F66 Architects + F17 Graphics + Fitters team",
+    "fitted_at": "2026-06-11T14:39:45.620109Z",
+    "godot_scene_brief": "render an generic floor with neutral grey + accent per floor theme palette, professional mood, key furniture: desks, meeting area, common space",
+    "signature": "Standard tower office layout \u2014 desks, meeting nook, kitchenette",
+    "diversified_ts": "2026-06-11T17:57:45Z",
+    "diversified_by": "qsb_archetype_diversifier_v1"
+  },
+  "fitted_out": true,
+  "fit_out_ts": "2026-06-11T14:39:45.620109Z",
+  "floor_name": "Model Evaluation Department"
+}

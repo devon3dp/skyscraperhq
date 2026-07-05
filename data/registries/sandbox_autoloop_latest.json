@@ -1,0 +1,22 @@
+{
+  "ts": "2026-07-01T15:44:58.208700+00:00",
+  "phase": "SANDBOX_AUTOLOOP_V1",
+  "status": "error_safe_continue",
+  "cycle_index": 15,
+  "error": "'NoneType' object has no attribute 'get'",
+  "traceback": "Traceback (most recent call last):\n  File \"/vaults/nvme0/qsb_tower_v1/src/tower/sandbox_autoloop.py\", line 215, in loop\n    self.tick_once(\n  File \"/vaults/nvme0/qsb_tower_v1/src/tower/sandbox_autoloop.py\", line 147, in tick_once\n    perf_report = SandboxPerformanceLoop().run(\n                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/vaults/nvme0/qsb_tower_v1/src/tower/sandbox_performance_loop.py\", line 208, in run\n    tick = sandbox.tick(instruments)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/vaults/nvme0/qsb_tower_v1/src/tower/worker_sandbox.py\", line 160, in tick\n    lab = OANDAPaperStrategyLab().run(instruments)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/vaults/nvme0/qsb_tower_v1/src/tower/oanda_paper_strategy_lab.py\", line 167, in run\n    account = snapshot.get(\"account_summary\", {}).get(\"account\", {})\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAttributeError: 'NoneType' object has no attribute 'get'\n",
+  "locks": {
+    "live_trading_enabled": false,
+    "order_execution_enabled": false,
+    "practice_order_execution_enabled": false,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "external_provider_execution_enabled": false,
+    "openclaw_execution_enabled": false,
+    "openclaw_real_tool_execution_enabled": false,
+    "autonomous_dispatch_enabled": false,
+    "live_dispatch_enabled": false,
+    "direct_provider_access": false
+  },
+  "paper_only": true
+}

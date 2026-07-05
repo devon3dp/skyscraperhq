@@ -1,0 +1,182 @@
+{
+  "assignments": [
+    {
+      "worker_id": "f45_equity_market_scout",
+      "display_name": "Equity Market Scout",
+      "target_floor": "floor_43",
+      "training_status": "intake",
+      "current_task": "intake_processing",
+      "skills_learned": [],
+      "skills_remaining": [
+        "read_stock_floor",
+        "quote_status",
+        "advisory_only"
+      ],
+      "execution_allowed": false,
+      "sandbox_only": true
+    },
+    {
+      "worker_id": "f45_crypto_market_scout",
+      "display_name": "Crypto Market Scout",
+      "target_floor": "floor_42",
+      "training_status": "intake",
+      "current_task": "intake_processing",
+      "skills_learned": [],
+      "skills_remaining": [
+        "read_binance_testnet",
+        "public_market_data"
+      ],
+      "execution_allowed": false,
+      "sandbox_only": true
+    },
+    {
+      "worker_id": "f45_fx_market_scout",
+      "display_name": "FX Market Scout",
+      "target_floor": "floor_41",
+      "training_status": "intake",
+      "current_task": "intake_processing",
+      "skills_learned": [],
+      "skills_remaining": [
+        "read_oanda_practice",
+        "quote_status"
+      ],
+      "execution_allowed": false,
+      "sandbox_only": true
+    },
+    {
+      "worker_id": "f45_cross_market_analyst",
+      "display_name": "Cross-Market Analyst",
+      "target_floor": "floor_37",
+      "training_status": "intake",
+      "current_task": "intake_processing",
+      "skills_learned": [],
+      "skills_remaining": [
+        "read_registries",
+        "correlation_pairing",
+        "advisory_only"
+      ],
+      "execution_allowed": false,
+      "sandbox_only": true
+    },
+    {
+      "worker_id": "f45_risk_gatekeeper",
+      "display_name": "Risk Gatekeeper",
+      "target_floor": "floor_30",
+      "training_status": "intake",
+      "current_task": "intake_processing",
+      "skills_learned": [],
+      "skills_remaining": [
+        "lock_audit",
+        "risk_alerting"
+      ],
+      "execution_allowed": false,
+      "sandbox_only": true
+    },
+    {
+      "worker_id": "f45_ledger_runner",
+      "display_name": "Ledger Runner",
+      "target_floor": "floor_31",
+      "training_status": "intake",
+      "current_task": "intake_processing",
+      "skills_learned": [],
+      "skills_remaining": [
+        "append_only_ledger",
+        "paper_audit_trail"
+      ],
+      "execution_allowed": false,
+      "sandbox_only": true
+    },
+    {
+      "worker_id": "f45_airllm_advisory_clerk",
+      "display_name": "AirLLM Advisory Clerk",
+      "target_floor": "floor_23",
+      "training_status": "intake",
+      "current_task": "intake_processing",
+      "skills_learned": [],
+      "skills_remaining": [
+        "read_airllm_registry",
+        "advisory_only"
+      ],
+      "execution_allowed": false,
+      "sandbox_only": true
+    },
+    {
+      "worker_id": "f45_kernel_liaison",
+      "display_name": "Kernel Liaison",
+      "target_floor": "floor_53",
+      "training_status": "intake",
+      "current_task": "intake_processing",
+      "skills_learned": [],
+      "skills_remaining": [
+        "kernel_review_packet",
+        "advisory_only"
+      ],
+      "execution_allowed": false,
+      "sandbox_only": true
+    },
+    {
+      "worker_id": "f45_openclaw_sandbox_observer",
+      "display_name": "OpenClaw Sandbox Observer",
+      "target_floor": "floor_38",
+      "training_status": "intake",
+      "current_task": "intake_processing",
+      "skills_learned": [],
+      "skills_remaining": [
+        "openclaw_sandbox_logging"
+      ],
+      "execution_allowed": false,
+      "sandbox_only": true
+    },
+    {
+      "worker_id": "f45_strategy_backtester",
+      "display_name": "Strategy Backtester",
+      "target_floor": "floor_37",
+      "training_status": "intake",
+      "current_task": "intake_processing",
+      "skills_learned": [],
+      "skills_remaining": [
+        "backtest_sandbox",
+        "paper_signal_synthesis"
+      ],
+      "execution_allowed": false,
+      "sandbox_only": true
+    },
+    {
+      "worker_id": "f45_volatility_watcher",
+      "display_name": "Volatility Watcher",
+      "target_floor": "floor_37",
+      "training_status": "intake",
+      "current_task": "intake_processing",
+      "skills_learned": [],
+      "skills_remaining": [
+        "volatility_observation"
+      ],
+      "execution_allowed": false,
+      "sandbox_only": true
+    },
+    {
+      "worker_id": "f45_correlation_mapper",
+      "display_name": "Correlation Mapper",
+      "target_floor": "floor_25",
+      "training_status": "intake",
+      "current_task": "intake_processing",
+      "skills_learned": [],
+      "skills_remaining": [
+        "correlation_pairing",
+        "agent_coordination_readiness"
+      ],
+      "execution_allowed": false,
+      "sandbox_only": true
+    }
+  ],
+  "stages": [
+    "intake",
+    "screening",
+    "training_pod",
+    "assignment_board",
+    "dispatched"
+  ],
+  "execution_allowed": false,
+  "sandbox_only": true,
+  "updated_ts": "2026-07-01T15:27:59.294694+00:00"
+}

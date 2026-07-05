@@ -1,0 +1,54 @@
+{
+  "ok": true,
+  "floor_number": 163,
+  "floor_name": "Maker Lane",
+  "floor_kind": "public_dropship_storefront_v1",
+  "theme": "hobbies_and_crafts",
+  "description": "craft kits + supplies + model + needlecraft",
+  "tagline": "Maker Lane \u2014 make it yours.",
+  "colour_palette": "butter / berry / clay",
+  "target_margin_pct": 65,
+  "categories": [
+    "knit_crochet",
+    "painting",
+    "models",
+    "needlecraft",
+    "accessories"
+  ],
+  "pricing_model": "list_price = supplier_cost \u00d7 (1 + margin) + shipping",
+  "fulfillment_model": "dropship: order \u2192 supplier_buy \u2192 repackage \u2192 ship",
+  "website_scaffold": "web/shops/floor_163/index.html",
+  "catalog_file": "data/registries/qsb_floor163_catalog.json",
+  "created_ts": "2026-06-11T09:20:31.650537Z",
+  "designed_by": "F66 Architects' Office",
+  "real_payments_enabled": false,
+  "real_supplier_orders_enabled": false,
+  "inter_floor_produces": [
+    "F17 graphics",
+    "F44 accounts",
+    "F47 wren"
+  ],
+  "inter_floor_consumes": [
+    "F11 market intel",
+    "F25 agent coord",
+    "F30 permissions"
+  ],
+  "advisory_only": true,
+  "interior_brief": {
+    "archetype": "shop",
+    "palette": "brand-led",
+    "furniture": [
+      "display cases",
+      "reception desk",
+      "customer chairs",
+      "packaging station"
+    ],
+    "lighting": "warm spots + display LEDs",
+    "mood": "welcoming + on-brand",
+    "designed_by": "F66 Architects + F17 Graphics + Fitters team",
+    "fitted_at": "2026-06-11T14:39:45.620109Z",
+    "godot_scene_brief": "render an shop floor with brand-led palette, welcoming + on-brand mood, key furniture: display cases, reception desk, customer chairs"
+  },
+  "fitted_out": true,
+  "fit_out_ts": "2026-06-11T14:39:45.620109Z"
+}

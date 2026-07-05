@@ -1,0 +1,9 @@
+[
+  {"id":"1","status":"in_progress","subject":"Qwen 32B download","note":"At 27/65 GB. HF S3 throttling iPhone tether specifically (general internet fine via Galaxy 261-497 KB/s). Default route SWAPPED to Galaxy (metric 601 vs iPhone 20200). New python pid 269952 launched post-swap. On restart: confirm Galaxy still preferred via nmcli."},
+  {"id":"3","status":"completed","subject":"F47 walkable interior","note":"DONE — Wren ACK'd. cockpit3d/index.html has isClaudeEmbassy block. window.__c3d_enterWalk/leaveWalk exposed for headless verify."},
+  {"id":"4","status":"completed","subject":"F46 50×50 + zones","note":"DONE. Trainer-figure root cause IDENTIFIED: V2 workforce roster assigns 4 dept_trainee_015-018 + 14 generic dept workers to F46. Should be Wren's architect/builder/decorator per floor_card.json team_roster. V2 roster bug, not code bug."},
+  {"id":"6","status":"completed","subject":"Trainer-on-F46 diagnosis","note":"FOUND. dept_trainee_015-018 in qsb_workforce_expansion_v1_roster.json assigned to F46. They belong on F149 classroom. Fix is workforce reassignment, not cockpit code."},
+  {"id":"7","status":"pending","subject":"Phase 2 trader learning loop","note":"verdicts→cert apply, beliefs→behavior, bank→introspection (helm sprint gap)"},
+  {"id":"8","status":"pending","subject":"Save wren-live-backup-twin memory","note":"Ross 2026-06-19: Wren as continuity twin via bridge"},
+  {"id":"10","status":"pending","subject":"Data-driven fit_out.json renderer","note":"per Ross's each-floor-unique rule; 163 floors still need fit_out.json schemas"}
+]

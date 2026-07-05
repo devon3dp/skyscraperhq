@@ -1,0 +1,34 @@
+{
+  "room_id": "modeling_suite",
+  "name": "Modeling Suite",
+  "category": "lab",
+  "purpose": "Creating and testing climate models for predictive analysis.",
+  "concierge_blurb": "Step into the Modeling Suite to witness cutting-edge climate modeling technology in action.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 5.0,
+    "offset_z": -2.0,
+    "footprint_m": [
+      7,
+      4
+    ],
+    "height_m": 1.8
+  },
+  "render": {
+    "primary_prop": "monitor_array",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Modeling Suite",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/model_output.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_134"
+}

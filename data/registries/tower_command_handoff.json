@@ -1,0 +1,31 @@
+{
+  "floor": "floor_53",
+  "department": "Tower Command Department",
+  "handoff_target": "penthouse",
+  "handoff_target_status": "reserved_for_future_qsb_kernel_4_5",
+  "kernel_installed": true,
+  "kernel_logic_present": true,
+  "handoff_status": "active_local_only",
+  "requires": [
+    "penthouse_readiness_ready",
+    "security_spine_healthy",
+    "executive_lift_ready",
+    "emergency_stairwell_ready",
+    "tower_command_acceptance_report"
+  ],
+  "execution_enabled": false,
+  "notice": "Tower Command prepares handoff to Penthouse socket only. It does not install or run the kernel.",
+  "QSBKernelCore_instantiated": true,
+  "active_kernel_source": "rebased_kernel",
+  "activation_status": "active_local_only",
+  "worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "model_inference_enabled": false,
+  "live_dispatch_enabled": false,
+  "autonomous_workers_enabled": false,
+  "direct_provider_access": false,
+  "critical_failures": 0,
+  "failures": 0,
+  "warnings": 0,
+  "updated_ts": "2026-06-07T21:38:48.824394+00:00"
+}

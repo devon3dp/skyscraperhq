@@ -1,0 +1,153 @@
+{
+  "ok": true,
+  "kind": "qsb_floor49_services_catalog",
+  "generated_ts": "2026-07-05T06:46:31+00:00",
+  "company_name": "Tower Studio",
+  "qbc_per_usd_advisory": 1.0,
+  "service_count": 7,
+  "services": [
+    {
+      "sku": "TS-LP-STARTER",
+      "name": "Landing Page (Starter)",
+      "category": "landing_page_design",
+      "short_description": "One-page site that converts.",
+      "long_description": "A single-page marketing site built around one conversion goal \u2014 newsletter signup, free trial, or a single product pitch. Includes hero, three feature blocks, social proof, and a call-to-action footer. Mobile-first. Loads under 1 second.",
+      "deliverables": [
+        "responsive HTML/CSS site",
+        "favicon",
+        "1 hero illustration (SVG)",
+        "deploy-ready static bundle"
+      ],
+      "typical_turnaround_days": 5,
+      "price_usd": 950.0,
+      "workers_required": [
+        "frontend_developer",
+        "graphics_designer",
+        "copywriter"
+      ]
+    },
+    {
+      "sku": "TS-LP-PREMIUM",
+      "name": "Landing Page (Premium, A/B tested)",
+      "category": "landing_page_design",
+      "short_description": "Two-variant landing page with conversion tracking.",
+      "long_description": "Two variants of the landing page. Built-in conversion event logging (no third-party trackers). One round of revisions per variant. Delivered with a one-week post-launch read-out.",
+      "deliverables": [
+        "A and B variants",
+        "event logging snippet",
+        "post-launch read-out at day 7"
+      ],
+      "typical_turnaround_days": 10,
+      "price_usd": 2400.0,
+      "workers_required": [
+        "frontend_developer",
+        "graphics_designer",
+        "copywriter",
+        "qa_reviewer"
+      ]
+    },
+    {
+      "sku": "TS-MP-MARKETING",
+      "name": "Multi-Page Marketing Site",
+      "category": "multi_page_marketing_site",
+      "short_description": "Home + 4 pages + contact form, fully editable.",
+      "long_description": "Home, About, Services, Case Studies, Contact. CMS-free; content lives in plain markdown so any non-technical operator can edit. One round of copy revisions. Includes favicon + apple-touch icons + sitemap.xml.",
+      "deliverables": [
+        "5 pages",
+        "contact form backend",
+        "sitemap.xml",
+        "favicons + opengraph"
+      ],
+      "typical_turnaround_days": 14,
+      "price_usd": 4200.0,
+      "workers_required": [
+        "frontend_developer",
+        "graphics_designer",
+        "copywriter",
+        "project_manager"
+      ]
+    },
+    {
+      "sku": "TS-ECOM-STARTER",
+      "name": "Ecommerce Starter (Square-integrated)",
+      "category": "ecommerce_starter",
+      "short_description": "Online store with up to 25 SKUs and Square checkout.",
+      "long_description": "Catalog page, product detail page, cart, Square checkout. Inventory in a simple JSON file (operator-editable). Shipping calculator with 2 tiers. Order confirmation email template. Square gates flipped only after the operator wires real Square credentials in a separate session.",
+      "deliverables": [
+        "storefront",
+        "product DB scaffold",
+        "Square integration scaffold (gate-locked)",
+        "order email templates"
+      ],
+      "typical_turnaround_days": 21,
+      "price_usd": 6800.0,
+      "workers_required": [
+        "frontend_developer",
+        "backend_developer",
+        "graphics_designer",
+        "copywriter",
+        "qa_reviewer",
+        "project_manager"
+      ]
+    },
+    {
+      "sku": "TS-BRAND-KIT",
+      "name": "Brand Identity Kit",
+      "category": "brand_identity_kit",
+      "short_description": "Logo, palette, typography, brand guide.",
+      "long_description": "Three logo concepts (SVG); chosen logo finalised. Colour palette with hex + RGB + accessibility checks. Typography pair (heading + body). One-page brand guide PDF. All assets delivered as editable SVG and PDF.",
+      "deliverables": [
+        "3 logo concepts (SVG)",
+        "final logo (SVG + PNG)",
+        "palette + type guide PDF",
+        "social media banner templates"
+      ],
+      "typical_turnaround_days": 12,
+      "price_usd": 2200.0,
+      "workers_required": [
+        "graphics_designer",
+        "principal_designer"
+      ]
+    },
+    {
+      "sku": "TS-WP-HANDOFF",
+      "name": "WordPress Build + Operator Handoff",
+      "category": "wordpress_handoff",
+      "short_description": "WordPress site you can run yourself.",
+      "long_description": "Custom theme, content migration up to 25 pages, plugin set (SEO + caching + backups), training session for the operator. We do not host \u2014 handoff includes deploy notes.",
+      "deliverables": [
+        "custom theme",
+        "migrated content",
+        "plugin set",
+        "1-hour handoff session",
+        "deploy notes"
+      ],
+      "typical_turnaround_days": 18,
+      "price_usd": 3600.0,
+      "workers_required": [
+        "frontend_developer",
+        "backend_developer",
+        "project_manager"
+      ]
+    },
+    {
+      "sku": "TS-MAINT-MONTHLY",
+      "name": "Ongoing Maintenance (Monthly)",
+      "category": "ongoing_maintenance",
+      "short_description": "Updates, monitoring, light copy edits.",
+      "long_description": "Monthly retainer. Plugin / dependency updates. Uptime monitoring. Up to 2 hours of copy / image edits per month. One emergency response within 24 hours.",
+      "deliverables": [
+        "monthly update report",
+        "uptime dashboard access",
+        "2 hours of edits"
+      ],
+      "typical_turnaround_days": 30,
+      "price_usd": 350.0,
+      "workers_required": [
+        "backend_developer",
+        "qa_reviewer"
+      ]
+    }
+  ],
+  "policy": "Catalog is advisory. Real bookings require a separate phase that flips real_payments_enabled."
+}

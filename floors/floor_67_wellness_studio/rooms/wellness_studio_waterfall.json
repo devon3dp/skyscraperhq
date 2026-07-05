@@ -1,0 +1,34 @@
+{
+  "room_id": "wellness_studio_waterfall",
+  "name": "Waterfall Room",
+  "category": "window",
+  "purpose": "This room provides a tranquil view of the virtual waterfall.",
+  "concierge_blurb": "Experience the soothing sound and sight of a virtual waterfall.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 8.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      12,
+      10
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "garden_bed",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Waterfall Room",
+    "glow": true
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_67"
+}

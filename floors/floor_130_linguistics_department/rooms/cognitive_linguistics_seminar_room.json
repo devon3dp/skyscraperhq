@@ -1,0 +1,31 @@
+{
+  "room_id": "cognitive_linguistics_seminar_room",
+  "name": "Cognitive Linguistics Seminar Room",
+  "category": "workshop",
+  "purpose": "This room is for hosting seminars and presentations.",
+  "concierge_blurb": "A spacious area equipped with state-of-the-art presentation tools.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -4.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      12,
+      8
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Seminar Room",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_130"
+}

@@ -1,0 +1,34 @@
+{
+  "room_id": "server_rack_1",
+  "name": "Server Rack Area",
+  "category": "operations",
+  "purpose": "Houses the main server racks and storage units.",
+  "concierge_blurb": "Visitors see a maze of sleek, efficient server racks.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": -2.5,
+    "footprint_m": [
+      14,
+      7
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "server_rack",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Server Racks",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/server_status.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_106"
+}

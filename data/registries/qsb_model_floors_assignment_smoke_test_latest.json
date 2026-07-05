@@ -1,0 +1,16 @@
+{
+  "ok": true,
+  "kind": "qsb_model_floors_assignment_smoke_test_latest",
+  "ts": "2026-06-09T22:39:53Z",
+  "fail": 0,
+  "floor_ids": [
+    "F47",
+    "F48",
+    "F49"
+  ],
+  "providers": [
+    "claude",
+    "deepseek",
+    "gpt"
+  ]
+}

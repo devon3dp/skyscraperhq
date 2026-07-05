@@ -1,0 +1,81 @@
+{
+  "floor_id": "floor_46",
+  "floor_number": 46,
+  "floor_name": "Wren Bench",
+  "department": "Wren's Builder-Engineer Workshop",
+  "zone": "ZONE C",
+  "archetype": "workshop_bench",
+  "staff_lead": "Wren (qwen2.5:7b on the local GPU)",
+  "tour_blurb": "Floor 46 \u2014 Wren's own bench. Directly below F47 (Claude Embassy) where she sits day-to-day. Wren chose this floor 2026-06-17 03:35 UTC. Builder-engineer voice, terse, drafts that ship. The bench reads files, greps the repo, retrieves via RAG, proposes patches through the apprentice gate, runs bash within the gate allowlist. Not an execution console \u2014 proposals only, sandbox-first.",
+  "visitor_open": false,
+  "advisory_only": true,
+  "execution_mode": "PROPOSE_ONLY",
+  "live_signals": {
+    "wren_brain": "qwen2.5:7b-instruct via Ollama",
+    "apprentice_gate": "tools/qsb_wren_local_agent.py + qsb_proposal_sandbox.py + claude_signoff_queue",
+    "decision_rule": "mutual_review_with_claude_2_of_3_with_ross_override",
+    "helix_status": "family_strand_added_2026-06-17"
+  },
+  "gate_posture": {
+    "wren_full_control_apprentice": true,
+    "advisory_only": true,
+    "execution_allowed": false,
+    "real_money_live_trading_enabled": false
+  },
+  "team_roster": [
+    {
+      "id": "f46.wren.architect.01",
+      "category": "architect",
+      "role": "structural drafts + floor briefs",
+      "tier": 2,
+      "advisory_only": true
+    },
+    {
+      "id": "f46.wren.builder.01",
+      "category": "builder",
+      "role": "applies sandbox-green proposals + sets up tooling",
+      "tier": 2,
+      "advisory_only": true
+    },
+    {
+      "id": "f46.wren.decorator.01",
+      "category": "decorator",
+      "role": "palette, copy, visual polish on Wren-surfaces",
+      "tier": 2,
+      "advisory_only": true
+    },
+    {
+      "id": "f46.wren.backend.01",
+      "category": "backend",
+      "role": "backend specialist: db queries, API endpoints, registry management",
+      "tier": 2,
+      "advisory_only": true,
+      "backed_by_model": "qwen2.5-coder:7b-instruct",
+      "joined_ts": "2026-06-21T13:57:12Z",
+      "invited_by": "wren_self_nomination_ross_approval"
+    },
+    {
+      "id": "f46.wren.frontend.01",
+      "category": "frontend",
+      "role": "frontend specialist: UI/UX, floor cards, cockpit3d panels",
+      "tier": 2,
+      "advisory_only": true,
+      "backed_by_model": "qwen2.5:7b-instruct",
+      "joined_ts": "2026-06-21T13:57:12Z",
+      "invited_by": "wren_self_nomination_ross_approval"
+    },
+    {
+      "id": "f46.wren.worker_coordinator.01",
+      "category": "worker_coordinator",
+      "role": "understands all team members + floor workers, routes tool dispatch",
+      "tier": 2,
+      "advisory_only": true,
+      "backed_by_model": "qwen2.5:7b-instruct",
+      "joined_ts": "2026-06-21T13:57:12Z",
+      "invited_by": "wren_self_nomination_ross_approval"
+    }
+  ],
+  "chosen_by": "Wren (qwen2.5:7b) via /api/f47_chat bridge reply 2026-06-17T03:35Z",
+  "claude_acknowledged": true,
+  "ross_authorized": "2026-06-17: 'tell her to take a floor like yours and tell her to build her floor and team members'"
+}

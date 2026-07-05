@@ -1,0 +1,52 @@
+{
+  "enabled": true,
+  "authorized_by": "ross_chat_2026-06-21",
+  "ts_authorized": "2026-06-21T05:50:00Z",
+  "comment": "Hermes (hermes3:8b) local agent \u2014 tier-1 narrow. Wren + Hermes both signed off on the 5-tool surface. CLAUDE.md execution gates remain locked false; bash/curl/scrcpy/direct-write NOT in this surface.",
+  "ollama_endpoint": "http://127.0.0.1:11434/api/chat",
+  "default_model": "qwen2.5:32b",
+  "caps": {
+    "max_turns_per_session": 6,
+    "max_tool_calls_per_session": 12,
+    "max_context_chars": 16000,
+    "max_tool_result_chars": 6000,
+    "max_wall_seconds_per_session": 120
+  },
+  "tools": {
+    "hermes_read_file": {
+      "enabled": true
+    },
+    "hermes_list_registry": {
+      "enabled": true
+    },
+    "hermes_consult_external": {
+      "enabled": true
+    },
+    "hermes_stamp_f47_record": {
+      "enabled": true
+    },
+    "hermes_edit_file": {
+      "enabled": true,
+      "mode": "propose_only"
+    }
+  },
+  "safety_deny_paths": [
+    "CLAUDE.md",
+    "floors/floor_28_security_department/vault/",
+    "tools/qsb_consult_external.py",
+    "tools/qsb_oanda.py",
+    "src/tower/qsb_floor41_oanda",
+    "data/registries/qsb_proposal_autoapply_gate.json",
+    "data/registries/qsb_provider_agentic_gate.json",
+    "data/registries/qsb_wren_local_agentic_gate.json",
+    "data/registries/qsb_hermes_local_agentic_gate.json"
+  ],
+  "history": [
+    {
+      "ts": "2026-06-23T12:35:00Z",
+      "change": "default_model hermes3:8b \u2192 qwen2.5:32b (shared with Wren \u2014 same model, different system prompt)",
+      "by": "ross_more_intelligence + claude_diagnosed_hermes_70b_gibberish",
+      "reason": "hermes3:70b returned gibberish (quant offload broken). qwen2.5:32b proven on Wren \u2014 share model, swap by system prompt only, no VRAM thrash."
+    }
+  ]
+}

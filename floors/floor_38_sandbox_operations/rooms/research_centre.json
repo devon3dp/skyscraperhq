@@ -1,0 +1,34 @@
+{
+  "room_id": "research_centre",
+  "name": "Research Hub",
+  "category": "workshop",
+  "purpose": "A space for collaborative research and development.",
+  "concierge_blurb": "Explore the latest in R&D with interactive displays and active researchers.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": -6.0,
+    "footprint_m": [
+      12,
+      8
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "workbench_set",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Research Hub",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/research_updates.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_38"
+}

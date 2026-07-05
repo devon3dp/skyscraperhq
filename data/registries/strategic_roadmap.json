@@ -1,0 +1,30 @@
+[
+  {
+    "id": "phase_foundation_complete",
+    "floor": "floor_48",
+    "phase": "Foundation and Building Infrastructure",
+    "status": "complete",
+    "notes": "53-floor tower, lifts, registries, dashboard, diagnostics, monitoring, infrastructure services, security spine, expansion planning."
+  },
+  {
+    "id": "phase_executive_spine",
+    "floor": "floor_48",
+    "phase": "Executive Command Spine",
+    "status": "active",
+    "notes": "Upper command floors 46-53 are being prepared before future kernel occupancy."
+  },
+  {
+    "id": "phase_lobby_command",
+    "floor": "floor_48",
+    "phase": "Ground Floor Command Lobby",
+    "status": "next_recommended",
+    "notes": "Build a proper command reception layer for operating the tower from the lobby."
+  },
+  {
+    "id": "phase_kernel_future",
+    "floor": "floor_48",
+    "phase": "Future QSB Kernel 4.5 Installation",
+    "status": "reserved_future",
+    "notes": "Do not build kernel until tower command, lobby command, security enforcement, and acceptance contracts are ready."
+  }
+]

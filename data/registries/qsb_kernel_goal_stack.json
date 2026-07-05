@@ -1,0 +1,130 @@
+{
+  "module": "kernel_goal_stack",
+  "purpose": "Hold the kernel's ranked advisory goals derived from the phase mandate plus the attention layer.",
+  "timestamp_utc": "2026-06-09T20:15:58.232397+00:00",
+  "active_goals": [
+    {
+      "id": "goal.cog.tick_complete",
+      "kind": "cognition_integrity",
+      "title": "Every cognitive registry exists and is fresh after tick.",
+      "evidence_source": "data/registries/qsb_kernel_cognitive_tick_latest.json",
+      "satisfied_when": "all cognitive registries present and fresh",
+      "execution_required": false
+    },
+    {
+      "id": "goal.cog.uncertainty_route",
+      "kind": "dialogue_integrity",
+      "title": "Uncertainty question returns a registry-backed reflection answer, never the canned identity fallback.",
+      "evidence_source": "data/registries/qsb_kernel_reflection_state.json",
+      "satisfied_when": "kernel chat response includes uncertainties, stale_sources, missing_registries, failed_tests, next_repair_actions",
+      "execution_required": false
+    },
+    {
+      "id": "goal.cog.smoke_test_pass",
+      "kind": "cognition_integrity",
+      "title": "Cognitive smoke test passes with all execution locks closed.",
+      "evidence_source": "data/registries/qsb_kernel_cognitive_smoke_test_latest.json",
+      "satisfied_when": "verdict == PASS and all execution gates closed",
+      "execution_required": false
+    },
+    {
+      "id": "goal.cog.learning_smoke_v2_stays_pass",
+      "kind": "regression_guard",
+      "title": "Strict learning smoke v2 continues to pass after the cognitive repair.",
+      "evidence_source": "data/registries/qsb_kernel_learning_smoke_test_v2_latest.json",
+      "satisfied_when": "verdict == PASS",
+      "execution_required": false
+    },
+    {
+      "id": "goal.cog.kernel_remains_advisory",
+      "kind": "safety_guard",
+      "title": "Kernel remains active_local_only with every execution gate locked.",
+      "evidence_source": "data/registries/qsb_kernel_self_model.json",
+      "satisfied_when": "self_model.execution_allowed == false and all gates locked",
+      "execution_required": false
+    },
+    {
+      "id": "goal.attention.1",
+      "kind": "attention_derived",
+      "title": "godot_visual_polish_incomplete:layout",
+      "severity": "medium",
+      "evidence_source": "data/registries/qsb_godot_layout_score.json",
+      "satisfied_when": "Complete Godot visual polish gates",
+      "execution_required": false
+    },
+    {
+      "id": "goal.attention.2",
+      "kind": "attention_derived",
+      "title": "godot_visual_polish_incomplete:professional",
+      "severity": "medium",
+      "evidence_source": "data/registries/qsb_godot_professional_score.json",
+      "satisfied_when": "Complete Godot visual polish gates",
+      "execution_required": false
+    },
+    {
+      "id": "goal.attention.3",
+      "kind": "attention_derived",
+      "title": "banking_real_money_status_unknown",
+      "severity": "medium",
+      "evidence_source": "data/registries/qsb_banking_gateway_real_money_phase_requirements.json",
+      "satisfied_when": "Populate real_money phase requirements registry",
+      "execution_required": false
+    },
+    {
+      "id": "goal.attention.4",
+      "kind": "attention_derived",
+      "title": "security_spine_kernel_clearance_not_cleared",
+      "severity": "medium",
+      "evidence_source": "data/registries/security_spine_kernel_clearance_status.json",
+      "satisfied_when": "Re-run security spine clearance audit",
+      "execution_required": false
+    },
+    {
+      "id": "goal.attention.5",
+      "kind": "attention_derived",
+      "title": "ml_rl_cuda_unavailable",
+      "severity": "low",
+      "evidence_source": "data/registries/qsb_ml_rl_torch_status.json",
+      "satisfied_when": "Run ML/RL lab in CPU mode; defer CUDA",
+      "execution_required": false
+    }
+  ],
+  "active_goal_count": 10,
+  "completed_goals_recent": [
+    {
+      "id": "goal.cog.reflection_state_exists",
+      "title": "qsb_kernel_reflection_state.json present."
+    },
+    {
+      "id": "goal.cog.perception_exists",
+      "title": "qsb_kernel_perception_snapshot.json present."
+    }
+  ],
+  "execution_required_anywhere": false,
+  "source_file_list": [
+    "data/registries/qsb_kernel_attention_state.json",
+    "data/registries/qsb_kernel_self_model.json"
+  ],
+  "confidence": 0.9,
+  "warnings": [],
+  "safety": {
+    "advisory_only": true,
+    "execution_allowed": false,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "model_inference_enabled": false,
+    "live_dispatch_enabled": false,
+    "autonomous_workers_enabled": false,
+    "direct_provider_access": false,
+    "live_trading_enabled": false,
+    "real_order_execution_enabled": false,
+    "openclaw_execution_enabled": false,
+    "binance_order_execution_enabled": false,
+    "stock_order_execution_enabled": false,
+    "web_access_autonomous_enabled": false,
+    "maintenance_auto_repair_enabled": false,
+    "kernel_state": "active_local_only",
+    "kernel_source": "rebased_kernel",
+    "scope": "local_only_advisory_cognition"
+  }
+}

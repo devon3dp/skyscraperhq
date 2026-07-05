@@ -1,0 +1,64 @@
+{
+  "floor_id": "floor_37",
+  "floor_number": 37,
+  "floor_name": "Simulation Labs",
+  "department": "Simulation Labs",
+  "zone": "ZONE C \u00b7 CRAFT + COMMERCE",
+  "archetype": "generic",
+  "staff_lead": "TBD",
+  "tour_blurb": "Simulation Labs \u2014 a floor in the QSB Tower. Skeleton card auto-generated; full fit-out pending.",
+  "visitor_open": false,
+  "advisory_only": true,
+  "execution_mode": "PREVIEW_ONLY",
+  "skeleton": true,
+  "skeleton_source": "floor_manifest.json",
+  "skeleton_generated_ts": "2026-06-17",
+  "live_signals": {
+    "theme": null,
+    "categories": null,
+    "palette": null,
+    "tagline": null
+  },
+  "gate_posture": {
+    "advisory_only": true,
+    "execution_allowed": false,
+    "live_payments_enabled": false
+  },
+  "team_roster": [
+    {
+      "id": "f037.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "spawned_id": "b554ad3cd9",
+      "spawned_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F037",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f037.operator.01",
+      "spawned_id": "9d35f6fca6"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F037",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f037.operator.02",
+      "spawned_id": "2f5f41f514"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F037",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f037.operator.03",
+      "spawned_id": "e4b1c5d224"
+    }
+  ],
+  "floor_manager": "f037.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

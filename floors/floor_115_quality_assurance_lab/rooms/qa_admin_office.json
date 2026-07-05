@@ -1,0 +1,34 @@
+{
+  "room_id": "qa_admin_office",
+  "name": "QA Admin Office",
+  "category": "admin",
+  "purpose": "Handles administrative tasks and communication for the QA department.",
+  "concierge_blurb": "Here, staff handle day-to-day admin tasks.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -6.0,
+    "offset_z": -3.5,
+    "footprint_m": [
+      8,
+      4
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "desk",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Admin Office",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": null,
+    "refresh_seconds": null
+  },
+  "floor": "floor_115"
+}

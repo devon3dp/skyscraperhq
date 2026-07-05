@@ -1,0 +1,61 @@
+{
+  "module": "kernel_curiosity_queue",
+  "purpose": "List read-only inspections the kernel would like to run next, prioritized by missing/stale evidence.",
+  "timestamp_utc": "2026-06-09T20:15:58.260845+00:00",
+  "queue": [
+    {
+      "kind": "inspect_missing_registry",
+      "subject": "qsb_banking_gateway_status.json",
+      "question": "Why has qsb_banking_gateway_status.json not been written this cycle?",
+      "evidence_source": "data/registries/qsb_banking_gateway_status.json",
+      "execution_required": false
+    },
+    {
+      "kind": "inspect_failed_test",
+      "subject": "qsb_kernel_cognitive_smoke_test",
+      "question": "Why did qsb_kernel_cognitive_smoke_test report None? Read its log.",
+      "evidence_source": "data/logs/",
+      "execution_required": false
+    }
+  ],
+  "queue_length": 2,
+  "source_file_list": [
+    "data/registries/qsb_kernel_perception_snapshot.json",
+    "data/registries/qsb_kernel_attention_state.json",
+    "data/registries/qsb_kernel_working_memory.json",
+    "data/registries/qsb_kernel_self_model.json",
+    "data/registries/qsb_kernel_reflection_state.json",
+    "data/registries/qsb_kernel_learning_assimilation_state.json",
+    "data/registries/qsb_kernel_goal_stack.json",
+    "data/registries/qsb_kernel_curiosity_queue.json",
+    "data/registries/qsb_kernel_opencore_supervision_state.json",
+    "data/registries/qsb_kernel_cognitive_tick_latest.json",
+    "data/registries/qsb_godot_live_telemetry_status.json",
+    "data/registries/qsb_ml_rl_lab_status.json",
+    "data/registries/qsb_banking_gateway_status.json",
+    "data/registries/qsb_github_upgrade_candidates.json",
+    "data/registries/qsb_kernel_reflection_state.json"
+  ],
+  "confidence": 0.9,
+  "warnings": [],
+  "safety": {
+    "advisory_only": true,
+    "execution_allowed": false,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "model_inference_enabled": false,
+    "live_dispatch_enabled": false,
+    "autonomous_workers_enabled": false,
+    "direct_provider_access": false,
+    "live_trading_enabled": false,
+    "real_order_execution_enabled": false,
+    "openclaw_execution_enabled": false,
+    "binance_order_execution_enabled": false,
+    "stock_order_execution_enabled": false,
+    "web_access_autonomous_enabled": false,
+    "maintenance_auto_repair_enabled": false,
+    "kernel_state": "active_local_only",
+    "kernel_source": "rebased_kernel",
+    "scope": "local_only_advisory_cognition"
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "kind": "qsb_broker_placement_gate",
+  "schema_version": 1,
+  "authorized_by": "ross_knechtel_2026-06-22T16:25Z",
+  "authorization_text": "yes i agrgree ross knechtel",
+  "venues": {
+    "oanda_practice": {
+      "enabled": true,
+      "comment": "OANDA practice. Per CLAUDE.md runtime exception. Real broker, fake money.",
+      "url_must_contain": "fxpractice",
+      "whitelist_instruments": [
+        "EUR_USD",
+        "GBP_USD",
+        "USD_JPY",
+        "AUD_USD",
+        "USD_CHF",
+        "EUR_GBP",
+        "XAU_USD",
+        "XAG_USD",
+        "WTICO_USD",
+        "BCO_USD",
+        "SPX500_USD",
+        "NAS100_USD",
+        "US30_USD",
+        "NATGAS_USD",
+        "DE30_EUR",
+        "JP225_USD",
+        "USB10Y_USD",
+        "UK10YB_GBP",
+        "XCU_USD",
+        "WHEAT_USD"
+      ],
+      "max_units_per_order": 1000,
+      "max_orders_per_hour": 600
+    },
+    "alpaca_paper": {
+      "enabled": true,
+      "comment": "Alpaca paper. Per Ross 2026-06-22 explicit unlock. Real broker, $100k fake money.",
+      "url_must_contain": "paper-api.alpaca",
+      "whitelist_instruments": [
+        "SPY",
+        "AAPL",
+        "QQQ",
+        "TSLA",
+        "NVDA",
+        "MSFT",
+        "DIA",
+        "XLF",
+        "GLD",
+        "COIN",
+        "IWM"
+      ],
+      "max_qty_per_order": 1.0,
+      "max_orders_per_hour": 600
+    },
+    "binance_testnet": {
+      "enabled": true,
+      "comment": "Binance testnet. Per Ross 2026-06-22 explicit unlock. Real exchange API, sandbox assets.",
+      "url_must_contain": "testnet.binance.vision",
+      "whitelist_instruments": [
+        "BTCUSDT",
+        "ETHUSDT",
+        "BNBUSDT",
+        "SOLUSDT",
+        "ADAUSDT",
+        "XRPUSDT",
+        "DOTUSDT",
+        "AVAXUSDT",
+        "LINKUSDT"
+      ],
+      "max_qty_per_order": 1000.0,
+      "max_orders_per_hour": 1000,
+      "per_symbol_step_size": {
+        "BTCUSDT": 1e-05,
+        "ETHUSDT": 0.0001,
+        "BNBUSDT": 0.001,
+        "SOLUSDT": 0.001,
+        "ADAUSDT": 0.1,
+        "XRPUSDT": 1.0,
+        "DOTUSDT": 0.001,
+        "AVAXUSDT": 0.001,
+        "LINKUSDT": 0.01
+      },
+      "per_symbol_min_qty": {
+        "BTCUSDT": 1e-05,
+        "ETHUSDT": 0.0001,
+        "BNBUSDT": 0.001,
+        "SOLUSDT": 0.001,
+        "ADAUSDT": 0.1,
+        "XRPUSDT": 1.0,
+        "DOTUSDT": 0.001,
+        "AVAXUSDT": 0.001,
+        "LINKUSDT": 0.01
+      },
+      "min_notional_usdt": 5.0
+    }
+  },
+  "global_kill_switch": false,
+  "notes": [
+    "ALL three venues default to enabled=false. Ross flips per-venue.",
+    "global_kill_switch=true overrides everything OFF instantly.",
+    "Code MUST verify url_must_contain matches the URL it's calling \u2014 defense in depth against accidentally hitting real-money endpoints.",
+    "Code MUST count orders/hour and refuse beyond max_orders_per_hour.",
+    "Code MUST refuse instruments not in whitelist.",
+    "2026-06-23 expansion: OANDA +6 (Wren tier-3 \u2014 Ross sign-off), Binance +6 (Hermes tier-1 \u2014 Ross sign-off). 14\u219220 OANDA, 3\u21929 Binance."
+  ],
+  "enabled_at": "2026-06-22T16:22:23Z",
+  "enabled_by": "ross_knechtel_2026-06-22_turn_it_all_on"
+}

@@ -1,0 +1,53 @@
+{
+  "room_id": "fleet_roster_wall",
+  "name": "Fleet Roster Wall",
+  "category": "roster",
+  "floor": "floor_47",
+  "purpose": "this wall lists all 250 of Wren's direct operatives by trade category, drawn live from the F47 fleet roster registry.",
+  "concierge_blurb": "All 250 of Wren's direct operatives are listed by trade. None are dispatched without her say-so.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [
+    "data/registries/qsb_f47_fleet_roster.json"
+  ],
+  "live_signals": {
+    "category_counts": {
+      "code_crew": 50,
+      "research_intel": 40,
+      "audit_quality": 30,
+      "design_decoration": 25,
+      "persistence": 10,
+      "stewards_coord": 25,
+      "ml_data": 30,
+      "domain_specialists": 30,
+      "forum_comms": 10
+    },
+    "total": 250,
+    "advisory_only": true
+  },
+  "built_at": "2026-06-14T17:35:00Z",
+  "built_by": "f47_buildout_batch_4_room_fleet_roster_wall",
+  "lessons_learned_for_next_agent": "category_counts in the registry sum to exactly 250 and are visitor-safe (just integers per trade) \u2014 mirror them verbatim, do NOT recompute from the operatives[] array (drift risk). Every operative carries advisory_only=true, execution_allowed=false, dispatched=false; surface the advisory_only flag at the wall so visitors never assume the fleet acts autonomously. The roster sits ABOVE the 1377 tower-wide pool (qsb_wren_team_roster) \u2014 these 250 are Wren's direct operatives, not the whole worker pool.",
+  "layout": {
+    "zone": "left_wall",
+    "offset_x": 0.05,
+    "offset_z": 4.5,
+    "footprint_m": [
+      3.0,
+      0.1
+    ],
+    "height_m": 1.6
+  },
+  "render": {
+    "primary_prop": "wall_panel",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "F47 FLEET \u00b7 250 operatives",
+    "glow": true
+  },
+  "interactive": {
+    "type": "count",
+    "source_path": "data/registries/qsb_f47_fleet_roster.json",
+    "display": "big_number",
+    "refresh_seconds": 300
+  }
+}

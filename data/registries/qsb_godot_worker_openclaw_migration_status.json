@@ -1,0 +1,26 @@
+{
+  "ok": true,
+  "kind": "qsb_godot_worker_openclaw_migration_status",
+  "phase": "QSB_OLD_DASHBOARD_TO_GODOT_FEATURE_MIGRATION_V1",
+  "generated_ts": "2026-06-09T21:35:00+00:00",
+  "godot_files": [
+    "scripts/WorkerRenderer.gd",
+    "scripts/WorkerInspector.gd",
+    "scripts/OpenClawRenderer.gd",
+    "scripts/OpenClawPanel.gd"
+  ],
+  "features": {
+    "2191_workers":         true,
+    "per_floor_density":    true,
+    "selected_floor_teams": true,
+    "managers":             true,
+    "watchers":             true,
+    "seers":                true,
+    "overseers":            true,
+    "openclaw_current_floor": true,
+    "openclaw_tickets":     true,
+    "openclaw_supervision_read_only": true
+  },
+  "openclaw_real_tool_execution_enabled": false,
+  "no_silent_omissions": true
+}

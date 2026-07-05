@@ -1,0 +1,306 @@
+{
+  "ok": true,
+  "kind": "qsb_wren_code_crew_status",
+  "team": "wren_code_crew_v1",
+  "floor": "F47",
+  "ts": "2026-06-24T08:30:17.912621Z",
+  "advisory_only": true,
+  "recent_file_count": 40,
+  "recent_files": [
+    {
+      "path": "data/registries/qsb_live_dispatch_state.json",
+      "ext": ".json",
+      "mtime_iso": "2026-06-24T08:30:17.882206Z",
+      "size": 175
+    },
+    {
+      "path": "data/registries/qsb_portfolio_pot.json",
+      "ext": ".json",
+      "mtime_iso": "2026-06-24T08:30:17.492283Z",
+      "size": 3195
+    },
+    {
+      "path": "data/registries/qsb_trader_pnl_bus_latest.json",
+      "ext": ".json",
+      "mtime_iso": "2026-06-24T08:30:17.106550Z",
+      "size": 3339
+    },
+    {
+      "path": "data/registries/qsb_pnl_watchdog_state.json",
+      "ext": ".json",
+      "mtime_iso": "2026-06-24T08:30:12.060226Z",
+      "size": 354
+    },
+    {
+      "path": "data/registries/cognitive/cognitive_oanda_worker_trades.json",
+      "ext": ".json",
+      "mtime_iso": "2026-06-24T08:30:09.166901Z",
+      "size": 1561
+    },
+    {
+      "path": "data/registries/qsb_session_diary.md",
+      "ext": ".md",
+      "mtime_iso": "2026-06-24T08:30:02.218263Z",
+      "size": 40013
+    },
+    {
+      "path": "data/registries/qsb_paused_workers.json",
+      "ext": ".json",
+      "mtime_iso": "2026-06-24T08:30:02.207391Z",
+      "size": 155
+    },
+    {
+      "path": "data/registries/qsb_oanda_history_summary.json",
+      "ext": ".json",
+      "mtime_iso": "2026-06-24T08:28:34.951322Z",
+      "size": 1549
+    },
+    {
+      "path": "data/registries/qsb_council_brief.md",
+      "ext": ".md",
+      "mtime_iso": "2026-06-24T08:27:37.614560Z",
+      "size": 9820
+    },
+    {
+      "path": "data/registries/cognitive/belief_state_belief_driven_btc_ta__BTCUSDT.json",
+      "ext": ".json",
+      "mtime_iso": "2026-06-24T08:27:15.451765Z",
+      "size": 361
+    },
+    {
+      "path": "data/registries/cognitive/belief_state_ensemble_btcusdt__BTCUSDT.json",
+      "ext": ".json",
+      "mtime_iso": "2026-06-24T08:27:15.451641Z",
+      "size": 363
+    },
+    {
+      "path": "data/registries/cognitive/belief_state_belief_driven_btc_momentum__BTCUSDT.json",
+      "ext": ".json",
+      "mtime_iso": "2026-06-24T08:27:15.451517Z",
+      "size": 362
+    },
+    {
+      "path": "data/registries/cognitive/belief_state_belief_driven_btc__BTCUSDT.json",
+      "ext": ".json",
+      "mtime_iso": "2026-06-24T08:27:15.451393Z",
+      "size": 363
+    },
+    {
+      "path": "data/registries/cognitive/belief_state_f42_market_scout__BTCUSDT.json",
+      "ext": ".json",
+      "mtime_iso": "2026-06-24T08:27:15.451256Z",
+      "size": 366
+    },
+    {
+      "path": "data/registries/cognitive/belief_state_ensemble_spx500usd__SPX500_USD.json",
+      "ext": ".json",
+      "mtime_iso": "2026-06-24T08:27:15.451111Z",
+      "size": 327
+    },
+    {
+      "path": "data/registries/cognitive/belief_state_belief_driven_spx__SPX500_USD.json",
+      "ext": ".json",
+      "mtime_iso": "2026-06-24T08:27:15.450984Z",
+      "size": 327
+    },
+    {
+      "path": "data/registries/cognitive/belief_state_belief_driven_eth_ta__ETHUSDT.json",
+      "ext": ".json",
+      "mtime_iso": "2026-06-24T08:27:15.450819Z",
+      "size": 363
+    },
+    {
+      "path": "data/registries/cognitive/belief_state_ensemble_ethusdt__ETHUSDT.json",
+      "ext": ".json",
+      "mtime_iso": "2026-06-24T08:27:15.450699Z",
+      "size": 364
+    },
+    {
+      "path": "data/registries/cognitive/belief_state_belief_driven_eth__ETHUSDT.json",
+      "ext": ".json",
+      "mtime_iso": "2026-06-24T08:27:15.450576Z",
+      "size": 365
+    },
+    {
+      "path": "data/registries/cognitive/belief_state_ensemble_nas100usd__NAS100_USD.json",
+      "ext": ".json",
+      "mtime_iso": "2026-06-24T08:27:15.449347Z",
+      "size": 326
+    },
+    {
+      "path": "data/registries/cognitive/belief_state_belief_driven_nas__NAS100_USD.json",
+      "ext": ".json",
+      "mtime_iso": "2026-06-24T08:27:15.449211Z",
+      "size": 326
+    },
+    {
+      "path": "data/registries/cognitive/belief_state_belief_driven_jp225__JP225_USD.json",
+      "ext": ".json",
+      "mtime_iso": "2026-06-24T08:27:15.447946Z",
+      "size": 324
+    },
+    {
+      "path": "data/registries/cognitive/belief_state_belief_driven_de30__DE30_EUR.json",
+      "ext": ".json",
+      "mtime_iso": "2026-06-24T08:27:15.446734Z",
+      "size": 325
+    },
+    {
+      "path": "data/registries/cognitive/belief_state_ensemble_xagusd__XAG_USD.json",
+      "ext": ".json",
+      "mtime_iso": "2026-06-24T08:27:15.445503Z",
+      "size": 331
+    },
+    {
+      "path": "data/registries/cognitive/belief_state_belief_driven_xag__XAG_USD.json",
+      "ext": ".json",
+      "mtime_iso": "2026-06-24T08:27:15.445377Z",
+      "size": 332
+    },
+    {
+      "path": "data/registries/cognitive/belief_state_ensemble_xauusd__XAU_USD.json",
+      "ext": ".json",
+      "mtime_iso": "2026-06-24T08:27:15.443735Z",
+      "size": 329
+    },
+    {
+      "path": "data/registries/cognitive/belief_state_belief_driven_xau_breakout__XAU_USD.json",
+      "ext": ".json",
+      "mtime_iso": "2026-06-24T08:27:15.443615Z",
+      "size": 329
+    },
+    {
+      "path": "data/registries/cognitive/belief_state_belief_driven_xau__XAU_USD.json",
+      "ext": ".json",
+      "mtime_iso": "2026-06-24T08:27:15.443490Z",
+      "size": 329
+    },
+    {
+      "path": "data/registries/cognitive/belief_state_belief_driven_gbp_ta__GBP_USD.json",
+      "ext": ".json",
+      "mtime_iso": "2026-06-24T08:27:15.442271Z",
+      "size": 331
+    },
+    {
+      "path": "data/registries/cognitive/belief_state_ensemble_gbpusd__GBP_USD.json",
+      "ext": ".json",
+      "mtime_iso": "2026-06-24T08:27:15.442159Z",
+      "size": 348
+    },
+    {
+      "path": "data/registries/cognitive/belief_state_f41_floor_manager__GBP_USD.json",
+      "ext": ".json",
+      "mtime_iso": "2026-06-24T08:27:15.442045Z",
+      "size": 334
+    },
+    {
+      "path": "data/registries/cognitive/belief_state_f41_paper_strategy_analyst__GBP_USD.json",
+      "ext": ".json",
+      "mtime_iso": "2026-06-24T08:27:15.441928Z",
+      "size": 334
+    },
+    {
+      "path": "data/registries/cognitive/belief_state_f41_risk_sentinel__GBP_USD.json",
+      "ext": ".json",
+      "mtime_iso": "2026-06-24T08:27:15.441813Z",
+      "size": 334
+    },
+    {
+      "path": "data/registries/cognitive/belief_state_f41_lessons_clerk__GBP_USD.json",
+      "ext": ".json",
+      "mtime_iso": "2026-06-24T08:27:15.441700Z",
+      "size": 334
+    },
+    {
+      "path": "data/registries/cognitive/belief_state_f41_trade_ledger_clerk__GBP_USD.json",
+      "ext": ".json",
+      "mtime_iso": "2026-06-24T08:27:15.441586Z",
+      "size": 334
+    },
+    {
+      "path": "data/registries/cognitive/belief_state_f41_market_scout__GBP_USD.json",
+      "ext": ".json",
+      "mtime_iso": "2026-06-24T08:27:15.441471Z",
+      "size": 334
+    },
+    {
+      "path": "data/registries/cognitive/belief_state_f41_kernel_commentary_runner__GBP_USD.json",
+      "ext": ".json",
+      "mtime_iso": "2026-06-24T08:27:15.441353Z",
+      "size": 334
+    },
+    {
+      "path": "data/registries/cognitive/belief_state_belief_driven_gbp__GBP_USD.json",
+      "ext": ".json",
+      "mtime_iso": "2026-06-24T08:27:15.441222Z",
+      "size": 367
+    },
+    {
+      "path": "data/registries/cognitive/belief_state_belief_driven_jpy_ta__USD_JPY.json",
+      "ext": ".json",
+      "mtime_iso": "2026-06-24T08:27:15.439966Z",
+      "size": 329
+    },
+    {
+      "path": "data/registries/cognitive/belief_state_belief_driven_jpy_breakout__USD_JPY.json",
+      "ext": ".json",
+      "mtime_iso": "2026-06-24T08:27:15.439845Z",
+      "size": 329
+    }
+  ],
+  "todo_markers": [
+    {
+      "file": "data/registries/qsb_session_diary.md",
+      "line": 31,
+      "marker": "BUG",
+      "text": "): PFIOKjExTzs1YNoBq9c0"
+    },
+    {
+      "file": "data/registries/qsb_session_diary.md",
+      "line": 39,
+      "marker": "TODO",
+      "text": "(Ross uploads ID + utility bill on Console)."
+    },
+    {
+      "file": "data/registries/qsb_session_diary.md",
+      "line": 84,
+      "marker": "BUG",
+      "text": ", not code). Trader memory Phase 2 + fit_out renderer + Wren-twin still pending.. Resume from data/registries/pitstops/p"
+    },
+    {
+      "file": "data/registries/qsb_session_diary.md",
+      "line": 97,
+      "marker": "BUG",
+      "text": ". Wren-32B + 14B pulling parallel.. Resume from data/registries/pitstops/pitstop_20260620T185558376118Z_f166_tiktok_stud"
+    },
+    {
+      "file": "data/registries/qsb_session_diary.md",
+      "line": 140,
+      "marker": "BUG",
+      "text": "fixed via smaller sim-units + pot enforcement). Pot live at cap=\u00a35000 committed=\u00a33225 6 open positions. 4 pot_full refus"
+    },
+    {
+      "file": "data/registries/qsb_council_brief.md",
+      "line": 36,
+      "marker": "BUG",
+      "text": "fixed via smaller sim-units + pot enforcement). Pot live at cap=\u00a35000 committed=\u00a33225 6 open positions. 4 pot_full refus"
+    }
+  ],
+  "todo_count": 6,
+  "open_phases": [],
+  "stub_warnings": [],
+  "mismatch_findings": [
+    {
+      "concept": "floors_count",
+      "canonical": "/api/tower/state/floors_count=173",
+      "alternate": "manifest_glob/floors/floor_*/floor_manifest.json=166",
+      "delta": -7.0,
+      "raised_by": "F47.CODE truth_audit sniffer"
+    }
+  ],
+  "mismatch_count": 1,
+  "syntax_errors": [],
+  "syntax_error_count": 0,
+  "commentary": "Wren just touched qsb_live_dispatch_state.json (40 files in last 15m). 6 TODO/FIXME markers in those files. \u26a0 1 dashboard mismatches across 1 concept(s): floors_count.",
+  "window_minutes": 15
+}

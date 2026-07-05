@@ -1,0 +1,36 @@
+{
+  "room_id": "logistics_hub",
+  "name": "Logistics Hub",
+  "category": "operations",
+  "purpose": "Manages the flow of materials and supplies within QSB Tower.",
+  "concierge_blurb": "Where supplies are tracked and managed.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {
+    "inventory_level": 0
+  },
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -5.0,
+    "offset_z": -10.0,
+    "footprint_m": [
+      6,
+      8
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "plinth",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Logistics Hub",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/inventory_levels.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_52"
+}

@@ -1,0 +1,34 @@
+{
+  "room_id": "conference_room",
+  "name": "Conference Room",
+  "category": "reception",
+  "purpose": "Hosting meetings and discussions on quality standards.",
+  "concierge_blurb": "A place to gather, discuss, and decide on QA matters.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": -4.5,
+    "footprint_m": [
+      6,
+      4
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Conference Room",
+    "glow": false
+  },
+  "interactive": {
+    "type": "tail",
+    "source_path": "data/registries/meeting_schedule.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_9"
+}

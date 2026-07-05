@@ -1,0 +1,87 @@
+[
+  {
+    "adapter": "claude_adapter",
+    "socket_id": "claude_adapter_socket",
+    "capabilities": [
+      "external_provider_bridge",
+      "reasoning_handoff",
+      "coding_handoff",
+      "analysis_handoff"
+    ],
+    "execution_enabled": false
+  },
+  {
+    "adapter": "claude_code_adapter",
+    "socket_id": "claude_code_adapter_socket",
+    "capabilities": [
+      "coding_workspace_handoff",
+      "patch_handoff",
+      "review_handoff"
+    ],
+    "execution_enabled": false
+  },
+  {
+    "adapter": "ollama_adapter",
+    "socket_id": "ollama_adapter_socket",
+    "capabilities": [
+      "local_model_inventory",
+      "future_local_inference_bridge"
+    ],
+    "execution_enabled": false
+  },
+  {
+    "adapter": "openai_adapter",
+    "socket_id": "openai_adapter_socket",
+    "capabilities": [
+      "external_provider_bridge",
+      "future_tool_use_bridge",
+      "vision_handoff"
+    ],
+    "execution_enabled": false
+  },
+  {
+    "adapter": "gemini_adapter",
+    "socket_id": "gemini_adapter_socket",
+    "capabilities": [
+      "external_provider_bridge",
+      "vision_handoff",
+      "long_context_handoff"
+    ],
+    "execution_enabled": false
+  },
+  {
+    "adapter": "deepseek_adapter",
+    "socket_id": "deepseek_adapter_socket",
+    "capabilities": [
+      "external_provider_bridge",
+      "coding_handoff",
+      "reasoning_handoff"
+    ],
+    "execution_enabled": false
+  },
+  {
+    "adapter": "local_cli_adapter",
+    "socket_id": "local_cli_adapter_socket",
+    "capabilities": [
+      "future_local_command_bridge"
+    ],
+    "execution_enabled": false
+  },
+  {
+    "adapter": "filesystem_adapter",
+    "socket_id": "filesystem_adapter_socket",
+    "capabilities": [
+      "future_file_bridge",
+      "future_project_workspace_bridge"
+    ],
+    "execution_enabled": false
+  },
+  {
+    "adapter": "future_adapter",
+    "socket_id": "future_adapter_socket",
+    "capabilities": [
+      "expansion_ready"
+    ],
+    "execution_enabled": false
+  }
+]

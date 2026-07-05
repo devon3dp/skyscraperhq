@@ -1,0 +1,10 @@
+{
+  "ts": "2026-06-28T14:41:46Z",
+  "canonical_floor_count": 169,
+  "source": "floors/*/floor_card.json count",
+  "floor_card_count": 169,
+  "floor_dir_count": 169,
+  "min_floor_index": 0,
+  "max_floor_index": 168,
+  "stale_or_conflicting_hits": ["data/registries/cognitive/cognitive_finance_live_status.json:\"floor_count\": 3","data/registries/cognitive/cognitive_floor_to_mind_map.json:\"floor_count\": 14","data/registries/cognitive/cognitive_worker_exchange.json:\"floor_count\": 0","data/registries/cognitive/cognitive_working_memory_state.json:\"floor_count\": 0","data/registries/qsb_floor_fitout_brief_v1.json:\"floor_count\": 55","data/registries/qsb_floor_interior_master_registry.json:\"floor_count\": 165","data/registries/qsb_floor_occupancy_masterplan.json:\"floor_count\": 53","data/registries/qsb_full_floor_audit.json:\"total_floors\": 53","data/registries/qsb_godot_floor_interiors_status.json:\"total_floors\": 53","data/registries/qsb_tower_activity_tail.archive.jsonl:\"floor_count\": 11","data/registries/qsb_tower_activity_tail.archive.jsonl:\"floor_count\": 64","data/registries/qsb_worker_floor_assignments.json:\"floor_count\": 45"]
+}

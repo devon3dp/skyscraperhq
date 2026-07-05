@@ -1,0 +1,51 @@
+{
+  "ok": true,
+  "kind": "eqsb_code_patch_proposals",
+  "generated_ts": "2026-06-30T13:46:34.325059+00:00",
+  "proposals": [
+    {
+      "proposal_id": "patch_001",
+      "problem": "cockpit.js is 2700+ LOC and dense \u2014 refactor risk grows with each phase.",
+      "affected_files": [
+        "src/dashboard/static/cockpit.js"
+      ],
+      "suggested_changes": "Extract per-tab panel renderers (kernel/locks/strategy/oanda/binance/...) into dedicated files; cockpit.js orchestrates only.",
+      "expected_benefit": "Lower regression risk, faster reviews.",
+      "risks": [
+        "Module load order matters; risk of breaking existing tabs."
+      ],
+      "validation_steps": [
+        "frontend health check",
+        "tab smoke-click on each section"
+      ],
+      "rollback_plan": "Restore cockpit.js from data/backups/dashboard_rebuild_<ts>/.",
+      "requires_human_approval": true,
+      "execution_allowed": false
+    },
+    {
+      "proposal_id": "patch_002",
+      "problem": "Logs directory grows unbounded.",
+      "affected_files": [
+        "data/logs/*.jsonl"
+      ],
+      "suggested_changes": "Add a daily log rotator (logrotate config) capped at 30 days.",
+      "expected_benefit": "Faster dashboard reads; predictable disk usage.",
+      "risks": [
+        "Lose long-tail history if rotated too aggressively."
+      ],
+      "validation_steps": [
+        "spot-check log sizes after rotation",
+        "verify ledger registries still resolve"
+      ],
+      "rollback_plan": "Disable rotation; restore from backups.",
+      "requires_human_approval": true,
+      "execution_allowed": false
+    }
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

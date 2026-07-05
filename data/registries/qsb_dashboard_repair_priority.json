@@ -1,0 +1,37 @@
+{
+  "ok": true,
+  "kind": "qsb_dashboard_repair_priority",
+  "phase": "QSB_KERNEL_CHAT_PENTHOUSE_AND_3D_DASHBOARD_REALITY_FIX_V1",
+  "generated_ts": "2026-06-30T13:46:36.731908+00:00",
+  "priorities": [
+    {
+      "id": "rp_babylon_scene",
+      "severity": "WARN",
+      "issue": "Babylon 3D scene (#qsbCanvas) still uses legacy capsule initials and is not lift-id bound.",
+      "fix": "Rewrite qsb_scene.js to source from qsb_lift_scene_state.json.",
+      "source": "src/dashboard/static/qsb_scene.js"
+    },
+    {
+      "id": "rp_worker_zoom",
+      "severity": "INFO",
+      "issue": "No headless screenshot diff \u2014 cannot prove visible rendering changes without browser eyes.",
+      "fix": "Add Playwright headless screenshot before/after to scripts/qsb_browser_visible_reality_check.sh.",
+      "source": "scripts/qsb_browser_visible_reality_check.sh"
+    },
+    {
+      "id": "rp_speech_voice",
+      "severity": "INFO",
+      "issue": "If browser has no English voice installed, the qsbVoiceMeta pill will show 'no English voice \u2014 speech disabled'.",
+      "fix": "User installs an English voice in their OS speech settings or selects an existing one from the qsbVoiceSelect dropdown.",
+      "source": "src/dashboard/static/qsb_speech_voice.js"
+    }
+  ],
+  "priority_count": 3,
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "worker_execution_enabled": false,
+  "autonomous_dispatch_enabled": false
+}

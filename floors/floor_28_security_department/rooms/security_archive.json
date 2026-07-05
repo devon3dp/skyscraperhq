@@ -1,0 +1,31 @@
+{
+  "room_id": "security_archive",
+  "name": "Security Archive",
+  "category": "archive",
+  "purpose": "Holds historical records of security operations.",
+  "concierge_blurb": "Rows of metal filing cabinets line the walls, filled with documents and ledgers.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "center",
+    "offset_x": 0.0,
+    "offset_z": -8.5,
+    "footprint_m": [
+      12,
+      9
+    ],
+    "height_m": 1.3
+  },
+  "render": {
+    "primary_prop": "archive_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Archive",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_28"
+}

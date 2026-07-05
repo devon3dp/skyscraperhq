@@ -1,0 +1,34 @@
+{
+  "room_id": "autonomy_control_center",
+  "name": "Autonomy Control",
+  "category": "operations",
+  "purpose": "Control and monitor autonomous systems.",
+  "concierge_blurb": "Witness the control center of our autonomy systems.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.0,
+    "offset_z": 2.0,
+    "footprint_m": [
+      15,
+      6
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Autonomy Control",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/autonomy_control.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 60
+  },
+  "floor": "floor_117"
+}

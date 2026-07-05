@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>QSB Tower · AI Battle Live</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root {
+    --bg: #050913;
+    --wren: #44ad6a;
+    --hermes: #c6a35d;
+    --judge: #d0c4ff;
+    --frame: rgba(80,220,180,0.35);
+    --text: #e0eef0;
+  }
+  html, body { margin:0; padding:0; height:100%; background: var(--bg);
+                font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+                color: var(--text); overflow:hidden; }
+  body { display:flex; flex-direction:column; height:100vh; }
+
+  /* Title bar */
+  #title {
+    padding: 18px 28px 12px;
+    border-bottom: 1px solid var(--frame);
+    background: linear-gradient(180deg, rgba(80,220,180,0.08), transparent);
+    display:flex; align-items:center; gap:16px;
+  }
+  #title h1 { font-size: 22px; margin: 0; letter-spacing: 0.04em;
+              color: #88f0d8; text-transform: uppercase; }
+  #title .sub { font-size: 13px; opacity: 0.7; }
+
+  /* Topic input row */
+  #topic-row {
+    padding: 10px 28px;
+    border-bottom: 1px solid var(--frame);
+    display:flex; gap: 10px; align-items:center;
+  }
+  #topic-input {
+    flex: 1; background: #0a1525; border: 1px solid var(--frame);
+    color: var(--text); padding: 10px 14px; font-size: 15px;
+    font-family: inherit; border-radius: 4px;
+  }
+  #topic-input:focus { outline: none; border-color: #88f0d8; }
+  #fight-btn {
+    padding: 10px 22px; font-size: 15px; font-family: inherit;
+    background: rgba(80,220,180,0.18); color: #88f0d8;
+    border: 1px solid rgba(80,220,180,0.55); border-radius: 4px;
+    cursor: pointer; letter-spacing: 0.05em;
+  }
+  #fight-btn:hover { background: rgba(80,220,180,0.35); }
+  #fight-btn:disabled { opacity: 0.4; cursor: wait; }
+
+  /* Fighters arena */
+  #arena {
+    flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+    background: var(--frame); overflow: hidden;
+  }
+  .corner {
+    background: var(--bg); padding: 26px 32px;
+    display: flex; flex-direction: column; min-height: 0;
+  }
+  .corner h2 {
+    margin: 0 0 14px; font-size: 26px; letter-spacing: 0.08em;
+    display: flex; align-items: baseline; gap: 12px;
+  }
+  .corner.wren h2 { color: var(--wren); }
+  .corner.hermes h2 { color: var(--hermes); }
+  .corner .sub { font-size: 13px; opacity: 0.6; }
+  .corner .timing {
+    font-size: 12px; opacity: 0.7; margin-bottom: 10px;
+  }
+  .reply {
+    flex: 1; overflow-y: auto; font-size: 18px; line-height: 1.55;
+    padding-right: 8px; white-space: pre-wrap;
+  }
+  .reply.thinking { opacity: 0.5; font-style: italic; }
+
+  /* Judge bar */
+  #judge {
+    padding: 20px 32px; background: rgba(208,196,255,0.08);
+    border-top: 1px solid var(--frame);
+    display: flex; align-items: center; gap: 16px;
+  }
+  #judge .label {
+    color: var(--judge); font-size: 13px; letter-spacing: 0.12em;
+    text-transform: uppercase; min-width: 88px;
+  }
+  #judge .verdict {
+    font-size: 17px; color: var(--judge); flex: 1;
+  }
+  #judge .winner {
+    font-size: 22px; font-weight: 700; padding: 8px 22px;
+    background: rgba(208,196,255,0.18); border: 1px solid var(--judge);
+    border-radius: 4px; letter-spacing: 0.06em;
+  }
+  #judge .winner.wren   { color: var(--wren);   border-color: var(--wren); background: rgba(68,173,106,0.18); }
+  #judge .winner.hermes { color: var(--hermes); border-color: var(--hermes); background: rgba(198,163,93,0.18); }
+  #judge .winner.tie    { color: var(--judge); }
+
+  /* Battle history strip */
+  #history {
+    padding: 10px 28px; border-top: 1px solid var(--frame);
+    font-size: 12px; opacity: 0.6;
+    display: flex; gap: 22px; overflow-x: auto; flex-wrap: nowrap;
+  }
+  #history span { white-space: nowrap; }
+</style>
+</head>
+<body>
+
+<div id="title">
+  <h1>⚔ QSB Tower · AI Battle Live</h1>
+  <span class="sub">Wren (qwen2.5:7b) vs Hermes (hermes3:8b) · judge: qwen2.5:7b · all-local</span>
+</div>
+
+<div id="topic-row">
+  <input id="topic-input" type="text" placeholder="topic for the next battle …"
+         value="In two sentences, what's the single best feature of the QSB Tower?">
+  <button id="fight-btn">FIGHT ▶</button>
+</div>
+
+<div id="arena">
+  <div class="corner wren">
+    <h2>🟢 Wren <span class="sub">F46 Wren's Bench</span></h2>
+    <div class="timing" id="wren-timing">—</div>
+    <div class="reply" id="wren-reply">(awaiting battle)</div>
+  </div>
+  <div class="corner hermes">
+    <h2>🟡 Hermes <span class="sub">F51 Research</span></h2>
+    <div class="timing" id="hermes-timing">—</div>
+    <div class="reply" id="hermes-reply">(awaiting battle)</div>
+  </div>
+</div>
+
+<div id="judge">
+  <span class="label">JUDGE</span>
+  <span class="verdict" id="verdict-text">(awaiting battle)</span>
+  <span class="winner" id="winner-tag">—</span>
+</div>
+
+<div id="history">
+  <span id="history-text">battle log loads on first fight</span>
+</div>
+
+<script>
+const $ = (id) => document.getElementById(id);
+const btn = $('fight-btn');
+
+async function fight() {
+  const topic = $('topic-input').value.trim();
+  if (!topic) return;
+  btn.disabled = true;
+  btn.textContent = 'BATTLE IN PROGRESS…';
+  $('wren-reply').textContent = 'thinking…';
+  $('wren-reply').classList.add('thinking');
+  $('hermes-reply').textContent = 'thinking…';
+  $('hermes-reply').classList.add('thinking');
+  $('wren-timing').textContent = '…';
+  $('hermes-timing').textContent = '…';
+  $('verdict-text').textContent = 'judging…';
+  $('winner-tag').textContent = '—';
+  $('winner-tag').className = 'winner';
+
+  try {
+    const r = await fetch('/api/ai_battle', {
+      method: 'POST', headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ topic })
+    });
+    const d = await r.json();
+    if (!d.ok) {
+      $('verdict-text').textContent = 'error: ' + (d.error || 'unknown');
+    } else {
+      const wf = d.fighters.find(x => x.id === 'wren');
+      const hf = d.fighters.find(x => x.id === 'hermes');
+      if (wf) {
+        $('wren-reply').textContent = wf.reply;
+        $('wren-reply').classList.remove('thinking');
+        $('wren-timing').textContent = `${wf.wall_s}s · ${wf.model}`;
+      }
+      if (hf) {
+        $('hermes-reply').textContent = hf.reply;
+        $('hermes-reply').classList.remove('thinking');
+        $('hermes-timing').textContent = `${hf.wall_s}s · ${hf.model}`;
+      }
+      const j = d.judge || {};
+      $('verdict-text').textContent = (j.reply || '').replace(/WINNER:\s*(WREN|HERMES|TIE)\s*$/, '').trim();
+      const winMatch = (j.reply || '').match(/WINNER:\s*(WREN|HERMES|TIE)/i);
+      const tag = $('winner-tag');
+      if (winMatch) {
+        const w = winMatch[1].toUpperCase();
+        tag.textContent = '🏆 ' + w;
+        tag.className = 'winner ' + (w === 'TIE' ? 'tie' : w.toLowerCase());
+      } else {
+        tag.textContent = '?';
+      }
+      // update history strip
+      const now = new Date().toLocaleTimeString();
+      const winnerShort = winMatch ? winMatch[1] : '?';
+      $('history-text').textContent = `${now} · ${topic.slice(0,80)} → ${winnerShort} · ` + $('history-text').textContent;
+    }
+  } catch (e) {
+    $('verdict-text').textContent = 'fetch failed: ' + e.message;
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'FIGHT ▶';
+  }
+}
+
+btn.addEventListener('click', fight);
+$('topic-input').addEventListener('keydown', e => {
+  if (e.key === 'Enter') fight();
+});
+</script>
+</body>
+</html>

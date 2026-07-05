@@ -1,0 +1,68 @@
+[
+  {
+    "id": "coding_request_path",
+    "request_type": "coding",
+    "origin_floor": "floor_05",
+    "first_hop": "floor_24",
+    "first_lift": "service_lift",
+    "routing_floor": "floor_24",
+    "possible_targets": [
+      "floor_27",
+      "floor_23",
+      "roof"
+    ],
+    "second_lift": "model_lift",
+    "sealed_packets": true,
+    "direct_provider_access": false,
+    "description": "Coding Department sends sealed requests to Floor 24 first. Floor 24 then routes to local or external provider sockets."
+  },
+  {
+    "id": "general_request_path",
+    "request_type": "general",
+    "origin_floor": "ground",
+    "first_hop": "floor_24",
+    "first_lift": "service_lift",
+    "routing_floor": "floor_24",
+    "possible_targets": [
+      "floor_27",
+      "floor_23",
+      "roof"
+    ],
+    "second_lift": "model_lift",
+    "sealed_packets": true,
+    "direct_provider_access": false,
+    "description": "General requests route from the lobby to Floor 24."
+  },
+  {
+    "id": "vision_request_path",
+    "request_type": "vision",
+    "origin_floor": "floor_13",
+    "first_hop": "floor_24",
+    "first_lift": "service_lift",
+    "routing_floor": "floor_24",
+    "possible_targets": [
+      "floor_27",
+      "floor_23",
+      "roof"
+    ],
+    "second_lift": "model_lift",
+    "sealed_packets": true,
+    "direct_provider_access": false,
+    "description": "Vision requests route to Floor 24 before any provider socket."
+  },
+  {
+    "id": "local_inventory_path",
+    "request_type": "local_model_inventory",
+    "origin_floor": "floor_27",
+    "first_hop": "floor_27",
+    "first_lift": "none",
+    "routing_floor": "floor_27",
+    "possible_targets": [
+      "local_machine_optional"
+    ],
+    "second_lift": "none",
+    "sealed_packets": false,
+    "direct_provider_access": false,
+    "description": "Floor 27 detects optional local models without being required for tower boot."
+  }
+]

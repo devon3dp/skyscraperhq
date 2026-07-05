@@ -1,0 +1,35 @@
+{
+  "ok": true,
+  "floor_number": 147,
+  "floor_name": "Sanctuary Chapel",
+  "floor_kind": "designed_by_f66_architects_v1",
+  "description": "quiet + reflection + memorial",
+  "designed_by": "F66 Architects' Office",
+  "designed_ts": "2026-06-11T09:13:04.497262Z",
+  "role_inventory": [
+    "Chaplain",
+    "Steward",
+    "Caretaker",
+    "Musician",
+    "Counselor",
+    "Volunteer Coordinator"
+  ],
+  "advisory_only": true,
+  "interior_brief": {
+    "archetype": "civic",
+    "palette": "warm sandstone + cloth",
+    "furniture": [
+      "seating rows",
+      "speaker podium",
+      "reception",
+      "side tables"
+    ],
+    "lighting": "ambient + spot",
+    "mood": "inclusive",
+    "designed_by": "F66 Architects + F17 Graphics + Fitters team",
+    "fitted_at": "2026-06-11T14:39:45.620109Z",
+    "godot_scene_brief": "render an civic floor with warm sandstone + cloth palette, inclusive mood, key furniture: seating rows, speaker podium, reception"
+  },
+  "fitted_out": true,
+  "fit_out_ts": "2026-06-11T14:39:45.620109Z"
+}

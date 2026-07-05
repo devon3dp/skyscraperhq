@@ -1,0 +1,34 @@
+{
+  "room_id": "contract_audit_room",
+  "name": "Contract Audit Room",
+  "category": "audit",
+  "purpose": "Where contracts are reviewed and audited.",
+  "concierge_blurb": "Review our meticulously organized contract audit room.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.0,
+    "offset_z": 7.5,
+    "footprint_m": [
+      16.0,
+      8.0
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "archive_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Contract Audit",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 0
+  },
+  "floor": "floor_101"
+}

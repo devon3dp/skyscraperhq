@@ -1,0 +1,90 @@
+{
+  "ok": true,
+  "kind": "qsb_hardware_systems_floor",
+  "phase": "EQSB_SYSTEM_OBSERVATORY_HARDWARE_FLOOR_LIVE_TELEMETRY_REPAIR_V1",
+  "generated_ts": "2026-06-30T13:46:32.847174+00:00",
+  "floor_number": 35,
+  "floor_label": "Hardware Systems Floor (co-located with Infrastructure Services Department)",
+  "manifest_path": "floors/floor_35_infrastructure_services_department/hardware_floor_manifest.json",
+  "purpose": "Real-data observatory for CPU/GPU/RAM/storage/OS/services/ports/model lanes.",
+  "worker_count": 12,
+  "workers": [
+    {
+      "worker_id": "wrk_hardware_systems_manager",
+      "display_name": "Hardware Systems Manager",
+      "role_description": "Owns the Hardware Systems Floor; tracks every hardware report.",
+      "home_floor": "floor_35_infrastructure_services_department"
+    },
+    {
+      "worker_id": "wrk_cpu_monitor",
+      "display_name": "CPU Monitor",
+      "role_description": "Reads CPU model / cores / threads / load average. Read-only.",
+      "home_floor": "floor_35_infrastructure_services_department"
+    },
+    {
+      "worker_id": "wrk_gpu_monitor",
+      "display_name": "GPU Monitor",
+      "role_description": "Reads GPU model, NVIDIA driver, CUDA version, VRAM. Read-only.",
+      "home_floor": "floor_35_infrastructure_services_department"
+    },
+    {
+      "worker_id": "wrk_memory_monitor",
+      "display_name": "Memory Monitor",
+      "role_description": "Reads RAM total/used/available, swap, memory pressure.",
+      "home_floor": "floor_35_infrastructure_services_department"
+    },
+    {
+      "worker_id": "wrk_storage_monitor",
+      "display_name": "Storage Monitor",
+      "role_description": "Reads disk usage for /, /vaults/nvme0, /vaults/ai. Read-only.",
+      "home_floor": "floor_35_infrastructure_services_department"
+    },
+    {
+      "worker_id": "wrk_process_monitor",
+      "display_name": "Process Monitor",
+      "role_description": "Tracks the dashboard server, Ollama, AirLLM venv presence.",
+      "home_floor": "floor_35_infrastructure_services_department"
+    },
+    {
+      "worker_id": "wrk_port_monitor",
+      "display_name": "Port Monitor",
+      "role_description": "Lists local listening ports (ss -ltn). Read-only.",
+      "home_floor": "floor_35_infrastructure_services_department"
+    },
+    {
+      "worker_id": "wrk_service_monitor",
+      "display_name": "Service Monitor",
+      "role_description": "Reads service presence (Ollama / dashboard pid file). Never modifies services.",
+      "home_floor": "floor_35_infrastructure_services_department"
+    },
+    {
+      "worker_id": "wrk_performance_adviser",
+      "display_name": "Performance Adviser",
+      "role_description": "Builds advisory recommendations from memory pressure, VRAM headroom, disk space.",
+      "home_floor": "floor_35_infrastructure_services_department"
+    },
+    {
+      "worker_id": "wrk_resource_accountant",
+      "display_name": "Resource Accountant",
+      "role_description": "Tracks data/logs and data/backups size growth.",
+      "home_floor": "floor_35_infrastructure_services_department"
+    },
+    {
+      "worker_id": "wrk_kernel_hardware_liaison",
+      "display_name": "Kernel Hardware Liaison",
+      "role_description": "Routes hardware observatory state to the EQSB Kernel introspection.",
+      "home_floor": "floor_35_infrastructure_services_department"
+    },
+    {
+      "worker_id": "wrk_code_observatory_liaison",
+      "display_name": "Code Observatory Liaison",
+      "role_description": "Routes code observatory state to the EQSB Kernel introspection.",
+      "home_floor": "floor_35_infrastructure_services_department"
+    }
+  ],
+  "read_only": true,
+  "execution_allowed": false,
+  "advisory_only": true,
+  "active_local_only": true,
+  "real_money_live_trading_enabled": false
+}

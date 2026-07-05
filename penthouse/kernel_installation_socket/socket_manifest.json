@@ -1,0 +1,14 @@
+{
+  "socket_id": "qsb_kernel_4_5_installation_socket",
+  "penthouse_id": "penthouse",
+  "reserved_for": "QSB Kernel 4.5",
+  "status": "socket_ready_empty",
+  "kernel_installed": false,
+  "kernel_logic_present": false,
+  "accepts_future_kernel_version": "4.5",
+  "requires_acceptance_report": true,
+  "requires_security_precheck": true,
+  "requires_floor_53_handoff": true,
+  "requires_emergency_stairwell_route": true,
+  "notice": "Reserved For Future QSB Kernel 4.5 Installation"
+}

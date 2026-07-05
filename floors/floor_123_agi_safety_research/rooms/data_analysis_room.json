@@ -1,0 +1,34 @@
+{
+  "room_id": "data_analysis_room",
+  "name": "Data Analysis Room",
+  "category": "operations",
+  "purpose": "Analyzing and processing data.",
+  "concierge_blurb": "Analyzing vast datasets for safety protocols.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_right",
+    "offset_x": 7.5,
+    "offset_z": -2.0,
+    "footprint_m": [
+      8,
+      6
+    ],
+    "height_m": 1.9
+  },
+  "render": {
+    "primary_prop": "workstation",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Data Room",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_123"
+}

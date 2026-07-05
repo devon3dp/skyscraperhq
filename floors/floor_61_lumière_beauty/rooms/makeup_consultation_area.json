@@ -1,0 +1,34 @@
+{
+  "room_id": "makeup_consultation_area",
+  "name": "Makeup Consultation Room",
+  "category": "reception",
+  "purpose": "For personalized makeup consultations.",
+  "concierge_blurb": "Experience a tailored makeup consultation here.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.5,
+    "offset_z": -7.5,
+    "footprint_m": [
+      8,
+      4
+    ],
+    "height_m": 2.2
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Consultation",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 0
+  },
+  "floor": "floor_61"
+}

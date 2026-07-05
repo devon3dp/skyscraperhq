@@ -1,0 +1,817 @@
+{
+  "pages": [
+    {
+      "path": "_legal/privacy.html",
+      "size_bytes": 1285,
+      "size_kb": 1.3,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 0,
+      "inline_styles": 1
+    },
+    {
+      "path": "_legal/returns.html",
+      "size_bytes": 1129,
+      "size_kb": 1.1,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 0,
+      "inline_styles": 1
+    },
+    {
+      "path": "_legal/terms.html",
+      "size_bytes": 1575,
+      "size_kb": 1.5,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 0,
+      "inline_styles": 1
+    },
+    {
+      "path": "greenhouse-lane/about.html",
+      "size_bytes": 1946,
+      "size_kb": 1.9,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 0,
+      "inline_styles": 1
+    },
+    {
+      "path": "greenhouse-lane/contact.html",
+      "size_bytes": 2994,
+      "size_kb": 2.9,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 0,
+      "inline_styles": 1
+    },
+    {
+      "path": "greenhouse-lane/faq.html",
+      "size_bytes": 2621,
+      "size_kb": 2.6,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 0,
+      "inline_styles": 1
+    },
+    {
+      "path": "greenhouse-lane/index.html",
+      "size_bytes": 16518,
+      "size_kb": 16.1,
+      "has_seo_meta": true,
+      "has_jsonld": true,
+      "has_favicon": true,
+      "inline_scripts": 4,
+      "inline_styles": 1
+    },
+    {
+      "path": "greenhouse-lane/thank-you.html",
+      "size_bytes": 2386,
+      "size_kb": 2.3,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 1,
+      "inline_styles": 1
+    },
+    {
+      "path": "hearthstone-kitchen/about.html",
+      "size_bytes": 2033,
+      "size_kb": 2.0,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 0,
+      "inline_styles": 1
+    },
+    {
+      "path": "hearthstone-kitchen/contact.html",
+      "size_bytes": 3023,
+      "size_kb": 3.0,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 0,
+      "inline_styles": 1
+    },
+    {
+      "path": "hearthstone-kitchen/faq.html",
+      "size_bytes": 2643,
+      "size_kb": 2.6,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 0,
+      "inline_styles": 1
+    },
+    {
+      "path": "hearthstone-kitchen/index.html",
+      "size_bytes": 16787,
+      "size_kb": 16.4,
+      "has_seo_meta": true,
+      "has_jsonld": true,
+      "has_favicon": true,
+      "inline_scripts": 4,
+      "inline_styles": 1
+    },
+    {
+      "path": "hearthstone-kitchen/thank-you.html",
+      "size_bytes": 2396,
+      "size_kb": 2.3,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 1,
+      "inline_styles": 1
+    },
+    {
+      "path": "index.html",
+      "size_bytes": 15615,
+      "size_kb": 15.2,
+      "has_seo_meta": true,
+      "has_jsonld": true,
+      "has_favicon": true,
+      "inline_scripts": 3,
+      "inline_styles": 1
+    },
+    {
+      "path": "inkwell-and-co/about.html",
+      "size_bytes": 1938,
+      "size_kb": 1.9,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 0,
+      "inline_styles": 1
+    },
+    {
+      "path": "inkwell-and-co/contact.html",
+      "size_bytes": 2978,
+      "size_kb": 2.9,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 0,
+      "inline_styles": 1
+    },
+    {
+      "path": "inkwell-and-co/faq.html",
+      "size_bytes": 2606,
+      "size_kb": 2.5,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 0,
+      "inline_styles": 1
+    },
+    {
+      "path": "inkwell-and-co/index.html",
+      "size_bytes": 16565,
+      "size_kb": 16.2,
+      "has_seo_meta": true,
+      "has_jsonld": true,
+      "has_favicon": true,
+      "inline_scripts": 4,
+      "inline_styles": 1
+    },
+    {
+      "path": "inkwell-and-co/thank-you.html",
+      "size_bytes": 2376,
+      "size_kb": 2.3,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 1,
+      "inline_styles": 1
+    },
+    {
+      "path": "little-robin/about.html",
+      "size_bytes": 1958,
+      "size_kb": 1.9,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 0,
+      "inline_styles": 1
+    },
+    {
+      "path": "little-robin/contact.html",
+      "size_bytes": 2974,
+      "size_kb": 2.9,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 0,
+      "inline_styles": 1
+    },
+    {
+      "path": "little-robin/faq.html",
+      "size_bytes": 2608,
+      "size_kb": 2.5,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 0,
+      "inline_styles": 1
+    },
+    {
+      "path": "little-robin/index.html",
+      "size_bytes": 16487,
+      "size_kb": 16.1,
+      "has_seo_meta": true,
+      "has_jsonld": true,
+      "has_favicon": true,
+      "inline_scripts": 4,
+      "inline_styles": 1
+    },
+    {
+      "path": "little-robin/thank-you.html",
+      "size_bytes": 2382,
+      "size_kb": 2.3,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 1,
+      "inline_styles": 1
+    },
+    {
+      "path": "living-light-eco/about.html",
+      "size_bytes": 1974,
+      "size_kb": 1.9,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 0,
+      "inline_styles": 1
+    },
+    {
+      "path": "living-light-eco/contact.html",
+      "size_bytes": 3002,
+      "size_kb": 2.9,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 0,
+      "inline_styles": 1
+    },
+    {
+      "path": "living-light-eco/faq.html",
+      "size_bytes": 2628,
+      "size_kb": 2.6,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 0,
+      "inline_styles": 1
+    },
+    {
+      "path": "living-light-eco/index.html",
+      "size_bytes": 16583,
+      "size_kb": 16.2,
+      "has_seo_meta": true,
+      "has_jsonld": true,
+      "has_favicon": true,
+      "inline_scripts": 4,
+      "inline_styles": 1
+    },
+    {
+      "path": "living-light-eco/thank-you.html",
+      "size_bytes": 2390,
+      "size_kb": 2.3,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 1,
+      "inline_styles": 1
+    },
+    {
+      "path": "lumiere-beauty/about.html",
+      "size_bytes": 2020,
+      "size_kb": 2.0,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 0,
+      "inline_styles": 1
+    },
+    {
+      "path": "lumiere-beauty/contact.html",
+      "size_bytes": 2987,
+      "size_kb": 2.9,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 0,
+      "inline_styles": 1
+    },
+    {
+      "path": "lumiere-beauty/faq.html",
+      "size_bytes": 2612,
+      "size_kb": 2.6,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 0,
+      "inline_styles": 1
+    },
+    {
+      "path": "lumiere-beauty/index.html",
+      "size_bytes": 16750,
+      "size_kb": 16.4,
+      "has_seo_meta": true,
+      "has_jsonld": true,
+      "has_favicon": true,
+      "inline_scripts": 4,
+      "inline_styles": 1
+    },
+    {
+      "path": "lumiere-beauty/thank-you.html",
+      "size_bytes": 2379,
+      "size_kb": 2.3,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 1,
+      "inline_styles": 1
+    },
+    {
+      "path": "maker-lane/about.html",
+      "size_bytes": 1919,
+      "size_kb": 1.9,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 0,
+      "inline_styles": 1
+    },
+    {
+      "path": "maker-lane/contact.html",
+      "size_bytes": 2954,
+      "size_kb": 2.9,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 0,
+      "inline_styles": 1
+    },
+    {
+      "path": "maker-lane/faq.html",
+      "size_bytes": 2586,
+      "size_kb": 2.5,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 0,
+      "inline_styles": 1
+    },
+    {
+      "path": "maker-lane/index.html",
+      "size_bytes": 16495,
+      "size_kb": 16.1,
+      "has_seo_meta": true,
+      "has_jsonld": true,
+      "has_favicon": true,
+      "inline_scripts": 4,
+      "inline_styles": 1
+    },
+    {
+      "path": "maker-lane/thank-you.html",
+      "size_bytes": 2366,
+      "size_kb": 2.3,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 1,
+      "inline_styles": 1
+    },
+    {
+      "path": "pawsworth-pets/about.html",
+      "size_bytes": 1965,
+      "size_kb": 1.9,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 0,
+      "inline_styles": 1
+    },
+    {
+      "path": "pawsworth-pets/contact.html",
+      "size_bytes": 2971,
+      "size_kb": 2.9,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 0,
+      "inline_styles": 1
+    },
+    {
+      "path": "pawsworth-pets/faq.html",
+      "size_bytes": 2604,
+      "size_kb": 2.5,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 0,
+      "inline_styles": 1
+    },
+    {
+      "path": "pawsworth-pets/index.html",
+      "size_bytes": 16604,
+      "size_kb": 16.2,
+      "has_seo_meta": true,
+      "has_jsonld": true,
+      "has_favicon": true,
+      "inline_scripts": 4,
+      "inline_styles": 1
+    },
+    {
+      "path": "pawsworth-pets/thank-you.html",
+      "size_bytes": 2377,
+      "size_kb": 2.3,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 1,
+      "inline_styles": 1
+    },
+    {
+      "path": "pinwheel-toys/about.html",
+      "size_bytes": 1986,
+      "size_kb": 1.9,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 0,
+      "inline_styles": 1
+    },
+    {
+      "path": "pinwheel-toys/contact.html",
+      "size_bytes": 2978,
+      "size_kb": 2.9,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 0,
+      "inline_styles": 1
+    },
+    {
+      "path": "pinwheel-toys/faq.html",
+      "size_bytes": 2607,
+      "size_kb": 2.5,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 0,
+      "inline_styles": 1
+    },
+    {
+      "path": "pinwheel-toys/index.html",
+      "size_bytes": 16636,
+      "size_kb": 16.2,
+      "has_seo_meta": true,
+      "has_jsonld": true,
+      "has_favicon": true,
+      "inline_scripts": 4,
+      "inline_styles": 1
+    },
+    {
+      "path": "pinwheel-toys/thank-you.html",
+      "size_bytes": 2378,
+      "size_kb": 2.3,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 1,
+      "inline_styles": 1
+    },
+    {
+      "path": "quilltree-office/about.html",
+      "size_bytes": 1948,
+      "size_kb": 1.9,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 0,
+      "inline_styles": 1
+    },
+    {
+      "path": "quilltree-office/contact.html",
+      "size_bytes": 3000,
+      "size_kb": 2.9,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 0,
+      "inline_styles": 1
+    },
+    {
+      "path": "quilltree-office/faq.html",
+      "size_bytes": 2624,
+      "size_kb": 2.6,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 0,
+      "inline_styles": 1
+    },
+    {
+      "path": "quilltree-office/index.html",
+      "size_bytes": 16613,
+      "size_kb": 16.2,
+      "has_seo_meta": true,
+      "has_jsonld": true,
+      "has_favicon": true,
+      "inline_scripts": 4,
+      "inline_styles": 1
+    },
+    {
+      "path": "quilltree-office/thank-you.html",
+      "size_bytes": 2386,
+      "size_kb": 2.3,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 1,
+      "inline_styles": 1
+    },
+    {
+      "path": "stretch-fitness/about.html",
+      "size_bytes": 1967,
+      "size_kb": 1.9,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 0,
+      "inline_styles": 1
+    },
+    {
+      "path": "stretch-fitness/contact.html",
+      "size_bytes": 2991,
+      "size_kb": 2.9,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 0,
+      "inline_styles": 1
+    },
+    {
+      "path": "stretch-fitness/faq.html",
+      "size_bytes": 2615,
+      "size_kb": 2.6,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 0,
+      "inline_styles": 1
+    },
+    {
+      "path": "stretch-fitness/index.html",
+      "size_bytes": 16529,
+      "size_kb": 16.1,
+      "has_seo_meta": true,
+      "has_jsonld": true,
+      "has_favicon": true,
+      "inline_scripts": 4,
+      "inline_styles": 1
+    },
+    {
+      "path": "stretch-fitness/thank-you.html",
+      "size_bytes": 2380,
+      "size_kb": 2.3,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 1,
+      "inline_styles": 1
+    },
+    {
+      "path": "survey.html",
+      "size_bytes": 3042,
+      "size_kb": 3.0,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 1,
+      "inline_styles": 1
+    },
+    {
+      "path": "trailhead-outdoor/about.html",
+      "size_bytes": 1952,
+      "size_kb": 1.9,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 0,
+      "inline_styles": 1
+    },
+    {
+      "path": "trailhead-outdoor/contact.html",
+      "size_bytes": 3007,
+      "size_kb": 2.9,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 0,
+      "inline_styles": 1
+    },
+    {
+      "path": "trailhead-outdoor/faq.html",
+      "size_bytes": 2629,
+      "size_kb": 2.6,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 0,
+      "inline_styles": 1
+    },
+    {
+      "path": "trailhead-outdoor/index.html",
+      "size_bytes": 16670,
+      "size_kb": 16.3,
+      "has_seo_meta": true,
+      "has_jsonld": true,
+      "has_favicon": true,
+      "inline_scripts": 4,
+      "inline_styles": 1
+    },
+    {
+      "path": "trailhead-outdoor/thank-you.html",
+      "size_bytes": 2388,
+      "size_kb": 2.3,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 1,
+      "inline_styles": 1
+    },
+    {
+      "path": "twilight-wellness/about.html",
+      "size_bytes": 2024,
+      "size_kb": 2.0,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 0,
+      "inline_styles": 1
+    },
+    {
+      "path": "twilight-wellness/contact.html",
+      "size_bytes": 3006,
+      "size_kb": 2.9,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 0,
+      "inline_styles": 1
+    },
+    {
+      "path": "twilight-wellness/faq.html",
+      "size_bytes": 2627,
+      "size_kb": 2.6,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 0,
+      "inline_styles": 1
+    },
+    {
+      "path": "twilight-wellness/index.html",
+      "size_bytes": 16608,
+      "size_kb": 16.2,
+      "has_seo_meta": true,
+      "has_jsonld": true,
+      "has_favicon": true,
+      "inline_scripts": 4,
+      "inline_styles": 1
+    },
+    {
+      "path": "twilight-wellness/thank-you.html",
+      "size_bytes": 2386,
+      "size_kb": 2.3,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 1,
+      "inline_styles": 1
+    },
+    {
+      "path": "vector-tech/about.html",
+      "size_bytes": 1988,
+      "size_kb": 1.9,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 0,
+      "inline_styles": 1
+    },
+    {
+      "path": "vector-tech/contact.html",
+      "size_bytes": 2962,
+      "size_kb": 2.9,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 0,
+      "inline_styles": 1
+    },
+    {
+      "path": "vector-tech/faq.html",
+      "size_bytes": 2593,
+      "size_kb": 2.5,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 0,
+      "inline_styles": 1
+    },
+    {
+      "path": "vector-tech/index.html",
+      "size_bytes": 16617,
+      "size_kb": 16.2,
+      "has_seo_meta": true,
+      "has_jsonld": true,
+      "has_favicon": true,
+      "inline_scripts": 4,
+      "inline_styles": 1
+    },
+    {
+      "path": "vector-tech/thank-you.html",
+      "size_bytes": 2370,
+      "size_kb": 2.3,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 1,
+      "inline_styles": 1
+    },
+    {
+      "path": "voyage-and-co/about.html",
+      "size_bytes": 1928,
+      "size_kb": 1.9,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 0,
+      "inline_styles": 1
+    },
+    {
+      "path": "voyage-and-co/contact.html",
+      "size_bytes": 2970,
+      "size_kb": 2.9,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 0,
+      "inline_styles": 1
+    },
+    {
+      "path": "voyage-and-co/faq.html",
+      "size_bytes": 2599,
+      "size_kb": 2.5,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 0,
+      "inline_styles": 1
+    },
+    {
+      "path": "voyage-and-co/index.html",
+      "size_bytes": 16554,
+      "size_kb": 16.2,
+      "has_seo_meta": true,
+      "has_jsonld": true,
+      "has_favicon": true,
+      "inline_scripts": 4,
+      "inline_styles": 1
+    },
+    {
+      "path": "voyage-and-co/thank-you.html",
+      "size_bytes": 2372,
+      "size_kb": 2.3,
+      "has_seo_meta": false,
+      "has_jsonld": false,
+      "has_favicon": false,
+      "inline_scripts": 1,
+      "inline_styles": 1
+    }
+  ],
+  "totals": {
+    "count": 80,
+    "bytes": 420919,
+    "avg_kb": 5.1,
+    "total_mb": 0.4
+  },
+  "generated_ts": "2026-06-11T12:38:47.405191Z",
+  "public_url": "https://exterior-these-ambassador-regions.trycloudflare.com",
+  "seo_coverage": {
+    "pages_with_og": 16,
+    "pages_with_jsonld": 16,
+    "pages_with_favicon": 16
+  }
+}

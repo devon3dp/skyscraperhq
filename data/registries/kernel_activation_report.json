@@ -1,0 +1,28 @@
+{
+  "report_type": "final_kernel_activation",
+  "activation_ts": "2026-06-07T21:33:44.167974+00:00",
+  "pre_activation_backup": "/vaults/nvme0/qsb_tower_v1/data/backups/qsb_tower_pre_final_kernel_activation_20260607T213318Z.tar.gz",
+  "operator_approval_recorded": true,
+  "security_clearance_granted": true,
+  "kernel_installed": true,
+  "QSBKernelCore_instantiated": true,
+  "kernel_class": "QSBKernelCore",
+  "active_kernel_source": "rebased_kernel",
+  "activation_status": "active_local_only",
+  "rebased_kernel_path": "/vaults/nvme0/qsb_tower_v1/penthouse/kernel_installation_socket/rebased_kernel/kernel",
+  "state_path": "/vaults/nvme0/qsb_tower_v1/penthouse/kernel_installation_socket/rebased_kernel/state",
+  "worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "model_inference_enabled": false,
+  "live_dispatch_enabled": false,
+  "autonomous_workers_enabled": false,
+  "direct_provider_access": false,
+  "forbidden_active_kernel_paths_absent": true,
+  "forbidden_active_kernel_paths": {
+    "penthouse/kernel.py": false,
+    "penthouse/qsb_kernel_4_5.py": false,
+    "src/tower/kernel.py": false,
+    "src/tower/qsb_kernel_4_5.py": false
+  },
+  "network_or_provider_calls_performed": false
+}

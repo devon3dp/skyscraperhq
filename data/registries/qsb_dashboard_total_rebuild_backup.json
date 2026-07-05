@@ -1,0 +1,29 @@
+{
+  "ok": true,
+  "phase": "QSB_DASHBOARD_TOTAL_REBUILD_3D_WORKERS_OPENCLAW_ONLINE_V1",
+  "kind": "qsb_dashboard_total_rebuild_backup",
+  "generated_ts": "2026-06-09T10:59:08.846228Z",
+  "backup_directory": "data/backups/dashboard_total_rebuild_20260609T105908Z",
+  "file_count": 16,
+  "files_backed_up": [
+    "qsb_skyscraper_v3.js",
+    "qsb_windows.js",
+    "qsb_floor_interior.js",
+    "worker_voice.js",
+    "qsb_command_center.js",
+    "cockpit.js",
+    "cockpit.css",
+    "index.html",
+    "qsb_v2_panel.js",
+    "qsb_state.js",
+    "qsb_audio.js",
+    "qsb_scene.js",
+    "eqsb_penthouse.js",
+    "qsb_skyscraper_v2.js",
+    "qsb_tower_2d.js",
+    "server.py"
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "real_money_live_trading_enabled": false
+}

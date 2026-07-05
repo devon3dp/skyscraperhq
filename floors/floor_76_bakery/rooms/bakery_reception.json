@@ -1,0 +1,34 @@
+{
+  "room_id": "bakery_reception",
+  "name": "Reception",
+  "category": "reception",
+  "purpose": "Welcome visitors and provide information.",
+  "concierge_blurb": "Meet our friendly staff who can answer your questions.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "reception",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Reception",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_76"
+}

@@ -1,0 +1,11 @@
+{
+  "floor_id": "floor_24",
+  "department": "Model Routing Department",
+  "routing_policy": "registry_driven",
+  "policies": "data/registries/model_routing_policies.json",
+  "worker_slots": "data/registries/model_routing_worker_slots.json",
+  "sealed_packets_required": true,
+  "execution_enabled": false,
+  "provider_execution": "disabled",
+  "notice": "This exchange prepares route decisions and model-lift handoffs only."
+}

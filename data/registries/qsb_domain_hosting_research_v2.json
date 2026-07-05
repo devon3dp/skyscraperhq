@@ -1,0 +1,48 @@
+{
+  "ok": true,
+  "kind": "qsb_domain_hosting_research_v2",
+  "generated_ts": "2026-06-11T09:41:09.168088Z",
+  "replaces": "qsb_domain_hosting_research_v1.json (Cloudflare didnt work for Ross)",
+  "researched_by": "F104 IT + F3 Research + F37 Strategy Research + Auger + Helm",
+  "verdict": "Both advisers picked Namecheap + Netlify independently \u2014 strong consensus",
+  "recommended_path": {
+    "registrar": "Namecheap",
+    "domain": "qsbtower.co.uk",
+    "domain_cost_gbp_per_year": 9,
+    "hosting": "Netlify (free tier)",
+    "hosting_cost_gbp_per_month": 0,
+    "wildcard_subdomain_supported": true,
+    "deploy_method": "drag-and-drop folder in browser (no command line needed)",
+    "month_1_total_gbp": 9,
+    "monthly_recurring_after_gbp": 0,
+    "annual_renewal_gbp": 9
+  },
+  "backups": [
+    {
+      "rank": 2,
+      "name": "Hostinger bundle (~\u00a33/mo first term, domain included)"
+    },
+    {
+      "rank": 3,
+      "name": "Porkbun registrar + Cloudflare Pages (\u00a33/mo total)"
+    }
+  ],
+  "ross_signup_steps": [
+    "1) Open https://www.namecheap.com \u2192 click Sign Up (top-right)",
+    "2) Use your email + password + UK address (will bill in GBP)",
+    "3) After login: search bar \u2192 type qsbtower.co.uk \u2192 click \"Add to Cart\"",
+    "4) Checkout (~\u00a38-10 first year). Decline upsells (no privacy guard needed for .co.uk; no email hosting needed)",
+    "5) Open https://www.netlify.com \u2192 click Sign Up",
+    "6) Sign up with email (or your existing GitHub if you have one \u2014 easier)",
+    "7) After login: click \"Add new site\" \u2192 \"Deploy manually\"",
+    "8) Drag the entire web/shops/ folder onto the browser",
+    "9) Netlify gives you a temporary URL like https://random-name.netlify.app \u2014 you can browse all 15 shops there immediately",
+    "10) In Netlify: Domain settings \u2192 Add custom domain \u2192 qsbtower.co.uk",
+    "11) Netlify shows you 2 DNS records to add. Go back to Namecheap \u2192 Domain List \u2192 Manage \u2192 Advanced DNS \u2192 add those records",
+    "12) Wait 10 min for DNS to propagate. Done."
+  ],
+  "ross_action_now": "sign up Namecheap + buy qsbtower.co.uk, then sign up Netlify \u2014 total ~10 minutes",
+  "wren_will_do_after": "wire the 15 shop subdomains in Netlify, brand each one, hook Stripe Checkout for first orders",
+  "cost_summary": "\u00a39 today, \u00a30/month after. Renews \u00a39/yr.",
+  "advisory_only": true
+}

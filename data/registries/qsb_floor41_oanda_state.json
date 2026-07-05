@@ -1,0 +1,29 @@
+{
+  "ok": true,
+  "kind": "qsb_floor41_oanda_state",
+  "phase": "QSB_FLOOR_41_OANDA_FULL_TRADING_FLOOR_REBUILD_V1",
+  "generated_ts": "2026-06-30T13:46:36.685563+00:00",
+  "floor": 41,
+  "department": "OANDA Trading Floor",
+  "zone": "ZONE C",
+  "status": "operational",
+  "mode": "oanda_practice_api",
+  "purpose": "Practice/paper FX trading, market observation, spread monitoring, trade lifecycle training, risk-controlled order opening/closing, PnL review, and lesson generation.",
+  "rooms_count": 13,
+  "workers_count": 12,
+  "url": "http://127.0.0.1:8765/?v=unified&floor=41",
+  "live_signals": {
+    "max_open_trades": 24
+  },
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "oanda_practice_paper_trading_allowed": true,
+  "live_money_enabled": false,
+  "oanda_live_environment_allowed": false,
+  "real_production_trading_allowed": false,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "worker_execution_enabled": false,
+  "autonomous_dispatch_enabled": false
+}

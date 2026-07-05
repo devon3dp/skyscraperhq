@@ -1,0 +1,189 @@
+{
+  "ts": "2026-07-01T09:28:04.546807Z",
+  "kind": "oanda_fix_before",
+  "oanda": {
+    "trade_weighted_avg_wr": 0.5584,
+    "trade_weighted_avg_exp": 0.0,
+    "total_trades": 367
+  },
+  "binance": {
+    "trade_weighted_avg_wr": 0.4098,
+    "trade_weighted_avg_exp": 0.0,
+    "total_trades": 3856
+  },
+  "alpaca": {
+    "trade_weighted_avg_wr": 0.2067,
+    "trade_weighted_avg_exp": 0.1397,
+    "total_trades": 9
+  },
+  "oanda_workers_with_trades": {
+    "belief_driven_natgas": {
+      "instr": "NATGAS_USD",
+      "venue": "oanda",
+      "n": 1,
+      "wr": 0.15,
+      "exp": 0.012500000000000011,
+      "ss": 0.0016163078422821117
+    },
+    "belief_driven_de30": {
+      "instr": "DE30_EUR",
+      "venue": "oanda",
+      "n": 2,
+      "wr": 0.1275,
+      "exp": 0.001953125,
+      "ss": 0.7151870215392545
+    },
+    "belief_driven_eurgbp": {
+      "instr": "EUR_GBP",
+      "venue": "oanda",
+      "n": 1,
+      "wr": 0.15,
+      "exp": 0.012500000000012501,
+      "ss": 1.3525402320695979e-05
+    },
+    "belief_driven_wti": {
+      "instr": "WTICO_USD",
+      "venue": "oanda",
+      "n": 2,
+      "wr": 0.27749999999999997,
+      "exp": 0.0007031250000000266,
+      "ss": 0.008130772531966536
+    },
+    "belief_driven_xag": {
+      "instr": "XAG_USD",
+      "venue": "oanda",
+      "n": 1,
+      "wr": 0.0,
+      "exp": -0.02187499999999898,
+      "ss": 0.004395636915395292
+    },
+    "belief_driven_nas": {
+      "instr": "NAS100_USD",
+      "venue": "oanda",
+      "n": 2,
+      "wr": 0.15,
+      "exp": -0.05000000000006821,
+      "ss": 0.6030641369944623
+    },
+    "ensemble_gbpusd": {
+      "instr": "GBP_USD",
+      "venue": "oanda",
+      "n": 2,
+      "wr": 0.15,
+      "exp": 0.0029687492090077973,
+      "ss": 1.2896364738165933e-05
+    },
+    "belief_driven_eur": {
+      "instr": "EUR_USD",
+      "venue": "oanda",
+      "n": 91,
+      "wr": 0.337239806748117,
+      "exp": -1.884458070737542e-08,
+      "ss": 1.467717619753902e-05
+    },
+    "belief_driven_aud": {
+      "instr": "AUD_USD",
+      "venue": "oanda",
+      "n": 1,
+      "wr": 0.15,
+      "exp": 0.0005468750000001132,
+      "ss": 1.4445534582981873e-05
+    },
+    "belief_driven_xcu": {
+      "instr": "XCU_USD",
+      "venue": "oanda",
+      "n": 2,
+      "wr": 0.27749999999999997,
+      "exp": 0.001156249999999942,
+      "ss": 0.0004077784841119517
+    },
+    "belief_driven_jp225": {
+      "instr": "JP225_USD",
+      "venue": "oanda",
+      "n": 3,
+      "wr": 0.41543749999999996,
+      "exp": -0.10416666666666667,
+      "ss": 3.452567542352843
+    },
+    "belief_driven_wheat": {
+      "instr": "WHEAT_USD",
+      "venue": "oanda",
+      "n": 1,
+      "wr": 0.15,
+      "exp": 0.34999999999998366,
+      "ss": 0.0018746675648402531
+    },
+    "belief_driven_bco": {
+      "instr": "BCO_USD",
+      "venue": "oanda",
+      "n": 2,
+      "wr": 0.27749999999999997,
+      "exp": 0.03781250000000291,
+      "ss": 0.008797031039051767
+    },
+    "belief_driven_xau_breakout": {
+      "instr": "XAU_USD",
+      "venue": "oanda",
+      "n": 1,
+      "wr": 0.15,
+      "exp": 0.006249999999994316,
+      "ss": 0.11556728677986083
+    },
+    "belief_driven_spx": {
+      "instr": "SPX500_USD",
+      "venue": "oanda",
+      "n": 1,
+      "wr": 0.15,
+      "exp": 0.014062499999994316,
+      "ss": 0.18243864447584904
+    },
+    "ensemble_eurusd": {
+      "instr": "EUR_USD",
+      "venue": "oanda",
+      "n": 1,
+      "wr": 0.15,
+      "exp": 2.3858129527923316e-06,
+      "ss": 1.467717619753902e-05
+    },
+    "belief_driven_xau": {
+      "instr": "XAU_USD",
+      "venue": "oanda",
+      "n": 1,
+      "wr": 0.0,
+      "exp": -0.06484375000006537,
+      "ss": 0.11556728677986083
+    },
+    "belief_driven_dow": {
+      "instr": "US30_USD",
+      "venue": "oanda",
+      "n": 1,
+      "wr": 0.15,
+      "exp": 0.02734375,
+      "ss": 0.6775548700568426
+    },
+    "belief_driven_chf": {
+      "instr": "USD_CHF",
+      "venue": "oanda",
+      "n": 1,
+      "wr": 0.15,
+      "exp": 0.0010156250000001484,
+      "ss": 1.4160344545898351e-05
+    },
+    "belief_driven_jpy": {
+      "instr": "USD_JPY",
+      "venue": "oanda",
+      "n": 84,
+      "wr": 0.33037760825203616,
+      "exp": 3.5537165257832513e-07,
+      "ss": 0.001564625178136898
+    },
+    "belief_driven_gbp": {
+      "instr": "GBP_USD",
+      "venue": "oanda",
+      "n": 166,
+      "wr": 0.8517028007271978,
+      "exp": 1.1652811529774525e-05,
+      "ss": 1.2896364738165933e-05
+    }
+  }
+}

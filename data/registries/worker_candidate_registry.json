@@ -1,0 +1,1226 @@
+[
+  {
+    "candidate_id": "claude_code_worker",
+    "name": "Claude Code",
+    "type": "external_code_tool_worker",
+    "source": "anthropic_external",
+    "target_floor": "floor_25",
+    "current_status": "candidate_only",
+    "allowed_initial_mode": "read_only_audit",
+    "blocked_initial_actions": [
+      "edit_files",
+      "write_files",
+      "delete_files",
+      "install_packages",
+      "run_tests",
+      "activate_workers",
+      "build_kernel",
+      "dispatch_tasks"
+    ],
+    "required_before_activation": [
+      "source_audit_complete",
+      "model_evaluation_approval",
+      "kernel_installed",
+      "tower_operator_approval"
+    ],
+    "security_required": true,
+    "source_audit_required": false,
+    "sandbox_required": false,
+    "model_evaluation_required": true,
+    "kernel_required_before_execution": true,
+    "execution_enabled": false,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "model_inference_enabled": false,
+    "live_dispatch_enabled": false,
+    "notes": "Currently operating as read-only external inspector. Can be promoted to worker after kernel install and evaluation."
+  },
+  {
+    "candidate_id": "openclaw_worker",
+    "name": "OpenClaw Worker",
+    "type": "external_worker_framework",
+    "source": "unknown_external_not_audited",
+    "target_floor": "floor_25",
+    "current_status": "candidate_only",
+    "allowed_initial_mode": "registry_placeholder_only",
+    "blocked_initial_actions": [
+      "install",
+      "execute",
+      "dispatch",
+      "network_access",
+      "filesystem_write",
+      "model_call",
+      "autonomous_action"
+    ],
+    "required_before_activation": [
+      "source_audit_complete",
+      "sandbox_approval",
+      "model_evaluation_approval",
+      "kernel_installed",
+      "security_spine_clearance",
+      "tower_operator_approval"
+    ],
+    "security_required": true,
+    "source_audit_required": true,
+    "sandbox_required": true,
+    "model_evaluation_required": true,
+    "kernel_required_before_execution": true,
+    "execution_enabled": false,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "model_inference_enabled": false,
+    "live_dispatch_enabled": false,
+    "notes": "OpenClaw framework worker candidate. Not installed. Source audit required."
+  },
+  {
+    "candidate_id": "openclaw_pixel_agent_worker",
+    "name": "OpenClaw Pixel Agent Worker",
+    "type": "external_pixel_agent_worker",
+    "source": "unknown_external_not_audited",
+    "target_floor": "floor_25",
+    "current_status": "candidate_only",
+    "allowed_initial_mode": "registry_placeholder_only",
+    "blocked_initial_actions": [
+      "install",
+      "execute",
+      "screen_capture",
+      "mouse_control",
+      "keyboard_injection",
+      "network_access",
+      "filesystem_write",
+      "model_call",
+      "autonomous_action"
+    ],
+    "required_before_activation": [
+      "source_audit_complete",
+      "sandbox_containment_verified",
+      "pixel_agent_isolation_environment_ready",
+      "model_evaluation_approval",
+      "kernel_installed",
+      "security_spine_clearance",
+      "tower_operator_approval"
+    ],
+    "security_required": true,
+    "source_audit_required": true,
+    "sandbox_required": true,
+    "model_evaluation_required": true,
+    "kernel_required_before_execution": true,
+    "execution_enabled": false,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "model_inference_enabled": false,
+    "live_dispatch_enabled": false,
+    "notes": "Pixel agent worker variant. Requires isolation environment and source audit."
+  },
+  {
+    "candidate_id": "ollama_local_model_worker",
+    "name": "Ollama Local Model Worker Pool",
+    "type": "local_model_worker_pool",
+    "source": "local_optional",
+    "target_floor": "floor_27",
+    "current_status": "candidate_only",
+    "allowed_initial_mode": "inventory_only",
+    "blocked_initial_actions": [
+      "run_inference",
+      "dispatch_to_model",
+      "load_model",
+      "autonomous_action",
+      "worker_execution"
+    ],
+    "required_before_activation": [
+      "ollama_installed_locally",
+      "model_inventory_verified",
+      "model_evaluation_approval",
+      "kernel_installed",
+      "tower_operator_approval"
+    ],
+    "security_required": false,
+    "source_audit_required": false,
+    "sandbox_required": false,
+    "model_evaluation_required": true,
+    "kernel_required_before_execution": true,
+    "execution_enabled": false,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "model_inference_enabled": false,
+    "live_dispatch_enabled": false,
+    "notes": "Ollama must be installed locally. Inventory runs do not require kernel. Inference requires kernel."
+  },
+  {
+    "candidate_id": "future_llm_provider_worker",
+    "name": "Future LLM Provider Worker",
+    "type": "future_external_provider_worker",
+    "source": "placeholder",
+    "target_floor": "floor_25",
+    "current_status": "candidate_only",
+    "allowed_initial_mode": "registry_placeholder_only",
+    "blocked_initial_actions": [
+      "any_action"
+    ],
+    "required_before_activation": [
+      "provider_selected",
+      "source_audit_complete",
+      "model_evaluation_approval",
+      "kernel_installed",
+      "tower_operator_approval"
+    ],
+    "security_required": true,
+    "source_audit_required": true,
+    "sandbox_required": true,
+    "model_evaluation_required": true,
+    "kernel_required_before_execution": true,
+    "execution_enabled": false,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "model_inference_enabled": false,
+    "live_dispatch_enabled": false,
+    "notes": "Slot for a future LLM provider not yet selected. No provider is hardwired."
+  },
+  {
+    "candidate_id": "human_operator_worker",
+    "name": "Human Operator",
+    "type": "human_operator",
+    "source": "internal",
+    "target_floor": "floor_25",
+    "current_status": "candidate_only",
+    "allowed_initial_mode": "supervised_review_only",
+    "blocked_initial_actions": [
+      "autonomous_dispatch",
+      "kernel_install",
+      "provider_activation"
+    ],
+    "required_before_activation": [
+      "tower_operator_approval",
+      "role_assignment_confirmed"
+    ],
+    "security_required": true,
+    "source_audit_required": false,
+    "sandbox_required": false,
+    "model_evaluation_required": false,
+    "kernel_required_before_execution": false,
+    "execution_enabled": false,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "model_inference_enabled": false,
+    "live_dispatch_enabled": false,
+    "notes": "Human operators are supervised reviewers. Role assignment must be explicit."
+  },
+  {
+    "candidate_id": "qsb_kernel_supervised_worker_placeholder",
+    "name": "Future QSB Kernel-Supervised Worker",
+    "type": "future_kernel_supervised_worker",
+    "source": "placeholder",
+    "target_floor": "floor_25",
+    "current_status": "candidate_only",
+    "allowed_initial_mode": "registry_placeholder_only",
+    "blocked_initial_actions": [
+      "any_action"
+    ],
+    "required_before_activation": [
+      "kernel_installed",
+      "kernel_supervision_api_ready",
+      "tower_operator_approval"
+    ],
+    "security_required": true,
+    "source_audit_required": true,
+    "sandbox_required": true,
+    "model_evaluation_required": true,
+    "kernel_required_before_execution": true,
+    "execution_enabled": false,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "model_inference_enabled": false,
+    "live_dispatch_enabled": false,
+    "notes": "Placeholder for a worker type that the QSB Kernel 4.5 will supervise. Cannot exist until kernel is installed."
+  },
+  {
+    "worker_id": "f45_equity_market_scout",
+    "display_name": "Equity Market Scout",
+    "role": "Reads US equities quotes from Floor 43 gateway. Sandbox only.",
+    "home_floor": "floor_45",
+    "target_floor": "floor_43",
+    "skills": [
+      "read_stock_floor",
+      "quote_status",
+      "advisory_only"
+    ],
+    "team": "trading_equities",
+    "sandbox_only": true,
+    "execution_allowed": false,
+    "advisory_or_paper_only": true,
+    "not_financial_advice": true,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "external_provider_execution_enabled": false,
+    "openclaw_execution_enabled": false,
+    "openclaw_real_tool_execution_enabled": false,
+    "autonomous_dispatch_enabled": false,
+    "live_dispatch_enabled": false,
+    "direct_provider_access": false,
+    "current_floor": "floor_45",
+    "training_status": "screening",
+    "assigned_routes": [
+      {
+        "from": "floor_45",
+        "to": "floor_30",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "risk_check_before_dispatch",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_31",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "audit_dispatch_event",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_43",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "visual_dispatch",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_53",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "tower_command_summary",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_25",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "agent_coordination_visibility",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_38",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "sandbox_visibility",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      }
+    ],
+    "current_task": "safety_screening",
+    "last_seen_ts": "2026-06-08T18:42:17.570340+00:00"
+  },
+  {
+    "worker_id": "f45_crypto_market_scout",
+    "display_name": "Crypto Market Scout",
+    "role": "Reads Binance testnet public market data. Sandbox only.",
+    "home_floor": "floor_45",
+    "target_floor": "floor_42",
+    "skills": [
+      "read_binance_testnet",
+      "public_market_data"
+    ],
+    "team": "trading_crypto",
+    "sandbox_only": true,
+    "execution_allowed": false,
+    "advisory_or_paper_only": true,
+    "not_financial_advice": true,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "external_provider_execution_enabled": false,
+    "openclaw_execution_enabled": false,
+    "openclaw_real_tool_execution_enabled": false,
+    "autonomous_dispatch_enabled": false,
+    "live_dispatch_enabled": false,
+    "direct_provider_access": false,
+    "current_floor": "floor_45",
+    "training_status": "screening",
+    "assigned_routes": [
+      {
+        "from": "floor_45",
+        "to": "floor_30",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "risk_check_before_dispatch",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_31",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "audit_dispatch_event",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_42",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "visual_dispatch",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_53",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "tower_command_summary",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_25",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "agent_coordination_visibility",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_38",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "sandbox_visibility",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      }
+    ],
+    "current_task": "safety_screening",
+    "last_seen_ts": "2026-06-08T18:42:17.570397+00:00"
+  },
+  {
+    "worker_id": "f45_fx_market_scout",
+    "display_name": "FX Market Scout",
+    "role": "Reads OANDA practice pricing. Sandbox only.",
+    "home_floor": "floor_45",
+    "target_floor": "floor_41",
+    "skills": [
+      "read_oanda_practice",
+      "quote_status"
+    ],
+    "team": "trading_fx",
+    "sandbox_only": true,
+    "execution_allowed": false,
+    "advisory_or_paper_only": true,
+    "not_financial_advice": true,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "external_provider_execution_enabled": false,
+    "openclaw_execution_enabled": false,
+    "openclaw_real_tool_execution_enabled": false,
+    "autonomous_dispatch_enabled": false,
+    "live_dispatch_enabled": false,
+    "direct_provider_access": false,
+    "current_floor": "floor_45",
+    "training_status": "screening",
+    "assigned_routes": [
+      {
+        "from": "floor_45",
+        "to": "floor_30",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "risk_check_before_dispatch",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_31",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "audit_dispatch_event",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_41",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "visual_dispatch",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_53",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "tower_command_summary",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_25",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "agent_coordination_visibility",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_38",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "sandbox_visibility",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      }
+    ],
+    "current_task": "safety_screening",
+    "last_seen_ts": "2026-06-08T18:42:17.570433+00:00"
+  },
+  {
+    "worker_id": "f45_cross_market_analyst",
+    "display_name": "Cross-Market Analyst",
+    "role": "Reads OANDA + Binance + Stocks; builds paper-only correlations.",
+    "home_floor": "floor_45",
+    "target_floor": "floor_37",
+    "skills": [
+      "read_registries",
+      "correlation_pairing",
+      "advisory_only"
+    ],
+    "team": "strategy",
+    "sandbox_only": true,
+    "execution_allowed": false,
+    "advisory_or_paper_only": true,
+    "not_financial_advice": true,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "external_provider_execution_enabled": false,
+    "openclaw_execution_enabled": false,
+    "openclaw_real_tool_execution_enabled": false,
+    "autonomous_dispatch_enabled": false,
+    "live_dispatch_enabled": false,
+    "direct_provider_access": false,
+    "current_floor": "floor_45",
+    "training_status": "screening",
+    "assigned_routes": [
+      {
+        "from": "floor_45",
+        "to": "floor_30",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "risk_check_before_dispatch",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_31",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "audit_dispatch_event",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_37",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "visual_dispatch",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_53",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "tower_command_summary",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_25",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "agent_coordination_visibility",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_38",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "sandbox_visibility",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      }
+    ],
+    "current_task": "safety_screening",
+    "last_seen_ts": "2026-06-08T18:42:17.570463+00:00"
+  },
+  {
+    "worker_id": "f45_risk_gatekeeper",
+    "display_name": "Risk Gatekeeper",
+    "role": "Verifies execution locks remain closed before any packet.",
+    "home_floor": "floor_45",
+    "target_floor": "floor_30",
+    "skills": [
+      "lock_audit",
+      "risk_alerting"
+    ],
+    "team": "risk",
+    "sandbox_only": true,
+    "execution_allowed": false,
+    "advisory_or_paper_only": true,
+    "not_financial_advice": true,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "external_provider_execution_enabled": false,
+    "openclaw_execution_enabled": false,
+    "openclaw_real_tool_execution_enabled": false,
+    "autonomous_dispatch_enabled": false,
+    "live_dispatch_enabled": false,
+    "direct_provider_access": false,
+    "current_floor": "floor_45",
+    "training_status": "screening",
+    "assigned_routes": [
+      {
+        "from": "floor_45",
+        "to": "floor_30",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "risk_check_before_dispatch",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_31",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "audit_dispatch_event",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_30",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "visual_dispatch",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_53",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "tower_command_summary",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_25",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "agent_coordination_visibility",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_38",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "sandbox_visibility",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      }
+    ],
+    "current_task": "safety_screening",
+    "last_seen_ts": "2026-06-08T18:42:17.570491+00:00"
+  },
+  {
+    "worker_id": "f45_ledger_runner",
+    "display_name": "Ledger Runner",
+    "role": "Carries paper observations to the Floor 31 audit ledger.",
+    "home_floor": "floor_45",
+    "target_floor": "floor_31",
+    "skills": [
+      "append_only_ledger",
+      "paper_audit_trail"
+    ],
+    "team": "audit",
+    "sandbox_only": true,
+    "execution_allowed": false,
+    "advisory_or_paper_only": true,
+    "not_financial_advice": true,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "external_provider_execution_enabled": false,
+    "openclaw_execution_enabled": false,
+    "openclaw_real_tool_execution_enabled": false,
+    "autonomous_dispatch_enabled": false,
+    "live_dispatch_enabled": false,
+    "direct_provider_access": false,
+    "current_floor": "floor_45",
+    "training_status": "screening",
+    "assigned_routes": [
+      {
+        "from": "floor_45",
+        "to": "floor_30",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "risk_check_before_dispatch",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_31",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "audit_dispatch_event",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_31",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "visual_dispatch",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_53",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "tower_command_summary",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_25",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "agent_coordination_visibility",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_38",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "sandbox_visibility",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      }
+    ],
+    "current_task": "safety_screening",
+    "last_seen_ts": "2026-06-08T18:42:17.570517+00:00"
+  },
+  {
+    "worker_id": "f45_airllm_advisory_clerk",
+    "display_name": "AirLLM Advisory Clerk",
+    "role": "Reads AirLLM chamber registry. Never invokes the model.",
+    "home_floor": "floor_45",
+    "target_floor": "floor_23",
+    "skills": [
+      "read_airllm_registry",
+      "advisory_only"
+    ],
+    "team": "airllm_advisory",
+    "sandbox_only": true,
+    "execution_allowed": false,
+    "advisory_or_paper_only": true,
+    "not_financial_advice": true,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "external_provider_execution_enabled": false,
+    "openclaw_execution_enabled": false,
+    "openclaw_real_tool_execution_enabled": false,
+    "autonomous_dispatch_enabled": false,
+    "live_dispatch_enabled": false,
+    "direct_provider_access": false,
+    "current_floor": "floor_45",
+    "training_status": "screening",
+    "assigned_routes": [
+      {
+        "from": "floor_45",
+        "to": "floor_30",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "risk_check_before_dispatch",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_31",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "audit_dispatch_event",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_23",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "visual_dispatch",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_53",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "tower_command_summary",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_25",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "agent_coordination_visibility",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_38",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "sandbox_visibility",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      }
+    ],
+    "current_task": "safety_screening",
+    "last_seen_ts": "2026-06-08T18:42:17.570547+00:00"
+  },
+  {
+    "worker_id": "f45_kernel_liaison",
+    "display_name": "Kernel Liaison",
+    "role": "Carries kernel-review packets toward the Penthouse.",
+    "home_floor": "floor_45",
+    "target_floor": "floor_53",
+    "skills": [
+      "kernel_review_packet",
+      "advisory_only"
+    ],
+    "team": "command",
+    "sandbox_only": true,
+    "execution_allowed": false,
+    "advisory_or_paper_only": true,
+    "not_financial_advice": true,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "external_provider_execution_enabled": false,
+    "openclaw_execution_enabled": false,
+    "openclaw_real_tool_execution_enabled": false,
+    "autonomous_dispatch_enabled": false,
+    "live_dispatch_enabled": false,
+    "direct_provider_access": false,
+    "current_floor": "floor_45",
+    "training_status": "screening",
+    "assigned_routes": [
+      {
+        "from": "floor_45",
+        "to": "floor_30",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "risk_check_before_dispatch",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_31",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "audit_dispatch_event",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_53",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "visual_dispatch",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_53",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "tower_command_summary",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_25",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "agent_coordination_visibility",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_38",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "sandbox_visibility",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      }
+    ],
+    "current_task": "safety_screening",
+    "last_seen_ts": "2026-06-08T18:42:17.570573+00:00"
+  },
+  {
+    "worker_id": "f45_openclaw_sandbox_observer",
+    "display_name": "OpenClaw Sandbox Observer",
+    "role": "Observes the OpenClaw Visual Sandbox on Floor 38. Sees only.",
+    "home_floor": "floor_45",
+    "target_floor": "floor_38",
+    "skills": [
+      "openclaw_sandbox_logging"
+    ],
+    "team": "openclaw_advisory",
+    "sandbox_only": true,
+    "execution_allowed": false,
+    "advisory_or_paper_only": true,
+    "not_financial_advice": true,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "external_provider_execution_enabled": false,
+    "openclaw_execution_enabled": false,
+    "openclaw_real_tool_execution_enabled": false,
+    "autonomous_dispatch_enabled": false,
+    "live_dispatch_enabled": false,
+    "direct_provider_access": false,
+    "current_floor": "floor_45",
+    "training_status": "screening",
+    "assigned_routes": [
+      {
+        "from": "floor_45",
+        "to": "floor_30",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "risk_check_before_dispatch",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_31",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "audit_dispatch_event",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_38",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "visual_dispatch",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_53",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "tower_command_summary",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_25",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "agent_coordination_visibility",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      }
+    ],
+    "current_task": "safety_screening",
+    "last_seen_ts": "2026-06-08T18:42:17.570597+00:00"
+  },
+  {
+    "worker_id": "f45_strategy_backtester",
+    "display_name": "Strategy Backtester",
+    "role": "Runs sandbox backtests on Floor 37. Paper-only results.",
+    "home_floor": "floor_45",
+    "target_floor": "floor_37",
+    "skills": [
+      "backtest_sandbox",
+      "paper_signal_synthesis"
+    ],
+    "team": "strategy",
+    "sandbox_only": true,
+    "execution_allowed": false,
+    "advisory_or_paper_only": true,
+    "not_financial_advice": true,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "external_provider_execution_enabled": false,
+    "openclaw_execution_enabled": false,
+    "openclaw_real_tool_execution_enabled": false,
+    "autonomous_dispatch_enabled": false,
+    "live_dispatch_enabled": false,
+    "direct_provider_access": false,
+    "current_floor": "floor_45",
+    "training_status": "screening",
+    "assigned_routes": [
+      {
+        "from": "floor_45",
+        "to": "floor_30",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "risk_check_before_dispatch",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_31",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "audit_dispatch_event",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_37",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "visual_dispatch",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_53",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "tower_command_summary",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_25",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "agent_coordination_visibility",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_38",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "sandbox_visibility",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      }
+    ],
+    "current_task": "safety_screening",
+    "last_seen_ts": "2026-06-08T18:42:17.570621+00:00"
+  },
+  {
+    "worker_id": "f45_volatility_watcher",
+    "display_name": "Volatility Watcher",
+    "role": "Tracks paper-only volatility across markets.",
+    "home_floor": "floor_45",
+    "target_floor": "floor_37",
+    "skills": [
+      "volatility_observation"
+    ],
+    "team": "strategy",
+    "sandbox_only": true,
+    "execution_allowed": false,
+    "advisory_or_paper_only": true,
+    "not_financial_advice": true,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "external_provider_execution_enabled": false,
+    "openclaw_execution_enabled": false,
+    "openclaw_real_tool_execution_enabled": false,
+    "autonomous_dispatch_enabled": false,
+    "live_dispatch_enabled": false,
+    "direct_provider_access": false,
+    "current_floor": "floor_45",
+    "training_status": "screening",
+    "assigned_routes": [
+      {
+        "from": "floor_45",
+        "to": "floor_30",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "risk_check_before_dispatch",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_31",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "audit_dispatch_event",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_37",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "visual_dispatch",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_53",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "tower_command_summary",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_25",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "agent_coordination_visibility",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_38",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "sandbox_visibility",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      }
+    ],
+    "current_task": "safety_screening",
+    "last_seen_ts": "2026-06-08T18:42:17.570645+00:00"
+  },
+  {
+    "worker_id": "f45_correlation_mapper",
+    "display_name": "Correlation Mapper",
+    "role": "Maps cross-market correlations to Floor 25 Agent Coordination.",
+    "home_floor": "floor_45",
+    "target_floor": "floor_25",
+    "skills": [
+      "correlation_pairing",
+      "agent_coordination_readiness"
+    ],
+    "team": "strategy",
+    "sandbox_only": true,
+    "execution_allowed": false,
+    "advisory_or_paper_only": true,
+    "not_financial_advice": true,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "external_provider_execution_enabled": false,
+    "openclaw_execution_enabled": false,
+    "openclaw_real_tool_execution_enabled": false,
+    "autonomous_dispatch_enabled": false,
+    "live_dispatch_enabled": false,
+    "direct_provider_access": false,
+    "current_floor": "floor_45",
+    "training_status": "screening",
+    "assigned_routes": [
+      {
+        "from": "floor_45",
+        "to": "floor_30",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "risk_check_before_dispatch",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_31",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "audit_dispatch_event",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_25",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "visual_dispatch",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_53",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "tower_command_summary",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      },
+      {
+        "from": "floor_45",
+        "to": "floor_38",
+        "route_type": "worker_recruitment_sandbox",
+        "purpose": "sandbox_visibility",
+        "sandbox_only": true,
+        "execution_allowed": false,
+        "worker_execution_enabled": false
+      }
+    ],
+    "current_task": "safety_screening",
+    "last_seen_ts": "2026-06-08T18:42:17.570670+00:00"
+  }
+]

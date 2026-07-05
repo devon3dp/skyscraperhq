@@ -1,0 +1,34 @@
+{
+  "room_id": "strategy_room",
+  "name": "Strategy Room",
+  "category": "operations",
+  "purpose": "A room for strategizing trades and analyzing market trends.",
+  "concierge_blurb": "Witness the strategic minds behind Binance's trading decisions.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -8.0,
+    "offset_z": 2.5,
+    "footprint_m": [
+      10,
+      6
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Strategy Room",
+    "glow": true
+  },
+  "interactive": {
+    "type": "tail",
+    "source_path": "data/registries/market_analysis.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_42"
+}

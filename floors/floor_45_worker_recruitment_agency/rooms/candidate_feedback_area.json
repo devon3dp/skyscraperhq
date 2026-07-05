@@ -1,0 +1,34 @@
+{
+  "room_id": "candidate_feedback_area",
+  "name": "Feedback Area",
+  "category": "display",
+  "purpose": "Area where candidates can leave feedback.",
+  "concierge_blurb": "A wall with a digital board for candidate comments and suggestions.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": -4.0,
+    "footprint_m": [
+      12,
+      3
+    ],
+    "height_m": 1.6
+  },
+  "render": {
+    "primary_prop": "display",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Feedback",
+    "glow": true
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/candidate_feedback.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_45"
+}

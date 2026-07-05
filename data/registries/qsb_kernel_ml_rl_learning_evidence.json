@@ -1,0 +1,43 @@
+{
+  "ok": true,
+  "kind": "qsb_kernel_ml_rl_learning_evidence",
+  "phase": "QSB_ML_RL_LAB_CLASSROOM_RESEARCH_WORKER_INTEGRATION_V1",
+  "generated_ts": "2026-06-09T16:49:28+00:00",
+  "registries_for_kernel_to_cite": [
+    "data/registries/qsb_ml_rl_lab_path.json",
+    "data/registries/qsb_ml_rl_existing_environment_audit.json",
+    "data/registries/qsb_ml_rl_lab_verified_for_integration.json",
+    "data/registries/qsb_ml_rl_torch_status.json",
+    "data/registries/qsb_ml_rl_package_install_status.json",
+    "data/registries/qsb_ml_rl_classroom_map.json",
+    "data/registries/qsb_ml_rl_curriculum.json",
+    "data/registries/qsb_ml_rl_research_lab_map.json",
+    "data/registries/qsb_ml_rl_strategy_lab_map.json",
+    "data/registries/qsb_worker_ml_rl_training_roster.json",
+    "data/registries/qsb_openclaw_ml_rl_supervision.json",
+    "data/registries/qsb_opencore_ml_rl_access_policy.json"
+  ],
+  "questions_kernel_can_answer": [
+    "What ML/RL packages are installed?",
+    "Is Torch installed?",
+    "Is CUDA available?",
+    "What did the DQN smoke test prove?",
+    "What workers are learning ML/RL?",
+    "What classrooms exist?",
+    "What research labs use ML/RL?",
+    "What has OpenClaw inspected?",
+    "What experiments are advisory-only?",
+    "Why is live execution locked?"
+  ],
+  "no_hallucination_rule": "If a registry is empty or smoke test has not run, the answer must say so explicitly.",
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "live_payments_enabled": false,
+  "live_listings_publishing_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "worker_execution_enabled": false,
+  "secrets_in_logs": false
+}

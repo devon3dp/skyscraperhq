@@ -1,0 +1,40 @@
+{
+  "ok": true,
+  "kind": "qsb_research_strategy_facilities",
+  "phase": "QSB_FULL_SKYSCRAPER_OCCUPANCY_COMMERCE_WORKFORCE_EXPANSION_V1",
+  "generated_ts": "2026-06-30T13:46:36.985017+00:00",
+  "facilities": [
+    {
+      "floor": 3,
+      "name": "Product Research Lab"
+    },
+    {
+      "floor": 10,
+      "name": "Strategy Lab + Sandbox Coupling"
+    },
+    {
+      "floor": 11,
+      "name": "Demand + Competitor Watch"
+    },
+    {
+      "floor": 37,
+      "name": "Strategy Labs"
+    },
+    {
+      "floor": 17,
+      "name": "Prompt Engineering Lab (in Design Studio)"
+    }
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "worker_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "live_payments_enabled": false,
+  "live_listings_publishing_enabled": false,
+  "external_api_calls_enabled": false,
+  "secrets_in_logs": false,
+  "manual_approval_required_for_commerce": true
+}

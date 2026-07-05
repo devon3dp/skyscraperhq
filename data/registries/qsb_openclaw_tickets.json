@@ -1,0 +1,46 @@
+{
+  "ok": true,
+  "kind": "qsb_openclaw_tickets",
+  "generated_ts": "2026-06-30T13:46:34.757515+00:00",
+  "ticket_count": 3,
+  "tickets": [
+    {
+      "ticket_id": "tkt_idle_operational_workers",
+      "severity": "info",
+      "title": "Many operational workers stationed without a live event",
+      "evidence": "1186 active workers have no movement and no task. This is expected \u2014 the tower is in low-activity paper mode.",
+      "advised_action": "Increase paper-trade cadence, or review Profit Command for actionable strategies.",
+      "routing": [
+        "dashboard",
+        "narrator"
+      ]
+    },
+    {
+      "ticket_id": "tkt_guardian_blocks",
+      "severity": "warning",
+      "title": "30 Guardian-blocked attempts recorded in kernel_dialogue.jsonl",
+      "evidence": "qsb_worker_discipline_triggers.guardian_blocked_count_in_log=30",
+      "advised_action": "Route to Disciplinary Review Board for follow-up.",
+      "routing": [
+        "kernel",
+        "guardian",
+        "dashboard"
+      ]
+    },
+    {
+      "ticket_id": "tkt_view_count_mismatch",
+      "severity": "info",
+      "title": "Legacy view shows 64 while canonical is 1190",
+      "evidence": "Sidebar reads /api/unified.workers[] which carries SIM seeds; HUD reads canonical.",
+      "advised_action": "Label clearly (already done) and route to Worker Operations Control.",
+      "routing": [
+        "dashboard"
+      ]
+    }
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

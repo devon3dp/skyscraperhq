@@ -1,0 +1,31 @@
+{
+  "room_id": "data_room",
+  "name": "Data Analysis Room",
+  "category": "operations",
+  "purpose": "Room for data analysis and research.",
+  "concierge_blurb": "Explore the latest financial trends in this dedicated data analysis room.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -8.0,
+    "offset_z": 6.0,
+    "footprint_m": [
+      12,
+      9
+    ],
+    "height_m": 3.5
+  },
+  "render": {
+    "primary_prop": "desk",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Data Room",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_43"
+}

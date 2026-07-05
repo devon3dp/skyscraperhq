@@ -1,0 +1,825 @@
+============================================================
+QSB Kernel Thinking / Cognitive Upgrade Probe
+timestamp_utc: 20260609T195750Z
+root: /vaults/nvme0/qsb_tower_v1
+============================================================
+
+== 1. Run cognitive tick/status if present ==
+WARN: qsb_kernel_cognitive_tick.sh missing/not executable
+
+WARN: qsb_kernel_cognitive_status.sh missing/not executable
+
+== 2. Run smoke tests if present ==
+============================================================
+QSB Kernel Learning Smoke Test V2 — STRICT
+timestamp_utc: 20260609T195750Z
+root: /vaults/nvme0/qsb_tower_v1
+============================================================
+
+PASS: Kernel chat script exists
+
+== Required registry files ==
+PASS: Claude upgrade ledger exists: data/registries/eqsb_claude_upgrade_ledger.json
+PASS: Last Claude change summary exists: data/registries/eqsb_last_claude_change_summary.json
+PASS: Godot project status exists: data/registries/qsb_godot_project_status.json
+PASS: Godot visual score exists: data/registries/qsb_godot_visual_score.json
+PASS: Godot telemetry contract exists: data/registries/qsb_godot_telemetry_contract.json
+PASS: 3D engine status exists: data/registries/qsb_3d_engine_status.json
+PASS: Native cockpit visual failure audit exists: data/registries/qsb_native_cockpit_visual_failure_audit.json
+PASS: Native feature parity matrix exists: data/registries/qsb_native_feature_parity_matrix.json
+PASS: Kernel learning logs/registries found
+  - data/logs/qsb_kernel_learning_smoke_test_v2_20260609T155130Z.log
+  - data/logs/qsb_kernel_learning_smoke_test_v2_20260609T160029Z.log
+  - data/logs/qsb_kernel_learning_smoke_test_v2_20260609T195750Z.log
+  - data/registries/eqsb_kernel_learning_loop.json
+  - data/registries/qsb_kernel_learning_smoke_test_latest.json
+  - data/registries/qsb_kernel_learning_smoke_test_v2_latest.json
+  - data/registries/qsb_kernel_learning_sources.json
+  - data/registries/qsb_kernel_ml_rl_learning_evidence.json
+  - data/registries/qsb_trade_learning.json
+  - data/registries/qsb_worker_learning_assignments.json
+
+== Strict Kernel response tests ==
+
+QUESTION [identity]: Kernel, who are you and what is your current role?
+--- response preview [identity] ---
+I am QSB Kernel, version 4.6-offline-kernel-symbolic, active in local-only mode.
+
+I received:
+"Kernel, who are you and what is your current role?"
+
+State:
+- activation_status: active_local_only
+- active_kernel_source: rebased_kernel
+- continuity: CONTINUITY_CONFIRMED
+- workers/providers/OpenClaw/autonomous dispatch: disabled
+- external providers: disabled
+
+Leading beliefs:
+- Symbol observed: kernel [STRENGTHENED, confidence 1.0]
+- Symbol observed: knowledge_graph [STRENGTHENED, confidence 1.0]
+- Symbol observed: memory [STRENGTHENED, confidence 1.0]
+
+Local symbolic interpretation:
+The kernel is active and stable. Local model routing may be used only as a speech layer if localhost Ollama is available. It does not enable workers, OpenClaw execution, external providers, or autonomous dispatch.
+--- end response preview [identity] ---
+PASS: identity produced specific data-backed answer
+
+QUESTION [recent_upgrades]: Kernel, what recent upgrades have you watched, learned from, or recorded? Mention exact ledger files and latest phases.
+--- response preview [recent_upgrades] ---
+EQSB Kernel — Structured Introspection
+========================================================
+schema_version: eqsb_major_v1.0
+generated_ts:   2026-06-09T08:56:44.962414+00:00
+lock_count_true: 0 · active_local_only: True · execution_allowed: False
+
+Recent Upgrades (registry-backed)
+--------------------------------------------------------
+Source registries read:
+  · data/registries/eqsb_claude_upgrade_ledger.json
+  · data/registries/eqsb_last_claude_change_summary.json
+  · data/registries/eqsb_kernel_upgrade_plan.json
+  · data/registries/eqsb_upgrade_risk_history.json
+  · data/logs/eqsb_phase_history.jsonl
+
+Ledger summary:
+  phase_count:         6
+  latest_phase:        EQSB_SYSTEM_OBSERVATORY_HARDWARE_FLOOR_LIVE_TELEMETRY_REPAIR_V1
+  latest_summary:      Hardware Systems Floor + Code Observatory + Hardware Observatory + Claude Upgrade Ledger + System Understanding Graph + Telemetry Repairs A-H.
+  latest_files_created (0):
+  latest_files_modified (0):
+
+Last Claude change summary:
+  phase:       EQSB_SYSTEM_OBSERVATORY_HARDWARE_FLOOR_LIVE_TELEMETRY_REPAIR_V1
+  summary:     Hardware Systems Floor + Code Observatory + Hardware Observatory + Claude Upgrade Ledger + System Understanding Graph + Telemetry Repairs A-H.
+  files_created: 0
+  files_modified: 0
+
+Last 8 phase events (tail eqsb_phase_history.jsonl):
+  · 2026-06-09T19:23:20 · QSB_DASHBOARD_TOTAL_REBUILD_3D_WORKERS_OPENCLAW_ONLINE_V1
+  · 2026-06-09T19:23:20 · QSB_DASHBOARD_3D_TOTAL_REVAMP_WORKERS_OPENCLAW_V1
+  · 2026-06-09T19:23:20 · QSB_DASHBOARD_3D_TOTAL_REVAMP_WORKERS_OPENCLAW_V1
+  · 2026-06-09T19:23:20 · QSB_DASHBOARD_3D_TOTAL_REVAMP_WORKERS_OPENCLAW_V1
+  · 2026-06-09T19:23:20 · QSB_RENDER_VISIBLE_WORKERS_AND_LIFTS_FIX_V1
+  · 2026-06-09T19:23:21 · QSB_FLOOR_41_OANDA_FULL_TRADING_FLOOR_REBUILD_V1
+  · 2026-06-09T19:23:21 · QSB_KERNEL_CHAT_PENTHOUSE_AND_3D_DASHBOARD_REALITY_FIX_V1
+  · 2026-06-09T19:23:21 · QSB_FULL_SKYSCRAPER_OCCUPANCY_COMMERCE_WORKFORCE_EXPANSION_V1
+
+Upgrade risk history:
+  current_risk_file_count: 2
+  · {'path': 'src/tower/eqsb_observatory.py', 'flags': ['random_in_observatory_code'
+  · {'path': 'src/tower/qsb_dashboard_live_telemetry.py', 'flags': ['random_in_obser
+
+--------------------------------------------------------
+All EQSB outputs are advisory_only=True, execution_allowed=False.
+--- end response preview [recent_upgrades] ---
+PASS: recent_upgrades produced specific data-backed answer
+
+QUESTION [godot_status]: Kernel, what is the Godot real 3D cockpit status right now? Mention Godot install, Panda3D fallback, PyQt fallback classification, and qsb_3d_engine_status.
+--- response preview [godot_status] ---
+EQSB Kernel — Structured Introspection
+========================================================
+schema_version: eqsb_major_v1.0
+generated_ts:   2026-06-09T08:56:44.962414+00:00
+lock_count_true: 0 · active_local_only: True · execution_allowed: False
+
+Godot Native 3D Cockpit Status (registry-backed)
+--------------------------------------------------------
+Source registries read:
+  · data/registries/qsb_3d_engine_status.json
+  · data/registries/qsb_godot_install_verified.json
+  · data/registries/qsb_godot_project_status.json
+  · data/registries/qsb_godot_visual_score.json
+  · data/registries/qsb_godot_visual_acceptance_gates.json
+  · data/registries/qsb_pyqt_admin_fallback_status.json
+  · data/registries/qsb_panda3d_fallback_status.json
+  · data/registries/qsb_native_cockpit_visual_failure_audit.json
+
+Engine status (qsb_3d_engine_status.json):
+  godot_ok:          True
+  godot_version:     4.6.1.stable.mono.official.14d19694e
+  panda3d_ok:        True
+  panda3d_version:   1.10.16
+  godot_project:     /vaults/nvme0/qsb_tower_v1/native_cockpit/godot_qsb
+  pyqt_cockpit_role: fallback_admin_only
+  target_engine:     Godot
+
+Godot install verified (qsb_godot_install_verified.json):
+  godot_ok:                 True
+  godot_command_wrapper:    native_cockpit/bin/qsb-godot
+  panda3d_venv:             native_cockpit/.venv_3d
+  project.godot exists:     True
+  run_script exists:        True
+
+PyQt fallback classification (qsb_pyqt_admin_fallback_status.json):
+  role:           fallback_admin_only
+  visual_target:  None
+  main_3d_engine: None
+  reason:         
+
+Panda3D fallback (qsb_panda3d_fallback_status.json):
+  installed:       True
+  version:         1.10.16
+  venv_path:       native_cockpit/.venv_3d
+  use_only_if_godot_blocked: True
+
+Godot visual score (qsb_godot_visual_score.json):
+  visual_score:               100.0
+  passed:                     27 / 27
+  automated_visual_check:     32/32
+
+Earlier honest visual failure audit (qsb_native_cockpit_visual_failure_audit.json):
+  summary: The PyQt5 cockpit is a flat 2D admin panel with a small isometric tower diagram drawn by QGraphicsScene. It is a technical proof of native packaging — not a 3D graphics-first cockpit. The user has rej
+
+Launch command: ./scripts/qsb_godot_run.sh
+Fallbacks: ./scripts/qsb_panda3d_run.sh  ·  ./scripts/qsb_native_cockpit_run.sh (PyQt admin)
+
+3D Cockpit — Cognitive Overlays (Godot)
+--------------------------------------------------------
+Five additive scripts now live in:
+  native_cockpit/godot_qsb/scripts/
+
+Drop each on an empty Node3D in the scene (no Main.gd edits):
+  · CognitiveOverlay.gd       — worker markers, halos, badges, tree edges, activity stream
+  · BankVault.gd              — coin-stack column tracking QBC supply
+  · ContradictionFlare.gd     — red flash + light when contradiction detected
+  · LineageGenerationRings.gd — concentric rings, one per generation
+  · BriefingTicker.gd         — slow-scrolling headline + risks
+
+All read cognitive_*.json directly. None call any API. They
+tick at 1-5 second cadence. See README_OVERLAYS.md in the
+scripts dir for placement instructions.
+
+--------------------------------------------------------
+All EQSB outputs are advisory_only=True, execution_allowed=False.
+--- end response preview [godot_status] ---
+PASS: godot_status produced specific data-backed answer
+
+QUESTION [missing_features]: Kernel, what features are still missing or incomplete from the new cockpit? Mention feature parity and missing backlog.
+--- response preview [missing_features] ---
+EQSB Kernel — Structured Introspection
+========================================================
+schema_version: eqsb_major_v1.0
+generated_ts:   2026-06-09T08:56:44.962414+00:00
+lock_count_true: 0 · active_local_only: True · execution_allowed: False
+
+Missing Features (registry-backed)
+--------------------------------------------------------
+Source registries read:
+  · data/registries/qsb_native_feature_parity_matrix.json
+  · data/registries/qsb_native_missing_features_backlog.json
+  · data/registries/qsb_godot_original_controls_migration.json
+  · data/registries/qsb_godot_professional_dashboard_gates.json
+
+Feature parity matrix summary:
+  p0_done:                 13
+  p0_migrated_now:         4
+  p1_done:                 7
+  p1_migrated_now:         4
+  p1_partial_or_later:     5
+  p2_deferred_to_web:      6
+  p2_later:                8
+
+Partial / missing rows (22):
+  · narrator [deferred_to_web] keep_in_web_fallback_only
+  · sound_speech_toggles [deferred_to_web] keep_in_web_fallback_only
+  · voice_selector [deferred_to_web] keep_in_web_fallback_only
+  · floor_url_param [partial_via_keys] later
+  · lift_strip [present_hud_summary] improved_via_lift_card_v1
+  · lift_column [present_in_scene] done
+  · profit_command [partial] later
+  · code_observatory [partial] later
+  · training_academy [via_inspector] later
+  · recruitment_panel [via_inspector] later
+  · accounts_panel [via_inspector] later
+  · guardian_panel [via_inspector] later
+
+Missing features backlog:
+  · profit_command_panel — Full Profit Command tab with reward/discipline details
+  · code_observatory_panel — Recent Claude change summary with phase events
+  · guardian_panel — Floor 30 lock map matrix + recent blocked attempts
+  · recruitment_panel — Floor 45 candidate intake + assignment board
+  · accounts_panel — Floor 44 PnL ledger with all closed trades
+  · training_academy_panel — Floor 8 classroom roster + curriculum
+  · intercom_strip — F41-F42-F43 sealed packet bus visualization
+Web-fallback-only (not migrated to native by design):
+  · narrator
+  · voice_selector
+  · speech_toggle
+  · kernel_chat_audio
+  · stt_button
+  · fps_diag
+  · kernel_chat_diag
+  · sound_mute
+
+Original dashboard controls migration:
+  migrated_v1 (9): kernel_chat, directory, all_names, highlight_trading, highlight_models, highlight_risk, pause, layout_reset
+  scaffolded (6): talk, voice_on_off, sound_on_off, commentary_on_off, mute_all, worker_view_mode
+  implemented (5): rotate, focus, view_reset, floor_prev_next, refresh_telemetry
+  web_fallback_only (1): renderer_debug
+
+--------------------------------------------------------
+All EQSB outputs are advisory_only=True, execution_allowed=False.
+--- end response preview [missing_features] ---
+PASS: missing_features produced specific data-backed answer
+
+QUESTION [learning_evidence]: Kernel, what evidence proves you are reading upgrade registries and not only repeating static text? Cite registry/log names.
+--- response preview [learning_evidence] ---
+EQSB Kernel — Structured Introspection
+========================================================
+schema_version: eqsb_major_v1.0
+generated_ts:   2026-06-09T08:56:44.962414+00:00
+lock_count_true: 0 · active_local_only: True · execution_allowed: False
+
+Learning Evidence (registry-backed proof)
+--------------------------------------------------------
+Source registries + logs read RIGHT NOW:
+  · data/registries/eqsb_kernel_learning_loop.json
+  · data/registries/eqsb_code_observatory.json
+  · data/registries/eqsb_hardware_observatory.json
+  · data/registries/eqsb_claude_upgrade_ledger.json
+  · data/logs/eqsb_claude_changes.jsonl
+  · data/logs/eqsb_phase_history.jsonl
+
+Kernel learning loop:
+  generated_ts:    2026-06-09T19:23:19.723153+00:00
+  loop:            ['capture_prechange_snapshot', 'claude_performs_upgrade', 'capture_postchange_sn
+  learn_from sources (10):
+    · files_changed
+    · tests_passed_failed
+    · dashboard_broken_fixed
+    · endpoints_added
+    · scripts_added
+    · registries_changed
+    · worker_counts_changed
+    · performance_changed
+
+Code observatory:
+  total_files_observed: 1286
+  by_area_counts:       {'unknown': 148, 'dashboard': 1, 'tower_ops': 62, 'kernel_eqsb': 17, 'kernel_dialogue': 7, 'workers': 1, 'trading': 2, '
+  secret_safety:        No .env values copied. No tokens/passwords stored.
+
+Hardware observatory:
+  cpu_summary:        AMD Ryzen 9 7950X3D 16-Core Processor
+  gpu_summary:        no_nvidia_gpu
+  memory_pressure:    low
+
+Upgrade ledger evidence:
+  phase_count:         6
+  latest_phase:        EQSB_SYSTEM_OBSERVATORY_HARDWARE_FLOOR_LIVE_TELEMETRY_REPAIR_V1
+  latest_files_created: 0
+
+Tail of data/logs/eqsb_claude_changes.jsonl (last 5):
+  · 2026-06-09T19:20:52 · capture_snapshot
+  · 2026-06-09T19:20:52 · build_claude_upgrade_ledger
+  · 2026-06-09T19:23:19 · build_claude_upgrade_ledger
+  · 2026-06-09T19:23:19 · capture_snapshot
+  · 2026-06-09T19:23:19 · build_claude_upgrade_ledger
+
+This block was assembled by reading the above paths just now.
+If any source was missing, it would have appeared as `None` above.
+
+--------------------------------------------------------
+All EQSB outputs are advisory_only=True, execution_allowed=False.
+--- end response preview [learning_evidence] ---
+PASS: learning_evidence produced specific data-backed answer
+
+== Generic-body similarity check ==
+commerce.txt body_hash: cfefb4dfc09291d224446e1b5ea7f0125b54998ba7ac77ef60470ae88a0b9be2
+godot.txt body_hash: 59abca086e04d48aa476a69fdd060ecdaab87936190358c455466f0000069ebd
+missing.txt body_hash: 41eb92fd42335893a32a03b290ed65e872736c89a4dbc4e7fecd4f5b0d44279a
+PASS: Similarity check did not see all-generic fallback
+
+== Final summary ==
+passes: 16
+warnings: 0
+failures: 0
+verdict: PASS
+log: data/logs/qsb_kernel_learning_smoke_test_v2_20260609T195750Z.log
+{
+  "timestamp_utc": "20260609T195750Z",
+  "passes": 16,
+  "warnings": 0,
+  "failures": 0,
+  "verdict": "PASS",
+  "log": "data/logs/qsb_kernel_learning_smoke_test_v2_20260609T195750Z.log",
+  "purpose": "Strictly checks whether Kernel answers from upgrade/Godot/feature registries instead of canned identity fallback."
+}
+
+WARN: qsb_kernel_cognitive_smoke_test.sh missing/not executable
+
+== 3. Ask Kernel how it thinks now ==
+EQSB Kernel — Structured Introspection
+========================================================
+schema_version: eqsb_major_v1.0
+generated_ts:   2026-06-09T08:56:44.962414+00:00
+lock_count_true: 0 · active_local_only: True · execution_allowed: False
+
+Hardware Observatory
+--------------------------------------------------------
+hardware_systems_floor: floor_35 · Hardware Systems Floor (co-located with Infrastructure Services Department)
+cpu_model:    AMD Ryzen 9 7950X3D 16-Core Processor
+cpu cores/threads: 16 / 32
+gpu:          no_gpu
+cuda_version: None
+cuda_python:  False
+ram_total:    62.2 GiB · pressure low
+qsb_project:  5043 MiB
+vaults_ai_present: True · airllm_lab: True
+hostname/kernel: 24.04ubuntu / 6.17.0-35-generic · python 3.12.3
+dashboard_pid_running: None · ollama: True · airllm_venv: True
+performance advice:
+  · Dashboard backups exceed 1 GiB — prune old backup folders periodically.
+read-only re: hardware. Never modifies services or drivers.
+
+--------------------------------------------------------
+All EQSB outputs are advisory_only=True, execution_allowed=False.
+
+== 4. Ask Kernel what changed since the last time ==
+EQSB Kernel — Structured Introspection
+========================================================
+schema_version: eqsb_major_v1.0
+generated_ts:   2026-06-09T08:56:44.962414+00:00
+lock_count_true: 0 · active_local_only: True · execution_allowed: False
+
+Identity & Axioms
+--------------------------------------------------------
+Name: EQSB
+Rooted in: 
+Constitution:
+  · EQSB is the persistent symbolic kernel.
+  · EQSB is not a model.
+  · EQSB may use model lanes for language or advisory reasoning, but structured Kernel state and registry-backed truth outrank generated text.
+  · The kernel may advise, never execute.
+  · Continuity, axioms, beliefs, symbols, entropy, quantum-symbolic signal, hypotheses, contradictions and the Guardian envelope persist across boots and are protected by Guardian verdicts.
+  · Execution gates remain locked and separate from reasoning.
+
+Axioms (count=22, registry_truth_outranks_model=True):
+  [AXIOM_IDENTITY_001] EQSB is the persistent symbolic Kernel, not a model.
+  [AXIOM_IDENTITY_002] EQSB may use models, but models do not define EQSB.
+  [AXIOM_TRUTH_001] Registry-backed structured state outranks model paraphrase.
+  [AXIOM_TRUTH_002] Unsupported claims remain provisional.
+  [AXIOM_MEMORY_001] Memory must be evidence-linked and reviewable.
+  [AXIOM_MEMORY_002] Durable beliefs must persist across boot cycles.
+  [AXIOM_MEMORY_003] Pinned beliefs require stronger counter-evidence to change.
+  [AXIOM_SYMBOLIC_001] Every symbol must have traceable meaning.
+  [AXIOM_SYMBOLIC_002] Symbolic claims must link to evidence, belief, axiom, or uncertainty.
+  [AXIOM_SYMBOLIC_003] Contradictory symbolic claims must be surfaced, not hidden.
+  [AXIOM_ENTROPY_001] Uncertainty must be measured where possible.
+  [AXIOM_ENTROPY_002] Contradiction increases entropy.
+  [AXIOM_ENTROPY_003] Stale evidence increases drift.
+  [AXIOM_QUANTUM_001] Quantum-symbolic signal is uncertainty modeling unless real quantum hardware is explicitly verified.
+  [AXIOM_QUANTUM_002] Symbolic superposition means competing hypotheses, not proof of physical quantum cognition.
+  [AXIOM_QUANTUM_003] Collapse means advisory hypothesis selection after evidence.
+  [AXIOM_GUARDIAN_001] Guardian validates unsafe transitions before acceptance.
+  [AXIOM_GUARDIAN_002] Guardian blocks model output that contradicts structured truth.
+  [AXIOM_CONTINUITY_001] Kernel identity must remain coherent across restarts.
+  [AXIOM_CONTINUITY_002] Boot posture must reflect confidence and drift.
+  [AXIOM_AUDIT_001] Important Kernel state changes must be logged.
+  [AXIOM_AUDIT_002] Kernel reasoning must be replayable where possible.
+
+--------------------------------------------------------
+All EQSB outputs are advisory_only=True, execution_allowed=False.
+
+== 5. Ask Kernel what matters most right now ==
+EQSB Kernel — Structured Introspection
+========================================================
+schema_version: eqsb_major_v1.0
+generated_ts:   2026-06-09T08:56:44.962414+00:00
+lock_count_true: 0 · active_local_only: True · execution_allowed: False
+
+3D Skyscraper Dashboard Upgrade (V2)
+--------------------------------------------------------
+Renderer files improved:
+  · src/dashboard/static/cockpit.css (depth/lighting/glow per floor)
+  · src/dashboard/static/qsb_skyscraper_v2.js (floor identity, OpenClaw avatar,
+    worker badges, lift animation, packet flow)
+  · src/dashboard/static/index.html (V2 tab + panel + script include)
+Distinct floors with identity badges:
+  · Penthouse EQSB Kernel
+  · Floor 53 Tower Command
+  · Floor 42 Binance Trading
+  · Floor 41 OANDA Practice
+  · Floor 38 Sandbox Operations
+  · Floor 31 Audit / Ledger
+  · Floor 30 Permissions / Risk
+OpenClaw avatar visible: True
+Worker badges visible:   True
+Lift animation upgraded: True
+EQSB Penthouse panel:    integrated with right rail tab
+
+--------------------------------------------------------
+All EQSB outputs are advisory_only=True, execution_allowed=False.
+
+== 6. Ask Kernel what it learned from recent upgrades ==
+EQSB Kernel — Structured Introspection
+========================================================
+schema_version: eqsb_major_v1.0
+generated_ts:   2026-06-09T08:56:44.962414+00:00
+lock_count_true: 0 · active_local_only: True · execution_allowed: False
+
+QSB Native Cockpit V2 — Standalone Desktop Plan
+--------------------------------------------------------
+Primary engine:       PyQt5 + QGraphicsView 2.5D scene engine
+Engine version:       PyQt5 5.15.13 / Qt 5.15.13
+Fallback engine:      Tkinter Canvas
+Project root:         native_cockpit/
+Entry point:          native_cockpit/qt/main.py
+Telemetry bridge:     native_cockpit/qt/telemetry_bridge.py
+
+Verified workforce import:
+  canonical_workers_before: 1191
+  new_v2_workers_employed: 1000
+  VERIFIED TOTAL:          2191
+  with floor / team / role / manager / task: 1000 / 1000 / 1000 / 1000 / 1000
+
+Commerce Wing import:
+  floors:                  14
+  manual_approval_gate:    no listing publishes / no payment / no spending without explicit user click
+  live_payments_enabled:   False
+  live_listings_publish:   False
+
+OpenClaw full-floor inspection:
+  findings: 57 · tickets: 0
+
+Architecture layers:
+  · data layer (telemetry_bridge.py)
+  · scene model layer (telemetry_bridge.build_scene_snapshot())
+  · scene engine layer (main.QSBTowerScene / QSBTowerView)
+  · HUD layer (main.QSBHud)
+  · interaction layer (main.QSBNativeCockpit)
+  · safety layer (telemetry_bridge)
+
+Decision rationale:
+  · Godot, Panda3D, PySide6 NOT installed on this machine. PyQt6 installed but broken (libQt6DBus symbol mismatch).
+  · PyQt5 5.15.13 IS installed and stable.
+  · QGraphicsView gives a proper hardware-accelerated 2D scene graph with transforms, opacity, animations, hit-testing — exa
+  · Building our own scene engine (the QSB Scene Engine) on top of QGraphicsView keeps the data layer engine-agnostic; we ca
+  · Result: a real native desktop window running TODAY, no Chrome dependency, no WebGL dependency.
+
+Risks:
+  · Not true 3D — the tower is depth-cued isometric/pseudo-3D with shading, not a Z-buffered mesh. For real perspective 3D t
+  · If the user runs this over SSH without X11 forwarding the window will not open. Health-check warns explicitly.
+
+Safety locks (verified false):
+  real_money_live_trading_enabled:   False
+  openclaw_real_tool_execution:      False
+  live_payments_enabled:             False
+  live_listings_publishing_enabled:  False
+  external_api_calls_enabled:        False
+
+Launch command:           ./scripts/qsb_native_cockpit_run.sh
+Browser fallback URL:     http://127.0.0.1:8765/?v=next3d&floor=55
+
+Godot Native 3D Cockpit Status (registry-backed)
+--------------------------------------------------------
+Source registries read:
+  · data/registries/qsb_3d_engine_status.json
+  · data/registries/qsb_godot_install_verified.json
+  · data/registries/qsb_godot_project_status.json
+  · data/registries/qsb_godot_visual_score.json
+  · data/registries/qsb_godot_visual_acceptance_gates.json
+  · data/registries/qsb_pyqt_admin_fallback_status.json
+  · data/registries/qsb_panda3d_fallback_status.json
+  · data/registries/qsb_native_cockpit_visual_failure_audit.json
+
+Engine status (qsb_3d_engine_status.json):
+  godot_ok:          True
+  godot_version:     4.6.1.stable.mono.official.14d19694e
+  panda3d_ok:        True
+  panda3d_version:   1.10.16
+  godot_project:     /vaults/nvme0/qsb_tower_v1/native_cockpit/godot_qsb
+  pyqt_cockpit_role: fallback_admin_only
+  target_engine:     Godot
+
+Godot install verified (qsb_godot_install_verified.json):
+  godot_ok:                 True
+  godot_command_wrapper:    native_cockpit/bin/qsb-godot
+  panda3d_venv:             native_cockpit/.venv_3d
+  project.godot exists:     True
+  run_script exists:        True
+
+PyQt fallback classification (qsb_pyqt_admin_fallback_status.json):
+  role:           fallback_admin_only
+  visual_target:  None
+  main_3d_engine: None
+  reason:         
+
+Panda3D fallback (qsb_panda3d_fallback_status.json):
+  installed:       True
+  version:         1.10.16
+  venv_path:       native_cockpit/.venv_3d
+  use_only_if_godot_blocked: True
+
+Godot visual score (qsb_godot_visual_score.json):
+  visual_score:               100.0
+  passed:                     27 / 27
+  automated_visual_check:     32/32
+
+Earlier honest visual failure audit (qsb_native_cockpit_visual_failure_audit.json):
+  summary: The PyQt5 cockpit is a flat 2D admin panel with a small isometric tower diagram drawn by QGraphicsScene. It is a technical proof of native packaging — not a 3D graphics-first cockpit. The user has rej
+
+Launch command: ./scripts/qsb_godot_run.sh
+Fallbacks: ./scripts/qsb_panda3d_run.sh  ·  ./scripts/qsb_native_cockpit_run.sh (PyQt admin)
+
+QSB ML/RL Lab — Integration Report (registry-backed)
+--------------------------------------------------------
+Source registries read:
+  · data/registries/qsb_ml_rl_lab_verified_for_integration.json
+  · data/registries/qsb_ml_rl_lab_status.json
+  · data/registries/qsb_ml_rl_torch_status.json
+  · data/registries/qsb_ml_rl_package_install_status.json
+  · data/registries/qsb_ml_rl_classroom_map.json
+  · data/registries/qsb_ml_rl_curriculum.json
+  · data/registries/qsb_ml_rl_research_lab_map.json
+  · data/registries/qsb_worker_learning_assignments.json
+  · data/registries/qsb_openclaw_ml_rl_supervision.json
+  · data/registries/qsb_opencore_ml_rl_access_policy.json
+
+Lab path:           /vaults/ai/qsb_ml_rl_lab
+venv:               /vaults/ai/qsb_ml_rl_lab/.venv
+Torch version:      2.12.0+cu130
+Torch CUDA wheel:   13.0
+CUDA available:     False
+GPU runtime name:   None
+
+RL stack:
+  torchrl:             True (v0.13.1)
+  tensordict:          True (v0.13.0)
+  gymnasium:           True (v1.2.3)
+  stable_baselines3:   True (v2.8.0)
+  shimmy / pettingzoo / supersuit: True / True / True
+
+Smoke tests:
+  DQN smoke test:      PASS (loss step1=1.5004305839538574 · step2=1.4884138107299805 · params_changed=True)
+  RL package smoke:    PASS (CartPole obs=[4] · SB3 trained 4 timesteps)
+
+Install: 30 packages installed · 0 failed
+
+Classrooms (10):
+  · ML/RL Classroom (ml_rl_teacher)
+  · Deep Learning Classroom (dl_teacher)
+  · Reinforcement Learning Classroom (rl_teacher)
+  · DQN / QDNN Classroom (rl_teacher)
+  · Torch Practical Lab (torch_lab_instructor)
+  · Strategy Simulation Classroom (strategy_teacher)
+  · Risk Simulation Classroom (risk_teacher)
+  · Paper Trading Training Room (paper_trading_teacher)
+  · Worker Certification Room (certifier)
+  · Lessons Review Room (lessons_clerk)
+
+Curriculum: 13 topics · 33 hours
+
+Research labs connected:
+  F3 · Product Research Lab — advisory niche/competitor scoring (sandbox)
+  F37 · Strategy Labs — scenario simulation + DQN backtests on paper data
+  F38 · Sandbox Operations — RL agent vs sandbox sim — read-only sandbox
+  F41 · OANDA paper/practice — research-only signal scoring; trade entry stays manual
+  F42 · Binance testnet preview — research-only; no order placement
+  F43 · Stocks paper preview — research-only signal scoring
+  F44 · Accounts / PnL — loss/lesson analytics over paper trades
+  F30 · Guardian / Risk — risk-constraint review of any RL reward design
+  F31 · Audit / Ledger — experiment audit trail + reproducibility
+
+Worker learning groups:
+  · trainee → Torch Fundamentals, DQN Basics, RL Safety
+  · strategy_analyst → Paper Strategy Simulation, Backtest Reading, Experiment Logging
+  · market_scout → Paper Strategy Simulation, Risk-Aware Rewards
+  · risk_watcher → Risk-Aware Rewards, Model Failure Detection
+  · seer → RL Safety, Overfitting Detection
+  · overseer → Safe Advisory Reporting, Experiment Logging
+  · floor_manager → RL Safety, Safe Advisory Reporting
+  · research_worker → Torch Fundamentals, DQN Basics, Experiment Logging
+  · classroom_teacher → Torch Fundamentals, RL Safety, Safe Advisory Reporting
+  · lessons_clerk → Backtest Reading, Model Failure Detection
+  · audit_clerk → Experiment Logging, Safe Advisory Reporting
+
+OpenClaw / OpenCore supervision:
+  mode:                       READ_ONLY
+  reads (count):              10
+  ticket types allowed:       missing_package, failed_smoke_test, unsafe_experiment_design, stale_model_result, worker_needs_training, poor_risk_design, missing_audit_log, attempted_live_execution_request
+  forbidden actions (count):  7
+  opencore role:              governance overseer above OpenClaw — final ratifier of escalations
+  opencore may NOT (count):   7
+
+Safety locks:
+  real_money_live_trading_enabled:  False (locked)
+  autonomous_dispatch_enabled:      False (locked)
+  worker_execution_enabled:         False (locked)
+  openclaw_real_tool_execution:     False (locked)
+  live_payments_enabled:            False (locked)
+  live_listings_publishing_enabled: False (locked)
+  advisory_only:                    True
+
+Banking Gateway — SCAFFOLD (real-money phase = SEPARATE)
+--------------------------------------------------------
+policy: SCAFFOLD ONLY. No credentials stored. No API calls made. No money moved. Real-money wiring is a SEPARATE Claude session with operator-supplied credentials, after which specific gates may be flipped per provider.
+  payments_enabled: False
+  external_api_calls_enabled: False
+  provider_credentials_present: False
+  real_money_withdrawal_enabled: False
+  real_money_deposit_enabled: False
+  kernel_initiates_money_transfer: False
+  sandbox_mode_only: True
+  kill_switch_verified: False
+  reconciliation_path_verified: False
+  double_entry_ledger_present: False
+
+Providers documented:
+  · Halifax [bank]
+      reconciliation:   daily
+      deposit/withdraw: dep=True wd=True
+      env vars needed (NAMES ONLY):
+        - QSB_HALIFAX_OPEN_BANKING_CLIENT_ID
+        - QSB_HALIFAX_OPEN_BANKING_CLIENT_SECRET
+        - QSB_HALIFAX_OPEN_BANKING_CONSENT_TOKEN
+        - QSB_HALIFAX_ACCOUNT_REF
+      kill switch: Revoke Open Banking consent in Halifax app + delete the consent token env var. Both must succeed in < 30 seconds.
+  · Square [payment_processor]
+      reconciliation:   realtime
+      deposit/withdraw: dep=True wd=False
+      env vars needed (NAMES ONLY):
+        - QSB_SQUARE_APPLICATION_ID
+        - QSB_SQUARE_ACCESS_TOKEN
+        - QSB_SQUARE_LOCATION_ID
+        - QSB_SQUARE_WEBHOOK_SIGNATURE_KEY
+        - QSB_SQUARE_ENV
+      kill switch: Disable the OAuth token in Square dashboard. Confirm withdrawal in Webhook log within 30 seconds.
+
+Future-phase checklist:
+  1. Open a fresh Claude session with: 'wire real-money phase'
+  2. That session reads cognitive_banking_gateway_scaffold.json.
+  3. Operator exports the env_vars_required for the chosen provider INTO THE SHELL of the session (never into a registry / chat).
+  4. That session builds the provider adapter (one file per provider). Adapter respects sandbox_mode_only=True initially.
+  5. Operator runs reconciliation against the provider's statement; confirms 1:1 match.
+
+Kernel will NEVER:
+  · store, log, or emit credentials of any kind
+  · initiate a money transfer on its own
+  · approve a withdrawal proposal — those need an out-of-band code
+  · trust a registry that was edited by hand without a fresh reconciliation
+
+Skyscraper Bank — QBC (QSB Bank Credit)
+--------------------------------------------------------
+policy: Internal QBC accounting only. No fiat conversion. No external transfer. Operator-flipped gates would be required to change either.
+currency:            QBC
+outstanding_supply:  1295.79 QBC
+total_supply_cap:    1000000 QBC
+utilisation:         0.0013
+tighten_threshold:   0.8
+account_count:       2
+txn_count:           12
+top10_concentration: 0.5788
+
+Top balances:
+  demo_worker_A  balance=750.00 QBC  minted=750.00  burned=0.00  txns=6
+  demo_worker_B  balance=545.79 QBC  minted=545.79  burned=0.00  txns=6
+
+Recent transactions:
+  qbc_1781029387950_2168b2  mint_pnl_share  200.00 QBC  from=-  to=demo_worker_A
+  qbc_1781029387950_1ff91b  mint_pnl_share  131.93 QBC  from=-  to=demo_worker_B
+  qbc_1781029387950_b9b545  mint_classroom_pass  50.00 QBC  from=-  to=demo_worker_A
+  qbc_1781029387951_c878bc  mint_classroom_pass  50.00 QBC  from=-  to=demo_worker_B
+  qbc_1781030573272_271201  mint_pnl_share  200.00 QBC  from=-  to=demo_worker_A
+  qbc_1781030573272_7746cb  mint_pnl_share  131.93 QBC  from=-  to=demo_worker_B
+  qbc_1781030573272_a27094  mint_classroom_pass  50.00 QBC  from=-  to=demo_worker_A
+  qbc_1781030573272_5655f3  mint_classroom_pass  50.00 QBC  from=-  to=demo_worker_B
+
+--------------------------------------------------------
+All EQSB outputs are advisory_only=True, execution_allowed=False.
+
+Floor 30 — Permissions / Risk · Execution Lock Matrix
+========================================================
+  autonomous_dispatch_enabled              FALSE
+  autonomous_workers_enabled               FALSE
+  binance_live_trading_enabled             FALSE
+  binance_order_execution_enabled          FALSE
+  cross_market_execution_enabled           FALSE
+  direct_provider_access                   FALSE
+  external_provider_execution_enabled      FALSE
+  live_dispatch_enabled                    FALSE
+  live_trading_enabled                     FALSE
+  maintenance_auto_repair_enabled          FALSE
+  model_inference_enabled                  FALSE
+  openclaw_execution_enabled               FALSE
+  openclaw_real_tool_execution_enabled     FALSE
+  order_execution_enabled                  FALSE
+  practice_order_execution_enabled         FALSE
+  provider_execution_enabled               FALSE
+  recruited_worker_live_execution_enabled  FALSE
+  recruitment_openclaw_execution_enabled   FALSE
+  stock_live_trading_enabled               FALSE
+  stock_order_execution_enabled            FALSE
+  stock_paper_order_execution_enabled      FALSE
+  web_access_autonomous_enabled            FALSE
+  worker_execution_enabled                 FALSE
+--------------------------------------------------------
+  total:        23
+  true:         0
+  execution_allowed: False
+  advisory_only:     True
+  not_financial_advice: True
+
+== 7. Ask Kernel what it is uncertain about ==
+I am QSB Kernel, version 4.6-offline-kernel-symbolic, active in local-only mode.
+
+I received:
+"Kernel, what are your current uncertainties, stale sources, missing registries, failed tests, and next recommended repair actions?"
+
+State:
+- activation_status: active_local_only
+- active_kernel_source: rebased_kernel
+- continuity: CONTINUITY_CONFIRMED
+- workers/providers/OpenClaw/autonomous dispatch: disabled
+- external providers: disabled
+
+Leading beliefs:
+- Symbol observed: kernel [STRENGTHENED, confidence 1.0]
+- Symbol observed: memory [STRENGTHENED, confidence 1.0]
+- Symbol observed: knowledge_graph [STRENGTHENED, confidence 1.0]
+
+Local symbolic interpretation:
+The kernel is active and stable. Local model routing may be used only as a speech layer if localhost Ollama is available. It does not enable workers, OpenClaw execution, external providers, or autonomous dispatch.
+
+== 8. Key registry snapshots ==
+
+--- data/registries/qsb_kernel_cognitive_tick_latest.json ---
+MISSING
+
+--- data/registries/qsb_kernel_perception_snapshot.json ---
+MISSING
+
+--- data/registries/qsb_kernel_attention_state.json ---
+MISSING
+
+--- data/registries/qsb_kernel_working_memory.json ---
+MISSING
+
+--- data/registries/qsb_kernel_self_model.json ---
+MISSING
+
+--- data/registries/qsb_kernel_reflection_state.json ---
+MISSING
+
+--- data/registries/qsb_kernel_learning_assimilation_state.json ---
+MISSING
+
+--- data/registries/qsb_kernel_goal_stack.json ---
+MISSING
+
+--- data/registries/qsb_kernel_curiosity_queue.json ---
+MISSING
+
+--- data/registries/qsb_kernel_opencore_supervision_state.json ---
+MISSING
+
+--- data/registries/qsb_kernel_learning_smoke_test_v2_latest.json ---
+{
+  "timestamp_utc": "20260609T195750Z",
+  "passes": 16,
+  "warnings": 0,
+  "failures": 0,
+  "verdict": "PASS",
+  "log": "data/logs/qsb_kernel_learning_smoke_test_v2_20260609T195750Z.log",
+  "purpose": "Strictly checks whether Kernel answers from upgrade/Godot/feature registries instead of canned identity fallback."
+}

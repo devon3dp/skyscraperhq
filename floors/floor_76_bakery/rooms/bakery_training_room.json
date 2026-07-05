@@ -1,0 +1,34 @@
+{
+  "room_id": "bakery_training_room",
+  "name": "Training Room",
+  "category": "seating",
+  "purpose": "Provide training sessions for new bakers.",
+  "concierge_blurb": "Learn the art of baking from our experts.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_right",
+    "offset_x": 8.0,
+    "offset_z": -4.5,
+    "footprint_m": [
+      12,
+      9
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "chair_set",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Training",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_76"
+}

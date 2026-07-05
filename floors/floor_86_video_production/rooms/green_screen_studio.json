@@ -1,0 +1,34 @@
+{
+  "room_id": "green_screen_studio",
+  "name": "Green Screen Studio",
+  "category": "workshop",
+  "purpose": "This room is for recording green screen videos and live streams.",
+  "concierge_blurb": "Use the green screen to create captivating video content.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_right",
+    "offset_x": 8.0,
+    "offset_z": -2.5,
+    "footprint_m": [
+      14.0,
+      12.0
+    ],
+    "height_m": 3.0
+  },
+  "render": {
+    "primary_prop": "plinth",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Green Screen",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/green_screen_usage.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_86"
+}

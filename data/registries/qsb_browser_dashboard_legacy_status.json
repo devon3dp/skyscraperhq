@@ -1,0 +1,21 @@
+{
+  "ok": true,
+  "kind": "qsb_browser_dashboard_legacy_status",
+  "phase": "QSB_GODOT_NATIVE_COCKPIT_PRIMARY_GRAPHICS_ENGINE_SWITCH_V1",
+  "generated_ts": "2026-06-09T20:32:00+00:00",
+  "role": "legacy_fallback_dashboard",
+  "target": false,
+  "url": "http://127.0.0.1:8765/?v=unified",
+  "still_running": true,
+  "still_useful_for": [
+    "telemetry source (Godot polls /api/native_cockpit/state and /api/unified)",
+    "admin-style HTML view when Godot is not available",
+    "kernel chat backend at /api/kernel_chat"
+  ],
+  "do_not_use_as_visual_success": true,
+  "warning": "Improving the browser dashboard does NOT count as cockpit success in this phase. Success means the Godot native window improves.",
+  "notes_to_future_phases": [
+    "Browser dashboard may continue to receive bug fixes (not blocked).",
+    "But success metrics for cockpit professionalism live in qsb_godot_primary_professional_score.json, not here."
+  ]
+}

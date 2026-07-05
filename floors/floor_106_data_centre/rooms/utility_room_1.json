@@ -1,0 +1,31 @@
+{
+  "room_id": "utility_room_1",
+  "name": "Utility Room",
+  "category": "security",
+  "purpose": "Stores backup equipment and supplies.",
+  "concierge_blurb": "A storage area for essential maintenance tools and parts.",
+  "current_state": "already_exists",
+  "visitor_open": false,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "right_wall",
+    "offset_x": 8.0,
+    "offset_z": -1.5,
+    "footprint_m": [
+      2,
+      4
+    ],
+    "height_m": 0.7
+  },
+  "render": {
+    "primary_prop": "archive_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Utility Shelves",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_106"
+}

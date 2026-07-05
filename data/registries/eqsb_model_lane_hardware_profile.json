@@ -1,0 +1,39 @@
+{
+  "ok": true,
+  "kind": "eqsb_model_lane_hardware_profile",
+  "generated_ts": "2026-06-30T13:46:34.317156+00:00",
+  "lanes": [
+    {
+      "lane_id": "lane_local_ollama",
+      "supports_local_inference": true,
+      "needs_gpu_for_acceptable_latency": false,
+      "comment": "llama3.2:latest runs comfortably on CPU."
+    },
+    {
+      "lane_id": "lane_local_llama",
+      "supports_local_inference": true,
+      "needs_gpu_for_acceptable_latency": false,
+      "comment": "Bigger Llama variants benefit from GPU VRAM."
+    },
+    {
+      "lane_id": "lane_airllm_chamber",
+      "supports_local_inference": false,
+      "isolation": "/vaults/ai/airllm_lab/.venv",
+      "comment": "AirLLM advisory chamber, isolated venv. Advisory only."
+    },
+    {
+      "lane_id": "lane_future_locked_provider",
+      "supports_local_inference": false,
+      "comment": "External provider lane \u2014 remains locked."
+    }
+  ],
+  "gpu_available": true,
+  "cuda_available_python": false,
+  "memory_pressure": "low",
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

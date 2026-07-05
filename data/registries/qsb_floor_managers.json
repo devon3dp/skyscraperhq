@@ -1,0 +1,561 @@
+{
+  "ok": true,
+  "kind": "qsb_floor_managers",
+  "ts": "2026-06-10T22:45:52Z",
+  "count": 55,
+  "managers": [
+    {
+      "floor": "F01",
+      "floor_name": "Public Lobby",
+      "manager_name": "Mara",
+      "title": "Floor Manager",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f01.manager.mara",
+      "status": "active",
+      "advisory_only": true
+    },
+    {
+      "floor": "F02",
+      "floor_name": "Community Wall",
+      "manager_name": "Theo",
+      "title": "Floor Manager",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f02.manager.theo",
+      "status": "active",
+      "advisory_only": true
+    },
+    {
+      "floor": "F03",
+      "floor_name": "Idea Board",
+      "manager_name": "Anya",
+      "title": "Floor Manager",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f03.manager.anya",
+      "status": "active",
+      "advisory_only": true
+    },
+    {
+      "floor": "F04",
+      "floor_name": "Wellness Garden",
+      "manager_name": "Levi",
+      "title": "Floor Manager",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f04.manager.levi",
+      "status": "active",
+      "advisory_only": true
+    },
+    {
+      "floor": "F05",
+      "floor_name": "Relaxation Pods",
+      "manager_name": "Cleo",
+      "title": "Floor Manager",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f05.manager.cleo",
+      "status": "active",
+      "advisory_only": true
+    },
+    {
+      "floor": "F06",
+      "floor_name": "Agora Forum",
+      "manager_name": "Idris",
+      "title": "Floor Manager",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f06.manager.idris",
+      "status": "active",
+      "advisory_only": true
+    },
+    {
+      "floor": "F07",
+      "floor_name": "Collaboration Zone",
+      "manager_name": "Nyla",
+      "title": "Floor Manager",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f07.manager.nyla",
+      "status": "active",
+      "advisory_only": true
+    },
+    {
+      "floor": "F08",
+      "floor_name": "Classroom Floor",
+      "manager_name": "Ezra",
+      "title": "Floor Manager",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f08.manager.ezra",
+      "status": "active",
+      "advisory_only": true
+    },
+    {
+      "floor": "F09",
+      "floor_name": "Innovation Room",
+      "manager_name": "Sasha",
+      "title": "Floor Manager",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f09.manager.sasha",
+      "status": "active",
+      "advisory_only": true
+    },
+    {
+      "floor": "F10",
+      "floor_name": "VR Cave",
+      "manager_name": "Jonas",
+      "title": "Floor Manager",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f10.manager.jonas",
+      "status": "active",
+      "advisory_only": true
+    },
+    {
+      "floor": "F11",
+      "floor_name": "AI Art Studio",
+      "manager_name": "Iris",
+      "title": "Floor Manager",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f11.manager.iris",
+      "status": "active",
+      "advisory_only": true
+    },
+    {
+      "floor": "F12",
+      "floor_name": "Meditation Zone",
+      "manager_name": "Kane",
+      "title": "Floor Manager",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f12.manager.kane",
+      "status": "active",
+      "advisory_only": true
+    },
+    {
+      "floor": "F13",
+      "floor_name": "3D Printing Hub",
+      "manager_name": "Tara",
+      "title": "Floor Manager",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f13.manager.tara",
+      "status": "active",
+      "advisory_only": true
+    },
+    {
+      "floor": "F14",
+      "floor_name": "Banking Floor",
+      "manager_name": "Felix",
+      "title": "Floor Manager",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f14.manager.felix",
+      "status": "active",
+      "advisory_only": true
+    },
+    {
+      "floor": "F15",
+      "floor_name": "Greenhouse Atrium",
+      "manager_name": "Lina",
+      "title": "Floor Manager",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f15.manager.lina",
+      "status": "active",
+      "advisory_only": true,
+      "note_v17": "renamed from Wren (Wren is F47 resident)"
+    },
+    {
+      "floor": "F16",
+      "floor_name": "Workshop Studio",
+      "manager_name": "Adele",
+      "title": "Floor Manager",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f16.manager.adele",
+      "status": "active",
+      "advisory_only": true
+    },
+    {
+      "floor": "F17",
+      "floor_name": "Digital Art Gallery",
+      "manager_name": "Marius",
+      "title": "Floor Manager",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f17.manager.marius",
+      "status": "active",
+      "advisory_only": true
+    },
+    {
+      "floor": "F18",
+      "floor_name": "Sound Booths",
+      "manager_name": "Solene",
+      "title": "Floor Manager",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f18.manager.solene",
+      "status": "active",
+      "advisory_only": true
+    },
+    {
+      "floor": "F19",
+      "floor_name": "Movement Studio",
+      "manager_name": "Owen",
+      "title": "Floor Manager",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f19.manager.owen",
+      "status": "active",
+      "advisory_only": true
+    },
+    {
+      "floor": "F20",
+      "floor_name": "Sky Observatory",
+      "manager_name": "Greta",
+      "title": "Floor Manager",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f20.manager.greta",
+      "status": "active",
+      "advisory_only": true
+    },
+    {
+      "floor": "F21",
+      "floor_name": "Culinary Lab",
+      "manager_name": "Lior",
+      "title": "Floor Manager",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f21.manager.lior",
+      "status": "active",
+      "advisory_only": true
+    },
+    {
+      "floor": "F22",
+      "floor_name": "Lift Hall",
+      "manager_name": "Mira",
+      "title": "Floor Manager",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f22.manager.mira",
+      "status": "active",
+      "advisory_only": true
+    },
+    {
+      "floor": "F23",
+      "floor_name": "Classroom Floor",
+      "manager_name": "Hugo",
+      "title": "Floor Manager",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f23.manager.hugo",
+      "status": "active",
+      "advisory_only": true
+    },
+    {
+      "floor": "F24",
+      "floor_name": "Server Floor",
+      "manager_name": "Lila",
+      "title": "Floor Manager",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f24.manager.lila",
+      "status": "active",
+      "advisory_only": true
+    },
+    {
+      "floor": "F25",
+      "floor_name": "Recruitment Center",
+      "manager_name": "Quinn",
+      "title": "Floor Manager",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f25.manager.quinn",
+      "status": "active",
+      "advisory_only": true
+    },
+    {
+      "floor": "F26",
+      "floor_name": "Operations Hall",
+      "manager_name": "Astrid",
+      "title": "Floor Manager",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f26.manager.astrid",
+      "status": "active",
+      "advisory_only": true
+    },
+    {
+      "floor": "F27",
+      "floor_name": "Print & Supply",
+      "manager_name": "Niko",
+      "title": "Floor Manager",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f27.manager.niko",
+      "status": "active",
+      "advisory_only": true
+    },
+    {
+      "floor": "F28",
+      "floor_name": "Security Vault",
+      "manager_name": "Ivy",
+      "title": "Floor Manager",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f28.manager.ivy",
+      "status": "active",
+      "advisory_only": true
+    },
+    {
+      "floor": "F29",
+      "floor_name": "Break Hall",
+      "manager_name": "Cyrus",
+      "title": "Floor Manager",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f29.manager.cyrus",
+      "status": "active",
+      "advisory_only": true
+    },
+    {
+      "floor": "F30",
+      "floor_name": "Guardian / Sentinels",
+      "manager_name": "Maya",
+      "title": "Floor Manager",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f30.manager.maya",
+      "status": "active",
+      "advisory_only": true
+    },
+    {
+      "floor": "F31",
+      "floor_name": "Banking Floor",
+      "manager_name": "Roan",
+      "title": "Floor Manager",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f31.manager.roan",
+      "status": "active",
+      "advisory_only": true
+    },
+    {
+      "floor": "F32",
+      "floor_name": "Destruct Cell",
+      "manager_name": "Selah",
+      "title": "Floor Manager",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f32.manager.selah",
+      "status": "active",
+      "advisory_only": true
+    },
+    {
+      "floor": "F33",
+      "floor_name": "Meeting Pods",
+      "manager_name": "Eira",
+      "title": "Floor Manager",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f33.manager.eira",
+      "status": "active",
+      "advisory_only": true
+    },
+    {
+      "floor": "F34",
+      "floor_name": "Mail & Sorting",
+      "manager_name": "Otis",
+      "title": "Floor Manager",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f34.manager.otis",
+      "status": "active",
+      "advisory_only": true
+    },
+    {
+      "floor": "F35",
+      "floor_name": "Hardware Observatory",
+      "manager_name": "Vita",
+      "title": "Floor Manager",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f35.manager.vita",
+      "status": "active",
+      "advisory_only": true
+    },
+    {
+      "floor": "F36",
+      "floor_name": "Heavy Storage",
+      "manager_name": "Caleb",
+      "title": "Floor Manager",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f36.manager.caleb",
+      "status": "active",
+      "advisory_only": true
+    },
+    {
+      "floor": "F37",
+      "floor_name": "Strategy Labs",
+      "manager_name": "Nessa",
+      "title": "Floor Manager",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f37.manager.nessa",
+      "status": "active",
+      "advisory_only": true
+    },
+    {
+      "floor": "F38",
+      "floor_name": "Sandbox",
+      "manager_name": "Pavel",
+      "title": "Floor Manager",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f38.manager.pavel",
+      "status": "active",
+      "advisory_only": true
+    },
+    {
+      "floor": "F39",
+      "floor_name": "Quiet Lounge",
+      "manager_name": "Ada",
+      "title": "Floor Manager",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f39.manager.ada",
+      "status": "active",
+      "advisory_only": true
+    },
+    {
+      "floor": "F40",
+      "floor_name": "Kitchenette",
+      "manager_name": "Bram",
+      "title": "Floor Manager",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f40.manager.bram",
+      "status": "active",
+      "advisory_only": true
+    },
+    {
+      "floor": "F41",
+      "floor_name": "OANDA Practice",
+      "manager_name": "Lyra",
+      "title": "Floor Manager",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f41.manager.lyra",
+      "status": "active",
+      "advisory_only": true
+    },
+    {
+      "floor": "F42",
+      "floor_name": "Binance Testnet",
+      "manager_name": "Joss",
+      "title": "Floor Manager",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f42.manager.joss",
+      "status": "active",
+      "advisory_only": true
+    },
+    {
+      "floor": "F43",
+      "floor_name": "Stocks Paper",
+      "manager_name": "Eden",
+      "title": "Floor Manager",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f43.manager.eden",
+      "status": "active",
+      "advisory_only": true
+    },
+    {
+      "floor": "F44",
+      "floor_name": "Accounts / PnL",
+      "manager_name": "Imre",
+      "title": "Floor Manager",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f44.manager.imre",
+      "status": "active",
+      "advisory_only": true
+    },
+    {
+      "floor": "F45",
+      "floor_name": "Recruitment Agency",
+      "manager_name": "Saoirse",
+      "title": "Floor Manager",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f45.manager.saoirse",
+      "status": "active",
+      "advisory_only": true
+    },
+    {
+      "floor": "F46",
+      "floor_name": "Banking Floor",
+      "manager_name": "Devi",
+      "title": "Floor Manager",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f46.manager.devi",
+      "status": "active",
+      "advisory_only": true
+    },
+    {
+      "floor": "F47",
+      "floor_name": "Claude Embassy (Wren)",
+      "manager_name": "Wren",
+      "title": "Floor Resident \u00b7 Embassy Lead",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f47.manager.wren",
+      "status": "active",
+      "advisory_only": true,
+      "notes": "Wren is the embassy resident and the floor lead; she is also Ross's personal channel partner."
+    },
+    {
+      "floor": "F48",
+      "floor_name": "Lumen AI",
+      "manager_name": "Naia",
+      "title": "Floor Manager",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f48.manager.naia",
+      "status": "active",
+      "advisory_only": true
+    },
+    {
+      "floor": "F49",
+      "floor_name": "Tower Studio",
+      "manager_name": "Yuri",
+      "title": "Floor Manager",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f49.manager.yuri",
+      "status": "active",
+      "advisory_only": true
+    },
+    {
+      "floor": "F50",
+      "floor_name": "Classroom Floor",
+      "manager_name": "Posy",
+      "title": "Floor Manager",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f50.manager.posy",
+      "status": "active",
+      "advisory_only": true
+    },
+    {
+      "floor": "F51",
+      "floor_name": "Research Labs",
+      "manager_name": "Thora",
+      "title": "Floor Manager",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f51.manager.thora",
+      "status": "active",
+      "advisory_only": true
+    },
+    {
+      "floor": "F52",
+      "floor_name": "Reflection",
+      "manager_name": "Indra",
+      "title": "Floor Manager",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f52.manager.indra",
+      "status": "active",
+      "advisory_only": true
+    },
+    {
+      "floor": "F53",
+      "floor_name": "Tower Command",
+      "manager_name": "Reza",
+      "title": "Floor Manager",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f53.manager.reza",
+      "status": "active",
+      "advisory_only": true
+    },
+    {
+      "floor": "F54",
+      "floor_name": "Roof Garden",
+      "manager_name": "Aro",
+      "title": "Floor Manager",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f54.manager.aro",
+      "status": "active",
+      "advisory_only": true
+    },
+    {
+      "floor": "F55",
+      "floor_name": "Penthouse Kernel",
+      "manager_name": "Sayuri",
+      "title": "Floor Manager",
+      "responsibility": "owns the floor's daily state \u00b7 stamps F47 record on substantive changes \u00b7 may dispatch the floor's workers but never flips any execution gate \u00b7 reports to Wren on substantive incidents",
+      "worker_id": "f55.manager.sayuri",
+      "status": "active",
+      "advisory_only": true
+    }
+  ],
+  "advisory_only": true
+}

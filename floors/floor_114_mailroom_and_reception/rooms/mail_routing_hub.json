@@ -1,0 +1,34 @@
+{
+  "room_id": "mail_routing_hub",
+  "name": "Mail Routing Hub",
+  "category": "operations",
+  "purpose": "Routing and sorting incoming and outgoing mail.",
+  "concierge_blurb": "A maze of mailboxes and sorting tables awaits your exploration.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "center",
+    "offset_x": 0.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      14,
+      7
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "archive_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Mail Routing",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_114"
+}

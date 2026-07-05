@@ -1,0 +1,166 @@
+#!/usr/bin/env python3
+"""qsb — single command palette for common operations.
+
+  qsb status                  — concise tower status
+  qsb brief                   — full session briefing
+  qsb deploy                  — git add/commit/push to skyscraperhq repo
+  qsb train [N]               — spawn workers + train (default 100)
+  qsb close-trades            — OANDA position monitor sweep
+  qsb stamp <kind> <summary>  — quick F47 record stamp
+  qsb consult auger <prompt>  — Auger (DeepSeek) consult
+  qsb consult helm <prompt>   — Helm (OpenAI) consult
+  qsb health                  — dashboard + Godot + tunnel health
+  qsb news                    — refresh news crawler
+  qsb sentinels               — refresh sentinel report
+
+If no args, prints command list.
+"""
+from __future__ import annotations
+import json, os, subprocess, sys
+from pathlib import Path
+from datetime import datetime, timezone
+
+ROOT = Path('/vaults/nvme0/qsb_tower_v1')
+
+def utcnow():
+    return datetime.now(timezone.utc).isoformat().replace('+00:00','Z')
+
+def status():
+    """Concise tower status from canonical /api/tower/state."""
+    import urllib.request
+    try:
+        with urllib.request.urlopen('http://localhost:8765/api/tower/state', timeout=3) as r:
+            s = json.loads(r.read())
+        print(f"Floors {s['floors_count']} · Workers {s['workers_unique']:,} · Certified {s['certified_traders']}")
+        o = s['oanda_practice']
+        print(f"OANDA £{o['realized_gbp']} · {o['open_trades']} open · {o['closed_trades']} closed")
+        print(f"LSE £{s['lse_paper']['cash_gbp']:,.2f} · {s['lse_paper']['position_count']} positions")
+        print(f"F47 records today {s['f47_records_today']} · ops float £{s['ops_float_gbp']}")
+        print(f"Provider spend ${s['provider_spend_today_usd']} / $5.00")
+    except Exception as e:
+        print(f'dashboard offline: {e}')
+
+def deploy():
+    """Push web/shops/ to GitHub (triggers Netlify auto-deploy)."""
+    rd = Path('/tmp/skyscraper-shops-repo')
+    if not rd.exists():
+        print('local repo dir missing - run initial setup first')
+        return 1
+    subprocess.run(['cp','-r','/vaults/nvme0/qsb_tower_v1/web/shops/.','/tmp/skyscraper-shops-repo/'])
+    r = subprocess.run(['git','-C',str(rd),'status','--porcelain'], capture_output=True, text=True)
+    if not r.stdout.strip():
+        print('no changes to deploy')
+        return 0
+    subprocess.run(['git','-C',str(rd),'add','.'])
+    subprocess.run(['git','-C',str(rd),'-c','user.email=knechtelross@gmail.com',
+                    '-c','user.name=Ross Knechtel',
+                    'commit','-m', f'Auto-deploy {utcnow()}'])
+    pr = subprocess.run(['git','-C',str(rd),'push','origin','main'], capture_output=True, text=True)
+    if pr.returncode != 0:
+        print(f'push failed: {pr.stderr[:200]}')
+        return 1
+    print('✓ pushed - Netlify will auto-rebuild within 60s')
+
+def train(n=100):
+    """Spawn N fresh workers + run cohort training."""
+    print(f'spawning {n} workers + training...')
+    subprocess.run(['python3', '-c', f'''
+import json, hashlib, secrets, sys
+from pathlib import Path
+sys.path.insert(0, str(Path("{ROOT}/src")))
+from tower.cognitive_kernel.classroom import classroom
+from tower.cognitive_kernel.worker_certification import worker_certification
+from datetime import datetime, timezone
+ts = datetime.now(timezone.utc).isoformat().replace("+00:00","Z")
+rp = Path("{ROOT}/data/registries/qsb_wren_team_roster.json")
+r = json.loads(rp.read_text())
+ws = r.get("workers",[])
+start = max((w.get("ordinal_in_team",0) for w in ws), default=0) + 1
+new_ws = []
+for i in range({n}):
+    salt = secrets.token_hex(8)
+    wid = f"f47.wren.qsb_train.{{i:03d}}.{{salt}}"
+    w = dict(worker_id=wid,ordinal_in_team=start+i,floor="F47",floor_name="Claude Embassy (Wren)",role="trainee",status="employed",certified_for_trading=False,execution_authority="advisory_only",spawned_ts=ts,fingerprint=hashlib.sha256((wid+salt).encode()).hexdigest()[:12],high_entropy=True,team="wren_team_v1",hours="08:00-17:00")
+    ws.append(w); new_ws.append(w)
+r["workers"]=ws; rp.write_text(json.dumps(r,indent=2))
+wc=worker_certification(); wc.load_from_snapshot()
+cls=classroom()
+STRATS=["BTCUSDT","EUR_GBP","XAG_USD","ETHUSDT","XAU_USD","USD_JPY"]
+new_certs=0
+for w in new_ws:
+    for inst in STRATS:
+        if cls.run_full_test(w["worker_id"],inst).passed:
+            wc.stamp(w["worker_id"],inst,new_status="certified",note="qsb_train")
+            new_certs += 1
+            break
+wc.persist()
+print(f"+{{new_certs}} certified")
+'''])
+
+def stamp(kind, summary):
+    """Quick F47 record stamp."""
+    rec = {'ts': utcnow(), 'kind': kind, 'role':'wren','summary': summary, 'advisory_only': True}
+    (ROOT / 'data/registries/qsb_f47_team_records.jsonl').open('a').write(json.dumps(rec)+'\n')
+    print(f'✓ stamped {kind}')
+
+def health():
+    """Check dashboard + Godot + tunnel."""
+    import urllib.request
+    for name, url in [('dashboard','http://localhost:8765/api/health'),('preview','http://localhost:9876/')]:
+        try:
+            urllib.request.urlopen(url, timeout=3)
+            print(f'  ✓ {name}')
+        except: print(f'  ✗ {name} down')
+    for name, pat in [('Godot','godot-4 --path'),('bg_loop','qsb_bg_loop'),('tunnel','cloudflared')]:
+        r = subprocess.run(['pgrep','-f',pat], capture_output=True, text=True)
+        if r.returncode == 0: print(f'  ✓ {name} pid {r.stdout.split()[0]}')
+        else: print(f'  ✗ {name} down')
+
+def consult(provider, prompt):
+    subprocess.run(['python3', str(ROOT/'tools/qsb_consult_external.py'),
+                    '--provider', provider, '--prompt', prompt])
+
+def close_trades():
+    subprocess.run(['python3', str(ROOT/'tools/qsb_oanda_position_monitor.py')])
+
+def news():
+    subprocess.run(['python3', str(ROOT/'tools/qsb_news_crawler.py')])
+
+def brief():
+    subprocess.run(['python3', str(ROOT/'tools/qsb_session_briefing.py')])
+
+def sentinels():
+    import urllib.request
+    try:
+        urllib.request.urlopen('http://localhost:8765/api/sentinels/run', timeout=10)
+        print('✓ sentinels refreshed')
+    except Exception as e:
+        print(f'failed: {e}')
+
+CMDS = {
+    'status': lambda a: status(),
+    'brief': lambda a: brief(),
+    'deploy': lambda a: deploy(),
+    'train': lambda a: train(int(a[0]) if a else 100),
+    'stamp': lambda a: stamp(a[0], ' '.join(a[1:])) if len(a)>=2 else print('usage: qsb stamp <kind> <summary>'),
+    'health': lambda a: health(),
+    'consult': lambda a: consult(a[0], ' '.join(a[1:])) if len(a)>=2 else print('usage: qsb consult auger|helm <prompt>'),
+    'close-trades': lambda a: close_trades(),
+    'news': lambda a: news(),
+    'sentinels': lambda a: sentinels(),
+}
+
+def main():
+    if len(sys.argv) < 2 or sys.argv[1] in ('-h','--help','help'):
+        print('Usage:')
+        print('  qsb status   brief   deploy   train [N]   stamp <kind> <summary>')
+        print('  qsb consult auger|helm <prompt>   close-trades   news   health   sentinels')
+        return
+    cmd = sys.argv[1]
+    if cmd not in CMDS:
+        print(f'unknown: {cmd}')
+        return 1
+    CMDS[cmd](sys.argv[2:])
+
+if __name__ == '__main__':
+    main()

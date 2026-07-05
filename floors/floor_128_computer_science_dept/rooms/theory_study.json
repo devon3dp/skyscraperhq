@@ -1,0 +1,34 @@
+{
+  "room_id": "theory_study",
+  "name": "Theory Study Room",
+  "category": "library",
+  "purpose": "A quiet space for studying the theoretical foundations of computer science.",
+  "concierge_blurb": "Bookshelves filled with texts on algorithms and theory, along with comfortable reading chairs.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_right",
+    "offset_x": 6.5,
+    "offset_z": -7.0,
+    "footprint_m": [
+      10,
+      9
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "library_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Theory Study",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_128"
+}

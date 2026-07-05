@@ -1,0 +1,575 @@
+{
+  "ok": true,
+  "ts": "2026-06-08T15:11:03.664842+00:00",
+  "phase": "QSB_TOWER_OPERATIONS_V3",
+  "overall_status": "healthy",
+  "overall_score": 100,
+  "category_scores": {
+    "floor_registry": 100,
+    "department_coverage": 100,
+    "worker_identity": 100,
+    "access_control": 100,
+    "management_chain": 100,
+    "training": 100,
+    "kernel_chat_speech": 98,
+    "model_lanes": 100,
+    "trading_telemetry": 100,
+    "accounts": 98,
+    "maintenance": 100,
+    "security": 100,
+    "it": 100,
+    "renderer": 100,
+    "logs": 100
+  },
+  "critical_failures": [],
+  "failures": [],
+  "warnings": [],
+  "results_by_category": {
+    "floor_registry": [
+      {
+        "severity": "PASS",
+        "code": "floor_ids_unique",
+        "message": "All 53 floor IDs unique.",
+        "ts": "2026-06-08T15:11:03.312721+00:00"
+      },
+      {
+        "severity": "PASS",
+        "code": "all_floors_named",
+        "message": "All 53/53 floors named.",
+        "ts": "2026-06-08T15:11:03.312733+00:00"
+      },
+      {
+        "severity": "PASS",
+        "code": "no_sim_worker_leaks",
+        "message": "No sim_worker_floor_XX references in floors.json.",
+        "ts": "2026-06-08T15:11:03.312740+00:00"
+      }
+    ],
+    "department_coverage": [
+      {
+        "severity": "PASS",
+        "code": "dept_present",
+        "message": "Penthouse / Kernel \u2192 floor 55 (Penthouse \u2014 QSB Kernel)",
+        "ts": "2026-06-08T15:11:03.312847+00:00",
+        "department": "Penthouse / Kernel",
+        "floor": 55
+      },
+      {
+        "severity": "PASS",
+        "code": "dept_present",
+        "message": "Command \u2192 floor 53 (Tower Command Department)",
+        "ts": "2026-06-08T15:11:03.312850+00:00",
+        "department": "Command",
+        "floor": 53
+      },
+      {
+        "severity": "PASS",
+        "code": "dept_present",
+        "message": "Recruitment / Worker Operations \u2192 floor 38 (Sandbox Operations)",
+        "ts": "2026-06-08T15:11:03.312852+00:00",
+        "department": "Recruitment / Worker Operations",
+        "floor": 38
+      },
+      {
+        "severity": "PASS",
+        "code": "dept_present",
+        "message": "Training Academy / School \u2192 floor 8 (QSB Training Academy)",
+        "ts": "2026-06-08T15:11:03.312854+00:00",
+        "department": "Training Academy / School",
+        "floor": 8
+      },
+      {
+        "severity": "PASS",
+        "code": "dept_present",
+        "message": "Maintenance \u2192 floor 33 (Diagnostics Department)",
+        "ts": "2026-06-08T15:11:03.312856+00:00",
+        "department": "Maintenance",
+        "floor": 33
+      },
+      {
+        "severity": "PASS",
+        "code": "dept_present",
+        "message": "Security \u2192 floor 28 (Security Department)",
+        "ts": "2026-06-08T15:11:03.312857+00:00",
+        "department": "Security",
+        "floor": 28
+      },
+      {
+        "severity": "PASS",
+        "code": "dept_present",
+        "message": "IT / Networking \u2192 floor 35 (Infrastructure Services Department)",
+        "ts": "2026-06-08T15:11:03.312858+00:00",
+        "department": "IT / Networking",
+        "floor": 35
+      },
+      {
+        "severity": "PASS",
+        "code": "dept_present",
+        "message": "Research \u2192 floor 3 (Research Department)",
+        "ts": "2026-06-08T15:11:03.312860+00:00",
+        "department": "Research",
+        "floor": 3
+      },
+      {
+        "severity": "PASS",
+        "code": "dept_present",
+        "message": "Accounts / Finance \u2192 floor 44 (Accounts Department)",
+        "ts": "2026-06-08T15:11:03.312861+00:00",
+        "department": "Accounts / Finance",
+        "floor": 44
+      },
+      {
+        "severity": "PASS",
+        "code": "dept_present",
+        "message": "Quantum \u2192 floor 45 (Quantum Operations Department)",
+        "ts": "2026-06-08T15:11:03.312865+00:00",
+        "department": "Quantum",
+        "floor": 45
+      },
+      {
+        "severity": "PASS",
+        "code": "dept_present",
+        "message": "Media \u2192 floor 14 (Media Department)",
+        "ts": "2026-06-08T15:11:03.312867+00:00",
+        "department": "Media",
+        "floor": 14
+      },
+      {
+        "severity": "PASS",
+        "code": "dept_present",
+        "message": "Sound / Speech \u2192 floor 15 (Speech and Audio Department)",
+        "ts": "2026-06-08T15:11:03.312868+00:00",
+        "department": "Sound / Speech",
+        "floor": 15
+      },
+      {
+        "severity": "PASS",
+        "code": "dept_present",
+        "message": "AirLLM \u2192 floor 23 (AIR LLM Operations Department)",
+        "ts": "2026-06-08T15:11:03.312871+00:00",
+        "department": "AirLLM",
+        "floor": 23
+      },
+      {
+        "severity": "PASS",
+        "code": "dept_present",
+        "message": "Model Operations \u2192 floor 24 (Model Routing Department)",
+        "ts": "2026-06-08T15:11:03.312873+00:00",
+        "department": "Model Operations",
+        "floor": 24
+      },
+      {
+        "severity": "PASS",
+        "code": "dept_present",
+        "message": "Data / Memory \u2192 floor 2 (Memory Department)",
+        "ts": "2026-06-08T15:11:03.312875+00:00",
+        "department": "Data / Memory",
+        "floor": 2
+      },
+      {
+        "severity": "PASS",
+        "code": "dept_present",
+        "message": "Risk / Permissions \u2192 floor 30 (Permissions Department)",
+        "ts": "2026-06-08T15:11:03.312878+00:00",
+        "department": "Risk / Permissions",
+        "floor": 30
+      },
+      {
+        "severity": "PASS",
+        "code": "dept_present",
+        "message": "Audit / Ledger \u2192 floor 31 (Audit Department)",
+        "ts": "2026-06-08T15:11:03.312879+00:00",
+        "department": "Audit / Ledger",
+        "floor": 31
+      },
+      {
+        "severity": "PASS",
+        "code": "dept_present",
+        "message": "OANDA \u2192 floor 41 (OANDA Trading Floor)",
+        "ts": "2026-06-08T15:11:03.312881+00:00",
+        "department": "OANDA",
+        "floor": 41
+      },
+      {
+        "severity": "PASS",
+        "code": "dept_present",
+        "message": "Binance \u2192 floor 42 (Binance Trading Floor)",
+        "ts": "2026-06-08T15:11:03.312882+00:00",
+        "department": "Binance",
+        "floor": 42
+      },
+      {
+        "severity": "PASS",
+        "code": "dept_present",
+        "message": "Stocks \u2192 floor 43 (Stock Exchange Trading Floor)",
+        "ts": "2026-06-08T15:11:03.312883+00:00",
+        "department": "Stocks",
+        "floor": 43
+      },
+      {
+        "severity": "PASS",
+        "code": "dept_present",
+        "message": "OpenClaw Readiness \u2192 floor 38 (Sandbox Operations)",
+        "ts": "2026-06-08T15:11:03.312885+00:00",
+        "department": "OpenClaw Readiness",
+        "floor": 38
+      },
+      {
+        "severity": "PASS",
+        "code": "dept_present",
+        "message": "Lift / Logistics \u2192 floor 22 (Integration Services Department)",
+        "ts": "2026-06-08T15:11:03.312887+00:00",
+        "department": "Lift / Logistics",
+        "floor": 22
+      },
+      {
+        "severity": "PASS",
+        "code": "dept_present",
+        "message": "Compliance / Legal \u2192 floor 32 (Compliance Department)",
+        "ts": "2026-06-08T15:11:03.312889+00:00",
+        "department": "Compliance / Legal",
+        "floor": 32
+      },
+      {
+        "severity": "PASS",
+        "code": "dept_present",
+        "message": "Emergency Control \u2192 floor 29 (Guardian Department)",
+        "ts": "2026-06-08T15:11:03.312890+00:00",
+        "department": "Emergency Control",
+        "floor": 29
+      },
+      {
+        "severity": "PASS",
+        "code": "dept_present",
+        "message": "Reports Archive \u2192 floor 2 (Memory Department)",
+        "ts": "2026-06-08T15:11:03.312892+00:00",
+        "department": "Reports Archive",
+        "floor": 2
+      },
+      {
+        "severity": "PASS",
+        "code": "dept_present",
+        "message": "Trading Telemetry \u2192 floor 43 (Stock Exchange Trading Floor)",
+        "ts": "2026-06-08T15:11:03.312893+00:00",
+        "department": "Trading Telemetry",
+        "floor": 43
+      },
+      {
+        "severity": "INFO",
+        "code": "dept_unassigned",
+        "message": "QA / Testing not yet assigned to a floor.",
+        "ts": "2026-06-08T15:11:03.312894+00:00",
+        "department": "QA / Testing"
+      },
+      {
+        "severity": "INFO",
+        "code": "dept_unassigned",
+        "message": "Facilities not yet assigned to a floor.",
+        "ts": "2026-06-08T15:11:03.312896+00:00",
+        "department": "Facilities"
+      }
+    ],
+    "worker_identity": [
+      {
+        "severity": "PASS",
+        "code": "all_worker_fields_present",
+        "message": "All 170 workers have full identity fields.",
+        "ts": "2026-06-08T15:11:03.318571+00:00"
+      },
+      {
+        "severity": "PASS",
+        "code": "badge_ids_unique",
+        "message": "All 170 badge IDs unique.",
+        "ts": "2026-06-08T15:11:03.318587+00:00"
+      },
+      {
+        "severity": "PASS",
+        "code": "worker_ids_unique",
+        "message": "All 170 worker IDs unique.",
+        "ts": "2026-06-08T15:11:03.318596+00:00"
+      },
+      {
+        "severity": "PASS",
+        "code": "no_sim_in_display_names",
+        "message": "No sim_worker display names.",
+        "ts": "2026-06-08T15:11:03.318610+00:00"
+      }
+    ],
+    "access_control": [
+      {
+        "severity": "PASS",
+        "code": "no_execution_flag_drift",
+        "message": "Every worker has execution flags = false.",
+        "ts": "2026-06-08T15:11:03.328313+00:00"
+      },
+      {
+        "severity": "PASS",
+        "code": "it_web_access_denied",
+        "message": "All IT workers have web_access denied.",
+        "ts": "2026-06-08T15:11:03.328320+00:00"
+      }
+    ],
+    "management_chain": [
+      {
+        "severity": "PASS",
+        "code": "floor_managers_present",
+        "message": "Floor managers exist: 18",
+        "ts": "2026-06-08T15:11:03.328489+00:00"
+      },
+      {
+        "severity": "PASS",
+        "code": "zone_managers_present",
+        "message": "Zone managers exist: 7",
+        "ts": "2026-06-08T15:11:03.328493+00:00"
+      },
+      {
+        "severity": "PASS",
+        "code": "tower_operations_manager_present",
+        "message": "Tower Operations Manager present.",
+        "ts": "2026-06-08T15:11:03.328496+00:00"
+      },
+      {
+        "severity": "PASS",
+        "code": "kernel_liaison_present",
+        "message": "Kernel Liaison Manager present.",
+        "ts": "2026-06-08T15:11:03.328499+00:00"
+      }
+    ],
+    "training": [
+      {
+        "severity": "PASS",
+        "code": "training_academy_present",
+        "message": "Training Academy on Floor 8 with 21 courses.",
+        "ts": "2026-06-08T15:11:03.332531+00:00"
+      },
+      {
+        "severity": "PASS",
+        "code": "all_sensitive_certified",
+        "message": "All sensitive workers fully certified.",
+        "ts": "2026-06-08T15:11:03.332534+00:00"
+      }
+    ],
+    "kernel_chat_speech": [
+      {
+        "severity": "PASS",
+        "code": "kernel_chat_port_8766",
+        "message": "Sidecar listening.",
+        "ts": "2026-06-08T15:11:03.332639+00:00"
+      },
+      {
+        "severity": "INFO",
+        "code": "kernel_fallback_active",
+        "message": "Kernel constructor recursion caught; fallback path active: symbolic_reply + local_model_inference_gateway",
+        "ts": "2026-06-08T15:11:03.621492+00:00"
+      },
+      {
+        "severity": "PASS",
+        "code": "speech_endpoint_present",
+        "message": "Speech endpoint live: tts=browser_web_speech_synthesis, stt=browser_web_speech_recognition.",
+        "ts": "2026-06-08T15:11:03.621505+00:00"
+      }
+    ],
+    "model_lanes": [
+      {
+        "severity": "PASS",
+        "code": "lane_present",
+        "message": "Local Kernel Model Lane present.",
+        "ts": "2026-06-08T15:11:03.623295+00:00"
+      },
+      {
+        "severity": "PASS",
+        "code": "lane_present",
+        "message": "Ollama Lane present.",
+        "ts": "2026-06-08T15:11:03.623298+00:00"
+      },
+      {
+        "severity": "PASS",
+        "code": "lane_present",
+        "message": "AirLLM Advisory Lane present.",
+        "ts": "2026-06-08T15:11:03.623299+00:00"
+      },
+      {
+        "severity": "PASS",
+        "code": "lane_present",
+        "message": "External Providers Locked Lane present.",
+        "ts": "2026-06-08T15:11:03.623300+00:00"
+      },
+      {
+        "severity": "PASS",
+        "code": "external_providers_locked",
+        "message": "External providers locked.",
+        "ts": "2026-06-08T15:11:03.623304+00:00"
+      }
+    ],
+    "trading_telemetry": [
+      {
+        "severity": "PASS",
+        "code": "telemetry_labels_correct",
+        "message": "10/10 telemetry endpoints labelled correctly (LIVE/NOT_CONFIGURED).",
+        "ts": "2026-06-08T15:11:03.623532+00:00"
+      },
+      {
+        "severity": "PASS",
+        "code": "no_fake_account_data",
+        "message": "Trading telemetry never fabricates account/P&L/trade data (per gateway design).",
+        "ts": "2026-06-08T15:11:03.623536+00:00"
+      }
+    ],
+    "accounts": [
+      {
+        "severity": "PASS",
+        "code": "accounts_floor_present",
+        "message": "Accounts Department on Floor 44.",
+        "ts": "2026-06-08T15:11:03.627899+00:00"
+      },
+      {
+        "severity": "PASS",
+        "code": "floor_accountants_present",
+        "message": "23 floor accountants registered.",
+        "ts": "2026-06-08T15:11:03.627902+00:00"
+      },
+      {
+        "severity": "INFO",
+        "code": "not_configured_inventory",
+        "message": "7 not_configured endpoint(s) catalogued.",
+        "ts": "2026-06-08T15:11:03.627903+00:00"
+      }
+    ],
+    "maintenance": [
+      {
+        "severity": "PASS",
+        "code": "root_disk_ok",
+        "message": "root pct_used=87.9%.",
+        "ts": "2026-06-08T15:11:03.628587+00:00"
+      },
+      {
+        "severity": "PASS",
+        "code": "dashboard_port_8765",
+        "message": "Dashboard listening.",
+        "ts": "2026-06-08T15:11:03.628589+00:00"
+      },
+      {
+        "severity": "PASS",
+        "code": "airllm_chamber_present",
+        "message": "AirLLM chamber path present.",
+        "ts": "2026-06-08T15:11:03.628591+00:00"
+      }
+    ],
+    "security": [
+      {
+        "severity": "PASS",
+        "code": "lock_count_true",
+        "message": "lock_count_true=0",
+        "ts": "2026-06-08T15:11:03.628604+00:00",
+        "value": 0
+      },
+      {
+        "severity": "PASS",
+        "code": "gate_openclaw_gate",
+        "message": "openclaw_gate=CLOSED",
+        "ts": "2026-06-08T15:11:03.628606+00:00"
+      },
+      {
+        "severity": "PASS",
+        "code": "gate_provider_access_gate",
+        "message": "provider_access_gate=CLOSED",
+        "ts": "2026-06-08T15:11:03.628608+00:00"
+      },
+      {
+        "severity": "PASS",
+        "code": "gate_trading_execution_gate",
+        "message": "trading_execution_gate=CLOSED",
+        "ts": "2026-06-08T15:11:03.628609+00:00"
+      },
+      {
+        "severity": "PASS",
+        "code": "gate_direct_provider_access_gate",
+        "message": "direct_provider_access_gate=CLOSED",
+        "ts": "2026-06-08T15:11:03.628610+00:00"
+      },
+      {
+        "severity": "PASS",
+        "code": "gate_external_providers_gate",
+        "message": "external_providers_gate=CLOSED",
+        "ts": "2026-06-08T15:11:03.628611+00:00"
+      },
+      {
+        "severity": "PASS",
+        "code": "gate_autonomous_dispatch_gate",
+        "message": "autonomous_dispatch_gate=CLOSED",
+        "ts": "2026-06-08T15:11:03.628612+00:00"
+      }
+    ],
+    "it": [
+      {
+        "severity": "PASS",
+        "code": "ports_mapped",
+        "message": "11 ports mapped.",
+        "ts": "2026-06-08T15:11:03.629561+00:00"
+      },
+      {
+        "severity": "PASS",
+        "code": "sidecars_mapped",
+        "message": "9 sidecars mapped.",
+        "ts": "2026-06-08T15:11:03.629564+00:00"
+      }
+    ],
+    "renderer": [
+      {
+        "severity": "PASS",
+        "code": "renderer_version",
+        "message": "Renderer version: QSB_SKYSCRAPER_RENDERER_V3",
+        "ts": "2026-06-08T15:11:03.664663+00:00",
+        "renderer_version": "QSB_SKYSCRAPER_RENDERER_V3"
+      },
+      {
+        "severity": "PASS",
+        "code": "lift_count_ge_9",
+        "message": "lift_count=9",
+        "ts": "2026-06-08T15:11:03.664666+00:00"
+      },
+      {
+        "severity": "PASS",
+        "code": "worker_count_ge_100",
+        "message": "worker_count=170",
+        "ts": "2026-06-08T15:11:03.664668+00:00"
+      }
+    ],
+    "logs": [
+      {
+        "severity": "PASS",
+        "code": "log_files_present",
+        "message": "2 .jsonl log file(s).",
+        "ts": "2026-06-08T15:11:03.664808+00:00"
+      }
+    ]
+  },
+  "live_trading_enabled": false,
+  "order_execution_enabled": false,
+  "practice_order_execution_enabled": false,
+  "binance_order_execution_enabled": false,
+  "binance_live_trading_enabled": false,
+  "stock_order_execution_enabled": false,
+  "stock_live_trading_enabled": false,
+  "stock_paper_order_execution_enabled": false,
+  "cross_market_execution_enabled": false,
+  "worker_execution_enabled": false,
+  "recruited_worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "external_provider_execution_enabled": false,
+  "openclaw_execution_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "live_dispatch_enabled": false,
+  "direct_provider_access": false,
+  "recruitment_openclaw_execution_enabled": false,
+  "recruited_worker_live_execution_enabled": false,
+  "recruited_worker_provider_access_enabled": false,
+  "recruited_worker_autonomous_dispatch_enabled": false,
+  "maintenance_auto_repair_enabled": false,
+  "web_access_autonomous_enabled": false,
+  "worker_real_registry_enabled": true,
+  "openclaw_readiness_enabled": true,
+  "security_enforcement_enabled": true,
+  "it_network_observability_enabled": true
+}

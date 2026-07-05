@@ -1,0 +1,73 @@
+{
+  "history": [
+    {
+      "ts": "2026-06-08T15:08:43.422211+00:00",
+      "overall_status": "critical",
+      "overall_score": 98,
+      "critical_count": 1,
+      "fail_count": 0,
+      "warn_count": 1
+    },
+    {
+      "ts": "2026-06-08T15:08:43.763772+00:00",
+      "overall_status": "critical",
+      "overall_score": 98,
+      "critical_count": 1,
+      "fail_count": 0,
+      "warn_count": 1
+    },
+    {
+      "ts": "2026-06-08T15:10:05.474994+00:00",
+      "overall_status": "critical",
+      "overall_score": 98,
+      "critical_count": 1,
+      "fail_count": 0,
+      "warn_count": 1
+    },
+    {
+      "ts": "2026-06-08T15:10:49.325924+00:00",
+      "overall_status": "critical",
+      "overall_score": 98,
+      "critical_count": 1,
+      "fail_count": 0,
+      "warn_count": 1
+    },
+    {
+      "ts": "2026-06-08T15:11:03.664842+00:00",
+      "overall_status": "healthy",
+      "overall_score": 100,
+      "critical_count": 0,
+      "fail_count": 0,
+      "warn_count": 0
+    }
+  ],
+  "live_trading_enabled": false,
+  "order_execution_enabled": false,
+  "practice_order_execution_enabled": false,
+  "binance_order_execution_enabled": false,
+  "binance_live_trading_enabled": false,
+  "stock_order_execution_enabled": false,
+  "stock_live_trading_enabled": false,
+  "stock_paper_order_execution_enabled": false,
+  "cross_market_execution_enabled": false,
+  "worker_execution_enabled": false,
+  "recruited_worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "external_provider_execution_enabled": false,
+  "openclaw_execution_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "live_dispatch_enabled": false,
+  "direct_provider_access": false,
+  "recruitment_openclaw_execution_enabled": false,
+  "recruited_worker_live_execution_enabled": false,
+  "recruited_worker_provider_access_enabled": false,
+  "recruited_worker_autonomous_dispatch_enabled": false,
+  "maintenance_auto_repair_enabled": false,
+  "web_access_autonomous_enabled": false,
+  "worker_real_registry_enabled": true,
+  "openclaw_readiness_enabled": true,
+  "security_enforcement_enabled": true,
+  "it_network_observability_enabled": true,
+  "ts": "2026-06-08T15:11:03.665175+00:00"
+}

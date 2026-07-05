@@ -1,0 +1,29 @@
+{
+  "ok": true,
+  "kind": "qsb_native_admin_fallback_status",
+  "phase": "QSB_GODOT_NATIVE_3D_COCKPIT_REBUILD_V1",
+  "generated_ts": "2026-06-09T15:21:58+00:00",
+  "previous_label": "QSB Native Cockpit V2",
+  "new_label": "QSB Native Admin Fallback",
+  "purpose": [
+    "basic status snapshot",
+    "headless health proof",
+    "emergency fallback when Godot/Panda3D unavailable",
+    "debug + admin panels for telemetry inspection",
+    "kernel chat console (Qt-native, no browser needed)"
+  ],
+  "NOT_classified_as": "main 3D graphics cockpit",
+  "preserves_working_run_script": true,
+  "run_command_unchanged": "./scripts/qsb_native_cockpit_run.sh",
+  "health_score_baseline": "30/30",
+  "screenshot_proof": "data/screenshots/qsb_native_cockpit_v3_parity.png",
+  "main_3d_cockpit_target": "Godot 4.x at native_cockpit/godot_qsb/",
+  "panda3d_fallback_path": "native_cockpit/panda3d_qsb/ (only if Godot install is blocked)",
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "live_payments_enabled": false,
+  "live_listings_publishing_enabled": false
+}

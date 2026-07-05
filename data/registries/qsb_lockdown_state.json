@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "milestone": "EQSB_KERNEL_MAJOR_DEEP_SYMBOLIC_QUANTUM_CORE_ACTIVE_LOCAL_ONLY_OK",
+  "locked_at_utc": "20260608T205317Z",
+  "qsb_root": "/vaults/nvme0/qsb_tower_v1",
+  "dashboard_url": "http://127.0.0.1:8765/?v=unified",
+  "kernel_expected_mode": "active_local_only",
+  "record_type": "soft_lockdown_snapshot",
+  "notes": [
+    "This record captures the current QSB/EQSB kernel checkpoint.",
+    "The system is not hard-frozen; runtime logs and dashboard state may continue writing.",
+    "Use this archive and checksum as the rollback/reference point."
+  ],
+  "expected_disabled": {
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "openclaw_real_execution_enabled": false,
+    "autonomous_dispatch_enabled": false
+  }
+}

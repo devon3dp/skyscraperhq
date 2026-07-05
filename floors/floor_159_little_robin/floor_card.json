@@ -1,0 +1,89 @@
+{
+  "floor_id": "floor_159",
+  "floor_number": 159,
+  "floor_name": "Little Robin",
+  "department": "Baby & Maternity Dropship Storefront",
+  "zone": "ZONE COMMERCE",
+  "archetype": "shop_storefront",
+  "staff_lead": "F66 Architects (designed) / F47 Wren (content)",
+  "tour_blurb": "Little Robin \u2014 soft starts. A baby & maternity dropship storefront on Floor 159. Organic baby gear, nursing and feeding kit, sleep, and gift sets. Pale rose, cloud and oat palette. Margin target 60%; dropship fulfillment (order \u2192 supplier_buy \u2192 repackage \u2192 ship). Real payments and supplier orders are DISABLED at the gate.",
+  "visitor_open": true,
+  "advisory_only": true,
+  "execution_mode": "PREVIEW_ONLY",
+  "tagline": "Little Robin \u2014 soft starts.",
+  "live_signals": {
+    "theme": "baby_and_maternity",
+    "categories": [
+      "nursing",
+      "sleep",
+      "feeding",
+      "gift_sets",
+      "accessories"
+    ],
+    "palette": "pale rose / cloud / oat",
+    "target_margin_pct": 60,
+    "fulfillment": "dropship",
+    "catalog_file": "data/registries/qsb_floor159_catalog.json",
+    "website_scaffold": "web/shops/floor_159/index.html"
+  },
+  "gate_posture": {
+    "real_payments_enabled": false,
+    "real_supplier_orders_enabled": false,
+    "live_payments_in_play": false,
+    "live_listings_publishing_enabled": false,
+    "execution_allowed": false,
+    "advisory_only": true
+  },
+  "interior_plan": {
+    "description": "Soft-lit shop floor. Display tables in a pale-rose palette with cloud-white cabinetry. Five product categories arranged in a gentle arc around the centre. A counter desk at the back facing the entrance for fulfillment ops.",
+    "objects": [
+      "5 display tables (one per category)",
+      "central pram-and-cot showcase",
+      "back counter desk + scales + label printer",
+      "soft pendant lights, warm 2700K",
+      "small reading nook with chairs"
+    ]
+  },
+  "inter_floor_produces": [
+    "F17 graphics",
+    "F44 accounts",
+    "F47 wren"
+  ],
+  "team_roster": [
+    {
+      "id": "f159.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "spawned_id": "227d50015d",
+      "spawned_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F159",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f159.operator.01",
+      "spawned_id": "7b4e93ee8d"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F159",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f159.operator.02",
+      "spawned_id": "cc287d59bb"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F159",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f159.operator.03",
+      "spawned_id": "e4ea5ecf2a"
+    }
+  ],
+  "floor_manager": "f159.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

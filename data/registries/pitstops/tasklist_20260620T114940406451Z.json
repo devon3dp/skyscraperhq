@@ -1,0 +1,10 @@
+[
+  {"id":"1","subject":"Finish Qwen2.5-32B download","status":"in_progress","note":"54+ GB / 63 GB on disk; dual-iface 8-curl runner still going. Almost done."},
+  {"id":"7","subject":"Close Phase 2 of trader learning loop","status":"pending"},
+  {"id":"8","subject":"Save wren-as-live-backup-twin memory rule","status":"pending"},
+  {"id":"9","subject":"Per-floor walkable 3D interiors","status":"in_progress","note":"STAGE A+B+C at skyscraper scale shipped. 5 smoke floors regen at 60×60/40×40/35×35. Carpark+lobby ported from godot to cockpit3d — VERIFIED VISUALLY at /tmp/skyscraper/shots/cockpit3d_carpark_v2.png. Pitstop /tmp snapshot feature SHIPPED in qsb_pitstop.py + wired into heartbeat tick 3y."},
+  {"id":"10","subject":"Port godot carpark + apron to cockpit3d","status":"COMPLETED"},
+  {"id":"11","subject":"Launch godot dashboard alongside browser cockpit","status":"in_progress","note":"Standalone godot 4.7 binary downloaded to /vaults/ai/cache/godot_binary/Godot_v4.7-stable_linux.x86_64. Launched, running (PID was 156925 pre-pitstop). Snap version killed. Need to verify mouse works in standalone (snap had mouse issue from sandbox)."},
+  {"id":"12","subject":"Wire godot to /api/floor_rooms/<n>","status":"pending"},
+  {"id":"13","subject":"GitHub daily push to devon3dp/skyscraperhq","status":"pending","note":"NEW per Ross 2026-06-20. Memory saved at reference_github_skyscraperhq.md + MEMORY.md updated. Need: build tools/qsb_github_daily_push.py + add systemd timer OR heartbeat hook. STRICT scope: only web/shops/, NEVER vault/.env/CLAUDE.md/gate files. SSH key at ~/.ssh/id_ed25519 exists, auth status untested. Git config has placeholder email."}
+]

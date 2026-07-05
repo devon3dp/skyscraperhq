@@ -1,0 +1,8 @@
+[
+  {"id":"7","subject":"Phase 2 trader learning loop","status":"in_progress","note":"HALF SHIPPED — qsb_classroom_apply.py wrote + ran promote-only, 5 promotions, cert count restored 30→32 after Union-bug fix."},
+  {"id":"9","subject":"Per-floor walkable 3D interiors","status":"in_progress","note":"All major pieces shipped. F166 just added with 5 rooms."},
+  {"id":"15","subject":"Wren-32B via Ollama","status":"in_progress","note":"qwen2.5:32b at 11/19 GB, qwen2.5:14b at 3/9 GB"},
+  {"id":"19","subject":"F43 Alpaca fix","status":"COMPLETED — verified BUY ok=True"},
+  {"id":"20","subject":"Hermes grounding tools","status":"pending"},
+  {"id":"21","subject":"F166 TikTok team work","status":"in_progress","note":"20 workers spawned, 3 dispatched (script_writer, trend_scout, opponent_scout) — outputs stamped to F47 records"}
+]

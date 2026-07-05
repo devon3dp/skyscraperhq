@@ -1,0 +1,34 @@
+{
+  "room_id": "greenhouse_hub",
+  "name": "Greenhouse Hub",
+  "category": "operations",
+  "purpose": "Central hub for greenhouse operations.",
+  "concierge_blurb": "Welcome to the heart of Greenhouse Lane, where plants meet people.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      15,
+      15
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Greenhouse Hub",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 0
+  },
+  "floor": "floor_158"
+}

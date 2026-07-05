@@ -1,0 +1,34 @@
+{
+  "room_id": "green_room",
+  "name": "Green Room",
+  "category": "seating",
+  "purpose": "This room is for rest and relaxation before important meetings.",
+  "concierge_blurb": "Take a moment to relax in our green room, where the atmosphere is always calm.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": -8.0,
+    "footprint_m": [
+      6,
+      12
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "chair_set",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Green Room",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_87"
+}

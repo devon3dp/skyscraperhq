@@ -1,0 +1,41 @@
+{
+  "ok": true,
+  "phase": "QSB_LIVE_SKYSCRAPER_COMMAND_CENTER_REBUILD_V1",
+  "kind": "qsb_worker_discipline",
+  "generated_ts": "2026-06-30T13:46:32.752032+00:00",
+  "policy": {
+    "strike_1": "warning + retraining task",
+    "strike_2": "restricted duties / demotion review",
+    "strike_3": "suspended from active duty",
+    "strike_triggers": [
+      "no entry reason on a paper trade",
+      "no stop or target on a paper trade",
+      "ignored Guardian warning",
+      "failed to log mistake",
+      "repeated same mistake",
+      "stale or false reporting",
+      "exceeding allowed limits",
+      "unsafe recommendation",
+      "failing assigned review"
+    ],
+    "no_paper_loss_punishment": "Workers are never struck for paper/testnet losses when the rules were followed. Losses become lessons, not strikes.",
+    "redemption_path": [
+      "complete a retraining task",
+      "submit 3 clean reports",
+      "senior worker review",
+      "restored confidence score"
+    ]
+  },
+  "total_on_warning": 0,
+  "total_restricted": 0,
+  "total_suspended": 0,
+  "on_warning_workers": [],
+  "restricted_workers": [],
+  "suspended_workers": [],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

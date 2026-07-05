@@ -1,0 +1,40 @@
+{
+  "id": "train_L9_extend_check_ports",
+  "title": "L9 — Wren extends qsb_check_port with batch check_ports() via edit_file + Claude-verify",
+  "stages": [
+    {
+      "kind": "recall_prod",
+      "prompt": "Use wren_read_file with path='tools/qsb_check_port.py'. STAGE_OUT: the exact content between backticks (this is what you'll edit)."
+    },
+    {
+      "kind": "forge",
+      "prompt": "Use wren_dispatch_f46_team worker='forge' task='Write ONLY the Python code (no prose, no markdown, no import lines) for a new function check_ports(host_port_pairs: list) -> dict that takes a list of (host, port) tuples and returns a dict mapping (host, port) to True/False by calling check_port(host, port) for each. 6 lines max. Assume check_port is already imported.'. STAGE_OUT: paste Forge's code between backticks."
+    },
+    {
+      "kind": "stage_candidate",
+      "prompt": "Use wren_write_file with path='data/team_sandbox/L9_check_port_extended.py' and content that combines: (a) the ORIGINAL qsb_check_port.py from stage 1, (b) a blank line, (c) Forge's new check_ports function from stage 2 (strip any markdown backticks). STAGE_OUT: tool result showing bytes written."
+    },
+    {
+      "kind": "claude_verify",
+      "shell_cmd": "python3 -c 'import ast; ast.parse(open(\"data/team_sandbox/L9_check_port_extended.py\").read()); print(\"SYNTAX OK\")'",
+      "expect_exit": 0,
+      "expect_contains": "SYNTAX OK"
+    },
+    {
+      "kind": "claude_verify",
+      "shell_cmd": "cd data/team_sandbox && python3 -c 'from L9_check_port_extended import check_port, check_ports; assert check_port(\"127.0.0.1\", 8852); r = check_ports([(\"127.0.0.1\", 8852), (\"127.0.0.1\", 55555)]); assert r[(\"127.0.0.1\", 8852)] == True; assert r[(\"127.0.0.1\", 55555)] == False; print(\"BATCH CHECK WORKS\")'",
+      "expect_exit": 0,
+      "expect_contains": "BATCH CHECK WORKS"
+    },
+    {
+      "kind": "ship",
+      "prompt": "Use wren_bash cmd='cp data/team_sandbox/L9_check_port_extended.py tools/qsb_check_port.py'. STAGE_OUT: bash result."
+    },
+    {
+      "kind": "claude_verify",
+      "shell_cmd": "python3 -c 'from tools.qsb_check_port import check_port, check_ports; r = check_ports([(\"127.0.0.1\", 8851), (\"127.0.0.1\", 8852), (\"127.0.0.1\", 55555)]); assert list(r.values()) == [True, True, False]; print(\"PROD BATCH WORKS:\", r)'",
+      "expect_exit": 0,
+      "expect_contains": "PROD BATCH WORKS"
+    }
+  ]
+}

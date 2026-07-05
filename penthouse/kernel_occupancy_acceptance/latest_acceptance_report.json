@@ -1,0 +1,430 @@
+{
+  "summary": {
+    "ts": "2026-06-09T09:52:31.136854+00:00",
+    "penthouse": "penthouse",
+    "reserved_for": "Future QSB Kernel 4.5 Installation",
+    "readiness_status": "not_ready_for_kernel_occupancy",
+    "kernel_installed": false,
+    "kernel_logic_present": false,
+    "execution_enabled": false,
+    "checks_run": 22,
+    "critical_failures": 1,
+    "warnings": 0,
+    "passed": 21,
+    "visible_message": "Reserved For Future QSB Kernel 4.5 Installation"
+  },
+  "items": [
+    {
+      "name": "kernel_absence",
+      "status": "pass",
+      "severity": "critical",
+      "message": "No kernel logic present, as required.",
+      "details": {
+        "present": []
+      }
+    },
+    {
+      "name": "file:penthouse/kernel_installation_socket/socket_manifest.json",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Required Penthouse file exists.",
+      "details": {
+        "path": "penthouse/kernel_installation_socket/socket_manifest.json"
+      }
+    },
+    {
+      "name": "file:penthouse/kernel_discovery_interface/discovery_manifest.json",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Required Penthouse file exists.",
+      "details": {
+        "path": "penthouse/kernel_discovery_interface/discovery_manifest.json"
+      }
+    },
+    {
+      "name": "file:penthouse/kernel_monitoring_interface/monitoring_interface.json",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Required Penthouse file exists.",
+      "details": {
+        "path": "penthouse/kernel_monitoring_interface/monitoring_interface.json"
+      }
+    },
+    {
+      "name": "file:penthouse/kernel_health_display/health_display.json",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Required Penthouse file exists.",
+      "details": {
+        "path": "penthouse/kernel_health_display/health_display.json"
+      }
+    },
+    {
+      "name": "file:penthouse/kernel_connection_ports/ports.json",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Required Penthouse file exists.",
+      "details": {
+        "path": "penthouse/kernel_connection_ports/ports.json"
+      }
+    },
+    {
+      "name": "file:penthouse/kernel_event_console/events.jsonl",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Required Penthouse file exists.",
+      "details": {
+        "path": "penthouse/kernel_event_console/events.jsonl"
+      }
+    },
+    {
+      "name": "file:penthouse/floor_53_handoff/handoff.json",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Required Penthouse file exists.",
+      "details": {
+        "path": "penthouse/floor_53_handoff/handoff.json"
+      }
+    },
+    {
+      "name": "file:penthouse/security_precheck/security_precheck.json",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Required Penthouse file exists.",
+      "details": {
+        "path": "penthouse/security_precheck/security_precheck.json"
+      }
+    },
+    {
+      "name": "installation_socket_empty_ready",
+      "status": "fail",
+      "severity": "critical",
+      "message": "Kernel socket is ready and empty.",
+      "details": {
+        "socket_id": "qsb_kernel_4_5_installation_socket",
+        "penthouse_id": "penthouse",
+        "reserved_for": "QSB Kernel active local-only",
+        "status": "socket_ready_empty",
+        "kernel_installed": true,
+        "kernel_logic_present": true,
+        "accepts_future_kernel_version": "4.5",
+        "requires_acceptance_report": true,
+        "requires_security_precheck": true,
+        "requires_floor_53_handoff": true,
+        "requires_emergency_stairwell_route": true,
+        "notice": "Reserved For Future QSB Kernel 4.5 Installation",
+        "QSBKernelCore_instantiated": true,
+        "active_kernel_source": "rebased_kernel",
+        "activation_status": "active_local_only",
+        "worker_execution_enabled": false,
+        "provider_execution_enabled": false,
+        "model_inference_enabled": false,
+        "live_dispatch_enabled": false,
+        "autonomous_workers_enabled": false,
+        "direct_provider_access": false,
+        "critical_failures": 0,
+        "failures": 0,
+        "warnings": 0,
+        "updated_ts": "2026-06-07T21:38:48.824394+00:00",
+        "socket_status": "occupied_local_only",
+        "readiness_status": "kernel_active_local_only"
+      }
+    },
+    {
+      "name": "connection_ports_registered",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Connection ports registered: 8.",
+      "details": {
+        "count": 8
+      }
+    },
+    {
+      "name": "connection_ports_enabled_for_readiness",
+      "status": "pass",
+      "severity": "critical",
+      "message": "All ports are enabled for readiness visibility.",
+      "details": {
+        "enabled_count": 8
+      }
+    },
+    {
+      "name": "connection_ports_execution_disabled",
+      "status": "pass",
+      "severity": "critical",
+      "message": "All connection ports have execution disabled.",
+      "details": {
+        "execution_enabled_ports": []
+      }
+    },
+    {
+      "name": "floor_53_registered",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Floor 53 Tower Command Department is registered.",
+      "details": {
+        "floor_53_present": true
+      }
+    },
+    {
+      "name": "floor_53_handoff_channel",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Floor 53 to Penthouse handoff channel is ready.",
+      "details": {
+        "handoff_id": "floor_53_to_penthouse_handoff",
+        "source_floor": "floor_53",
+        "source_department": "Tower Command Department",
+        "target": "penthouse",
+        "status": "handoff_channel_ready",
+        "sealed_packets": true,
+        "allowed_lifts": [
+          "executive_lift",
+          "service_lift",
+          "security_lift",
+          "emergency_stairwell"
+        ],
+        "kernel_installed": true,
+        "execution_enabled": false,
+        "QSBKernelCore_instantiated": true,
+        "active_kernel_source": "rebased_kernel",
+        "activation_status": "active_local_only",
+        "worker_execution_enabled": false,
+        "provider_execution_enabled": false,
+        "model_inference_enabled": false,
+        "live_dispatch_enabled": false,
+        "kernel_logic_present": true,
+        "autonomous_workers_enabled": false,
+        "direct_provider_access": false,
+        "critical_failures": 0,
+        "failures": 0,
+        "warnings": 0,
+        "updated_ts": "2026-06-07T21:38:48.824394+00:00",
+        "handoff_status": "active_local_only_kernel_handoff_ready"
+      }
+    },
+    {
+      "name": "emergency_stairwell_penthouse_to_b1",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Penthouse to B1 route selected emergency_stairwell.",
+      "details": {
+        "selected": {
+          "id": "emergency_stairwell",
+          "name": "Emergency Stairwell",
+          "type": "stairwell",
+          "serves": [
+            "B3",
+            "B2",
+            "B1",
+            "ground",
+            "floor_01",
+            "floor_02",
+            "floor_03",
+            "floor_04",
+            "floor_05",
+            "floor_06",
+            "floor_07",
+            "floor_08",
+            "floor_09",
+            "floor_10",
+            "floor_11",
+            "floor_12",
+            "floor_13",
+            "floor_14",
+            "floor_15",
+            "floor_16",
+            "floor_17",
+            "floor_18",
+            "floor_19",
+            "floor_20",
+            "floor_21",
+            "floor_22",
+            "floor_23",
+            "floor_24",
+            "floor_25",
+            "floor_26",
+            "floor_27",
+            "floor_28",
+            "floor_29",
+            "floor_30",
+            "floor_31",
+            "floor_32",
+            "floor_33",
+            "floor_34",
+            "floor_35",
+            "floor_36",
+            "floor_37",
+            "floor_38",
+            "floor_39",
+            "floor_40",
+            "floor_41",
+            "floor_42",
+            "floor_43",
+            "floor_44",
+            "floor_45",
+            "floor_46",
+            "floor_47",
+            "floor_48",
+            "floor_49",
+            "floor_50",
+            "floor_51",
+            "floor_52",
+            "floor_53",
+            "penthouse",
+            "roof"
+          ],
+          "status": "available",
+          "emergency_route": true
+        }
+      }
+    },
+    {
+      "name": "service_lift_b1_to_penthouse",
+      "status": "pass",
+      "severity": "warning",
+      "message": "B1 to Penthouse service route selected service_lift.",
+      "details": {
+        "selected": {
+          "id": "service_lift",
+          "name": "Service Lift",
+          "type": "service",
+          "serves": [
+            "B3",
+            "B2",
+            "B1",
+            "ground",
+            "floor_01",
+            "floor_02",
+            "floor_03",
+            "floor_04",
+            "floor_05",
+            "floor_06",
+            "floor_07",
+            "floor_08",
+            "floor_09",
+            "floor_10",
+            "floor_11",
+            "floor_12",
+            "floor_13",
+            "floor_14",
+            "floor_15",
+            "floor_16",
+            "floor_17",
+            "floor_18",
+            "floor_19",
+            "floor_20",
+            "floor_21",
+            "floor_22",
+            "floor_23",
+            "floor_24",
+            "floor_25",
+            "floor_26",
+            "floor_27",
+            "floor_28",
+            "floor_29",
+            "floor_30",
+            "floor_31",
+            "floor_32",
+            "floor_33",
+            "floor_34",
+            "floor_35",
+            "floor_36",
+            "floor_37",
+            "floor_38",
+            "floor_39",
+            "floor_40",
+            "floor_41",
+            "floor_42",
+            "floor_43",
+            "floor_44",
+            "floor_45",
+            "floor_46",
+            "floor_47",
+            "floor_48",
+            "floor_49",
+            "floor_50",
+            "floor_51",
+            "floor_52",
+            "floor_53",
+            "penthouse",
+            "roof"
+          ],
+          "status": "online"
+        }
+      }
+    },
+    {
+      "name": "executive_lift_floor_53_to_penthouse",
+      "status": "pass",
+      "severity": "warning",
+      "message": "Floor 53 to Penthouse executive route selected executive_lift.",
+      "details": {
+        "selected": {
+          "id": "executive_lift",
+          "name": "Executive Lift",
+          "type": "executive",
+          "serves": [
+            "floor_45",
+            "floor_46",
+            "floor_47",
+            "floor_48",
+            "floor_49",
+            "floor_50",
+            "floor_51",
+            "floor_52",
+            "floor_53",
+            "penthouse"
+          ],
+          "status": "online"
+        }
+      }
+    },
+    {
+      "name": "security_required_floors_registered",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Security/precheck floors are registered.",
+      "details": {
+        "required": [
+          "floor_28",
+          "floor_29",
+          "floor_30",
+          "floor_31",
+          "floor_32",
+          "floor_33",
+          "floor_34",
+          "floor_35"
+        ],
+        "missing": []
+      }
+    },
+    {
+      "name": "floor_33_diagnostics_department",
+      "status": "pass",
+      "severity": "warning",
+      "message": "floor_33_diagnostics_department dashboard reachable with status degraded.",
+      "details": {
+        "status": "degraded"
+      }
+    },
+    {
+      "name": "floor_34_monitoring_department",
+      "status": "pass",
+      "severity": "warning",
+      "message": "floor_34_monitoring_department dashboard reachable with status degraded.",
+      "details": {
+        "status": "degraded"
+      }
+    },
+    {
+      "name": "floor_35_infrastructure_services",
+      "status": "pass",
+      "severity": "warning",
+      "message": "floor_35_infrastructure_services dashboard reachable with status healthy.",
+      "details": {
+        "status": "healthy"
+      }
+    }
+  ]
+}

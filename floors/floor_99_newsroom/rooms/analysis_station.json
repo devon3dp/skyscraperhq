@@ -1,0 +1,34 @@
+{
+  "room_id": "analysis_station",
+  "name": "Analysis Station",
+  "category": "operations",
+  "purpose": "A space for in-depth analysis and data processing.",
+  "concierge_blurb": "Here, analysts dive deep into data.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -8.0,
+    "offset_z": 2.0,
+    "footprint_m": [
+      10,
+      6
+    ],
+    "height_m": 1.5
+  },
+  "render": {
+    "primary_prop": "workbench",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Analysis",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/live_analysis_reports.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 60
+  },
+  "floor": "floor_99"
+}

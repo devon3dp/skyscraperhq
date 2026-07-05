@@ -1,0 +1,48 @@
+{
+  "ok": true,
+  "kind": "qsb_godot_visual_style_guide",
+  "phase": "QSB_GODOT_PROFESSIONAL_3D_DASHBOARD_UPGRADE_V1",
+  "generated_ts": "2026-06-09T15:45:19+00:00",
+  "theme": "dark_command_center_neon_accents",
+  "palette": {
+    "background_top": "#020618 (rgb 2,6,24)",
+    "background_bottom": "#000308",
+    "panel_glass": "rgba(10,18,32,0.92)",
+    "accent_cyan": "#7dd8ff",
+    "accent_amber": "#ffd886",
+    "accent_purple": "#d8b4ff (kernel/openclaw)",
+    "accent_lime": "#5bff9c (profit/safety-ok)",
+    "accent_orange": "#ff9a4a (warning)",
+    "accent_pink": "#ff8aa0 (locked/blocked)"
+  },
+  "typography": {
+    "hud_font_size_top_pills": 12,
+    "hud_font_size_panels": 13,
+    "label_font_size_floor_tag": 11,
+    "label_font_size_floor_number": 13
+  },
+  "tower_render_rules": {
+    "use_pbr_standard_material": true,
+    "use_emission_for_dept_color": true,
+    "use_window_strip_per_floor": true,
+    "shadow_enabled": true,
+    "glow_layer_enabled": true,
+    "fog_enabled": true,
+    "ambient_light_color": "#2f4f8a soft blue",
+    "directional_light_strength": 1.4
+  },
+  "ui_rules": {
+    "no_clutter_labels": true,
+    "labels_billboard_when_far": true,
+    "control_bar_height_px": 44,
+    "inspector_panel_width_px": 380,
+    "auto_scaling_for_hi_dpi": true
+  },
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "live_payments_enabled": false,
+  "live_listings_publishing_enabled": false
+}

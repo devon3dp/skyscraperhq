@@ -1,0 +1,129 @@
+{"ts": "2026-07-05T07:47:36.107582Z", "ceo": "hq_claude", "action": "heal_loop_start", "detail": "interval=30s daemon online", "verdict": "started"}
+{"ts": "2026-07-05T07:47:36.108163Z", "ceo": "wren", "action": "heal_loop_start", "detail": "interval=30s daemon online", "verdict": "started"}
+{"ts": "2026-07-05T07:47:36.113367Z", "ceo": "ross", "action": "heal_loop_start", "detail": "interval=30s daemon online", "verdict": "started"}
+{"ts": "2026-07-05T07:52:08.115040Z", "ceo": "ross", "action": "heal_loop_start", "detail": "interval=30s daemon online", "verdict": "started"}
+{"ts": "2026-07-05T07:53:14.260799Z", "ceo": "ross", "action": "heal_loop_start", "detail": "interval=20s daemon online", "verdict": "started"}
+{"ts": "2026-07-05T07:53:14.260900Z", "ceo": "wren", "action": "heal_loop_start", "detail": "interval=20s daemon online", "verdict": "started"}
+{"ts": "2026-07-05T07:53:14.264311Z", "ceo": "hq_claude", "action": "heal_loop_start", "detail": "interval=20s daemon online", "verdict": "started"}
+{"ts": "2026-07-05T07:54:14.281118Z", "ceo": "ross", "action": "fault_detected", "detail": "0/1 pass consecutive=1", "verdict": "warn"}
+{"ts": "2026-07-05T07:54:14.296490Z", "ceo": "wren", "action": "fault_detected", "detail": "3/4 pass consecutive=1", "verdict": "warn"}
+{"ts": "2026-07-05T07:54:34.281590Z", "ceo": "ross", "action": "fault_detected", "detail": "0/1 pass consecutive=2", "verdict": "warn"}
+{"ts": "2026-07-05T07:54:34.298307Z", "ceo": "wren", "action": "fault_detected", "detail": "3/4 pass consecutive=2", "verdict": "warn"}
+{"ts": "2026-07-05T07:54:34.846086Z", "ceo": "ross", "action": "self_reboot", "detail": "Boardroom (Ross-facing) on :8852 down", "verdict": "reboot fired"}
+{"ts": "2026-07-05T07:54:34.846269Z", "ceo": "ross", "action": "reboot_step", "detail": "restarted qsb_boardroom_hub (Boardroom (Ross-facing) on :8852 down)", "verdict": "boot_attempt"}
+{"ts": "2026-07-05T07:54:34.862543Z", "ceo": "wren", "action": "self_reboot", "detail": "Wren dash on :8851 down", "verdict": "reboot fired"}
+{"ts": "2026-07-05T07:54:35.426908Z", "ceo": "wren", "action": "self_reboot", "detail": "Wren evo loop dead \u2014 self_schedule watcher lost", "verdict": "reboot fired"}
+{"ts": "2026-07-05T07:54:35.437225Z", "ceo": "wren", "action": "reboot_step", "detail": "restarted qsb_wren_dash (Wren dash on :8851 down)", "verdict": "boot_attempt"}
+{"ts": "2026-07-05T07:54:35.437345Z", "ceo": "wren", "action": "reboot_step", "detail": "restarted qsb_wren_evolution_loop (Wren evo loop dead \u2014 self_schedule watcher lost)", "verdict": "boot_attempt"}
+{"ts": "2026-07-05T07:57:54.338706Z", "ceo": "hq_claude", "action": "fault_detected", "detail": "2/3 pass consecutive=1", "verdict": "warn"}
+{"ts": "2026-07-05T07:57:54.419159Z", "ceo": "hq_claude", "action": "auto_fix", "detail": "restarted qsb_hq_self_prompt_daemon", "verdict": "fix_applied"}
+{"ts": "2026-07-05T07:58:14.421347Z", "ceo": "hq_claude", "action": "recovered", "detail": "back to healthy after 1 fails", "verdict": "green"}
+{"ts": "2026-07-05T10:52:49.845929Z", "ceo": "ross", "action": "fault_detected", "detail": "0/1 pass consecutive=1", "verdict": "warn"}
+{"ts": "2026-07-05T10:53:09.858120Z", "ceo": "ross", "action": "fault_detected", "detail": "0/1 pass consecutive=2", "verdict": "warn"}
+{"ts": "2026-07-05T10:53:10.424064Z", "ceo": "ross", "action": "self_reboot", "detail": "Boardroom (Ross-facing) on :8852 down", "verdict": "reboot fired"}
+{"ts": "2026-07-05T10:53:10.424334Z", "ceo": "ross", "action": "reboot_step", "detail": "restarted qsb_boardroom_hub (Boardroom (Ross-facing) on :8852 down)", "verdict": "boot_attempt"}
+{"ts": "2026-07-05T11:48:35.548187Z", "ceo": "ross", "action": "fault_detected", "detail": "0/1 pass consecutive=1", "verdict": "warn"}
+{"ts": "2026-07-05T11:48:55.571517Z", "ceo": "ross", "action": "recovered", "detail": "back to healthy after 1 fails", "verdict": "green"}
+{"ts": "2026-07-05T13:32:21.645726Z", "ceo": "ross", "action": "fault_detected", "detail": "0/1 pass consecutive=1", "verdict": "warn"}
+{"ts": "2026-07-05T13:32:41.656438Z", "ceo": "ross", "action": "fault_detected", "detail": "0/1 pass consecutive=2", "verdict": "warn"}
+{"ts": "2026-07-05T13:32:42.221033Z", "ceo": "ross", "action": "self_reboot", "detail": "Boardroom (Ross-facing) on :8852 down", "verdict": "reboot fired"}
+{"ts": "2026-07-05T13:32:42.243885Z", "ceo": "ross", "action": "reboot_step", "detail": "restarted qsb_boardroom_hub (Boardroom (Ross-facing) on :8852 down)", "verdict": "boot_attempt"}
+{"ts": "2026-07-05T13:33:02.244415Z", "ceo": "ross", "action": "fault_detected", "detail": "0/1 pass consecutive=1", "verdict": "warn"}
+{"ts": "2026-07-05T13:33:22.245038Z", "ceo": "ross", "action": "fault_detected", "detail": "0/1 pass consecutive=2", "verdict": "warn"}
+{"ts": "2026-07-05T13:33:22.809616Z", "ceo": "ross", "action": "self_reboot", "detail": "Boardroom (Ross-facing) on :8852 down", "verdict": "reboot fired"}
+{"ts": "2026-07-05T13:33:22.809831Z", "ceo": "ross", "action": "reboot_step", "detail": "restarted qsb_boardroom_hub (Boardroom (Ross-facing) on :8852 down)", "verdict": "boot_attempt"}
+{"ts": "2026-07-05T13:57:24.200752Z", "ceo": "ross", "action": "fault_detected", "detail": "0/1 pass consecutive=1", "verdict": "warn"}
+{"ts": "2026-07-05T13:57:44.223188Z", "ceo": "ross", "action": "recovered", "detail": "back to healthy after 1 fails", "verdict": "green"}
+{"ts": "2026-07-05T14:13:25.452766Z", "ceo": "ross", "action": "fault_detected", "detail": "0/1 pass consecutive=1", "verdict": "warn"}
+{"ts": "2026-07-05T14:13:45.453232Z", "ceo": "ross", "action": "fault_detected", "detail": "0/1 pass consecutive=2", "verdict": "warn"}
+{"ts": "2026-07-05T14:13:46.017598Z", "ceo": "ross", "action": "self_reboot", "detail": "Boardroom (Ross-facing) on :8852 down", "verdict": "reboot fired"}
+{"ts": "2026-07-05T14:13:46.017789Z", "ceo": "ross", "action": "reboot_step", "detail": "restarted qsb_boardroom_hub (Boardroom (Ross-facing) on :8852 down)", "verdict": "boot_attempt"}
+{"ts": "2026-07-05T14:18:26.139509Z", "ceo": "ross", "action": "fault_detected", "detail": "0/1 pass consecutive=1", "verdict": "warn"}
+{"ts": "2026-07-05T14:18:46.140116Z", "ceo": "ross", "action": "fault_detected", "detail": "0/1 pass consecutive=2", "verdict": "warn"}
+{"ts": "2026-07-05T14:18:46.705357Z", "ceo": "ross", "action": "self_reboot", "detail": "Boardroom (Ross-facing) on :8852 down", "verdict": "reboot fired"}
+{"ts": "2026-07-05T14:18:46.705571Z", "ceo": "ross", "action": "reboot_step", "detail": "restarted qsb_boardroom_hub (Boardroom (Ross-facing) on :8852 down)", "verdict": "boot_attempt"}
+{"ts": "2026-07-05T14:24:26.855560Z", "ceo": "ross", "action": "fault_detected", "detail": "0/1 pass consecutive=1", "verdict": "warn"}
+{"ts": "2026-07-05T14:24:46.856299Z", "ceo": "ross", "action": "fault_detected", "detail": "0/1 pass consecutive=2", "verdict": "warn"}
+{"ts": "2026-07-05T14:24:47.420749Z", "ceo": "ross", "action": "self_reboot", "detail": "Boardroom (Ross-facing) on :8852 down", "verdict": "reboot fired"}
+{"ts": "2026-07-05T14:24:47.443312Z", "ceo": "ross", "action": "reboot_step", "detail": "restarted qsb_boardroom_hub (Boardroom (Ross-facing) on :8852 down)", "verdict": "boot_attempt"}
+{"ts": "2026-07-05T14:26:47.473794Z", "ceo": "ross", "action": "fault_detected", "detail": "0/1 pass consecutive=1", "verdict": "warn"}
+{"ts": "2026-07-05T14:27:07.484356Z", "ceo": "ross", "action": "fault_detected", "detail": "0/1 pass consecutive=2", "verdict": "warn"}
+{"ts": "2026-07-05T14:27:08.058786Z", "ceo": "ross", "action": "self_reboot", "detail": "Boardroom (Ross-facing) on :8852 down", "verdict": "reboot fired"}
+{"ts": "2026-07-05T14:27:08.059013Z", "ceo": "ross", "action": "reboot_step", "detail": "restarted qsb_boardroom_hub (Boardroom (Ross-facing) on :8852 down)", "verdict": "boot_attempt"}
+{"ts": "2026-07-05T14:29:48.186194Z", "ceo": "ross", "action": "fault_detected", "detail": "0/1 pass consecutive=1", "verdict": "warn"}
+{"ts": "2026-07-05T14:30:08.187066Z", "ceo": "ross", "action": "recovered", "detail": "back to healthy after 1 fails", "verdict": "green"}
+{"ts": "2026-07-05T14:30:48.188228Z", "ceo": "ross", "action": "fault_detected", "detail": "0/1 pass consecutive=1", "verdict": "warn"}
+{"ts": "2026-07-05T14:31:08.189239Z", "ceo": "ross", "action": "recovered", "detail": "back to healthy after 1 fails", "verdict": "green"}
+{"ts": "2026-07-05T14:32:28.245647Z", "ceo": "ross", "action": "fault_detected", "detail": "0/1 pass consecutive=1", "verdict": "warn"}
+{"ts": "2026-07-05T14:32:48.266789Z", "ceo": "ross", "action": "recovered", "detail": "back to healthy after 1 fails", "verdict": "green"}
+{"ts": "2026-07-05T15:00:29.217232Z", "ceo": "tp_pip", "action": "heal_loop_start", "detail": "interval=45s daemon online", "verdict": "started"}
+{"ts": "2026-07-05T15:00:29.218845Z", "ceo": "acer_cass", "action": "heal_loop_start", "detail": "interval=45s daemon online", "verdict": "started"}
+{"ts": "2026-07-05T15:04:19.725085Z", "ceo": "acer_cass", "action": "fault_detected", "detail": "1/2 pass consecutive=1", "verdict": "warn"}
+{"ts": "2026-07-05T15:05:04.917270Z", "ceo": "acer_cass", "action": "recovered", "detail": "back to healthy after 1 fails", "verdict": "green"}
+{"ts": "2026-07-05T15:24:43.502985Z", "ceo": "acer_cass", "action": "fault_detected", "detail": "1/2 pass consecutive=1", "verdict": "warn"}
+{"ts": "2026-07-05T15:25:28.547183Z", "ceo": "acer_cass", "action": "recovered", "detail": "back to healthy after 1 fails", "verdict": "green"}
+{"ts": "2026-07-05T15:33:51.432826Z", "ceo": "ross", "action": "fault_detected", "detail": "0/1 pass consecutive=1", "verdict": "warn"}
+{"ts": "2026-07-05T15:34:11.589636Z", "ceo": "ross", "action": "recovered", "detail": "back to healthy after 1 fails", "verdict": "green"}
+{"ts": "2026-07-05T16:02:29.360751Z", "ceo": "acer_cass", "action": "fault_detected", "detail": "1/2 pass consecutive=1", "verdict": "warn"}
+{"ts": "2026-07-05T16:03:14.847187Z", "ceo": "acer_cass", "action": "recovered", "detail": "back to healthy after 1 fails", "verdict": "green"}
+{"ts": "2026-07-05T16:04:05.041738Z", "ceo": "acer_cass", "action": "fault_detected", "detail": "1/2 pass consecutive=1", "verdict": "warn"}
+{"ts": "2026-07-05T16:04:50.153093Z", "ceo": "acer_cass", "action": "recovered", "detail": "back to healthy after 1 fails", "verdict": "green"}
+{"ts": "2026-07-05T16:12:25.840884Z", "ceo": "acer_cass", "action": "fault_detected", "detail": "1/2 pass consecutive=1", "verdict": "warn"}
+{"ts": "2026-07-05T16:13:10.854111Z", "ceo": "acer_cass", "action": "recovered", "detail": "back to healthy after 1 fails", "verdict": "green"}
+{"ts": "2026-07-05T16:23:50.974782Z", "ceo": "acer_cass", "action": "fault_detected", "detail": "1/2 pass consecutive=1", "verdict": "warn"}
+{"ts": "2026-07-05T16:24:36.683821Z", "ceo": "acer_cass", "action": "recovered", "detail": "back to healthy after 1 fails", "verdict": "green"}
+{"ts": "2026-07-05T16:44:18.701147Z", "ceo": "ross", "action": "fault_detected", "detail": "0/1 pass consecutive=1", "verdict": "warn"}
+{"ts": "2026-07-05T16:44:38.704194Z", "ceo": "ross", "action": "recovered", "detail": "back to healthy after 1 fails", "verdict": "green"}
+{"ts": "2026-07-05T16:49:58.831837Z", "ceo": "ross", "action": "fault_detected", "detail": "0/1 pass consecutive=1", "verdict": "warn"}
+{"ts": "2026-07-05T16:50:18.832799Z", "ceo": "ross", "action": "recovered", "detail": "back to healthy after 1 fails", "verdict": "green"}
+{"ts": "2026-07-05T17:06:15.533521Z", "ceo": "acer_cass", "action": "fault_detected", "detail": "1/2 pass consecutive=1", "verdict": "warn"}
+{"ts": "2026-07-05T17:07:00.767966Z", "ceo": "acer_cass", "action": "recovered", "detail": "back to healthy after 1 fails", "verdict": "green"}
+{"ts": "2026-07-05T17:14:20.099639Z", "ceo": "ross", "action": "fault_detected", "detail": "0/1 pass consecutive=1", "verdict": "warn"}
+{"ts": "2026-07-05T17:14:40.100196Z", "ceo": "ross", "action": "fault_detected", "detail": "0/1 pass consecutive=2", "verdict": "warn"}
+{"ts": "2026-07-05T17:14:40.665947Z", "ceo": "ross", "action": "self_reboot", "detail": "Boardroom (Ross-facing) on :8852 down", "verdict": "reboot fired"}
+{"ts": "2026-07-05T17:14:40.666160Z", "ceo": "ross", "action": "reboot_step", "detail": "restarted qsb_boardroom_hub (Boardroom (Ross-facing) on :8852 down)", "verdict": "boot_attempt"}
+{"ts": "2026-07-05T17:15:40.667860Z", "ceo": "ross", "action": "fault_detected", "detail": "0/1 pass consecutive=1", "verdict": "warn"}
+{"ts": "2026-07-05T17:16:00.668423Z", "ceo": "ross", "action": "fault_detected", "detail": "0/1 pass consecutive=2", "verdict": "warn"}
+{"ts": "2026-07-05T17:16:01.232921Z", "ceo": "ross", "action": "self_reboot", "detail": "Boardroom (Ross-facing) on :8852 down", "verdict": "reboot fired"}
+{"ts": "2026-07-05T17:16:01.243075Z", "ceo": "ross", "action": "reboot_step", "detail": "restarted qsb_boardroom_hub (Boardroom (Ross-facing) on :8852 down)", "verdict": "boot_attempt"}
+{"ts": "2026-07-05T17:26:22.277588Z", "ceo": "ross", "action": "fault_detected", "detail": "0/1 pass consecutive=1", "verdict": "warn"}
+{"ts": "2026-07-05T17:26:42.278611Z", "ceo": "ross", "action": "recovered", "detail": "back to healthy after 1 fails", "verdict": "green"}
+{"ts": "2026-07-05T17:31:22.515151Z", "ceo": "ross", "action": "fault_detected", "detail": "0/1 pass consecutive=1", "verdict": "warn"}
+{"ts": "2026-07-05T17:31:42.515637Z", "ceo": "ross", "action": "fault_detected", "detail": "0/1 pass consecutive=2", "verdict": "warn"}
+{"ts": "2026-07-05T17:31:43.080098Z", "ceo": "ross", "action": "self_reboot", "detail": "Boardroom (Ross-facing) on :8852 down", "verdict": "reboot fired"}
+{"ts": "2026-07-05T17:31:43.080280Z", "ceo": "ross", "action": "reboot_step", "detail": "restarted qsb_boardroom_hub (Boardroom (Ross-facing) on :8852 down)", "verdict": "boot_attempt"}
+{"ts": "2026-07-05T17:47:31.424852Z", "ceo": "tp_pip", "action": "fault_detected", "detail": "1/2 pass consecutive=1", "verdict": "warn"}
+{"ts": "2026-07-05T17:48:21.418435Z", "ceo": "tp_pip", "action": "fault_detected", "detail": "1/2 pass consecutive=2", "verdict": "warn"}
+{"ts": "2026-07-05T17:49:07.498344Z", "ceo": "tp_pip", "action": "fault_detected", "detail": "1/2 pass consecutive=1", "verdict": "warn"}
+{"ts": "2026-07-05T17:49:53.707410Z", "ceo": "tp_pip", "action": "fault_detected", "detail": "1/2 pass consecutive=2", "verdict": "warn"}
+{"ts": "2026-07-05T17:50:40.042379Z", "ceo": "tp_pip", "action": "fault_detected", "detail": "1/2 pass consecutive=1", "verdict": "warn"}
+{"ts": "2026-07-05T17:51:26.186305Z", "ceo": "tp_pip", "action": "fault_detected", "detail": "1/2 pass consecutive=2", "verdict": "warn"}
+{"ts": "2026-07-05T17:52:12.330140Z", "ceo": "tp_pip", "action": "fault_detected", "detail": "1/2 pass consecutive=1", "verdict": "warn"}
+{"ts": "2026-07-05T17:52:58.667048Z", "ceo": "tp_pip", "action": "fault_detected", "detail": "1/2 pass consecutive=2", "verdict": "warn"}
+{"ts": "2026-07-05T17:53:44.747378Z", "ceo": "tp_pip", "action": "fault_detected", "detail": "1/2 pass consecutive=1", "verdict": "warn"}
+{"ts": "2026-07-05T17:54:31.211508Z", "ceo": "tp_pip", "action": "fault_detected", "detail": "1/2 pass consecutive=2", "verdict": "warn"}
+{"ts": "2026-07-05T17:55:17.354125Z", "ceo": "tp_pip", "action": "fault_detected", "detail": "1/2 pass consecutive=1", "verdict": "warn"}
+{"ts": "2026-07-05T17:56:03.498258Z", "ceo": "tp_pip", "action": "fault_detected", "detail": "1/2 pass consecutive=2", "verdict": "warn"}
+{"ts": "2026-07-05T17:56:49.642750Z", "ceo": "tp_pip", "action": "fault_detected", "detail": "1/2 pass consecutive=1", "verdict": "warn"}
+{"ts": "2026-07-05T17:57:38.858417Z", "ceo": "tp_pip", "action": "fault_detected", "detail": "1/2 pass consecutive=2", "verdict": "warn"}
+{"ts": "2026-07-05T17:58:25.002035Z", "ceo": "tp_pip", "action": "fault_detected", "detail": "1/2 pass consecutive=1", "verdict": "warn"}
+{"ts": "2026-07-05T17:59:11.082309Z", "ceo": "tp_pip", "action": "fault_detected", "detail": "1/2 pass consecutive=2", "verdict": "warn"}
+{"ts": "2026-07-05T17:59:57.227064Z", "ceo": "tp_pip", "action": "fault_detected", "detail": "1/2 pass consecutive=1", "verdict": "warn"}
+{"ts": "2026-07-05T18:00:43.369985Z", "ceo": "tp_pip", "action": "fault_detected", "detail": "1/2 pass consecutive=2", "verdict": "warn"}
+{"ts": "2026-07-05T18:01:29.450202Z", "ceo": "tp_pip", "action": "fault_detected", "detail": "1/2 pass consecutive=1", "verdict": "warn"}
+{"ts": "2026-07-05T18:02:15.658353Z", "ceo": "tp_pip", "action": "fault_detected", "detail": "1/2 pass consecutive=2", "verdict": "warn"}
+{"ts": "2026-07-05T18:03:04.938471Z", "ceo": "tp_pip", "action": "fault_detected", "detail": "1/2 pass consecutive=1", "verdict": "warn"}
+{"ts": "2026-07-05T18:03:51.082897Z", "ceo": "tp_pip", "action": "fault_detected", "detail": "1/2 pass consecutive=2", "verdict": "warn"}
+{"ts": "2026-07-05T18:04:37.290997Z", "ceo": "tp_pip", "action": "fault_detected", "detail": "1/2 pass consecutive=1", "verdict": "warn"}
+{"ts": "2026-07-05T18:05:23.434505Z", "ceo": "tp_pip", "action": "fault_detected", "detail": "1/2 pass consecutive=2", "verdict": "warn"}
+{"ts": "2026-07-05T18:06:09.515622Z", "ceo": "tp_pip", "action": "fault_detected", "detail": "1/2 pass consecutive=1", "verdict": "warn"}
+{"ts": "2026-07-05T18:06:56.043090Z", "ceo": "tp_pip", "action": "fault_detected", "detail": "1/2 pass consecutive=2", "verdict": "warn"}
+{"ts": "2026-07-05T18:10:47.081867Z", "ceo": "tp_pip", "action": "fault_detected", "detail": "1/2 pass consecutive=1", "verdict": "warn"}
+{"ts": "2026-07-05T18:11:33.291331Z", "ceo": "tp_pip", "action": "fault_detected", "detail": "1/2 pass consecutive=2", "verdict": "warn"}
+{"ts": "2026-07-05T18:12:22.571056Z", "ceo": "tp_pip", "action": "fault_detected", "detail": "1/2 pass consecutive=1", "verdict": "warn"}
+{"ts": "2026-07-05T18:13:08.780116Z", "ceo": "tp_pip", "action": "fault_detected", "detail": "1/2 pass consecutive=2", "verdict": "warn"}
+{"ts": "2026-07-05T18:13:55.115045Z", "ceo": "tp_pip", "action": "fault_detected", "detail": "1/2 pass consecutive=1", "verdict": "warn"}
+{"ts": "2026-07-05T18:14:41.514128Z", "ceo": "tp_pip", "action": "fault_detected", "detail": "1/2 pass consecutive=2", "verdict": "warn"}
+{"ts": "2026-07-05T18:15:27.851137Z", "ceo": "tp_pip", "action": "fault_detected", "detail": "1/2 pass consecutive=1", "verdict": "warn"}
+{"ts": "2026-07-05T18:16:17.065992Z", "ceo": "tp_pip", "action": "fault_detected", "detail": "1/2 pass consecutive=2", "verdict": "warn"}
+{"ts": "2026-07-05T18:17:03.338516Z", "ceo": "tp_pip", "action": "fault_detected", "detail": "1/2 pass consecutive=1", "verdict": "warn"}

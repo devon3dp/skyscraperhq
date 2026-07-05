@@ -1,0 +1,34 @@
+{
+  "room_id": "recital_hall_c",
+  "name": "Recital Hall C",
+  "category": "reception",
+  "purpose": "A grand hall for performances and gatherings.",
+  "concierge_blurb": "Witness the magic of live performance in this elegant space.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "center",
+    "offset_x": 0.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      25,
+      18
+    ],
+    "height_m": 3.0
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Recital Hall C",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_58"
+}

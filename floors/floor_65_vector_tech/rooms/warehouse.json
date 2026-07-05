@@ -1,0 +1,34 @@
+{
+  "room_id": "warehouse",
+  "name": "Cargo Storage",
+  "category": "operations",
+  "purpose": "Stores incoming and outgoing cargo securely.",
+  "concierge_blurb": "Largely unmarked storage area for dropships.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_right",
+    "offset_x": 4.0,
+    "offset_z": -8.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "plinth",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Storage",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_65"
+}

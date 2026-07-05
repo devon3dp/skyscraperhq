@@ -1,0 +1,40 @@
+{
+  "id": "train_L8_iquest_ships_check_port",
+  "title": "L8 — Wren + iQuest build qsb_check_port with Claude-verify guards",
+  "stages": [
+    {
+      "kind": "design",
+      "prompt": "Use wren_write_file with path='data/team_sandbox/L8_design.md' and content='# L8 — qsb_check_port\\n\\nOne-file tool that exposes check_port(host, port, timeout=1.5) -> bool.\\nUses socket.create_connection. Returns True if port is listening, False otherwise.\\nUse case: boardroom health probes across the tower.\\n'. STAGE_OUT: tool result."
+    },
+    {
+      "kind": "iquest",
+      "prompt": "Use wren_dispatch_iquest with task='Write ONLY the Python code (no prose, no markdown) for a function check_port(host, port, timeout=1.5) -> bool that returns True if a TCP port is listening. Use socket.create_connection. 10 lines max, include the import.'. STAGE_OUT: paste iQuest's code between backticks, then a single line 'iquest_replied=yes'."
+    },
+    {
+      "kind": "write_candidate",
+      "prompt": "Use wren_write_file with path='data/team_sandbox/L8_check_port_candidate.py' and content the exact Python you got from iQuest (extract from prior context; if his reply had backticks, strip them). Include a top-line docstring: '\"\"\"qsb_check_port — Wren+iQuest L8 collaboration.\"\"\"'. STAGE_OUT: tool result."
+    },
+    {
+      "kind": "claude_verify",
+      "shell_cmd": "python3 -c 'import ast; ast.parse(open(\"data/team_sandbox/L8_check_port_candidate.py\").read()); print(\"SYNTAX OK\")'",
+      "expect_exit": 0,
+      "expect_contains": "SYNTAX OK"
+    },
+    {
+      "kind": "claude_verify",
+      "shell_cmd": "cd data/team_sandbox && python3 -c 'from L8_check_port_candidate import check_port; assert check_port(\"127.0.0.1\", 8852) == True; assert check_port(\"127.0.0.1\", 55555) == False; print(\"CHECK_PORT WORKS\")'",
+      "expect_exit": 0,
+      "expect_contains": "CHECK_PORT WORKS"
+    },
+    {
+      "kind": "ship",
+      "prompt": "Use wren_bash cmd='cp data/team_sandbox/L8_check_port_candidate.py tools/qsb_check_port.py'. STAGE_OUT: bash result."
+    },
+    {
+      "kind": "claude_verify",
+      "shell_cmd": "python3 -c 'from tools.qsb_check_port import check_port; assert check_port(\"127.0.0.1\", 8852); assert not check_port(\"127.0.0.1\", 55555); print(\"PROD CHECK_PORT WORKS\")'",
+      "expect_exit": 0,
+      "expect_contains": "PROD CHECK_PORT WORKS"
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "ok": true,
+  "kind": "qsb_floor_team_map",
+  "generated_ts": "2026-06-30T13:46:36.971853+00:00",
+  "by_team": {
+    "fulfilment_team": [
+      "Order Fulfilment Hub"
+    ],
+    "department_team": [
+      "Customer Memory Vault",
+      "Code Observatory + Dev Squad",
+      "Strategy Lab + Sandbox Coupling",
+      "Demand + Competitor Watch",
+      "Commerce + Trading Risk Bench",
+      "Product Image Studio + Mockup Wall",
+      "Voice Commerce Studio",
+      "Listing Writer + SEO Lab",
+      "Marketing + Promotion Floor",
+      "Platform Integration Bench",
+      "Format / Schema Translation",
+      "Lifts Department Operations",
+      "AirLLM Chamber",
+      "Lane Governance",
+      "Commerce Accounting Floor",
+      "Local Model Drafting Bench",
+      "Security Operations Center",
+      "Guardian Watch",
+      "Permissions / Risk Department",
+      "Refund / Dispute Desk + Diagnostics",
+      "Storefront Analytics Room",
+      "Hardware Systems Floor",
+      "Workforce Expansion Planning",
+      "Strategy Labs",
+      "Sandbox Ops Coupling",
+      "OANDA Practice Trading",
+      "Binance Testnet Preview",
+      "Stocks Paper Preview",
+      "Trading + Commerce Accounting",
+      "Worker Recruitment",
+      "Executive Liaison + Concierge",
+      "Executive Ops Department",
+      "Strategic Plan Office",
+      "Resource Mgmt Department",
+      "Building Governance Council",
+      "Executive Council Office",
+      "Infrastructure Command",
+      "Tower Command Department"
+    ],
+    "research_team": [
+      "Product Research Lab"
+    ],
+    "teaching_team": [
+      "Knowledge Library + Classroom Wing",
+      "Trading + Commerce Classrooms"
+    ],
+    "etsy_team": [
+      "Etsy Shop Floor"
+    ],
+    "shopify_team": [
+      "Shopify Storefront Floor"
+    ],
+    "design_team": [
+      "Design Quality Review + Mistake Lab",
+      "Product Design Studio + Prompt-to-Product"
+    ],
+    "pod_team": [
+      "Print-on-Demand Floor"
+    ],
+    "customer_service_team": [
+      "Customer Service Floor"
+    ],
+    "openclaw_team": [
+      "OpenClaw Coordination Office"
+    ],
+    "audit_team": [
+      "Audit / Ledger Department"
+    ],
+    "compliance_team": [
+      "Platform Compliance Office"
+    ],
+    "rest_team": [
+      "Worker Recreation Floor",
+      "Worker Rest / Dormitory Floor"
+    ]
+  },
+  "team_count": 13,
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "worker_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "live_payments_enabled": false,
+  "live_listings_publishing_enabled": false,
+  "external_api_calls_enabled": false,
+  "secrets_in_logs": false,
+  "manual_approval_required_for_commerce": true
+}

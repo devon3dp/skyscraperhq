@@ -1,0 +1,31 @@
+{
+  "room_id": "archive_room",
+  "name": "Archive Room",
+  "category": "library",
+  "purpose": "A storage area for important documents and records.",
+  "concierge_blurb": "Shelves filled with bound volumes and folders.",
+  "current_state": "already_exists",
+  "visitor_open": false,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_right",
+    "offset_x": 6.0,
+    "offset_z": -4.0,
+    "footprint_m": [
+      8,
+      5
+    ],
+    "height_m": 1.2
+  },
+  "render": {
+    "primary_prop": "archive_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Archive",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_53"
+}

@@ -1,0 +1,31 @@
+{
+  "room_id": "studio_control_center",
+  "name": "Studio Control Center",
+  "category": "operations",
+  "purpose": "Central hub for overseeing studio operations.",
+  "concierge_blurb": "From here, we manage the flow of creativity in our studios.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 8.0,
+    "offset_z": 4.0,
+    "footprint_m": [
+      6,
+      3
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Control Dais",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_72"
+}

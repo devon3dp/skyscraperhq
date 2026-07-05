@@ -1,0 +1,34 @@
+{
+  "room_id": "network_security_hub",
+  "name": "Security Hub",
+  "category": "security",
+  "purpose": "Handles network security and data protection.",
+  "concierge_blurb": "Protects QSB's digital assets from threats.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -5.0,
+    "offset_z": 2.0,
+    "footprint_m": [
+      8,
+      4
+    ],
+    "height_m": 1.6
+  },
+  "render": {
+    "primary_prop": "wall_panel",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Security Hub",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/security_logs.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_35"
+}

@@ -1,0 +1,34 @@
+{
+  "room_id": "data_analytics",
+  "name": "Data Lab",
+  "category": "operations",
+  "purpose": "An area for data analysis and processing.",
+  "concierge_blurb": "Dive into the numbers with our powerful analytics tools.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -8.0,
+    "offset_z": 2.0,
+    "footprint_m": [
+      10,
+      6
+    ],
+    "height_m": 1.5
+  },
+  "render": {
+    "primary_prop": "server_rack",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Data Lab",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/data_usage.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_38"
+}

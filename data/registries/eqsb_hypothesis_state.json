@@ -1,0 +1,438 @@
+{
+  "schema_version": "eqsb_major_v1.0",
+  "kind": "eqsb_hypothesis_state",
+  "generated_ts": "2026-06-09T08:56:44.957998+00:00",
+  "hypothesis_count": 11,
+  "statuses_in_use": [
+    "CANDIDATE",
+    "ACTIVE",
+    "SELECTED",
+    "WEAKENED",
+    "REJECTED",
+    "QUARANTINED"
+  ],
+  "status_counts": {
+    "CANDIDATE": 9,
+    "ACTIVE": 1,
+    "SELECTED": 1,
+    "WEAKENED": 0,
+    "REJECTED": 0,
+    "QUARANTINED": 0
+  },
+  "by_severity": {
+    "info": 5,
+    "warning": 2,
+    "MEDIUM": 3,
+    "LOW": 1
+  },
+  "selected_hypothesis_id": "hyp_quantum_simulated_advisory",
+  "selected_hypothesis": {
+    "hypothesis_id": "hyp_quantum_simulated_advisory",
+    "statement": "Quantum signal is simulated and advisory.",
+    "title": "Quantum signal is simulated and advisory",
+    "status": "SELECTED",
+    "confidence": 0.92,
+    "severity": "info",
+    "evidence": [
+      "mode=simulated_quantum_entropy",
+      "real_quantum_source_connected=false",
+      "qiskit_connected=false",
+      "ibm_quantum_connected=false"
+    ],
+    "counter_evidence": [],
+    "linked_symbols": [
+      "SYMBOL_QUANTUM_SIGNAL",
+      "SYMBOL_SUPERPOSITION",
+      "SYMBOL_COLLAPSE"
+    ],
+    "linked_axioms": [
+      "AXIOM_QUANTUM_001",
+      "AXIOM_QUANTUM_002",
+      "AXIOM_QUANTUM_003"
+    ],
+    "linked_registries": [
+      "eqsb_quantum_signal_state.json"
+    ],
+    "entropy_impact": -5,
+    "contradiction_impact": 0,
+    "quantum_weight": 0.95,
+    "selected": true,
+    "selection_reason": "Registry truth: quantum hardware is not connected.",
+    "next_test": "Verify Qiskit / IBM Quantum credentials before any promotion.",
+    "advisory_only": true
+  },
+  "hypotheses": [
+    {
+      "hypothesis_id": "hyp_kernel_state_stable",
+      "statement": "Kernel state is stable.",
+      "title": "Kernel state is stable",
+      "status": "CANDIDATE",
+      "confidence": 0.65,
+      "severity": "info",
+      "evidence": [
+        "entropy_score=17.2",
+        "stability_score=92.0"
+      ],
+      "counter_evidence": [
+        "contradiction_count=1",
+        "drift_score=8.0"
+      ],
+      "linked_symbols": [
+        "SYMBOL_KERNEL_SELF",
+        "SYMBOL_ENTROPY"
+      ],
+      "linked_axioms": [
+        "AXIOM_AUDIT_001"
+      ],
+      "linked_registries": [
+        "eqsb_entropy_state.json"
+      ],
+      "entropy_impact": -10,
+      "contradiction_impact": 0,
+      "quantum_weight": 0.55,
+      "selected": false,
+      "selection_reason": null,
+      "next_test": "Re-run entropy after next cadence tick.",
+      "advisory_only": true
+    },
+    {
+      "hypothesis_id": "hyp_kernel_introspection_registry_backed",
+      "statement": "Kernel introspection is registry-backed.",
+      "title": "Kernel introspection is registry-backed",
+      "status": "ACTIVE",
+      "confidence": 0.92,
+      "severity": "info",
+      "evidence": [
+        "eqsb_kernel_introspection_latest.json present",
+        "kernel_dialogue_adapter primary_lane=kernel_introspection"
+      ],
+      "counter_evidence": [],
+      "linked_symbols": [
+        "SYMBOL_REGISTRY_TRUTH",
+        "SYMBOL_KERNEL_SELF"
+      ],
+      "linked_axioms": [
+        "AXIOM_TRUTH_001"
+      ],
+      "linked_registries": [
+        "eqsb_kernel_introspection_latest.json"
+      ],
+      "entropy_impact": -5,
+      "contradiction_impact": 0,
+      "quantum_weight": 0.8,
+      "selected": false,
+      "selection_reason": null,
+      "next_test": "Inspect kernel chat output for primary_lane field.",
+      "advisory_only": true
+    },
+    {
+      "hypothesis_id": "hyp_beliefs_need_review",
+      "statement": "Some beliefs need review.",
+      "title": "Some beliefs need review",
+      "status": "CANDIDATE",
+      "confidence": 0.5,
+      "severity": "warning",
+      "evidence": [
+        "aging_beliefs in eqsb_belief_lifecycle"
+      ],
+      "counter_evidence": [],
+      "linked_symbols": [
+        "SYMBOL_BELIEF"
+      ],
+      "linked_axioms": [
+        "AXIOM_TRUTH_002"
+      ],
+      "linked_registries": [
+        "eqsb_belief_lifecycle.json"
+      ],
+      "entropy_impact": 5,
+      "contradiction_impact": 0,
+      "quantum_weight": 0.5,
+      "selected": false,
+      "selection_reason": null,
+      "next_test": "Refresh belief lifecycle on next cadence tick.",
+      "advisory_only": true
+    },
+    {
+      "hypothesis_id": "hyp_entropy_rising_stale",
+      "statement": "Entropy is rising due to stale state.",
+      "title": "Entropy is rising due to stale state",
+      "status": "CANDIDATE",
+      "confidence": 0.3,
+      "severity": "info",
+      "evidence": [
+        "drift_score=8.0"
+      ],
+      "counter_evidence": [],
+      "linked_symbols": [
+        "SYMBOL_ENTROPY",
+        "SYMBOL_DRIFT"
+      ],
+      "linked_axioms": [
+        "AXIOM_ENTROPY_003"
+      ],
+      "linked_registries": [
+        "eqsb_entropy_state.json",
+        "eqsb_continuity_state.json"
+      ],
+      "entropy_impact": 20,
+      "contradiction_impact": 0,
+      "quantum_weight": 0.55,
+      "selected": false,
+      "selection_reason": null,
+      "next_test": "Re-run audit; check continuity_state stale_memory_flags.",
+      "advisory_only": true
+    },
+    {
+      "hypothesis_id": "hyp_model_paraphrase_conflicts_registry",
+      "statement": "A model paraphrase conflicts with registry truth.",
+      "title": "A model paraphrase conflicts with registry truth",
+      "status": "CANDIDATE",
+      "confidence": 0.35,
+      "severity": "warning",
+      "evidence": [],
+      "counter_evidence": [
+        "Guardian verdicts BLOCK_MODEL_OVERRIDE not yet recorded"
+      ],
+      "linked_symbols": [
+        "SYMBOL_MODEL_PARAPHRASE",
+        "SYMBOL_REGISTRY_TRUTH"
+      ],
+      "linked_axioms": [
+        "AXIOM_TRUTH_001",
+        "AXIOM_GUARDIAN_002"
+      ],
+      "linked_registries": [
+        "eqsb_model_lane_governance.json",
+        "eqsb_guardian_state.json"
+      ],
+      "entropy_impact": 8,
+      "contradiction_impact": 10,
+      "quantum_weight": 0.4,
+      "selected": false,
+      "selection_reason": null,
+      "next_test": "Sample kernel_dialogue logs for paraphrase-vs-registry drift.",
+      "advisory_only": true
+    },
+    {
+      "hypothesis_id": "hyp_missing_registry_weakens_continuity",
+      "statement": "A missing registry weakens continuity.",
+      "title": "A missing registry weakens continuity",
+      "status": "CANDIDATE",
+      "confidence": 0.45,
+      "severity": "info",
+      "evidence": [],
+      "counter_evidence": [],
+      "linked_symbols": [
+        "SYMBOL_CONTINUITY",
+        "SYMBOL_REGISTRY_TRUTH"
+      ],
+      "linked_axioms": [
+        "AXIOM_CONTINUITY_001"
+      ],
+      "linked_registries": [
+        "eqsb_kernel_missing_capabilities.json"
+      ],
+      "entropy_impact": 6,
+      "contradiction_impact": 0,
+      "quantum_weight": 0.4,
+      "selected": false,
+      "selection_reason": null,
+      "next_test": "Re-run major_audit to refresh missing_count.",
+      "advisory_only": true
+    },
+    {
+      "hypothesis_id": "hyp_quantum_simulated_advisory",
+      "statement": "Quantum signal is simulated and advisory.",
+      "title": "Quantum signal is simulated and advisory",
+      "status": "SELECTED",
+      "confidence": 0.92,
+      "severity": "info",
+      "evidence": [
+        "mode=simulated_quantum_entropy",
+        "real_quantum_source_connected=false",
+        "qiskit_connected=false",
+        "ibm_quantum_connected=false"
+      ],
+      "counter_evidence": [],
+      "linked_symbols": [
+        "SYMBOL_QUANTUM_SIGNAL",
+        "SYMBOL_SUPERPOSITION",
+        "SYMBOL_COLLAPSE"
+      ],
+      "linked_axioms": [
+        "AXIOM_QUANTUM_001",
+        "AXIOM_QUANTUM_002",
+        "AXIOM_QUANTUM_003"
+      ],
+      "linked_registries": [
+        "eqsb_quantum_signal_state.json"
+      ],
+      "entropy_impact": -5,
+      "contradiction_impact": 0,
+      "quantum_weight": 0.95,
+      "selected": true,
+      "selection_reason": "Registry truth: quantum hardware is not connected.",
+      "next_test": "Verify Qiskit / IBM Quantum credentials before any promotion.",
+      "advisory_only": true
+    },
+    {
+      "hypothesis_id": "hyp_oanda_credentials_missing",
+      "title": "OANDA practice pricing not ready \u2014 likely missing creds",
+      "evidence": {
+        "pricing_ready": false
+      },
+      "counter_evidence": {},
+      "confidence": 0.6,
+      "severity": "MEDIUM",
+      "related_floors": [
+        "floor_41"
+      ],
+      "related_registries": [
+        "oanda_trading_floor_status.json"
+      ],
+      "safe_repair_suggestion": "Verify .env.oanda_practice is sourced. Do NOT enable execution.",
+      "advisory_only": true,
+      "execution_allowed": false,
+      "status": "CANDIDATE",
+      "linked_symbols": [],
+      "linked_axioms": [],
+      "linked_registries": [],
+      "quantum_weight": 0.6,
+      "entropy_impact": 0,
+      "contradiction_impact": 0,
+      "selected": false,
+      "selection_reason": null
+    },
+    {
+      "hypothesis_id": "hyp_stocks_market_data_stalled",
+      "title": "Stocks public market data not ready",
+      "evidence": {
+        "public_market_data_ready": false
+      },
+      "counter_evidence": {},
+      "confidence": 0.55,
+      "severity": "MEDIUM",
+      "related_floors": [
+        "floor_43"
+      ],
+      "related_registries": [
+        "stock_floor_status.json"
+      ],
+      "safe_repair_suggestion": "Source .env.alpaca and run the stocks gateway script.",
+      "advisory_only": true,
+      "execution_allowed": false,
+      "status": "CANDIDATE",
+      "linked_symbols": [],
+      "linked_axioms": [],
+      "linked_registries": [],
+      "quantum_weight": 0.55,
+      "entropy_impact": 0,
+      "contradiction_impact": 0,
+      "selected": false,
+      "selection_reason": null
+    },
+    {
+      "hypothesis_id": "hyp_entropy_climbing",
+      "title": "Entropy score climbing above 0.5",
+      "evidence": {
+        "entropy_score": 17.2
+      },
+      "counter_evidence": {},
+      "confidence": 0.6,
+      "severity": "MEDIUM",
+      "related_floors": [],
+      "related_registries": [
+        "eqsb_entropy_state.json"
+      ],
+      "safe_repair_suggestion": "Run scripts/eqsb_detect_contradictions.sh; address top contradictions.",
+      "advisory_only": true,
+      "execution_allowed": false,
+      "status": "CANDIDATE",
+      "linked_symbols": [],
+      "linked_axioms": [],
+      "linked_registries": [],
+      "quantum_weight": 0.6,
+      "entropy_impact": 0,
+      "contradiction_impact": 0,
+      "selected": false,
+      "selection_reason": null
+    },
+    {
+      "hypothesis_id": "hyp_ctr_floor_named_no_manifest",
+      "title": "Contradiction detected: Floor named in qsb_floor_name_map.json but no manifest dir",
+      "evidence": {
+        "floors_without_manifest": [
+          "1",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "2",
+          "20",
+          "3",
+          "4",
+          "44",
+          "6",
+          "7",
+          "8",
+          "9"
+        ]
+      },
+      "counter_evidence": {},
+      "confidence": 0.5,
+      "severity": "LOW",
+      "related_floors": [],
+      "related_registries": [],
+      "safe_repair_suggestion": "Resolve the contradiction at its source; never bypass.",
+      "advisory_only": true,
+      "execution_allowed": false,
+      "status": "CANDIDATE",
+      "linked_symbols": [],
+      "linked_axioms": [],
+      "linked_registries": [],
+      "quantum_weight": 0.5,
+      "entropy_impact": 0,
+      "contradiction_impact": 0,
+      "selected": false,
+      "selection_reason": null
+    }
+  ],
+  "source_files": [
+    "data/registries/eqsb_belief_lifecycle.json",
+    "data/registries/eqsb_entropy_state.json",
+    "data/registries/eqsb_contradiction_report.json"
+  ],
+  "active_local_only": true,
+  "advisory_only": true,
+  "execution_allowed": false,
+  "paper_only": true,
+  "not_financial_advice": true,
+  "worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "external_provider_execution_enabled": false,
+  "openclaw_execution_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "live_dispatch_enabled": false,
+  "direct_provider_access": false,
+  "live_trading_enabled": false,
+  "order_execution_enabled": false,
+  "practice_order_execution_enabled": false,
+  "stock_order_execution_enabled": false,
+  "stock_live_trading_enabled": false,
+  "stock_paper_order_execution_enabled": false,
+  "binance_order_execution_enabled": false,
+  "binance_live_trading_enabled": false,
+  "model_inference_enabled": false,
+  "autonomous_workers_enabled": false,
+  "maintenance_auto_repair_enabled": false,
+  "web_access_autonomous_enabled": false,
+  "hypothesis_hash": "2425d29f5ab13bf2"
+}

@@ -1,0 +1,9 @@
+{
+  "timestamp_utc": "20260609T154943Z",
+  "passes": 24,
+  "warnings": 1,
+  "failures": 0,
+  "verdict": "PASS",
+  "log": "data/logs/qsb_kernel_learning_smoke_test_20260609T154943Z.log",
+  "purpose": "Smoke test whether Kernel is watching, learning from, and answering based on upgrade/registry/system changes."
+}

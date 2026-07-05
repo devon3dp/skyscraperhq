@@ -1,0 +1,34 @@
+{
+  "room_id": "motion_design_office",
+  "name": "Motion Design Office",
+  "category": "workshop",
+  "purpose": "A space for animators and motion designers to create and refine their work.",
+  "concierge_blurb": "Welcome to the heart of our animation studio, where creativity flows freely.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.0,
+    "offset_z": 1.0,
+    "footprint_m": [
+      20,
+      10
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Motion Design",
+    "glow": true
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": null,
+    "refresh_seconds": null
+  },
+  "floor": "floor_88"
+}

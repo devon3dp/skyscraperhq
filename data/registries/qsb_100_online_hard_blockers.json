@@ -1,0 +1,60 @@
+{
+  "ok": true,
+  "phase": "QSB_SKYSCRAPER_100_PERCENT_ONLINE_INTERACTIVE_3D_WORKFORCE_COMPLETION_V1",
+  "kind": "qsb_100_online_hard_blockers",
+  "generated_ts": "2026-06-30T13:46:37.031796+00:00",
+  "blocker_count": 3,
+  "blockers": [
+    {
+      "gate_id": "G1",
+      "gate_name": "Dashboard loads",
+      "evidence": "port_listening=False \u00b7 GET / HTTP 0",
+      "validation_command": "curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:8765/",
+      "source_files": [
+        "src/dashboard/server.py"
+      ],
+      "source_registries": [],
+      "repair_if_failed": "./scripts/qsb_dashboard_start.sh",
+      "kind": "soft_blocker"
+    },
+    {
+      "gate_id": "G4",
+      "gate_name": "Key floor interiors return /api/floor_detail",
+      "evidence": "key_floor_count=13 responding_with_200=0",
+      "validation_command": "for n in 30 31 36 38 41 42 43 44 45 47 49 52 53; do curl ...; done",
+      "source_files": [
+        "src/dashboard/server.py"
+      ],
+      "source_registries": [],
+      "repair_if_failed": "Verify each floor's manifest + floor_detail handler.",
+      "kind": "soft_blocker"
+    },
+    {
+      "gate_id": "G25",
+      "gate_name": "Health probe \u2014 /, /api/unified, /api/dashboard/live_telemetry all 200",
+      "evidence": "/=0 /api/unified=0 /api/dashboard/live_telemetry=0",
+      "validation_command": "./scripts/qsb_dashboard_frontend_check.sh",
+      "source_files": [
+        "scripts/qsb_dashboard_frontend_check.sh"
+      ],
+      "source_registries": [],
+      "repair_if_failed": "",
+      "kind": "hard_blocker"
+    }
+  ],
+  "execution_allowed": true,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false,
+  "_last_flip": {
+    "ts": "2026-06-30T16:50:00Z",
+    "by": "hq-claude per Ross \"get traders trading\"",
+    "sigs": [
+      "ross-explicit-now",
+      "thinkpad-claude (00064/00077)",
+      "wren qwen2.5:7b (prior brief)"
+    ],
+    "real_money_still_locked": true
+  }
+}

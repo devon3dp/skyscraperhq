@@ -1,0 +1,13 @@
+{
+  "ts": "2026-06-28T15:30:00Z",
+  "delivery": "in-engine UMG overlay, not browser",
+  "top_command_bar": ["QSB Skyscraper HQ", "selected floor", "current mode", "search", "voice status", "workers", "lifts", "models", "traders", "build status"],
+  "left_tab_rail": ["Tower", "Floors", "Interiors", "Workers", "Lifts", "Traders", "Models", "Ledgers", "Smoke Tests", "Maintenance", "Recreation", "Accommodation", "Settings"],
+  "right_contextual_panel": ["selected object/floor details", "relevant actions", "current status", "workers/activity", "ledger/PnL/model status"],
+  "bottom_dock": ["event ticker", "command result", "voice transcript", "build progress", "alert feed"],
+  "floating_windows": ["Workers", "Ledger", "Profit/Loss", "Model Response", "Smoke Test", "Floor Activity", "OpenClaw", "Build Progress"],
+  "widget_assets_path": "/Game/QSB/Widgets/",
+  "widget_authoring_path": "UE Python via PythonScriptPlugin",
+  "data_writer": "tools/qsb_ue5_hud_writer.py (1s tick, reads QSB registries, POSTs to game-instance)",
+  "implementation_plan_ref": "data/registries/qsb_unreal_hud_implementation_plan.json"
+}

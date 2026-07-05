@@ -1,0 +1,289 @@
+{
+  "ts": "2026-07-01T13:46:51.016318+00:00",
+  "layer": "openclaw_sandbox_visual_layer_v1",
+  "status": "healthy",
+  "openclaw_sandbox_enabled": true,
+  "openclaw_visualization_enabled": true,
+  "openclaw_execution_enabled": false,
+  "worker_count": 4,
+  "workers": [
+    {
+      "id": "openclaw_market_probe",
+      "name": "OpenClaw Market Probe",
+      "role": "Sandbox-only inspection of Floor 41 paper market state.",
+      "home_floor": "floor_41",
+      "sandbox_only": true,
+      "execution_enabled": false
+    },
+    {
+      "id": "openclaw_strategy_mapper",
+      "name": "OpenClaw Strategy Mapper",
+      "role": "Maps paper signals into candidate strategy notes.",
+      "home_floor": "floor_37",
+      "sandbox_only": true,
+      "execution_enabled": false
+    },
+    {
+      "id": "openclaw_risk_guard",
+      "name": "OpenClaw Risk Guard",
+      "role": "Checks that all execution locks remain closed.",
+      "home_floor": "floor_30",
+      "sandbox_only": true,
+      "execution_enabled": false
+    },
+    {
+      "id": "openclaw_lift_observer",
+      "name": "OpenClaw Lift Observer",
+      "role": "Watches sandbox packets move through the tower lift system.",
+      "home_floor": "floor_25",
+      "sandbox_only": true,
+      "execution_enabled": false
+    }
+  ],
+  "packets": [
+    {
+      "packet_id": "oc_pkt_6ec7463ee47c",
+      "ts": "2026-07-01T13:46:51.016318+00:00",
+      "worker_id": "openclaw_market_probe",
+      "worker_name": "OpenClaw Market Probe",
+      "source_floor": "floor_25",
+      "target_floor": "floor_41",
+      "task": "OpenClaw sandbox probe checks paper market state",
+      "status": "delivered",
+      "sandbox_only": true,
+      "execution_enabled": false,
+      "lift_lane": 5,
+      "locks": {
+        "live_trading_enabled": false,
+        "order_execution_enabled": false,
+        "practice_order_execution_enabled": false,
+        "worker_execution_enabled": false,
+        "provider_execution_enabled": false,
+        "external_provider_execution_enabled": false,
+        "openclaw_execution_enabled": false,
+        "openclaw_real_tool_execution_enabled": false,
+        "autonomous_dispatch_enabled": false,
+        "live_dispatch_enabled": false,
+        "direct_provider_access": false
+      }
+    },
+    {
+      "packet_id": "oc_pkt_ba5023728962",
+      "ts": "2026-07-01T13:46:51.016318+00:00",
+      "worker_id": "openclaw_strategy_mapper",
+      "worker_name": "OpenClaw Strategy Mapper",
+      "source_floor": "floor_41",
+      "target_floor": "floor_37",
+      "task": "OpenClaw maps paper signals into simulation notes",
+      "status": "delivered",
+      "sandbox_only": true,
+      "execution_enabled": false,
+      "lift_lane": 8,
+      "locks": {
+        "live_trading_enabled": false,
+        "order_execution_enabled": false,
+        "practice_order_execution_enabled": false,
+        "worker_execution_enabled": false,
+        "provider_execution_enabled": false,
+        "external_provider_execution_enabled": false,
+        "openclaw_execution_enabled": false,
+        "openclaw_real_tool_execution_enabled": false,
+        "autonomous_dispatch_enabled": false,
+        "live_dispatch_enabled": false,
+        "direct_provider_access": false
+      }
+    },
+    {
+      "packet_id": "oc_pkt_cdede807f6c8",
+      "ts": "2026-07-01T13:46:51.016318+00:00",
+      "worker_id": "openclaw_risk_guard",
+      "worker_name": "OpenClaw Risk Guard",
+      "source_floor": "floor_37",
+      "target_floor": "floor_38",
+      "task": "OpenClaw sends strategy notes into sandbox containment",
+      "status": "delivered",
+      "sandbox_only": true,
+      "execution_enabled": false,
+      "lift_lane": 2,
+      "locks": {
+        "live_trading_enabled": false,
+        "order_execution_enabled": false,
+        "practice_order_execution_enabled": false,
+        "worker_execution_enabled": false,
+        "provider_execution_enabled": false,
+        "external_provider_execution_enabled": false,
+        "openclaw_execution_enabled": false,
+        "openclaw_real_tool_execution_enabled": false,
+        "autonomous_dispatch_enabled": false,
+        "live_dispatch_enabled": false,
+        "direct_provider_access": false
+      }
+    },
+    {
+      "packet_id": "oc_pkt_e9339e8b1bab",
+      "ts": "2026-07-01T13:46:51.016318+00:00",
+      "worker_id": "openclaw_lift_observer",
+      "worker_name": "OpenClaw Lift Observer",
+      "source_floor": "floor_38",
+      "target_floor": "floor_30",
+      "task": "OpenClaw risk guard verifies locks",
+      "status": "delivered",
+      "sandbox_only": true,
+      "execution_enabled": false,
+      "lift_lane": 7,
+      "locks": {
+        "live_trading_enabled": false,
+        "order_execution_enabled": false,
+        "practice_order_execution_enabled": false,
+        "worker_execution_enabled": false,
+        "provider_execution_enabled": false,
+        "external_provider_execution_enabled": false,
+        "openclaw_execution_enabled": false,
+        "openclaw_real_tool_execution_enabled": false,
+        "autonomous_dispatch_enabled": false,
+        "live_dispatch_enabled": false,
+        "direct_provider_access": false
+      }
+    }
+  ],
+  "recommendations": [
+    {
+      "instrument": "EUR_USD",
+      "sandbox_recommendation": "observe_only",
+      "paper_score_total": 0.05,
+      "delta_pips_total": -0.2999999999997449,
+      "avg_spread_pips": 0.9000000000014552,
+      "execution_allowed": false
+    },
+    {
+      "instrument": "GBP_USD",
+      "sandbox_recommendation": "observe_only",
+      "paper_score_total": 0.05,
+      "delta_pips_total": -1.1500000000008725,
+      "avg_spread_pips": 1.40000000000029,
+      "execution_allowed": false
+    },
+    {
+      "instrument": "USD_JPY",
+      "sandbox_recommendation": "observe_only",
+      "paper_score_total": 0,
+      "delta_pips_total": -0.04999999999881766,
+      "avg_spread_pips": 1.9000000000005457,
+      "execution_allowed": false
+    }
+  ],
+  "paper_lab_instruments": [
+    {
+      "instrument": "EUR_USD",
+      "time": "2026-07-01T13:46:50.585809222Z",
+      "status": "tradeable",
+      "tradeable": true,
+      "bid": 1.14082,
+      "ask": 1.14091,
+      "mid": 1.140865,
+      "spread": 9.000000000014552e-05,
+      "spread_pips": 0.9000000000014552,
+      "top_bid_liquidity": 500000,
+      "top_ask_liquidity": 500000,
+      "top_liquidity_imbalance": 0.0,
+      "depth_levels_bid": 7,
+      "depth_levels_ask": 6,
+      "paper_signal": "observe",
+      "paper_reason": "balanced book / no clear paper edge"
+    },
+    {
+      "instrument": "GBP_USD",
+      "time": "2026-07-01T13:46:50.557164639Z",
+      "status": "tradeable",
+      "tradeable": true,
+      "bid": 1.32755,
+      "ask": 1.32769,
+      "mid": 1.32762,
+      "spread": 0.000140000000000029,
+      "spread_pips": 1.40000000000029,
+      "top_bid_liquidity": 500000,
+      "top_ask_liquidity": 500000,
+      "top_liquidity_imbalance": 0.0,
+      "depth_levels_bid": 7,
+      "depth_levels_ask": 6,
+      "paper_signal": "observe",
+      "paper_reason": "balanced book / no clear paper edge"
+    },
+    {
+      "instrument": "USD_JPY",
+      "time": "2026-07-01T13:46:50.608950736Z",
+      "status": "tradeable",
+      "tradeable": true,
+      "bid": 162.305,
+      "ask": 162.324,
+      "mid": 162.3145,
+      "spread": 0.019000000000005457,
+      "spread_pips": 1.9000000000005457,
+      "top_bid_liquidity": 500000,
+      "top_ask_liquidity": 500000,
+      "top_liquidity_imbalance": 0.0,
+      "depth_levels_bid": 7,
+      "depth_levels_ask": 6,
+      "paper_signal": "observe",
+      "paper_reason": "balanced book / no clear paper edge"
+    }
+  ],
+  "performance_summary": {
+    "entries_analyzed": 3,
+    "total_paper_score": 0.1,
+    "total_observation_delta_pips": -1.4999999999994351,
+    "by_instrument": [
+      {
+        "instrument": "EUR_USD",
+        "entries": 1,
+        "signals": {
+          "observe": 1
+        },
+        "delta_pips_total": -0.2999999999997449,
+        "delta_pips_avg": -0.2999999999997449,
+        "avg_spread_pips": 0.9000000000014552,
+        "paper_score_total": 0.05,
+        "paper_score_avg": 0.05
+      },
+      {
+        "instrument": "GBP_USD",
+        "entries": 1,
+        "signals": {
+          "observe": 1
+        },
+        "delta_pips_total": -1.1500000000008725,
+        "delta_pips_avg": -1.1500000000008725,
+        "avg_spread_pips": 1.40000000000029,
+        "paper_score_total": 0.05,
+        "paper_score_avg": 0.05
+      },
+      {
+        "instrument": "USD_JPY",
+        "entries": 1,
+        "signals": {
+          "observe": 1
+        },
+        "delta_pips_total": -0.04999999999881766,
+        "delta_pips_avg": -0.04999999999881766,
+        "avg_spread_pips": 1.9000000000005457,
+        "paper_score_total": 0.0,
+        "paper_score_avg": 0.0
+      }
+    ]
+  },
+  "locks": {
+    "live_trading_enabled": false,
+    "order_execution_enabled": false,
+    "practice_order_execution_enabled": false,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "external_provider_execution_enabled": false,
+    "openclaw_execution_enabled": false,
+    "openclaw_real_tool_execution_enabled": false,
+    "autonomous_dispatch_enabled": false,
+    "live_dispatch_enabled": false,
+    "direct_provider_access": false
+  },
+  "sandbox_only": true,
+  "not_financial_advice": true
+}

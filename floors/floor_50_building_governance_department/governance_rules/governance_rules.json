@@ -1,0 +1,38 @@
+[
+  {
+    "id": "kernel_reserved_until_installation",
+    "floor": "floor_50",
+    "rule": "Penthouse remains reserved for future QSB Kernel 4.5 installation.",
+    "status": "active"
+  },
+  {
+    "id": "models_are_tenants",
+    "floor": "floor_50",
+    "rule": "Models are temporary tenants. The building owns the infrastructure.",
+    "status": "active"
+  },
+  {
+    "id": "no_provider_hardwire",
+    "floor": "floor_50",
+    "rule": "Do not hardwire the tower to Claude, OpenAI, Gemini, DeepSeek, Ollama, or any provider.",
+    "status": "active"
+  },
+  {
+    "id": "sealed_lift_packets",
+    "floor": "floor_50",
+    "rule": "Departments do not communicate directly. Communication travels through sealed lift packets.",
+    "status": "active"
+  },
+  {
+    "id": "vacant_floors_serviced",
+    "floor": "floor_50",
+    "rule": "Vacant floors are fully serviced expansion-ready floors.",
+    "status": "active"
+  },
+  {
+    "id": "kernel_not_built_yet",
+    "floor": "floor_50",
+    "rule": "Do not build QSB Kernel 4.5 yet.",
+    "status": "active"
+  }
+]

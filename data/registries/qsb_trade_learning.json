@@ -1,0 +1,99 @@
+{
+  "ok": true,
+  "kind": "qsb_trade_learning",
+  "generated_ts": "2026-06-30T13:46:34.838645+00:00",
+  "lesson_count": 8,
+  "closed_trade_count": 8,
+  "total_realized_pnl": 2672.9312,
+  "lessons": [
+    {
+      "id": 8,
+      "trade_id": "ptr_f29b6aa8a8f442",
+      "symbol": "SOLUSDT",
+      "side": "LONG",
+      "realized_pnl": -7.614,
+      "exit_reason": "auto_stop",
+      "lesson_text": "Auto-closed by stop rule at mark=149.586",
+      "ts": "2026-06-17T17:18:00.708300+00:00"
+    },
+    {
+      "id": 7,
+      "trade_id": "ptr_bb8d3a7a3be94c",
+      "symbol": "BNBUSDT",
+      "side": "SHORT",
+      "realized_pnl": -16.434,
+      "exit_reason": "auto_stop",
+      "lesson_text": "Auto-closed by stop rule at mark=601.6992",
+      "ts": "2026-06-16T13:32:22.849537+00:00"
+    },
+    {
+      "id": 6,
+      "trade_id": "ptr_889462014b9648",
+      "symbol": "ETHUSDT",
+      "side": "LONG",
+      "realized_pnl": -18.585,
+      "exit_reason": "auto_stop",
+      "lesson_text": "Auto-closed by stop rule at mark=3491.201",
+      "ts": "2026-06-10T20:25:56.898403+00:00"
+    },
+    {
+      "id": 5,
+      "trade_id": "ptr_c9cf6035b5fd41",
+      "symbol": "BNBUSDT",
+      "side": "SHORT",
+      "realized_pnl": -17.478,
+      "exit_reason": "auto_stop",
+      "lesson_text": "Auto-closed by stop rule at mark=601.7532",
+      "ts": "2026-06-09T19:20:53.120865+00:00"
+    },
+    {
+      "id": 4,
+      "trade_id": "ptr_1c012499460748",
+      "symbol": "ETHUSDT",
+      "side": "LONG",
+      "realized_pnl": 1836.934,
+      "exit_reason": "auto_target",
+      "lesson_text": "Auto-closed by target rule at mark=3500.714",
+      "ts": "2026-06-09T11:18:33.439535+00:00"
+    },
+    {
+      "id": 3,
+      "trade_id": "ptr_bdfe122493f444",
+      "symbol": "SOLUSDT",
+      "side": "LONG",
+      "realized_pnl": 837.084,
+      "exit_reason": "auto_target",
+      "lesson_text": "Auto-closed by target rule at mark=149.7984",
+      "ts": "2026-06-09T11:18:33.435257+00:00"
+    },
+    {
+      "id": 2,
+      "trade_id": "ptr_6e37cda93c4243",
+      "symbol": "ETHUSDT",
+      "side": "LONG",
+      "realized_pnl": 40.0,
+      "exit_reason": "smoke_test_close",
+      "lesson_text": "Profitable LONG on ETHUSDT closed via smoke_test_close at 3520.000000",
+      "ts": "2026-06-09T08:10:16.969693+00:00"
+    },
+    {
+      "id": 1,
+      "trade_id": "ptr_fffb8c24f2aa48",
+      "symbol": "BTCUSDT",
+      "side": "LONG",
+      "realized_pnl": 19.0242,
+      "exit_reason": "manual_close_training_demo",
+      "lesson_text": "Training demo close: small profit captured by manual exit \u2014 confirm rule did not over-fit",
+      "ts": "2026-06-09T07:54:19.880996+00:00"
+    }
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "paper_only": true,
+  "real_money_live_trading_enabled": false,
+  "live_trading_enabled": false,
+  "binance_live_trading_enabled": false,
+  "stock_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

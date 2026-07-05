@@ -1,0 +1,20 @@
+{
+  "ok": true,
+  "kind": "qsb_godot_layout_overlay_repair_status",
+  "ts": "2026-06-09T21:07:08Z",
+  "phase": "QSB_GODOT_COCKPIT_OVERLAY_AUDIO_CHAT_PRODUCTION_REPAIR_V1",
+  "zones": {
+    "top_bar":      {"present": true, "owner": "ControlBar"},
+    "safety_banner":{"present": true, "owner": "HUDController"},
+    "left_rail":    {"present": true, "owner": "HUDController", "panels": ["engine_counts_telemetry", "execution_safety", "selected_floor"]},
+    "center":       {"present": true, "owner": "TowerRenderer", "note": "no overlay covers tower"},
+    "right_tabs":   {"present": true, "owner": "RightPanelTabs", "tabs": 12, "one_at_a_time": true},
+    "bottom_dock":  {"present": true, "owner": "HUDController.EventTicker"}
+  },
+  "overlay_problems_fixed": [
+    "removed stacked Kernel/FloorInspector/ML/Banking/GitHub panels overlapping each other",
+    "replaced with single TabContainer (one panel visible)",
+    "ticker ends before right tab edge (no overlap)",
+    "chat input no longer cramped at bottom-right (lives inside Chat tab with full-height history)"
+  ]
+}

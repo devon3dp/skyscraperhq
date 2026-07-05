@@ -1,0 +1,1832 @@
+{
+  "ok": true,
+  "kind": "qsb_full_floor_audit",
+  "phase": "QSB_FULL_SKYSCRAPER_OCCUPANCY_COMMERCE_WORKFORCE_EXPANSION_V1",
+  "generated_ts": "2026-06-30T13:46:36.952169+00:00",
+  "total_floors": 53,
+  "weak_floors_count": 38,
+  "populated_floors_count": 15,
+  "floors": [
+    {
+      "floor_number": 1,
+      "floor_id": "floor_01",
+      "floor_name": "Operations",
+      "secondary_department": "Order Fulfilment Hub",
+      "department": "Operations",
+      "purpose": "physical/digital order fulfilment dispatch",
+      "manifest_exists": true,
+      "dashboard_visible": true,
+      "interior_exists": [
+        "Order Intake",
+        "Dispatch Desk",
+        "Fulfilment Ledger",
+        "Quality Check",
+        "Returns Desk"
+      ],
+      "manager_exists": true,
+      "worker_count_before": 0,
+      "worker_count_new": 35,
+      "rooms": [
+        "Order Intake",
+        "Dispatch Desk",
+        "Fulfilment Ledger",
+        "Quality Check",
+        "Returns Desk"
+      ],
+      "live_data_sources": [
+        "qsb_worker_room_assignments.json",
+        "qsb_worker_station_assignments.json"
+      ],
+      "status": "weak",
+      "profit_contribution": true,
+      "kernel_evolution_contribution": false,
+      "safety_contribution": true,
+      "rest_contribution": false,
+      "recommended_action": "expand"
+    },
+    {
+      "floor_number": 2,
+      "floor_id": "floor_02",
+      "floor_name": "Memory",
+      "secondary_department": "Customer Memory Vault",
+      "department": "Memory",
+      "purpose": "customer history + repeat-purchase memory",
+      "manifest_exists": true,
+      "dashboard_visible": true,
+      "interior_exists": [
+        "Customer Profiles Vault",
+        "Purchase History Archive",
+        "Loyalty Ledger",
+        "Memory Retention Desk"
+      ],
+      "manager_exists": true,
+      "worker_count_before": 0,
+      "worker_count_new": 18,
+      "rooms": [
+        "Customer Profiles Vault",
+        "Purchase History Archive",
+        "Loyalty Ledger",
+        "Memory Retention Desk"
+      ],
+      "live_data_sources": [
+        "qsb_worker_room_assignments.json",
+        "qsb_worker_station_assignments.json"
+      ],
+      "status": "weak",
+      "profit_contribution": true,
+      "kernel_evolution_contribution": true,
+      "safety_contribution": true,
+      "rest_contribution": false,
+      "recommended_action": "expand"
+    },
+    {
+      "floor_number": 3,
+      "floor_id": "floor_03",
+      "floor_name": "Research",
+      "secondary_department": "Product Research Lab",
+      "department": "Research",
+      "purpose": "commerce + product research",
+      "manifest_exists": true,
+      "dashboard_visible": true,
+      "interior_exists": [
+        "Trend Watch Desk",
+        "Competitor Research Desk",
+        "Pricing Research Desk",
+        "Niche Discovery Desk",
+        "Demand Signal Wall"
+      ],
+      "manager_exists": true,
+      "worker_count_before": 0,
+      "worker_count_new": 30,
+      "rooms": [
+        "Trend Watch Desk",
+        "Competitor Research Desk",
+        "Pricing Research Desk",
+        "Niche Discovery Desk",
+        "Demand Signal Wall"
+      ],
+      "live_data_sources": [
+        "qsb_worker_room_assignments.json",
+        "qsb_worker_station_assignments.json"
+      ],
+      "status": "weak",
+      "profit_contribution": true,
+      "kernel_evolution_contribution": true,
+      "safety_contribution": false,
+      "rest_contribution": false,
+      "recommended_action": "expand"
+    },
+    {
+      "floor_number": 4,
+      "floor_id": "floor_04",
+      "floor_name": "Knowledge",
+      "secondary_department": "Knowledge Library + Classroom Wing",
+      "department": "Knowledge",
+      "purpose": "training resources + classroom content",
+      "manifest_exists": true,
+      "dashboard_visible": true,
+      "interior_exists": [
+        "Curriculum Library",
+        "Teacher Office",
+        "Study Carrels",
+        "Certification Records"
+      ],
+      "manager_exists": true,
+      "worker_count_before": 0,
+      "worker_count_new": 20,
+      "rooms": [
+        "Curriculum Library",
+        "Teacher Office",
+        "Study Carrels",
+        "Certification Records"
+      ],
+      "live_data_sources": [
+        "qsb_worker_room_assignments.json",
+        "qsb_worker_station_assignments.json"
+      ],
+      "status": "weak",
+      "profit_contribution": false,
+      "kernel_evolution_contribution": true,
+      "safety_contribution": false,
+      "rest_contribution": false,
+      "recommended_action": "expand"
+    },
+    {
+      "floor_number": 5,
+      "floor_id": "floor_05",
+      "floor_name": "Coding",
+      "secondary_department": "Code Observatory + Dev Squad",
+      "department": "Coding",
+      "purpose": "claude-change tracking + repo health",
+      "manifest_exists": true,
+      "dashboard_visible": true,
+      "interior_exists": [
+        "Code Review Desk",
+        "Phase History Wall",
+        "Refactor Queue",
+        "Test Runner Bench"
+      ],
+      "manager_exists": true,
+      "worker_count_before": 5,
+      "worker_count_new": 15,
+      "rooms": [
+        "Code Review Desk",
+        "Phase History Wall",
+        "Refactor Queue",
+        "Test Runner Bench"
+      ],
+      "live_data_sources": [
+        "qsb_worker_room_assignments.json",
+        "qsb_worker_station_assignments.json"
+      ],
+      "status": "partial",
+      "profit_contribution": false,
+      "kernel_evolution_contribution": true,
+      "safety_contribution": true,
+      "rest_contribution": false,
+      "recommended_action": "maintain"
+    },
+    {
+      "floor_number": 6,
+      "floor_id": "floor_06",
+      "floor_name": "Engineering",
+      "secondary_department": "Etsy Shop Floor",
+      "department": "Engineering",
+      "purpose": "digital products listing pipeline (manual approval)",
+      "manifest_exists": true,
+      "dashboard_visible": true,
+      "interior_exists": [
+        "Etsy Shop Manager Office",
+        "Product Research Desk",
+        "Digital Product Studio",
+        "Listing Writer Desk",
+        "SEO / Tags Desk",
+        "Pricing Desk",
+        "Image Preview Wall",
+        "Customer Message Desk",
+        "Order Monitor",
+        "Revenue Ledger",
+        "Compliance Review Desk"
+      ],
+      "manager_exists": true,
+      "worker_count_before": 0,
+      "worker_count_new": 32,
+      "rooms": [
+        "Etsy Shop Manager Office",
+        "Product Research Desk",
+        "Digital Product Studio",
+        "Listing Writer Desk",
+        "SEO / Tags Desk",
+        "Pricing Desk",
+        "Image Preview Wall",
+        "Customer Message Desk",
+        "Order Monitor",
+        "Revenue Ledger",
+        "Compliance Review Desk"
+      ],
+      "live_data_sources": [
+        "qsb_worker_room_assignments.json",
+        "qsb_worker_station_assignments.json"
+      ],
+      "status": "weak",
+      "profit_contribution": true,
+      "kernel_evolution_contribution": false,
+      "safety_contribution": true,
+      "rest_contribution": false,
+      "recommended_action": "expand"
+    },
+    {
+      "floor_number": 7,
+      "floor_id": "floor_07",
+      "floor_name": "Architecture",
+      "secondary_department": "Shopify Storefront Floor",
+      "department": "Architecture",
+      "purpose": "direct storefront design + theme work",
+      "manifest_exists": true,
+      "dashboard_visible": true,
+      "interior_exists": [
+        "Theme Studio",
+        "Cart Logic Desk",
+        "Storefront Audit",
+        "Webhook Listener Desk",
+        "Compliance Review"
+      ],
+      "manager_exists": true,
+      "worker_count_before": 0,
+      "worker_count_new": 22,
+      "rooms": [
+        "Theme Studio",
+        "Cart Logic Desk",
+        "Storefront Audit",
+        "Webhook Listener Desk",
+        "Compliance Review"
+      ],
+      "live_data_sources": [
+        "qsb_worker_room_assignments.json",
+        "qsb_worker_station_assignments.json"
+      ],
+      "status": "weak",
+      "profit_contribution": true,
+      "kernel_evolution_contribution": false,
+      "safety_contribution": true,
+      "rest_contribution": false,
+      "recommended_action": "expand"
+    },
+    {
+      "floor_number": 8,
+      "floor_id": "floor_08",
+      "floor_name": "Training Academy",
+      "secondary_department": "Trading + Commerce Classrooms",
+      "department": "Training Academy",
+      "purpose": "curriculum + cohort teaching",
+      "manifest_exists": true,
+      "dashboard_visible": true,
+      "interior_exists": [
+        "Trading Classroom",
+        "Commerce Classroom",
+        "Etsy Classroom",
+        "Print-on-Demand Classroom",
+        "3D Printing Classroom",
+        "SEO / Listing Classroom",
+        "Prompt Engineering Lab",
+        "Teacher Lounge",
+        "Certification Board"
+      ],
+      "manager_exists": true,
+      "worker_count_before": 0,
+      "worker_count_new": 48,
+      "rooms": [
+        "Trading Classroom",
+        "Commerce Classroom",
+        "Etsy Classroom",
+        "Print-on-Demand Classroom",
+        "3D Printing Classroom",
+        "SEO / Listing Classroom",
+        "Prompt Engineering Lab",
+        "Teacher Lounge",
+        "Certification Board"
+      ],
+      "live_data_sources": [
+        "qsb_worker_room_assignments.json",
+        "qsb_worker_station_assignments.json"
+      ],
+      "status": "weak",
+      "profit_contribution": false,
+      "kernel_evolution_contribution": true,
+      "safety_contribution": true,
+      "rest_contribution": false,
+      "recommended_action": "expand"
+    },
+    {
+      "floor_number": 9,
+      "floor_id": "floor_09",
+      "floor_name": "Quality Assurance",
+      "secondary_department": "Design Quality Review + Mistake Lab",
+      "department": "Quality Assurance",
+      "purpose": "design QA + lessons-from-mistakes review",
+      "manifest_exists": true,
+      "dashboard_visible": true,
+      "interior_exists": [
+        "Design Quality Review Room",
+        "Mistake Review Room",
+        "Lessons Room",
+        "QA Sign-off Desk"
+      ],
+      "manager_exists": true,
+      "worker_count_before": 0,
+      "worker_count_new": 22,
+      "rooms": [
+        "Design Quality Review Room",
+        "Mistake Review Room",
+        "Lessons Room",
+        "QA Sign-off Desk"
+      ],
+      "live_data_sources": [
+        "qsb_worker_room_assignments.json",
+        "qsb_worker_station_assignments.json"
+      ],
+      "status": "weak",
+      "profit_contribution": true,
+      "kernel_evolution_contribution": true,
+      "safety_contribution": true,
+      "rest_contribution": false,
+      "recommended_action": "expand"
+    },
+    {
+      "floor_number": 10,
+      "floor_id": "floor_10",
+      "floor_name": "Trading Simulation",
+      "secondary_department": "Strategy Lab + Sandbox Coupling",
+      "department": "Trading Simulation",
+      "purpose": "extend Floor 38 sandbox with strategy scenarios",
+      "manifest_exists": true,
+      "dashboard_visible": true,
+      "interior_exists": [
+        "Scenario Lab",
+        "Counter-Strategy Bench",
+        "Walk-Forward Test Pit",
+        "Simulation Result Wall"
+      ],
+      "manager_exists": true,
+      "worker_count_before": 0,
+      "worker_count_new": 25,
+      "rooms": [
+        "Scenario Lab",
+        "Counter-Strategy Bench",
+        "Walk-Forward Test Pit",
+        "Simulation Result Wall"
+      ],
+      "live_data_sources": [
+        "qsb_worker_room_assignments.json",
+        "qsb_worker_station_assignments.json"
+      ],
+      "status": "weak",
+      "profit_contribution": true,
+      "kernel_evolution_contribution": true,
+      "safety_contribution": true,
+      "rest_contribution": false,
+      "recommended_action": "expand"
+    },
+    {
+      "floor_number": 11,
+      "floor_id": "floor_11",
+      "floor_name": "Market Intelligence",
+      "secondary_department": "Demand + Competitor Watch",
+      "department": "Market Intelligence",
+      "purpose": "cross-platform demand watching",
+      "manifest_exists": true,
+      "dashboard_visible": true,
+      "interior_exists": [
+        "Demand Watch Desk",
+        "Competitor Watch Desk",
+        "Trend Signal Wall",
+        "Pricing Intel Desk"
+      ],
+      "manager_exists": true,
+      "worker_count_before": 0,
+      "worker_count_new": 24,
+      "rooms": [
+        "Demand Watch Desk",
+        "Competitor Watch Desk",
+        "Trend Signal Wall",
+        "Pricing Intel Desk"
+      ],
+      "live_data_sources": [
+        "qsb_worker_room_assignments.json",
+        "qsb_worker_station_assignments.json"
+      ],
+      "status": "weak",
+      "profit_contribution": true,
+      "kernel_evolution_contribution": false,
+      "safety_contribution": false,
+      "rest_contribution": false,
+      "recommended_action": "expand"
+    },
+    {
+      "floor_number": 12,
+      "floor_id": "floor_12",
+      "floor_name": "Risk Analysis",
+      "secondary_department": "Commerce + Trading Risk Bench",
+      "department": "Risk Analysis",
+      "purpose": "unified risk view across trading + commerce",
+      "manifest_exists": true,
+      "dashboard_visible": true,
+      "interior_exists": [
+        "Trading Risk Bench",
+        "Commerce Risk Bench",
+        "Risk Threshold Desk",
+        "Kill-Switch Console"
+      ],
+      "manager_exists": true,
+      "worker_count_before": 1,
+      "worker_count_new": 20,
+      "rooms": [
+        "Trading Risk Bench",
+        "Commerce Risk Bench",
+        "Risk Threshold Desk",
+        "Kill-Switch Console"
+      ],
+      "live_data_sources": [
+        "qsb_worker_room_assignments.json",
+        "qsb_worker_station_assignments.json"
+      ],
+      "status": "weak",
+      "profit_contribution": true,
+      "kernel_evolution_contribution": false,
+      "safety_contribution": true,
+      "rest_contribution": false,
+      "recommended_action": "expand"
+    },
+    {
+      "floor_number": 13,
+      "floor_id": "floor_13",
+      "floor_name": "Vision",
+      "secondary_department": "Product Image Studio + Mockup Wall",
+      "department": "Vision",
+      "purpose": "mockup + product image previews",
+      "manifest_exists": true,
+      "dashboard_visible": true,
+      "interior_exists": [
+        "Mockup Studio",
+        "Image Preview Wall",
+        "Product Photography Set",
+        "Asset Library"
+      ],
+      "manager_exists": true,
+      "worker_count_before": 1,
+      "worker_count_new": 18,
+      "rooms": [
+        "Mockup Studio",
+        "Image Preview Wall",
+        "Product Photography Set",
+        "Asset Library"
+      ],
+      "live_data_sources": [
+        "qsb_worker_room_assignments.json",
+        "qsb_worker_station_assignments.json"
+      ],
+      "status": "weak",
+      "profit_contribution": true,
+      "kernel_evolution_contribution": false,
+      "safety_contribution": false,
+      "rest_contribution": false,
+      "recommended_action": "expand"
+    },
+    {
+      "floor_number": 14,
+      "floor_id": "floor_14",
+      "floor_name": "Media",
+      "secondary_department": "Print-on-Demand Floor",
+      "department": "Media",
+      "purpose": "POD product design + Printful/Printify drafts",
+      "manifest_exists": true,
+      "dashboard_visible": true,
+      "interior_exists": [
+        "Design Intake",
+        "Product Mockup Desk",
+        "Printful/Printify Integration Desk",
+        "Quality Check",
+        "Fulfilment Monitor",
+        "Order Ledger"
+      ],
+      "manager_exists": true,
+      "worker_count_before": 0,
+      "worker_count_new": 28,
+      "rooms": [
+        "Design Intake",
+        "Product Mockup Desk",
+        "Printful/Printify Integration Desk",
+        "Quality Check",
+        "Fulfilment Monitor",
+        "Order Ledger"
+      ],
+      "live_data_sources": [
+        "qsb_worker_room_assignments.json",
+        "qsb_worker_station_assignments.json"
+      ],
+      "status": "weak",
+      "profit_contribution": true,
+      "kernel_evolution_contribution": false,
+      "safety_contribution": true,
+      "rest_contribution": false,
+      "recommended_action": "expand"
+    },
+    {
+      "floor_number": 15,
+      "floor_id": "floor_15",
+      "floor_name": "Speech & Audio",
+      "secondary_department": "Voice Commerce Studio",
+      "department": "Speech & Audio",
+      "purpose": "audio narration + customer voice replies (draft only)",
+      "manifest_exists": true,
+      "dashboard_visible": true,
+      "interior_exists": [
+        "Voice Narrator Desk",
+        "Customer Voice Drafts",
+        "Audio QA"
+      ],
+      "manager_exists": true,
+      "worker_count_before": 0,
+      "worker_count_new": 12,
+      "rooms": [
+        "Voice Narrator Desk",
+        "Customer Voice Drafts",
+        "Audio QA"
+      ],
+      "live_data_sources": [
+        "qsb_worker_room_assignments.json",
+        "qsb_worker_station_assignments.json"
+      ],
+      "status": "weak",
+      "profit_contribution": false,
+      "kernel_evolution_contribution": false,
+      "safety_contribution": true,
+      "rest_contribution": false,
+      "recommended_action": "expand"
+    },
+    {
+      "floor_number": 16,
+      "floor_id": "floor_16",
+      "floor_name": "Document Processing",
+      "secondary_department": "Listing Writer + SEO Lab",
+      "department": "Document Processing",
+      "purpose": "listing copy + SEO + tags",
+      "manifest_exists": true,
+      "dashboard_visible": true,
+      "interior_exists": [
+        "Listing Writer Desk",
+        "SEO Lab",
+        "Keyword Vault",
+        "Tag Optimizer",
+        "Compliance Review"
+      ],
+      "manager_exists": true,
+      "worker_count_before": 0,
+      "worker_count_new": 22,
+      "rooms": [
+        "Listing Writer Desk",
+        "SEO Lab",
+        "Keyword Vault",
+        "Tag Optimizer",
+        "Compliance Review"
+      ],
+      "live_data_sources": [
+        "qsb_worker_room_assignments.json",
+        "qsb_worker_station_assignments.json"
+      ],
+      "status": "weak",
+      "profit_contribution": true,
+      "kernel_evolution_contribution": false,
+      "safety_contribution": true,
+      "rest_contribution": false,
+      "recommended_action": "expand"
+    },
+    {
+      "floor_number": 17,
+      "floor_id": "floor_17",
+      "floor_name": "Graphics & Design",
+      "secondary_department": "Product Design Studio + Prompt-to-Product",
+      "department": "Graphics & Design",
+      "purpose": "design asset generation + prompt iteration",
+      "manifest_exists": true,
+      "dashboard_visible": true,
+      "interior_exists": [
+        "Design Studio",
+        "Prompt Engineering Lab",
+        "Asset Vault",
+        "Style Guide Wall",
+        "Design Quality Review"
+      ],
+      "manager_exists": true,
+      "worker_count_before": 0,
+      "worker_count_new": 30,
+      "rooms": [
+        "Design Studio",
+        "Prompt Engineering Lab",
+        "Asset Vault",
+        "Style Guide Wall",
+        "Design Quality Review"
+      ],
+      "live_data_sources": [
+        "qsb_worker_room_assignments.json",
+        "qsb_worker_station_assignments.json"
+      ],
+      "status": "weak",
+      "profit_contribution": true,
+      "kernel_evolution_contribution": true,
+      "safety_contribution": true,
+      "rest_contribution": false,
+      "recommended_action": "expand"
+    },
+    {
+      "floor_number": 18,
+      "floor_id": "floor_18",
+      "floor_name": "Automation",
+      "secondary_department": "Marketing + Promotion Floor",
+      "department": "Automation",
+      "purpose": "campaign drafts + scheduled posts (manual approval)",
+      "manifest_exists": true,
+      "dashboard_visible": true,
+      "interior_exists": [
+        "Campaign Draft Desk",
+        "Schedule Board",
+        "Newsletter Studio",
+        "Promotion Compliance"
+      ],
+      "manager_exists": true,
+      "worker_count_before": 0,
+      "worker_count_new": 22,
+      "rooms": [
+        "Campaign Draft Desk",
+        "Schedule Board",
+        "Newsletter Studio",
+        "Promotion Compliance"
+      ],
+      "live_data_sources": [
+        "qsb_worker_room_assignments.json",
+        "qsb_worker_station_assignments.json"
+      ],
+      "status": "weak",
+      "profit_contribution": true,
+      "kernel_evolution_contribution": false,
+      "safety_contribution": true,
+      "rest_contribution": false,
+      "recommended_action": "expand"
+    },
+    {
+      "floor_number": 19,
+      "floor_id": "floor_19",
+      "floor_name": "Workflow Management",
+      "secondary_department": "Customer Service Floor",
+      "department": "Workflow Management",
+      "purpose": "customer messaging drafts + ticket triage",
+      "manifest_exists": true,
+      "dashboard_visible": true,
+      "interior_exists": [
+        "Ticket Triage",
+        "Message Draft Desk",
+        "Refund Negotiation Desk",
+        "Escalation Bench",
+        "Customer Sentiment Wall"
+      ],
+      "manager_exists": true,
+      "worker_count_before": 0,
+      "worker_count_new": 28,
+      "rooms": [
+        "Ticket Triage",
+        "Message Draft Desk",
+        "Refund Negotiation Desk",
+        "Escalation Bench",
+        "Customer Sentiment Wall"
+      ],
+      "live_data_sources": [
+        "qsb_worker_room_assignments.json",
+        "qsb_worker_station_assignments.json"
+      ],
+      "status": "weak",
+      "profit_contribution": true,
+      "kernel_evolution_contribution": false,
+      "safety_contribution": true,
+      "rest_contribution": false,
+      "recommended_action": "expand"
+    },
+    {
+      "floor_number": 20,
+      "floor_id": "floor_20",
+      "floor_name": "API Services",
+      "secondary_department": "Platform Integration Bench",
+      "department": "API Services",
+      "purpose": "API watchers + integration health (test/sandbox only)",
+      "manifest_exists": true,
+      "dashboard_visible": true,
+      "interior_exists": [
+        "Etsy API Sandbox",
+        "Shopify API Sandbox",
+        "Printful API Sandbox",
+        "Webhook Sandbox",
+        "Integration Health Wall"
+      ],
+      "manager_exists": true,
+      "worker_count_before": 0,
+      "worker_count_new": 20,
+      "rooms": [
+        "Etsy API Sandbox",
+        "Shopify API Sandbox",
+        "Printful API Sandbox",
+        "Webhook Sandbox",
+        "Integration Health Wall"
+      ],
+      "live_data_sources": [
+        "qsb_worker_room_assignments.json",
+        "qsb_worker_station_assignments.json"
+      ],
+      "status": "weak",
+      "profit_contribution": false,
+      "kernel_evolution_contribution": true,
+      "safety_contribution": true,
+      "rest_contribution": false,
+      "recommended_action": "expand"
+    },
+    {
+      "floor_number": 21,
+      "floor_id": "floor_21",
+      "floor_name": "Adapter Systems",
+      "secondary_department": "Format / Schema Translation",
+      "department": "Adapter Systems",
+      "purpose": "data format translation between commerce + kernel",
+      "manifest_exists": true,
+      "dashboard_visible": true,
+      "interior_exists": [
+        "Schema Bench",
+        "Format Translator",
+        "Validation Desk"
+      ],
+      "manager_exists": true,
+      "worker_count_before": 0,
+      "worker_count_new": 12,
+      "rooms": [
+        "Schema Bench",
+        "Format Translator",
+        "Validation Desk"
+      ],
+      "live_data_sources": [
+        "qsb_worker_room_assignments.json",
+        "qsb_worker_station_assignments.json"
+      ],
+      "status": "weak",
+      "profit_contribution": false,
+      "kernel_evolution_contribution": true,
+      "safety_contribution": false,
+      "rest_contribution": false,
+      "recommended_action": "expand"
+    },
+    {
+      "floor_number": 22,
+      "floor_id": "floor_22",
+      "floor_name": "Integration Services",
+      "secondary_department": "Lifts Department Operations",
+      "department": "Integration Services",
+      "purpose": "lift + sealed-packet routing",
+      "manifest_exists": true,
+      "dashboard_visible": true,
+      "interior_exists": [
+        "Lift Dispatch",
+        "Packet Router Bench",
+        "Lift Maintenance"
+      ],
+      "manager_exists": true,
+      "worker_count_before": 0,
+      "worker_count_new": 14,
+      "rooms": [
+        "Lift Dispatch",
+        "Packet Router Bench",
+        "Lift Maintenance"
+      ],
+      "live_data_sources": [
+        "qsb_worker_room_assignments.json",
+        "qsb_worker_station_assignments.json"
+      ],
+      "status": "weak",
+      "profit_contribution": false,
+      "kernel_evolution_contribution": true,
+      "safety_contribution": true,
+      "rest_contribution": false,
+      "recommended_action": "expand"
+    },
+    {
+      "floor_number": 23,
+      "floor_id": "floor_23",
+      "floor_name": "AIR LLM Operations",
+      "secondary_department": "AirLLM Chamber",
+      "department": "AIR LLM Operations",
+      "purpose": "local model advisory only",
+      "manifest_exists": true,
+      "dashboard_visible": true,
+      "interior_exists": [
+        "Model Chamber",
+        "Prompt Buffer",
+        "Advisory Out"
+      ],
+      "manager_exists": true,
+      "worker_count_before": 0,
+      "worker_count_new": 10,
+      "rooms": [
+        "Model Chamber",
+        "Prompt Buffer",
+        "Advisory Out"
+      ],
+      "live_data_sources": [
+        "qsb_worker_room_assignments.json",
+        "qsb_worker_station_assignments.json"
+      ],
+      "status": "weak",
+      "profit_contribution": false,
+      "kernel_evolution_contribution": true,
+      "safety_contribution": true,
+      "rest_contribution": false,
+      "recommended_action": "expand"
+    },
+    {
+      "floor_number": 24,
+      "floor_id": "floor_24",
+      "floor_name": "Model Routing",
+      "secondary_department": "Lane Governance",
+      "department": "Model Routing",
+      "purpose": "route prompts between local lanes",
+      "manifest_exists": true,
+      "dashboard_visible": true,
+      "interior_exists": [
+        "Routing Console",
+        "Lane Governance"
+      ],
+      "manager_exists": true,
+      "worker_count_before": 5,
+      "worker_count_new": 10,
+      "rooms": [
+        "Routing Console",
+        "Lane Governance"
+      ],
+      "live_data_sources": [
+        "qsb_worker_room_assignments.json",
+        "qsb_worker_station_assignments.json"
+      ],
+      "status": "partial",
+      "profit_contribution": false,
+      "kernel_evolution_contribution": true,
+      "safety_contribution": true,
+      "rest_contribution": false,
+      "recommended_action": "maintain"
+    },
+    {
+      "floor_number": 25,
+      "floor_id": "floor_25",
+      "floor_name": "Agent Coordination",
+      "secondary_department": "OpenClaw Coordination Office",
+      "department": "Agent Coordination",
+      "purpose": "openclaw read-only supervision dispatch",
+      "manifest_exists": true,
+      "dashboard_visible": true,
+      "interior_exists": [
+        "Inspection Dispatch",
+        "Ticket Coordination",
+        "Finding Archive"
+      ],
+      "manager_exists": true,
+      "worker_count_before": 3,
+      "worker_count_new": 12,
+      "rooms": [
+        "Inspection Dispatch",
+        "Ticket Coordination",
+        "Finding Archive"
+      ],
+      "live_data_sources": [
+        "qsb_worker_room_assignments.json",
+        "qsb_worker_station_assignments.json"
+      ],
+      "status": "weak",
+      "profit_contribution": false,
+      "kernel_evolution_contribution": true,
+      "safety_contribution": true,
+      "rest_contribution": false,
+      "recommended_action": "expand"
+    },
+    {
+      "floor_number": 26,
+      "floor_id": "floor_26",
+      "floor_name": "Model Evaluation",
+      "secondary_department": "Commerce Accounting Floor",
+      "department": "Model Evaluation",
+      "purpose": "commerce PnL + tax-ready ledger",
+      "manifest_exists": true,
+      "dashboard_visible": true,
+      "interior_exists": [
+        "Commerce PnL Desk",
+        "Sales Ledger",
+        "Tax-Ready Export",
+        "Refund Accounting",
+        "Platform Fee Tracker"
+      ],
+      "manager_exists": true,
+      "worker_count_before": 0,
+      "worker_count_new": 22,
+      "rooms": [
+        "Commerce PnL Desk",
+        "Sales Ledger",
+        "Tax-Ready Export",
+        "Refund Accounting",
+        "Platform Fee Tracker"
+      ],
+      "live_data_sources": [
+        "qsb_worker_room_assignments.json",
+        "qsb_worker_station_assignments.json"
+      ],
+      "status": "weak",
+      "profit_contribution": true,
+      "kernel_evolution_contribution": false,
+      "safety_contribution": true,
+      "rest_contribution": false,
+      "recommended_action": "expand"
+    },
+    {
+      "floor_number": 27,
+      "floor_id": "floor_27",
+      "floor_name": "Local Model Ops",
+      "secondary_department": "Local Model Drafting Bench",
+      "department": "Local Model Ops",
+      "purpose": "local-only LLM draft surfaces",
+      "manifest_exists": true,
+      "dashboard_visible": true,
+      "interior_exists": [
+        "Drafting Bench",
+        "Local Model Console"
+      ],
+      "manager_exists": true,
+      "worker_count_before": 3,
+      "worker_count_new": 8,
+      "rooms": [
+        "Drafting Bench",
+        "Local Model Console"
+      ],
+      "live_data_sources": [
+        "qsb_worker_room_assignments.json",
+        "qsb_worker_station_assignments.json"
+      ],
+      "status": "weak",
+      "profit_contribution": false,
+      "kernel_evolution_contribution": true,
+      "safety_contribution": true,
+      "rest_contribution": false,
+      "recommended_action": "expand"
+    },
+    {
+      "floor_number": 28,
+      "floor_id": "floor_28",
+      "floor_name": "Security",
+      "secondary_department": "Security Operations Center",
+      "department": "Security",
+      "purpose": "security observability + secret vault audit",
+      "manifest_exists": true,
+      "dashboard_visible": true,
+      "interior_exists": [
+        "SecOps Console",
+        "Vault Audit",
+        "Access Log Wall",
+        "Incident Bench"
+      ],
+      "manager_exists": true,
+      "worker_count_before": 0,
+      "worker_count_new": 18,
+      "rooms": [
+        "SecOps Console",
+        "Vault Audit",
+        "Access Log Wall",
+        "Incident Bench"
+      ],
+      "live_data_sources": [
+        "qsb_worker_room_assignments.json",
+        "qsb_worker_station_assignments.json"
+      ],
+      "status": "weak",
+      "profit_contribution": false,
+      "kernel_evolution_contribution": true,
+      "safety_contribution": true,
+      "rest_contribution": false,
+      "recommended_action": "expand"
+    },
+    {
+      "floor_number": 29,
+      "floor_id": "floor_29",
+      "floor_name": "Guardian",
+      "secondary_department": "Guardian Watch",
+      "department": "Guardian",
+      "purpose": "guardian state + lock map watch",
+      "manifest_exists": true,
+      "dashboard_visible": true,
+      "interior_exists": [
+        "Lock Map Console",
+        "Guardian Watch",
+        "Drift Alarm"
+      ],
+      "manager_exists": true,
+      "worker_count_before": 1,
+      "worker_count_new": 12,
+      "rooms": [
+        "Lock Map Console",
+        "Guardian Watch",
+        "Drift Alarm"
+      ],
+      "live_data_sources": [
+        "qsb_worker_room_assignments.json",
+        "qsb_worker_station_assignments.json"
+      ],
+      "status": "weak",
+      "profit_contribution": false,
+      "kernel_evolution_contribution": true,
+      "safety_contribution": true,
+      "rest_contribution": false,
+      "recommended_action": "expand"
+    },
+    {
+      "floor_number": 30,
+      "floor_id": "floor_30",
+      "floor_name": "Permissions",
+      "secondary_department": "Permissions / Risk Department",
+      "department": "Permissions",
+      "purpose": "13-lock execution permissions",
+      "manifest_exists": true,
+      "dashboard_visible": true,
+      "interior_exists": [
+        "Permissions Desk",
+        "Risk Review",
+        "Lock Audit",
+        "Approval Workflow Bench"
+      ],
+      "manager_exists": true,
+      "worker_count_before": 77,
+      "worker_count_new": 18,
+      "rooms": [
+        "Permissions Desk",
+        "Risk Review",
+        "Lock Audit",
+        "Approval Workflow Bench"
+      ],
+      "live_data_sources": [
+        "qsb_worker_room_assignments.json",
+        "qsb_worker_station_assignments.json"
+      ],
+      "status": "complete",
+      "profit_contribution": false,
+      "kernel_evolution_contribution": true,
+      "safety_contribution": true,
+      "rest_contribution": false,
+      "recommended_action": "maintain"
+    },
+    {
+      "floor_number": 31,
+      "floor_id": "floor_31",
+      "floor_name": "Audit",
+      "secondary_department": "Audit / Ledger Department",
+      "department": "Audit",
+      "purpose": "ledger fan-in + audit reports",
+      "manifest_exists": true,
+      "dashboard_visible": true,
+      "interior_exists": [
+        "Ledger Dispatch",
+        "Audit Trail Wall",
+        "Compliance Bench",
+        "Sealed-Packet Receiver"
+      ],
+      "manager_exists": true,
+      "worker_count_before": 7,
+      "worker_count_new": 20,
+      "rooms": [
+        "Ledger Dispatch",
+        "Audit Trail Wall",
+        "Compliance Bench",
+        "Sealed-Packet Receiver"
+      ],
+      "live_data_sources": [
+        "qsb_worker_room_assignments.json",
+        "qsb_worker_station_assignments.json"
+      ],
+      "status": "partial",
+      "profit_contribution": true,
+      "kernel_evolution_contribution": true,
+      "safety_contribution": true,
+      "rest_contribution": false,
+      "recommended_action": "maintain"
+    },
+    {
+      "floor_number": 32,
+      "floor_id": "floor_32",
+      "floor_name": "Compliance",
+      "secondary_department": "Platform Compliance Office",
+      "department": "Compliance",
+      "purpose": "platform terms + compliance checklists",
+      "manifest_exists": true,
+      "dashboard_visible": true,
+      "interior_exists": [
+        "Etsy Compliance Desk",
+        "Shopify Compliance Desk",
+        "Print Platforms Compliance Desk",
+        "Terms Tracking Wall",
+        "Compliance Audit"
+      ],
+      "manager_exists": true,
+      "worker_count_before": 0,
+      "worker_count_new": 16,
+      "rooms": [
+        "Etsy Compliance Desk",
+        "Shopify Compliance Desk",
+        "Print Platforms Compliance Desk",
+        "Terms Tracking Wall",
+        "Compliance Audit"
+      ],
+      "live_data_sources": [
+        "qsb_worker_room_assignments.json",
+        "qsb_worker_station_assignments.json"
+      ],
+      "status": "weak",
+      "profit_contribution": false,
+      "kernel_evolution_contribution": false,
+      "safety_contribution": true,
+      "rest_contribution": false,
+      "recommended_action": "expand"
+    },
+    {
+      "floor_number": 33,
+      "floor_id": "floor_33",
+      "floor_name": "Diagnostics",
+      "secondary_department": "Refund / Dispute Desk + Diagnostics",
+      "department": "Diagnostics",
+      "purpose": "refund handling + system diagnostics",
+      "manifest_exists": true,
+      "dashboard_visible": true,
+      "interior_exists": [
+        "Refund Intake",
+        "Dispute Negotiation",
+        "Diagnostics Console",
+        "Service Health Wall"
+      ],
+      "manager_exists": true,
+      "worker_count_before": 0,
+      "worker_count_new": 16,
+      "rooms": [
+        "Refund Intake",
+        "Dispute Negotiation",
+        "Diagnostics Console",
+        "Service Health Wall"
+      ],
+      "live_data_sources": [
+        "qsb_worker_room_assignments.json",
+        "qsb_worker_station_assignments.json"
+      ],
+      "status": "weak",
+      "profit_contribution": true,
+      "kernel_evolution_contribution": false,
+      "safety_contribution": true,
+      "rest_contribution": false,
+      "recommended_action": "expand"
+    },
+    {
+      "floor_number": 34,
+      "floor_id": "floor_34",
+      "floor_name": "Monitoring",
+      "secondary_department": "Storefront Analytics Room",
+      "department": "Monitoring",
+      "purpose": "cross-store analytics + telemetry",
+      "manifest_exists": true,
+      "dashboard_visible": true,
+      "interior_exists": [
+        "Storefront Analytics",
+        "Conversion Funnel Wall",
+        "Telemetry Console",
+        "Alert Bench"
+      ],
+      "manager_exists": true,
+      "worker_count_before": 0,
+      "worker_count_new": 18,
+      "rooms": [
+        "Storefront Analytics",
+        "Conversion Funnel Wall",
+        "Telemetry Console",
+        "Alert Bench"
+      ],
+      "live_data_sources": [
+        "qsb_worker_room_assignments.json",
+        "qsb_worker_station_assignments.json"
+      ],
+      "status": "weak",
+      "profit_contribution": true,
+      "kernel_evolution_contribution": false,
+      "safety_contribution": true,
+      "rest_contribution": false,
+      "recommended_action": "expand"
+    },
+    {
+      "floor_number": 35,
+      "floor_id": "floor_35",
+      "floor_name": "Infrastructure Svcs",
+      "secondary_department": "Hardware Systems Floor",
+      "department": "Infrastructure Svcs",
+      "purpose": "CPU/GPU/RAM/disk observatory",
+      "manifest_exists": true,
+      "dashboard_visible": true,
+      "interior_exists": [
+        "Hardware Observatory",
+        "Resource Console",
+        "Service Monitor Bench"
+      ],
+      "manager_exists": true,
+      "worker_count_before": 11,
+      "worker_count_new": 14,
+      "rooms": [
+        "Hardware Observatory",
+        "Resource Console",
+        "Service Monitor Bench"
+      ],
+      "live_data_sources": [
+        "qsb_worker_room_assignments.json",
+        "qsb_worker_station_assignments.json"
+      ],
+      "status": "partial",
+      "profit_contribution": false,
+      "kernel_evolution_contribution": true,
+      "safety_contribution": true,
+      "rest_contribution": false,
+      "recommended_action": "maintain"
+    },
+    {
+      "floor_number": 36,
+      "floor_id": "floor_36",
+      "floor_name": "Expansion Planning",
+      "secondary_department": "Workforce Expansion Planning",
+      "department": "Expansion Planning",
+      "purpose": "workforce expansion + onboarding plans",
+      "manifest_exists": true,
+      "dashboard_visible": true,
+      "interior_exists": [
+        "Expansion Desk",
+        "Onboarding Track",
+        "Department Growth Plan"
+      ],
+      "manager_exists": true,
+      "worker_count_before": 153,
+      "worker_count_new": 18,
+      "rooms": [
+        "Expansion Desk",
+        "Onboarding Track",
+        "Department Growth Plan"
+      ],
+      "live_data_sources": [
+        "qsb_worker_room_assignments.json",
+        "qsb_worker_station_assignments.json"
+      ],
+      "status": "complete",
+      "profit_contribution": false,
+      "kernel_evolution_contribution": true,
+      "safety_contribution": true,
+      "rest_contribution": false,
+      "recommended_action": "maintain"
+    },
+    {
+      "floor_number": 37,
+      "floor_id": "floor_37",
+      "floor_name": "Simulation Labs",
+      "secondary_department": "Strategy Labs",
+      "department": "Simulation Labs",
+      "purpose": "strategy scenarios + backtesting",
+      "manifest_exists": true,
+      "dashboard_visible": true,
+      "interior_exists": [
+        "Strategy Scenario Lab",
+        "Backtest Bench",
+        "Walk-Forward Lab"
+      ],
+      "manager_exists": true,
+      "worker_count_before": 9,
+      "worker_count_new": 22,
+      "rooms": [
+        "Strategy Scenario Lab",
+        "Backtest Bench",
+        "Walk-Forward Lab"
+      ],
+      "live_data_sources": [
+        "qsb_worker_room_assignments.json",
+        "qsb_worker_station_assignments.json"
+      ],
+      "status": "partial",
+      "profit_contribution": true,
+      "kernel_evolution_contribution": true,
+      "safety_contribution": true,
+      "rest_contribution": false,
+      "recommended_action": "maintain"
+    },
+    {
+      "floor_number": 38,
+      "floor_id": "floor_38",
+      "floor_name": "Sandbox Operations",
+      "secondary_department": "Sandbox Ops Coupling",
+      "department": "Sandbox Operations",
+      "purpose": "sandbox lift packets + market sim",
+      "manifest_exists": true,
+      "dashboard_visible": true,
+      "interior_exists": [
+        "Sandbox Console",
+        "Lift Packet Dispatch",
+        "Sandbox Audit"
+      ],
+      "manager_exists": true,
+      "worker_count_before": 53,
+      "worker_count_new": 16,
+      "rooms": [
+        "Sandbox Console",
+        "Lift Packet Dispatch",
+        "Sandbox Audit"
+      ],
+      "live_data_sources": [
+        "qsb_worker_room_assignments.json",
+        "qsb_worker_station_assignments.json"
+      ],
+      "status": "complete",
+      "profit_contribution": true,
+      "kernel_evolution_contribution": true,
+      "safety_contribution": true,
+      "rest_contribution": false,
+      "recommended_action": "maintain"
+    },
+    {
+      "floor_number": 39,
+      "floor_id": "floor_39",
+      "floor_name": "Development Labs",
+      "secondary_department": "Worker Recreation Floor",
+      "department": "Development Labs",
+      "purpose": "recreation + recovery after shifts",
+      "manifest_exists": true,
+      "dashboard_visible": true,
+      "interior_exists": [
+        "Break Room",
+        "Game Room",
+        "Morale Board",
+        "Coffee Bar",
+        "Wellness Monitor"
+      ],
+      "manager_exists": true,
+      "worker_count_before": 0,
+      "worker_count_new": 20,
+      "rooms": [
+        "Break Room",
+        "Game Room",
+        "Morale Board",
+        "Coffee Bar",
+        "Wellness Monitor"
+      ],
+      "live_data_sources": [
+        "qsb_worker_room_assignments.json",
+        "qsb_worker_station_assignments.json"
+      ],
+      "status": "weak",
+      "profit_contribution": false,
+      "kernel_evolution_contribution": false,
+      "safety_contribution": false,
+      "rest_contribution": true,
+      "recommended_action": "expand"
+    },
+    {
+      "floor_number": 40,
+      "floor_id": "floor_40",
+      "floor_name": "Prototype Systems",
+      "secondary_department": "Worker Rest / Dormitory Floor",
+      "department": "Prototype Systems",
+      "purpose": "sleep pods + standby for off-shift workers",
+      "manifest_exists": true,
+      "dashboard_visible": true,
+      "interior_exists": [
+        "Sleep Pods",
+        "Standby Lounge",
+        "Quiet Recovery Room",
+        "Shift Change Desk"
+      ],
+      "manager_exists": true,
+      "worker_count_before": 0,
+      "worker_count_new": 25,
+      "rooms": [
+        "Sleep Pods",
+        "Standby Lounge",
+        "Quiet Recovery Room",
+        "Shift Change Desk"
+      ],
+      "live_data_sources": [
+        "qsb_worker_room_assignments.json",
+        "qsb_worker_station_assignments.json"
+      ],
+      "status": "weak",
+      "profit_contribution": false,
+      "kernel_evolution_contribution": false,
+      "safety_contribution": true,
+      "rest_contribution": true,
+      "recommended_action": "expand"
+    },
+    {
+      "floor_number": 41,
+      "floor_id": "floor_41",
+      "floor_name": "OANDA Trading Floor",
+      "secondary_department": "OANDA Practice Trading",
+      "department": "OANDA Trading Floor",
+      "purpose": "FX paper/practice trading",
+      "manifest_exists": true,
+      "dashboard_visible": true,
+      "interior_exists": true,
+      "manager_exists": true,
+      "worker_count_before": 8,
+      "worker_count_new": 0,
+      "rooms": [
+        "OANDA \u2014 already populated by qsb_floor41_oanda module"
+      ],
+      "live_data_sources": [
+        "qsb_worker_room_assignments.json",
+        "qsb_worker_station_assignments.json"
+      ],
+      "status": "partial",
+      "profit_contribution": true,
+      "kernel_evolution_contribution": false,
+      "safety_contribution": true,
+      "rest_contribution": false,
+      "recommended_action": "maintain"
+    },
+    {
+      "floor_number": 42,
+      "floor_id": "floor_42",
+      "floor_name": "Binance Trading",
+      "secondary_department": "Binance Testnet Preview",
+      "department": "Binance Trading",
+      "purpose": "crypto testnet preview only",
+      "manifest_exists": true,
+      "dashboard_visible": true,
+      "interior_exists": true,
+      "manager_exists": true,
+      "worker_count_before": 2,
+      "worker_count_new": 0,
+      "rooms": [
+        "Binance \u2014 already populated by qsb_floor42_binance module"
+      ],
+      "live_data_sources": [
+        "qsb_worker_room_assignments.json",
+        "qsb_worker_station_assignments.json"
+      ],
+      "status": "weak",
+      "profit_contribution": true,
+      "kernel_evolution_contribution": false,
+      "safety_contribution": true,
+      "rest_contribution": false,
+      "recommended_action": "expand"
+    },
+    {
+      "floor_number": 43,
+      "floor_id": "floor_43",
+      "floor_name": "Stock Exchange",
+      "secondary_department": "Stocks Paper Preview",
+      "department": "Stock Exchange",
+      "purpose": "equities paper preview only",
+      "manifest_exists": true,
+      "dashboard_visible": true,
+      "interior_exists": true,
+      "manager_exists": true,
+      "worker_count_before": 3,
+      "worker_count_new": 0,
+      "rooms": [
+        "Stocks \u2014 already populated by qsb_floor43_stocks module"
+      ],
+      "live_data_sources": [
+        "qsb_worker_room_assignments.json",
+        "qsb_worker_station_assignments.json"
+      ],
+      "status": "weak",
+      "profit_contribution": true,
+      "kernel_evolution_contribution": false,
+      "safety_contribution": true,
+      "rest_contribution": false,
+      "recommended_action": "expand"
+    },
+    {
+      "floor_number": 44,
+      "floor_id": "floor_44",
+      "floor_name": "Accounts Department",
+      "secondary_department": "Trading + Commerce Accounting",
+      "department": "Accounts Department",
+      "purpose": "PnL ledger for trading + commerce",
+      "manifest_exists": true,
+      "dashboard_visible": true,
+      "interior_exists": [
+        "PnL Ledger",
+        "Trade Accounting Desk",
+        "Loss Review",
+        "Reward Accounting",
+        "Commerce Revenue Desk"
+      ],
+      "manager_exists": true,
+      "worker_count_before": 104,
+      "worker_count_new": 24,
+      "rooms": [
+        "PnL Ledger",
+        "Trade Accounting Desk",
+        "Loss Review",
+        "Reward Accounting",
+        "Commerce Revenue Desk"
+      ],
+      "live_data_sources": [
+        "qsb_worker_room_assignments.json",
+        "qsb_worker_station_assignments.json"
+      ],
+      "status": "complete",
+      "profit_contribution": true,
+      "kernel_evolution_contribution": false,
+      "safety_contribution": true,
+      "rest_contribution": false,
+      "recommended_action": "maintain"
+    },
+    {
+      "floor_number": 45,
+      "floor_id": "floor_45",
+      "floor_name": "Recruitment Agency",
+      "secondary_department": "Worker Recruitment",
+      "department": "Recruitment Agency",
+      "purpose": "candidate intake + assignment",
+      "manifest_exists": true,
+      "dashboard_visible": true,
+      "interior_exists": [
+        "Recruitment \u2014 already populated"
+      ],
+      "manager_exists": true,
+      "worker_count_before": 178,
+      "worker_count_new": 0,
+      "rooms": [
+        "Recruitment \u2014 already populated"
+      ],
+      "live_data_sources": [
+        "qsb_worker_room_assignments.json",
+        "qsb_worker_station_assignments.json"
+      ],
+      "status": "complete",
+      "profit_contribution": false,
+      "kernel_evolution_contribution": true,
+      "safety_contribution": true,
+      "rest_contribution": false,
+      "recommended_action": "maintain"
+    },
+    {
+      "floor_number": 46,
+      "floor_id": "floor_46",
+      "floor_name": "Executive Support",
+      "secondary_department": "Executive Liaison + Concierge",
+      "department": "Executive Support",
+      "purpose": "executive support + colonel concierge",
+      "manifest_exists": true,
+      "dashboard_visible": true,
+      "interior_exists": [
+        "Colonel Concierge",
+        "Executive Briefing Room",
+        "VIP Reception"
+      ],
+      "manager_exists": true,
+      "worker_count_before": 0,
+      "worker_count_new": 16,
+      "rooms": [
+        "Colonel Concierge",
+        "Executive Briefing Room",
+        "VIP Reception"
+      ],
+      "live_data_sources": [
+        "qsb_worker_room_assignments.json",
+        "qsb_worker_station_assignments.json"
+      ],
+      "status": "weak",
+      "profit_contribution": false,
+      "kernel_evolution_contribution": true,
+      "safety_contribution": true,
+      "rest_contribution": false,
+      "recommended_action": "expand"
+    },
+    {
+      "floor_number": 47,
+      "floor_id": "floor_47",
+      "floor_name": "Executive Operations",
+      "secondary_department": "Executive Ops Department",
+      "department": "Executive Operations",
+      "purpose": "executive operations + governance",
+      "manifest_exists": true,
+      "dashboard_visible": true,
+      "interior_exists": [
+        "Executive Ops \u2014 already populated"
+      ],
+      "manager_exists": true,
+      "worker_count_before": 90,
+      "worker_count_new": 0,
+      "rooms": [
+        "Executive Ops \u2014 already populated"
+      ],
+      "live_data_sources": [
+        "qsb_worker_room_assignments.json",
+        "qsb_worker_station_assignments.json"
+      ],
+      "status": "complete",
+      "profit_contribution": false,
+      "kernel_evolution_contribution": true,
+      "safety_contribution": true,
+      "rest_contribution": false,
+      "recommended_action": "maintain"
+    },
+    {
+      "floor_number": 48,
+      "floor_id": "floor_48",
+      "floor_name": "Strategic Planning",
+      "secondary_department": "Strategic Plan Office",
+      "department": "Strategic Planning",
+      "purpose": "long-term planning + roadmap",
+      "manifest_exists": true,
+      "dashboard_visible": true,
+      "interior_exists": [
+        "Plan Desk",
+        "Roadmap Wall",
+        "Quarterly Review"
+      ],
+      "manager_exists": true,
+      "worker_count_before": 0,
+      "worker_count_new": 14,
+      "rooms": [
+        "Plan Desk",
+        "Roadmap Wall",
+        "Quarterly Review"
+      ],
+      "live_data_sources": [
+        "qsb_worker_room_assignments.json",
+        "qsb_worker_station_assignments.json"
+      ],
+      "status": "weak",
+      "profit_contribution": false,
+      "kernel_evolution_contribution": true,
+      "safety_contribution": true,
+      "rest_contribution": false,
+      "recommended_action": "expand"
+    },
+    {
+      "floor_number": 49,
+      "floor_id": "floor_49",
+      "floor_name": "Resource Management",
+      "secondary_department": "Resource Mgmt Department",
+      "department": "Resource Management",
+      "purpose": "resource allocation",
+      "manifest_exists": true,
+      "dashboard_visible": true,
+      "interior_exists": [
+        "Resource Mgmt \u2014 already populated"
+      ],
+      "manager_exists": true,
+      "worker_count_before": 280,
+      "worker_count_new": 0,
+      "rooms": [
+        "Resource Mgmt \u2014 already populated"
+      ],
+      "live_data_sources": [
+        "qsb_worker_room_assignments.json",
+        "qsb_worker_station_assignments.json"
+      ],
+      "status": "complete",
+      "profit_contribution": false,
+      "kernel_evolution_contribution": true,
+      "safety_contribution": true,
+      "rest_contribution": false,
+      "recommended_action": "maintain"
+    },
+    {
+      "floor_number": 50,
+      "floor_id": "floor_50",
+      "floor_name": "Building Governance",
+      "secondary_department": "Building Governance Council",
+      "department": "Building Governance",
+      "purpose": "building rules + governance",
+      "manifest_exists": true,
+      "dashboard_visible": true,
+      "interior_exists": [
+        "Governance Council",
+        "Rule Book Library"
+      ],
+      "manager_exists": true,
+      "worker_count_before": 0,
+      "worker_count_new": 12,
+      "rooms": [
+        "Governance Council",
+        "Rule Book Library"
+      ],
+      "live_data_sources": [
+        "qsb_worker_room_assignments.json",
+        "qsb_worker_station_assignments.json"
+      ],
+      "status": "weak",
+      "profit_contribution": false,
+      "kernel_evolution_contribution": true,
+      "safety_contribution": true,
+      "rest_contribution": false,
+      "recommended_action": "expand"
+    },
+    {
+      "floor_number": 51,
+      "floor_id": "floor_51",
+      "floor_name": "Executive Council",
+      "secondary_department": "Executive Council Office",
+      "department": "Executive Council",
+      "purpose": "executive council convenings",
+      "manifest_exists": true,
+      "dashboard_visible": true,
+      "interior_exists": [
+        "Council Chamber"
+      ],
+      "manager_exists": true,
+      "worker_count_before": 0,
+      "worker_count_new": 10,
+      "rooms": [
+        "Council Chamber"
+      ],
+      "live_data_sources": [
+        "qsb_worker_room_assignments.json",
+        "qsb_worker_station_assignments.json"
+      ],
+      "status": "weak",
+      "profit_contribution": false,
+      "kernel_evolution_contribution": true,
+      "safety_contribution": true,
+      "rest_contribution": false,
+      "recommended_action": "expand"
+    },
+    {
+      "floor_number": 52,
+      "floor_id": "floor_52",
+      "floor_name": "Infrastructure Cmd",
+      "secondary_department": "Infrastructure Command",
+      "department": "Infrastructure Cmd",
+      "purpose": "infrastructure command",
+      "manifest_exists": true,
+      "dashboard_visible": true,
+      "interior_exists": [
+        "Infrastructure \u2014 already populated"
+      ],
+      "manager_exists": true,
+      "worker_count_before": 180,
+      "worker_count_new": 0,
+      "rooms": [
+        "Infrastructure \u2014 already populated"
+      ],
+      "live_data_sources": [
+        "qsb_worker_room_assignments.json",
+        "qsb_worker_station_assignments.json"
+      ],
+      "status": "complete",
+      "profit_contribution": false,
+      "kernel_evolution_contribution": true,
+      "safety_contribution": true,
+      "rest_contribution": false,
+      "recommended_action": "maintain"
+    },
+    {
+      "floor_number": 53,
+      "floor_id": "floor_53",
+      "floor_name": "Tower Command",
+      "secondary_department": "Tower Command Department",
+      "department": "Tower Command",
+      "purpose": "tower command + colonel observation",
+      "manifest_exists": true,
+      "dashboard_visible": true,
+      "interior_exists": [
+        "Tower Command \u2014 already populated"
+      ],
+      "manager_exists": true,
+      "worker_count_before": 16,
+      "worker_count_new": 0,
+      "rooms": [
+        "Tower Command \u2014 already populated"
+      ],
+      "live_data_sources": [
+        "qsb_worker_room_assignments.json",
+        "qsb_worker_station_assignments.json"
+      ],
+      "status": "partial",
+      "profit_contribution": false,
+      "kernel_evolution_contribution": true,
+      "safety_contribution": true,
+      "rest_contribution": false,
+      "recommended_action": "maintain"
+    }
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "worker_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "live_payments_enabled": false,
+  "live_listings_publishing_enabled": false,
+  "external_api_calls_enabled": false,
+  "secrets_in_logs": false,
+  "manual_approval_required_for_commerce": true
+}

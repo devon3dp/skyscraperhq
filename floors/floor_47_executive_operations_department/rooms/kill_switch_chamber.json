@@ -1,0 +1,46 @@
+{
+  "room_id": "kill_switch_chamber",
+  "name": "Kill-Switch Chamber",
+  "category": "security",
+  "floor": "floor_47",
+  "purpose": "this chamber holds the master toggle that disables auto-apply across the bench.",
+  "concierge_blurb": "A single switch can pause every automatic change in the building. The chamber is sealed; only Ross may flip it.",
+  "current_state": "already_exists",
+  "visitor_open": false,
+  "mutation_allowed": false,
+  "evidence_paths": [
+    "data/registries/qsb_proposal_autoapply_gate.json"
+  ],
+  "live_signals": {
+    "kill_switch_enabled": true,
+    "gate_source": "data/registries/qsb_proposal_autoapply_gate.json",
+    "enabled_ts": "2026-06-13T08:55:00Z",
+    "sig_threshold": 3,
+    "read_only": true,
+    "flip_authority": "ross_only"
+  },
+  "built_at": "2026-06-14T17:10:00Z",
+  "built_by": "f47_floor_buildout_batch_1",
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 2.0,
+    "offset_z": 3.0,
+    "footprint_m": [
+      0.7,
+      0.7
+    ],
+    "height_m": 1.8
+  },
+  "render": {
+    "primary_prop": "chamber",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "KILL SWITCH \u00b7 Ross-only",
+    "glow": true
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/qsb_proposal_autoapply_gate.json",
+    "display": "status_dot",
+    "refresh_seconds": 30
+  }
+}

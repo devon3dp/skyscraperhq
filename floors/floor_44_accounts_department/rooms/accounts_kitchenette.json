@@ -1,0 +1,34 @@
+{
+  "room_id": "accounts_kitchenette",
+  "name": "Kitchenette",
+  "category": "seating",
+  "purpose": "A small kitchen for quick snacks and breaks.",
+  "concierge_blurb": "Relax in the cozy kitchenette with a snack or drink.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -4.0,
+    "offset_z": 2.0,
+    "footprint_m": [
+      3,
+      3
+    ],
+    "height_m": 1.5
+  },
+  "render": {
+    "primary_prop": "kitchen_line",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Kitchenette",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_44"
+}

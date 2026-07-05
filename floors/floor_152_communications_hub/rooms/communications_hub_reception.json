@@ -1,0 +1,34 @@
+{
+  "room_id": "communications_hub_reception",
+  "name": "Reception Area",
+  "category": "reception",
+  "purpose": "This room serves as the entry point for visitors and staff.",
+  "concierge_blurb": "Welcome to our communications hub.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 2.0,
+    "offset_z": -6.0,
+    "footprint_m": [
+      8,
+      4
+    ],
+    "height_m": 1.5
+  },
+  "render": {
+    "primary_prop": "reception_desk",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Reception",
+    "glow": false
+  },
+  "interactive": {
+    "type": "toggle",
+    "source_path": "data/registries/reception_status.jsonl",
+    "display": "big_number",
+    "refresh_seconds": 30
+  },
+  "floor": "floor_152"
+}

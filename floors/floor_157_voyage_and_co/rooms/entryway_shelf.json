@@ -1,0 +1,34 @@
+{
+  "room_id": "entryway_shelf",
+  "name": "Entry Shelf",
+  "category": "display",
+  "purpose": "To showcase voyage essentials for visitors.",
+  "concierge_blurb": "Explore what items make the cut for a lighter journey.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.0,
+    "offset_z": 2.5,
+    "footprint_m": [
+      4,
+      1
+    ],
+    "height_m": 1.8
+  },
+  "render": {
+    "primary_prop": "archive_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Essentials",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": null,
+    "refresh_seconds": null
+  },
+  "floor": "floor_157"
+}

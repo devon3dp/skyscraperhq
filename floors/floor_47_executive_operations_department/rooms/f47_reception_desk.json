@@ -1,0 +1,56 @@
+{
+  "room_id": "f47_reception_desk",
+  "name": "F47 Reception Desk",
+  "category": "reception",
+  "floor": "floor_47",
+  "purpose": "this desk greets a visitor stepping out of the lift onto F47.",
+  "concierge_blurb": "Welcome to the Claude Embassy. A steward here will tell you where Wren is and which rooms are open to guests today.",
+  "current_state": "to_build",
+  "visitor_open": true,
+  "evidence_paths": [
+    "floors/floor_47_executive_operations_department/sketches/f47_reception_desk.md",
+    "floors/floor_47_executive_operations_department/rooms/visitor_sign_in_book.json"
+  ],
+  "live_signals": {
+    "greeting_payload": "Welcome to the Claude Embassy on Floor 47. A steward is on duty here to point you to whichever rooms are open today and to take any message you'd like Wren to see.",
+    "visitor_open_rooms_today": [
+      "workshop_bench",
+      "sandbox_lab",
+      "signoff_desk",
+      "applier_room",
+      "architect_drawing_table",
+      "decorator_atelier",
+      "fitter_bench",
+      "graphic_designer_corner",
+      "blueprint_file",
+      "wren_letter_archive",
+      "proposals_desk",
+      "audit_board"
+    ],
+    "visitor_open_rooms_count": 12,
+    "steward_on_duty": "F47 reception steward (advisory only)",
+    "advisory_only": true
+  },
+  "built_at": "2026-06-14T17:35:00Z",
+  "built_by": "f47_floor_buildout_batch_4_room_f47_reception_desk",
+  "lessons_learned_for_next_agent": "The greeting_payload is the only string a visitor sees on lift-arrival; it must remain visitor-safe (no gate names, no provider names, no costs). The visitor_open_rooms_today list is computed off rooms shipped in batches 1-3 with visitor_open=true \u2014 library_shelf is listed in the plan as already_exists but its descriptor was not present at write time, so it was omitted. Batch-4 rooms (visitor_sign_in_book, fleet_roster_wall, morning_briefing_podium, worker_forum_corner) are deliberately excluded from this snapshot per the task scope. Future batches should regenerate this list.",
+  "layout": {
+    "zone": "back_center_on_dais",
+    "offset_x": 0.0,
+    "offset_z": 3.0,
+    "footprint_m": [
+      2.4,
+      1.0
+    ],
+    "height_m": 0.85
+  },
+  "render": {
+    "primary_prop": "desk",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "RECEPTION",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  }
+}

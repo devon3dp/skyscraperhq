@@ -1,0 +1,97 @@
+{
+  "phase": "QSB_TOWER_OPERATIONS_V4",
+  "ts": "2026-06-12T13:46:35.107719+00:00",
+  "ledger": "qsb_oanda_practice_ledger_v1",
+  "entries": [
+    {
+      "ts": "2026-06-08T15:35:34.264023+00:00",
+      "event": "place_practice_order",
+      "instrument": "EUR_USD",
+      "units": 100,
+      "side": "buy",
+      "mode": "PRACTICE_ONLY",
+      "oanda_response_summary": {
+        "id": "154",
+        "type": "ORDER_FILL",
+        "instrument": "EUR_USD",
+        "units": "100",
+        "price": "1.15373",
+        "pl": "0.0000",
+        "accountBalance": "100158.6876",
+        "time": "2026-06-08T15:35:34.185110407Z"
+      }
+    },
+    {
+      "ts": "2026-06-12T08:36:27.106264+00:00",
+      "event": "place_practice_order",
+      "instrument": "EUR_USD",
+      "units": 500,
+      "side": "buy",
+      "mode": "PRACTICE_ONLY",
+      "oanda_response_summary": {
+        "id": "209",
+        "type": "ORDER_FILL",
+        "instrument": "EUR_USD",
+        "units": "500",
+        "price": "1.15778",
+        "pl": "0.0000",
+        "accountBalance": "100222.9403",
+        "time": "2026-06-12T08:36:26.907566865Z"
+      }
+    },
+    {
+      "ts": "2026-06-12T08:36:32.000351+00:00",
+      "event": "place_practice_order",
+      "instrument": "USD_JPY",
+      "units": 500,
+      "side": "sell",
+      "mode": "PRACTICE_ONLY",
+      "oanda_response_summary": {
+        "id": "211",
+        "type": "ORDER_FILL",
+        "instrument": "USD_JPY",
+        "units": "-500",
+        "price": "160.151",
+        "pl": "0.0000",
+        "accountBalance": "100222.9403",
+        "time": "2026-06-12T08:36:31.806652536Z"
+      }
+    },
+    {
+      "ts": "2026-06-12T13:46:35.107713+00:00",
+      "event": "place_practice_order",
+      "instrument": "GBP_USD",
+      "units": 500,
+      "side": "buy",
+      "mode": "PRACTICE_ONLY",
+      "oanda_response_summary": {
+        "id": "213",
+        "type": "ORDER_FILL",
+        "instrument": "GBP_USD",
+        "units": "500",
+        "price": "1.34017",
+        "pl": "0.0000",
+        "accountBalance": "100222.9403",
+        "time": "2026-06-12T13:46:35.012655845Z"
+      }
+    }
+  ],
+  "execution_mode": "PRACTICE_ONLY",
+  "live_trading_enabled": false,
+  "real_order_execution_enabled": false,
+  "openclaw_real_execution_enabled": false,
+  "openclaw_execution_enabled": false,
+  "binance_order_execution_enabled": false,
+  "binance_live_trading_enabled": false,
+  "stock_order_execution_enabled": false,
+  "stock_live_trading_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "live_dispatch_enabled": false,
+  "external_provider_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "direct_provider_access": false,
+  "oanda_practice_trading_enabled": true,
+  "oanda_practice_order_execution_enabled": true,
+  "openclaw_practice_mode_enabled": true,
+  "fake_data": false
+}

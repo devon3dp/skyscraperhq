@@ -1,0 +1,31 @@
+{
+  "room_id": "procurement_library",
+  "name": "Procurement Library",
+  "category": "library",
+  "purpose": "A resource center for procurement policies and procedures.",
+  "concierge_blurb": "Explore a library of procurement documents and resources.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_right",
+    "offset_x": 7.0,
+    "offset_z": -8.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "library_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Procurement Lib",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_112"
+}

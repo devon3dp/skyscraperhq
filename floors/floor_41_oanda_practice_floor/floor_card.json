@@ -1,0 +1,136 @@
+{
+  "floor_id": "floor_41",
+  "floor_number": 41,
+  "floor_name": "OANDA Trading Floor",
+  "department": "OANDA Practice Trading Floor",
+  "zone": "ZONE C",
+  "archetype": "practice_trading_floor",
+  "staff_lead": "F41 OANDA crew",
+  "tour_blurb": "On forty-one, the OANDA Trading Floor \u2014 PRACTICE ONLY, with no real money in play. Every order routes to the practice endpoint behind guardrails: whitelisted instruments, capped unit sizes, hourly trade limits, and a kill switch within arm's reach. A teaching floor, run with a trader's discipline.",
+  "visitor_open": true,
+  "advisory_only": true,
+  "execution_mode": "PRACTICE_ONLY",
+  "real_money_in_play": false,
+  "oanda_environment": "practice",
+  "base_url": "https://api-fxpractice.oanda.com",
+  "live_signals": {
+    "mode": "PRACTICE_ONLY",
+    "kill_switch_armed": true,
+    "kill_switch_on": false,
+    "kill_switch_reason": null,
+    "kill_switch_set_ts": null,
+    "whitelisted_instruments_count": 3,
+    "whitelisted_instruments": [
+      "EUR_USD",
+      "GBP_USD",
+      "USD_JPY"
+    ],
+    "max_units_per_trade": 1000,
+    "max_trades_per_hour": 6,
+    "max_open_trades": 3,
+    "max_spread_pips": 2.0,
+    "max_daily_practice_loss_gbp": 500.0,
+    "manual_confirmation_required": true,
+    "guard_state_source": "state/tower_ops/oanda_practice_guard.json",
+    "guards_source": "src/tower_ops/oanda_practice_trading.py::GUARDS"
+  },
+  "evidence_paths": [
+    "data/registries/oanda_trading_floor_policy.json",
+    "data/registries/qsb_floor41_oanda_state.json",
+    "data/registries/qsb_open_day_tour.json",
+    "state/tower_ops/oanda_practice_guard.json",
+    "src/tower_ops/oanda_practice_trading.py",
+    "tools/qsb_oanda.py"
+  ],
+  "built_at": "2026-06-14T17:40:00Z",
+  "built_by": "skyscraper_floor_card_push",
+  "lessons_learned_for_next_agent": "kill_switch_armed means the kill-switch mechanism is in place and operable (a flip will halt orders); kill_switch_on is the boolean state of the switch itself. They are NOT the same field \u2014 confusing them will mislead operators into thinking trading is halted when it is not. Guardrail numbers (max_units_per_trade=1000, max_trades_per_hour=6, whitelist of 3 majors) live in code at src/tower_ops/oanda_practice_trading.py::GUARDS \u2014 read them from source, never hard-code in the card. Also: the card must never surface SAFETY_STAMP keys like live_trading_enabled or real_order_execution_enabled \u2014 those belong in the per-call envelope, not the public-tour view. The blurb must reinforce PRACTICE ONLY in every paragraph.",
+  "guards": {
+    "max_open_trades": 24
+  },
+  "team_roster": [
+    {
+      "id": "f041.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "spawned_id": "f261114d2b",
+      "spawned_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "trader",
+      "role": "trader on F041",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f041.trader.01",
+      "spawned_id": "c160dd4098"
+    },
+    {
+      "category": "trader",
+      "role": "trader on F041",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f041.trader.02",
+      "spawned_id": "3f332ce1d6"
+    },
+    {
+      "category": "trader",
+      "role": "trader on F041",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f041.trader.03",
+      "spawned_id": "751c808f2c"
+    },
+    {
+      "category": "trader",
+      "role": "trader on F041",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f041.trader.04",
+      "spawned_id": "6252a4fee2"
+    },
+    {
+      "category": "trader",
+      "role": "trader on F041",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f041.trader.05",
+      "spawned_id": "6ed516af86"
+    },
+    {
+      "category": "trader",
+      "role": "trader on F041",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f041.trader.06",
+      "spawned_id": "6fc90aa476"
+    },
+    {
+      "category": "trader",
+      "role": "trader on F041",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f041.trader.07",
+      "spawned_id": "4528a08945"
+    },
+    {
+      "category": "trader",
+      "role": "trader on F041",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f041.trader.08",
+      "spawned_id": "a08ba1932e"
+    },
+    {
+      "category": "trader",
+      "role": "trader on F041",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f041.trader.09",
+      "spawned_id": "7f64db2d27"
+    }
+  ],
+  "floor_manager": "f041.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

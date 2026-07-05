@@ -1,0 +1,415 @@
+{
+  "ok": true,
+  "kind": "qsb_tower_census_latest",
+  "generated_ts": "2026-06-15T15:50:47.431207Z",
+  "tower_size": {
+    "floor_directories": 169,
+    "floors_with_workers": 163,
+    "total_unique_workers": 7724,
+    "employed_active": 6582,
+    "with_role_assigned": 7724,
+    "with_daily_assignment": 6754,
+    "with_hours_set": 6987,
+    "pct_active": 85.21,
+    "pct_with_assignment": 87.44,
+    "pct_with_hours": 90.46
+  },
+  "workers_per_floor": {
+    "1": 114,
+    "2": 50,
+    "3": 58,
+    "4": 50,
+    "5": 50,
+    "6": 50,
+    "7": 50,
+    "8": 50,
+    "9": 50,
+    "10": 50,
+    "11": 58,
+    "12": 50,
+    "13": 50,
+    "14": 50,
+    "15": 50,
+    "16": 50,
+    "17": 110,
+    "18": 50,
+    "19": 50,
+    "20": 50,
+    "21": 50,
+    "22": 62,
+    "23": 50,
+    "24": 68,
+    "25": 74,
+    "26": 43,
+    "27": 50,
+    "28": 56,
+    "29": 58,
+    "30": 83,
+    "31": 68,
+    "32": 50,
+    "33": 50,
+    "34": 50,
+    "35": 90,
+    "36": 63,
+    "37": 156,
+    "38": 98,
+    "39": 50,
+    "40": 50,
+    "41": 50,
+    "42": 50,
+    "43": 50,
+    "44": 53,
+    "45": 62,
+    "46": 50,
+    "47": 1515,
+    "48": 50,
+    "49": 50,
+    "50": 86,
+    "51": 92,
+    "52": 56,
+    "53": 50,
+    "67": 28,
+    "68": 24,
+    "69": 24,
+    "70": 24,
+    "71": 24,
+    "72": 24,
+    "73": 24,
+    "74": 24,
+    "75": 24,
+    "76": 24,
+    "77": 24,
+    "78": 24,
+    "79": 24,
+    "80": 24,
+    "81": 24,
+    "82": 24,
+    "83": 24,
+    "84": 24,
+    "85": 24,
+    "86": 24,
+    "87": 24,
+    "88": 24,
+    "89": 24,
+    "90": 24,
+    "91": 24,
+    "92": 24,
+    "93": 24,
+    "94": 24,
+    "95": 24,
+    "96": 24,
+    "97": 24,
+    "98": 24,
+    "99": 20,
+    "100": 24,
+    "101": 24,
+    "102": 24,
+    "103": 24,
+    "104": 20,
+    "105": 24,
+    "106": 24,
+    "107": 20,
+    "108": 24,
+    "109": 16,
+    "110": 24,
+    "111": 20,
+    "112": 24,
+    "113": 24,
+    "114": 20,
+    "115": 24,
+    "116": 24,
+    "117": 24,
+    "118": 24,
+    "119": 24,
+    "120": 24,
+    "121": 24,
+    "122": 24,
+    "123": 24,
+    "124": 20,
+    "125": 16,
+    "126": 24,
+    "127": 24,
+    "128": 24,
+    "129": 24,
+    "130": 24,
+    "131": 24,
+    "132": 24,
+    "133": 24,
+    "134": 24,
+    "135": 24,
+    "136": 24,
+    "137": 24,
+    "138": 24,
+    "139": 24,
+    "140": 24,
+    "141": 20,
+    "142": 24,
+    "143": 24,
+    "144": 24,
+    "145": 24,
+    "146": 24,
+    "147": 24,
+    "148": 24,
+    "149": 24,
+    "150": 24,
+    "151": 24,
+    "152": 24,
+    "54": 37,
+    "55": 70,
+    "56": 12,
+    "57": 23,
+    "58": 13,
+    "164": 34,
+    "61": 22,
+    "62": 22,
+    "63": 22,
+    "64": 22,
+    "65": 22,
+    "66": 34,
+    "60": 23,
+    "154": 22,
+    "155": 22,
+    "156": 22,
+    "157": 22,
+    "158": 22,
+    "159": 22,
+    "160": 22,
+    "161": 22,
+    "162": 22,
+    "163": 22,
+    "59": 43
+  },
+  "workers_per_team": {
+    "themed_workforce_v1": 2014,
+    "graphics_team_v1": 60,
+    "f38_v1": 30,
+    "wren_code_crew_v1": 100,
+    "f45_v1": 24,
+    "f37_strategy_labs_v1": 100,
+    "f52_v1": 18,
+    "f51_v1": 24,
+    "f50_v1": 48,
+    "expansion_v1": 2024,
+    "wren_team_v1": 1277,
+    "none": 1042,
+    "f22_v1": 24,
+    "service_staff_v1": 207,
+    "f25_v1": 36,
+    "f31_v1": 30,
+    "f35_v1": 32,
+    "email_ops_v1": 34,
+    "f61_shop_v1": 22,
+    "f62_shop_v1": 22,
+    "f63_shop_v1": 22,
+    "f64_shop_v1": 22,
+    "f65_shop_v1": 22,
+    "architects_office_v1": 34,
+    "f60_lse_trader_team_v1": 23,
+    "f154_shop_v1": 22,
+    "f155_shop_v1": 22,
+    "f156_shop_v1": 22,
+    "f157_shop_v1": 22,
+    "f158_shop_v1": 22,
+    "f159_shop_v1": 22,
+    "f160_shop_v1": 22,
+    "f161_shop_v1": 22,
+    "f162_shop_v1": 22,
+    "f163_shop_v1": 22,
+    "shopping_centre_v1": 43,
+    "strategy_research_v1": 36,
+    "web_design_team_v1": 50,
+    "fitters_decorators_v1": 60,
+    "f42_binance_trader_team_v1": 12,
+    "f43_alpaca_trader_team_v1": 12
+  },
+  "top_15_floors_by_population": {
+    "47": 1515,
+    "37": 156,
+    "1": 114,
+    "17": 110,
+    "38": 98,
+    "51": 92,
+    "35": 90,
+    "50": 86,
+    "30": 83,
+    "25": 74,
+    "55": 70,
+    "24": 68,
+    "31": 68,
+    "36": 63,
+    "22": 62
+  },
+  "top_15_teams": [
+    [
+      "expansion_v1",
+      2024
+    ],
+    [
+      "themed_workforce_v1",
+      2014
+    ],
+    [
+      "wren_team_v1",
+      1277
+    ],
+    [
+      "none",
+      1042
+    ],
+    [
+      "service_staff_v1",
+      207
+    ],
+    [
+      "wren_code_crew_v1",
+      100
+    ],
+    [
+      "f37_strategy_labs_v1",
+      100
+    ],
+    [
+      "graphics_team_v1",
+      60
+    ],
+    [
+      "fitters_decorators_v1",
+      60
+    ],
+    [
+      "web_design_team_v1",
+      50
+    ],
+    [
+      "f50_v1",
+      48
+    ],
+    [
+      "shopping_centre_v1",
+      43
+    ],
+    [
+      "f25_v1",
+      36
+    ],
+    [
+      "strategy_research_v1",
+      36
+    ],
+    [
+      "email_ops_v1",
+      34
+    ]
+  ],
+  "registry_files": {
+    "total_files": 825,
+    "jsonl_files": 91,
+    "fresh_under_1h": 49,
+    "stale_over_24h": 739,
+    "top_growing": [
+      {
+        "name": "qsb_chat_log.jsonl",
+        "size_bytes": 9507930,
+        "age_seconds": 20,
+        "rows": 25605
+      },
+      {
+        "name": "qsb_live_dispatch.jsonl",
+        "size_bytes": 2908134,
+        "age_seconds": 20,
+        "rows": 17405
+      },
+      {
+        "name": "qsb_f47_team_records.jsonl",
+        "size_bytes": 2238572,
+        "age_seconds": 2,
+        "rows": 6222
+      },
+      {
+        "name": "qsb_tower_activity_tail.jsonl",
+        "size_bytes": 1276525,
+        "age_seconds": 2,
+        "rows": 4332
+      },
+      {
+        "name": "qsb_code_apply_audit.jsonl",
+        "size_bytes": 768929,
+        "age_seconds": 338,
+        "rows": 2150
+      },
+      {
+        "name": "qsb_oanda_position_monitor.jsonl",
+        "size_bytes": 259155,
+        "age_seconds": 65977,
+        "rows": 1102
+      },
+      {
+        "name": "qsb_wren_code_crew_activity.jsonl",
+        "size_bytes": 258536,
+        "age_seconds": 21,
+        "rows": 966
+      },
+      {
+        "name": "qsb_hw_stats.jsonl",
+        "size_bytes": 489953,
+        "age_seconds": 32,
+        "rows": 930
+      },
+      {
+        "name": "qsb_wren_code_crew_backlog.jsonl",
+        "size_bytes": 110692,
+        "age_seconds": 8867,
+        "rows": 611
+      },
+      {
+        "name": "qsb_provider_spend_ledger.jsonl",
+        "size_bytes": 105695,
+        "age_seconds": 29862,
+        "rows": 573
+      }
+    ]
+  },
+  "evolution_today_vs_yesterday": {
+    "qsb_f47_team_records.jsonl": {
+      "today": 2820,
+      "yesterday": 2095
+    },
+    "qsb_tower_activity_tail.jsonl": {
+      "today": 187,
+      "yesterday": 72
+    },
+    "qsb_floor44_master_ledger.jsonl": {
+      "today": 0,
+      "yesterday": 0
+    },
+    "qsb_cohort_training_runs.jsonl": {
+      "today": 0,
+      "yesterday": 0
+    },
+    "qsb_market_news_feed.jsonl": {
+      "today": 0,
+      "yesterday": 0
+    },
+    "qsb_arb_candidates.jsonl": {
+      "today": 0,
+      "yesterday": 0
+    },
+    "qsb_provider_spend_ledger.jsonl": {
+      "today": 280,
+      "yesterday": 204
+    },
+    "qsb_floor27_terminal_transcript.jsonl": {
+      "today": 0,
+      "yesterday": 0
+    },
+    "qsb_floor60_lse_paper_ledger.jsonl": {
+      "today": 0,
+      "yesterday": 0
+    },
+    "qsb_floor43_alpaca_paper_orders.jsonl": {
+      "today": 0,
+      "yesterday": 0
+    }
+  },
+  "advisory_only": true
+}

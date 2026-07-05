@@ -1,0 +1,34 @@
+{
+  "room_id": "testing_lab",
+  "name": "Testing Lab",
+  "category": "lab",
+  "purpose": "Conducts rigorous product testing.",
+  "concierge_blurb": "Welcome to our state-of-the-art testing lab where we ensure every product meets our high standards.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": -7.5,
+    "footprint_m": [
+      10,
+      8
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "lab_bench",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Testing Lab",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/test_results.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_8"
+}

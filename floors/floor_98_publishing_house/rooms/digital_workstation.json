@@ -1,0 +1,34 @@
+{
+  "room_id": "digital_workstation",
+  "name": "Digital Workstation",
+  "category": "operations",
+  "purpose": "Handles the digital content creation and management.",
+  "concierge_blurb": "See where our digital works come to life.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 5.0,
+    "offset_z": -1.0,
+    "footprint_m": [
+      8,
+      6
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Digital Work",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": null
+  },
+  "floor": "floor_98"
+}

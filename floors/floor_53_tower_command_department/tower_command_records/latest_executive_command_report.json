@@ -1,0 +1,1646 @@
+{
+  "summary": {
+    "ts": "2026-06-09T09:52:30.737042+00:00",
+    "spine": "executive_command_spine",
+    "version": "1.1",
+    "status": "critical",
+    "floors": [
+      "floor_46",
+      "floor_47",
+      "floor_48",
+      "floor_49",
+      "floor_50",
+      "floor_51",
+      "floor_52",
+      "floor_53"
+    ],
+    "kernel_installed": false,
+    "kernel_logic_present": false,
+    "execution_enabled": false,
+    "command_execution_enabled": false,
+    "checks_run": 29,
+    "critical_failures": 1,
+    "warnings": 1,
+    "passed": 27,
+    "next_recommended_phase": "Ground Floor Reception and Command Lobby V1.1"
+  },
+  "items": [
+    {
+      "check_type": "floor_manifest",
+      "target": "floor_46",
+      "status": "pass",
+      "severity": "critical",
+      "message": "floor_46 executive manifest valid.",
+      "details": {
+        "path": "floors/floor_46_executive_support_department/floor_manifest.json",
+        "manifest": {
+          "floor_id": "floor_46",
+          "department": "Executive Support Department",
+          "version": "1.1",
+          "role": "executive_reports_summaries_escalation_support",
+          "zone": "ZONE D",
+          "kernel_required": false,
+          "kernel_installed": false,
+          "models_required": false,
+          "execution_enabled": false,
+          "command_execution_enabled": false,
+          "hardwired_providers": false,
+          "providers_are_external": true,
+          "command_level": 1,
+          "notice": "Executive Support Department registered as part of Executive Command Spine V1.1."
+        }
+      }
+    },
+    {
+      "check_type": "floor_manifest",
+      "target": "floor_47",
+      "status": "pass",
+      "severity": "critical",
+      "message": "floor_47 executive manifest valid.",
+      "details": {
+        "path": "floors/floor_47_executive_operations_department/floor_manifest.json",
+        "manifest": {
+          "floor_id": "floor_47",
+          "department": "Executive Operations Department",
+          "version": "1.1",
+          "role": "upper_tower_operational_coordination",
+          "zone": "ZONE D",
+          "kernel_required": false,
+          "kernel_installed": false,
+          "models_required": false,
+          "execution_enabled": false,
+          "command_execution_enabled": false,
+          "hardwired_providers": false,
+          "providers_are_external": true,
+          "command_level": 2,
+          "notice": "Executive Operations Department registered as part of Executive Command Spine V1.1."
+        }
+      }
+    },
+    {
+      "check_type": "floor_manifest",
+      "target": "floor_48",
+      "status": "pass",
+      "severity": "critical",
+      "message": "floor_48 executive manifest valid.",
+      "details": {
+        "path": "floors/floor_48_strategic_planning_department/floor_manifest.json",
+        "manifest": {
+          "floor_id": "floor_48",
+          "department": "Strategic Planning Department",
+          "version": "1.1",
+          "role": "roadmap_project_sequence_and_long_range_planning",
+          "zone": "ZONE D",
+          "kernel_required": false,
+          "kernel_installed": false,
+          "models_required": false,
+          "execution_enabled": false,
+          "command_execution_enabled": false,
+          "hardwired_providers": false,
+          "providers_are_external": true,
+          "command_level": 3,
+          "notice": "Strategic Planning Department registered as part of Executive Command Spine V1.1."
+        }
+      }
+    },
+    {
+      "check_type": "floor_manifest",
+      "target": "floor_49",
+      "status": "pass",
+      "severity": "critical",
+      "message": "floor_49 executive manifest valid.",
+      "details": {
+        "path": "floors/floor_49_resource_management_department/floor_manifest.json",
+        "manifest": {
+          "floor_id": "floor_49",
+          "department": "Resource Management Department",
+          "version": "1.1",
+          "role": "capacity_resources_workers_models_and_provider_usage_planning",
+          "zone": "ZONE D",
+          "kernel_required": false,
+          "kernel_installed": false,
+          "models_required": false,
+          "execution_enabled": false,
+          "command_execution_enabled": false,
+          "hardwired_providers": false,
+          "providers_are_external": true,
+          "command_level": 4,
+          "notice": "Resource Management Department registered as part of Executive Command Spine V1.1."
+        }
+      }
+    },
+    {
+      "check_type": "floor_manifest",
+      "target": "floor_50",
+      "status": "pass",
+      "severity": "critical",
+      "message": "floor_50 executive manifest valid.",
+      "details": {
+        "path": "floors/floor_50_building_governance_department/floor_manifest.json",
+        "manifest": {
+          "floor_id": "floor_50",
+          "department": "Building Governance Department",
+          "version": "1.1",
+          "role": "tower_rules_upgrade_governance_registry_policy_version_control",
+          "zone": "ZONE D",
+          "kernel_required": false,
+          "kernel_installed": false,
+          "models_required": false,
+          "execution_enabled": false,
+          "command_execution_enabled": false,
+          "hardwired_providers": false,
+          "providers_are_external": true,
+          "command_level": 5,
+          "notice": "Building Governance Department registered as part of Executive Command Spine V1.1."
+        }
+      }
+    },
+    {
+      "check_type": "floor_manifest",
+      "target": "floor_51",
+      "status": "pass",
+      "severity": "critical",
+      "message": "floor_51 executive manifest valid.",
+      "details": {
+        "path": "floors/floor_51_executive_council_department/floor_manifest.json",
+        "manifest": {
+          "floor_id": "floor_51",
+          "department": "Executive Council Department",
+          "version": "1.1",
+          "role": "cross_department_review_and_final_recommendation_layer",
+          "zone": "ZONE D",
+          "kernel_required": false,
+          "kernel_installed": false,
+          "models_required": false,
+          "execution_enabled": false,
+          "command_execution_enabled": false,
+          "hardwired_providers": false,
+          "providers_are_external": true,
+          "command_level": 6,
+          "notice": "Executive Council Department registered as part of Executive Command Spine V1.1."
+        }
+      }
+    },
+    {
+      "check_type": "floor_manifest",
+      "target": "floor_52",
+      "status": "pass",
+      "severity": "critical",
+      "message": "floor_52 executive manifest valid.",
+      "details": {
+        "path": "floors/floor_52_infrastructure_command_department/floor_manifest.json",
+        "manifest": {
+          "floor_id": "floor_52",
+          "department": "Infrastructure Command Department",
+          "version": "1.1",
+          "role": "building_wide_infrastructure_command_visibility",
+          "zone": "ZONE D",
+          "kernel_required": false,
+          "kernel_installed": false,
+          "models_required": false,
+          "execution_enabled": false,
+          "command_execution_enabled": false,
+          "hardwired_providers": false,
+          "providers_are_external": true,
+          "command_level": 7,
+          "notice": "Infrastructure Command Department registered as part of Executive Command Spine V1.1."
+        }
+      }
+    },
+    {
+      "check_type": "floor_manifest",
+      "target": "floor_53",
+      "status": "pass",
+      "severity": "critical",
+      "message": "floor_53 executive manifest valid.",
+      "details": {
+        "path": "floors/floor_53_tower_command_department/floor_manifest.json",
+        "manifest": {
+          "floor_id": "floor_53",
+          "department": "Tower Command Department",
+          "version": "1.1",
+          "role": "top_level_tower_command_and_kernel_handoff_preparation",
+          "zone": "ZONE D",
+          "kernel_required": false,
+          "kernel_installed": false,
+          "models_required": false,
+          "execution_enabled": false,
+          "command_execution_enabled": false,
+          "hardwired_providers": false,
+          "providers_are_external": true,
+          "command_level": 8,
+          "notice": "Tower Command Department registered as part of Executive Command Spine V1.1."
+        }
+      }
+    },
+    {
+      "check_type": "registry",
+      "target": "executive_floors",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Executive floors registered.",
+      "details": {}
+    },
+    {
+      "check_type": "registry",
+      "target": "executive_command_channels",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Executive command channels registered.",
+      "details": {}
+    },
+    {
+      "check_type": "registry",
+      "target": "strategic_roadmap",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Strategic roadmap registered.",
+      "details": {}
+    },
+    {
+      "check_type": "registry",
+      "target": "resource_capacity",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Resource capacity registry present.",
+      "details": {}
+    },
+    {
+      "check_type": "registry",
+      "target": "building_governance_rules",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Building governance rules registered.",
+      "details": {}
+    },
+    {
+      "check_type": "registry",
+      "target": "executive_council_records",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Executive council records registered.",
+      "details": {}
+    },
+    {
+      "check_type": "registry",
+      "target": "infrastructure_command_links",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Infrastructure command links registered.",
+      "details": {}
+    },
+    {
+      "check_type": "registry",
+      "target": "tower_command_handoff",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Tower command handoff registry present.",
+      "details": {}
+    },
+    {
+      "check_type": "executive_lift_route",
+      "target": "floor_46->floor_47",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Executive route floor_46->floor_47 selected executive_lift.",
+      "details": {
+        "source": "floor_46",
+        "target": "floor_47",
+        "selected": {
+          "id": "executive_lift",
+          "name": "Executive Lift",
+          "type": "executive",
+          "serves": [
+            "floor_45",
+            "floor_46",
+            "floor_47",
+            "floor_48",
+            "floor_49",
+            "floor_50",
+            "floor_51",
+            "floor_52",
+            "floor_53",
+            "penthouse"
+          ],
+          "status": "online"
+        }
+      }
+    },
+    {
+      "check_type": "executive_lift_route",
+      "target": "floor_47->floor_48",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Executive route floor_47->floor_48 selected executive_lift.",
+      "details": {
+        "source": "floor_47",
+        "target": "floor_48",
+        "selected": {
+          "id": "executive_lift",
+          "name": "Executive Lift",
+          "type": "executive",
+          "serves": [
+            "floor_45",
+            "floor_46",
+            "floor_47",
+            "floor_48",
+            "floor_49",
+            "floor_50",
+            "floor_51",
+            "floor_52",
+            "floor_53",
+            "penthouse"
+          ],
+          "status": "online"
+        }
+      }
+    },
+    {
+      "check_type": "executive_lift_route",
+      "target": "floor_48->floor_49",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Executive route floor_48->floor_49 selected executive_lift.",
+      "details": {
+        "source": "floor_48",
+        "target": "floor_49",
+        "selected": {
+          "id": "executive_lift",
+          "name": "Executive Lift",
+          "type": "executive",
+          "serves": [
+            "floor_45",
+            "floor_46",
+            "floor_47",
+            "floor_48",
+            "floor_49",
+            "floor_50",
+            "floor_51",
+            "floor_52",
+            "floor_53",
+            "penthouse"
+          ],
+          "status": "online"
+        }
+      }
+    },
+    {
+      "check_type": "executive_lift_route",
+      "target": "floor_49->floor_50",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Executive route floor_49->floor_50 selected executive_lift.",
+      "details": {
+        "source": "floor_49",
+        "target": "floor_50",
+        "selected": {
+          "id": "executive_lift",
+          "name": "Executive Lift",
+          "type": "executive",
+          "serves": [
+            "floor_45",
+            "floor_46",
+            "floor_47",
+            "floor_48",
+            "floor_49",
+            "floor_50",
+            "floor_51",
+            "floor_52",
+            "floor_53",
+            "penthouse"
+          ],
+          "status": "online"
+        }
+      }
+    },
+    {
+      "check_type": "executive_lift_route",
+      "target": "floor_50->floor_51",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Executive route floor_50->floor_51 selected executive_lift.",
+      "details": {
+        "source": "floor_50",
+        "target": "floor_51",
+        "selected": {
+          "id": "executive_lift",
+          "name": "Executive Lift",
+          "type": "executive",
+          "serves": [
+            "floor_45",
+            "floor_46",
+            "floor_47",
+            "floor_48",
+            "floor_49",
+            "floor_50",
+            "floor_51",
+            "floor_52",
+            "floor_53",
+            "penthouse"
+          ],
+          "status": "online"
+        }
+      }
+    },
+    {
+      "check_type": "executive_lift_route",
+      "target": "floor_51->floor_52",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Executive route floor_51->floor_52 selected executive_lift.",
+      "details": {
+        "source": "floor_51",
+        "target": "floor_52",
+        "selected": {
+          "id": "executive_lift",
+          "name": "Executive Lift",
+          "type": "executive",
+          "serves": [
+            "floor_45",
+            "floor_46",
+            "floor_47",
+            "floor_48",
+            "floor_49",
+            "floor_50",
+            "floor_51",
+            "floor_52",
+            "floor_53",
+            "penthouse"
+          ],
+          "status": "online"
+        }
+      }
+    },
+    {
+      "check_type": "executive_lift_route",
+      "target": "floor_52->floor_53",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Executive route floor_52->floor_53 selected executive_lift.",
+      "details": {
+        "source": "floor_52",
+        "target": "floor_53",
+        "selected": {
+          "id": "executive_lift",
+          "name": "Executive Lift",
+          "type": "executive",
+          "serves": [
+            "floor_45",
+            "floor_46",
+            "floor_47",
+            "floor_48",
+            "floor_49",
+            "floor_50",
+            "floor_51",
+            "floor_52",
+            "floor_53",
+            "penthouse"
+          ],
+          "status": "online"
+        }
+      }
+    },
+    {
+      "check_type": "executive_lift_route",
+      "target": "floor_53->penthouse",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Executive route floor_53->penthouse selected executive_lift.",
+      "details": {
+        "source": "floor_53",
+        "target": "penthouse",
+        "selected": {
+          "id": "executive_lift",
+          "name": "Executive Lift",
+          "type": "executive",
+          "serves": [
+            "floor_45",
+            "floor_46",
+            "floor_47",
+            "floor_48",
+            "floor_49",
+            "floor_50",
+            "floor_51",
+            "floor_52",
+            "floor_53",
+            "penthouse"
+          ],
+          "status": "online"
+        }
+      }
+    },
+    {
+      "check_type": "penthouse_dependency",
+      "target": "penthouse_readiness",
+      "status": "fail",
+      "severity": "critical",
+      "message": "Penthouse readiness status: not_ready_for_kernel_occupancy.",
+      "details": {
+        "penthouse": {
+          "database": "/vaults/nvme0/qsb_tower_v1/data/db/penthouse_readiness.sqlite",
+          "penthouse": "penthouse",
+          "department": "Penthouse Readiness Layer",
+          "version": "1.1",
+          "reserved_for": "Future QSB Kernel 4.5 Installation",
+          "visible_message": "Reserved For Future QSB Kernel 4.5 Installation",
+          "readiness_status": "not_ready_for_kernel_occupancy",
+          "kernel_installed": false,
+          "kernel_logic_present": false,
+          "execution_enabled": false,
+          "checks_run": 22,
+          "critical_failures": 1,
+          "warnings": 0,
+          "passed": 21,
+          "socket": {
+            "socket_id": "qsb_kernel_4_5_installation_socket",
+            "penthouse_id": "penthouse",
+            "reserved_for": "QSB Kernel active local-only",
+            "status": "socket_ready_empty",
+            "kernel_installed": true,
+            "kernel_logic_present": true,
+            "accepts_future_kernel_version": "4.5",
+            "requires_acceptance_report": true,
+            "requires_security_precheck": true,
+            "requires_floor_53_handoff": true,
+            "requires_emergency_stairwell_route": true,
+            "notice": "Reserved For Future QSB Kernel 4.5 Installation",
+            "QSBKernelCore_instantiated": true,
+            "active_kernel_source": "rebased_kernel",
+            "activation_status": "active_local_only",
+            "worker_execution_enabled": false,
+            "provider_execution_enabled": false,
+            "model_inference_enabled": false,
+            "live_dispatch_enabled": false,
+            "autonomous_workers_enabled": false,
+            "direct_provider_access": false,
+            "critical_failures": 0,
+            "failures": 0,
+            "warnings": 0,
+            "updated_ts": "2026-06-07T21:38:48.824394+00:00",
+            "socket_status": "occupied_local_only",
+            "readiness_status": "kernel_active_local_only"
+          },
+          "connection_ports": 8,
+          "discovery_interface": "ready",
+          "monitoring_interface": "ready",
+          "health_display": {
+            "display_id": "kernel_health_display",
+            "message": "Reserved For Future QSB Kernel 4.5 Installation",
+            "kernel_installed": true,
+            "kernel_health": "healthy",
+            "socket_status": "ready_empty",
+            "execution_enabled": false,
+            "QSBKernelCore_instantiated": true,
+            "active_kernel_source": "rebased_kernel",
+            "activation_status": "active_local_only",
+            "worker_execution_enabled": false,
+            "provider_execution_enabled": false,
+            "model_inference_enabled": false,
+            "live_dispatch_enabled": false,
+            "kernel_logic_present": true,
+            "autonomous_workers_enabled": false,
+            "direct_provider_access": false,
+            "critical_failures": 0,
+            "failures": 0,
+            "warnings": 0,
+            "updated_ts": "2026-06-07T21:38:48.824394+00:00",
+            "status": "active_local_only"
+          },
+          "floor_53_handoff": "handoff_channel_ready",
+          "latest_acceptance_report": "penthouse/kernel_occupancy_acceptance/latest_acceptance_report.json",
+          "recent_runs": [
+            {
+              "id": 49785,
+              "ts": "2026-06-09T09:52:30.558359+00:00",
+              "status": "not_ready_for_kernel_occupancy",
+              "checks_run": 22,
+              "critical_failures": 1,
+              "warnings": 0,
+              "summary": {
+                "ts": "2026-06-09T09:52:30.558359+00:00",
+                "penthouse": "penthouse",
+                "reserved_for": "Future QSB Kernel 4.5 Installation",
+                "readiness_status": "not_ready_for_kernel_occupancy",
+                "kernel_installed": false,
+                "kernel_logic_present": false,
+                "execution_enabled": false,
+                "checks_run": 22,
+                "critical_failures": 1,
+                "warnings": 0,
+                "passed": 21,
+                "visible_message": "Reserved For Future QSB Kernel 4.5 Installation"
+              }
+            },
+            {
+              "id": 49784,
+              "ts": "2026-06-09T09:52:30.493737+00:00",
+              "status": "not_ready_for_kernel_occupancy",
+              "checks_run": 22,
+              "critical_failures": 1,
+              "warnings": 0,
+              "summary": {
+                "ts": "2026-06-09T09:52:30.493737+00:00",
+                "penthouse": "penthouse",
+                "reserved_for": "Future QSB Kernel 4.5 Installation",
+                "readiness_status": "not_ready_for_kernel_occupancy",
+                "kernel_installed": false,
+                "kernel_logic_present": false,
+                "execution_enabled": false,
+                "checks_run": 22,
+                "critical_failures": 1,
+                "warnings": 0,
+                "passed": 21,
+                "visible_message": "Reserved For Future QSB Kernel 4.5 Installation"
+              }
+            },
+            {
+              "id": 49783,
+              "ts": "2026-06-09T09:49:39.808211+00:00",
+              "status": "not_ready_for_kernel_occupancy",
+              "checks_run": 22,
+              "critical_failures": 1,
+              "warnings": 0,
+              "summary": {
+                "ts": "2026-06-09T09:49:39.808211+00:00",
+                "penthouse": "penthouse",
+                "reserved_for": "Future QSB Kernel 4.5 Installation",
+                "readiness_status": "not_ready_for_kernel_occupancy",
+                "kernel_installed": false,
+                "kernel_logic_present": false,
+                "execution_enabled": false,
+                "checks_run": 22,
+                "critical_failures": 1,
+                "warnings": 0,
+                "passed": 21,
+                "visible_message": "Reserved For Future QSB Kernel 4.5 Installation"
+              }
+            },
+            {
+              "id": 49782,
+              "ts": "2026-06-09T09:49:39.739110+00:00",
+              "status": "not_ready_for_kernel_occupancy",
+              "checks_run": 22,
+              "critical_failures": 1,
+              "warnings": 0,
+              "summary": {
+                "ts": "2026-06-09T09:49:39.739110+00:00",
+                "penthouse": "penthouse",
+                "reserved_for": "Future QSB Kernel 4.5 Installation",
+                "readiness_status": "not_ready_for_kernel_occupancy",
+                "kernel_installed": false,
+                "kernel_logic_present": false,
+                "execution_enabled": false,
+                "checks_run": 22,
+                "critical_failures": 1,
+                "warnings": 0,
+                "passed": 21,
+                "visible_message": "Reserved For Future QSB Kernel 4.5 Installation"
+              }
+            },
+            {
+              "id": 49781,
+              "ts": "2026-06-09T09:49:39.658807+00:00",
+              "status": "not_ready_for_kernel_occupancy",
+              "checks_run": 22,
+              "critical_failures": 1,
+              "warnings": 0,
+              "summary": {
+                "ts": "2026-06-09T09:49:39.658807+00:00",
+                "penthouse": "penthouse",
+                "reserved_for": "Future QSB Kernel 4.5 Installation",
+                "readiness_status": "not_ready_for_kernel_occupancy",
+                "kernel_installed": false,
+                "kernel_logic_present": false,
+                "execution_enabled": false,
+                "checks_run": 22,
+                "critical_failures": 1,
+                "warnings": 0,
+                "passed": 21,
+                "visible_message": "Reserved For Future QSB Kernel 4.5 Installation"
+              }
+            }
+          ],
+          "recent_events": [
+            {
+              "id": 49785,
+              "ts": "2026-06-09T09:52:30.559753+00:00",
+              "event_type": "penthouse_acceptance_run",
+              "status": "not_ready_for_kernel_occupancy",
+              "details": "{\"ts\": \"2026-06-09T09:52:30.558359+00:00\", \"penthouse\": \"penthouse\", \"reserved_for\": \"Future QSB Kernel 4.5 Installation\", \"readiness_status\": \"not_ready_for_kernel_occupancy\", \"kernel_installed\": false, \"kernel_logic_present\": false, \"execution_enabled\": false, \"checks_run\": 22, \"critical_failures\": 1, \"warnings\": 0, \"passed\": 21, \"visible_message\": \"Reserved For Future QSB Kernel 4.5 Installation\"}"
+            },
+            {
+              "id": 49784,
+              "ts": "2026-06-09T09:52:30.494824+00:00",
+              "event_type": "penthouse_acceptance_run",
+              "status": "not_ready_for_kernel_occupancy",
+              "details": "{\"ts\": \"2026-06-09T09:52:30.493737+00:00\", \"penthouse\": \"penthouse\", \"reserved_for\": \"Future QSB Kernel 4.5 Installation\", \"readiness_status\": \"not_ready_for_kernel_occupancy\", \"kernel_installed\": false, \"kernel_logic_present\": false, \"execution_enabled\": false, \"checks_run\": 22, \"critical_failures\": 1, \"warnings\": 0, \"passed\": 21, \"visible_message\": \"Reserved For Future QSB Kernel 4.5 Installation\"}"
+            },
+            {
+              "id": 49783,
+              "ts": "2026-06-09T09:49:39.809398+00:00",
+              "event_type": "penthouse_acceptance_run",
+              "status": "not_ready_for_kernel_occupancy",
+              "details": "{\"ts\": \"2026-06-09T09:49:39.808211+00:00\", \"penthouse\": \"penthouse\", \"reserved_for\": \"Future QSB Kernel 4.5 Installation\", \"readiness_status\": \"not_ready_for_kernel_occupancy\", \"kernel_installed\": false, \"kernel_logic_present\": false, \"execution_enabled\": false, \"checks_run\": 22, \"critical_failures\": 1, \"warnings\": 0, \"passed\": 21, \"visible_message\": \"Reserved For Future QSB Kernel 4.5 Installation\"}"
+            },
+            {
+              "id": 49782,
+              "ts": "2026-06-09T09:49:39.740302+00:00",
+              "event_type": "penthouse_acceptance_run",
+              "status": "not_ready_for_kernel_occupancy",
+              "details": "{\"ts\": \"2026-06-09T09:49:39.739110+00:00\", \"penthouse\": \"penthouse\", \"reserved_for\": \"Future QSB Kernel 4.5 Installation\", \"readiness_status\": \"not_ready_for_kernel_occupancy\", \"kernel_installed\": false, \"kernel_logic_present\": false, \"execution_enabled\": false, \"checks_run\": 22, \"critical_failures\": 1, \"warnings\": 0, \"passed\": 21, \"visible_message\": \"Reserved For Future QSB Kernel 4.5 Installation\"}"
+            },
+            {
+              "id": 49781,
+              "ts": "2026-06-09T09:49:39.659954+00:00",
+              "event_type": "penthouse_acceptance_run",
+              "status": "not_ready_for_kernel_occupancy",
+              "details": "{\"ts\": \"2026-06-09T09:49:39.658807+00:00\", \"penthouse\": \"penthouse\", \"reserved_for\": \"Future QSB Kernel 4.5 Installation\", \"readiness_status\": \"not_ready_for_kernel_occupancy\", \"kernel_installed\": false, \"kernel_logic_present\": false, \"execution_enabled\": false, \"checks_run\": 22, \"critical_failures\": 1, \"warnings\": 0, \"passed\": 21, \"visible_message\": \"Reserved For Future QSB Kernel 4.5 Installation\"}"
+            },
+            {
+              "id": 49780,
+              "ts": "2026-06-09T09:49:39.530471+00:00",
+              "event_type": "penthouse_acceptance_run",
+              "status": "not_ready_for_kernel_occupancy",
+              "details": "{\"ts\": \"2026-06-09T09:49:39.529307+00:00\", \"penthouse\": \"penthouse\", \"reserved_for\": \"Future QSB Kernel 4.5 Installation\", \"readiness_status\": \"not_ready_for_kernel_occupancy\", \"kernel_installed\": false, \"kernel_logic_present\": false, \"execution_enabled\": false, \"checks_run\": 22, \"critical_failures\": 1, \"warnings\": 0, \"passed\": 21, \"visible_message\": \"Reserved For Future QSB Kernel 4.5 Installation\"}"
+            },
+            {
+              "id": 49779,
+              "ts": "2026-06-09T09:49:39.439533+00:00",
+              "event_type": "penthouse_acceptance_run",
+              "status": "not_ready_for_kernel_occupancy",
+              "details": "{\"ts\": \"2026-06-09T09:49:39.438332+00:00\", \"penthouse\": \"penthouse\", \"reserved_for\": \"Future QSB Kernel 4.5 Installation\", \"readiness_status\": \"not_ready_for_kernel_occupancy\", \"kernel_installed\": false, \"kernel_logic_present\": false, \"execution_enabled\": false, \"checks_run\": 22, \"critical_failures\": 1, \"warnings\": 0, \"passed\": 21, \"visible_message\": \"Reserved For Future QSB Kernel 4.5 Installation\"}"
+            },
+            {
+              "id": 49778,
+              "ts": "2026-06-09T09:49:39.340971+00:00",
+              "event_type": "penthouse_acceptance_run",
+              "status": "not_ready_for_kernel_occupancy",
+              "details": "{\"ts\": \"2026-06-09T09:49:39.339638+00:00\", \"penthouse\": \"penthouse\", \"reserved_for\": \"Future QSB Kernel 4.5 Installation\", \"readiness_status\": \"not_ready_for_kernel_occupancy\", \"kernel_installed\": false, \"kernel_logic_present\": false, \"execution_enabled\": false, \"checks_run\": 22, \"critical_failures\": 1, \"warnings\": 0, \"passed\": 21, \"visible_message\": \"Reserved For Future QSB Kernel 4.5 Installation\"}"
+            },
+            {
+              "id": 49777,
+              "ts": "2026-06-09T09:49:39.247908+00:00",
+              "event_type": "penthouse_acceptance_run",
+              "status": "not_ready_for_kernel_occupancy",
+              "details": "{\"ts\": \"2026-06-09T09:49:39.246585+00:00\", \"penthouse\": \"penthouse\", \"reserved_for\": \"Future QSB Kernel 4.5 Installation\", \"readiness_status\": \"not_ready_for_kernel_occupancy\", \"kernel_installed\": false, \"kernel_logic_present\": false, \"execution_enabled\": false, \"checks_run\": 22, \"critical_failures\": 1, \"warnings\": 0, \"passed\": 21, \"visible_message\": \"Reserved For Future QSB Kernel 4.5 Installation\"}"
+            },
+            {
+              "id": 49776,
+              "ts": "2026-06-09T09:49:39.201684+00:00",
+              "event_type": "penthouse_acceptance_run",
+              "status": "not_ready_for_kernel_occupancy",
+              "details": "{\"ts\": \"2026-06-09T09:49:39.200581+00:00\", \"penthouse\": \"penthouse\", \"reserved_for\": \"Future QSB Kernel 4.5 Installation\", \"readiness_status\": \"not_ready_for_kernel_occupancy\", \"kernel_installed\": false, \"kernel_logic_present\": false, \"execution_enabled\": false, \"checks_run\": 22, \"critical_failures\": 1, \"warnings\": 0, \"passed\": 21, \"visible_message\": \"Reserved For Future QSB Kernel 4.5 Installation\"}"
+            }
+          ],
+          "policy": {
+            "version": "1.1",
+            "penthouse_id": "penthouse",
+            "name": "Penthouse Readiness Layer",
+            "status": "reserved",
+            "reserved_for": "Future QSB Kernel 4.5 Installation",
+            "kernel_installed": true,
+            "kernel_logic_present": true,
+            "kernel_required": false,
+            "models_required": false,
+            "execution_enabled": false,
+            "principle": "The Penthouse is an installation socket, not the kernel. QSB Kernel 4.5 has not been built or installed.",
+            "allowed_now": [
+              "kernel installation socket",
+              "kernel discovery interface",
+              "kernel monitoring interface",
+              "kernel health display",
+              "kernel event console",
+              "kernel connection ports",
+              "kernel occupancy readiness report"
+            ],
+            "not_allowed_now": [
+              "kernel reasoning logic",
+              "autonomous agent logic",
+              "provider execution",
+              "model execution",
+              "kernel self-modification",
+              "external cloud calls"
+            ],
+            "visible_message": "Reserved For Future QSB Kernel 4.5 Installation",
+            "QSBKernelCore_instantiated": true,
+            "active_kernel_source": "rebased_kernel",
+            "activation_status": "active_local_only",
+            "worker_execution_enabled": false,
+            "provider_execution_enabled": false,
+            "model_inference_enabled": false,
+            "live_dispatch_enabled": false,
+            "autonomous_workers_enabled": false,
+            "direct_provider_access": false,
+            "critical_failures": 0,
+            "failures": 0,
+            "warnings": 0,
+            "updated_ts": "2026-06-07T21:38:48.824394+00:00",
+            "policy_status": "active_local_only_kernel_installed",
+            "v15_reconciliation_note": "Inherited 4.6-offline-kernel-symbolic artifact is dormant/active_local_only. Kernel 4.5 has not been built. No execution gate is toggled by this note.",
+            "v15_reconciliation_ts": "2026-06-09T09:46:25.153058+00:00"
+          }
+        }
+      }
+    },
+    {
+      "check_type": "security_dependency",
+      "target": "security_spine",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Security spine status: healthy.",
+      "details": {
+        "security": {
+          "database": "/vaults/nvme0/qsb_tower_v1/data/db/security_spine.sqlite",
+          "spine": "security_spine",
+          "department": "Security Spine",
+          "version": "1.1",
+          "status": "healthy",
+          "floors": [
+            "floor_28",
+            "floor_29",
+            "floor_30",
+            "floor_31",
+            "floor_32"
+          ],
+          "execution_enabled": false,
+          "enforcement_enabled": false,
+          "security_gates": 4,
+          "guardian_rules": 5,
+          "permission_roles": 4,
+          "lift_permissions": 9,
+          "compliance_rules": 5,
+          "checks_run": 23,
+          "critical_failures": 0,
+          "warnings": 0,
+          "passed": 23,
+          "latest_report": "floors/floor_32_compliance_department/compliance_reports/latest_security_spine_report.json",
+          "recent_security_events": [
+            {
+              "id": 38873,
+              "ts": "2026-06-09T09:52:30.624774+00:00",
+              "floor_id": "floor_28",
+              "event_type": "security_spine_check",
+              "status": "healthy",
+              "details": "{\"ts\": \"2026-06-09T09:52:30.623948+00:00\", \"spine\": \"security_spine\", \"version\": \"1.1\", \"status\": \"healthy\", \"floors\": [\"floor_28\", \"floor_29\", \"floor_30\", \"floor_31\", \"floor_32\"], \"execution_enabled\": false, \"enforcement_enabled\": false, \"checks_run\": 23, \"critical_failures\": 0, \"warnings\": 0, \"passed\": 23}"
+            },
+            {
+              "id": 38872,
+              "ts": "2026-06-09T09:49:39.827735+00:00",
+              "floor_id": "floor_28",
+              "event_type": "security_spine_check",
+              "status": "healthy",
+              "details": "{\"ts\": \"2026-06-09T09:49:39.826846+00:00\", \"spine\": \"security_spine\", \"version\": \"1.1\", \"status\": \"healthy\", \"floors\": [\"floor_28\", \"floor_29\", \"floor_30\", \"floor_31\", \"floor_32\"], \"execution_enabled\": false, \"enforcement_enabled\": false, \"checks_run\": 23, \"critical_failures\": 0, \"warnings\": 0, \"passed\": 23}"
+            },
+            {
+              "id": 38871,
+              "ts": "2026-06-09T09:49:39.758953+00:00",
+              "floor_id": "floor_28",
+              "event_type": "security_spine_check",
+              "status": "healthy",
+              "details": "{\"ts\": \"2026-06-09T09:49:39.758063+00:00\", \"spine\": \"security_spine\", \"version\": \"1.1\", \"status\": \"healthy\", \"floors\": [\"floor_28\", \"floor_29\", \"floor_30\", \"floor_31\", \"floor_32\"], \"execution_enabled\": false, \"enforcement_enabled\": false, \"checks_run\": 23, \"critical_failures\": 0, \"warnings\": 0, \"passed\": 23}"
+            },
+            {
+              "id": 38870,
+              "ts": "2026-06-09T09:49:39.678864+00:00",
+              "floor_id": "floor_28",
+              "event_type": "security_spine_check",
+              "status": "healthy",
+              "details": "{\"ts\": \"2026-06-09T09:49:39.677937+00:00\", \"spine\": \"security_spine\", \"version\": \"1.1\", \"status\": \"healthy\", \"floors\": [\"floor_28\", \"floor_29\", \"floor_30\", \"floor_31\", \"floor_32\"], \"execution_enabled\": false, \"enforcement_enabled\": false, \"checks_run\": 23, \"critical_failures\": 0, \"warnings\": 0, \"passed\": 23}"
+            },
+            {
+              "id": 38869,
+              "ts": "2026-06-09T09:49:39.549662+00:00",
+              "floor_id": "floor_28",
+              "event_type": "security_spine_check",
+              "status": "healthy",
+              "details": "{\"ts\": \"2026-06-09T09:49:39.548751+00:00\", \"spine\": \"security_spine\", \"version\": \"1.1\", \"status\": \"healthy\", \"floors\": [\"floor_28\", \"floor_29\", \"floor_30\", \"floor_31\", \"floor_32\"], \"execution_enabled\": false, \"enforcement_enabled\": false, \"checks_run\": 23, \"critical_failures\": 0, \"warnings\": 0, \"passed\": 23}"
+            },
+            {
+              "id": 38868,
+              "ts": "2026-06-09T09:49:39.458400+00:00",
+              "floor_id": "floor_28",
+              "event_type": "security_spine_check",
+              "status": "healthy",
+              "details": "{\"ts\": \"2026-06-09T09:49:39.457555+00:00\", \"spine\": \"security_spine\", \"version\": \"1.1\", \"status\": \"healthy\", \"floors\": [\"floor_28\", \"floor_29\", \"floor_30\", \"floor_31\", \"floor_32\"], \"execution_enabled\": false, \"enforcement_enabled\": false, \"checks_run\": 23, \"critical_failures\": 0, \"warnings\": 0, \"passed\": 23}"
+            },
+            {
+              "id": 38867,
+              "ts": "2026-06-09T09:49:39.363023+00:00",
+              "floor_id": "floor_28",
+              "event_type": "security_spine_check",
+              "status": "healthy",
+              "details": "{\"ts\": \"2026-06-09T09:49:39.362044+00:00\", \"spine\": \"security_spine\", \"version\": \"1.1\", \"status\": \"healthy\", \"floors\": [\"floor_28\", \"floor_29\", \"floor_30\", \"floor_31\", \"floor_32\"], \"execution_enabled\": false, \"enforcement_enabled\": false, \"checks_run\": 23, \"critical_failures\": 0, \"warnings\": 0, \"passed\": 23}"
+            },
+            {
+              "id": 38866,
+              "ts": "2026-06-09T09:49:39.266572+00:00",
+              "floor_id": "floor_28",
+              "event_type": "security_spine_check",
+              "status": "healthy",
+              "details": "{\"ts\": \"2026-06-09T09:49:39.265638+00:00\", \"spine\": \"security_spine\", \"version\": \"1.1\", \"status\": \"healthy\", \"floors\": [\"floor_28\", \"floor_29\", \"floor_30\", \"floor_31\", \"floor_32\"], \"execution_enabled\": false, \"enforcement_enabled\": false, \"checks_run\": 23, \"critical_failures\": 0, \"warnings\": 0, \"passed\": 23}"
+            },
+            {
+              "id": 38865,
+              "ts": "2026-06-09T09:18:28.538677+00:00",
+              "floor_id": "floor_28",
+              "event_type": "security_spine_check",
+              "status": "healthy",
+              "details": "{\"ts\": \"2026-06-09T09:18:28.537852+00:00\", \"spine\": \"security_spine\", \"version\": \"1.1\", \"status\": \"healthy\", \"floors\": [\"floor_28\", \"floor_29\", \"floor_30\", \"floor_31\", \"floor_32\"], \"execution_enabled\": false, \"enforcement_enabled\": false, \"checks_run\": 23, \"critical_failures\": 0, \"warnings\": 0, \"passed\": 23}"
+            },
+            {
+              "id": 38864,
+              "ts": "2026-06-09T09:18:28.475943+00:00",
+              "floor_id": "floor_28",
+              "event_type": "security_spine_check",
+              "status": "healthy",
+              "details": "{\"ts\": \"2026-06-09T09:18:28.474886+00:00\", \"spine\": \"security_spine\", \"version\": \"1.1\", \"status\": \"healthy\", \"floors\": [\"floor_28\", \"floor_29\", \"floor_30\", \"floor_31\", \"floor_32\"], \"execution_enabled\": false, \"enforcement_enabled\": false, \"checks_run\": 23, \"critical_failures\": 0, \"warnings\": 0, \"passed\": 23}"
+            }
+          ],
+          "recent_audit_records": [
+            {
+              "id": 38873,
+              "ts": "2026-06-09T09:52:30.625659+00:00",
+              "source": "security_spine",
+              "action": "run_security_spine_check",
+              "status": "healthy",
+              "details": "{\"ts\": \"2026-06-09T09:52:30.623948+00:00\", \"spine\": \"security_spine\", \"version\": \"1.1\", \"status\": \"healthy\", \"floors\": [\"floor_28\", \"floor_29\", \"floor_30\", \"floor_31\", \"floor_32\"], \"execution_enabled\": false, \"enforcement_enabled\": false, \"checks_run\": 23, \"critical_failures\": 0, \"warnings\": 0, \"passed\": 23}"
+            },
+            {
+              "id": 38872,
+              "ts": "2026-06-09T09:49:39.828603+00:00",
+              "source": "security_spine",
+              "action": "run_security_spine_check",
+              "status": "healthy",
+              "details": "{\"ts\": \"2026-06-09T09:49:39.826846+00:00\", \"spine\": \"security_spine\", \"version\": \"1.1\", \"status\": \"healthy\", \"floors\": [\"floor_28\", \"floor_29\", \"floor_30\", \"floor_31\", \"floor_32\"], \"execution_enabled\": false, \"enforcement_enabled\": false, \"checks_run\": 23, \"critical_failures\": 0, \"warnings\": 0, \"passed\": 23}"
+            },
+            {
+              "id": 38871,
+              "ts": "2026-06-09T09:49:39.760026+00:00",
+              "source": "security_spine",
+              "action": "run_security_spine_check",
+              "status": "healthy",
+              "details": "{\"ts\": \"2026-06-09T09:49:39.758063+00:00\", \"spine\": \"security_spine\", \"version\": \"1.1\", \"status\": \"healthy\", \"floors\": [\"floor_28\", \"floor_29\", \"floor_30\", \"floor_31\", \"floor_32\"], \"execution_enabled\": false, \"enforcement_enabled\": false, \"checks_run\": 23, \"critical_failures\": 0, \"warnings\": 0, \"passed\": 23}"
+            },
+            {
+              "id": 38870,
+              "ts": "2026-06-09T09:49:39.679812+00:00",
+              "source": "security_spine",
+              "action": "run_security_spine_check",
+              "status": "healthy",
+              "details": "{\"ts\": \"2026-06-09T09:49:39.677937+00:00\", \"spine\": \"security_spine\", \"version\": \"1.1\", \"status\": \"healthy\", \"floors\": [\"floor_28\", \"floor_29\", \"floor_30\", \"floor_31\", \"floor_32\"], \"execution_enabled\": false, \"enforcement_enabled\": false, \"checks_run\": 23, \"critical_failures\": 0, \"warnings\": 0, \"passed\": 23}"
+            },
+            {
+              "id": 38869,
+              "ts": "2026-06-09T09:49:39.550643+00:00",
+              "source": "security_spine",
+              "action": "run_security_spine_check",
+              "status": "healthy",
+              "details": "{\"ts\": \"2026-06-09T09:49:39.548751+00:00\", \"spine\": \"security_spine\", \"version\": \"1.1\", \"status\": \"healthy\", \"floors\": [\"floor_28\", \"floor_29\", \"floor_30\", \"floor_31\", \"floor_32\"], \"execution_enabled\": false, \"enforcement_enabled\": false, \"checks_run\": 23, \"critical_failures\": 0, \"warnings\": 0, \"passed\": 23}"
+            },
+            {
+              "id": 38868,
+              "ts": "2026-06-09T09:49:39.459258+00:00",
+              "source": "security_spine",
+              "action": "run_security_spine_check",
+              "status": "healthy",
+              "details": "{\"ts\": \"2026-06-09T09:49:39.457555+00:00\", \"spine\": \"security_spine\", \"version\": \"1.1\", \"status\": \"healthy\", \"floors\": [\"floor_28\", \"floor_29\", \"floor_30\", \"floor_31\", \"floor_32\"], \"execution_enabled\": false, \"enforcement_enabled\": false, \"checks_run\": 23, \"critical_failures\": 0, \"warnings\": 0, \"passed\": 23}"
+            },
+            {
+              "id": 38867,
+              "ts": "2026-06-09T09:49:39.366579+00:00",
+              "source": "security_spine",
+              "action": "run_security_spine_check",
+              "status": "healthy",
+              "details": "{\"ts\": \"2026-06-09T09:49:39.362044+00:00\", \"spine\": \"security_spine\", \"version\": \"1.1\", \"status\": \"healthy\", \"floors\": [\"floor_28\", \"floor_29\", \"floor_30\", \"floor_31\", \"floor_32\"], \"execution_enabled\": false, \"enforcement_enabled\": false, \"checks_run\": 23, \"critical_failures\": 0, \"warnings\": 0, \"passed\": 23}"
+            },
+            {
+              "id": 38866,
+              "ts": "2026-06-09T09:49:39.267831+00:00",
+              "source": "security_spine",
+              "action": "run_security_spine_check",
+              "status": "healthy",
+              "details": "{\"ts\": \"2026-06-09T09:49:39.265638+00:00\", \"spine\": \"security_spine\", \"version\": \"1.1\", \"status\": \"healthy\", \"floors\": [\"floor_28\", \"floor_29\", \"floor_30\", \"floor_31\", \"floor_32\"], \"execution_enabled\": false, \"enforcement_enabled\": false, \"checks_run\": 23, \"critical_failures\": 0, \"warnings\": 0, \"passed\": 23}"
+            },
+            {
+              "id": 38865,
+              "ts": "2026-06-09T09:18:28.539495+00:00",
+              "source": "security_spine",
+              "action": "run_security_spine_check",
+              "status": "healthy",
+              "details": "{\"ts\": \"2026-06-09T09:18:28.537852+00:00\", \"spine\": \"security_spine\", \"version\": \"1.1\", \"status\": \"healthy\", \"floors\": [\"floor_28\", \"floor_29\", \"floor_30\", \"floor_31\", \"floor_32\"], \"execution_enabled\": false, \"enforcement_enabled\": false, \"checks_run\": 23, \"critical_failures\": 0, \"warnings\": 0, \"passed\": 23}"
+            },
+            {
+              "id": 38864,
+              "ts": "2026-06-09T09:18:28.476782+00:00",
+              "source": "security_spine",
+              "action": "run_security_spine_check",
+              "status": "healthy",
+              "details": "{\"ts\": \"2026-06-09T09:18:28.474886+00:00\", \"spine\": \"security_spine\", \"version\": \"1.1\", \"status\": \"healthy\", \"floors\": [\"floor_28\", \"floor_29\", \"floor_30\", \"floor_31\", \"floor_32\"], \"execution_enabled\": false, \"enforcement_enabled\": false, \"checks_run\": 23, \"critical_failures\": 0, \"warnings\": 0, \"passed\": 23}"
+            }
+          ],
+          "recent_compliance_runs": [
+            {
+              "id": 38873,
+              "ts": "2026-06-09T09:52:30.623948+00:00",
+              "status": "healthy",
+              "checks_run": 23,
+              "failures": 0,
+              "warnings": 0,
+              "summary": {
+                "ts": "2026-06-09T09:52:30.623948+00:00",
+                "spine": "security_spine",
+                "version": "1.1",
+                "status": "healthy",
+                "floors": [
+                  "floor_28",
+                  "floor_29",
+                  "floor_30",
+                  "floor_31",
+                  "floor_32"
+                ],
+                "execution_enabled": false,
+                "enforcement_enabled": false,
+                "checks_run": 23,
+                "critical_failures": 0,
+                "warnings": 0,
+                "passed": 23
+              }
+            },
+            {
+              "id": 38872,
+              "ts": "2026-06-09T09:49:39.826846+00:00",
+              "status": "healthy",
+              "checks_run": 23,
+              "failures": 0,
+              "warnings": 0,
+              "summary": {
+                "ts": "2026-06-09T09:49:39.826846+00:00",
+                "spine": "security_spine",
+                "version": "1.1",
+                "status": "healthy",
+                "floors": [
+                  "floor_28",
+                  "floor_29",
+                  "floor_30",
+                  "floor_31",
+                  "floor_32"
+                ],
+                "execution_enabled": false,
+                "enforcement_enabled": false,
+                "checks_run": 23,
+                "critical_failures": 0,
+                "warnings": 0,
+                "passed": 23
+              }
+            },
+            {
+              "id": 38871,
+              "ts": "2026-06-09T09:49:39.758063+00:00",
+              "status": "healthy",
+              "checks_run": 23,
+              "failures": 0,
+              "warnings": 0,
+              "summary": {
+                "ts": "2026-06-09T09:49:39.758063+00:00",
+                "spine": "security_spine",
+                "version": "1.1",
+                "status": "healthy",
+                "floors": [
+                  "floor_28",
+                  "floor_29",
+                  "floor_30",
+                  "floor_31",
+                  "floor_32"
+                ],
+                "execution_enabled": false,
+                "enforcement_enabled": false,
+                "checks_run": 23,
+                "critical_failures": 0,
+                "warnings": 0,
+                "passed": 23
+              }
+            },
+            {
+              "id": 38870,
+              "ts": "2026-06-09T09:49:39.677937+00:00",
+              "status": "healthy",
+              "checks_run": 23,
+              "failures": 0,
+              "warnings": 0,
+              "summary": {
+                "ts": "2026-06-09T09:49:39.677937+00:00",
+                "spine": "security_spine",
+                "version": "1.1",
+                "status": "healthy",
+                "floors": [
+                  "floor_28",
+                  "floor_29",
+                  "floor_30",
+                  "floor_31",
+                  "floor_32"
+                ],
+                "execution_enabled": false,
+                "enforcement_enabled": false,
+                "checks_run": 23,
+                "critical_failures": 0,
+                "warnings": 0,
+                "passed": 23
+              }
+            },
+            {
+              "id": 38869,
+              "ts": "2026-06-09T09:49:39.548751+00:00",
+              "status": "healthy",
+              "checks_run": 23,
+              "failures": 0,
+              "warnings": 0,
+              "summary": {
+                "ts": "2026-06-09T09:49:39.548751+00:00",
+                "spine": "security_spine",
+                "version": "1.1",
+                "status": "healthy",
+                "floors": [
+                  "floor_28",
+                  "floor_29",
+                  "floor_30",
+                  "floor_31",
+                  "floor_32"
+                ],
+                "execution_enabled": false,
+                "enforcement_enabled": false,
+                "checks_run": 23,
+                "critical_failures": 0,
+                "warnings": 0,
+                "passed": 23
+              }
+            }
+          ],
+          "policy": {
+            "version": "1.1",
+            "spine_id": "security_spine",
+            "floors": [
+              "floor_28",
+              "floor_29",
+              "floor_30",
+              "floor_31",
+              "floor_32"
+            ],
+            "kernel_required": false,
+            "models_required": false,
+            "execution_enabled": false,
+            "enforcement_enabled": false,
+            "mode": "readiness_and_recording",
+            "principle": "The Security Spine prepares gates, permissions, audit, and compliance before future kernel occupancy. It does not execute actions or enforce live blocking yet.",
+            "notice": "Security is registered and visible. Enforcement remains disabled until explicitly activated later."
+          }
+        }
+      }
+    },
+    {
+      "check_type": "expansion_dependency",
+      "target": "floor_36",
+      "status": "fail",
+      "severity": "warning",
+      "message": "'suggested_future_use'",
+      "details": {}
+    },
+    {
+      "check_type": "infrastructure_dependency",
+      "target": "floor_35",
+      "status": "pass",
+      "severity": "warning",
+      "message": "Infrastructure status: healthy.",
+      "details": {
+        "infrastructure": {
+          "database": "/vaults/nvme0/qsb_tower_v1/data/db/infrastructure_services.sqlite",
+          "floor": "floor_35",
+          "department": "Infrastructure Services Department",
+          "version": "1.1",
+          "role": "building_operations_and_maintenance_layer",
+          "infrastructure_status": "healthy",
+          "execution_enabled": false,
+          "kernel_required": false,
+          "models_required": false,
+          "service_records": 7,
+          "script_records": 7,
+          "repair_hooks": 4,
+          "maintenance_hooks": 4,
+          "runtime_checks": [
+            {
+              "name": "runtime_directory",
+              "path": "/vaults/nvme0/qsb_tower_v1/data/runtime",
+              "exists": true,
+              "status": "pass"
+            },
+            {
+              "name": "dashboard_pid",
+              "path": "/vaults/nvme0/qsb_tower_v1/data/runtime/dashboard.pid",
+              "exists": true,
+              "pid": 2252443,
+              "running": true,
+              "status": "pass"
+            }
+          ],
+          "database_count": 21,
+          "backup_ready": true,
+          "critical_issues": [],
+          "warnings": [],
+          "latest_status": "floors/floor_35_infrastructure_services_department/service_control/latest_status.json",
+          "recent_checks": [
+            {
+              "id": 1294258,
+              "ts": "2026-06-09T09:52:30.732213+00:00",
+              "check_type": "hooks",
+              "name": "repair_and_maintenance_hooks",
+              "status": "registered",
+              "severity": "info",
+              "details": "{\"repair_hooks\": [{\"id\": \"repair_lift_network\", \"name\": \"Lift Network Repair Hook\", \"target\": \"src/tower/lifts.py\", \"status\": \"registered_not_executable\", \"execution_enabled\": false}, {\"id\": \"repair_monitoring\", \"name\": \"Monitoring Repair Hook\", \"target\": \"src/tower/monitoring_department.py\", \"status\": \"registered_not_executable\", \"execution_enabled\": false}, {\"id\": \"repair_dashboard\", \"name\": \"Dashboard Repair Hook\", \"target\": \"src/dashboard/server.py\", \"status\": \"registered_not_executable\", \"execution_enabled\": false}, {\"id\": \"repair_registries\", \"name\": \"Registry Repair Hook\", \"target\": \"data/registries\", \"status\": \"registered_not_executable\", \"execution_enabled\": false}], \"maintenance_hooks\": [{\"id\": \"maintenance_database_check\", \"name\": \"Database File Check\", \"status\": \"registered_not_executable\", \"execution_enabled\": false}, {\"id\": \"maintenance_log_rotation_ready\", \"name\": \"Log Rotation Readiness\", \"status\": \"registered_not_executable\", \"execution_enabled\": false}, {\"id\": \"maintenance_backup_ready\", \"name\": \"Backup Readiness\", \"status\": \"registered_not_executable\", \"execution_enabled\": false}, {\"id\": \"maintenance_runtime_cleanup_ready\", \"name\": \"Runtime Cleanup Readiness\", \"status\": \"registered_not_executable\", \"execution_enabled\": false}], \"repair_count\": 4, \"maintenance_count\": 4, \"execution_enabled\": false, \"status\": \"registered\"}"
+            },
+            {
+              "id": 1294257,
+              "ts": "2026-06-09T09:52:30.731304+00:00",
+              "check_type": "backup",
+              "name": "backup_readiness",
+              "status": "ready",
+              "severity": "info",
+              "details": "{\"backup_directory\": \"/vaults/nvme0/qsb_tower_v1/data/backups\", \"exists\": true, \"tower_free_gb\": 129.45, \"ready\": true, \"execution_enabled\": false, \"status\": \"ready\"}"
+            },
+            {
+              "id": 1294256,
+              "ts": "2026-06-09T09:52:30.730205+00:00",
+              "check_type": "logs",
+              "name": "log_directory",
+              "status": "pass",
+              "severity": "info",
+              "details": "{\"log_directory\": \"/vaults/nvme0/qsb_tower_v1/data/logs\", \"exists\": true, \"log_files\": [\"data/logs/airllm_chamber_registry.jsonl\", \"data/logs/binance_floor.jsonl\", \"data/logs/binance_paper_strategy_lab.jsonl\", \"data/logs/cross_market_bus.jsonl\", \"data/logs/dashboard.log\", \"data/logs/dashboard_latest.log\", \"data/logs/eqsb_claude_changes.jsonl\", \"data/logs/eqsb_code_observatory.jsonl\", \"data/logs/eqsb_deep_kernel_audit.jsonl\", \"data/logs/eqsb_hardware_observatory.jsonl\", \"data/logs/eqsb_kernel_events.jsonl\", \"data/logs/eqsb_kernel_learning_loop.jsonl\", \"data/logs/eqsb_kernel_major_audit.jsonl\", \"data/logs/eqsb_phase_prechange_snapshot.txt\", \"data/logs/floor41_paper_ledger.jsonl\", \"data/logs/kernel_chat_sidecar.out\", \"data/logs/kernel_collaboration_probe.txt\", \"data/logs/kernel_dialogue.jsonl\", \"data/logs/kernel_guided_audit_pre_repair.txt\", \"data/logs/kernel_guided_repair_iterations.txt\", \"data/logs/kernel_guided_repair_plan.txt\", \"data/logs/kernel_talk.jsonl\", \"data/logs/local_model_inference.jsonl\", \"data/logs/oanda_floor41_sidecar.out\", \"data/logs/oanda_paper_strategy_lab.jsonl\", \"data/logs/oanda_trading_floor.jsonl\", \"data/logs/openclaw_sandbox_layer.jsonl\", \"data/logs/openclaw_visual_sidecar.out\", \"data/logs/paper_trade_simulator.jsonl\", \"data/logs/paper_trade_simulator_sidecar.out\", \"data/logs/qsb_command_center_audit.txt\", \"data/logs/qsb_dashboard_frontend_check.txt\", \"data/logs/qsb_dashboard_visual_audit.txt\", \"data/logs/qsb_full_system_inventory.jsonl\", \"data/logs/qsb_lift_movements.jsonl\", \"data/logs/qsb_openclaw_events.jsonl\", \"data/logs/qsb_phase_v2_prechange.txt\", \"data/logs/qsb_standalone_system_audit.jsonl\", \"data/logs/qsb_trade_events.jsonl\", \"data/logs/qsb_v2_full_system_recheck.txt\", \"data/logs/qsb_worker_movements.jsonl\", \"data/logs/qsb_worker_performance_events.jsonl\", \"data/logs/qsb_worker_reconciliation.jsonl\", \"data/logs/recruitment_agency.jsonl\", \"data/logs/sandbox_autoloop.jsonl\", \"data/logs/sandbox_autoloop.out\", \"data/logs/sandbox_performance_loop.jsonl\", \"data/logs/sandbox_performance_sidecar.out\", \"data/logs/stock_floor.jsonl\", \"data/logs/stock_paper_strategy_lab.jsonl\", \"data/logs/strategy_autoloop_correlation.jsonl\", \"data/logs/strategy_autoloop_correlation_sidecar.out\", \"data/logs/strategy_intelligence.jsonl\", \"data/logs/strategy_intelligence_sidecar.out\", \"data/logs/worker_recruitment_agency.jsonl\", \"data/logs/worker_sandbox.jsonl\", \"data/logs/worker_sandbox_sidecar.out\"], \"status\": \"pass\"}"
+            },
+            {
+              "id": 1294255,
+              "ts": "2026-06-09T09:52:30.727861+00:00",
+              "check_type": "database",
+              "name": "sqlite_database_directory",
+              "status": "pass",
+              "severity": "info",
+              "details": "{\"database_directory\": {\"path\": \"/vaults/nvme0/qsb_tower_v1/data/db\", \"exists\": true, \"status\": \"pass\"}, \"sqlite_files\": [{\"name\": \"adapter_systems.sqlite\", \"path\": \"data/db/adapter_systems.sqlite\", \"size_bytes\": 28672, \"status\": \"pass\"}, {\"name\": \"agent_coordination.sqlite\", \"path\": \"data/db/agent_coordination.sqlite\", \"size_bytes\": 249479168, \"status\": \"pass\"}, {\"name\": \"air_llm_operations.sqlite\", \"path\": \"data/db/air_llm_operations.sqlite\", \"size_bytes\": 28672, \"status\": \"pass\"}, {\"name\": \"coding_department.sqlite\", \"path\": \"data/db/coding_department.sqlite\", \"size_bytes\": 24576, \"status\": \"pass\"}, {\"name\": \"diagnostics_department.sqlite\", \"path\": \"data/db/diagnostics_department.sqlite\", \"size_bytes\": 505638912, \"status\": \"pass\"}, {\"name\": \"executive_command.sqlite\", \"path\": \"data/db/executive_command.sqlite\", \"size_bytes\": 404959232, \"status\": \"pass\"}, {\"name\": \"expansion_planning.sqlite\", \"path\": \"data/db/expansion_planning.sqlite\", \"size_bytes\": 159428608, \"status\": \"pass\"}, {\"name\": \"infrastructure_services.sqlite\", \"path\": \"data/db/infrastructure_services.sqlite\", \"size_bytes\": 1116327936, \"status\": \"pass\"}, {\"name\": \"integration_services.sqlite\", \"path\": \"data/db/integration_services.sqlite\", \"size_bytes\": 84570112, \"status\": \"pass\"}, {\"name\": \"kernel_readiness.sqlite\", \"path\": \"data/db/kernel_readiness.sqlite\", \"size_bytes\": 143360, \"status\": \"pass\"}, {\"name\": \"local_model_operations.sqlite\", \"path\": \"data/db/local_model_operations.sqlite\", \"size_bytes\": 24576, \"status\": \"pass\"}, {\"name\": \"model_evaluation.sqlite\", \"path\": \"data/db/model_evaluation.sqlite\", \"size_bytes\": 107724800, \"status\": \"pass\"}, {\"name\": \"model_infrastructure.sqlite\", \"path\": \"data/db/model_infrastructure.sqlite\", \"size_bytes\": 28672, \"status\": \"pass\"}, {\"name\": \"model_routing_department.sqlite\", \"path\": \"data/db/model_routing_department.sqlite\", \"size_bytes\": 20480, \"status\": \"pass\"}, {\"name\": \"monitoring_department.sqlite\", \"path\": \"data/db/monitoring_department.sqlite\", \"size_bytes\": 290291712, \"status\": \"pass\"}, {\"name\": \"penthouse_readiness.sqlite\", \"path\": \"data/db/penthouse_readiness.sqlite\", \"size_bytes\": 51134464, \"status\": \"pass\"}, {\"name\": \"qsb_paper_trading.sqlite\", \"path\": \"data/db/qsb_paper_trading.sqlite\", \"size_bytes\": 24576, \"status\": \"pass\"}, {\"name\": \"sandbox_operations.sqlite\", \"path\": \"data/db/sandbox_operations.sqlite\", \"size_bytes\": 25944064, \"status\": \"pass\"}, {\"name\": \"security_spine.sqlite\", \"path\": \"data/db/security_spine.sqlite\", \"size_bytes\": 46456832, \"status\": \"pass\"}, {\"name\": \"simulation_labs.sqlite\", \"path\": \"data/db/simulation_labs.sqlite\", \"size_bytes\": 69394432, \"status\": \"pass\"}, {\"name\": \"tower.sqlite\", \"path\": \"data/db/tower.sqlite\", \"size_bytes\": 28672, \"status\": \"pass\"}]}"
+            },
+            {
+              "id": 1294254,
+              "ts": "2026-06-09T09:52:30.726495+00:00",
+              "check_type": "runtime",
+              "name": "dashboard_pid",
+              "status": "pass",
+              "severity": "info",
+              "details": "{\"name\": \"dashboard_pid\", \"path\": \"/vaults/nvme0/qsb_tower_v1/data/runtime/dashboard.pid\", \"exists\": true, \"pid\": 2252443, \"running\": true, \"status\": \"pass\"}"
+            },
+            {
+              "id": 1294253,
+              "ts": "2026-06-09T09:52:30.725679+00:00",
+              "check_type": "runtime",
+              "name": "runtime_directory",
+              "status": "pass",
+              "severity": "info",
+              "details": "{\"name\": \"runtime_directory\", \"path\": \"/vaults/nvme0/qsb_tower_v1/data/runtime\", \"exists\": true, \"status\": \"pass\"}"
+            },
+            {
+              "id": 1294252,
+              "ts": "2026-06-09T09:52:30.724836+00:00",
+              "check_type": "script",
+              "name": "monitoring_script",
+              "status": "pass",
+              "severity": "info",
+              "details": "{\"id\": \"monitoring_script\", \"path\": \"scripts/run_floor_34_monitoring.sh\", \"purpose\": \"Run Floor 34 monitoring snapshot\", \"required\": true, \"exists\": true, \"executable\": true, \"execution_enabled\": false, \"status\": \"pass\", \"severity\": \"info\"}"
+            },
+            {
+              "id": 1294251,
+              "ts": "2026-06-09T09:52:30.724001+00:00",
+              "check_type": "script",
+              "name": "diagnostics_script",
+              "status": "pass",
+              "severity": "info",
+              "details": "{\"id\": \"diagnostics_script\", \"path\": \"scripts/run_floor_33_diagnostics.sh\", \"purpose\": \"Run Floor 33 diagnostics\", \"required\": true, \"exists\": true, \"executable\": true, \"execution_enabled\": false, \"status\": \"pass\", \"severity\": \"info\"}"
+            },
+            {
+              "id": 1294250,
+              "ts": "2026-06-09T09:52:30.723189+00:00",
+              "check_type": "script",
+              "name": "status_script",
+              "status": "pass",
+              "severity": "info",
+              "details": "{\"id\": \"status_script\", \"path\": \"status.sh\", \"purpose\": \"Check dashboard service status\", \"required\": true, \"exists\": true, \"executable\": true, \"execution_enabled\": false, \"status\": \"pass\", \"severity\": \"info\"}"
+            },
+            {
+              "id": 1294249,
+              "ts": "2026-06-09T09:52:30.722366+00:00",
+              "check_type": "script",
+              "name": "restart_script",
+              "status": "pass",
+              "severity": "info",
+              "details": "{\"id\": \"restart_script\", \"path\": \"restart.sh\", \"purpose\": \"Restart dashboard service\", \"required\": true, \"exists\": true, \"executable\": true, \"execution_enabled\": false, \"status\": \"pass\", \"severity\": \"info\"}"
+            }
+          ],
+          "recent_service_control": [
+            {
+              "id": 696885,
+              "ts": "2026-06-09T09:52:30.733380+00:00",
+              "service_id": "backup_service",
+              "action": "visibility_check",
+              "status": "registered",
+              "execution_enabled": 0,
+              "details": "{\"service\": {\"id\": \"backup_service\", \"name\": \"Backup Readiness Service\", \"type\": \"readiness_only\", \"root\": \"data/backups\", \"execution_enabled\": false}, \"execution_enabled\": false, \"action_allowed\": false, \"message\": \"Service control is visible but disabled until explicitly enabled later.\"}"
+            },
+            {
+              "id": 696884,
+              "ts": "2026-06-09T09:52:30.733375+00:00",
+              "service_id": "log_service",
+              "action": "visibility_check",
+              "status": "registered",
+              "execution_enabled": 0,
+              "details": "{\"service\": {\"id\": \"log_service\", \"name\": \"Log Service\", \"type\": \"local_logs\", \"root\": \"data/logs\", \"execution_enabled\": false}, \"execution_enabled\": false, \"action_allowed\": false, \"message\": \"Service control is visible but disabled until explicitly enabled later.\"}"
+            },
+            {
+              "id": 696883,
+              "ts": "2026-06-09T09:52:30.733371+00:00",
+              "service_id": "runtime_service",
+              "action": "visibility_check",
+              "status": "registered",
+              "execution_enabled": 0,
+              "details": "{\"service\": {\"id\": \"runtime_service\", \"name\": \"Runtime State Service\", \"type\": \"runtime_files\", \"root\": \"data/runtime\", \"execution_enabled\": false}, \"execution_enabled\": false, \"action_allowed\": false, \"message\": \"Service control is visible but disabled until explicitly enabled later.\"}"
+            },
+            {
+              "id": 696882,
+              "ts": "2026-06-09T09:52:30.733366+00:00",
+              "service_id": "packet_service",
+              "action": "visibility_check",
+              "status": "registered",
+              "execution_enabled": 0,
+              "details": "{\"service\": {\"id\": \"packet_service\", \"name\": \"Sealed Packet Store\", \"type\": \"sqlite_packet_records\", \"root\": \"data/packets\", \"execution_enabled\": false}, \"execution_enabled\": false, \"action_allowed\": false, \"message\": \"Service control is visible but disabled until explicitly enabled later.\"}"
+            },
+            {
+              "id": 696881,
+              "ts": "2026-06-09T09:52:30.733351+00:00",
+              "service_id": "database_service",
+              "action": "visibility_check",
+              "status": "registered",
+              "execution_enabled": 0,
+              "details": "{\"service\": {\"id\": \"database_service\", \"name\": \"SQLite Database Service\", \"type\": \"sqlite_files\", \"root\": \"data/db\", \"execution_enabled\": false}, \"execution_enabled\": false, \"action_allowed\": false, \"message\": \"Service control is visible but disabled until explicitly enabled later.\"}"
+            },
+            {
+              "id": 696880,
+              "ts": "2026-06-09T09:52:30.733341+00:00",
+              "service_id": "registry_service",
+              "action": "visibility_check",
+              "status": "registered",
+              "execution_enabled": 0,
+              "details": "{\"service\": {\"id\": \"registry_service\", \"name\": \"Registry Service\", \"type\": \"file_registry\", \"root\": \"data/registries\", \"execution_enabled\": false}, \"execution_enabled\": false, \"action_allowed\": false, \"message\": \"Service control is visible but disabled until explicitly enabled later.\"}"
+            },
+            {
+              "id": 696879,
+              "ts": "2026-06-09T09:52:30.733276+00:00",
+              "service_id": "dashboard_service",
+              "action": "visibility_check",
+              "status": "registered",
+              "execution_enabled": 0,
+              "details": "{\"service\": {\"id\": \"dashboard_service\", \"name\": \"Dashboard Service\", \"type\": \"local_http_service\", \"pid_file\": \"data/runtime/dashboard.pid\", \"start_script\": \"run.sh\", \"stop_script\": \"stop.sh\", \"status_script\": \"status.sh\", \"execution_enabled\": false}, \"execution_enabled\": false, \"action_allowed\": false, \"message\": \"Service control is visible but disabled until explicitly enabled later.\"}"
+            },
+            {
+              "id": 696878,
+              "ts": "2026-06-09T09:52:30.712594+00:00",
+              "service_id": "backup_service",
+              "action": "visibility_check",
+              "status": "registered",
+              "execution_enabled": 0,
+              "details": "{\"service\": {\"id\": \"backup_service\", \"name\": \"Backup Readiness Service\", \"type\": \"readiness_only\", \"root\": \"data/backups\", \"execution_enabled\": false}, \"execution_enabled\": false, \"action_allowed\": false, \"message\": \"Service control is visible but disabled until explicitly enabled later.\"}"
+            },
+            {
+              "id": 696877,
+              "ts": "2026-06-09T09:52:30.712590+00:00",
+              "service_id": "log_service",
+              "action": "visibility_check",
+              "status": "registered",
+              "execution_enabled": 0,
+              "details": "{\"service\": {\"id\": \"log_service\", \"name\": \"Log Service\", \"type\": \"local_logs\", \"root\": \"data/logs\", \"execution_enabled\": false}, \"execution_enabled\": false, \"action_allowed\": false, \"message\": \"Service control is visible but disabled until explicitly enabled later.\"}"
+            },
+            {
+              "id": 696876,
+              "ts": "2026-06-09T09:52:30.712586+00:00",
+              "service_id": "runtime_service",
+              "action": "visibility_check",
+              "status": "registered",
+              "execution_enabled": 0,
+              "details": "{\"service\": {\"id\": \"runtime_service\", \"name\": \"Runtime State Service\", \"type\": \"runtime_files\", \"root\": \"data/runtime\", \"execution_enabled\": false}, \"execution_enabled\": false, \"action_allowed\": false, \"message\": \"Service control is visible but disabled until explicitly enabled later.\"}"
+            }
+          ],
+          "policy": {
+            "version": "1.1",
+            "floor_id": "floor_35",
+            "department": "Infrastructure Services Department",
+            "role": "building_operations_and_maintenance_layer",
+            "kernel_required": false,
+            "models_required": false,
+            "execution_enabled": false,
+            "hardwired_providers": false,
+            "providers_are_external": true,
+            "principle": "Floor 35 maintains operational records and readiness checks. It does not execute repair hooks, provider calls, model calls, CLI commands, or kernel logic.",
+            "notice": "Infrastructure services are inspection and readiness services only until explicitly activated later."
+          }
+        }
+      }
+    },
+    {
+      "check_type": "kernel_absence",
+      "target": "future_kernel_files",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Kernel files absent, as required.",
+      "details": {
+        "present": []
+      }
+    }
+  ],
+  "executive_summary": {
+    "ts": "2026-06-09T09:52:30.737050+00:00",
+    "floor": "executive_command_spine",
+    "department": "Executive Command Spine",
+    "version": "1.1",
+    "floors": [
+      "floor_46",
+      "floor_47",
+      "floor_48",
+      "floor_49",
+      "floor_50",
+      "floor_51",
+      "floor_52",
+      "floor_53"
+    ],
+    "kernel_installed": false,
+    "kernel_logic_present": false,
+    "execution_enabled": false,
+    "command_execution_enabled": false,
+    "roadmap": [
+      {
+        "id": "phase_foundation_complete",
+        "floor": "floor_48",
+        "phase": "Foundation and Building Infrastructure",
+        "status": "complete",
+        "notes": "53-floor tower, lifts, registries, dashboard, diagnostics, monitoring, infrastructure services, security spine, expansion planning."
+      },
+      {
+        "id": "phase_executive_spine",
+        "floor": "floor_48",
+        "phase": "Executive Command Spine",
+        "status": "active",
+        "notes": "Upper command floors 46-53 are being prepared before future kernel occupancy."
+      },
+      {
+        "id": "phase_lobby_command",
+        "floor": "floor_48",
+        "phase": "Ground Floor Command Lobby",
+        "status": "next_recommended",
+        "notes": "Build a proper command reception layer for operating the tower from the lobby."
+      },
+      {
+        "id": "phase_kernel_future",
+        "floor": "floor_48",
+        "phase": "Future QSB Kernel 4.5 Installation",
+        "status": "reserved_future",
+        "notes": "Do not build kernel until tower command, lobby command, security enforcement, and acceptance contracts are ready."
+      }
+    ],
+    "resource_capacity": {
+      "floor": "floor_49",
+      "department": "Resource Management Department",
+      "kernel_installed": false,
+      "models_required": false,
+      "execution_enabled": false,
+      "tower_capacity": {
+        "floors_total": 53,
+        "vacant_expansion_floors": 5,
+        "lifts": 9,
+        "worker_slots_registered": 48,
+        "external_provider_sockets": 6,
+        "local_models_detected_from_floor_27": "dynamic"
+      },
+      "resource_policy": "Track resource capacity only. Do not execute providers or models."
+    },
+    "governance_rules": [
+      {
+        "id": "kernel_reserved_until_installation",
+        "floor": "floor_50",
+        "rule": "Penthouse remains reserved for future QSB Kernel 4.5 installation.",
+        "status": "active"
+      },
+      {
+        "id": "models_are_tenants",
+        "floor": "floor_50",
+        "rule": "Models are temporary tenants. The building owns the infrastructure.",
+        "status": "active"
+      },
+      {
+        "id": "no_provider_hardwire",
+        "floor": "floor_50",
+        "rule": "Do not hardwire the tower to Claude, OpenAI, Gemini, DeepSeek, Ollama, or any provider.",
+        "status": "active"
+      },
+      {
+        "id": "sealed_lift_packets",
+        "floor": "floor_50",
+        "rule": "Departments do not communicate directly. Communication travels through sealed lift packets.",
+        "status": "active"
+      },
+      {
+        "id": "vacant_floors_serviced",
+        "floor": "floor_50",
+        "rule": "Vacant floors are fully serviced expansion-ready floors.",
+        "status": "active"
+      },
+      {
+        "id": "kernel_not_built_yet",
+        "floor": "floor_50",
+        "rule": "Do not build QSB Kernel 4.5 yet.",
+        "status": "active"
+      }
+    ],
+    "council_records": [
+      {
+        "id": "council_readiness_position",
+        "floor": "floor_51",
+        "position": "The tower is ready for future kernel socket occupancy but kernel installation remains deferred.",
+        "status": "approved_readiness_position"
+      },
+      {
+        "id": "council_next_phase_position",
+        "floor": "floor_51",
+        "position": "Next recommended phase after Executive Command Spine is Ground Floor Reception and Command Lobby V1.1.",
+        "status": "recommended"
+      }
+    ],
+    "infrastructure_command_links": [
+      {
+        "id": "floor_52_to_diagnostics",
+        "source": "floor_52",
+        "target": "floor_33",
+        "purpose": "diagnostics visibility",
+        "status": "linked"
+      },
+      {
+        "id": "floor_52_to_monitoring",
+        "source": "floor_52",
+        "target": "floor_34",
+        "purpose": "monitoring visibility",
+        "status": "linked"
+      },
+      {
+        "id": "floor_52_to_infrastructure",
+        "source": "floor_52",
+        "target": "floor_35",
+        "purpose": "infrastructure service visibility",
+        "status": "linked"
+      },
+      {
+        "id": "floor_52_to_expansion",
+        "source": "floor_52",
+        "target": "floor_36",
+        "purpose": "expansion capacity visibility",
+        "status": "linked"
+      },
+      {
+        "id": "floor_52_to_security",
+        "source": "floor_52",
+        "target": "floor_28_floor_32",
+        "purpose": "security spine visibility",
+        "status": "linked"
+      }
+    ],
+    "tower_command_handoff": {
+      "floor": "floor_53",
+      "department": "Tower Command Department",
+      "handoff_target": "penthouse",
+      "handoff_target_status": "reserved_for_future_qsb_kernel_4_5",
+      "kernel_installed": true,
+      "kernel_logic_present": true,
+      "handoff_status": "active_local_only",
+      "requires": [
+        "penthouse_readiness_ready",
+        "security_spine_healthy",
+        "executive_lift_ready",
+        "emergency_stairwell_ready",
+        "tower_command_acceptance_report"
+      ],
+      "execution_enabled": false,
+      "notice": "Tower Command prepares handoff to Penthouse socket only. It does not install or run the kernel.",
+      "QSBKernelCore_instantiated": true,
+      "active_kernel_source": "rebased_kernel",
+      "activation_status": "active_local_only",
+      "worker_execution_enabled": false,
+      "provider_execution_enabled": false,
+      "model_inference_enabled": false,
+      "live_dispatch_enabled": false,
+      "autonomous_workers_enabled": false,
+      "direct_provider_access": false,
+      "critical_failures": 0,
+      "failures": 0,
+      "warnings": 0,
+      "updated_ts": "2026-06-07T21:38:48.824394+00:00"
+    }
+  }
+}

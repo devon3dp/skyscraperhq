@@ -1,0 +1,82 @@
+{
+  "schema_version": "eqsb_major_v1.0",
+  "kind": "eqsb_memory_policy",
+  "generated_ts": "2026-06-09T08:56:44.952153+00:00",
+  "short_window": {
+    "scope": "recent_state_snapshots",
+    "max_records": 200,
+    "ttl_hours": 24,
+    "source_logs": [
+      "data/logs/kernel_dialogue.jsonl",
+      "data/logs/eqsb_kernel_events.jsonl",
+      "data/logs/eqsb_kernel_major_audit.jsonl",
+      "data/logs/qsb_standalone_system_audit.jsonl"
+    ]
+  },
+  "long_window": {
+    "scope": "durable_beliefs_and_continuity",
+    "storage": [
+      "penthouse/kernel_installation_socket/rebased_kernel/state/beliefs.sqlite",
+      "penthouse/kernel_installation_socket/rebased_kernel/state/symbolic.sqlite",
+      "penthouse/kernel_installation_socket/rebased_kernel/state/continuity_state.json"
+    ],
+    "continuity_state_size_bytes": 1106,
+    "continuity_previous_chain_depth": 1,
+    "drift_check": "ContinuityCore._summarize_previous + hashes",
+    "history_count": 24
+  },
+  "pinned_beliefs": [
+    "EQSB is the persistent symbolic Kernel, not a model.",
+    "Registry-backed structured state outranks model paraphrase.",
+    "Execution gates are separate from reasoning and remain locked.",
+    "Quantum-symbolic signal is simulated/advisory unless verified.",
+    "Models are replaceable advisory lanes; not the kernel.",
+    "Beliefs must remain evidence-linked.",
+    "Contradictions must be surfaced, not hidden."
+  ],
+  "boot_posture_options": [
+    "NORMAL",
+    "CONSERVATIVE",
+    "DRIFT_ALERT",
+    "RECOVERY_REQUIRED"
+  ],
+  "stale_state_detection": {
+    "method": "registry mtime + audit jsonl tail comparison",
+    "alert_when_no_audit_in_hours": 12
+  },
+  "evidence_based_update_rule": "Beliefs may only change state when a measurable registry signal supports the transition. Model paraphrases are not evidence.",
+  "memory_recomputation_after_restart": "ContinuityCore.boot_check runs every kernel instantiation and records hash drift across identity/symbolic_core/penthouse files.",
+  "next_review_targets": [
+    "eqsb_continuity_state.json (kernel-side mirror)",
+    "eqsb_belief_lifecycle.json next_review_at fields"
+  ],
+  "source_files": [
+    "penthouse/kernel_installation_socket/rebased_kernel/kernel/continuity_core.py",
+    "penthouse/kernel_installation_socket/rebased_kernel/state/continuity_state.json"
+  ],
+  "active_local_only": true,
+  "advisory_only": true,
+  "execution_allowed": false,
+  "paper_only": true,
+  "not_financial_advice": true,
+  "worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "external_provider_execution_enabled": false,
+  "openclaw_execution_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "live_dispatch_enabled": false,
+  "direct_provider_access": false,
+  "live_trading_enabled": false,
+  "order_execution_enabled": false,
+  "practice_order_execution_enabled": false,
+  "stock_order_execution_enabled": false,
+  "stock_live_trading_enabled": false,
+  "stock_paper_order_execution_enabled": false,
+  "binance_order_execution_enabled": false,
+  "binance_live_trading_enabled": false,
+  "model_inference_enabled": false,
+  "autonomous_workers_enabled": false,
+  "maintenance_auto_repair_enabled": false,
+  "web_access_autonomous_enabled": false
+}

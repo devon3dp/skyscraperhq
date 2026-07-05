@@ -1,0 +1,113 @@
+{
+  "ok": true,
+  "kind": "qsb_worker_awards_current",
+  "generated_ts": "2026-06-30T13:46:34.511073+00:00",
+  "active_award_count": 11,
+  "rewards": [
+    {
+      "award": "Worker of the Day",
+      "nominee": {
+        "worker_id": "wrk_binance_market_scout",
+        "name": "Binance Market Scout",
+        "role": "market_observer",
+        "reason_for_award": "10 reward points, 1 profitable trades, 1 lessons, realized PnL=19.0242"
+      }
+    },
+    {
+      "award": "Worker of the Week",
+      "nominee": {
+        "worker_id": "wrk_binance_market_scout",
+        "name": "Binance Market Scout",
+        "role": "market_observer",
+        "reason_for_award": "10 reward points, 1 profitable trades, 1 lessons, realized PnL=19.0242"
+      }
+    },
+    {
+      "award": "Worker of the Month",
+      "nominee": {
+        "worker_id": "wrk_binance_market_scout",
+        "name": "Binance Market Scout",
+        "role": "market_observer",
+        "reason_for_award": "10 reward points, 1 profitable trades, 1 lessons, realized PnL=19.0242"
+      }
+    },
+    {
+      "award": "Top Market Scout",
+      "nominee": {
+        "worker_id": "wrk_binance_market_scout",
+        "name": "Binance Market Scout",
+        "role": "market_observer",
+        "reason_for_award": "10 reward points, 1 profitable trades, 1 lessons, realized PnL=19.0242"
+      }
+    },
+    {
+      "award": "Top Risk Clerk",
+      "nominee": {
+        "worker_id": "openclaw_task_intake",
+        "name": "OpenClaw Task Intake Clerk",
+        "role": "Receives candidate tasks. Routes to Risk before any execution.",
+        "reason_for_award": "2 reward points, 0 profitable trades, 0 lessons, realized PnL=0.0"
+      }
+    },
+    {
+      "award": "Top Exit Monitor",
+      "nominee": {
+        "worker_id": "wrk_exit_rule_monitor",
+        "name": "Exit Rule Monitor",
+        "role": "exit_supervisor",
+        "reason_for_award": "4 reward points, 0 profitable trades, 0 lessons, realized PnL=0.0"
+      }
+    },
+    {
+      "award": "Top Mistake Reviewer",
+      "nominee": {
+        "worker_id": "wrk_spread_watcher",
+        "name": "Spread Watcher",
+        "role": "market_observer",
+        "reason_for_award": "9 reward points, 1 profitable trades, 2 lessons, realized PnL=1818.349"
+      }
+    },
+    {
+      "award": "Top PnL Contributor",
+      "nominee": {
+        "worker_id": "wrk_spread_watcher",
+        "name": "Spread Watcher",
+        "role": "market_observer",
+        "reason_for_award": "9 reward points, 1 profitable trades, 2 lessons, realized PnL=1818.349"
+      }
+    },
+    {
+      "award": "Top OpenClaw Support Worker",
+      "nominee": {
+        "worker_id": "wrk_openclaw_liaison",
+        "name": "OpenClaw Liaison",
+        "role": "supervision",
+        "reason_for_award": "4 reward points, 0 profitable trades, 0 lessons, realized PnL=0.0"
+      }
+    },
+    {
+      "award": "Colonel's Commendation",
+      "nominee": {
+        "worker_id": "wrk_binance_market_scout",
+        "name": "Binance Market Scout",
+        "role": "market_observer",
+        "reason_for_award": "10 reward points, 1 profitable trades, 1 lessons, realized PnL=19.0242"
+      }
+    },
+    {
+      "award": "Penthouse Medal",
+      "nominee": {
+        "worker_id": "wrk_spread_watcher",
+        "name": "Spread Watcher",
+        "role": "market_observer",
+        "reason_for_award": "9 reward points, 1 profitable trades, 2 lessons, realized PnL=1818.349"
+      }
+    }
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

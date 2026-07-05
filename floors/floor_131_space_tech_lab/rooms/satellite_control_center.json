@@ -1,0 +1,34 @@
+{
+  "room_id": "satellite_control_center",
+  "name": "Satellite Control Center",
+  "category": "operations",
+  "purpose": "Central hub for satellite operations.",
+  "concierge_blurb": "Control panels and screens track satellites in real-time.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      12.0,
+      8.0
+    ],
+    "height_m": 1.5
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Satellite Ops",
+    "glow": true
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/satellites.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 30
+  },
+  "floor": "floor_131"
+}

@@ -1,0 +1,34 @@
+{
+  "room_id": "boardroom_display",
+  "name": "Decision Display Area",
+  "category": "display",
+  "purpose": "A digital display area for sharing data and information.",
+  "concierge_blurb": "Large screen displays real-time market trends, financial health of QSB Tower.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "center",
+    "offset_x": 0.5,
+    "offset_z": 2.0,
+    "footprint_m": [
+      10,
+      6
+    ],
+    "height_m": 3.0
+  },
+  "render": {
+    "primary_prop": "display",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "DECISIONS",
+    "glow": true
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/qsb_claude_wren_bridge.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 30
+  },
+  "floor": "floor_167"
+}

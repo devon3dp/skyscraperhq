@@ -1,0 +1,15 @@
+{
+  "ok": true,
+  "kind": "qsb_floor41_oanda_health_check",
+  "phase": "QSB_FLOOR_41_OANDA_FULL_TRADING_FLOOR_REBUILD_V1",
+  "generated_ts": "2026-06-09T12:32:04+00:00",
+  "passed": 10,
+  "total": 10,
+  "score": 100.0,
+  "failed": [],
+  "execution_allowed": false,
+  "live_money_enabled": false,
+  "oanda_live_environment_allowed": false,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

@@ -1,0 +1,34 @@
+{
+  "room_id": "cooling_chamber_1",
+  "name": "Cooling Chamber",
+  "category": "operations",
+  "purpose": "Maintains the optimal temperature for server operations.",
+  "concierge_blurb": "A sophisticated cooling system keeps servers at ideal temperatures.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_right",
+    "offset_x": 6.0,
+    "offset_z": -5.0,
+    "footprint_m": [
+      8,
+      3
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "chamber",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Cooling Chamber",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/environmental_monitor.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_106"
+}

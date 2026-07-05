@@ -1,0 +1,34 @@
+{
+  "room_id": "monitoring_center",
+  "name": "Monitoring Center",
+  "category": "security",
+  "purpose": "Overseeing the entire hub's operations.",
+  "concierge_blurb": "Experience the heart of operation monitoring.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "center",
+    "offset_x": 0.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      15,
+      12
+    ],
+    "height_m": 2.4
+  },
+  "render": {
+    "primary_prop": "monitoring_station",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Monitoring Ctr",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 0
+  },
+  "floor": "floor_1"
+}

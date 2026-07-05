@@ -1,0 +1,67 @@
+{
+  "ok": true,
+  "kind": "qsb_openclaw_floor_inspections",
+  "generated_ts": "2026-06-30T13:46:34.757675+00:00",
+  "inspection_count": 9,
+  "inspections": [
+    {
+      "inspection_id": "insp_9d1aa5b4",
+      "floor": "floor_30_permissions_risk",
+      "result": "supervised_no_blocking_issues",
+      "ts": "2026-06-30T13:46:34.757473+00:00"
+    },
+    {
+      "inspection_id": "insp_c1a07638",
+      "floor": "floor_31_audit_ledger",
+      "result": "supervised_no_blocking_issues",
+      "ts": "2026-06-30T13:46:34.757478+00:00"
+    },
+    {
+      "inspection_id": "insp_6712444f",
+      "floor": "floor_37_simulation_labs",
+      "result": "supervised_no_blocking_issues",
+      "ts": "2026-06-30T13:46:34.757480+00:00"
+    },
+    {
+      "inspection_id": "insp_d90d773c",
+      "floor": "floor_38_sandbox_operations",
+      "result": "supervised_no_blocking_issues",
+      "ts": "2026-06-30T13:46:34.757481+00:00"
+    },
+    {
+      "inspection_id": "insp_3ec65d54",
+      "floor": "floor_41_oanda_practice_trading",
+      "result": "supervised_no_blocking_issues",
+      "ts": "2026-06-30T13:46:34.757482+00:00"
+    },
+    {
+      "inspection_id": "insp_080180b9",
+      "floor": "floor_42_binance_trading_floor",
+      "result": "supervised_no_blocking_issues",
+      "ts": "2026-06-30T13:46:34.757484+00:00"
+    },
+    {
+      "inspection_id": "insp_95c907bc",
+      "floor": "floor_43_stock_exchange_floor",
+      "result": "supervised_no_blocking_issues",
+      "ts": "2026-06-30T13:46:34.757485+00:00"
+    },
+    {
+      "inspection_id": "insp_0b2658e0",
+      "floor": "floor_45_worker_recruitment_agency",
+      "result": "supervised_no_blocking_issues",
+      "ts": "2026-06-30T13:46:34.757486+00:00"
+    },
+    {
+      "inspection_id": "insp_b232d93b",
+      "floor": "floor_53_tower_command",
+      "result": "supervised_no_blocking_issues",
+      "ts": "2026-06-30T13:46:34.757488+00:00"
+    }
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

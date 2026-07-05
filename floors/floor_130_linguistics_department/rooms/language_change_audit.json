@@ -1,0 +1,31 @@
+{
+  "room_id": "language_change_audit",
+  "name": "Language Change Audit Room",
+  "category": "audit",
+  "purpose": "This room is for auditing language evolution and changes.",
+  "concierge_blurb": "Examine linguistic shifts through time with interactive timelines.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "right_wall",
+    "offset_x": 8.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "wall_panel",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Audit Room",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_130"
+}

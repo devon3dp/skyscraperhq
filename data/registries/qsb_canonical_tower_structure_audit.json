@@ -1,0 +1,50 @@
+{
+  "canonical_floor_count": 169,
+  "floor_dirs_on_disk": 169,
+  "floor_card_json_count": 169,
+  "census_floors_with_workers": 163,
+  "census_total_unique_workers": 7724,
+  "cockpit3d_html_N_FLOORS": 169,
+  "highest_catalog_referenced": 163,
+  "match_check": true,
+  "sources_used": [
+    "filesystem: floors/floor_*/  (169)",
+    "filesystem: floors/*/floor_card.json  (169)",
+    "src/dashboard/static/cockpit3d/index.html (N_FLOORS=169)",
+    "data/registries/qsb_tower_census_latest.json (floors_with_workers=163)",
+    "data/registries/qsb_floor*_catalog.json (highest floor=163)"
+  ],
+  "stale_sources": [
+    {
+      "source": "data/registries/qsb_skyscraper_collaborative_design.json",
+      "claims": 55,
+      "reason": "V1 design doc, never updated"
+    },
+    {
+      "source": "qsb_godot_native_cockpit/scripts/FloorInteriorRenderer.gd",
+      "claims": 165,
+      "reason": "Godot constant never bumped"
+    },
+    {
+      "source": "qsb_godot_native_cockpit/scripts/OpenClawRenderer.gd",
+      "claims": 165,
+      "reason": "Godot constant never bumped"
+    },
+    {
+      "source": "qsb_godot_native_cockpit/scripts/LiftRenderer.gd",
+      "claims": 165,
+      "reason": "Godot constant never bumped"
+    },
+    {
+      "source": "qsb_godot_native_cockpit/scripts/TowerRenderer.gd",
+      "claims": 165,
+      "reason": "Godot constant never bumped"
+    }
+  ],
+  "verdict": "169 is canonical. Filesystem + cockpit3d + census + catalog all agree at 169 (with 163 floors actively populated by 7724 workers).",
+  "phase": "QSB_UNREAL_PROFESSIONAL_SKYSCRAPER_HUD_DASHBOARD_DIRECTION_V2",
+  "_meta": {
+    "ts": "2026-06-25T12:11:59Z",
+    "tool": "stage-1 canonical floor audit (Ross directive 2026-06-25)"
+  }
+}

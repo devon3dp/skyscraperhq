@@ -1,0 +1,34 @@
+{
+  "room_id": "coding_station_91",
+  "name": "Coding Stations",
+  "category": "workshop",
+  "purpose": "A space for developers to write and test code.",
+  "concierge_blurb": "Rows of sleek, high-tech workstations ready for coding.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -8.0,
+    "offset_z": 2.5,
+    "footprint_m": [
+      12,
+      3
+    ],
+    "height_m": 0.9
+  },
+  "render": {
+    "primary_prop": "desk",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Coding Stations",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": null,
+    "refresh_seconds": 600
+  },
+  "floor": "floor_91"
+}

@@ -1,0 +1,70 @@
+{
+  "floor_id": "floor_155",
+  "floor_number": 155,
+  "floor_name": "Stretch Fitness",
+  "department": "public_dropship_storefront_v1",
+  "zone": "ZONE F \u00b7 CROWN",
+  "archetype": "public_dropship_storefront_v1",
+  "staff_lead": "F66 Architects' Office",
+  "tour_blurb": "Stretch \u2014 every body.",
+  "visitor_open": false,
+  "advisory_only": true,
+  "execution_mode": "PREVIEW_ONLY",
+  "skeleton": true,
+  "skeleton_source": "floor_manifest.json",
+  "skeleton_generated_ts": "2026-06-17",
+  "live_signals": {
+    "theme": "fitness_and_yoga",
+    "categories": [
+      "yoga",
+      "resistance",
+      "recovery",
+      "activewear",
+      "equipment"
+    ],
+    "palette": "ocean blue / sand / charcoal",
+    "tagline": "Stretch \u2014 every body."
+  },
+  "gate_posture": {
+    "advisory_only": true,
+    "execution_allowed": false,
+    "live_payments_enabled": false
+  },
+  "team_roster": [
+    {
+      "id": "f155.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "spawned_id": "87060dbbab",
+      "spawned_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F155",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f155.operator.01",
+      "spawned_id": "003e364c45"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F155",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f155.operator.02",
+      "spawned_id": "c41f842db7"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F155",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f155.operator.03",
+      "spawned_id": "d64a07961a"
+    }
+  ],
+  "floor_manager": "f155.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

@@ -1,0 +1,49 @@
+{
+  "ok": true,
+  "kind": "qsb_native_missing_features_backlog",
+  "phase": "QSB_NATIVE_COCKPIT_FEATURE_PARITY_AND_INTERACTION_UPGRADE_V1",
+  "generated_ts": "2026-06-09T15:00:24+00:00",
+  "p1_to_migrate_next": [
+    {
+      "id": "profit_command_panel",
+      "rationale": "Full Profit Command tab with reward/discipline details"
+    },
+    {
+      "id": "code_observatory_panel",
+      "rationale": "Recent Claude change summary with phase events"
+    },
+    {
+      "id": "guardian_panel",
+      "rationale": "Floor 30 lock map matrix + recent blocked attempts"
+    },
+    {
+      "id": "recruitment_panel",
+      "rationale": "Floor 45 candidate intake + assignment board"
+    },
+    {
+      "id": "accounts_panel",
+      "rationale": "Floor 44 PnL ledger with all closed trades"
+    },
+    {
+      "id": "training_academy_panel",
+      "rationale": "Floor 8 classroom roster + curriculum"
+    },
+    {
+      "id": "intercom_strip",
+      "rationale": "F41-F42-F43 sealed packet bus visualization"
+    }
+  ],
+  "p2_remain_browser_fallback": [
+    "narrator",
+    "voice_selector",
+    "speech_toggle",
+    "kernel_chat_audio",
+    "stt_button",
+    "fps_diag",
+    "kernel_chat_diag",
+    "sound_mute"
+  ],
+  "blockers": [
+    "True 3D (Qt3D) would need apt install python3-pyqt5.qt3d"
+  ]
+}

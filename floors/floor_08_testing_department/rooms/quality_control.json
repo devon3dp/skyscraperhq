@@ -1,0 +1,34 @@
+{
+  "room_id": "quality_control",
+  "name": "Quality Control",
+  "category": "audit",
+  "purpose": "Ensures products meet quality standards.",
+  "concierge_blurb": "Our dedicated Quality Control team ensures every item is perfect before it leaves our hands.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "left_wall",
+    "offset_x": -7.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      4,
+      6
+    ],
+    "height_m": 1.5
+  },
+  "render": {
+    "primary_prop": "archive_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "QC Shelf",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_8"
+}

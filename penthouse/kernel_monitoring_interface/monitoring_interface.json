@@ -1,0 +1,14 @@
+{
+  "interface_id": "kernel_monitoring_interface",
+  "status": "ready",
+  "monitors": [
+    "kernel socket empty/full state",
+    "kernel health future port",
+    "kernel event console",
+    "floor 53 handoff",
+    "security precheck",
+    "emergency stairwell validation"
+  ],
+  "kernel_installed": false,
+  "execution_enabled": false
+}

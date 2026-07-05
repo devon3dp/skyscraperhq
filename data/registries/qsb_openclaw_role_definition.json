@@ -1,0 +1,32 @@
+{
+  "ok": true,
+  "phase": "QSB_DASHBOARD_TOTAL_REBUILD_3D_WORKERS_OPENCLAW_ONLINE_V1",
+  "kind": "qsb_openclaw_role_definition",
+  "generated_ts": "2026-06-30T13:46:34.755159+00:00",
+  "role": "roaming floor manager / supervisor / inspector / ticket generator / Kernel reporting agent",
+  "supervises": [
+    "workers without tasks",
+    "stale workers",
+    "wrong floor assignments",
+    "sim workers shown as operational",
+    "missing department interiors",
+    "missing floor manifests",
+    "missing manager assignments",
+    "missing worker rooms",
+    "paper/testnet trades without audit/accounting",
+    "Guardian blocked unsafe attempts",
+    "narrator not logging",
+    "dashboard stale panels",
+    "worker count contradictions"
+  ],
+  "constraints": {
+    "openclaw_real_tool_execution_enabled": false,
+    "execution_allowed": false,
+    "advisory_only": true
+  },
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

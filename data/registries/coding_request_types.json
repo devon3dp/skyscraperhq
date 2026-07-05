@@ -1,0 +1,44 @@
+[
+  {
+    "id": "code_generation",
+    "label": "Code Generation",
+    "default_priority": 5,
+    "routes_to": "floor_24",
+    "first_lift": "service_lift"
+  },
+  {
+    "id": "bug_fix",
+    "label": "Bug Fix",
+    "default_priority": 6,
+    "routes_to": "floor_24",
+    "first_lift": "service_lift"
+  },
+  {
+    "id": "refactor",
+    "label": "Refactor",
+    "default_priority": 5,
+    "routes_to": "floor_24",
+    "first_lift": "service_lift"
+  },
+  {
+    "id": "code_review",
+    "label": "Code Review",
+    "default_priority": 4,
+    "routes_to": "floor_24",
+    "first_lift": "service_lift"
+  },
+  {
+    "id": "test_generation",
+    "label": "Test Generation",
+    "default_priority": 5,
+    "routes_to": "floor_24",
+    "first_lift": "service_lift"
+  },
+  {
+    "id": "claude_code_handoff",
+    "label": "Claude Code Handoff",
+    "default_priority": 7,
+    "routes_to": "floor_24",
+    "first_lift": "service_lift"
+  }
+]

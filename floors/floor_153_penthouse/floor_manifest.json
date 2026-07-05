@@ -1,0 +1,21 @@
+{
+  "ok": true,
+  "floor_number": 153,
+  "floor_name": "Penthouse",
+  "floor_kind": "kernel_reserved_v1",
+  "description": "Penthouse, reserved per CLAUDE.md for future QSB Kernel 4.5 installation. KERNEL-FREE. No workers, no execution. May contain the inherited symbolic local-only kernel artifact (active_local_only via rebased_kernel) for local narration only, never promoted.",
+  "kernel_present": "inherited_symbolic_local_only_artifact_only",
+  "execution": "NEVER",
+  "workers": 0,
+  "no_recruitment_allowed": true,
+  "no_floor_themed_workers": true,
+  "design_intent": "awaiting QSB Kernel 4.5 \u2014 DO NOT BUILD",
+  "created_ts": "2026-06-11T09:13:04.497262Z",
+  "advisory_only": true,
+  "interior_brief": {
+    "archetype": "kernel_reserved",
+    "note": "F153 is reserved for QSB Kernel 4.5. DO NOT DECORATE."
+  },
+  "fitted_out": false,
+  "fit_out_ts": "2026-06-11T14:39:45.620109Z"
+}

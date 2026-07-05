@@ -1,0 +1,34 @@
+{
+  "room_id": "bakery_tasting_room",
+  "name": "Tasting Room",
+  "category": "display",
+  "purpose": "Sample freshly baked goods.",
+  "concierge_blurb": "Savor the flavors of our artisan breads and pastries.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 8.0,
+    "offset_z": -4.5,
+    "footprint_m": [
+      12,
+      9
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "display",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Tasting Room",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_76"
+}

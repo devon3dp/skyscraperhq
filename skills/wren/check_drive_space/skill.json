@@ -1,0 +1,8 @@
+{
+  "name": "check_drive_space",
+  "description": "Return per-drive size/used/free for the 4 tower drives, with status flags.",
+  "params": {"type": "object", "properties": {}, "required": []},
+  "safety_class": "read",
+  "entrypoint": "skill:run",
+  "tags": ["sysadmin", "health"]
+}

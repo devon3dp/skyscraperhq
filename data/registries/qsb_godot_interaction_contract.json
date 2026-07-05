@@ -1,0 +1,59 @@
+{
+  "ok": true,
+  "kind": "qsb_godot_interaction_contract",
+  "phase": "QSB_GODOT_REAL_3D_ENGINE_BUILD_AFTER_INSTALLER_V1",
+  "generated_ts": "2026-06-09T15:41:41+00:00",
+  "interactions": [
+    {
+      "input": "right-drag mouse",
+      "result": "camera orbit around tower"
+    },
+    {
+      "input": "middle-drag mouse",
+      "result": "camera orbit around tower"
+    },
+    {
+      "input": "mouse wheel up",
+      "result": "zoom in"
+    },
+    {
+      "input": "mouse wheel down",
+      "result": "zoom out"
+    },
+    {
+      "input": "left-click floor slab",
+      "result": "select floor \u2192 yellow halo + HUD detail panel + camera focus"
+    },
+    {
+      "input": "left-click lift car",
+      "result": "lift card in HUD"
+    },
+    {
+      "input": "left-click OpenClaw orb",
+      "result": "supervisor card in HUD"
+    },
+    {
+      "input": "PageUp / Up arrow",
+      "result": "next floor"
+    },
+    {
+      "input": "PageDown / Down arrow",
+      "result": "previous floor"
+    },
+    {
+      "input": "F key",
+      "result": "focus selected floor"
+    },
+    {
+      "input": "R key",
+      "result": "reset camera"
+    }
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "live_payments_enabled": false,
+  "live_listings_publishing_enabled": false
+}

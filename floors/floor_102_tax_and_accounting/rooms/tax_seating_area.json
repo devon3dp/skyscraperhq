@@ -1,0 +1,31 @@
+{
+  "room_id": "tax_seating_area",
+  "name": "Seating Area",
+  "category": "seating",
+  "purpose": "Relaxation and meeting space for staff.",
+  "concierge_blurb": "A comfortable area to take a break or meet with colleagues.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 7.0,
+    "offset_z": -3.0,
+    "footprint_m": [
+      12,
+      8
+    ],
+    "height_m": 1.5
+  },
+  "render": {
+    "primary_prop": "chair_set",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Seating Area",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_102"
+}

@@ -1,0 +1,31 @@
+{
+  "room_id": "meeting_room_5",
+  "name": "Meeting Room 5",
+  "category": "operations",
+  "purpose": "A room for team meetings and strategy sessions.",
+  "concierge_blurb": "Strategizing the future of trading simulations.",
+  "current_state": "already_exists",
+  "visitor_open": false,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -5.0,
+    "offset_z": 2.0,
+    "footprint_m": [
+      10,
+      8
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "reception",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Meeting Room 5",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_10"
+}

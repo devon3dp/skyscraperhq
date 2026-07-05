@@ -1,0 +1,34 @@
+{
+  "room_id": "broadcast_center",
+  "name": "Broadcast Center",
+  "category": "operations",
+  "purpose": "The heart of real-time broadcast operations.",
+  "concierge_blurb": "Broadcast center for live news.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 8.0,
+    "offset_z": -2.0,
+    "footprint_m": [
+      12,
+      7
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Broadcast Center",
+    "glow": true
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/live_broadcasts.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 30
+  },
+  "floor": "floor_99"
+}

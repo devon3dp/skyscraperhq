@@ -1,0 +1,8 @@
+{
+  "ok": true,
+  "kind": "qsb_workforce_pending_births",
+  "generated_ts": "2026-06-10T22:06:07+00:00",
+  "policy": "Pending-birth roster. Kernel writes the candidate spawn list. Operator commits each one into the canonical workforce registry via qsb_spawn.py CLI.",
+  "pending_count": 0,
+  "pending_births": []
+}

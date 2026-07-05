@@ -1,0 +1,37 @@
+{
+  "ok": true,
+  "kind": "qsb_godot_telemetry_contract",
+  "phase": "QSB_GODOT_REAL_3D_ENGINE_BUILD_AFTER_INSTALLER_V1",
+  "generated_ts": "2026-06-09T15:31:15+00:00",
+  "preferred_endpoint": "http://127.0.0.1:8765/api/native_cockpit/state",
+  "fallback_endpoints": [
+    "http://127.0.0.1:8765/api/unified",
+    "http://127.0.0.1:8765/api/dashboard/live_telemetry"
+  ],
+  "fields_consumed": [
+    "verified.canonical_workers_before",
+    "verified.new_v2_workers",
+    "verified.verified_total_workers",
+    "floors",
+    "lifts",
+    "openclaw",
+    "penthouse",
+    "commerce_wing",
+    "etsy",
+    "print_on_demand",
+    "trading.oanda_pnl",
+    "trading.floor42_binance",
+    "trading.floor43_stocks",
+    "hardware",
+    "safety_locks"
+  ],
+  "poll_interval_seconds": 5,
+  "no_secrets_in_payload": true,
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "live_payments_enabled": false,
+  "live_listings_publishing_enabled": false
+}

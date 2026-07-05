@@ -1,0 +1,7 @@
+[
+  {"id":"7","subject":"Phase 2 trader loop","status":"in_progress","note":"qsb_classroom_apply.py shipped + promote-only ran (5 promotes). Suspend-side + beliefs + bank pending."},
+  {"id":"9","subject":"Per-floor walkable interiors","status":"in_progress"},
+  {"id":"15","subject":"Wren-32B Ollama pull","status":"in_progress","note":"qwen2.5:32b at 15/19 GB (~79%) PAUSED for PC restart. qwen2.5:14b at 6.3/9 GB PAUSED. Partials preserved at /usr/share/ollama/.ollama/models/blobs/sha256-*-partial-N. On wake: ollama pull qwen2.5:32b + ollama pull qwen2.5:14b will resume from partials."},
+  {"id":"20","subject":"Wire Hermes grounding tools","status":"pending"},
+  {"id":"21","subject":"F166 TikTok team work","status":"in_progress","note":"20 spawned, 3 dispatched today (script_writer, trend_scout, opponent_scout outputs stamped). Hermes now lives on F51 Executive Council + sits as F167 boardroom advisor."}
+]

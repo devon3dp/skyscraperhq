@@ -1,0 +1,44 @@
+{
+  "ok": true,
+  "kind": "qsb_worker_visual_policy",
+  "generated_ts": "2026-06-30T13:46:34.681118+00:00",
+  "exterior_tower_view": {
+    "show_individual_workers": false,
+    "show_grouped_per_floor_badges": true,
+    "show_top_active_movements": true,
+    "max_movement_arrows_visible": 5,
+    "show_attention_alerts": true,
+    "show_sim_labels_externally": false
+  },
+  "interior_floor_view": {
+    "show_individual_workers_for_selected_floor": true,
+    "show_room_stations": true,
+    "show_worker_task_state": true,
+    "tooltip_fields": [
+      "worker_id",
+      "class",
+      "role",
+      "floor",
+      "room",
+      "station",
+      "current_task",
+      "last_event_ts"
+    ]
+  },
+  "movement_rules": {
+    "no_movement_without_event": true,
+    "no_random_orbits": true,
+    "no_random_hops": true,
+    "source_registry": "qsb_worker_movements_latest.json"
+  },
+  "sim_workers_policy": "Training Academy interior only (floor_36).",
+  "candidate_workers_policy": "Recruitment Agency interior only (floor_45).",
+  "lesson_workers_policy": "Lessons Room interior only (floor_38).",
+  "resting_workers_policy": "Rest Dormitory interior only (floor_49).",
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

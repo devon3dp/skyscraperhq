@@ -1,0 +1,34 @@
+{
+  "room_id": "trading_desk_1",
+  "name": "Practice Trading Post",
+  "category": "trading",
+  "purpose": "A station for traders to practice their skills.",
+  "concierge_blurb": "Interactive desks with simulated trades and financial data.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      12.0,
+      4.5
+    ],
+    "height_m": 0.8
+  },
+  "render": {
+    "primary_prop": "trading_desk",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Trading Post",
+    "glow": true
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/trade_simulation.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_41"
+}

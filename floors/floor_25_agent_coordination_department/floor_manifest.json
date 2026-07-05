@@ -1,0 +1,90 @@
+{
+  "floor_id": "floor_25",
+  "number": 25,
+  "department": "Worker Recruitment and Coordination Department",
+  "legacy_department_name": "Agent Coordination Department",
+  "version": "1.1",
+  "zone": "ZONE B",
+  "status": "online",
+  "role": "Candidate worker recruitment, classification, onboarding queue, and permission prechecks.",
+  "kernel_required": false,
+  "kernel_installed": false,
+  "kernel_logic_present": false,
+  "models_required": false,
+  "execution_enabled": false,
+  "worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "autonomous_workers_enabled": false,
+  "candidate_registration_enabled": true,
+  "live_dispatch_enabled": false,
+  "hardwired_providers": false,
+  "providers_are_external": true,
+  "models_are_temporary_tenants": true,
+  "lift_access": [
+    "main_mid_rise",
+    "service_lift",
+    "security_lift",
+    "emergency_stairwell"
+  ],
+  "routes_through": {
+    "model_requests": "floor_24",
+    "local_model_inventory": "floor_27",
+    "external_provider_sockets": "floor_23",
+    "adapters": "floor_21",
+    "security": "floor_28_floor_32"
+  },
+  "created_or_verified": "2026-06-07T18:04:27.095844+00:00",
+  "notice": "Floor 25 is recruitment only. It reaches model operations indirectly through Floor 24; no worker execution is enabled.",
+  "indirect_model_lift_access": {
+    "enabled": true,
+    "transfer_floor": "floor_24",
+    "path": [
+      "floor_25",
+      "floor_24",
+      "floor_27"
+    ],
+    "first_leg": {
+      "from": "floor_25",
+      "to": "floor_24",
+      "allowed_lifts": [
+        "service_lift",
+        "main_mid_rise"
+      ]
+    },
+    "second_leg": {
+      "from": "floor_24",
+      "to": "floor_27",
+      "allowed_lifts": [
+        "model_lift"
+      ]
+    },
+    "sealed_packets": true,
+    "direct_provider_access": false
+  },
+  "patched_v11a": "2026-06-07T18:08:47.768708+00:00",
+  "interior_brief": {
+    "archetype": "ops_floor",
+    "palette": [
+      "#1a1e2a",
+      "#3a4050",
+      "#6a90c0"
+    ],
+    "furniture": [
+      "desks",
+      "meeting area",
+      "common space",
+      "storage"
+    ],
+    "lighting": "task + ambient",
+    "mood": "professional",
+    "designed_by": "F66 Architects + F17 Graphics + Fitters team",
+    "fitted_at": "2026-06-11T14:39:45.620109Z",
+    "godot_scene_brief": "render an generic floor with neutral grey + accent per floor theme palette, professional mood, key furniture: desks, meeting area, common space",
+    "signature": "Standard tower office layout \u2014 desks, meeting nook, kitchenette",
+    "diversified_ts": "2026-06-11T17:57:45Z",
+    "diversified_by": "qsb_archetype_diversifier_v1"
+  },
+  "fitted_out": true,
+  "fit_out_ts": "2026-06-11T14:39:45.620109Z",
+  "floor_name": "Agent Coordination Department"
+}

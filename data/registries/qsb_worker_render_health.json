@@ -1,0 +1,29 @@
+{
+  "ok": true,
+  "kind": "qsb_worker_render_health",
+  "phase": "QSB_RENDER_VISIBLE_WORKERS_AND_LIFTS_FIX_V1",
+  "generated_ts": "2026-06-30T13:46:35.079122+00:00",
+  "canonical_total": 1190,
+  "floor_badges_painted": 22,
+  "classes_overall": {
+    "operational_worker": 1074,
+    "candidate_worker": 19,
+    "training_worker": 14
+  },
+  "render_budget_applied": true,
+  "default_view_is_counts_only": false,
+  "default_view": "tower_density_badges_plus_selected_floor_rows",
+  "all_canonical_floors_have_badge_records": true,
+  "selected_floor_cap": 12,
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "live_dispatch_enabled": false,
+  "autonomous_workers_enabled": false,
+  "direct_provider_access": false
+}

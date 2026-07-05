@@ -1,0 +1,118 @@
+{
+  "registry": "practice_order_gate_checklist_v1",
+  "phase": "OPENCLAW_WORKER_TRADING_SIMULATION_FLOOR_V1",
+  "purpose": "Read-only future-readiness checklist for the practice-order gate. This file does not activate the gate; the gate remains closed.",
+  "gate_status": "CLOSED",
+  "gate_locked": true,
+  "practice_order_execution_enabled": false,
+  "order_execution_enabled": false,
+  "live_trading_enabled": false,
+  "openclaw_execution_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "live_dispatch_enabled": false,
+  "external_provider_execution_enabled": false,
+  "direct_provider_access": false,
+  "paper_only": true,
+  "not_financial_advice": true,
+  "do_not_activate": true,
+  "requirements": [
+    {
+      "id": "operator_approval_recorded",
+      "label": "Operator approval recorded",
+      "status": "pending",
+      "blocking": true,
+      "notes": "Operator must record explicit written approval in CLAUDE.md or a dedicated approvals registry before any practice order can be considered."
+    },
+    {
+      "id": "kill_switch_tested",
+      "label": "Kill switch tested",
+      "status": "pending",
+      "blocking": true,
+      "notes": "End-to-end kill-switch dry-run required: triggering the switch must immediately halt the worker sandbox loop and re-confirm all execution flags remain false."
+    },
+    {
+      "id": "max_units_defined",
+      "label": "Max units defined",
+      "status": "pending",
+      "blocking": true,
+      "notes": "Per-instrument maximum units (e.g. 1000 units EUR_USD) must be defined in a config registry and enforced by the Risk Sentinel."
+    },
+    {
+      "id": "max_loss_defined",
+      "label": "Max loss defined",
+      "status": "pending",
+      "blocking": true,
+      "notes": "Per-session max paper-loss threshold in pips/units must be defined and enforced."
+    },
+    {
+      "id": "allowed_instruments_defined",
+      "label": "Allowed instruments defined",
+      "status": "pending",
+      "blocking": true,
+      "notes": "Whitelist of practice-instruments. Anything outside whitelist must be rejected even if other gates pass."
+    },
+    {
+      "id": "oanda_practice_only_confirmed",
+      "label": "OANDA practice-only confirmed",
+      "status": "pending",
+      "blocking": true,
+      "notes": "OANDA_ENVIRONMENT and base_url must be hard-checked to be practice. Live URL must trigger an immediate refusal."
+    },
+    {
+      "id": "execution_dry_run_tests_pass",
+      "label": "Execution dry-run tests pass",
+      "status": "pending",
+      "blocking": true,
+      "notes": "Dry-run tests must show that with practice_order_execution_enabled=false the dispatcher refuses to submit, and that the refusal is logged."
+    },
+    {
+      "id": "risk_sentinel_upgraded_to_enforcer",
+      "label": "Risk Sentinel upgraded from observer to enforcer",
+      "status": "pending",
+      "blocking": true,
+      "notes": "Risk Sentinel must be wired as a hard enforcement gate, not just a logging observer, with documented test coverage."
+    },
+    {
+      "id": "openclaw_risk_guard_upgraded_to_enforcer",
+      "label": "OpenClaw Risk Guard upgraded from observer to enforcer",
+      "status": "pending",
+      "blocking": true,
+      "notes": "OpenClaw Risk Guard must enforce a hard refusal whenever any execution lock would flip; logged tests required."
+    },
+    {
+      "id": "rollback_script_exists",
+      "label": "Rollback script exists",
+      "status": "pending",
+      "blocking": true,
+      "notes": "A one-shot rollback script must exist that resets every execution flag to false and stops sidecars cleanly."
+    },
+    {
+      "id": "dashboard_red_warning_banner_works",
+      "label": "Dashboard red warning banner works",
+      "status": "passing",
+      "blocking": false,
+      "notes": "Both cockpit overlays show the red 'DANGER' banner the instant any merged lock source reports true. Verified visually in QSB_TOWER_ANIMATED_SKYSCRAPER_COCKPIT_V1."
+    },
+    {
+      "id": "order_execution_remains_false_until_checklist_passes",
+      "label": "Order execution remains false until checklist passes",
+      "status": "passing",
+      "blocking": true,
+      "notes": "Invariant: until every blocking requirement above is satisfied AND operator gives explicit unlock, every order_*, practice_order_*, live_*, openclaw_*_execution, autonomous_dispatch_*, and direct_provider_access flag must remain false everywhere."
+    }
+  ],
+  "locks": {
+    "live_trading_enabled": false,
+    "order_execution_enabled": false,
+    "practice_order_execution_enabled": false,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "external_provider_execution_enabled": false,
+    "openclaw_execution_enabled": false,
+    "openclaw_real_tool_execution_enabled": false,
+    "autonomous_dispatch_enabled": false,
+    "live_dispatch_enabled": false,
+    "direct_provider_access": false
+  }
+}

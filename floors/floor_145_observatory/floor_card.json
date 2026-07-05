@@ -1,0 +1,72 @@
+{
+  "floor_id": "floor_145",
+  "floor_number": 145,
+  "floor_name": "Observatory",
+  "department": "designed_by_f66_architects_v1",
+  "zone": "ZONE E \u00b7 MID-RISE",
+  "archetype": "designed_by_f66_architects_v1",
+  "staff_lead": "F66 Architects' Office",
+  "tour_blurb": "astronomy + outreach",
+  "visitor_open": false,
+  "advisory_only": true,
+  "execution_mode": "PREVIEW_ONLY",
+  "skeleton": true,
+  "skeleton_source": "floor_manifest.json",
+  "skeleton_generated_ts": "2026-06-17",
+  "live_signals": {
+    "theme": null,
+    "categories": null,
+    "palette": null,
+    "tagline": null
+  },
+  "gate_posture": {
+    "advisory_only": true,
+    "execution_allowed": false,
+    "live_payments_enabled": false
+  },
+  "team_roster": [
+    {
+      "id": "f145.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "spawned_id": "78e8e18eff",
+      "spawned_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F145",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f145.operator.01",
+      "spawned_id": "f3b59f53f6"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F145",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f145.operator.02",
+      "spawned_id": "ac028c9a82"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F145",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f145.operator.03",
+      "spawned_id": "a2c10534f3"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F145",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f145.operator.04",
+      "spawned_id": "59898af8ad"
+    }
+  ],
+  "floor_manager": "f145.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

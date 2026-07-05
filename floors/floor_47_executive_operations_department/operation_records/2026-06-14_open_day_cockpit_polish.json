@@ -1,0 +1,43 @@
+{
+  "record_id": "f47_op_2026-06-14_open_day_cockpit_polish",
+  "ts_utc": "2026-06-14T00:00:00Z",
+  "floor": "F47",
+  "job": "Open Day cockpit landing polish",
+  "operator": "claude (opus 4.7) under Wren's F47 bench",
+  "phase": "job_completed",
+  "scope": "cockpit landing page (cosmetic only) + /welcome route",
+  "files_touched": [
+    "src/dashboard/static/index.html",
+    "src/dashboard/static/cockpit.css",
+    "src/dashboard/server.py"
+  ],
+  "edits": [
+    {
+      "file": "src/dashboard/static/index.html",
+      "lines": "14-23, 45-46",
+      "change": "Header title appended ' · Open Day, 2026-06-14'. Four em-dash pill placeholders replaced with 'loading…' + .pill-loading shimmer class. Directory button promoted to '📇 165 Floors' with .hdr-btn-glow class. New .welcome-pill anchor to /welcome inserted in .hdr-l."
+    },
+    {
+      "file": "src/dashboard/static/cockpit.css",
+      "lines": "932-973 (appended)",
+      "change": "Added .pill-loading shimmer keyframes, .hdr-btn-glow one-second amber pulse, .welcome-pill styling. No external CDN, no font imports."
+    },
+    {
+      "file": "src/dashboard/server.py",
+      "lines": "3483-3539 (serve_welcome_html added), 3564-3567 (route wired)",
+      "change": "Added /welcome route + serve_welcome_html with inline HTML welcome card. Reuses /static/cockpit.css for palette. Inline CSS only, no external fetches."
+    }
+  ],
+  "verification": {
+    "title_check": "PASS — curl /cockpit shows 'QSB TOWER · 3D OPERATIONS COCKPIT · Open Day, 2026-06-14'",
+    "em_dash_placeholders": "PASS — grep 'kernel —|locks —|autoloop —|airllm —' returns 0 matches",
+    "welcome_pill_link": "PASS — anchor href=\"/welcome\" present in served HTML",
+    "165_floors_button": "PASS — button text is '📇 165 Floors' with hdr-btn-glow class",
+    "welcome_route_source": "PASS — serve_welcome_html wired before send_html fallback; activates on next server restart (current process still serves cockpit fallback on /welcome — link is not broken)",
+    "syntax": "PASS — python3 ast.parse on server.py succeeds"
+  },
+  "gates_unchanged": true,
+  "safety_paths_touched": false,
+  "no_external_cdn": true,
+  "notes": "Cockpit static files reload per request, so title/placeholder/button/pill changes are live now. /welcome dedicated card requires a server.py restart to activate; until then it falls back to send_html() and serves the cockpit, which is non-breaking for visitors."
+}

@@ -1,0 +1,13 @@
+[Unit]
+Description=QSB Tower triage — scan brief + last 30 F47 rows for anomalies
+
+[Service]
+Type=oneshot
+WorkingDirectory=/vaults/nvme0/qsb_tower_v1
+Environment=PATH=/vaults/nvme0/qsb_tower_v1/.venv/bin:/usr/local/bin:/usr/bin:/bin
+ExecStart=/vaults/nvme0/qsb_tower_v1/.venv/bin/python3 /vaults/nvme0/qsb_tower_v1/tools/qsb_triage.py
+StandardOutput=append:/vaults/nvme0/qsb_tower_v1/logs/qsb_triage.log
+StandardError=append:/vaults/nvme0/qsb_tower_v1/logs/qsb_triage.log
+
+[Install]
+WantedBy=default.target

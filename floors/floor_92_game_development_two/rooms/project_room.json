@@ -1,0 +1,34 @@
+{
+  "room_id": "project_room",
+  "name": "Project Room",
+  "category": "workshop",
+  "purpose": "This room is for planning and managing game development projects.",
+  "concierge_blurb": "Visitors see a large whiteboard with project outlines and timelines.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_right",
+    "offset_x": 8.0,
+    "offset_z": -4.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 2.3
+  },
+  "render": {
+    "primary_prop": "whiteboard",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Project Room",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_92"
+}

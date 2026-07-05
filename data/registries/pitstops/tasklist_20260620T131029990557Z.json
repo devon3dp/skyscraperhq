@@ -1,0 +1,9 @@
+[
+  {"id":"1","subject":"Finish Qwen2.5-32B download","status":"in_progress","note":"58 GB / 63 GB (~92%). 4 partial shards left (13, 15, 17, plus minor on others). ETA ~30 min."},
+  {"id":"7","subject":"Close Phase 2 of trader learning loop","status":"pending"},
+  {"id":"9","subject":"Per-floor walkable 3D interiors","status":"in_progress","note":"All major pieces shipped. Carpark verified. Heartbeat tmp-snapshot wired."},
+  {"id":"11","subject":"Launch godot dashboard alongside browser cockpit","status":"in_progress","note":"Standalone godot 4.7 binary launched, mouse fix not yet verified by Ross click test."},
+  {"id":"12","subject":"Wire godot to /api/floor_rooms/<n>","status":"in_progress","note":"CODE WRITTEN in FloorInteriorRenderer.gd: HTTPRequest member, _request_rooms_for + _on_rooms_response + _place_room_accent. Triggers fetch on _ready + select_floor. Compresses cockpit3d ±28m offsets by ROOMS_API_SCALE=0.18 onto godot's 8m floor. Per-prop color matches cockpit3d palette intent. NOT YET TESTED — godot needs relaunch to pick up the code."},
+  {"id":"13","subject":"Daily github push tool + timer","status":"completed","note":"timer firing hourly, 23h cooldown gates real pushes"},
+  {"id":"14","subject":"Resume TikTok signup after SIM moves to Galaxy","status":"pending","note":"Phone +447411410545 entered → 3 codes sent (497920, 988483, 556401) → field stuck in error after rapid resends → number likely rate-limited by TikTok. Plan: when qwen32b done + Ross moves SIM to Galaxy, restart TikTok signup with autofill working natively. Saved Galaxy app context for resume."}
+]

@@ -1,0 +1,34 @@
+{
+  "room_id": "accounts_office",
+  "name": "Accounts Office",
+  "category": "admin",
+  "purpose": "This room handles financial records and transactions.",
+  "concierge_blurb": "A cluttered desk with ledgers and calculators greets you here.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.0,
+    "offset_z": -4.0,
+    "footprint_m": [
+      8,
+      6
+    ],
+    "height_m": 1.2
+  },
+  "render": {
+    "primary_prop": "desk",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Accounts Desk",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/financial_transactions.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 60
+  },
+  "floor": "floor_44"
+}

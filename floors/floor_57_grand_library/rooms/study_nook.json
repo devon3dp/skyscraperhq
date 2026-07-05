@@ -1,0 +1,34 @@
+{
+  "room_id": "study_nook",
+  "name": "Study Nook",
+  "category": "seating",
+  "purpose": "a cozy spot for individuals or small groups to study and read.",
+  "concierge_blurb": "Soft seating surrounded by shelves, perfect for quiet work.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -2.5,
+    "offset_z": 0.0,
+    "footprint_m": [
+      3.0,
+      3.0
+    ],
+    "height_m": 1.8
+  },
+  "render": {
+    "primary_prop": "chair_set",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Study Nook",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": null,
+    "refresh_seconds": null
+  },
+  "floor": "floor_57"
+}

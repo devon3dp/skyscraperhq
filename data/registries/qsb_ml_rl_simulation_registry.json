@@ -1,0 +1,31 @@
+{
+  "ok": true,
+  "kind": "qsb_ml_rl_simulation_registry",
+  "phase": "QSB_ML_RL_LAB_CLASSROOM_RESEARCH_WORKER_INTEGRATION_V1",
+  "generated_ts": "2026-06-09T16:49:28+00:00",
+  "simulations": [
+    {
+      "id": "sim_cartpole_baseline",
+      "env": "CartPole-v1",
+      "purpose": "sanity check the RL stack + worker reading exercise",
+      "live_market": false
+    },
+    {
+      "id": "sim_paper_pnl_replay",
+      "env": "qsb_paper_ledger_replay",
+      "purpose": "replay last N paper trades; let RL agent score actions",
+      "live_market": false
+    }
+  ],
+  "no_live_actions": true,
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "live_payments_enabled": false,
+  "live_listings_publishing_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "worker_execution_enabled": false,
+  "secrets_in_logs": false
+}

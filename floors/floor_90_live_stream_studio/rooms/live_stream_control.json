@@ -1,0 +1,36 @@
+{
+  "room_id": "live_stream_control",
+  "name": "Control Room",
+  "category": "operations",
+  "purpose": "Manages the live stream broadcasts.",
+  "concierge_blurb": "This is where all the live streams begin.",
+  "current_state": "already_exists",
+  "visitor_open": false,
+  "evidence_paths": [],
+  "live_signals": {
+    "stream_count": 4
+  },
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.0,
+    "offset_z": -8.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Live Stream Control",
+    "glow": true
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/live_streams.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 30
+  },
+  "floor": "floor_90"
+}

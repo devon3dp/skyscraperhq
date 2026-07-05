@@ -1,0 +1,4 @@
+# Council Task Board — Persistent Shared State (Ross 2026-07-04)
+# Every council member reads + writes here. Session-scoped TaskCreate is deprecated in favor of this shared board.
+
+{"ts":"2026-07-04T19:35Z","kind":"init","summary":"Council task engine 2026-07-04 — persistent shared state, not session-scoped"}

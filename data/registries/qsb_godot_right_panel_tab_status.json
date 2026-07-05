@@ -1,0 +1,27 @@
+{
+  "ok": true,
+  "kind": "qsb_godot_right_panel_tab_status",
+  "ts": "2026-06-09T21:07:08Z",
+  "implementation": "Godot TabContainer (real tabs)",
+  "tabs": [
+    {"key":"floor","title":"📍 Floor","content":"BBCode floor inspector"},
+    {"key":"kernel","title":"🧠 Kernel","content":"BBCode cognitive status"},
+    {"key":"chat","title":"💬 Chat","content":"Interactive KernelChatPanel.gd Control"},
+    {"key":"audio","title":"🎚 Audio","content":"Interactive AudioControlPanel.gd Control"},
+    {"key":"workers","title":"👥 Workers","content":"BBCode WorkerInspector"},
+    {"key":"openclaw","title":"🤖 OpenClaw","content":"BBCode OpenClawPanel"},
+    {"key":"trading","title":"💱 Trading","content":"BBCode TradingPanel"},
+    {"key":"mlrl","title":"🧪 ML/RL","content":"BBCode MLRLPanel"},
+    {"key":"banking","title":"🏦 Banking","content":"BBCode BankingGatewayPanel"},
+    {"key":"github","title":"🐙 GitHub","content":"BBCode GitHubScoutPanel"},
+    {"key":"commerce","title":"🛍 Commerce","content":"BBCode CommercePanel"},
+    {"key":"logs","title":"📜 Logs","content":"BBCode recent ticker"}
+  ],
+  "rules_enforced": {
+    "one_panel_visible_at_a_time": true,
+    "no_overlap": true,
+    "scroll_for_long_text": true,
+    "section_headers": true,
+    "tab_state_preserved": true
+  }
+}

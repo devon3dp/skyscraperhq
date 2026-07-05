@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Tower Sound · F58 Music Studio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root{
+    --bg:#06080f; --bg2:#0c1320; --ink:#e9f0ff; --ink-dim:#8aa0c8;
+    --accent:#ff5a3c; --accent2:#ffb45a; --gold:#ffd76b; --teal:#6cd5e0;
+    --border:rgba(180,200,230,.18); --card:rgba(14,22,36,.78);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:radial-gradient(1200px 600px at 80% -100px, rgba(255,90,60,.22) 0%, transparent 60%),radial-gradient(900px 500px at 10% 30%, rgba(108,213,224,.16) 0%, transparent 65%),linear-gradient(180deg,#04060c 0%, #06080f 60%);color:var(--ink);font:14px/1.5 system-ui,-apple-system,'Segoe UI',sans-serif;min-height:100vh}
+  a{color:var(--teal);text-decoration:none}
+  a:hover{color:#fff}
+
+  header.topbar{display:flex;align-items:center;justify-content:space-between;
+    padding:16px 32px;border-bottom:1px solid var(--border);background:rgba(6,8,15,.7);backdrop-filter:blur(10px);position:sticky;top:0;z-index:10}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:600;letter-spacing:.4px}
+  .brand .mark{width:30px;height:30px;border-radius:50%;background:radial-gradient(circle at 30% 30%, #ffb45a, #ff5a3c 70%);box-shadow:0 0 24px rgba(255,90,60,.45)}
+  nav a{margin-left:22px;font-size:13px;color:var(--ink-dim)}
+  nav a:hover{color:var(--ink)}
+  .pill{font-size:11px;letter-spacing:.5px;text-transform:uppercase;color:var(--ink-dim);
+    border:1px solid var(--border);border-radius:99px;padding:5px 12px}
+
+  .hero{display:grid;grid-template-columns:1.3fr 1fr;gap:30px;align-items:center;padding:60px 32px 30px;max-width:1280px;margin:0 auto}
+  .hero h1{font-size:54px;line-height:1.02;margin:0 0 12px;font-weight:700;letter-spacing:-1px}
+  .hero h1 .accent{background:linear-gradient(120deg,#ffb45a 0%,#ff5a3c 60%,#cb3aa3 100%);background-clip:text;-webkit-background-clip:text;color:transparent}
+  .hero .lede{font-size:16px;color:var(--ink-dim);max-width:560px;line-height:1.55}
+  .hero .ctas{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap}
+  .btn{padding:11px 22px;border-radius:99px;font-size:14px;font-weight:500;cursor:pointer;border:none;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:transform .12s}
+  .btn.primary{background:linear-gradient(90deg,#ffb45a,#ff5a3c);color:#0c0a06;box-shadow:0 6px 24px rgba(255,90,60,.35)}
+  .btn.primary:hover{transform:translateY(-1px)}
+  .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--border)}
+  .btn.ghost:hover{border-color:rgba(255,255,255,.4)}
+
+  .hero-visual{position:relative;aspect-ratio:1/1;border-radius:24px;
+    background:radial-gradient(circle at 50% 50%,rgba(255,180,90,.28) 0%,rgba(255,90,60,.18) 30%,rgba(40,16,40,.85) 70%);
+    overflow:hidden;border:1px solid rgba(255,180,90,.3);box-shadow:0 24px 60px rgba(0,0,0,.4)}
+  .ring{position:absolute;border-radius:50%;border:1px solid rgba(255,180,90,.18);pointer-events:none}
+  .ring.r1{inset:6%}.ring.r2{inset:18%}.ring.r3{inset:32%}.ring.r4{inset:46%}
+  .core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:38%;height:38%;
+    border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff7e0 0%,#ffb45a 30%,#ff5a3c 70%,#7b1830 100%);
+    box-shadow:0 0 80px rgba(255,140,80,.6),inset 0 0 40px rgba(255,180,100,.6)}
+  .vu{position:absolute;left:8%;right:8%;bottom:14%;height:6px;border-radius:3px;background:linear-gradient(90deg,#42e29e 0%,#ffd76b 60%,#ff5a3c 100%);opacity:.7;box-shadow:0 0 12px rgba(255,180,90,.4)}
+
+  section{padding:40px 32px;max-width:1280px;margin:0 auto}
+  section h2{font-size:28px;margin:0 0 18px;font-weight:600;letter-spacing:-.4px}
+  section h2 small{font-size:13px;color:var(--ink-dim);font-weight:400;margin-left:10px}
+
+  .deptbar{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap}
+  .dept{font-size:12px;padding:6px 14px;border-radius:99px;background:rgba(20,30,46,.7);border:1px solid var(--border);color:var(--ink-dim);cursor:pointer;transition:.15s}
+  .dept:hover{color:var(--ink);border-color:rgba(255,180,90,.5)}
+  .dept.on{background:linear-gradient(90deg,#ffb45a,#ff5a3c);color:#0c0a06;border-color:transparent;font-weight:500}
+
+  .pgrid{display:grid;grid-template-columns:repeat(auto-fill, minmax(260px,1fr));gap:18px}
+  .pcard{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform .15s,border-color .15s}
+  .pcard:hover{transform:translateY(-2px);border-color:rgba(255,180,90,.42);box-shadow:0 18px 40px rgba(255,90,60,.16)}
+  .pcard .photo{aspect-ratio:1/1;background:#0a1228 center/cover no-repeat;border-bottom:1px solid var(--border);position:relative}
+  .pcard .body{padding:14px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
+  .pcard .deptTag{font-size:10px;color:var(--accent2);letter-spacing:.6px;text-transform:uppercase}
+  .pcard .name{font-size:15px;font-weight:600;line-height:1.25}
+  .pcard .desc{font-size:12px;color:var(--ink-dim);line-height:1.45;min-height:34px}
+  .pcard .priceRow{display:flex;justify-content:space-between;align-items:baseline;margin-top:auto;padding-top:10px;border-top:1px dashed var(--border)}
+  .pcard .price{font-size:17px;font-weight:600;color:var(--gold)}
+  .pcard .lead{font-size:11px;color:var(--ink-dim)}
+  .pcard .btnBook{margin-top:8px;width:100%;background:rgba(255,90,60,.14);color:var(--accent2);border:1px solid rgba(255,180,90,.32);padding:8px;border-radius:8px;font-size:12px;cursor:pointer;font-weight:500;transition:.15s}
+  .pcard .btnBook:hover{background:rgba(255,90,60,.28);color:#fff}
+
+  .rooms{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-top:16px}
+  .room{padding:14px 16px;border:1px solid var(--border);border-radius:12px;background:rgba(12,18,30,.55);font-size:13px;color:var(--ink-dim)}
+  .room strong{color:var(--ink);display:block;margin-bottom:4px}
+
+  footer{text-align:center;padding:28px;font-size:11px;color:var(--ink-dim);border-top:1px solid var(--border);margin-top:30px}
+  footer .safety{display:inline-block;padding:5px 14px;border:1px solid rgba(108,213,224,.32);border-radius:99px;color:var(--teal)}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="mark"></span><span>Tower Sound · F58</span></div>
+  <nav>
+    <a href="/cockpit">↑ Cockpit</a>
+    <a href="/shops">All shops</a>
+    <a href="http://127.0.0.1:8848/" target="_blank">Lumen</a>
+    <span class="pill">advisory · bookings staged</span>
+  </nav>
+</header>
+
+<section class="hero">
+  <div>
+    <h1><span class="accent">Conservatory</span><br>studio,<br>and sessions.</h1>
+    <p class="lede">Tower Sound lives on Floor 58 of QSB Tower. A Steinway D in the recital hall, Studio A with a vintage mic locker, Studio B for vocals and VO, three rehearsal rooms, a mastering suite, and tuition for piano, guitar and voice. Conservatory by day, studio by night.</p>
+    <div class="ctas">
+      <a class="btn primary" href="#catalog">Book a session →</a>
+      <a class="btn ghost" href="#tuition">Browse tuition</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div><div class="ring r4"></div>
+    <div class="core"></div>
+    <div class="vu"></div>
+  </div>
+</section>
+
+<section>
+  <h2>What's on the floor</h2>
+  <div class="rooms" id="rooms"></div>
+</section>
+
+<section id="catalog">
+  <h2>Sessions, services, hire <small id="metaLine">— loading</small></h2>
+  <div class="deptbar" id="deptBar"></div>
+  <div class="pgrid" id="grid"></div>
+</section>
+
+<footer>
+  <span class="safety">execution_allowed=false · bookings staged for live_listings_publishing_enabled</span>
+  <div style="margin-top:8px">Tower Sound · F58 · QSB Tower V1.5</div>
+</footer>
+
+<script>
+(async function(){
+  const $ = (id) => document.getElementById(id);
+  const r = await fetch('/api/shop/F58'); const d = await r.json();
+  if (!d.ok) { $('grid').innerHTML = '<p>Studio offline.</p>'; return; }
+
+  // rooms
+  $('rooms').innerHTML = (d.rooms || []).map(rm => {
+    const [head, ...tail] = rm.split('(');
+    return `<div class="room"><strong>${head.trim()}</strong>${tail.length ? '(' + tail.join('(') : ''}</div>`;
+  }).join('');
+
+  $('metaLine').textContent = `· ${d.item_count} listings · ${d.currency || 'GBP'} · updated ${(d.generated_ts||'').slice(0,10)}`;
+
+  const depts = Array.from(new Set(d.items.map(i => i.department))).sort();
+  const renderGrid = (filter) => {
+    const items = filter === '__all__' ? d.items : d.items.filter(i => i.department === filter);
+    const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    $('grid').innerHTML = items.map(it => {
+      const lead = it.lead_time_days === 0 ? 'same-day' : `lead ${it.lead_time_days}d`;
+      const price = '£' + (it.list_price_gbp).toFixed(2);
+      const img = it.image_url ? `style="background-image:url('${esc(it.image_url)}')"` : '';
+      return `<div class="pcard">
+        <div class="photo" ${img}></div>
+        <div class="body">
+          <div class="deptTag">${esc(it.department)}</div>
+          <div class="name">${esc(it.name)}</div>
+          <div class="desc">${esc(it.description || '')}</div>
+          <div class="priceRow"><span class="price">${price}</span><span class="lead">${lead}</span></div>
+          <button class="btnBook" data-sku="${esc(it.sku)}">Book / enquire</button>
+        </div>
+      </div>`;
+    }).join('');
+    $('grid').querySelectorAll('.btnBook').forEach(b => b.addEventListener('click', () => alert(`Booking enquiry staged for ${b.dataset.sku}. Actual booking opens when live_listings_publishing_enabled flips true.`)));
+  };
+
+  const deptBar = $('deptBar');
+  const all = ['__all__', ...depts];
+  deptBar.innerHTML = all.map((dpt, i) => `<span class="dept${i===0?' on':''}" data-d="${dpt}">${dpt === '__all__' ? 'All' : dpt}</span>`).join('');
+  deptBar.querySelectorAll('.dept').forEach(b => b.addEventListener('click', () => {
+    deptBar.querySelectorAll('.dept').forEach(x => x.classList.remove('on'));
+    b.classList.add('on');
+    renderGrid(b.dataset.d);
+  }));
+  renderGrid('__all__');
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+{
+  "room_id": "photography_studio_editing_suite",
+  "name": "Editing Suite",
+  "category": "workshop",
+  "purpose": "To edit and enhance photographs before publication.",
+  "concierge_blurb": "See where raw photos are transformed into masterpieces.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -8.0,
+    "offset_z": 5.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 1.8
+  },
+  "render": {
+    "primary_prop": "workbench",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Editing Suite",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 0
+  },
+  "floor": "floor_74"
+}

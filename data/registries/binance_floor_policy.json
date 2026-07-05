@@ -1,0 +1,54 @@
+{
+  "policy": "binance_trading_floor_v1",
+  "version": "1.0",
+  "floor": "floor_42",
+  "department": "Binance Trading Floor",
+  "phase": "BINANCE_FLOOR_42_TRADING_FLOOR_V1",
+  "environment_default": "testnet",
+  "base_url_testnet": "https://testnet.binance.vision",
+  "base_url_live": "https://api.binance.com",
+  "credentials_source": "environment_variables_only",
+  "credentials_env_file": ".env.binance",
+  "required_env_for_private_read": [
+    "BINANCE_API_KEY",
+    "BINANCE_API_SECRET"
+  ],
+  "optional_env": [
+    "BINANCE_ENV",
+    "BINANCE_READ_ONLY",
+    "BINANCE_ORDER_EXECUTION_ENABLED"
+  ],
+  "default_symbols": [
+    "BTCUSDT",
+    "ETHUSDT",
+    "BNBUSDT",
+    "SOLUSDT"
+  ],
+  "signal_modes": ["observe", "long_bias", "short_bias", "no_trade"],
+  "paper_trading_enabled": true,
+  "paper_signal_generation_enabled": true,
+  "public_market_data_read_enabled": true,
+  "private_account_read_enabled_if_credentials_present": true,
+  "binance_order_execution_enabled": false,
+  "binance_live_trading_enabled": false,
+  "live_trading_enabled": false,
+  "order_execution_enabled": false,
+  "practice_order_execution_enabled": false,
+  "worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "external_provider_execution_enabled": false,
+  "openclaw_execution_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "live_dispatch_enabled": false,
+  "direct_provider_access": false,
+  "risk_mode": "observe_and_simulate_only",
+  "secret_handling": {
+    "never_log_secret": true,
+    "never_print_secret": true,
+    "never_persist_secret_to_json": true,
+    "never_expose_secret_to_dashboard": true,
+    "credentials_status_returns_booleans_only": true
+  },
+  "notes": "Floor 42 may read Binance public market data and (if creds are present) Binance read-only account info. It must never place orders, even on testnet, until explicitly enabled in a later phase."
+}

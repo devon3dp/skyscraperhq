@@ -1,0 +1,31 @@
+{
+  "room_id": "synthetic_library",
+  "name": "Synthetic Library",
+  "category": "library",
+  "purpose": "A repository for genetic and synthetic biology data.",
+  "concierge_blurb": "Explore a vast collection of genetic blueprints.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -8.0,
+    "offset_z": -4.5,
+    "footprint_m": [
+      12,
+      9
+    ],
+    "height_m": 1.5
+  },
+  "render": {
+    "primary_prop": "archive_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Synthetic Lib.",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_132"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "b3",
+  "level": "B3",
+  "name": "Disaster Recovery",
+  "role": "Failover systems, backups, safe-mode startup, recovery logic, and emergency rebuild tools.",
+  "status": "online",
+  "kernel_required": false,
+  "kernel_installed": false,
+  "models_required": false,
+  "execution_enabled": false,
+  "worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "providers_are_external": true,
+  "lift_access": [
+    "service_lift",
+    "security_lift",
+    "emergency_stairwell"
+  ],
+  "created_or_verified": "2026-06-07T18:02:02.927415+00:00",
+  "notice": "Infrastructure service layer only. No kernel, workers, or provider execution enabled."
+}

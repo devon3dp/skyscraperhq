@@ -1,0 +1,32 @@
+{
+  "ok": true,
+  "kind": "department_manifest",
+  "phase": "QSB_SKYSCRAPER_100_PERCENT_ONLINE_INTERACTIVE_3D_WORKFORCE_COMPLETION_V1",
+  "generated_ts": "2026-06-30T13:46:34.685345+00:00",
+  "floor_id": "floor_44",
+  "department": "Promotion Board",
+  "sub_department": "promotion_board",
+  "co_located_on_floor": "floor_44_accounts_department",
+  "purpose": "Operational interior for Promotion Board. Workers stationed at real rooms with real roles; no random visuals.",
+  "rooms": [
+    "Promotion Review Table",
+    "Eligible Workers Board",
+    "Pending Colonel Approval",
+    "Rank Ladder"
+  ],
+  "roles": [
+    "promotion_reviewer",
+    "rank_clerk",
+    "approval_courier",
+    "ladder_curator"
+  ],
+  "worker_count": 40,
+  "default_class": "operational_worker",
+  "default_state": "idle_at_station",
+  "advisory_only": true,
+  "execution_allowed": false,
+  "active_local_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

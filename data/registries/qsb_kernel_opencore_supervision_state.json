@@ -1,0 +1,58 @@
+{
+  "module": "kernel_opencore_supervision_bridge",
+  "purpose": "Summarize what OpenClaw / OpenCore supervision should inspect next. Never invokes OpenClaw; the execution gate openclaw_execution_enabled is locked false.",
+  "timestamp_utc": "2026-06-09T20:15:58.290337+00:00",
+  "openclaw_execution_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "recruitment_openclaw_execution_enabled": false,
+  "openclaw_registries_found": [],
+  "open_tickets": [],
+  "open_ticket_count": 0,
+  "suggested_inspections": [
+    {
+      "ticket_kind": "openclaw_inspection",
+      "title": "Inspect why cognitive registries were never written",
+      "evidence": [
+        "data/registries/qsb_kernel_cognitive_smoke_test_latest.json",
+        "data/registries/qsb_banking_gateway_status.json",
+        "data/registries/qsb_banking_gateway_real_money_phase_requirements.json",
+        "data/registries/qsb_github_upgrade_import_plan.json"
+      ],
+      "scope": "read-only triage"
+    }
+  ],
+  "suggested_inspection_count": 1,
+  "source_file_list": [
+    "data/registries/qsb_kernel_reflection_state.json",
+    "data/registries/qsb_kernel_attention_state.json",
+    "data/registries/openclaw_tickets.json",
+    "data/registries/openclaw_status.json",
+    "data/registries/openclaw_findings.json",
+    "data/registries/qsb_openclaw_supervisor_status.json",
+    "data/registries/qsb_openclaw_ticket_queue.json"
+  ],
+  "confidence": 0.85,
+  "warnings": [
+    "openclaw_registries_absent"
+  ],
+  "safety": {
+    "advisory_only": true,
+    "execution_allowed": false,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "model_inference_enabled": false,
+    "live_dispatch_enabled": false,
+    "autonomous_workers_enabled": false,
+    "direct_provider_access": false,
+    "live_trading_enabled": false,
+    "real_order_execution_enabled": false,
+    "openclaw_execution_enabled": false,
+    "binance_order_execution_enabled": false,
+    "stock_order_execution_enabled": false,
+    "web_access_autonomous_enabled": false,
+    "maintenance_auto_repair_enabled": false,
+    "kernel_state": "active_local_only",
+    "kernel_source": "rebased_kernel",
+    "scope": "local_only_advisory_cognition"
+  }
+}

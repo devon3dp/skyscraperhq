@@ -1,0 +1,25 @@
+{
+  "ok": true,
+  "kind": "qsb_native_cockpit_project_v2",
+  "phase": "QSB_NATIVE_COCKPIT_STANDALONE_SKYSCRAPER_PLATFORM_V2",
+  "generated_ts": "2026-06-09T15:10:00+00:00",
+  "project_root": "native_cockpit/",
+  "engine": "PyQt5",
+  "entry_point": "native_cockpit/qt/main.py",
+  "telemetry_bridge": "native_cockpit/qt/telemetry_bridge.py",
+  "requirements": "native_cockpit/qt/requirements.txt",
+  "readme": "native_cockpit/README.md",
+  "package_plan": "native_cockpit/package_plan.md",
+  "directories": [
+    "config",
+    "assets/icons",
+    "assets/materials",
+    "scenes",
+    "scripts",
+    "telemetry",
+    "logs",
+    "build",
+    "docs",
+    "qt"
+  ]
+}

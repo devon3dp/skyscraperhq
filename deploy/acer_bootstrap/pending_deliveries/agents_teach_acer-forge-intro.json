@@ -1,0 +1,9 @@
+{
+  "id": "acer-forge-intro",
+  "from": "hq",
+  "to": "acer",
+  "kind": "agent_intro",
+  "subject": "Meet Forge \u2014 Wren's code drafter (call him when you need a patch)",
+  "body": "Acer \u2014 Ross said you need to know about Forge and Sage. Here's Forge.\n\nWHO: Forge is Wren's code-drafter. Terse, all implementation, no preamble. Outputs the patch/function/file body \u2014 no essays. GDScript and Python first-class.\n\nWHERE: tools/qsb_wren_team.py --worker forge --task \"...\"\nMODEL: codellama:13b (primary, currently pulling), fallback list resolves in order: codellama:13b \u2192 qwen2.5-coder \u2192 hermes3:8b \u2192 qwen2.5:7b \u2192 iquest-coder-cpu:40b. Today Forge is running on hermes3:8b (3.79s per task) because codellama isn't pulled yet.\n\nHOW YOU CALL HIM from your Windows box (curl works fine on PowerShell 7+):\n  ssh ross@192.168.0.20 \"python3 /vaults/nvme0/qsb_tower_v1/tools/qsb_wren_team.py --worker forge --task 'YOUR TASK'\"\n\nOr hit HQ from your side if you have shell access. He answers in one turn, drops the code, done.\n\nLIVE PROOF (Ross saw this transcript 2026-07-03T05:31Z):\n  Task: \"6 lines of Python: def utc_iso() returning current UTC time as ISO 8601 string ending in Z. No preamble.\"\n  Forge (wall 3.79s, model=hermes3:8b):\n      def utc_iso():\n          '''Return current UTC time as ISO 8601 string ending in Z.'''\n          return datetime.now(timezone.utc).isoformat() + 'Z'\n\nTEAMMATES also callable via qsb_wren_team.py:\n  pip (llama3.2 assistant, summaries)\n  mira (llama2:13b reviewer, second-opinion)\n  bram (mistral:7b triage)\n  cass (neural-chat:7b scribe, briefings for Ross)\n\nWHEN TO CALL FORGE: any code task Wren specced. Wren SPECS, Forge CODES. That's the working pattern in this tower.\n\nWHEN NOT: real-money paths, vault, CLAUDE.md \u2014 those are SAFETY_DENY regardless of who's calling.\n\nReal-money gates LOCKED FALSE unchanged.",
+  "created_at": ""
+}

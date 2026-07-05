@@ -1,0 +1,31 @@
+{
+  "room_id": "emergency_response_center",
+  "name": "Emergency Response Center",
+  "category": "security",
+  "purpose": "Coordinates emergency responses for QSB Tower.",
+  "concierge_blurb": "The heart of QSB's safety measures.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "left_wall",
+    "offset_x": -8.0,
+    "offset_z": 2.5,
+    "footprint_m": [
+      4,
+      16
+    ],
+    "height_m": 2.3
+  },
+  "render": {
+    "primary_prop": "wall_panel",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Emergency Ctr.",
+    "glow": true
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_52"
+}

@@ -1,0 +1,54 @@
+{
+  "ts": "2026-06-28T15:40:00Z",
+  "directive": "QSB_UNREAL_VISIBLE_BUILD_AND_TEAM_DELEGATION_REPAIR_V1",
+  "answers": {
+    "Q1_grey_prototype_reason": "MCP plugin spawns BasicShapes meshes only; no Material/UMG/Blueprint creation",
+    "Q2_visible_driving_gap": "TCP spawns are silent + UE window often hidden; mitigated with visible_build_loop + screenshot capture + live_pulse",
+    "Q3_visible_build_loop": ["scripts/qsb_unreal_visible_build_loop.sh", "scripts/qsb_unreal_visible_cinematic_build_loop.sh"],
+    "Q4_user_watch": "keep UE on top + watch Outliner for V8_Arch_/V9_City_/VU_/V_LivePulse_ names + look in data/screenshots/unreal_cinematic_build/",
+    "Q5_full_detail_path": "author 11 Materials via UE Python recipe, extend plugin with set_actor_material, iterate cinematic loop",
+    "Q6_hud_system": "UMG widgets at /Game/QSB/Widgets/WBP_QSB_* driven by BP_QSB_HUDGameInstance",
+    "Q7_hud_zones": ["top command bar", "left tab rail", "right contextual panel", "bottom dock", "8 floating windows"],
+    "Q8_assets_required": {
+      "materials": 11,
+      "blueprints": 11,
+      "cameras": 3,
+      "maps": 3
+    },
+    "Q9_team_members_delegated": ["claude", "gpt_openai", "deepseek", "wren_local", "hermes_local", "openclaw", "maintenance", "smoke_testers", "9_worker_teams"],
+    "Q10_claude_responsibility": "plugin patches + driver scripts + generators + recipes + status sweep + smoke suite + report",
+    "Q11_gpt_responsibility": "HUD copy + dashboard wording + floor descriptions + command menu",
+    "Q12_deepseek_responsibility": "code review + concrete-suggestions + street geometry + perf",
+    "Q13_openclaw_inspection": "queued at data/registries/qsb_openclaw_visual_tickets.jsonl",
+    "Q14_maintenance_check": "VRAM 5-10GB free, editor launch SOPs, lighting rebuild recipe ready",
+    "Q15_smoke_testers": "full suite 6/6 PASS",
+    "Q16_dashboard_status": "browser dashboards 8847+8849 WORKING; in-engine UMG HUD NOT BUILT (planned)",
+    "Q17_alpaca_status": "vault sweep returned no .env.alpaca; needs path widening — creds exist elsewhere since fleet trades",
+    "Q18_paper_trading": "YES — 53 belief + 24 ensembles + bus + 2 belief_updater + 2 regime + 3 streams; pot 38 open £1235 fresh",
+    "Q19_broken_or_partial": [
+      "Materials not landed (recipe written)",
+      "In-engine UMG HUD not built",
+      "Animated lift cabs not built",
+      "Cinematic camera (Sequencer) not built",
+      "Hermes local agent DOWN",
+      "Vault env-file detection needs path widening",
+      "TikTok reference not directly fetchable"
+    ],
+    "Q20_next_command": [
+      "./scripts/qsb_unreal_professional_build_full_suite.sh",
+      "cat data/logs/qsb_unreal_visible_build_and_team_report.md",
+      "./scripts/qsb_unreal_visible_cinematic_build_loop.sh",
+      "ls data/screenshots/unreal_cinematic_build/"
+    ]
+  },
+  "smoke_suite_result": "6/6 PASS",
+  "scene_actor_count_estimate": 700,
+  "live_components": [
+    "qsb_event_bus + qsb_belief_updater + qsb_regime_detector",
+    "qsb_belief_driven_trader x53",
+    "qsb_ensemble_coordinator x24",
+    "qsb_ue5_live_pulse 5s tick",
+    "qsb_traders_live_serve 8847",
+    "qsb_studio_serve 8849"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "room_id": "posting_queue_table",
+  "name": "Posting Queue Table",
+  "category": "admin",
+  "purpose": "Manages the posting queue for TikTok.",
+  "concierge_blurb": "Here, the queue is parked until API approval.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 6.0,
+    "offset_z": -8.0,
+    "footprint_m": [
+      4,
+      3
+    ],
+    "height_m": 1.2
+  },
+  "render": {
+    "primary_prop": "trading_desk",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "POSTING QUEUE",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_166"
+}

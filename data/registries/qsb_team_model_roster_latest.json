@@ -1,0 +1,18 @@
+{
+  "ts": "2026-06-29T08:56:42Z",
+  "ollama_available": "yes",
+  "ollama_endpoint_reachable": "yes",
+  "wren_local_model_id": "qwen2.5-cpu:32b",
+  "hermes_local_model_id": "hermes3-cpu:70b",
+  "iquest_coder_local_model_id": "iquest-coder-cpu:40b",
+  "llava_vision_model_id": "llava:7b",
+  "deepseek_local_model_id": "NOT_AVAILABLE",
+  "claude_cli_available": "yes",
+  "claude_active_as_execution_captain": true,
+  "unreal_editor_binary_available": "yes",
+  "unreal_editor_path": "/vaults/nvme0/UnrealEngine/Engine/Binaries/Linux/UnrealEditor",
+  "unreal_project_available": "yes",
+  "unreal_project_path": "/vaults/nvme0/qsb_unreal_skyscraper/QSB_Skyscraper.uproject",
+  "team_memory_dir_exists": "yes",
+  "providers_advisory_only": ["openai", "deepseek"]
+}

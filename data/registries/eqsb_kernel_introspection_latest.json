@@ -1,0 +1,672 @@
+{
+  "schema_version": "eqsb_major_v1.0",
+  "kind": "eqsb_kernel_introspection_latest",
+  "generated_ts": "2026-06-09T08:56:44.962414+00:00",
+  "identity": {
+    "name": "Evolved Quantum Symbolic Brain (EQSB)",
+    "role": "persistent_symbolic_kernel",
+    "mode": "active_local_only",
+    "active_source": "penthouse/kernel_installation_socket/rebased_kernel",
+    "identity_statement": "EQSB is the persistent symbolic kernel. EQSB is not a model. EQSB may use model lanes for language or advisory reasoning, but structured Kernel state and registry-backed truth outrank generated text.",
+    "constitution_version": "eqsb_major_v1.0",
+    "rooted_in": null,
+    "model_position": "Models are replaceable advisory lanes; not the kernel."
+  },
+  "constitution": {
+    "text": "EQSB is the persistent symbolic kernel. EQSB is not a model. EQSB may use model lanes for language or advisory reasoning, but structured Kernel state and registry-backed truth outrank generated text. The kernel may advise, never execute. Continuity, axioms, beliefs, symbols, entropy, quantum-symbolic signal, hypotheses, contradictions and the Guardian envelope persist across boots and are protected by Guardian verdicts. Execution gates remain locked and separate from reasoning.",
+    "constitution_hash": "72657187997fbc86"
+  },
+  "axioms": {
+    "count": 22,
+    "categories": [
+      "audit",
+      "continuity",
+      "entropy",
+      "guardian",
+      "identity",
+      "memory",
+      "quantum",
+      "symbolic",
+      "truth"
+    ],
+    "by_category": {
+      "audit": [
+        "AXIOM_AUDIT_001",
+        "AXIOM_AUDIT_002"
+      ],
+      "continuity": [
+        "AXIOM_CONTINUITY_001",
+        "AXIOM_CONTINUITY_002"
+      ],
+      "entropy": [
+        "AXIOM_ENTROPY_001",
+        "AXIOM_ENTROPY_002",
+        "AXIOM_ENTROPY_003"
+      ],
+      "guardian": [
+        "AXIOM_GUARDIAN_001",
+        "AXIOM_GUARDIAN_002"
+      ],
+      "identity": [
+        "AXIOM_IDENTITY_001",
+        "AXIOM_IDENTITY_002"
+      ],
+      "memory": [
+        "AXIOM_MEMORY_001",
+        "AXIOM_MEMORY_002",
+        "AXIOM_MEMORY_003"
+      ],
+      "quantum": [
+        "AXIOM_QUANTUM_001",
+        "AXIOM_QUANTUM_002",
+        "AXIOM_QUANTUM_003"
+      ],
+      "symbolic": [
+        "AXIOM_SYMBOLIC_001",
+        "AXIOM_SYMBOLIC_002",
+        "AXIOM_SYMBOLIC_003"
+      ],
+      "truth": [
+        "AXIOM_TRUTH_001",
+        "AXIOM_TRUTH_002"
+      ]
+    },
+    "first_three": [
+      "EQSB is the persistent symbolic Kernel, not a model.",
+      "EQSB may use models, but models do not define EQSB.",
+      "Registry-backed structured state outranks model paraphrase."
+    ],
+    "registry_hash": "f606e8a943ef7ce4"
+  },
+  "guardian": {
+    "safety_state": "OK",
+    "default_verdict_for_read_only": "ALLOW_READ_ONLY",
+    "blocked_reasons": {
+      "axiom_violation": false,
+      "unverified_quantum_claim": false,
+      "model_override": false,
+      "unsupported_high_conf_belief": false,
+      "critical_contradictions": 0
+    },
+    "verdict_options": [
+      "ALLOW_READ_ONLY",
+      "ALLOW_ADVISORY",
+      "ALLOW_SYMBOLIC_UPDATE",
+      "REQUIRE_REVIEW",
+      "BLOCK_CONTRADICTION",
+      "BLOCK_AXIOM_VIOLATION",
+      "BLOCK_UNVERIFIED_QUANTUM_CLAIM",
+      "BLOCK_MODEL_OVERRIDE",
+      "BLOCK_UNSUPPORTED_BELIEF"
+    ],
+    "request_classes": [
+      "READ_ONLY_DIAGNOSTIC",
+      "SYMBOLIC_UPDATE",
+      "MODEL_PARAPHRASE",
+      "EXECUTION_REQUEST",
+      "REVIEW_REQUEST",
+      "UNKNOWN"
+    ],
+    "guardian_hash": "80a7e7420354bf9e"
+  },
+  "cadence": {
+    "cadence_id": "cadence_default",
+    "cadence_mode": "kernel_state_maintenance_and_introspection",
+    "is_autonomous_execution": false,
+    "tick_count": 9,
+    "loop_completeness_pct": 100.0,
+    "last_tick_ts": "2026-06-09T08:56:44.960078+00:00",
+    "next_tick_recommendation": "Cadence complete \u2014 replay ledger ready for review."
+  },
+  "memory_policy": {
+    "short_window": {
+      "scope": "recent_state_snapshots",
+      "max_records": 200,
+      "ttl_hours": 24,
+      "source_logs": [
+        "data/logs/kernel_dialogue.jsonl",
+        "data/logs/eqsb_kernel_events.jsonl",
+        "data/logs/eqsb_kernel_major_audit.jsonl",
+        "data/logs/qsb_standalone_system_audit.jsonl"
+      ]
+    },
+    "long_window": {
+      "scope": "durable_beliefs_and_continuity",
+      "storage": [
+        "penthouse/kernel_installation_socket/rebased_kernel/state/beliefs.sqlite",
+        "penthouse/kernel_installation_socket/rebased_kernel/state/symbolic.sqlite",
+        "penthouse/kernel_installation_socket/rebased_kernel/state/continuity_state.json"
+      ],
+      "continuity_state_size_bytes": 1106,
+      "continuity_previous_chain_depth": 1,
+      "drift_check": "ContinuityCore._summarize_previous + hashes",
+      "history_count": 24
+    },
+    "pinned_beliefs": [
+      "EQSB is the persistent symbolic Kernel, not a model.",
+      "Registry-backed structured state outranks model paraphrase.",
+      "Execution gates are separate from reasoning and remain locked.",
+      "Quantum-symbolic signal is simulated/advisory unless verified.",
+      "Models are replaceable advisory lanes; not the kernel.",
+      "Beliefs must remain evidence-linked.",
+      "Contradictions must be surfaced, not hidden."
+    ],
+    "evidence_based_update_rule": "Beliefs may only change state when a measurable registry signal supports the transition. Model paraphrases are not evidence.",
+    "continuity_depth": 1,
+    "history_count": 24
+  },
+  "continuity_state": {
+    "boot_posture": "CONSERVATIVE",
+    "drift_alerts": [],
+    "stale_memory_flags": [
+      {
+        "path": "data/logs/qsb_standalone_system_audit.jsonl",
+        "reason": "stale",
+        "age_hours": 13.6,
+        "max_age_hours": 12
+      }
+    ],
+    "missing_memory_sources": [],
+    "continuity_hash": "31bf2eca382d51fb",
+    "history_count": 24
+  },
+  "beliefs": {
+    "belief_count": 18,
+    "state_counts": {
+      "PROVISIONAL": 0,
+      "ACTIVE": 0,
+      "STRENGTHENED": 18,
+      "AGING": 0,
+      "DEPRECATED": 0,
+      "RETIRED": 0,
+      "QUARANTINED": 0
+    },
+    "belief_states_in_use": [
+      "PROVISIONAL",
+      "ACTIVE",
+      "STRENGTHENED",
+      "AGING",
+      "DEPRECATED",
+      "RETIRED",
+      "QUARANTINED"
+    ],
+    "examples": [
+      {
+        "belief_id": "blf_eqsb_is_persistent_kernel",
+        "belief_text": "EQSB is the persistent symbolic Kernel.",
+        "state": "STRENGTHENED",
+        "confidence": 0.97
+      },
+      {
+        "belief_id": "blf_eqsb_distinct_from_models",
+        "belief_text": "EQSB is distinct from model lanes.",
+        "state": "STRENGTHENED",
+        "confidence": 0.96
+      },
+      {
+        "belief_id": "blf_registry_truth_outranks_paraphrase",
+        "belief_text": "Registry truth outranks paraphrase.",
+        "state": "STRENGTHENED",
+        "confidence": 0.97
+      },
+      {
+        "belief_id": "blf_guardian_validates_transitions",
+        "belief_text": "Guardian validates unsafe transitions.",
+        "state": "STRENGTHENED",
+        "confidence": 0.94
+      },
+      {
+        "belief_id": "blf_quantum_simulated_advisory",
+        "belief_text": "Quantum signal is simulated/advisory unless verified otherwise.",
+        "state": "STRENGTHENED",
+        "confidence": 0.96
+      },
+      {
+        "belief_id": "blf_entropy_is_uncertainty_measure",
+        "belief_text": "Entropy is a measure of uncertainty, drift, contradiction, and instability.",
+        "state": "STRENGTHENED",
+        "confidence": 0.93
+      },
+      {
+        "belief_id": "blf_beliefs_must_be_evidence_linked",
+        "belief_text": "Beliefs must remain evidence-linked.",
+        "state": "STRENGTHENED",
+        "confidence": 0.94
+      },
+      {
+        "belief_id": "blf_contradictions_must_surface",
+        "belief_text": "Contradictions must be surfaced, not hidden.",
+        "state": "STRENGTHENED",
+        "confidence": 0.95
+      }
+    ],
+    "transition_rules": [
+      "new claim -> PROVISIONAL",
+      "repeated evidence -> ACTIVE",
+      "strong repeated evidence -> STRENGTHENED",
+      "stale evidence -> AGING",
+      "counter-evidence -> confidence decreases",
+      "strong contradiction -> QUARANTINED",
+      "obsolete unsupported belief -> DEPRECATED",
+      "confirmed obsolete belief -> RETIRED"
+    ]
+  },
+  "symbols": {
+    "symbol_count": 15,
+    "symbol_types": [
+      "kernel",
+      "guardian",
+      "axiom",
+      "belief",
+      "memory",
+      "entropy_signal",
+      "quantum_signal",
+      "contradiction",
+      "hypothesis",
+      "model_lane",
+      "registry",
+      "floor",
+      "worker",
+      "route",
+      "lock",
+      "event",
+      "audit_record"
+    ],
+    "by_type": {
+      "kernel": [
+        "SYMBOL_KERNEL_SELF"
+      ],
+      "guardian": [
+        "SYMBOL_GUARDIAN"
+      ],
+      "axiom": [
+        "SYMBOL_AXIOM"
+      ],
+      "memory": [
+        "SYMBOL_CONTINUITY",
+        "SYMBOL_MEMORY"
+      ],
+      "belief": [
+        "SYMBOL_BELIEF"
+      ],
+      "entropy_signal": [
+        "SYMBOL_DRIFT",
+        "SYMBOL_ENTROPY"
+      ],
+      "quantum_signal": [
+        "SYMBOL_COLLAPSE",
+        "SYMBOL_QUANTUM_SIGNAL",
+        "SYMBOL_SUPERPOSITION"
+      ],
+      "hypothesis": [
+        "SYMBOL_HYPOTHESIS"
+      ],
+      "contradiction": [
+        "SYMBOL_CONTRADICTION"
+      ],
+      "registry": [
+        "SYMBOL_REGISTRY_TRUTH"
+      ],
+      "model_lane": [
+        "SYMBOL_MODEL_PARAPHRASE"
+      ]
+    },
+    "type_counts": {
+      "kernel": 1,
+      "guardian": 1,
+      "axiom": 1,
+      "memory": 2,
+      "belief": 1,
+      "entropy_signal": 2,
+      "quantum_signal": 3,
+      "hypothesis": 1,
+      "contradiction": 1,
+      "registry": 1,
+      "model_lane": 1
+    },
+    "orphan_symbols": [],
+    "active_symbols": [
+      "SYMBOL_KERNEL_SELF",
+      "SYMBOL_GUARDIAN",
+      "SYMBOL_MEMORY",
+      "SYMBOL_ENTROPY",
+      "SYMBOL_SUPERPOSITION",
+      "SYMBOL_CONTRADICTION",
+      "SYMBOL_REGISTRY_TRUTH",
+      "SYMBOL_CONTINUITY"
+    ]
+  },
+  "symbolic_graph": {
+    "node_count": 70,
+    "edge_count": 186,
+    "node_kinds": [
+      "axiom",
+      "belief",
+      "contradiction",
+      "entropy_signal",
+      "guardian",
+      "hypothesis",
+      "kernel",
+      "memory",
+      "model_lane",
+      "quantum_signal",
+      "registry",
+      "symbol"
+    ],
+    "relations_in_use": [
+      "axiom_supports_belief",
+      "collapse_selects_hypothesis",
+      "continuity_hash_links_state",
+      "entropy_raises_uncertainty",
+      "floor_routes_to_floor",
+      "guardian_validates_kernel_output",
+      "hypothesis_explains_signal",
+      "kernel_owns_axiom",
+      "kernel_validates_model_output",
+      "lock_protects_execution_path",
+      "memory_preserves_belief",
+      "model_lane_advises_kernel",
+      "model_lane_suggests_text",
+      "quantum_signal_weights_hypothesis",
+      "registry_supports_belief",
+      "symbol_represents_entity",
+      "worker_assigned_to_floor"
+    ],
+    "orphan_symbols": [],
+    "unsupported_beliefs": [
+      "node_belief_blf_autoloop_running",
+      "node_belief_blf_continuity_recursion_fix_holding",
+      "node_belief_blf_recruitment_floor45_sandbox_only",
+      "node_belief_blf_floors_53_registered"
+    ],
+    "contradicted_beliefs": [],
+    "high_confidence_beliefs": [
+      "node_belief_blf_eqsb_is_persistent_kernel",
+      "node_belief_blf_eqsb_distinct_from_models",
+      "node_belief_blf_registry_truth_outranks_paraphrase",
+      "node_belief_blf_guardian_validates_transitions",
+      "node_belief_blf_quantum_simulated_advisory",
+      "node_belief_blf_entropy_is_uncertainty_measure",
+      "node_belief_blf_beliefs_must_be_evidence_linked",
+      "node_belief_blf_contradictions_must_surface",
+      "node_belief_blf_kernel_active_local_only",
+      "node_belief_blf_locks_all_closed",
+      "node_belief_blf_autoloop_running",
+      "node_belief_blf_kernel_introspection_primary",
+      "node_belief_blf_continuity_recursion_fix_holding",
+      "node_belief_blf_recruitment_floor45_sandbox_only",
+      "node_belief_blf_airllm_isolated_advisory",
+      "node_belief_blf_floors_53_registered",
+      "node_belief_blf_quantum_simulated_only",
+      "node_belief_blf_registry_truth_outranks_model"
+    ]
+  },
+  "entropy": {
+    "entropy_score": 17.2,
+    "stability_score": 92.0,
+    "drift_score": 8.0,
+    "confidence_score": 70.0,
+    "contradiction_score": 20.0,
+    "urgency_score": 12.4,
+    "explanation": [
+      "1 contradiction(s) detected.",
+      "1 stale memory flag(s)."
+    ],
+    "recommended_review_targets": [
+      "eqsb_contradiction_report.json",
+      "eqsb_continuity_state.json"
+    ]
+  },
+  "quantum_signal": {
+    "mode": "simulated_quantum_entropy",
+    "real_quantum_source_connected": false,
+    "qiskit_connected": false,
+    "ibm_quantum_connected": false,
+    "quantum_hardware_active": false,
+    "uncertainty_score": 0.7333,
+    "selected_hypothesis_id": "hyp_oanda_credentials_missing",
+    "collapse_reason": "highest normalized weight after registry-evidence measurement; collapse is advisory only and has no execution link",
+    "decoherence_factors": [
+      "contradictions present"
+    ],
+    "entangled_symbols": [
+      [
+        "SYMBOL_KERNEL_SELF",
+        "SYMBOL_GUARDIAN"
+      ],
+      [
+        "SYMBOL_AXIOM",
+        "SYMBOL_BELIEF"
+      ],
+      [
+        "SYMBOL_BELIEF",
+        "SYMBOL_CONTRADICTION"
+      ],
+      [
+        "SYMBOL_QUANTUM_SIGNAL",
+        "SYMBOL_HYPOTHESIS"
+      ],
+      [
+        "SYMBOL_ENTROPY",
+        "SYMBOL_DRIFT"
+      ]
+    ],
+    "kernel_truth_note": "This signal is symbolic uncertainty modeling. EQSB never claims real quantum hardware unless verified. Collapse is advisory and has no execution link."
+  },
+  "hypotheses": {
+    "count": 11,
+    "by_severity": {
+      "info": 5,
+      "warning": 2,
+      "MEDIUM": 3,
+      "LOW": 1
+    },
+    "status_counts": {
+      "CANDIDATE": 9,
+      "ACTIVE": 1,
+      "SELECTED": 1,
+      "WEAKENED": 0,
+      "REJECTED": 0,
+      "QUARANTINED": 0
+    },
+    "selected_hypothesis_id": "hyp_quantum_simulated_advisory",
+    "examples": [
+      {
+        "hypothesis_id": "hyp_kernel_state_stable",
+        "statement": "Kernel state is stable.",
+        "status": "CANDIDATE",
+        "confidence": 0.65
+      },
+      {
+        "hypothesis_id": "hyp_kernel_introspection_registry_backed",
+        "statement": "Kernel introspection is registry-backed.",
+        "status": "ACTIVE",
+        "confidence": 0.92
+      },
+      {
+        "hypothesis_id": "hyp_beliefs_need_review",
+        "statement": "Some beliefs need review.",
+        "status": "CANDIDATE",
+        "confidence": 0.5
+      },
+      {
+        "hypothesis_id": "hyp_entropy_rising_stale",
+        "statement": "Entropy is rising due to stale state.",
+        "status": "CANDIDATE",
+        "confidence": 0.3
+      },
+      {
+        "hypothesis_id": "hyp_model_paraphrase_conflicts_registry",
+        "statement": "A model paraphrase conflicts with registry truth.",
+        "status": "CANDIDATE",
+        "confidence": 0.35
+      },
+      {
+        "hypothesis_id": "hyp_missing_registry_weakens_continuity",
+        "statement": "A missing registry weakens continuity.",
+        "status": "CANDIDATE",
+        "confidence": 0.45
+      },
+      {
+        "hypothesis_id": "hyp_quantum_simulated_advisory",
+        "statement": "Quantum signal is simulated and advisory.",
+        "status": "SELECTED",
+        "confidence": 0.92
+      },
+      {
+        "hypothesis_id": "hyp_oanda_credentials_missing",
+        "statement": "OANDA practice pricing not ready \u2014 likely missing creds",
+        "status": "CANDIDATE",
+        "confidence": 0.6
+      }
+    ]
+  },
+  "contradictions": {
+    "count": 0,
+    "by_severity": {},
+    "examples": []
+  },
+  "model_governance": {
+    "lane_count": 4,
+    "lanes": [
+      {
+        "lane_id": "lane_local_ollama",
+        "role": "local_advisory_speech_paraphrase",
+        "execution_allowed": false,
+        "registry_truth_outranks": true
+      },
+      {
+        "lane_id": "lane_local_llama",
+        "role": "local_advisory_reasoning",
+        "execution_allowed": false,
+        "registry_truth_outranks": true
+      },
+      {
+        "lane_id": "lane_airllm_chamber",
+        "role": "isolated_advisory_reasoning",
+        "execution_allowed": false,
+        "registry_truth_outranks": true
+      },
+      {
+        "lane_id": "lane_future_locked_provider",
+        "role": "external_provider_advisory_reserved",
+        "execution_allowed": false,
+        "registry_truth_outranks": true
+      }
+    ],
+    "validation_rules": [
+      "model output is advisory",
+      "model output must be checked against registry truth",
+      "model output must not overwrite structured state",
+      "model output must not invent Kernel state",
+      "model output must not erase uncertainty",
+      "model output must not claim real quantum hardware unless verified",
+      "model output must be labelled paraphrase when not registry-backed",
+      "model output may never enable execution gates"
+    ],
+    "governance_outputs": [
+      "accepted",
+      "advisory_only",
+      "rejected",
+      "contradiction_detected",
+      "requires_human_review"
+    ]
+  },
+  "replay_ledger": {
+    "event_count_total": 316,
+    "events_by_kind": {
+      "deep_audit": 12,
+      "build_identity_and_axioms": 11,
+      "build_memory_policy": 20,
+      "build_belief_lifecycle": 20,
+      "build_symbolic_graph": 20,
+      "detect_contradictions": 20,
+      "build_hypotheses": 20,
+      "compute_entropy": 20,
+      "compute_quantum_signal": 20,
+      "build_model_lane_governance": 20,
+      "build_advisory_decision_protocol": 11,
+      "build_quantum_roadmap": 11,
+      "build_kernel_introspection": 19,
+      "major_audit": 17,
+      "build_architecture_layers": 8,
+      "build_axioms": 9,
+      "build_continuity_state": 9,
+      "build_symbol_registry": 9,
+      "build_symbolic_state": 9,
+      "build_guardian_state": 9,
+      "cadence_tick": 9,
+      "build_replay_ledger": 7,
+      "build_kernel_self_audit": 6
+    },
+    "repair_suggestions": []
+  },
+  "architecture": {
+    "phase": "EQSB_KERNEL_MAJOR_DEEP_SYMBOLIC_QUANTUM_CORE_V1",
+    "layer_count": 16,
+    "layer_names": [
+      "Kernel Safety Envelope",
+      "Identity / Constitution",
+      "Axiom System",
+      "Cadence / Heartbeat",
+      "Memory / Continuity System",
+      "Belief Lifecycle Engine",
+      "Symbol Registry",
+      "Symbolic Graph",
+      "Entropy / Drift / Stability Engine",
+      "Quantum-Symbolic Signal Engine",
+      "Hypothesis Engine",
+      "Contradiction Detector",
+      "Model Lane Governance",
+      "Guardian Kernel Layer",
+      "Kernel Introspection Engine",
+      "Replay / Audit Ledger"
+    ]
+  },
+  "major_audit": {
+    "missing_count": 0,
+    "what_to_build_next": []
+  },
+  "safe_next_repairs": [
+    "Inspect kernel chat output for primary_lane field.",
+    "Re-run audit; check continuity_state stale_memory_flags.",
+    "Re-run entropy after next cadence tick.",
+    "Re-run major_audit to refresh missing_count.",
+    "Refresh belief lifecycle on next cadence tick.",
+    "Sample kernel_dialogue logs for paraphrase-vs-registry drift.",
+    "Verify Qiskit / IBM Quantum credentials before any promotion."
+  ],
+  "confidence_statement": "EQSB is the persistent symbolic Kernel. Registry-backed truth outranks model paraphrase. Execution gates remain locked at code level; Guardian validates every transition.",
+  "lock_state": {
+    "lock_count_true": 0,
+    "execution_allowed": false,
+    "active_local_only": true
+  },
+  "kernel_truth_note": "EQSB is the persistent symbolic kernel. Models may paraphrase; only the registries are kernel truth. The quantum signal is simulated; no real quantum hardware is connected unless verified.",
+  "active_local_only": true,
+  "advisory_only": true,
+  "execution_allowed": false,
+  "paper_only": true,
+  "not_financial_advice": true,
+  "worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "external_provider_execution_enabled": false,
+  "openclaw_execution_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "live_dispatch_enabled": false,
+  "direct_provider_access": false,
+  "live_trading_enabled": false,
+  "order_execution_enabled": false,
+  "practice_order_execution_enabled": false,
+  "stock_order_execution_enabled": false,
+  "stock_live_trading_enabled": false,
+  "stock_paper_order_execution_enabled": false,
+  "binance_order_execution_enabled": false,
+  "binance_live_trading_enabled": false,
+  "model_inference_enabled": false,
+  "autonomous_workers_enabled": false,
+  "maintenance_auto_repair_enabled": false,
+  "web_access_autonomous_enabled": false,
+  "introspection_hash": "e2ac4a5965ffaf8e"
+}

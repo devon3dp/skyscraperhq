@@ -1,0 +1,27 @@
+{
+  "floor_id": "floor_153",
+  "floor_number": 153,
+  "floor_name": "Penthouse",
+  "department": "kernel_reserved_v1",
+  "zone": "ZONE F \u00b7 CROWN",
+  "archetype": "kernel_reserved_v1",
+  "staff_lead": "TBD",
+  "tour_blurb": "Penthouse, reserved per CLAUDE.md for future QSB Kernel 4.5 installation. KERNEL-FREE. No workers, no execution. May contain the inherited symbolic local-only kernel artifact (active_local_only via rebased_kernel) for local narration only, never promoted.",
+  "visitor_open": false,
+  "advisory_only": true,
+  "execution_mode": "PREVIEW_ONLY",
+  "skeleton": true,
+  "skeleton_source": "floor_manifest.json",
+  "skeleton_generated_ts": "2026-06-17",
+  "live_signals": {
+    "theme": null,
+    "categories": null,
+    "palette": null,
+    "tagline": null
+  },
+  "gate_posture": {
+    "advisory_only": true,
+    "execution_allowed": false,
+    "live_payments_enabled": false
+  }
+}

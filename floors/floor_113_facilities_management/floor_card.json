@@ -1,0 +1,74 @@
+{
+  "floor_id": "floor_113",
+  "floor_number": 113,
+  "floor_name": "Facilities Management",
+  "department": "designed_by_f66_architects_v1",
+  "zone": "ZONE E \u00b7 MID-RISE",
+  "archetype": "designed_by_f66_architects_v1",
+  "staff_lead": "F66 Architects' Office",
+  "tour_blurb": "maintenance + cleaning + grounds",
+  "visitor_open": false,
+  "advisory_only": true,
+  "execution_mode": "PREVIEW_ONLY",
+  "skeleton": true,
+  "skeleton_source": "floor_manifest.json",
+  "skeleton_generated_ts": "2026-06-17",
+  "live_signals": {
+    "theme": null,
+    "categories": null,
+    "palette": null,
+    "tagline": null
+  },
+  "gate_posture": {
+    "advisory_only": true,
+    "execution_allowed": false,
+    "live_payments_enabled": false
+  },
+  "team_roster": [
+    {
+      "id": "f113.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "promoted_from": "sim_worker_floor_52",
+      "promoted_from_floor": "floor_36_expansion_planning_department",
+      "promotion_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F113",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f113.operator.01",
+      "promoted_from": "sim_worker_floor_53",
+      "promoted_from_floor": "floor_36_expansion_planning_department"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F113",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f113.operator.02",
+      "spawned_id": "645305c11d"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F113",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f113.operator.03",
+      "spawned_id": "0f6e9031fe"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F113",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f113.operator.04",
+      "spawned_id": "b758bcc908"
+    }
+  ],
+  "floor_manager": "f113.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

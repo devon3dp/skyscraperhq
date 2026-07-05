@@ -1,0 +1,21 @@
+infrastructure_services_department:
+  version: 1.1
+  floor_id: floor_35
+  role: building_operations_and_maintenance_layer
+  execution_enabled: false
+  hardwired_providers: false
+  models_required: false
+  kernel_required: false
+  providers_are_external: true
+
+principle: Floor 35 records and checks infrastructure readiness. It does not execute repair hooks, providers, adapters, models, CLI commands, or kernel logic.
+
+watch_scope:
+  - startup shutdown scripts
+  - runtime files
+  - sqlite databases
+  - log directories
+  - backup readiness
+  - repair hook registry
+  - maintenance hook registry
+  - service-control visibility

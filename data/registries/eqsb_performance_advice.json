@@ -1,0 +1,16 @@
+{
+  "ok": true,
+  "kind": "eqsb_performance_advice",
+  "generated_ts": "2026-06-30T13:46:34.317432+00:00",
+  "advice": [
+    "Less than 4 GiB VRAM free \u2014 avoid concurrent Ollama + AirLLM loads.",
+    "Dashboard backups exceed 1 GiB \u2014 prune old backup folders periodically."
+  ],
+  "advisory_only": true,
+  "execution_allowed": false,
+  "may_modify_system": false,
+  "active_local_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

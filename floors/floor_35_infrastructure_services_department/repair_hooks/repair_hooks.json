@@ -1,0 +1,30 @@
+[
+  {
+    "id": "repair_lift_network",
+    "name": "Lift Network Repair Hook",
+    "target": "src/tower/lifts.py",
+    "status": "registered_not_executable",
+    "execution_enabled": false
+  },
+  {
+    "id": "repair_monitoring",
+    "name": "Monitoring Repair Hook",
+    "target": "src/tower/monitoring_department.py",
+    "status": "registered_not_executable",
+    "execution_enabled": false
+  },
+  {
+    "id": "repair_dashboard",
+    "name": "Dashboard Repair Hook",
+    "target": "src/dashboard/server.py",
+    "status": "registered_not_executable",
+    "execution_enabled": false
+  },
+  {
+    "id": "repair_registries",
+    "name": "Registry Repair Hook",
+    "target": "data/registries",
+    "status": "registered_not_executable",
+    "execution_enabled": false
+  }
+]

@@ -1,0 +1,284 @@
+{
+  "ok": true,
+  "kind": "qsb_floor_profit_alignment_map",
+  "generated_ts": "2026-06-30T13:46:36.976330+00:00",
+  "map": [
+    {
+      "floor": 1,
+      "secondary": "Order Fulfilment Hub",
+      "profit_contribution": "direct"
+    },
+    {
+      "floor": 2,
+      "secondary": "Customer Memory Vault",
+      "profit_contribution": "direct"
+    },
+    {
+      "floor": 3,
+      "secondary": "Product Research Lab",
+      "profit_contribution": "direct"
+    },
+    {
+      "floor": 4,
+      "secondary": "Knowledge Library + Classroom Wing",
+      "profit_contribution": "kernel_evolution"
+    },
+    {
+      "floor": 5,
+      "secondary": "Code Observatory + Dev Squad",
+      "profit_contribution": "kernel_evolution"
+    },
+    {
+      "floor": 6,
+      "secondary": "Etsy Shop Floor",
+      "profit_contribution": "direct"
+    },
+    {
+      "floor": 7,
+      "secondary": "Shopify Storefront Floor",
+      "profit_contribution": "direct"
+    },
+    {
+      "floor": 8,
+      "secondary": "Trading + Commerce Classrooms",
+      "profit_contribution": "kernel_evolution"
+    },
+    {
+      "floor": 9,
+      "secondary": "Design Quality Review + Mistake Lab",
+      "profit_contribution": "direct"
+    },
+    {
+      "floor": 10,
+      "secondary": "Strategy Lab + Sandbox Coupling",
+      "profit_contribution": "direct"
+    },
+    {
+      "floor": 11,
+      "secondary": "Demand + Competitor Watch",
+      "profit_contribution": "direct"
+    },
+    {
+      "floor": 12,
+      "secondary": "Commerce + Trading Risk Bench",
+      "profit_contribution": "direct"
+    },
+    {
+      "floor": 13,
+      "secondary": "Product Image Studio + Mockup Wall",
+      "profit_contribution": "direct"
+    },
+    {
+      "floor": 14,
+      "secondary": "Print-on-Demand Floor",
+      "profit_contribution": "direct"
+    },
+    {
+      "floor": 15,
+      "secondary": "Voice Commerce Studio",
+      "profit_contribution": "support"
+    },
+    {
+      "floor": 16,
+      "secondary": "Listing Writer + SEO Lab",
+      "profit_contribution": "direct"
+    },
+    {
+      "floor": 17,
+      "secondary": "Product Design Studio + Prompt-to-Product",
+      "profit_contribution": "direct"
+    },
+    {
+      "floor": 18,
+      "secondary": "Marketing + Promotion Floor",
+      "profit_contribution": "direct"
+    },
+    {
+      "floor": 19,
+      "secondary": "Customer Service Floor",
+      "profit_contribution": "direct"
+    },
+    {
+      "floor": 20,
+      "secondary": "Platform Integration Bench",
+      "profit_contribution": "kernel_evolution"
+    },
+    {
+      "floor": 21,
+      "secondary": "Format / Schema Translation",
+      "profit_contribution": "kernel_evolution"
+    },
+    {
+      "floor": 22,
+      "secondary": "Lifts Department Operations",
+      "profit_contribution": "kernel_evolution"
+    },
+    {
+      "floor": 23,
+      "secondary": "AirLLM Chamber",
+      "profit_contribution": "kernel_evolution"
+    },
+    {
+      "floor": 24,
+      "secondary": "Lane Governance",
+      "profit_contribution": "kernel_evolution"
+    },
+    {
+      "floor": 25,
+      "secondary": "OpenClaw Coordination Office",
+      "profit_contribution": "kernel_evolution"
+    },
+    {
+      "floor": 26,
+      "secondary": "Commerce Accounting Floor",
+      "profit_contribution": "direct"
+    },
+    {
+      "floor": 27,
+      "secondary": "Local Model Drafting Bench",
+      "profit_contribution": "kernel_evolution"
+    },
+    {
+      "floor": 28,
+      "secondary": "Security Operations Center",
+      "profit_contribution": "kernel_evolution"
+    },
+    {
+      "floor": 29,
+      "secondary": "Guardian Watch",
+      "profit_contribution": "kernel_evolution"
+    },
+    {
+      "floor": 30,
+      "secondary": "Permissions / Risk Department",
+      "profit_contribution": "kernel_evolution"
+    },
+    {
+      "floor": 31,
+      "secondary": "Audit / Ledger Department",
+      "profit_contribution": "direct"
+    },
+    {
+      "floor": 32,
+      "secondary": "Platform Compliance Office",
+      "profit_contribution": "support"
+    },
+    {
+      "floor": 33,
+      "secondary": "Refund / Dispute Desk + Diagnostics",
+      "profit_contribution": "direct"
+    },
+    {
+      "floor": 34,
+      "secondary": "Storefront Analytics Room",
+      "profit_contribution": "direct"
+    },
+    {
+      "floor": 35,
+      "secondary": "Hardware Systems Floor",
+      "profit_contribution": "kernel_evolution"
+    },
+    {
+      "floor": 36,
+      "secondary": "Workforce Expansion Planning",
+      "profit_contribution": "kernel_evolution"
+    },
+    {
+      "floor": 37,
+      "secondary": "Strategy Labs",
+      "profit_contribution": "direct"
+    },
+    {
+      "floor": 38,
+      "secondary": "Sandbox Ops Coupling",
+      "profit_contribution": "direct"
+    },
+    {
+      "floor": 39,
+      "secondary": "Worker Recreation Floor",
+      "profit_contribution": "workforce_recovery"
+    },
+    {
+      "floor": 40,
+      "secondary": "Worker Rest / Dormitory Floor",
+      "profit_contribution": "workforce_recovery"
+    },
+    {
+      "floor": 41,
+      "secondary": "OANDA Practice Trading",
+      "profit_contribution": "direct"
+    },
+    {
+      "floor": 42,
+      "secondary": "Binance Testnet Preview",
+      "profit_contribution": "direct"
+    },
+    {
+      "floor": 43,
+      "secondary": "Stocks Paper Preview",
+      "profit_contribution": "direct"
+    },
+    {
+      "floor": 44,
+      "secondary": "Trading + Commerce Accounting",
+      "profit_contribution": "direct"
+    },
+    {
+      "floor": 45,
+      "secondary": "Worker Recruitment",
+      "profit_contribution": "kernel_evolution"
+    },
+    {
+      "floor": 46,
+      "secondary": "Executive Liaison + Concierge",
+      "profit_contribution": "kernel_evolution"
+    },
+    {
+      "floor": 47,
+      "secondary": "Executive Ops Department",
+      "profit_contribution": "kernel_evolution"
+    },
+    {
+      "floor": 48,
+      "secondary": "Strategic Plan Office",
+      "profit_contribution": "kernel_evolution"
+    },
+    {
+      "floor": 49,
+      "secondary": "Resource Mgmt Department",
+      "profit_contribution": "kernel_evolution"
+    },
+    {
+      "floor": 50,
+      "secondary": "Building Governance Council",
+      "profit_contribution": "kernel_evolution"
+    },
+    {
+      "floor": 51,
+      "secondary": "Executive Council Office",
+      "profit_contribution": "kernel_evolution"
+    },
+    {
+      "floor": 52,
+      "secondary": "Infrastructure Command",
+      "profit_contribution": "kernel_evolution"
+    },
+    {
+      "floor": 53,
+      "secondary": "Tower Command Department",
+      "profit_contribution": "kernel_evolution"
+    }
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "worker_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "live_payments_enabled": false,
+  "live_listings_publishing_enabled": false,
+  "external_api_calls_enabled": false,
+  "secrets_in_logs": false,
+  "manual_approval_required_for_commerce": true
+}

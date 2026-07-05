@@ -1,0 +1,10 @@
+{
+  "ok": true,
+  "kind": "qsb_godot_floor_inspector_repair_status",
+  "ts": "2026-06-09T21:07:08Z",
+  "panel": "Floor tab in RightPanelTabs",
+  "rendered_via": "HUDController.update_floor_inspector -> right_tabs.set_tab_text(floor, ...)",
+  "fields": ["name","department","status","rooms","manager","watcher","worker_estimate","team_estimate","notes","next_action"],
+  "scroll_enabled": true,
+  "no_raw_json_dump": true
+}

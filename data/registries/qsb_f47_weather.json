@@ -1,0 +1,21 @@
+{
+  "ok": true,
+  "kind": "qsb_f47_weather",
+  "generated_ts": "2026-06-10T22:08:11Z",
+  "hour_label": "late",
+  "mood": "focused",
+  "kernel_mode": "RESEARCH",
+  "synth_outputs_total": 3,
+  "trade_summary": {
+    "wins": 1,
+    "losses": 17,
+    "total_pnl": -27.5815
+  },
+  "sky": "clear, cool, productive light",
+  "sub_weather": [
+    "with showers of timeouts",
+    "research-mode tailwind"
+  ],
+  "report": "F47 weather \u00b7 late \u00b7 clear, cool, productive light \u00b7 with showers of timeouts, research-mode tailwind.",
+  "advisory_only": true
+}

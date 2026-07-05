@@ -1,0 +1,34 @@
+{
+  "room_id": "editorial_office",
+  "name": "Editorial Office",
+  "category": "workshop",
+  "purpose": "Home to the editors who refine and prepare manuscripts for publication.",
+  "concierge_blurb": "Meet the editors shaping tomorrow's academic discourse today.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -5.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      6,
+      4
+    ],
+    "height_m": 2.3
+  },
+  "render": {
+    "primary_prop": "desk",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Editorial Office",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_100"
+}

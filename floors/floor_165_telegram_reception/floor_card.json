@@ -1,0 +1,59 @@
+{
+  "floor_id": "floor_165",
+  "floor_number": 165,
+  "floor_name": "Telegram Reception",
+  "department": "F165 Telegram Reception",
+  "zone": "external_comms",
+  "archetype": "reception",
+  "staff_lead": "Telegram Receptionist",
+  "tour_blurb": "And right at the top, Telegram Reception \u2014 a small, attentive desk that receives messages from outside via Telegram, hands them to the lobby for greeting, and carries replies back out. A modest floor with a long view, keeping the Tower in touch with friends beyond the building.",
+  "visitor_open": true,
+  "advisory_only": true,
+  "endpoints": [],
+  "live_signals": {
+    "systemd_unit_status": "activating",
+    "systemd_unit_probe": "systemctl --user is-active qsb-telegram-receptionist.service",
+    "bot_handle_tbd": true,
+    "vault_stub_path": "floors/floor_28_security_department/vault/.env.telegram",
+    "vault_stub_read": false,
+    "upstream_lobby": "F0 Reception (/api/f0/greet, /api/f0/converse, /api/f0/close)",
+    "transport": "telegram_long_poll"
+  },
+  "evidence_paths": [
+    "data/registries/floors.json",
+    "data/registries/qsb_open_day_tour.json",
+    "floors/floor_28_security_department/vault/.env.telegram"
+  ],
+  "built_at": "2026-06-14T00:00:00Z",
+  "built_by": "skyscraper_floor_card_push",
+  "lessons_learned_for_next_agent": "F165 sits in 'activating' until Ross pastes the BotFather token into vault/.env.telegram \u2014 do NOT read the vault file to inspect contents; only confirm the stub path exists. The floor proxies inbound DMs to F0 (greet/converse/close), so any F165 health check must also verify F0 endpoints are alive before declaring F165 healthy.",
+  "team_roster": [
+    {
+      "id": "f165.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "spawned_id": "9152c9edb0",
+      "spawned_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F165",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f165.operator.01",
+      "spawned_id": "26dabe62c3"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F165",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f165.operator.02",
+      "spawned_id": "f57752f938"
+    }
+  ],
+  "floor_manager": "f165.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

@@ -1,0 +1,34 @@
+{
+  "room_id": "quilltree_library",
+  "name": "Resource Library",
+  "category": "library",
+  "purpose": "A space for staff to access and share information.",
+  "concierge_blurb": "Resources at your fingertips \u2014 our library is always open.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 6.0,
+    "offset_z": -4.0,
+    "footprint_m": [
+      8,
+      5
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "library_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Library",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": null,
+    "refresh_seconds": 0
+  },
+  "floor": "floor_156"
+}

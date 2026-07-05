@@ -1,0 +1,14 @@
+{
+  "ok": true, "kind": "qsb_tower_lift_positions", "ts": "2026-06-09T22:06:58Z",
+  "lifts": [
+    {"lift_id":1,"current_floor":1,"target_floor":55,"direction":1,"state":"moving"},
+    {"lift_id":2,"current_floor":12,"target_floor":41,"direction":1,"state":"moving"},
+    {"lift_id":3,"current_floor":35,"target_floor":35,"direction":0,"state":"idle"},
+    {"lift_id":4,"current_floor":22,"target_floor":42,"direction":1,"state":"moving"},
+    {"lift_id":5,"current_floor":50,"target_floor":50,"direction":0,"state":"loading"},
+    {"lift_id":6,"current_floor":8,"target_floor":53,"direction":1,"state":"moving"},
+    {"lift_id":7,"current_floor":30,"target_floor":28,"direction":-1,"state":"moving"},
+    {"lift_id":8,"current_floor":44,"target_floor":31,"direction":-1,"state":"arriving"},
+    {"lift_id":9,"current_floor":46,"target_floor":6,"direction":-1,"state":"moving"}
+  ]
+}

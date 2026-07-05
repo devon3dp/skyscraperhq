@@ -1,0 +1,24 @@
+{
+  "ok": true,
+  "kind": "qsb_profit_mission_map",
+  "generated_ts": "2026-06-30T13:46:34.684167+00:00",
+  "mission": "Safe, disciplined, repeatable paper/testnet profit. Real-money trading remains disabled.",
+  "department_to_profit_role": {
+    "Trading Floors (41/42/43)": "create paper/testnet trade events",
+    "Accounts / PnL Department": "record results, post to ledger",
+    "Audit / Ledger": "verify logs",
+    "Lessons Room": "review mistakes",
+    "Training Academy": "retrain weak workers",
+    "Rewards Office": "reward strong workers",
+    "Disciplinary Review Board": "handle repeated rule failures",
+    "Recruitment Agency": "fill gaps",
+    "Worker Operations Control": "assign workers",
+    "Kernel / Penthouse": "summary + Colonel briefings"
+  },
+  "real_money_live_trading_enabled": false,
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "openclaw_real_tool_execution_enabled": false
+}

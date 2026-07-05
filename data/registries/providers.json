@@ -1,0 +1,51 @@
+[
+  {
+    "id": "air_llm_cloud",
+    "name": "AIR LLM Cloud",
+    "location": "roof_external",
+    "status": "not_connected",
+    "hardwired": false
+  },
+  {
+    "id": "claude",
+    "name": "Claude",
+    "location": "external_provider",
+    "status": "not_connected",
+    "hardwired": false
+  },
+  {
+    "id": "ollama",
+    "name": "Ollama",
+    "location": "external_provider",
+    "status": "optional_detectable",
+    "hardwired": false
+  },
+  {
+    "id": "deepseek",
+    "name": "DeepSeek",
+    "location": "external_provider",
+    "status": "not_connected",
+    "hardwired": false
+  },
+  {
+    "id": "openai",
+    "name": "OpenAI",
+    "location": "external_provider",
+    "status": "not_connected",
+    "hardwired": false
+  },
+  {
+    "id": "gemini",
+    "name": "Gemini",
+    "location": "external_provider",
+    "status": "not_connected",
+    "hardwired": false
+  },
+  {
+    "id": "future_models",
+    "name": "Future Models",
+    "location": "external_provider",
+    "status": "expansion_ready",
+    "hardwired": false
+  }
+]

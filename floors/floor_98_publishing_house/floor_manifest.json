@@ -1,0 +1,42 @@
+{
+  "ok": true,
+  "floor_number": 98,
+  "floor_name": "Publishing House",
+  "floor_kind": "designed_by_f66_architects_v1",
+  "description": "books + magazines + digital",
+  "designed_by": "F66 Architects' Office",
+  "designed_ts": "2026-06-11T09:13:04.497262Z",
+  "role_inventory": [
+    "Publisher",
+    "Senior Editor",
+    "Acquisitions Editor",
+    "Production Manager",
+    "Cover Designer",
+    "Marketing"
+  ],
+  "advisory_only": true,
+  "interior_brief": {
+    "archetype": "press_room",
+    "palette": [
+      "#181818",
+      "#404040",
+      "#e8e8e8"
+    ],
+    "furniture": [
+      "desks",
+      "meeting area",
+      "common space",
+      "storage"
+    ],
+    "lighting": "task + ambient",
+    "mood": "deadline-driven",
+    "designed_by": "F66 Architects + F17 Graphics + Fitters team",
+    "fitted_at": "2026-06-11T14:39:45.620109Z",
+    "godot_scene_brief": "render an generic floor with neutral grey + accent per floor theme palette, professional mood, key furniture: desks, meeting area, common space",
+    "signature": "Newsroom desks, printing press, headline wall",
+    "diversified_ts": "2026-06-11T17:57:45Z",
+    "diversified_by": "qsb_archetype_diversifier_v1"
+  },
+  "fitted_out": true,
+  "fit_out_ts": "2026-06-11T14:39:45.620109Z"
+}

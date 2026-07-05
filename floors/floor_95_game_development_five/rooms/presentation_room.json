@@ -1,0 +1,34 @@
+{
+  "room_id": "presentation_room",
+  "name": "Presentation Room",
+  "category": "window",
+  "purpose": "This room is for presenting and demonstrating game concepts.",
+  "concierge_blurb": "A large windowed room with a stage for presentations.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 5.0,
+    "offset_z": -2.0,
+    "footprint_m": [
+      10,
+      8
+    ],
+    "height_m": 2.3
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Preset.",
+    "glow": false
+  },
+  "interactive": {
+    "type": "toggle",
+    "source_path": "data/registries/presentation_room_toggle.jsonl",
+    "display": "status_dot",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_95"
+}

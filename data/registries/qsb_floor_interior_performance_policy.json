@@ -1,0 +1,13 @@
+{
+  "ok": true,
+  "kind": "qsb_floor_interior_performance_policy",
+  "ts": "2026-06-09T21:35:07Z",
+  "tower_view_strategy": "worker density badges only",
+  "interior_view_strategy": "individual animated worker avatars",
+  "worker_cap_per_interior": 60,
+  "overflow_badge_format": "+ N active workers",
+  "pooled_avatars": true,
+  "queue_free_on_leave": true,
+  "lights_per_interior_max": 3,
+  "rationale": "Avoid rendering 2191 individual workers; LOD cap prevents lag on llvmpipe SW renderer."
+}

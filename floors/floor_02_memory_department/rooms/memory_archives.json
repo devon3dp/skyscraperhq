@@ -1,0 +1,34 @@
+{
+  "room_id": "memory_archives",
+  "name": "Archive Vault",
+  "category": "archive",
+  "purpose": "Holds important records and documents.",
+  "concierge_blurb": "Explore the secure vaults of the Memory Department.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      15,
+      8
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "archive_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Archival Vault",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/archives.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_2"
+}

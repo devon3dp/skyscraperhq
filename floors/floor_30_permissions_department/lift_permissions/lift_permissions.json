@@ -1,0 +1,73 @@
+[
+  {
+    "lift": "main_low_rise",
+    "allowed_zones": [
+      "ZONE A"
+    ],
+    "sealed_packets_required": true
+  },
+  {
+    "lift": "main_mid_rise",
+    "allowed_zones": [
+      "ZONE A",
+      "ZONE B"
+    ],
+    "sealed_packets_required": true
+  },
+  {
+    "lift": "main_high_rise",
+    "allowed_zones": [
+      "ZONE B",
+      "ZONE C"
+    ],
+    "sealed_packets_required": true
+  },
+  {
+    "lift": "executive_lift",
+    "allowed_zones": [
+      "ZONE D",
+      "penthouse"
+    ],
+    "sealed_packets_required": true
+  },
+  {
+    "lift": "service_lift",
+    "allowed_zones": [
+      "all"
+    ],
+    "sealed_packets_required": true
+  },
+  {
+    "lift": "memory_lift",
+    "allowed_zones": [
+      "selected_memory_archive_floors"
+    ],
+    "sealed_packets_required": true
+  },
+  {
+    "lift": "model_lift",
+    "allowed_zones": [
+      "floor_21",
+      "floor_23",
+      "floor_24",
+      "floor_26",
+      "floor_27",
+      "roof"
+    ],
+    "sealed_packets_required": true
+  },
+  {
+    "lift": "security_lift",
+    "allowed_zones": [
+      "all_security_controlled"
+    ],
+    "sealed_packets_required": true
+  },
+  {
+    "lift": "emergency_stairwell",
+    "allowed_zones": [
+      "all"
+    ],
+    "sealed_packets_required": false
+  }
+]

@@ -1,0 +1,21 @@
+{
+  "ok": true,
+  "kind": "qsb_floor_worker_animation_status",
+  "ts": "2026-06-09T21:35:07Z",
+  "per_floor_default": {
+    "animated_workers": "min(worker_count, 60)",
+    "states_in_use": "all 10",
+    "department_specific_seed": true
+  },
+  "department_seed": {
+    "trading": ["working","researching","monitoring"],
+    "hardware": ["monitoring"],
+    "classroom": ["teaching","researching"],
+    "banking": ["working","auditing"],
+    "security": ["inspecting","monitoring"],
+    "kernel": ["inspecting","researching"],
+    "generic": ["working","idle","walking"]
+  },
+  "transitions_per_tick_fraction": 0.10,
+  "openclaw_inspection_when_present": true
+}

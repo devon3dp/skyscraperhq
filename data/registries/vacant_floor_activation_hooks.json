@@ -1,0 +1,82 @@
+[
+  {
+    "hook_id": "activate_floor_41",
+    "floor_id": "floor_41",
+    "status": "registered_not_executable",
+    "activation_execution_enabled": false,
+    "requires_manual_approval": true,
+    "required_checks": [
+      "floor_exists",
+      "floor_registered",
+      "lift_access_ready",
+      "utilities_ready",
+      "security_spine_ready",
+      "dashboard_visibility_ready"
+    ],
+    "notice": "Activation hook is a readiness record only. It does not modify the floor automatically."
+  },
+  {
+    "hook_id": "activate_floor_42",
+    "floor_id": "floor_42",
+    "status": "registered_not_executable",
+    "activation_execution_enabled": false,
+    "requires_manual_approval": true,
+    "required_checks": [
+      "floor_exists",
+      "floor_registered",
+      "lift_access_ready",
+      "utilities_ready",
+      "security_spine_ready",
+      "dashboard_visibility_ready"
+    ],
+    "notice": "Activation hook is a readiness record only. It does not modify the floor automatically."
+  },
+  {
+    "hook_id": "activate_floor_43",
+    "floor_id": "floor_43",
+    "status": "registered_not_executable",
+    "activation_execution_enabled": false,
+    "requires_manual_approval": true,
+    "required_checks": [
+      "floor_exists",
+      "floor_registered",
+      "lift_access_ready",
+      "utilities_ready",
+      "security_spine_ready",
+      "dashboard_visibility_ready"
+    ],
+    "notice": "Activation hook is a readiness record only. It does not modify the floor automatically."
+  },
+  {
+    "hook_id": "activate_floor_44",
+    "floor_id": "floor_44",
+    "status": "registered_not_executable",
+    "activation_execution_enabled": false,
+    "requires_manual_approval": true,
+    "required_checks": [
+      "floor_exists",
+      "floor_registered",
+      "lift_access_ready",
+      "utilities_ready",
+      "security_spine_ready",
+      "dashboard_visibility_ready"
+    ],
+    "notice": "Activation hook is a readiness record only. It does not modify the floor automatically."
+  },
+  {
+    "hook_id": "activate_floor_45",
+    "floor_id": "floor_45",
+    "status": "registered_not_executable",
+    "activation_execution_enabled": false,
+    "requires_manual_approval": true,
+    "required_checks": [
+      "floor_exists",
+      "floor_registered",
+      "lift_access_ready",
+      "utilities_ready",
+      "security_spine_ready",
+      "dashboard_visibility_ready"
+    ],
+    "notice": "Activation hook is a readiness record only. It does not modify the floor automatically."
+  }
+]

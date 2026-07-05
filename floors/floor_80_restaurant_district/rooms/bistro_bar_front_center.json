@@ -1,0 +1,34 @@
+{
+  "room_id": "bistro_bar_front_center",
+  "name": "Bistro Bar",
+  "category": "seating",
+  "purpose": "Serving guests with casual dining options.",
+  "concierge_blurb": "A warm and inviting bistro bar awaits your arrival, offering a variety of dishes and drinks.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.5,
+    "offset_z": -1.0,
+    "footprint_m": [
+      8,
+      4
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "bench",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Bistro Bench",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_80"
+}

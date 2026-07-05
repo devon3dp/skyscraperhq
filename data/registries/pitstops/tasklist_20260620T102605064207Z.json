@@ -1,0 +1,9 @@
+[
+  {"id":"1","subject":"Finish Qwen2.5-32B download ASAP","status":"in_progress","note":"~38-40 GB on disk (last checked ~30 min ago), 8 curls running dual-iface, ETA was ~4h"},
+  {"id":"7","subject":"Close Phase 2 of trader learning loop","status":"pending"},
+  {"id":"8","subject":"Save wren-as-live-backup-twin memory rule","status":"pending"},
+  {"id":"9","subject":"Per-floor walkable 3D interiors","status":"in_progress","note":"STAGE A+B+C v1 + skyscraper-scale dims SHIPPED. 5 smoke floors regenerated at bigger dims. F47 25 rooms have layout/render/interactive blocks."},
+  {"id":"10","subject":"Port godot carpark + lobby apron to cockpit3d","status":"in_progress","note":"CARPARK CODE WRITTEN at line 1476 of cockpit3d/index.html — IIFE buildTowerBaseScene. Includes: carpark slab 20x14, yellow grid, 7 parked cars w/ colors, sign+pole, 4 lampposts, lobby apron, reception desk+lamp+sign, canopy, 3 spotlights, path lights, welcome mat. BUT: latest headless screenshot did NOT show the carpark visually — needs investigation. Possible: (a) camera angle wrong in test, (b) IIFE runs before makeLabelSprite is declared at line 1690 (BUT function declarations are hoisted in ES modules so should work)."},
+  {"id":"11","subject":"Launch godot dashboard alongside browser cockpit","status":"pending"},
+  {"id":"12","subject":"Wire godot to /api/floor_rooms/<n> for parallel sync","status":"pending"}
+]

@@ -1,0 +1,34 @@
+{
+  "room_id": "presentation_room",
+  "name": "Presentation Room",
+  "category": "seating",
+  "purpose": "This room is for presenting models to clients and stakeholders.",
+  "concierge_blurb": "Visitors see a setup for model presentations with seating for observers.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.0,
+    "offset_z": -8.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 3.0
+  },
+  "render": {
+    "primary_prop": "seating_set",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Presentation Room",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": null,
+    "refresh_seconds": 0
+  },
+  "floor": "floor_27"
+}

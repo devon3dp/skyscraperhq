@@ -1,0 +1,31 @@
+{
+  "room_id": "conference_room",
+  "name": "Conference Room",
+  "category": "seating",
+  "purpose": "A space for meetings and presentations.",
+  "concierge_blurb": "Comfortable seating and a large screen for presentations.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -8.0,
+    "offset_z": -5.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "chair_set",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Conference Chairs",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_13"
+}

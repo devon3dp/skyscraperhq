@@ -1,0 +1,31 @@
+{
+  "room_id": "production_editing",
+  "name": "Production Editing Room",
+  "category": "operations",
+  "purpose": "Edits and produces the final broadcasts.",
+  "concierge_blurb": "This is where post-production magic happens.",
+  "current_state": "already_exists",
+  "visitor_open": false,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": 8.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "workbench",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Production Edit",
+    "glow": true
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_90"
+}

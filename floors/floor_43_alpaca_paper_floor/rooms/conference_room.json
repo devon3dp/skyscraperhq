@@ -1,0 +1,31 @@
+{
+  "room_id": "conference_room",
+  "name": "Strategy Room",
+  "category": "operations",
+  "purpose": "Room for high-level strategy meetings and briefings.",
+  "concierge_blurb": "A private space for important discussions and strategic planning.",
+  "current_state": "already_exists",
+  "visitor_open": false,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      15,
+      12
+    ],
+    "height_m": 3.0
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Strategy Room",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_43"
+}

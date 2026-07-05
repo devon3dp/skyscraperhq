@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "kind": "qsb_godot_floor_interiors_status",
+  "phase": "QSB_GODOT_NATIVE_COCKPIT_PROFESSIONAL_LAYOUT_POLISH_V1",
+  "generated_ts": "2026-06-09T21:05:00+00:00",
+  "policy": "Selected floor gets a distinct interior accent (desks/servers/charts/etc) so each floor looks alive, not empty.",
+  "interiors": [
+    {"floor": 53, "name": "Penthouse / Kernel",   "renderer": "_build_penthouse",     "accent_color": "gold + blue"},
+    {"floor": 41, "name": "OANDA Trading",        "renderer": "_build_trading_desk",  "accent_color": "green"},
+    {"floor": 42, "name": "Binance Testnet",      "renderer": "_build_trading_desk",  "accent_color": "gold"},
+    {"floor": 43, "name": "Stocks Paper",         "renderer": "_build_trading_desk",  "accent_color": "blue"},
+    {"floor": 44, "name": "Accounts / Ledger",    "renderer": "_build_ledger",        "accent_color": "cream"},
+    {"floor": 35, "name": "Hardware Systems",     "renderer": "_build_server_rack",   "accent_color": "green LED"},
+    {"floor": 46, "name": "Commerce Wing",        "renderer": "_build_commerce",      "accent_color": "warm brown"},
+    {"floor": 48, "name": "Lumen AI",             "renderer": "_build_lumen",         "accent_color": "gold orb"},
+    {"floor": 49, "name": "Tower Studio",         "renderer": "_build_studio",        "accent_color": "soft cream"},
+    {"floor": 50, "name": "ML/RL Lab",            "renderer": "_build_ml_lab",        "accent_color": "purple GPU"},
+    {"floor": 51, "name": "Research",             "renderer": "_build_research",      "accent_color": "tan books"},
+    {"floor": 25, "name": "Worker Recruitment",   "renderer": "_build_recruitment",   "accent_color": "blue cubicles"},
+    {"floor": "*",  "name": "(any other floor)",   "renderer": "_build_default",       "accent_color": "subtle desk pad"}
+  ],
+  "summary": {"polished_floors": 12, "default_floors": 41, "total_floors": 53, "all_floors_have_interior": true}
+}

@@ -1,0 +1,31 @@
+{
+  "record_id": "f47_floor_buildout_batch_4_fleet_roster_wall",
+  "ts_utc": "2026-06-14T17:35:00Z",
+  "floor": "floor_47",
+  "batch": "4_roster_wall",
+  "builder": "f47_floor_buildout_batch_4 (claude opus 4.7)",
+  "authorization": "CLAUDE.md 2026-06-13 workshop bench amendment + Ross 2026-06-14 batch_4 single-room dispatch",
+  "items_built": [
+    "fleet_roster_wall"
+  ],
+  "artifacts_written": [
+    "floors/floor_47_executive_operations_department/rooms/fleet_roster_wall.json"
+  ],
+  "mirror_source": "data/registries/qsb_f47_fleet_roster.json",
+  "verification": {
+    "category_counts_sum_to_total": true,
+    "total": 250,
+    "advisory_only_flag_surfaced": true,
+    "concierge_blurb_visitor_safe": true,
+    "constraints_respected": {
+      "no_claude_md_edit": true,
+      "no_vault_edit": true,
+      "no_env_edit": true,
+      "no_gate_edit": true,
+      "no_recompute_from_operatives_array": true
+    }
+  },
+  "lessons_appended_to": "data/registries/qsb_f47_agent_lessons.jsonl",
+  "visitor_open": true,
+  "advisory_only": true
+}

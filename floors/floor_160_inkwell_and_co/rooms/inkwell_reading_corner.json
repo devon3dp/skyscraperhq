@@ -1,0 +1,34 @@
+{
+  "room_id": "inkwell_reading_corner",
+  "name": "Reading Nook",
+  "category": "seating",
+  "purpose": "A cozy spot to relax and read.",
+  "concierge_blurb": "Find a comfortable chair and lose yourself in a good book.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -6.5,
+    "offset_z": 7.0,
+    "footprint_m": [
+      3,
+      2
+    ],
+    "height_m": 1.8
+  },
+  "render": {
+    "primary_prop": "chair_set",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Reading Nook",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": null,
+    "refresh_seconds": 600
+  },
+  "floor": "floor_160"
+}

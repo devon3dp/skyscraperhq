@@ -1,0 +1,34 @@
+{
+  "room_id": "living_light_workshop",
+  "name": "Living Light Workshop",
+  "category": "workshop",
+  "purpose": "To demonstrate and teach about the production of eco-friendly products.",
+  "concierge_blurb": "Watch artisans create sustainable items right before your eyes.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": -2.0,
+    "footprint_m": [
+      10,
+      8
+    ],
+    "height_m": 1.5
+  },
+  "render": {
+    "primary_prop": "bench",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Workshop",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 0
+  },
+  "floor": "floor_162"
+}

@@ -1,0 +1,22 @@
+{
+  "ok": true,
+  "kind": "qsb_worker_animation_contract",
+  "ts": "2026-06-09T21:35:07Z",
+  "states": ["idle","walking","working","inspecting","teaching","researching","auditing","monitoring","carrying_packet","warning"],
+  "animations": [
+    {"name":"idle bob",              "owner":"WorkerAvatar.gd",            "trigger":"state==idle"},
+    {"name":"walk between stations", "owner":"WorkerAvatar.gd",            "trigger":"state==walking"},
+    {"name":"desk work loop",        "owner":"WorkerAvatar.gd",            "trigger":"state in [working,auditing,researching,monitoring,teaching]"},
+    {"name":"packet carry loop",     "owner":"WorkerAvatar.gd",            "trigger":"state==carrying_packet"},
+    {"name":"head/marker turn",      "owner":"WorkerAvatar.gd",            "trigger":"state in [working,inspecting]"},
+    {"name":"OpenClaw inspection path","owner":"OpenClawInteriorInspector.gd","trigger":"lane traversal"},
+    {"name":"warning pulse",         "owner":"WorkerAvatar.gd",            "trigger":"state==warning"},
+    {"name":"classroom teaching loop","owner":"WorkerAvatar.gd",           "trigger":"state==teaching"},
+    {"name":"trading analysis loop", "owner":"WorkerAvatar.gd",            "trigger":"state==researching (trading)"},
+    {"name":"audit writing loop",    "owner":"WorkerAvatar.gd",            "trigger":"state==auditing"},
+    {"name":"server monitoring loop","owner":"WorkerAvatar.gd",            "trigger":"state==monitoring (hardware)"}
+  ],
+  "animator":   "WorkerActivityAnimator.gd",
+  "step_period_seconds": 2.0,
+  "step_fraction_per_tick": 0.10
+}

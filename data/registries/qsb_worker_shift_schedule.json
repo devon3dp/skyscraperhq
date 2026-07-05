@@ -1,0 +1,35 @@
+{
+  "ok": true,
+  "kind": "qsb_worker_shift_schedule",
+  "generated_ts": "2026-06-30T13:46:36.978126+00:00",
+  "shifts": [
+    {
+      "shift": "alpha",
+      "hours": "00-08",
+      "lead_floor": 40
+    },
+    {
+      "shift": "beta",
+      "hours": "08-16",
+      "lead_floor": 40
+    },
+    {
+      "shift": "gamma",
+      "hours": "16-24",
+      "lead_floor": 40
+    }
+  ],
+  "rotation_cadence": "every cadence tick (~24h)",
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "worker_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "live_payments_enabled": false,
+  "live_listings_publishing_enabled": false,
+  "external_api_calls_enabled": false,
+  "secrets_in_logs": false,
+  "manual_approval_required_for_commerce": true
+}

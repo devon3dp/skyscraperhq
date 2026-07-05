@@ -1,0 +1,34 @@
+{
+  "room_id": "event_space",
+  "name": "Event Space",
+  "category": "seating",
+  "purpose": "A versatile space for hosting talks, workshops, and private viewings.",
+  "concierge_blurb": "Join us for an intimate talk or event.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": -8.0,
+    "footprint_m": [
+      25,
+      15
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "chair_set",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Event Space",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_71"
+}

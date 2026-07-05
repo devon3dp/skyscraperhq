@@ -1,0 +1,34 @@
+{
+  "room_id": "game_library",
+  "name": "Game Library",
+  "category": "library",
+  "purpose": "This room houses a collection of game development tools and resources.",
+  "concierge_blurb": "A library filled with game development software and books.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "left_wall",
+    "offset_x": -8.0,
+    "offset_z": 4.0,
+    "footprint_m": [
+      12,
+      7
+    ],
+    "height_m": 2.2
+  },
+  "render": {
+    "primary_prop": "archive_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Game Lib.",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_95"
+}

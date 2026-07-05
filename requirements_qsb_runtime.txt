@@ -1,0 +1,25 @@
+# QSB Tower V1.3 — Runtime Requirements
+# Phase: QSB_TOWER_RUNTIME_VENV_STANDARDIZATION_V1
+# Scope: dashboard server, skyscraper cockpit, sidecars, AutoLoop,
+#        OANDA Floor 41, Binance Floor 42, OpenClaw sandbox visual layer,
+#        Strategy Intelligence, Correlation, kernel chat/talk scripts.
+#
+# Hard exclusions (must NOT be added here):
+#   - airllm
+#   - torch
+#   - transformers
+#   - optimum
+#   - accelerate
+#   - bitsandbytes
+#   - any CUDA / large-model packages
+#
+# Audit result (2026-06-08): src/ and scripts/ tree imports stdlib only
+# (http.server, urllib, json, sqlite3, hashlib, hmac, etc.). No third-party
+# packages are currently required by QSB runtime modules. This file is
+# therefore intentionally empty of pinned packages — it exists so future
+# minimal QSB-only dependencies can be tracked here without ever mixing
+# with the AirLLM Big Model Chamber environment at /vaults/ai/airllm_lab/.venv.
+#
+# To install (only after adding a real dependency below):
+#   source scripts/qsb_env.sh
+#   pip install -r requirements_qsb_runtime.txt

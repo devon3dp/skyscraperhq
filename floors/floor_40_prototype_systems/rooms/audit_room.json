@@ -1,0 +1,34 @@
+{
+  "room_id": "audit_room",
+  "name": "Audit Room",
+  "category": "audit",
+  "purpose": "This room is for conducting internal audits and reviews.",
+  "concierge_blurb": "Enter the audit room to see where regulations meet reality.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -6.0,
+    "offset_z": 7.5,
+    "footprint_m": [
+      12,
+      9
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "archive_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Audit Logs",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_40"
+}

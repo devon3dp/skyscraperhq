@@ -1,0 +1,113 @@
+{
+  "schema_version": "eqsb_major_v1.0",
+  "kind": "eqsb_quantum_signal_state",
+  "generated_ts": "2026-06-09T08:56:44.957392+00:00",
+  "mode": "simulated_quantum_entropy",
+  "real_quantum_source_connected": false,
+  "qiskit_connected": false,
+  "qiskit_importable_in_venv": false,
+  "ibm_quantum_connected": false,
+  "quantum_hardware_active": false,
+  "advisory_only": true,
+  "no_external_quantum_calls": true,
+  "no_quantum_trading_decisions": true,
+  "execution_link": false,
+  "entropy_seed_source": "sha256:1c6be4064e283efd8b063d04",
+  "superposition_hypotheses": [
+    {
+      "label": "OANDA practice pricing not ready \u2014 likely missing creds",
+      "hypothesis_id": "hyp_oanda_credentials_missing",
+      "weight": 0.6,
+      "advisory_only": true,
+      "normalized_weight": 0.2667
+    },
+    {
+      "label": "Stocks public market data not ready",
+      "hypothesis_id": "hyp_stocks_market_data_stalled",
+      "weight": 0.55,
+      "advisory_only": true,
+      "normalized_weight": 0.2444
+    },
+    {
+      "label": "Entropy score climbing above 0.5",
+      "hypothesis_id": "hyp_entropy_climbing",
+      "weight": 0.6,
+      "advisory_only": true,
+      "normalized_weight": 0.2667
+    },
+    {
+      "label": "Contradiction detected: Floor named in qsb_floor_name_map.json but no manifest dir",
+      "hypothesis_id": "hyp_ctr_floor_named_no_manifest",
+      "weight": 0.5,
+      "advisory_only": true,
+      "normalized_weight": 0.2222
+    }
+  ],
+  "selected_hypothesis": {
+    "label": "OANDA practice pricing not ready \u2014 likely missing creds",
+    "hypothesis_id": "hyp_oanda_credentials_missing",
+    "weight": 0.6,
+    "advisory_only": true,
+    "normalized_weight": 0.2667
+  },
+  "collapse_reason": "highest normalized weight after registry-evidence measurement; collapse is advisory only and has no execution link",
+  "decoherence_factors": [
+    "contradictions present"
+  ],
+  "entangled_symbols": [
+    [
+      "SYMBOL_KERNEL_SELF",
+      "SYMBOL_GUARDIAN"
+    ],
+    [
+      "SYMBOL_AXIOM",
+      "SYMBOL_BELIEF"
+    ],
+    [
+      "SYMBOL_BELIEF",
+      "SYMBOL_CONTRADICTION"
+    ],
+    [
+      "SYMBOL_QUANTUM_SIGNAL",
+      "SYMBOL_HYPOTHESIS"
+    ],
+    [
+      "SYMBOL_ENTROPY",
+      "SYMBOL_DRIFT"
+    ]
+  ],
+  "confidence_distribution": [
+    0.2667,
+    0.2444,
+    0.2667,
+    0.2222
+  ],
+  "uncertainty_score": 0.7333,
+  "last_measurement_ts": "2026-06-09T08:56:44.957510+00:00",
+  "kernel_truth_note": "This signal is symbolic uncertainty modeling. EQSB never claims real quantum hardware unless verified. Collapse is advisory and has no execution link.",
+  "active_local_only": true,
+  "execution_allowed": false,
+  "paper_only": true,
+  "not_financial_advice": true,
+  "worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "external_provider_execution_enabled": false,
+  "openclaw_execution_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "live_dispatch_enabled": false,
+  "direct_provider_access": false,
+  "live_trading_enabled": false,
+  "order_execution_enabled": false,
+  "practice_order_execution_enabled": false,
+  "stock_order_execution_enabled": false,
+  "stock_live_trading_enabled": false,
+  "stock_paper_order_execution_enabled": false,
+  "binance_order_execution_enabled": false,
+  "binance_live_trading_enabled": false,
+  "model_inference_enabled": false,
+  "autonomous_workers_enabled": false,
+  "maintenance_auto_repair_enabled": false,
+  "web_access_autonomous_enabled": false,
+  "quantum_signal_hash": "c93c3fa75cda2730"
+}

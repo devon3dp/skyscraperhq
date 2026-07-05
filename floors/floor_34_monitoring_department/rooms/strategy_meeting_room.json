@@ -1,0 +1,34 @@
+{
+  "room_id": "strategy_meeting_room",
+  "name": "Strategy Meeting Room",
+  "category": "operations",
+  "purpose": "A room designed for team meetings and strategy sessions.",
+  "concierge_blurb": "Comfortable seating and a large conference table are available for discussions.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 7.0,
+    "offset_z": -6.5,
+    "footprint_m": [
+      12.0,
+      8.0
+    ],
+    "height_m": 2.3
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Strategy Room",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_34"
+}

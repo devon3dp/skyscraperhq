@@ -1,0 +1,72 @@
+{
+  "floor_id": "floor_97",
+  "floor_number": 97,
+  "floor_name": "Translation Bureau",
+  "department": "designed_by_f66_architects_v1",
+  "zone": "ZONE D \u00b7 COMMERCE WING",
+  "archetype": "designed_by_f66_architects_v1",
+  "staff_lead": "F66 Architects' Office",
+  "tour_blurb": "multilingual content",
+  "visitor_open": false,
+  "advisory_only": true,
+  "execution_mode": "PREVIEW_ONLY",
+  "skeleton": true,
+  "skeleton_source": "floor_manifest.json",
+  "skeleton_generated_ts": "2026-06-17",
+  "live_signals": {
+    "theme": null,
+    "categories": null,
+    "palette": null,
+    "tagline": null
+  },
+  "gate_posture": {
+    "advisory_only": true,
+    "execution_allowed": false,
+    "live_payments_enabled": false
+  },
+  "team_roster": [
+    {
+      "id": "f097.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "spawned_id": "8dc4d7c8db",
+      "spawned_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F097",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f097.operator.01",
+      "spawned_id": "e0865d159b"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F097",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f097.operator.02",
+      "spawned_id": "dc7c91be6a"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F097",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f097.operator.03",
+      "spawned_id": "002cc2f41f"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F097",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f097.operator.04",
+      "spawned_id": "8a42a55a05"
+    }
+  ],
+  "floor_manager": "f097.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

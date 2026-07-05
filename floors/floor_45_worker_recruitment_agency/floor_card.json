@@ -1,0 +1,64 @@
+{
+  "floor_id": "floor_45",
+  "floor_number": 45,
+  "floor_name": "Worker Recruitment Agency",
+  "department": "Worker Recruitment Agency",
+  "zone": "ZONE C \u00b7 CRAFT + COMMERCE",
+  "archetype": "generic",
+  "staff_lead": "TBD",
+  "tour_blurb": "Worker Recruitment Agency \u2014 a floor in the QSB Tower. Skeleton card auto-generated; full fit-out pending.",
+  "visitor_open": false,
+  "advisory_only": true,
+  "execution_mode": "PREVIEW_ONLY",
+  "skeleton": true,
+  "skeleton_source": "floor_manifest.json",
+  "skeleton_generated_ts": "2026-06-17",
+  "live_signals": {
+    "theme": null,
+    "categories": null,
+    "palette": null,
+    "tagline": null
+  },
+  "gate_posture": {
+    "advisory_only": true,
+    "execution_allowed": false,
+    "live_payments_enabled": false
+  },
+  "team_roster": [
+    {
+      "id": "f045.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "spawned_id": "75eb095c3f",
+      "spawned_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F045",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f045.operator.01",
+      "spawned_id": "04e732204c"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F045",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f045.operator.02",
+      "spawned_id": "02ee4d1120"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F045",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f045.operator.03",
+      "spawned_id": "cf6cc3eec9"
+    }
+  ],
+  "floor_manager": "f045.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

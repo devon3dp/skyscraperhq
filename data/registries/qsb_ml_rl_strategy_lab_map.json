@@ -1,0 +1,30 @@
+{
+  "ok": true,
+  "kind": "qsb_ml_rl_strategy_lab_map",
+  "phase": "QSB_ML_RL_LAB_CLASSROOM_RESEARCH_WORKER_INTEGRATION_V1",
+  "generated_ts": "2026-06-09T16:49:28+00:00",
+  "primary_floors": [
+    37,
+    38,
+    10
+  ],
+  "strategy_lab_workflow": [
+    "1. researcher proposes hypothesis (experiment registry)",
+    "2. risk reviews reward design (floor 30)",
+    "3. agent trained on paper/sandbox data only",
+    "4. results recorded in experiment registry",
+    "5. lessons clerk writes lesson; audit clerk stamps trail",
+    "6. NO unlock for live trading"
+  ],
+  "approval_gate_for_live_unlock": "NEVER in this phase \u2014 explicit human unlock required in a future phase",
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "live_payments_enabled": false,
+  "live_listings_publishing_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "worker_execution_enabled": false,
+  "secrets_in_logs": false
+}

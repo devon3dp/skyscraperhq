@@ -1,0 +1,31 @@
+{
+  "record_id": "f47_floor_buildout_batch_4",
+  "ts_utc": "2026-06-14T17:25:00Z",
+  "floor": "floor_47",
+  "batch": "4_morning_briefing_podium",
+  "builder": "f47_floor_buildout_batch_4 (claude opus 4.7)",
+  "authorization": "CLAUDE.md 2026-06-13 workshop bench amendment + Ross 2026-06-14 F47 buildout helm window",
+  "items_built": [
+    "morning_briefing_podium"
+  ],
+  "artifacts_written": [
+    "floors/floor_47_executive_operations_department/rooms/morning_briefing_podium.json"
+  ],
+  "verification": {
+    "jq_parse": "pass",
+    "files_present": 1,
+    "files_expected": 1,
+    "constraints_respected": {
+      "no_claude_md_edit": true,
+      "no_vault_edit": true,
+      "no_env_edit": true,
+      "no_gate_edit": true,
+      "visitor_safe_concierge_blurb": true,
+      "live_signals_point_at_real_files": true,
+      "last_briefing_excerpt_verbatim_first_200_chars": true,
+      "last_briefing_ts_set": "2026-06-14T17:10:00Z"
+    }
+  },
+  "lessons_appended_to": "data/registries/qsb_f47_agent_lessons.jsonl",
+  "advisory_only": true
+}

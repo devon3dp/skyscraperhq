@@ -1,0 +1,42 @@
+{
+  "ok": true,
+  "kind": "qsb_floor49_projects",
+  "generated_ts": "2026-07-05T06:46:31+00:00",
+  "policy": "Project pipeline. Advisory. No automatic billing. Real invoicing requires operator gate flip.",
+  "project_count": 1,
+  "by_status": {
+    "in_progress": 1
+  },
+  "total_quoted_usd": 950.0,
+  "total_invoiced_usd": 0.0,
+  "projects": [
+    {
+      "project_id": "proj_seed_001",
+      "customer_id": "cust_seed_001",
+      "sku": "TS-LP-STARTER",
+      "name": "Landing Page (Starter)",
+      "status": "in_progress",
+      "assigned_workers": [
+        "worker_designer_01",
+        "worker_frontend_01",
+        "worker_copywriter_01"
+      ],
+      "deliverables_done": [
+        "wireframe approved",
+        "hero illustration draft"
+      ],
+      "deliverables_pending": [
+        "hero illustration final",
+        "copy revision pass",
+        "deploy-ready bundle"
+      ],
+      "quoted_price_usd": 950.0,
+      "invoiced_amount_usd": 0.0,
+      "started_ts": 1780684532.3159575,
+      "due_ts": 1781116532.315958,
+      "notes": [
+        "Customer prefers warm earth tones."
+      ]
+    }
+  ]
+}

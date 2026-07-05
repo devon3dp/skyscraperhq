@@ -1,0 +1,22 @@
+{
+  "id": "g",
+  "level": "G",
+  "name": "Reception and Command Lobby",
+  "role": "Dashboard entry, user command intake, building directory, session reception, and global overview.",
+  "status": "online",
+  "kernel_required": false,
+  "kernel_installed": false,
+  "models_required": false,
+  "execution_enabled": false,
+  "worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "providers_are_external": true,
+  "lift_access": [
+    "main_low_rise",
+    "service_lift",
+    "security_lift",
+    "emergency_stairwell"
+  ],
+  "created_or_verified": "2026-06-07T18:02:02.927885+00:00",
+  "notice": "Infrastructure service layer only. No kernel, workers, or provider execution enabled."
+}

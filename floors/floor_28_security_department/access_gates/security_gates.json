@@ -1,0 +1,53 @@
+[
+  {
+    "id": "penthouse_gate",
+    "name": "Penthouse Access Gate",
+    "floor": "floor_28",
+    "protects": "penthouse",
+    "status": "ready_not_enforcing",
+    "requires": [
+      "permissions_check",
+      "guardian_check",
+      "audit_record"
+    ],
+    "enforcement_enabled": false
+  },
+  {
+    "id": "model_lift_gate",
+    "name": "Model Lift Gate",
+    "floor": "floor_28",
+    "protects": "model_lift",
+    "status": "ready_not_enforcing",
+    "requires": [
+      "sealed_packet",
+      "route_permission",
+      "audit_record"
+    ],
+    "enforcement_enabled": false
+  },
+  {
+    "id": "external_provider_gate",
+    "name": "External Provider Gate",
+    "floor": "floor_28",
+    "protects": "floor_23_and_roof",
+    "status": "ready_not_enforcing",
+    "requires": [
+      "adapter_permission",
+      "provider_socket_permission",
+      "audit_record"
+    ],
+    "enforcement_enabled": false
+  },
+  {
+    "id": "service_lift_gate",
+    "name": "Service Lift Gate",
+    "floor": "floor_28",
+    "protects": "service_lift",
+    "status": "ready_not_enforcing",
+    "requires": [
+      "maintenance_permission",
+      "audit_record"
+    ],
+    "enforcement_enabled": false
+  }
+]

@@ -1,0 +1,34 @@
+{
+  "room_id": "econ_data_analysis_room",
+  "name": "Data Analysis Studio",
+  "category": "operations",
+  "purpose": "A space for data analysis and statistical modeling.",
+  "concierge_blurb": "See the power of data in economic research.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 6.0,
+    "offset_z": 2.0,
+    "footprint_m": [
+      10,
+      8
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "workstation",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Data Studio",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 0
+  },
+  "floor": "floor_140"
+}

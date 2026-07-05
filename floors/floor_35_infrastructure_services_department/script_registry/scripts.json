@@ -1,0 +1,51 @@
+[
+  {
+    "id": "setup_script",
+    "path": "setup.sh",
+    "purpose": "Initial tower installation",
+    "required": false,
+    "execution_enabled": false
+  },
+  {
+    "id": "run_script",
+    "path": "run.sh",
+    "purpose": "Start dashboard service",
+    "required": true,
+    "execution_enabled": false
+  },
+  {
+    "id": "stop_script",
+    "path": "stop.sh",
+    "purpose": "Stop dashboard service",
+    "required": true,
+    "execution_enabled": false
+  },
+  {
+    "id": "restart_script",
+    "path": "restart.sh",
+    "purpose": "Restart dashboard service",
+    "required": true,
+    "execution_enabled": false
+  },
+  {
+    "id": "status_script",
+    "path": "status.sh",
+    "purpose": "Check dashboard service status",
+    "required": true,
+    "execution_enabled": false
+  },
+  {
+    "id": "diagnostics_script",
+    "path": "scripts/run_floor_33_diagnostics.sh",
+    "purpose": "Run Floor 33 diagnostics",
+    "required": true,
+    "execution_enabled": false
+  },
+  {
+    "id": "monitoring_script",
+    "path": "scripts/run_floor_34_monitoring.sh",
+    "purpose": "Run Floor 34 monitoring snapshot",
+    "required": true,
+    "execution_enabled": false
+  }
+]

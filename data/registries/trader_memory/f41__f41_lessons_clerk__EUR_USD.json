@@ -1,0 +1,39 @@
+{
+  "worker_id": "f41_lessons_clerk",
+  "instrument": "EUR_USD",
+  "strategy": {
+    "name": "mean_revert",
+    "params": {
+      "lookback_min": 5,
+      "threshold_bps": 5
+    }
+  },
+  "stats": {
+    "wins": 0,
+    "losses": 1,
+    "total_pnl": -0.014,
+    "win_streak": 0,
+    "loss_streak": 1,
+    "trades_total": 1,
+    "last_trade_ts": "2026-06-21T05:22:18.563860+00:00"
+  },
+  "open_trades": [],
+  "closed_trades": [
+    {
+      "order_id": "trd_00000436",
+      "side": "BUY",
+      "qty": 100.0,
+      "entry_px": 1.08652,
+      "opened_ts": "2026-06-21T05:02:17.635825+00:00",
+      "exit_px": 1.08638,
+      "pnl": -0.014,
+      "won": false,
+      "closed_ts": "2026-06-21T05:22:18.563860+00:00",
+      "strategy_name": "ad_hoc_cohort",
+      "close_reason": "cycle_close_age_1200s"
+    }
+  ],
+  "strategy_history": [],
+  "backfilled_from": "qsb_floor41_oanda_closed_trades.json",
+  "backfilled_ts": "2026-06-21T16:22:56Z"
+}

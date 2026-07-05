@@ -1,0 +1,14 @@
+{
+  "name": "draft_floor_card",
+  "description": "Return a clean floor_card JSON template Wren can fill + then push through wren_propose_patch.",
+  "safety_class": "read",
+  "params": {
+    "floor_number": { "type": "integer", "required": true },
+    "floor_name": { "type": "string", "required": true },
+    "department": { "type": "string", "required": true },
+    "archetype": { "type": "string", "default": "generic" },
+    "tour_blurb": { "type": "string", "default": "" }
+  },
+  "authored_by": "Claude for Wren training tier-4",
+  "authored_ts": "2026-06-17"
+}

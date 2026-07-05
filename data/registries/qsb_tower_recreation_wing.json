@@ -1,0 +1,68 @@
+{
+  "ok": true,
+  "kind": "qsb_tower_recreation_wing_v1",
+  "location": "rooftop_west_wing",
+  "capacity": 500,
+  "open_hours": "17:00-22:00 + weekends",
+  "rooms": [
+    {
+      "name": "Main Lounge",
+      "capacity": 200,
+      "amenities": [
+        "couches",
+        "panorama",
+        "quiet zone"
+      ]
+    },
+    {
+      "name": "Games Room",
+      "capacity": 80,
+      "amenities": [
+        "pool",
+        "ping-pong",
+        "board games",
+        "arcade"
+      ]
+    },
+    {
+      "name": "Library",
+      "capacity": 60,
+      "amenities": [
+        "books",
+        "nooks",
+        "silence"
+      ]
+    },
+    {
+      "name": "Caf\u00e9",
+      "capacity": 70,
+      "amenities": [
+        "coffee",
+        "tea",
+        "snacks"
+      ]
+    },
+    {
+      "name": "Music Room",
+      "capacity": 30,
+      "amenities": [
+        "piano",
+        "guitar",
+        "listening pods"
+      ]
+    },
+    {
+      "name": "Garden Terrace",
+      "capacity": 60,
+      "amenities": [
+        "outdoor",
+        "plants",
+        "sunset bench"
+      ]
+    }
+  ],
+  "next_phase": "accommodation floors planned separately",
+  "authorized_by": "Ross",
+  "authorized_ts": "2026-06-11T08:25:36.968730Z",
+  "advisory_only": true
+}

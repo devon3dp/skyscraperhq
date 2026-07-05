@@ -1,0 +1,34 @@
+{
+  "record_id": "f47_floor_buildout_batch_5_health_pulse_panel",
+  "ts_utc": "2026-06-14T17:01:30Z",
+  "floor": "floor_47",
+  "batch": "5_ambience_and_pulse",
+  "item_id": "health_pulse_panel",
+  "builder": "f47_floor_buildout_batch_5 (claude opus 4.7)",
+  "authorization": "CLAUDE.md 2026-06-13 workshop bench amendment + Ross 2026-06-14 25-agent helm window",
+  "items_built": ["health_pulse_panel"],
+  "artifacts_written": [
+    "floors/floor_47_executive_operations_department/rooms/health_pulse_panel.json"
+  ],
+  "live_signals_computed": {
+    "open_work": 0,
+    "last_audit_check_ts": "2026-06-10T21:47:36Z",
+    "last_apply_ts": "2026-06-14T16:43:40Z",
+    "traffic_light": "red",
+    "traffic_light_reason": "audit board stale (>48h)"
+  },
+  "verification": {
+    "json_parse": "pass",
+    "schema_matches_prior_rooms": true,
+    "acceptance_test_met": "three integers + traffic_light derived from named source jsonls",
+    "constraints_respected": {
+      "no_claude_md_edit": true,
+      "no_vault_edit": true,
+      "no_env_edit": true,
+      "no_gate_edit": true,
+      "visitor_safe_concierge_blurb": true
+    }
+  },
+  "lessons_appended_to": "data/registries/qsb_f47_agent_lessons.jsonl",
+  "advisory_only": true
+}

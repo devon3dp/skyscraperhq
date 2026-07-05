@@ -1,0 +1,140 @@
+{
+  "ts": "2026-07-05T17:52:44Z",
+  "lastTransactionID": 13132,
+  "fills_with_pl": 1604,
+  "grand_pl_gbp": -1637.8303,
+  "by_instrument": {
+    "AUD_USD": {
+      "pl": 1.6468,
+      "trades": 3,
+      "wins": 2,
+      "losses": 1
+    },
+    "BCO_USD": {
+      "pl": -1.3392,
+      "trades": 3,
+      "wins": 2,
+      "losses": 1
+    },
+    "DE30_EUR": {
+      "pl": -3.3859,
+      "trades": 6,
+      "wins": 1,
+      "losses": 5
+    },
+    "EUR_GBP": {
+      "pl": -2.87,
+      "trades": 4,
+      "wins": 0,
+      "losses": 4
+    },
+    "EUR_USD": {
+      "pl": 136.9268,
+      "trades": 494,
+      "wins": 171,
+      "losses": 323
+    },
+    "GBP_JPY": {
+      "pl": -0.3367,
+      "trades": 1,
+      "wins": 0,
+      "losses": 1
+    },
+    "GBP_USD": {
+      "pl": -58.9239,
+      "trades": 614,
+      "wins": 231,
+      "losses": 383
+    },
+    "JP225_USD": {
+      "pl": -920.8325,
+      "trades": 9,
+      "wins": 0,
+      "losses": 9
+    },
+    "NAS100_USD": {
+      "pl": -375.051,
+      "trades": 8,
+      "wins": 3,
+      "losses": 5
+    },
+    "NATGAS_USD": {
+      "pl": 3.5778,
+      "trades": 2,
+      "wins": 1,
+      "losses": 1
+    },
+    "SPX500_USD": {
+      "pl": -9.7561,
+      "trades": 3,
+      "wins": 0,
+      "losses": 3
+    },
+    "UK100_GBP": {
+      "pl": 23.5,
+      "trades": 1,
+      "wins": 1,
+      "losses": 0
+    },
+    "UK10YB_GBP": {
+      "pl": -0.95,
+      "trades": 5,
+      "wins": 0,
+      "losses": 5
+    },
+    "US30_USD": {
+      "pl": -179.7135,
+      "trades": 2,
+      "wins": 0,
+      "losses": 2
+    },
+    "USB10Y_USD": {
+      "pl": -0.1963,
+      "trades": 6,
+      "wins": 1,
+      "losses": 5
+    },
+    "USD_CHF": {
+      "pl": 0.1018,
+      "trades": 1,
+      "wins": 1,
+      "losses": 0
+    },
+    "USD_JPY": {
+      "pl": 34.9353,
+      "trades": 421,
+      "wins": 173,
+      "losses": 248
+    },
+    "WHEAT_USD": {
+      "pl": -0.6095,
+      "trades": 1,
+      "wins": 0,
+      "losses": 1
+    },
+    "WTICO_USD": {
+      "pl": -2.0095,
+      "trades": 3,
+      "wins": 0,
+      "losses": 3
+    },
+    "XAG_USD": {
+      "pl": -108.0531,
+      "trades": 5,
+      "wins": 0,
+      "losses": 5
+    },
+    "XAU_USD": {
+      "pl": -174.2975,
+      "trades": 9,
+      "wins": 1,
+      "losses": 8
+    },
+    "XCU_USD": {
+      "pl": -0.1941,
+      "trades": 3,
+      "wins": 1,
+      "losses": 2
+    }
+  }
+}

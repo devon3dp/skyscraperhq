@@ -1,0 +1,6 @@
+{
+  "quiet": true,
+  "quiet_until_iso": "2026-06-15T07:00:00Z",
+  "reason": "ross asleep \u2014 pushes silent / suppressed until 08:00 BST",
+  "note_for_pushers": "any sendMessage during quiet hours must include disable_notification=true OR skip entirely"
+}

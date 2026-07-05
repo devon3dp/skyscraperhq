@@ -1,0 +1,34 @@
+{
+  "room_id": "data_center",
+  "name": "Data Analysis Room",
+  "category": "operations",
+  "purpose": "Analyzes and interprets data.",
+  "concierge_blurb": "Rows of screens displaying complex data visualizations.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.0,
+    "offset_z": -4.5,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "monitor_array",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Data Center",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 0
+  },
+  "floor": "floor_3"
+}

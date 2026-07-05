@@ -1,0 +1,34 @@
+{
+  "room_id": "content_curation_hub",
+  "name": "Content Curation Hub",
+  "category": "operations",
+  "purpose": "Curate and organize content for various digital platforms.",
+  "concierge_blurb": "A hub where content is reviewed, edited, and published.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "center",
+    "offset_x": 0.0,
+    "offset_z": -2.5,
+    "footprint_m": [
+      4.0,
+      3.0
+    ],
+    "height_m": 1.8
+  },
+  "render": {
+    "primary_prop": "plinth",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Content Hub",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_16"
+}

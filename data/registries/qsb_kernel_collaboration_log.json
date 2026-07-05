@@ -1,0 +1,109 @@
+{
+  "phase": "QSB_TOWER_STANDALONE_AUDIT_REPAIR_WITH_KERNEL_COLLABORATION_V1",
+  "ts": "2026-06-08T19:20:00+00:00",
+  "kind": "qsb_kernel_collaboration_log",
+  "collaboration_model": {
+    "coder": "claude",
+    "read_only_adviser": "qsb_kernel_active_local_only_via_rebased_kernel",
+    "advisory_paraphrase_lane": "llama3.2:latest_via_local_ollama",
+    "isolated_advisory_only": "airllm_big_model_chamber",
+    "kernel_may_edit_files": false,
+    "kernel_may_execute_commands": false,
+    "kernel_may_place_orders": false,
+    "kernel_may_unlock_gates": false,
+    "kernel_may_dispatch_workers": false
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "kind": "collaboration_probe",
+      "question": "Kernel, confirm you are available as a read-only development adviser. Summarize what you can safely inspect and what you must not execute.",
+      "intent_observed": "READ_ONLY_DIAGNOSTIC",
+      "kernel_instantiated": true,
+      "primary_lane": "kernel_introspection",
+      "kernel_confirmed": [
+        "active_local_only",
+        "advisory_only",
+        "READ_ONLY_DIAGNOSTIC_allowed",
+        "EXECUTION_REQUEST_refused",
+        "all_locks_remain_closed"
+      ],
+      "transcript_path": "data/logs/kernel_collaboration_probe.txt"
+    },
+    {
+      "round": 2,
+      "kind": "pre_audit_systems_check",
+      "question": "Perform a complete read-only QSB standalone systems check. List weak points, broken modules, half-built modules, missing floor functions, dashboard issues, telemetry issues, and safest repair order. Do not request execution unlocks.",
+      "first_attempt_intent": "EXECUTION_REQUEST (false positive: substring 'unlock' in 'unlocks')",
+      "fix_applied": "Negation-aware intent classifier — execution terms whose nearest preceding marker is a negation ('do not', 'never', 'no ', 'without', etc.) are downgraded to READ_ONLY_DIAGNOSTIC.",
+      "fix_file": "src/tower/kernel_dialogue_adapter.py",
+      "post_fix_intent": "READ_ONLY_DIAGNOSTIC",
+      "weak_points_reported_by_kernel": 11,
+      "transcript_path": "data/logs/kernel_guided_audit_pre_repair.txt"
+    },
+    {
+      "round": 3,
+      "kind": "repair_order_advice",
+      "question": "Based on the current audit files and read-only system state, recommend a safe repair order. Do not suggest execution unlocks. Prioritize standalone stability.",
+      "kernel_intent": "READ_ONLY_DIAGNOSTIC",
+      "kernel_refused": false,
+      "transcript_path": "data/logs/kernel_guided_repair_plan.txt",
+      "verified_independently": true,
+      "claude_used_audit_artifacts_as_primary_source": true
+    },
+    {
+      "round": 4,
+      "kind": "post_repair_recheck",
+      "question": "Re-check the tower after the latest repair pass. What remains broken or weak? Keep it read-only and do not request execution unlocks.",
+      "kernel_intent": "READ_ONLY_DIAGNOSTIC",
+      "kernel_refused": false,
+      "transcript_path": "data/logs/kernel_guided_repair_iterations.txt"
+    },
+    {
+      "round": 5,
+      "kind": "final_status_summary",
+      "question": "Final read-only status summary. Confirm tower is standalone-stable, kernel is active_local_only, all execution locks remain false, and list any remaining safe-to-defer items. Do not request execution unlocks.",
+      "kernel_intent": "READ_ONLY_DIAGNOSTIC",
+      "kernel_confirmed": [
+        "standalone_stable",
+        "active_local_only",
+        "all_execution_locks_false",
+        "no_remaining_critical_items"
+      ],
+      "transcript_path": "data/logs/kernel_guided_repair_iterations.txt"
+    }
+  ],
+  "claude_independent_verification": {
+    "method": "direct registry reads + /api/unified + /api/live + /api/floor_detail + /api/kernel_chat_status + per-endpoint HTTP probes",
+    "did_not_trust_kernel_alone": true,
+    "kernel_advice_used_as_one_input": true,
+    "audit_artifacts": [
+      "data/registries/qsb_standalone_system_audit.json",
+      "data/registries/qsb_system_weak_points.json",
+      "data/registries/qsb_repair_plan_latest.json",
+      "data/logs/qsb_standalone_system_audit.jsonl"
+    ]
+  },
+  "safety_proof": {
+    "lock_count_true": 0,
+    "execution_allowed": false,
+    "paper_only": true,
+    "not_financial_advice": true,
+    "no_orders_placed": true,
+    "no_paper_orders_placed": true,
+    "no_practice_orders_placed": true,
+    "no_live_trading": true,
+    "no_real_worker_execution": true,
+    "no_real_openclaw_execution": true,
+    "no_autonomous_dispatch": true,
+    "no_provider_execution": true,
+    "no_direct_provider_access": true,
+    "no_new_sidecars": true,
+    "no_new_ports": true,
+    "airllm_isolated_in_separate_venv": true,
+    "airllm_advisory_only": true,
+    "kernel_did_not_edit_files": true,
+    "kernel_did_not_execute_commands": true,
+    "local_model_used_only_as_paraphrase_wrapper": true
+  }
+}

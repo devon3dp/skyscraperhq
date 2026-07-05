@@ -1,0 +1,31 @@
+{
+  "room_id": "break_room",
+  "name": "Break Room",
+  "category": "seating",
+  "purpose": "A space for staff to take breaks and relax.",
+  "concierge_blurb": "Comfortable seating and refreshments are provided here.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 4.0,
+    "offset_z": -2.0,
+    "footprint_m": [
+      15,
+      8
+    ],
+    "height_m": 2.3
+  },
+  "render": {
+    "primary_prop": "chair_set",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Break Room",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_23"
+}

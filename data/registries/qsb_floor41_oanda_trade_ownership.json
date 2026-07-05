@@ -1,0 +1,12 @@
+{
+  "ok": true,
+  "kind": "qsb_floor41_oanda_trade_ownership",
+  "generated_ts": "2026-06-12T13:46:35+00:00",
+  "policy": "Map of oanda_trade_id \u2192 owning worker_id. Closer must match.",
+  "ownership": {
+    "154": "demo_worker_A",
+    "209": "demo_worker_A",
+    "211": "demo_worker_B",
+    "213": "f41_risk_sentinel"
+  }
+}

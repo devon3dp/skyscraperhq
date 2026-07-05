@@ -1,0 +1,3700 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>QSB Tower V1.6 — Helix Cockpit 3D</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+  :root { color-scheme: dark; }
+  html, body { margin: 0; padding: 0; height: 100%; background: #060a14; color: #cfe; font-family: ui-monospace, "JetBrains Mono", "Fira Code", Menlo, monospace; overflow: hidden; }
+  #scene { position: absolute; inset: 0; display: block; }
+  .panel { position: absolute; background: rgba(10, 18, 28, 0.78); border: 1px solid rgba(80, 220, 180, 0.35); padding: 12px 14px; backdrop-filter: blur(10px); border-radius: 6px; box-shadow: 0 0 40px rgba(40, 220, 180, 0.07) inset, 0 6px 24px rgba(0,0,0,0.4); }
+  #hud-top  { top: 14px; left: 14px; min-width: 280px; }
+  #hud-stat { top: 14px; right: 14px; min-width: 240px; text-align: right; }
+  #hud-foot { bottom: 14px; left: 14px; right: 14px; display: flex; gap: 24px; justify-content: space-between; align-items: center; font-size: 12px; }
+  .pill { display: inline-block; padding: 2px 10px; border-radius: 999px; font-weight: 600; font-size: 11px; letter-spacing: 0.08em; }
+  .pill.green  { background: rgba(50, 220, 110, 0.18); color: #6cf09e; border: 1px solid rgba(50, 220, 110, 0.46); }
+  .pill.amber  { background: rgba(255, 184, 50, 0.18); color: #fbcc62; border: 1px solid rgba(255, 184, 50, 0.46); }
+  .pill.red    { background: rgba(255, 80,  80, 0.18); color: #ff8a8a; border: 1px solid rgba(255, 80, 80, 0.46); }
+  .pill.dim    { background: rgba(160, 180, 200, 0.12); color: #9ab; border: 1px solid rgba(160, 180, 200, 0.22); }
+  h1 { margin: 0 0 4px 0; font-size: 15px; color: #8df0d8; letter-spacing: 0.16em; font-weight: 700; text-transform: uppercase; text-shadow: 0 0 10px rgba(80, 220, 180, 0.5); }
+  .k { color: #6ad; font-size: 11px; letter-spacing: 0.06em; }
+  .v { color: #dff; font-weight: 600; }
+  #floor-tooltip { position: absolute; pointer-events: none; background: rgba(10, 18, 28, 0.95); border: 1px solid rgba(80, 220, 180, 0.50); padding: 8px 12px; font-size: 12px; border-radius: 5px; display: none; max-width: 300px; box-shadow: 0 6px 24px rgba(0,0,0,0.6); }
+  #legend .sw { display: inline-block; width: 11px; height: 11px; vertical-align: middle; margin-right: 5px; border-radius: 2px; box-shadow: 0 0 8px currentColor; }
+
+  /* ── LEFT RAIL — floor roster ───────────────────────────────── */
+  #floor-roster { top: 130px; left: 14px; width: 240px; max-height: calc(100vh - 320px); overflow-y: auto; }
+  #floor-roster h2 { margin: 0 0 6px; font-size: 11px; color: #88f0d8; letter-spacing: 0.12em; text-transform: uppercase; }
+  .fr-item { display: grid; grid-template-columns: 26px 1fr 36px; align-items: center; gap: 6px; padding: 3px 4px; font-size: 11px; border-radius: 3px; cursor: pointer; transition: background 0.12s; }
+  .fr-item:hover { background: rgba(80, 220, 180, 0.10); }
+  .fr-item.active { background: rgba(80, 220, 180, 0.18); border-left: 2px solid #88f0d8; }
+  .fr-num { color: #6ad; font-family: ui-monospace, monospace; }
+  .fr-name { color: #cfe; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .fr-cnt { color: #88a; font-size: 10px; text-align: right; }
+  .fr-status-dot { width: 6px; height: 6px; border-radius: 50%; display: inline-block; margin-right: 4px; vertical-align: middle; }
+
+  /* ── RIGHT RAIL — lifts panel ───────────────────────────────── */
+  #lifts-panel { top: 130px; right: 14px; width: 280px; }
+  #lifts-panel h2 { margin: 0 0 6px; font-size: 11px; color: #88f0d8; letter-spacing: 0.12em; text-transform: uppercase; }
+  .lift-row { display: grid; grid-template-columns: 1fr 30px 60px; align-items: center; gap: 6px; padding: 3px 4px; margin: 2px 0; font-size: 10.5px; border-left: 3px solid rgba(110,170,230,0.6); background: rgba(20,40,70,0.40); border-radius: 3px; }
+  .lift-row.moving { border-left-color: #5bff9c; background: rgba(40,70,55,0.50); }
+  .lift-row.idle { border-left-color: #7dc1ff; }
+  .lift-id { font-weight: 700; color: #dff; }
+  .lift-floor { color: #ffd886; font-family: monospace; text-align: center; }
+  .lift-status { font-size: 9.4px; font-weight: 700; text-transform: uppercase; text-align: right; }
+  .lift-status.moving { color: #5bff9c; }
+  .lift-status.idle { color: #a8d4ff; }
+
+  /* ── OpenClaw supervisor (right middle) ─────────────────────── */
+  #openclaw-panel { top: 660px; right: 14px; width: 280px; border-color: rgba(216,180,255,0.45); background: rgba(20,8,40,0.86); }
+  #openclaw-panel h2 { margin: 0 0 6px; font-size: 11px; color: #d8b4ff; letter-spacing: 0.12em; text-transform: uppercase; }
+  /* Tower Wins panel — same column as lifts/openclaw, slotted between */
+  #tower-wins-panel { top: 460px; right: 14px; width: 280px; border-color: rgba(246, 196, 90, 0.55); background: rgba(28, 22, 8, 0.88); }
+  #tower-wins-panel h2 { margin: 0 0 6px; font-size: 11px; color: #f6c45a; letter-spacing: 0.12em; text-transform: uppercase; }
+  #tower-wins-panel .tw-row { display:flex; justify-content:space-between; padding: 1px 0; }
+  #tower-wins-panel .tw-row .tw-k { color: #9ab; }
+  #tower-wins-panel .tw-row .tw-v { color: #f6c45a; font-weight: 600; }
+  #tower-wins-panel .tw-section { font-size:9px; letter-spacing:0.10em; color:#88f0d8; text-transform:uppercase; margin-top:6px; padding-top:4px; border-top: 1px dashed rgba(255,255,255,0.10); }
+  .oc-row { display: flex; justify-content: space-between; padding: 2px 2px; font-size: 10.5px; }
+  .oc-row span { color: #b0a0d0; }
+  .oc-row b { color: #f0e0ff; font-weight: 600; }
+
+  /* ── Demo Tour strip (top, hidden by default) ───────────────── */
+  #tour-strip { top: 14px; left: 50%; transform: translateX(-50%); width: 760px; max-width: calc(100vw - 720px); padding: 8px 14px; background: rgba(10, 8, 24, 0.92); border: 1px solid rgba(255, 200, 64, 0.55); display: none; flex-direction: row; align-items: center; gap: 12px; z-index: 105; }
+  #tour-strip.on { display: flex !important; }
+  #tour-text { flex: 1; }
+  #tour-step { display: inline-block; padding: 1px 8px; border-radius: 3px; background: rgba(255,200,64,0.30); color: #ffe080; font-size: 10px; letter-spacing: 0.10em; text-transform: uppercase; margin-right: 8px; }
+  #tour-caption { color: #ffe080; font-size: 12px; line-height: 1.4; }
+  #tour-controls { display: flex; gap: 4px; }
+  #tour-controls button { background: rgba(255,200,64,0.15); border: 1px solid rgba(255,200,64,0.45); color: #ffc940; padding: 3px 9px; border-radius: 3px; font-family: inherit; font-size: 11px; cursor: pointer; }
+  #tour-controls button:hover { background: rgba(255,200,64,0.30); }
+
+  /* ── BOTTOM-RIGHT — PnL strip ───────────────────────────────── */
+  #pnl-strip { bottom: 70px; right: 14px; width: 280px; }
+  #pnl-strip h2 { margin: 0 0 6px; font-size: 11px; color: #ffc940; letter-spacing: 0.12em; text-transform: uppercase; }
+  .pnl-row { display: flex; justify-content: space-between; padding: 3px 2px; font-size: 11px; }
+  .pnl-row span { color: #cbb070; }
+  .pnl-row b { color: #ffe080; font-family: monospace; }
+  .pnl-row b.pos { color: #39e070; }
+  .pnl-row b.neg { color: #ff7d7d; }
+  .pnl-row b .k { color: #7a7050; font-size: 9.5px; margin-left: 4px; }
+
+  /* ── BOTTOM-LEFT — F47 chat box ─────────────────────────────── */
+  #chat-box { bottom: 70px; left: 14px; width: 360px; max-height: 280px; display: flex; flex-direction: column; }
+  /* ── F167 Boardroom — 3-way chat (top-center, large, toggleable) ─ */
+  #boardroom-box { top: 130px; left: 50%; transform: translateX(-50%); width: 720px; max-height: 480px; display: flex; flex-direction: column; border-color: rgba(255,200,64,0.60); background: rgba(8,14,24,0.95); z-index: 110; }
+  #boardroom-box h2 { margin: 0 0 6px; font-size: 11px; color: #ffc940; letter-spacing: 0.12em; text-transform: uppercase; }
+  #boardroom-log { flex: 1; overflow-y: auto; padding: 6px 0; font-size: 11.5px; max-height: 380px; min-height: 120px; }
+  .br-row { padding: 5px 8px; margin: 4px 0; border-radius: 4px; background: rgba(20,40,60,0.55); border-left: 3px solid; }
+  .br-row.claude { border-left-color: #ffc940; background: rgba(40,30,10,0.55); }
+  .br-row.wren   { border-left-color: #88f0d8; background: rgba(10,40,38,0.55); }
+  .br-row.ross   { border-left-color: #ffd886; background: rgba(50,40,20,0.55); }
+  .br-who { font-size: 9.5px; color: #aaa; letter-spacing: 0.08em; text-transform: uppercase; }
+  .br-row.claude .br-who { color: #ffc940; }
+  .br-row.wren   .br-who { color: #88f0d8; }
+  .br-row.ross   .br-who { color: #ffd886; }
+  .br-text { color: #dff; font-size: 11.5px; margin-top: 2px; line-height: 1.4; }
+  #boardroom-form { display: flex; gap: 6px; margin-top: 4px; }
+  #boardroom-input { flex: 1; background: rgba(20,30,50,0.7); border: 1px solid rgba(255,200,64,0.35); color: #dff; padding: 6px 10px; border-radius: 4px; font-family: inherit; font-size: 11.5px; }
+  #boardroom-input:focus { outline: none; border-color: #ffc940; }
+  #boardroom-send { background: rgba(255,200,64,0.20); border: 1px solid rgba(255,200,64,0.50); color: #ffc940; padding: 6px 14px; border-radius: 4px; font-family: inherit; font-size: 11.5px; font-weight: 600; cursor: pointer; }
+  #boardroom-send:hover { background: rgba(255,200,64,0.35); }
+  #boardroom-box.on { display: flex !important; }
+
+  /* ── Claude direct chat (separate, toggleable, sits next to F47) ─ */
+  #claude-box { bottom: 70px; left: 388px; width: 360px; max-height: 280px; flex-direction: column; border-color: rgba(255,200,64,0.50); }
+  #claude-box h2 { margin: 0 0 6px; font-size: 11px; color: #ffc940; letter-spacing: 0.12em; text-transform: uppercase; }
+  #claude-log { flex: 1; overflow-y: auto; padding: 4px 0; font-size: 11px; max-height: 200px; min-height: 60px; }
+  #claude-form { display: flex; gap: 6px; margin-top: 4px; }
+  #claude-input { flex: 1; background: rgba(30,22,10,0.7); border: 1px solid rgba(255,200,64,0.35); color: #ffe8b8; padding: 5px 8px; border-radius: 4px; font-family: inherit; font-size: 11px; }
+  #claude-input:focus { outline: none; border-color: #ffc940; }
+  #claude-send { background: rgba(255,200,64,0.20); border: 1px solid rgba(255,200,64,0.50); color: #ffc940; padding: 5px 12px; border-radius: 4px; font-family: inherit; font-size: 11px; font-weight: 600; cursor: pointer; }
+  #claude-send:hover { background: rgba(255,200,64,0.35); }
+  #claude-send:disabled { opacity: 0.4; cursor: wait; }
+  #claude-box.on { display: flex !important; }
+  #chat-box h2 { margin: 0 0 6px; font-size: 11px; color: #88f0d8; letter-spacing: 0.12em; text-transform: uppercase; }
+  #chat-log { flex: 1; overflow-y: auto; padding: 4px 0; font-size: 11px; max-height: 200px; min-height: 60px; }
+  .chat-row { padding: 4px 6px; margin: 3px 0; border-radius: 4px; background: rgba(20,40,60,0.5); border-left: 2px solid rgba(80,220,180,0.4); }
+  .chat-row.you { border-left-color: #ffd886; background: rgba(50,40,20,0.5); }
+  .chat-who { font-size: 9px; color: #6ad; letter-spacing: 0.08em; text-transform: uppercase; }
+  .chat-text { color: #dff; font-size: 11px; margin-top: 2px; }
+  #chat-form { display: flex; gap: 6px; margin-top: 4px; }
+  #chat-input { flex: 1; background: rgba(20,30,50,0.7); border: 1px solid rgba(80,220,180,0.35); color: #dff; padding: 5px 8px; border-radius: 4px; font-family: inherit; font-size: 11px; }
+  #chat-input:focus { outline: none; border-color: #88f0d8; }
+  #chat-send { background: rgba(80,220,180,0.20); border: 1px solid rgba(80,220,180,0.50); color: #88f0d8; padding: 5px 12px; border-radius: 4px; font-family: inherit; font-size: 11px; font-weight: 600; cursor: pointer; }
+  #chat-send:hover { background: rgba(80,220,180,0.30); }
+  #chat-send:disabled { opacity: 0.4; cursor: wait; }
+  #chat-speak-toggle { background: rgba(80,220,180,0.10); border: 1px solid rgba(80,220,180,0.30); color: #88f0d8; padding: 5px 8px; border-radius: 4px; font-family: inherit; font-size: 10px; cursor: pointer; }
+  #chat-speak-toggle.on { background: rgba(80,220,180,0.40); color: #001; font-weight: 700; }
+
+  /* ── BOTTOM-CENTER — slim floor card; 3D stays the main view ─── */
+  #interior-panel {
+    position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%);
+    width: 760px; max-width: calc(100vw - 720px); max-height: 260px;
+    overflow-y: auto;
+    background: rgba(8, 14, 24, 0.92);
+    border: 1px solid rgba(80, 220, 180, 0.55);
+    border-radius: 8px;
+    backdrop-filter: blur(14px);
+    padding: 10px 14px;
+    box-shadow: 0 -12px 40px rgba(0,0,0,0.6), 0 0 30px rgba(80, 220, 180, 0.15) inset;
+    z-index: 100;
+    display: none;
+  }
+  #interior-panel .int-card { padding: 6px 10px; margin: 4px 0; }
+  #interior-panel .int-card h5 { font-size: 9.5px; margin: 0 0 4px; }
+  #interior-panel .int-row { font-size: 10.5px; padding: 1px 0; }
+  #interior-panel .int-blurb { font-size: 10.5px; padding: 5px 7px; }
+  #interior-panel.on { display: block; }
+  #interior-hdr { display: flex; justify-content: space-between; align-items: start; margin-bottom: 10px; }
+  #interior-title { font-size: 16px; font-weight: 700; color: #88f0d8; letter-spacing: 0.10em; text-transform: uppercase; text-shadow: 0 0 12px rgba(80, 220, 180, 0.5); }
+  #interior-sub { font-size: 11px; color: #6ad; margin-top: 2px; }
+  #interior-close { background: rgba(255, 80, 80, 0.18); border: 1px solid rgba(255, 80, 80, 0.50); color: #ff8a8a; padding: 4px 10px; border-radius: 4px; font-family: inherit; font-size: 11px; cursor: pointer; }
+  #interior-close:hover { background: rgba(255, 80, 80, 0.30); }
+  #interior-walk { background: rgba(120, 220, 255, 0.18); border: 1px solid rgba(120, 220, 255, 0.55); color: #a8e8ff; padding: 4px 10px; border-radius: 4px; font-family: inherit; font-size: 11px; cursor: pointer; margin-right: 6px; }
+  #interior-walk:hover { background: rgba(120, 220, 255, 0.32); color: #d0f4ff; }
+  .int-card { background: rgba(20, 30, 50, 0.5); border: 1px solid rgba(80, 220, 180, 0.25); border-radius: 6px; padding: 10px 12px; margin: 8px 0; }
+  .int-card h5 { margin: 0 0 6px; font-size: 10.5px; color: #88f0d8; letter-spacing: 0.10em; text-transform: uppercase; }
+  .int-row { display: flex; justify-content: space-between; padding: 2px 0; font-size: 11.5px; gap: 12px; }
+  .int-row span { color: #88a; }
+  .int-row b { color: #cfe; font-weight: 600; text-align: right; word-break: break-word; }
+  .int-row b.flag-on { color: #5bff9c; }
+  .int-row b.flag-off { color: #ff7d7d; }
+  .int-blurb { font-size: 11.5px; color: #c5dde9; line-height: 1.45; padding: 6px 8px; background: rgba(20,40,70,0.4); border-radius: 4px; border-left: 3px solid rgba(110,170,230,0.6); margin-top: 4px; }
+  .int-empty { font-size: 11px; color: #6a8aa6; padding: 6px 0; }
+  .int-worker { display: grid; grid-template-columns: 1fr 1.4fr 52px; gap: 8px; align-items: center; padding: 4px 2px; border-bottom: 1px dotted rgba(80,220,180,0.12); font-size: 11px; }
+  .int-worker .iw-name { color: #cfe; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .int-worker .iw-role { color: #88a; font-size: 10.5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .int-worker .iw-talk { background: rgba(80,220,180,0.15); border: 1px solid rgba(80,220,180,0.45); color: #88f0d8; padding: 3px 6px; border-radius: 3px; font-size: 10px; cursor: pointer; font-family: inherit; }
+  .int-worker .iw-talk:hover { background: rgba(80,220,180,0.30); }
+  .int-worker .iw-bubble { grid-column: 1 / -1; margin-top: 4px; padding: 6px 8px; background: rgba(20,40,60,0.5); border-left: 2px solid #88f0d8; border-radius: 3px; color: #dff; font-size: 11px; line-height: 1.4; }
+  .int-worker .iw-bubble[data-role="you"] { background: rgba(60,50,20,0.55); border-left-color: #ffd886; }
+  .int-worker .iw-thread { grid-column: 1 / -1; display: flex; flex-direction: column; gap: 4px; margin-top: 4px; }
+  .int-worker .iw-replyrow { display: flex; gap: 6px; margin-top: 4px; }
+  .int-worker .iw-ask { flex: 1; background: rgba(20,30,50,0.7); border: 1px solid rgba(80,220,180,0.35); color: #dff; padding: 4px 7px; border-radius: 3px; font-family: inherit; font-size: 11px; }
+  .int-worker .iw-send { background: rgba(80,220,180,0.20); border: 1px solid rgba(80,220,180,0.45); color: #88f0d8; padding: 4px 8px; border-radius: 3px; font-size: 10px; cursor: pointer; font-family: inherit; }
+  .int-worker .iw-send:hover { background: rgba(80,220,180,0.35); }
+  .int-worker .iw-send:disabled { opacity: 0.4; cursor: wait; }
+
+  /* ── Worker Forum panel (top-center, narrow) ─────────────────── */
+  #forum-panel { top: 14px; left: 50%; transform: translateX(-50%); width: 440px; max-height: 100px; overflow-y: auto; background: rgba(20, 14, 28, 0.78); border-color: rgba(216, 180, 255, 0.40); }
+  #forum-panel h2 { margin: 0 0 4px; font-size: 10.5px; color: #d8b4ff; letter-spacing: 0.12em; text-transform: uppercase; }
+  .fp-row { display: grid; grid-template-columns: 50px 1fr 32px; gap: 6px; align-items: center; padding: 2px 4px; font-size: 11px; border-radius: 3px; margin: 2px 0; background: rgba(40,20,60,0.4); }
+  .fp-role { color: #d8b4ff; font-family: monospace; font-size: 10px; }
+  .fp-title { color: #efe; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .fp-replies { color: #c8a8e8; font-size: 10px; text-align: right; }
+  .fp-tannoy { border-left: 3px solid #ffc940; background: rgba(60,40,10,0.45); }
+
+  /* ── Live activity feed (right-bottom, above pnl strip) ───── */
+  #activity-feed { bottom: 280px; right: 14px; width: 280px; max-height: 200px; overflow-y: auto; background: rgba(8, 24, 18, 0.78); border-color: rgba(80, 220, 180, 0.40); }
+  #activity-feed h2 { margin: 0 0 4px; font-size: 10.5px; color: #88f0d8; letter-spacing: 0.12em; text-transform: uppercase; }
+  .af-row { display: grid; grid-template-columns: 60px 1fr; gap: 6px; padding: 2px 2px; font-size: 10px; border-bottom: 1px dotted rgba(80,220,180,0.15); }
+  .af-time { color: #6ad; font-family: monospace; font-size: 9.5px; }
+  .af-text { color: #cfe; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .af-row.wren { background: rgba(80,220,180,0.05); }
+  .af-row.proposal { background: rgba(255, 184, 50, 0.05); }
+  .af-row.error { background: rgba(255, 80, 80, 0.05); }
+</style>
+</head>
+<body>
+<canvas id="scene"></canvas>
+
+<div class="panel" id="hud-top">
+  <h1>QSB Tower V1.6 · Helix</h1>
+  <div class="k">Cockpit 3D · Floor 49 Studio</div>
+  <div style="margin-top:12px;">
+    <div class="k">Floors registered: <span class="v" id="stat-floors">169</span></div>
+    <div class="k">Workers registered: <span class="v" id="stat-workers">…</span></div>
+    <div class="k">Live procs: <span class="v" id="stat-procs">…</span></div>
+    <div class="k">Last activity: <span class="v" id="stat-last">…</span></div>
+  </div>
+</div>
+
+<div class="panel" id="hud-stat">
+  <div class="k">Tower state</div>
+  <div style="margin-top: 10px;">
+    <span class="pill green" id="cnt-idle">… idle</span>
+    <span class="pill amber" id="cnt-working">… working</span>
+    <span class="pill red"   id="cnt-blocked">… blocked</span>
+    <br><br>
+    <span class="pill dim"   id="cnt-paper">… paper-only</span>
+  </div>
+</div>
+
+<div class="panel" id="hud-foot">
+  <div id="legend">
+    <span style="color:#39e070"><span class="sw" style="background:#39e070"></span>idle</span> &nbsp;
+    <span style="color:#f6c45a"><span class="sw" style="background:#f6c45a"></span>working</span> &nbsp;
+    <span style="color:#ff5050"><span class="sw" style="background:#ff5050"></span>blocked</span> &nbsp;
+    <span style="color:#80a0c0"><span class="sw" style="background:#80a0c0"></span>paper-only</span>
+  </div>
+  <div class="k">drag rotate · scroll zoom · hover floor for detail</div>
+  <div class="k">refresh 5s · GET /api/floor_states</div>
+</div>
+
+<div id="floor-tooltip"></div>
+
+<!-- TOP CENTER — Worker forum (orphaned API now visible) -->
+<div class="panel" id="forum-panel">
+  <h2>Worker Forum · <span id="forum-count">…</span></h2>
+  <div id="forum-list">loading…</div>
+</div>
+
+<!-- CENTER OVERLAY — interior panel when floor selected -->
+<div id="interior-panel">
+  <div id="interior-hdr">
+    <div>
+      <div id="interior-title">Floor</div>
+      <div id="interior-sub">…</div>
+    </div>
+    <button id="interior-walk" title="WASD to walk · mouse to look · Esc to leave">🚶 walk inside</button>
+    <button id="interior-close">close ✕</button>
+  </div>
+  <div id="interior-body">loading…</div>
+</div>
+<div id="walk-hud" style="display:none; position:fixed; left:50%; bottom:30px; transform:translateX(-50%); background:rgba(0,20,30,0.85); border:1px solid rgba(120,220,255,0.6); color:#a8e8ff; padding:8px 18px; border-radius:8px; font:13px/1.4 ui-monospace, monospace; z-index:9999; pointer-events:none;">
+  <b>WALK MODE</b> · WASD move · mouse look · Shift run · F talk · Esc exit
+</div>
+
+<!-- LEFT RAIL — floor roster -->
+<div class="panel" id="floor-roster">
+  <h2>Floors · click to focus</h2>
+  <div id="floor-roster-list">loading…</div>
+</div>
+
+<!-- RIGHT TOP — lifts panel -->
+<div class="panel" id="lifts-panel">
+  <h2>Lifts · <span id="lift-count">…</span></h2>
+  <div id="lifts-list">loading…</div>
+</div>
+
+<!-- RIGHT MIDDLE — Tower Wins (real numbers — Ross 2026-06-20) -->
+<div class="panel" id="tower-wins-panel">
+  <h2>🏆 Tower Wins · <a href="/tower_wins/" target="_blank" style="font-size:9px;color:#88c0e0;text-decoration:none;">full ↗</a></h2>
+  <div id="tw-body" style="font-size:11px;line-height:1.5;">loading…</div>
+</div>
+
+<!-- RIGHT MIDDLE — OpenClaw -->
+<div class="panel" id="openclaw-panel">
+  <h2>OpenClaw · Supervisor</h2>
+  <div id="openclaw-body">loading…</div>
+</div>
+
+<!-- RIGHT-MIDDLE-BOTTOM — Live activity feed -->
+<div class="panel" id="activity-feed">
+  <h2>Live Activity · <span id="af-count">…</span></h2>
+  <div id="af-list">loading…</div>
+</div>
+
+<!-- BOTTOM-RIGHT — PnL strip -->
+<div class="panel" id="pnl-strip">
+  <h2>OANDA · F41 PnL</h2>
+  <div id="pnl-body">loading…</div>
+</div>
+
+<!-- BOTTOM-LEFT — F47 chat -->
+<div class="panel" id="chat-box">
+  <h2>F47 · Chat with Wren
+    <button id="boardroom-toggle" type="button" title="open the F167 Boardroom (3-way chat)" style="float:right;background:rgba(255,200,64,0.20);border:1px solid rgba(255,200,64,0.55);color:#ffc940;padding:2px 6px;border-radius:3px;font-size:9.5px;cursor:pointer;margin-left:4px;">Boardroom</button>
+    <button id="claude-toggle" type="button" title="toggle separate Claude chat" style="float:right;background:rgba(255,200,64,0.15);border:1px solid rgba(255,200,64,0.45);color:#ffc940;padding:2px 6px;border-radius:3px;font-size:9.5px;cursor:pointer;">+ Claude</button>
+  </h2>
+  <div id="chat-log"></div>
+  <form id="chat-form" onsubmit="return false;">
+    <input id="chat-input" type="text" placeholder="ask Wren…" autocomplete="off">
+    <button id="chat-speak-toggle" type="button" title="toggle Wren voice (spd-say)">🔈</button>
+    <button id="chat-send">send</button>
+  </form>
+</div>
+
+<!-- DEMO TOUR strip — hidden by default; press T to start the tour, space-bar to advance -->
+<div class="panel" id="tour-strip" style="display:none">
+  <div id="tour-text">
+    <span id="tour-step"></span>
+    <span id="tour-caption"></span>
+  </div>
+  <div id="tour-controls">
+    <button id="tour-prev" type="button">◀</button>
+    <button id="tour-next" type="button">▶</button>
+    <button id="tour-toggle" type="button">⏸</button>
+    <button id="tour-close" type="button">close ✕</button>
+  </div>
+</div>
+
+<!-- F167 BOARDROOM — 3-way Ross/Wren/Claude chat panel, hidden by default -->
+<div class="panel" id="boardroom-box" style="display:none">
+  <h2>F167 · Boardroom (3 CEOs) <button id="boardroom-close" type="button" style="float:right;background:rgba(255,80,80,0.18);border:1px solid rgba(255,80,80,0.50);color:#ff8a8a;padding:2px 6px;border-radius:3px;font-size:9.5px;cursor:pointer;">close ✕</button></h2>
+  <div id="boardroom-log"></div>
+  <div id="boardroom-invite-row" style="display:flex;gap:4px;margin:4px 0 6px 0;flex-wrap:wrap;align-items:center;">
+    <button class="br-invite" data-who="auger" style="background:rgba(216,180,255,0.18);border:1px solid rgba(216,180,255,0.50);color:#d8b4ff;padding:3px 8px;border-radius:3px;font-size:10px;cursor:pointer;font-family:inherit;">+ Auger</button>
+    <button class="br-invite" data-who="helm" style="background:rgba(80,160,255,0.18);border:1px solid rgba(80,160,255,0.50);color:#7eb2ff;padding:3px 8px;border-radius:3px;font-size:10px;cursor:pointer;font-family:inherit;">+ Helm</button>
+    <button class="br-invite" data-who="forge" style="background:rgba(255,160,100,0.18);border:1px solid rgba(255,160,100,0.50);color:#ffa066;padding:3px 8px;border-radius:3px;font-size:10px;cursor:pointer;font-family:inherit;">+ Forge</button>
+    <span style="flex:1"></span>
+    <span style="font-size:9px;color:#88a;letter-spacing:0.05em;">VOICE:</span>
+    <button class="br-tts" data-who="wren"   style="background:rgba(80,220,180,0.10);border:1px solid rgba(80,220,180,0.40);color:#88f0d8;padding:2px 6px;border-radius:3px;font-size:9.5px;cursor:pointer;font-family:inherit;">🔈 Wren</button>
+    <button class="br-tts" data-who="claude" style="background:rgba(255,200,64,0.10);border:1px solid rgba(255,200,64,0.40);color:#ffc940;padding:2px 6px;border-radius:3px;font-size:9.5px;cursor:pointer;font-family:inherit;">🔈 Claude</button>
+    <button id="br-stt" style="background:rgba(255,140,140,0.10);border:1px solid rgba(255,140,140,0.40);color:#ff8a8a;padding:2px 6px;border-radius:3px;font-size:9.5px;cursor:pointer;font-family:inherit;">🎙 mic</button>
+  </div>
+  <form id="boardroom-form" onsubmit="return false;">
+    <input id="boardroom-input" type="text" placeholder="speak to the boardroom…" autocomplete="off">
+    <button id="boardroom-send">send</button>
+  </form>
+</div>
+
+<!-- CLAUDE chat — distinct from F47 Wren; lives on F47 (Claude's floor); hidden by default -->
+<div class="panel" id="claude-box" style="display:none">
+  <h2>F47 · Chat with Claude <button id="claude-close" type="button" style="float:right;background:rgba(255,80,80,0.18);border:1px solid rgba(255,80,80,0.50);color:#ff8a8a;padding:2px 6px;border-radius:3px;font-size:9.5px;cursor:pointer;">close ✕</button></h2>
+  <div id="claude-log"></div>
+  <form id="claude-form" onsubmit="return false;">
+    <input id="claude-input" type="text" placeholder="ask Claude directly (no Wren persona)…" autocomplete="off">
+    <button id="claude-send">send</button>
+  </form>
+</div>
+
+<script>
+// ── Non-module helpers for the new panels ──────────────────────────
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s == null ? '' : s).replace(/[&<>"]/g,
+  c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+let _selectedFloor = null;
+window.__c3d_focusFloor = null;  // module sets this hook
+window.__c3d_revealFloor = null; // module sets this — slab translucent + workers in 3D
+window.__c3d_unrevealFloor = null;
+
+// Workers directory cache — two sources, merged on demand:
+//   /api/workers/directory          — canonical staffed floors (rich records)
+//   /api/workforce/floor_assignments — V2 worker rosters (id-only)
+// Penthouse uses floor_id="penthouse"; F55 maps to that.
+let _workersDirCache = null;
+let _workforceByFloor = null;
+let _f47FleetCache = null;
+let _floorDesignCache = null;     // qsb_skyscraper_collaborative_design (55 floors)
+let _floorMasterCache = null;     // qsb_floor_interior_master_registry (165 floors)
+
+// Palette → primary color hex. Parses "amber, obsidian, violet" → 0xffc940.
+const _PALETTE_MAP = {
+  amber: 0xffc940, gold: 0xffd886, 'gold leaf': 0xf6c45a,
+  green: 0x39e070, emerald: 0x44ddc0, teal: 0x44b0c0, 'deep teal': 0x227a8a,
+  violet: 0xa088ff, purple: 0x8866cc, magenta: 0xff5588,
+  pink: 0xff8aa8, terracotta: 0xc56a3a, taupe: 0xb09680, oak: 0x8c6a40,
+  red: 0xff5050, orange: 0xff8c30, charcoal: 0x3a3a3a, obsidian: 0x222238,
+  black: 0x000000, white: 0xe8eaf0, silver: 0xcdd0d8, 'brushed silver': 0xc8ccd4,
+  'sky blue': 0x60a0e0, blue: 0x4488ff, navy: 0x1a2840,
+  cyan: 0x88f0d8, 'cool grey': 0x607080, grey: 0x808898, gray: 0x808898,
+  copper: 0xb87333, brass: 0xc0a060, bronze: 0xa07840,
+  yellow: 0xffe070, lemon: 0xfff080,
+};
+function paletteToColor(paletteStr) {
+  if (!paletteStr) return 0x607080;
+  const tokens = String(paletteStr).toLowerCase().split(/[,;/]/).map(s => s.trim());
+  for (const t of tokens) {
+    if (_PALETTE_MAP[t] != null) return _PALETTE_MAP[t];
+    for (const k in _PALETTE_MAP) {
+      if (t.includes(k)) return _PALETTE_MAP[k];
+    }
+  }
+  return 0x607080;  // neutral cool-grey fallback per Wren 2026-06-16
+}
+function floorDesign(floorNum) {
+  if (!_floorDesignCache) return null;
+  const k = `F${String(floorNum).padStart(2, '0')}`;
+  return (_floorDesignCache[k]) || null;
+}
+function floorMaster(floorNum) {
+  if (!_floorMasterCache) return null;
+  const k = `F${String(floorNum).padStart(2, '0')}`;
+  return _floorMasterCache.find(f => f.floor_id === k) || null;
+}
+async function ensureWorkersDir() {
+  const tasks = [];
+  if (!_workersDirCache) tasks.push(
+    fetch('/api/workers/directory', { cache: 'no-store' })
+      .then(r => r.ok ? r.json() : { directory: [] })
+      .then(d => { _workersDirCache = d.directory || []; })
+      .catch(() => { _workersDirCache = []; }));
+  if (!_workforceByFloor) tasks.push(
+    fetch('/api/workforce/floor_assignments', { cache: 'no-store' })
+      .then(r => r.ok ? r.json() : { by_floor: {} })
+      .then(d => { _workforceByFloor = d.by_floor || {}; })
+      .catch(() => { _workforceByFloor = {}; }));
+  if (!_f47FleetCache) tasks.push(
+    fetch('/api/workers/f47_fleet', { cache: 'no-store' })
+      .then(r => r.ok ? r.json() : { operatives: [] })
+      .then(d => { _f47FleetCache = d.operatives || []; })
+      .catch(() => { _f47FleetCache = []; }));
+  if (!_floorDesignCache) tasks.push(
+    fetch('/api/floor_design', { cache: 'no-store' })
+      .then(r => r.ok ? r.json() : { floors: {} })
+      .then(d => { _floorDesignCache = d.floors || {}; })
+      .catch(() => { _floorDesignCache = {}; }));
+  if (!_floorMasterCache) tasks.push(
+    fetch('/api/floor_master_registry', { cache: 'no-store' })
+      .then(r => r.ok ? r.json() : { floors: [] })
+      .then(d => { _floorMasterCache = d.floors || []; })
+      .catch(() => { _floorMasterCache = []; }));
+  if (tasks.length) await Promise.all(tasks);
+  return _workersDirCache;
+}
+function workersOnFloor(floorNum) {
+  const out = [];
+  if (_workersDirCache) {
+    const fid = (floorNum === 55) ? 'penthouse'
+              : `floor_${String(floorNum).padStart(2, '0')}`;
+    for (const w of _workersDirCache) {
+      if (w.floor_id === fid || w.home_floor === fid || w.current_floor === fid)
+        out.push(w);
+    }
+  }
+  // Fallback / supplement: V2 workforce floor_assignments
+  if (_workforceByFloor) {
+    const key = String(floorNum);
+    const v2 = _workforceByFloor[key] || _workforceByFloor[`floor_${String(floorNum).padStart(2,'0')}`];
+    if (Array.isArray(v2)) {
+      const have = new Set(out.map(w => w.worker_id));
+      for (const wid of v2) {
+        if (typeof wid === 'string' && !have.has(wid)) {
+          out.push({ worker_id: wid, display_name: wid.replace(/^wrk_v2_f\d+_/, ''), role: '(v2 roster)' });
+        }
+      }
+    }
+  }
+  // F47 fleet (250 Wren operatives). Only surface them when looking at F47.
+  if (floorNum === 47 && Array.isArray(_f47FleetCache)) {
+    for (const op of _f47FleetCache) {
+      out.push({
+        worker_id: op.id,
+        display_name: (op.id || '').split('.').slice(-2).join('.'),
+        role: `${op.category || ''} · ${op.role || ''} · ${op.specialty || ''}`.replace(/^\s*·\s*/,'').replace(/\s*·\s*$/,''),
+      });
+    }
+  }
+  return out;
+}
+
+// Floor roster — populate from /api/floor_states
+async function refreshRoster() {
+  try {
+    const r = await fetch('/api/floor_states', { cache: 'no-store' });
+    if (!r.ok) return;
+    const d = await r.json();
+    const list = $('floor-roster-list');
+    if (!list) return;
+    const rows = (d.floors || []).map(f => {
+      const dotColor = f.status === 'idle' ? '#39e070'
+                     : f.status === 'working' ? '#f6c45a'
+                     : f.status === 'blocked' ? '#ff5050'
+                     : '#80a0c0';
+      const active = (_selectedFloor === f.floor) ? 'active' : '';
+      return `<div class="fr-item ${active}" data-floor="${f.floor}">
+        <span class="fr-num"><span class="fr-status-dot" style="background:${dotColor}"></span>F${f.floor}</span>
+        <span class="fr-name">${esc(f.name)}</span>
+        <span class="fr-cnt">${f.workers || 0}</span>
+      </div>`;
+    }).join('');
+    list.innerHTML = rows || '<div class="k">no floors</div>';
+    list.querySelectorAll('.fr-item').forEach(el => {
+      el.addEventListener('click', () => {
+        const n = parseInt(el.dataset.floor, 10);
+        _selectedFloor = n;
+        list.querySelectorAll('.fr-item').forEach(x => x.classList.remove('active'));
+        el.classList.add('active');
+        if (window.__c3d_focusFloor) window.__c3d_focusFloor(n);
+        openInterior(n, esc(el.querySelector('.fr-name')?.textContent || ''));
+      });
+    });
+  } catch (e) {}
+}
+
+// Lifts — from /api/dashboard/3d_skyscraper_state
+async function refreshLifts() {
+  try {
+    const r = await fetch('/api/dashboard/3d_skyscraper_state', { cache: 'no-store' });
+    if (!r.ok) return;
+    const d = await r.json();
+    const lifts = d.lifts || [];
+    $('lift-count').textContent = lifts.length;
+    // feed the 3D scene with live lift positions
+    if (window.__c3d_applyLifts) window.__c3d_applyLifts(lifts);
+    $('lifts-list').innerHTML = lifts.map(L => {
+      // Operational state is `moving`/`is_idle`; `status` is liveness (online).
+      const moving = !!L.moving;
+      const idle = (L.is_idle === true) || (!moving && L.status !== 'MOVING');
+      const cls = moving ? 'moving' : (idle ? 'idle' : '');
+      const txt = moving ? 'MOVING' : (idle ? 'IDLE' : String(L.status || '?').toUpperCase());
+      // Parked-floor fallback: idle lifts have current_floor=null in the API;
+      // show their serves_min (lowest floor they cover) so the card isn't empty.
+      const shownFloor = (L.current_floor != null) ? ('f'+L.current_floor)
+                        : (L.serves_min != null  ? ('f'+L.serves_min+' parked')
+                        : '—');
+      return `<div class="lift-row ${cls}">
+        <span class="lift-id">${esc(L.lift_id || L.id || ('lift ' + (L.shaft_idx || '?')))}</span>
+        <span class="lift-floor">${esc(shownFloor)}</span>
+        <span class="lift-status ${cls}">${esc(txt)}</span>
+      </div>`;
+    }).join('') || '<div class="k">no lifts in feed</div>';
+  } catch (e) {}
+}
+
+// OpenClaw — from /api/openclaw/route + /api/openclaw/tickets
+async function refreshOpenClaw() {
+  try {
+    const [routeR, ticketsR] = await Promise.all([
+      fetch('/api/openclaw/route', { cache: 'no-store' }),
+      fetch('/api/openclaw/tickets', { cache: 'no-store' }),
+    ]);
+    const route = routeR.ok ? await routeR.json() : {};
+    const tix = ticketsR.ok ? await ticketsR.json() : {};
+    const tickets = tix.tickets || [];
+    $('openclaw-body').innerHTML =
+      `<div class="oc-row"><span>current floor</span><b>${esc(route.current_floor ?? '—')}</b></div>` +
+      `<div class="oc-row"><span>advanced by</span><b>${esc(route.advanced_by ?? '—')}</b></div>` +
+      `<div class="oc-row"><span>is random</span><b>${esc(route.is_random ?? '—')}</b></div>` +
+      `<div class="oc-row"><span>real tool exec</span><b style="color:#ff7d7d">FALSE</b></div>` +
+      `<div class="oc-row"><span>tickets</span><b>${tickets.length}</b></div>` +
+      tickets.slice(0, 4).map(t => {
+        const k = (t.kind || t.level || 'info').toString().toLowerCase();
+        return `<div class="oc-row" style="opacity:0.7"><span>[${esc(k)}]</span><b style="font-size:9.5px">${esc((t.summary || t.text || '').slice(0,40))}</b></div>`;
+      }).join('');
+  } catch (e) {}
+}
+
+// PnL — from /api/trading/oanda/floor41/pnl
+async function refreshPnL() {
+  try {
+    const r = await fetch('/api/trading/oanda/floor41/pnl', { cache: 'no-store' });
+    if (!r.ok) return;
+    const d = await r.json();
+    // Float fields come back as full-precision; format to 2dp where present.
+    const fmt = v => (typeof v === 'number' ? v.toFixed(2) : (v ?? '—'));
+    const total = fmt(d.total_pnl);
+    const realized = fmt(d.realized_pnl_total ?? d.realized_pnl);
+    const unrealized = fmt(d.unrealized_pnl_total ?? d.unrealized_pnl);
+    const open = d.open_total ?? d.open_trades_count ?? d.open_count ?? '—';
+    const closed = d.closed_total ?? d.closed_trades_count ?? d.closed_count ?? '—';
+    const winners = d.closed_winners ?? '—';
+    const losers = d.closed_losers ?? '—';
+    const tnum = parseFloat(total);
+    const totCls = isFinite(tnum) ? (tnum > 0 ? 'pos' : tnum < 0 ? 'neg' : '') : '';
+    $('pnl-body').innerHTML =
+      `<div class="pnl-row"><span>total pnl</span><b class="${totCls}">${esc(total)}</b></div>` +
+      `<div class="pnl-row"><span>realized</span><b>${esc(realized)}</b></div>` +
+      `<div class="pnl-row"><span>unrealized</span><b>${esc(unrealized)}</b></div>` +
+      `<div class="pnl-row"><span>open</span><b>${esc(open)}</b></div>` +
+      `<div class="pnl-row"><span>closed</span><b>${esc(closed)} <span class="k">(${esc(winners)}W / ${esc(losers)}L)</span></b></div>`;
+  } catch (e) {}
+}
+
+// F47 chat — POST /api/f47_chat
+const chatForm = $('chat-form');
+const chatInput = $('chat-input');
+const chatSend = $('chat-send');
+const chatLog = $('chat-log');
+
+function chatRender(who, text, isYou) {
+  const row = document.createElement('div');
+  row.className = 'chat-row' + (isYou ? ' you' : '');
+  row.innerHTML = `<div class="chat-who">${esc(who)}</div><div class="chat-text">${esc(text)}</div>`;
+  chatLog.appendChild(row);
+  chatLog.scrollTop = chatLog.scrollHeight;
+}
+
+let _speakOn = false;
+const speakBtn = $('chat-speak-toggle');
+if (speakBtn) {
+  speakBtn.addEventListener('click', () => {
+    _speakOn = !_speakOn;
+    speakBtn.classList.toggle('on', _speakOn);
+  });
+}
+
+async function chatSendMsg() {
+  const msg = chatInput.value.trim();
+  if (!msg) return;
+  chatRender('you', msg, true);
+  chatInput.value = '';
+  chatSend.disabled = true;
+  try {
+    const r = await fetch('/api/f47_chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: msg, speak: _speakOn }),
+    });
+    if (r.ok) {
+      const d = await r.json();
+      // F47 chat returns layered reply. Prefer Claude when present + non-error,
+      // else offline-Wren (qwen2.5:7b via Ollama), else rendered full body.
+      const L = (d.layers || {});
+      const cliBad = !L.claude_cli || /^\(claude/.test(L.claude_cli);
+      let who = 'Wren', reply;
+      if (!cliBad) {
+        reply = L.claude_cli;
+      } else if (L.wren_local) {
+        who = 'Wren';  // dropped (offline) label — she's just Wren regardless of engine
+        reply = L.wren_local;
+      } else {
+        reply = d.render || L.local_kernel || d.reply || d.text
+                || d.message || '(no reply)';
+      }
+      chatRender(who, String(reply).slice(0, 1800), false);
+    } else {
+      chatRender('system', `chat HTTP ${r.status}`, false);
+    }
+  } catch (e) {
+    chatRender('system', 'chat network error', false);
+  } finally {
+    chatSend.disabled = false;
+    chatInput.focus();
+  }
+}
+chatForm.addEventListener('submit', (e) => { e.preventDefault(); chatSendMsg(); });
+chatSend.addEventListener('click', chatSendMsg);
+chatInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); chatSendMsg(); }});
+
+// Claude direct chat — F47 alongside Wren; toggleable via "+ Claude" button
+const claudeBox = $('claude-box');
+const claudeLog = $('claude-log');
+const claudeInput = $('claude-input');
+const claudeSend = $('claude-send');
+const claudeToggle = $('claude-toggle');
+const claudeClose = $('claude-close');
+function claudeRender(who, text, isYou) {
+  const row = document.createElement('div');
+  row.className = 'chat-row' + (isYou ? ' you' : '');
+  row.innerHTML = `<div class="chat-who">${esc(who)}</div><div class="chat-text">${esc(text)}</div>`;
+  claudeLog.appendChild(row);
+  claudeLog.scrollTop = claudeLog.scrollHeight;
+}
+async function claudeSendMsg() {
+  const msg = claudeInput.value.trim();
+  if (!msg) return;
+  claudeRender('you', msg, true);
+  claudeInput.value = '';
+  claudeSend.disabled = true;
+  try {
+    const r = await fetch('/api/claude_chat', {
+      method: 'POST', headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({message: msg})});
+    const d = await r.json();
+    const reply = d.reply || d.error || '(no reply)';
+    claudeRender('Claude', String(reply).slice(0, 2000), false);
+  } catch (e) {
+    claudeRender('system', 'network error', false);
+  } finally {
+    claudeSend.disabled = false;
+    claudeInput.focus();
+  }
+}
+if (claudeToggle) claudeToggle.addEventListener('click', () => {
+  claudeBox.classList.toggle('on');
+  if (claudeBox.classList.contains('on') && !claudeLog.children.length) {
+    claudeRender('Claude', 'Direct Claude chat — no Wren persona. Ask anything.', false);
+  }
+});
+
+// Open-Day demo tour — press T to start, space to advance manually, Esc to close
+const tourStrip = $('tour-strip');
+const tourStep = $('tour-step');
+const tourCaption = $('tour-caption');
+const tourPrev = $('tour-prev');
+const tourNext = $('tour-next');
+const tourToggle = $('tour-toggle');
+const tourClose = $('tour-close');
+let _tourPoll = null, _tourAuto = null, _tourOn = false;
+async function tourFetch(action) {
+  const u = action ? `/api/tour/state?action=${action}` : '/api/tour/state';
+  try {
+    const r = await fetch(u, { cache: 'no-store' });
+    if (!r.ok) return null;
+    const d = await r.json();
+    if (d.ok && d.current) {
+      const cur = d.current;
+      tourStep.textContent = `Step ${d.step+1}/${d.total} · F${cur.floor} ${cur.title}`;
+      tourCaption.textContent = cur.caption;
+      // Drive the 3D scene
+      if (window.openInterior) window.openInterior(cur.floor, cur.title);
+      _tourOn = !!d.on;
+      tourToggle.textContent = _tourOn ? '⏸' : '▶';
+    }
+    return d;
+  } catch (e) { return null; }
+}
+function tourShow(show) {
+  tourStrip.classList.toggle('on', show);
+  if (show) {
+    tourFetch();
+    if (!_tourAuto) _tourAuto = setInterval(() => { if (_tourOn) tourFetch('next'); }, 12000);
+  } else {
+    if (_tourAuto) { clearInterval(_tourAuto); _tourAuto = null; }
+    tourFetch('stop');
+  }
+}
+if (tourNext) tourNext.addEventListener('click', () => tourFetch('next'));
+if (tourPrev) tourPrev.addEventListener('click', () => {
+  // No prev endpoint — cycle by going n-1 nexts is rude; just reset to step 0 if at 0
+  tourFetch('reset');
+});
+if (tourToggle) tourToggle.addEventListener('click', () => {
+  tourFetch(_tourOn ? 'stop' : 'start');
+});
+if (tourClose) tourClose.addEventListener('click', () => tourShow(false));
+document.addEventListener('keydown', (e) => {
+  // Don't hijack keys when a chat input has focus — Ross hit this with space-bar
+  // typing in the Wren / Claude / Boardroom inputs and the tour was advancing.
+  const t = e.target;
+  const inField = t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA'
+                        || (t.isContentEditable === true));
+  if (inField) return;
+  if (e.key === 't' || e.key === 'T') {
+    if (!tourStrip.classList.contains('on')) tourShow(true); else tourFetch('next');
+  } else if (e.key === ' ' && tourStrip.classList.contains('on')) {
+    e.preventDefault(); tourFetch('next');
+  } else if (e.key === 'Escape' && tourStrip.classList.contains('on')) {
+    tourShow(false);
+  }
+});
+
+// F167 Boardroom — 3-way Ross/Wren/Claude chat surface
+const boardroomBox = $('boardroom-box');
+const boardroomLog = $('boardroom-log');
+const boardroomInput = $('boardroom-input');
+const boardroomSend = $('boardroom-send');
+const boardroomToggle = $('boardroom-toggle');
+const boardroomClose = $('boardroom-close');
+let _boardroomLastTurnId = 0;
+let _boardroomPollTimer = null;
+function boardroomRender(rows) {
+  for (const r of rows) {
+    if (!r || r.turn_id <= _boardroomLastTurnId) continue;
+    _boardroomLastTurnId = r.turn_id;
+    const who = (r.source === 'claude') ? 'Claude' :
+                (r.source === 'wren' || r.source === 'wren_local') ? 'Wren' :
+                'Ross';
+    const cls = (r.source === 'claude') ? 'claude' :
+                (r.source.startsWith('wren')) ? 'wren' : 'ross';
+    const row = document.createElement('div');
+    row.className = 'br-row ' + cls;
+    const time = (r.ts || '').slice(11, 19);
+    row.innerHTML = `<div class="br-who">#${r.turn_id} · ${who} · @${r.surface} · ${time}</div>` +
+                    `<div class="br-text"></div>`;
+    row.querySelector('.br-text').textContent = String(r.text || '').slice(0, 4000);
+    boardroomLog.appendChild(row);
+  }
+  boardroomLog.scrollTop = boardroomLog.scrollHeight;
+}
+async function boardroomPoll() {
+  try {
+    const r = await fetch('/api/bridge_tail?limit=40', { cache: 'no-store' });
+    if (!r.ok) return;
+    const d = await r.json();
+    boardroomRender(d.rows || []);
+  } catch (e) {}
+}
+async function boardroomSendMsg() {
+  const msg = boardroomInput.value.trim();
+  if (!msg) return;
+  boardroomInput.value = '';
+  boardroomSend.disabled = true;
+  // Optimistic: keep polling while server fires Wren + Claude in parallel
+  const pollWhile = setInterval(boardroomPoll, 1500);
+  try {
+    await fetch('/api/bridge_chat', {
+      method: 'POST', headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({message: msg})});
+    await boardroomPoll();
+  } catch (e) {}
+  finally {
+    clearInterval(pollWhile);
+    boardroomSend.disabled = false;
+    boardroomInput.focus();
+  }
+}
+if (boardroomToggle) boardroomToggle.addEventListener('click', () => {
+  boardroomBox.classList.toggle('on');
+  if (boardroomBox.classList.contains('on')) {
+    boardroomPoll();
+    if (!_boardroomPollTimer) _boardroomPollTimer = setInterval(boardroomPoll, 2000);
+  } else {
+    if (_boardroomPollTimer) { clearInterval(_boardroomPollTimer); _boardroomPollTimer = null; }
+  }
+});
+if (boardroomClose) boardroomClose.addEventListener('click', () => boardroomToggle.click());
+if (boardroomSend) boardroomSend.addEventListener('click', boardroomSendMsg);
+if (boardroomInput) boardroomInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') boardroomSendMsg();
+});
+// Boardroom per-voice TTS toggle + STT mic (Web Speech API)
+const _ttsEnabled = { wren: false, claude: false };
+// SuperTonic on-device TTS via /api/tts — Wren+Hermes+Ross approved 2026-06-20.
+// Falls back to browser speechSynthesis if the endpoint is unreachable.
+const _superTonicSpeak = async (text, voice='F1', lang='en') => {
+  const res = await fetch('/api/tts', {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({text, voice, lang})
+  });
+  if (!res.ok) throw new Error('tts http '+res.status);
+  const blob = await res.blob();
+  const url = URL.createObjectURL(blob);
+  const audio = new Audio(url);
+  audio.onended = () => URL.revokeObjectURL(url);
+  return audio.play();
+};
+document.querySelectorAll('.br-tts').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const who = btn.dataset.who;
+    _ttsEnabled[who] = !_ttsEnabled[who];
+    btn.style.background = _ttsEnabled[who]
+      ? (who === 'wren' ? 'rgba(80,220,180,0.40)' : 'rgba(255,200,64,0.40)')
+      : (who === 'wren' ? 'rgba(80,220,180,0.10)' : 'rgba(255,200,64,0.10)');
+  });
+});
+// Hook: speak any new Boardroom row whose voice is enabled
+const _origBoardroomRender = boardroomRender;
+boardroomRender = function (rows) {
+  const beforeLast = _boardroomLastTurnId;
+  _origBoardroomRender(rows);
+  // Any new wren/claude rows that were just added — speak them if enabled
+  for (const r of rows) {
+    if (r.turn_id <= beforeLast) continue;
+    const speak = (r.source === 'wren' || r.source === 'wren_local') ? _ttsEnabled.wren
+                : (r.source === 'claude') ? _ttsEnabled.claude
+                : false;
+    if (speak) {
+      const txt = String(r.text || '').slice(0, 1200);
+      const voice = (r.source === 'claude') ? 'M1' : 'F1';
+      _superTonicSpeak(txt, voice).catch(() => {
+        if (window.speechSynthesis) {
+          const u = new SpeechSynthesisUtterance(txt);
+          u.rate = 1.05; u.pitch = (r.source === 'claude') ? 0.9 : 1.05;
+          window.speechSynthesis.speak(u);
+        }
+      });
+    }
+  }
+};
+// STT mic — Web Speech API; pushes recognised text into boardroom-input
+const sttBtn = $('br-stt');
+let _stt = null, _sttListening = false;
+if (sttBtn && ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window)) {
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  _stt = new SR();
+  _stt.continuous = false; _stt.interimResults = false; _stt.lang = 'en-GB';
+  _stt.onresult = (e) => {
+    const txt = Array.from(e.results).map(r => r[0].transcript).join(' ').trim();
+    if (txt) { boardroomInput.value = txt; boardroomSendMsg(); }
+  };
+  _stt.onend = () => {
+    _sttListening = false; sttBtn.style.background = 'rgba(255,140,140,0.10)';
+  };
+  sttBtn.addEventListener('click', () => {
+    if (_sttListening) { _stt.stop(); return; }
+    _sttListening = true;
+    sttBtn.style.background = 'rgba(255,140,140,0.45)';
+    try { _stt.start(); } catch (e) { _sttListening = false; }
+  });
+} else if (sttBtn) {
+  sttBtn.style.opacity = '0.4';
+  sttBtn.title = 'Web Speech API not available in this browser';
+}
+
+// Boardroom invite buttons — Auger / Helm / Forge join the live conversation
+document.querySelectorAll('.br-invite').forEach(btn => {
+  btn.addEventListener('click', async (e) => {
+    const who = btn.dataset.who;
+    btn.disabled = true; btn.style.opacity = '0.5';
+    // Grab the last few bridge rows as context
+    try {
+      const r = await fetch('/api/bridge_tail?limit=8', { cache: 'no-store' });
+      const d = await r.json();
+      const ctx = (d.rows || []).map(x => `${x.source}: ${x.text}`).join('\n').slice(-1800);
+      await fetch(`/api/bridge_invite?who=${who}&context=${encodeURIComponent(ctx)}`,
+                   { cache: 'no-store' });
+      await boardroomPoll();
+    } catch (e) {}
+    finally { btn.disabled = false; btn.style.opacity = '1'; }
+  });
+});
+if (claudeClose) claudeClose.addEventListener('click', () => claudeBox.classList.remove('on'));
+if (claudeSend) claudeSend.addEventListener('click', claudeSendMsg);
+if (claudeInput) claudeInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') claudeSendMsg(); });
+
+// Interior panel — opens on floor select, fetches /api/floor_card/<n>
+const interiorPanel = $('interior-panel');
+const interiorTitle = $('interior-title');
+const interiorSub = $('interior-sub');
+const interiorBody = $('interior-body');
+const interiorClose = $('interior-close');
+
+function closeInterior() {
+  interiorPanel.classList.remove('on');
+  _selectedFloor = null;
+  document.querySelectorAll('#floor-roster-list .fr-item.active')
+    .forEach(x => x.classList.remove('active'));
+  if (window.__c3d_unrevealFloor) window.__c3d_unrevealFloor();
+}
+interiorClose.addEventListener('click', closeInterior);
+
+// expose to the 3D module
+window.openInterior = openInterior;
+
+// URL param: ?floor=NNN deep-link auto-reveals the requested floor once
+// the 3D module is ready. Helpful for sharing direct links (e.g. /cockpit3d/?floor=167
+// drops you straight into the Boardroom reveal). Runs after a short delay
+// so the camera intro + roster fetch complete first.
+(function autoRevealFromUrl() {
+  try {
+    const params = new URLSearchParams(window.location.search || '');
+    const f = parseInt(params.get('floor') || '', 10);
+    if (!Number.isFinite(f) || f < 1) return;
+    const tryReveal = () => {
+      if (window.__c3d_focusFloor && window.__c3d_revealFloor) {
+        openInterior(f, `F${f}`);
+        return true;
+      }
+      return false;
+    };
+    let tries = 0;
+    const iv = setInterval(() => {
+      tries++;
+      if (tryReveal() || tries > 40) clearInterval(iv);
+    }, 250);
+  } catch (e) {}
+})();
+
+async function openInterior(floorNum, fallbackName) {
+  _selectedFloor = floorNum;
+  interiorTitle.textContent = `Floor ${floorNum} · ${fallbackName || ''}`;
+  interiorSub.textContent = 'loading floor card…';
+  interiorBody.innerHTML = '<div class="int-empty">loading…</div>';
+  interiorPanel.classList.add('on');
+  // ALWAYS dolly the 3D camera to the picked floor first — the popup must
+  // not be the main thing; the 3D floor must dominate.
+  if (window.__c3d_focusFloor) window.__c3d_focusFloor(floorNum);
+  // 3D reveal — get worker count first so we can spawn the right glyphs
+  ensureWorkersDir().then(() => {
+    const n = workersOnFloor(floorNum).length;
+    if (window.__c3d_revealFloor) window.__c3d_revealFloor(floorNum, n);
+  });
+  try {
+    const r = await fetch(`/api/floor_card/${floorNum}`, { cache: 'no-store' });
+    if (!r.ok) {
+      interiorBody.innerHTML = `<div class="int-card"><h5>Floor card</h5><div class="int-empty">no card available (HTTP ${r.status})</div></div>`;
+      return;
+    }
+    const card = await r.json();
+    renderInterior(floorNum, card);
+  } catch (e) {
+    interiorBody.innerHTML = `<div class="int-card"><h5>Floor card</h5><div class="int-empty">network error: ${esc(e)}</div></div>`;
+  }
+}
+
+function renderInterior(floorNum, card) {
+  const name = card.floor_name || `Floor ${floorNum}`;
+  interiorTitle.textContent = `F${floorNum} · ${name}`;
+  interiorSub.textContent =
+    `${card.department || '—'} · zone ${card.zone || '—'} · ${card.archetype || ''}`;
+
+  let html = '';
+  if (card._card_missing) {
+    html += `<div class="int-card"><h5>Floor card</h5>` +
+      `<div class="int-empty">no floor_card.json on disk for ${esc(card._floor_dir || 'this floor')}</div>` +
+      `</div>`;
+  }
+  // Identity
+  const idRows = [
+    ['department', card.department],
+    ['zone', card.zone],
+    ['archetype', card.archetype],
+    ['staff_lead', card.staff_lead],
+    ['floor_dir', card._floor_dir],
+  ].filter(p => p[1]);
+  if (idRows.length) {
+    html += '<div class="int-card"><h5>Identity</h5>';
+    idRows.forEach(p => {
+      html += `<div class="int-row"><span>${esc(p[0])}</span><b>${esc(p[1])}</b></div>`;
+    });
+    html += '</div>';
+  }
+  // Tour
+  if (card.tour_blurb) {
+    html += `<div class="int-card"><h5>Tour</h5><div class="int-blurb">${esc(String(card.tour_blurb).slice(0, 600))}</div></div>`;
+  }
+  // Live signals
+  const ls = card.live_signals;
+  if (ls && typeof ls === 'object' && Object.keys(ls).length) {
+    html += '<div class="int-card"><h5>Live signals</h5>';
+    Object.keys(ls).slice(0, 16).forEach(k => {
+      const v = ls[k];
+      let disp;
+      if (v === null || v === undefined) disp = '—';
+      else if (typeof v === 'object') disp = JSON.stringify(v).slice(0, 90);
+      else disp = String(v).slice(0, 110);
+      html += `<div class="int-row"><span>${esc(k)}</span><b>${esc(disp)}</b></div>`;
+    });
+    html += '</div>';
+  }
+  // Gate posture
+  const gp = card.gate_posture;
+  if (gp && typeof gp === 'object' && Object.keys(gp).length) {
+    html += '<div class="int-card"><h5>Gate posture</h5>';
+    Object.keys(gp).forEach(k => {
+      const v = gp[k];
+      const cls = v === true ? 'flag-on' : v === false ? 'flag-off' : '';
+      const txt = v === true ? 'TRUE' : v === false ? 'FALSE' : esc(String(v));
+      html += `<div class="int-row"><span>${esc(k)}</span><b class="${cls}">${txt}</b></div>`;
+    });
+    html += '</div>';
+  }
+  // Evidence
+  const ev = card.evidence_paths;
+  if (Array.isArray(ev) && ev.length) {
+    html += '<div class="int-card"><h5>Evidence</h5>';
+    ev.slice(0, 8).forEach(p => {
+      const s = typeof p === 'string' ? p : (p.path || p.file || JSON.stringify(p));
+      html += `<div class="int-row"><span>•</span><b style="font-family:monospace;font-size:10.5px">${esc(s)}</b></div>`;
+    });
+    html += '</div>';
+  }
+  if (!html) {
+    html = '<div class="int-card"><h5>Floor card</h5><div class="int-empty">card present but no rendered fields</div></div>';
+  }
+  // Workers on this floor — talk-to-worker entry point
+  html += `<div class="int-card" id="int-workers"><h5>Workers on this floor · <span class="k" id="int-workers-count">…</span></h5>` +
+          `<div id="int-workers-list" class="int-empty">loading…</div></div>`;
+  interiorBody.innerHTML = html;
+  renderWorkersForFloor(floorNum);
+}
+
+async function renderWorkersForFloor(floorNum) {
+  await ensureWorkersDir();
+  const list = workersOnFloor(floorNum);
+  const cnt = document.getElementById('int-workers-count');
+  const target = document.getElementById('int-workers-list');
+  if (!target) return;
+  if (cnt) cnt.textContent = list.length;
+  if (!list.length) {
+    target.className = 'int-empty';
+    target.textContent = 'no workers registered on this floor';
+    return;
+  }
+  target.className = '';
+  target.innerHTML = list.slice(0, 24).map(w => {
+    const wid = w.worker_id || w.badge_id || '';
+    const nm = w.display_name || w.short_code || wid;
+    const rl = (w.role || '').slice(0, 60);
+    return `<div class="int-worker" data-wid="${esc(wid)}" data-nm="${esc(nm)}">` +
+      `<span class="iw-name">${esc(nm)}</span>` +
+      `<span class="iw-role">${esc(rl)}</span>` +
+      `<button class="iw-talk">talk</button>` +
+      `</div>`;
+  }).join('');
+  target.querySelectorAll('.int-worker').forEach(row => {
+    row.querySelector('.iw-talk').addEventListener('click', (e) => {
+      e.stopPropagation();
+      talkToWorker(row.dataset.wid, row.dataset.nm);
+    });
+  });
+}
+
+async function talkToWorker(wid, nm) {
+  if (!wid) return;
+  const target = document.getElementById('int-workers-list');
+  const row = target.querySelector(`.int-worker[data-wid="${wid}"]`);
+  if (!row) return;
+  // Open a thread (idempotent) with: narration intro + input + send for follow-ups
+  let thread = row.querySelector('.iw-thread');
+  if (!thread) {
+    thread = document.createElement('div');
+    thread.className = 'iw-thread';
+    thread.innerHTML =
+      `<div class="iw-bubble" data-role="worker">…</div>` +
+      `<div class="iw-replyrow">` +
+      `  <input class="iw-ask" type="text" placeholder="follow-up to ${esc(nm)}…" autocomplete="off">` +
+      `  <button class="iw-send" type="button">ask</button>` +
+      `</div>`;
+    row.appendChild(thread);
+    // Hook the input + send for follow-ups (Wren-as-worker brokerage)
+    const inp = thread.querySelector('.iw-ask');
+    const snd = thread.querySelector('.iw-send');
+    const askWorker = async () => {
+      const m = (inp.value || '').trim();
+      if (!m) return;
+      const youRow = document.createElement('div');
+      youRow.className = 'iw-bubble';
+      youRow.dataset.role = 'you';
+      youRow.textContent = m;
+      thread.appendChild(youRow);
+      inp.value = '';
+      snd.disabled = true;
+      const wrenRow = document.createElement('div');
+      wrenRow.className = 'iw-bubble';
+      wrenRow.dataset.role = 'worker';
+      wrenRow.textContent = '…';
+      thread.appendChild(wrenRow);
+      try {
+        const prompt = `As worker ${wid} (${nm}), reply briefly to Ross's question. Stay in role. Question: ${m}`;
+        const r = await fetch('/api/f47_chat', {
+          method: 'POST', headers: {'Content-Type':'application/json'},
+          body: JSON.stringify({message: prompt, speak: _speakOn})});
+        const d = await r.json();
+        const L = d.layers || {};
+        const cliBad = !L.claude_cli || /^\(claude/.test(L.claude_cli);
+        const reply = !cliBad ? L.claude_cli : (L.wren_local || d.render || '(no reply)');
+        wrenRow.textContent = String(reply).slice(0, 1000);
+      } catch (e) {
+        wrenRow.textContent = '(network error)';
+      } finally {
+        snd.disabled = false;
+        inp.focus();
+      }
+    };
+    snd.addEventListener('click', askWorker);
+    inp.addEventListener('keydown', (e) => { if (e.key === 'Enter') askWorker(); });
+  }
+  // First-click: load the worker's own narration
+  const intro = thread.querySelector('.iw-bubble[data-role="worker"]');
+  intro.textContent = '…';
+  try {
+    const r = await fetch(`/api/workers/narration?id=${encodeURIComponent(wid)}`,
+                         { cache: 'no-store' });
+    const d = await r.json();
+    const text = d.spoken_text || d.voice_summary || d.error
+                 || '(no reply from this worker)';
+    intro.textContent = String(text).slice(0, 800);
+  } catch (e) {
+    intro.textContent = '(network error)';
+  }
+}
+
+// ESC closes interior
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && interiorPanel.classList.contains('on')) closeInterior(); });
+
+// Forum thread expansion — reuses the interior panel for the modal
+async function openForumThread(tid) {
+  if (!tid) return;
+  interiorTitle.textContent = `Forum thread`;
+  interiorSub.textContent = tid;
+  interiorBody.innerHTML = '<div class="int-empty">loading thread…</div>';
+  interiorPanel.classList.add('on');
+  try {
+    const r = await fetch(`/api/forum/threads/${encodeURIComponent(tid)}`, { cache: 'no-store' });
+    if (!r.ok) {
+      interiorBody.innerHTML = `<div class="int-card"><div class="int-empty">thread fetch ${r.status}</div></div>`;
+      return;
+    }
+    const d = await r.json();
+    const root = d.thread || d.root || d;
+    const replies = d.replies || d.children || [];
+    let html = '';
+    if (root) {
+      html += `<div class="int-card"><h5>${esc(root.title || 'thread')}</h5>` +
+        `<div class="int-row"><span>by</span><b>${esc(root.author_role || '?')}</b></div>` +
+        `<div class="int-row"><span>at</span><b>${esc(root.ts || '')}</b></div>` +
+        `<div class="int-blurb">${esc(String(root.body || '').slice(0, 800))}</div></div>`;
+    }
+    if (replies.length) {
+      html += `<div class="int-card"><h5>Replies · ${replies.length}</h5>`;
+      replies.slice(0, 12).forEach(rep => {
+        html += `<div class="int-row" style="margin-top:4px"><span>${esc(rep.author_role || '?')}</span><b style="text-align:left;flex:1">${esc(String(rep.body || '').slice(0, 300))}</b></div>`;
+      });
+      html += `</div>`;
+    } else if (root) {
+      html += `<div class="int-card"><div class="int-empty">no replies yet</div></div>`;
+    }
+    interiorBody.innerHTML = html || '<div class="int-card"><div class="int-empty">empty thread</div></div>';
+  } catch (e) {
+    interiorBody.innerHTML = `<div class="int-card"><div class="int-empty">network error</div></div>`;
+  }
+}
+
+// Worker Forum panel — orphaned /api/forum surfaced here
+async function refreshForum() {
+  try {
+    const r = await fetch('/api/forum', { cache: 'no-store' });
+    if (!r.ok) return;
+    const d = await r.json();
+    const threads = d.threads || [];
+    $('forum-count').textContent = d.count != null ? d.count : threads.length;
+    $('forum-list').innerHTML = threads.slice(0, 4).map(t => {
+      const cls = t.is_tannoy ? 'fp-row fp-tannoy' : 'fp-row';
+      const tid = t.thread_id || t.id || '';
+      return `<div class="${cls}" data-tid="${esc(tid)}" style="cursor:pointer">
+        <span class="fp-role">${esc((t.author_role || '?').slice(0,8))}</span>
+        <span class="fp-title">${esc(t.title || t.body || '')}</span>
+        <span class="fp-replies">${t.reply_count != null ? '↳'+t.reply_count : ''}</span>
+      </div>`;
+    }).join('') || '<div class="k">no threads</div>';
+    $('forum-list').querySelectorAll('.fp-row[data-tid]').forEach(row => {
+      row.addEventListener('click', () => openForumThread(row.dataset.tid));
+    });
+  } catch (e) {}
+}
+
+// Live activity feed — recent events from /api/team/live
+async function refreshActivity() {
+  try {
+    const r = await fetch('/api/team/live', { cache: 'no-store' });
+    if (!r.ok) return;
+    const d = await r.json();
+    const events = (d.events_tail || d.events || []).slice(-10).reverse();
+    $('af-count').textContent = events.length;
+    $('af-list').innerHTML = events.map(e => {
+      const ts = (e.ts || '').slice(11, 19); // HH:MM:SS
+      const summary = e.summary || e.detail || e.event_kind || '';
+      let cls = '';
+      const k = (e.event_kind || '').toLowerCase();
+      if (k.includes('wren')) cls = 'wren';
+      else if (k.includes('proposal') || k.includes('apply')) cls = 'proposal';
+      else if (k.includes('fail') || k.includes('error')) cls = 'error';
+      return `<div class="af-row ${cls}" title="${esc(summary)}">
+        <span class="af-time">${esc(ts)}</span>
+        <span class="af-text">${esc(summary.slice(0, 80))}</span>
+      </div>`;
+    }).join('') || '<div class="k">no events</div>';
+  } catch (e) {}
+}
+
+// Tower Wins panel — Ross 2026-06-20: "i need REAL RESULTS !!!" surfaces
+// real numbers from /api/tower_wins refreshed every 30s.
+async function refreshTowerWins() {
+  try {
+    const r = await fetch('/api/tower_wins', { cache: 'no-store' });
+    if (!r.ok) return;
+    const d = await r.json();
+    if (!d.ok) return;
+    const t = d.trading || {}, tk = d.tiktok || {}, fl = d.fleets || {},
+          ev = d.events || {}, gh = d.github || {}, dn = d.daemons || {};
+    const total = (t.f41_cycles_today||0) + (t.f42_cycles_today||0) + (t.f43_cycles_today||0);
+    const fleetTotal = (fl.F47 || 0) + (fl.F166 || 0);
+    const daemonsOk = Object.values(dn).filter(v => v).length;
+    const daemonsTotal = Object.keys(dn).length;
+    const html = `
+      <div class="tw-section">Trading cycles today</div>
+      <div class="tw-row"><span class="tw-k">F41 OANDA forex</span><span class="tw-v">${t.f41_cycles_today||0}</span></div>
+      <div class="tw-row"><span class="tw-k">F42 Binance crypto</span><span class="tw-v">${t.f42_cycles_today||0}</span></div>
+      <div class="tw-row"><span class="tw-k">F43 Alpaca paper</span><span class="tw-v">${t.f43_cycles_today||0}</span></div>
+      <div class="tw-row"><span class="tw-k">TOTAL</span><span class="tw-v">${total}</span></div>
+      <div class="tw-section">Workers</div>
+      <div class="tw-row"><span class="tw-k">certified</span><span class="tw-v">${t.certified_workers||0}</span></div>
+      <div class="tw-row"><span class="tw-k">verdicts today</span><span class="tw-v">${t.verdicts_generated_today||0}</span></div>
+      <div class="tw-row"><span class="tw-k">fleets (F47+F166)</span><span class="tw-v">${fleetTotal}</span></div>
+      <div class="tw-section">TikTok @hqskyscraper</div>
+      <div class="tw-row"><span class="tw-k">followers</span><span class="tw-v">${tk.followers||0}</span></div>
+      <div class="tw-row"><span class="tw-k">AI battles</span><span class="tw-v">${tk.ai_battles_total||0}</span></div>
+      <div class="tw-row"><span class="tw-k">last winner</span><span class="tw-v">${tk.last_battle_winner||'—'}</span></div>
+      <div class="tw-section">Today</div>
+      <div class="tw-row"><span class="tw-k">F47 stamps</span><span class="tw-v">${ev.f47_stamps_today||0}</span></div>
+      <div class="tw-row"><span class="tw-k">pitstops</span><span class="tw-v">${ev.pitstops_today||0}</span></div>
+      <div class="tw-row"><span class="tw-k">daemons ok</span><span class="tw-v">${daemonsOk}/${daemonsTotal}</span></div>
+      <div class="tw-row"><span class="tw-k">github</span><span class="tw-v">${gh.last_commit||'—'}</span></div>
+    `;
+    const el = document.getElementById('tw-body');
+    if (el) el.innerHTML = html;
+  } catch (e) {}
+}
+
+// Initial + interval refresh
+refreshRoster(); refreshLifts(); refreshOpenClaw(); refreshPnL(); refreshForum(); refreshActivity(); refreshTowerWins();
+setInterval(refreshRoster, 5000);
+setInterval(refreshLifts, 4000);
+setInterval(refreshOpenClaw, 6000);
+setInterval(refreshPnL, 6000);
+setInterval(refreshForum, 8000);
+setInterval(refreshActivity, 5000);
+setInterval(refreshTowerWins, 30000);
+
+// Load recent F47 chat history on page open so a refresh doesn't wipe context
+async function loadChatHistory() {
+  try {
+    const r = await fetch('/api/f47_chat/history?tail=5', { cache: 'no-store' });
+    if (!r.ok) {
+      chatRender('Wren', 'F47 chat active. Ask anything; replies route through /api/f47_chat → claude CLI.', false);
+      return;
+    }
+    const d = await r.json();
+    const rows = d.history || d.rows || d.messages || [];
+    if (!rows.length) {
+      chatRender('Wren', 'F47 chat active. Ask anything; replies route through /api/f47_chat → claude CLI.', false);
+      return;
+    }
+    // Each F47 history row has the user's `you` field and Wren's reply in
+    // either `claude_cli` (online) or `wren_local` (offline Ollama fallback).
+    rows.slice(-5).forEach(m => {
+      if (m.you) chatRender('you', String(m.you).slice(0, 600), true);
+      const cliBad = !m.claude_cli || /^\(claude/.test(m.claude_cli);
+      let who = 'Wren', wrenReply;
+      if (!cliBad) {
+        wrenReply = m.claude_cli;
+      } else if (m.wren_local) {
+        who = 'Wren';  // dropped (offline) label — she's just Wren regardless of engine
+        wrenReply = m.wren_local;
+      } else {
+        wrenReply = m.render || m.reply || m.kernel;
+      }
+      if (wrenReply) chatRender(who,
+        String(wrenReply).slice(0, 1500).replace(/^\(claude CLI timed out.*$/gm, '(prior turn timed out)'),
+        false);
+    });
+  } catch (e) {
+    chatRender('Wren', 'F47 chat active.', false);
+  }
+}
+loadChatHistory();
+</script>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.169.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.169.0/examples/jsm/"
+  }
+}
+</script>
+
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+import { Sky } from 'three/addons/objects/Sky.js';
+
+// ──────────────────────────────────────────────────────────────────
+// Tower geometry — 169 floors, wider footprint so it reads as a tower
+// not a sliver
+// ──────────────────────────────────────────────────────────────────
+const N_FLOORS = 169;
+const FLOOR_H = 0.55;             // each slab thickness
+const FLOOR_W = 14.0;             // wide enough to dominate the view
+const FLOOR_D = 14.0;
+const TOWER_H = N_FLOORS * FLOOR_H;  // ~93 units
+
+const STATUS_COLOR = {
+  idle:        new THREE.Color(0x39e070),
+  working:     new THREE.Color(0xf6c45a),
+  blocked:     new THREE.Color(0xff5050),
+  paper_only:  new THREE.Color(0x80a0c0),
+};
+const STATUS_EMISSIVE = {
+  idle:        new THREE.Color(0x125a30),
+  working:     new THREE.Color(0x6a4d12),
+  blocked:     new THREE.Color(0x6a1a1a),
+  paper_only:  new THREE.Color(0x1a2638),
+};
+
+const canvas   = document.getElementById('scene');
+const renderer = new THREE.WebGLRenderer({
+  canvas, antialias: true,
+  powerPreference: 'high-performance',  // dedicated GPU over integrated
+  logarithmicDepthBuffer: true,         // fixes z-fighting on the 237m tower
+});
+renderer.setPixelRatio(Math.min(2, devicePixelRatio));
+renderer.setSize(innerWidth, innerHeight);
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.05;
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+
+const scene = new THREE.Scene();
+
+// ── Atmospheric sky (Three.js Sky shader) — dusk → dawn gradient ──
+// Brighter dusk so the horizon reads behind the tower silhouette.
+const sky = new Sky();
+sky.scale.setScalar(3500);
+scene.add(sky);
+sky.material.uniforms.turbidity.value = 6.0;
+sky.material.uniforms.rayleigh.value = 3.4;
+sky.material.uniforms.mieCoefficient.value = 0.005;
+sky.material.uniforms.mieDirectionalG.value = 0.92;
+const sunAngle = THREE.MathUtils.degToRad(72);  // sun above horizon
+const sun = new THREE.Vector3();
+sun.setFromSphericalCoords(1, sunAngle, THREE.MathUtils.degToRad(220));
+sky.material.uniforms.sunPosition.value.copy(sun);
+scene.fog = new THREE.FogExp2(0x1a2840, 0.0012);  // thinned per Wren signoff so horizon reads
+
+// ── Camera framed on the whole tower (intro dollys in from far) ───
+const camera = new THREE.PerspectiveCamera(40, innerWidth / innerHeight, 0.5, 1500);
+const CAM_FAR = new THREE.Vector3(180, TOWER_H * 0.95, 180);
+const CAM_HOME = new THREE.Vector3(45, TOWER_H * 0.62, 45);
+camera.position.copy(CAM_FAR);
+
+const controls = new OrbitControls(camera, canvas);
+controls.target.set(0, TOWER_H * 0.45, 0);
+controls.enableDamping = true;
+controls.dampingFactor = 0.07;
+controls.minDistance   = 5;     // Wren signoff 2026-06-16: was 18, clamped close dolly
+controls.maxDistance   = 260;
+controls.enableZoom    = true;
+controls.maxPolarAngle = Math.PI * 0.49;
+controls.autoRotate = true;
+controls.autoRotateSpeed = 0.18;
+controls.enabled = false;   // disabled during intro, re-enabled after
+
+// Intro dolly: lerp camera from CAM_FAR -> CAM_HOME over INTRO_MS
+const INTRO_MS = 3000;
+let introT0 = 0;
+function easeOutCubic(x) { return 1 - Math.pow(1 - x, 3); }
+function updateIntro(tNow) {
+  if (!introT0) introT0 = tNow;
+  const k = Math.min(1, (tNow - introT0) / INTRO_MS);
+  const ek = easeOutCubic(k);
+  camera.position.lerpVectors(CAM_FAR, CAM_HOME, ek);
+  if (k >= 1) {
+    controls.enabled = true;
+    return true;   // done
+  }
+  return false;
+}
+
+// ── Lighting ──────────────────────────────────────────────────────
+scene.add(new THREE.AmbientLight(0x6680a0, 0.85));
+const key = new THREE.DirectionalLight(0xfff0d8, 1.6);
+key.position.set(50, 80, 30); scene.add(key);
+const fill = new THREE.DirectionalLight(0x7090b0, 0.7);
+fill.position.set(-40, 50, -30); scene.add(fill);
+const rim = new THREE.PointLight(0x44ffd0, 2.4, 110, 1.4);
+rim.position.set(0, TOWER_H + 8, 0); scene.add(rim);
+
+// ── Ground reflection plate + grid ────────────────────────────────
+const grd = new THREE.Mesh(
+  new THREE.CircleGeometry(120, 80),
+  new THREE.MeshStandardMaterial({
+    color: 0x141e30, metalness: 0.55, roughness: 0.5, side: THREE.DoubleSide
+  })
+);
+grd.rotation.x = -Math.PI / 2; grd.position.y = -0.4; scene.add(grd);
+const grid = new THREE.GridHelper(120, 30, 0x4480a0, 0x244464);
+grid.position.y = -0.35;
+grid.material.transparent = true; grid.material.opacity = 0.32;
+scene.add(grid);
+
+// ── Window-grid emissive texture for the floors ───────────────────
+function makeWindowTexture() {
+  const W = 256, H = 64, cols = 24, rows = 4;
+  const c = document.createElement('canvas');
+  c.width = W; c.height = H;
+  const g = c.getContext('2d');
+  g.fillStyle = '#08101a';
+  g.fillRect(0, 0, W, H);
+  for (let r = 0; r < rows; r++) {
+    for (let x = 0; x < cols; x++) {
+      const lit = Math.random() < 0.78;
+      g.fillStyle = lit ? '#ffe488' : '#1a2638';
+      const wx = (W / cols) * x + 1.0;
+      const wy = (H / rows) * r + 1.0;
+      const ww = (W / cols) - 2.0;
+      const wh = (H / rows) - 2.0;
+      g.fillRect(wx, wy, ww, wh);
+    }
+  }
+  const t = new THREE.CanvasTexture(c);
+  t.wrapS = t.wrapT = THREE.RepeatWrapping;
+  return t;
+}
+const winTex = makeWindowTexture();
+
+// ── Floor slabs — instanced for performance ───────────────────────
+const slabGeo = new THREE.BoxGeometry(FLOOR_W, FLOOR_H * 0.9, FLOOR_D);
+const slabMat = new THREE.MeshStandardMaterial({
+  color: 0xffffff,
+  metalness: 0.35, roughness: 0.42,
+  emissive: 0xffffff, emissiveIntensity: 0.55,
+  emissiveMap: winTex,
+});
+const slabs = new THREE.InstancedMesh(slabGeo, slabMat, N_FLOORS);
+const _m = new THREE.Matrix4();
+const _pos = new THREE.Vector3();
+const _quat = new THREE.Quaternion();
+const _scl = new THREE.Vector3(1, 1, 1);
+// V1.6 (2026-06-21) — Helix twist: 1.5°/floor on the Y-axis. Amazon-HQ2
+// style spiral. Designed by Wren-fast + Wren-smart + DeepSeek + F46 architect.
+const HELIX_DEG_PER_FLOOR = 1.5;
+for (let i = 0; i < N_FLOORS; i++) {
+  _pos.set(0, i * FLOOR_H + FLOOR_H * 0.5, 0);
+  _quat.setFromAxisAngle(new THREE.Vector3(0, 1, 0),
+                          THREE.MathUtils.degToRad(i * HELIX_DEG_PER_FLOOR));
+  _m.compose(_pos, _quat, _scl);
+  slabs.setMatrixAt(i, _m);
+  slabs.setColorAt(i, STATUS_COLOR.paper_only);
+}
+scene.add(slabs);
+
+// ── V1.6 DOUBLE HELIX: second strand offset 180° + slightly smaller ──
+// Team-picked A (duplicate instanced mesh offset 180°). Two strands
+// interlock as they spiral, giving DNA-style double-helix silhouette.
+const slabGeoB = new THREE.BoxGeometry(FLOOR_W * 0.88, FLOOR_H * 0.9, FLOOR_D * 0.88);
+const slabMatB = new THREE.MeshStandardMaterial({
+  color: 0x4f8aff,
+  metalness: 0.55, roughness: 0.30,
+  emissive: 0x88c0ff, emissiveIntensity: 0.85,
+  emissiveMap: winTex,
+});
+const slabsB = new THREE.InstancedMesh(slabGeoB, slabMatB, N_FLOORS);
+for (let i = 0; i < N_FLOORS; i++) {
+  _pos.set(0, i * FLOOR_H + FLOOR_H * 0.5, 0);
+  _quat.setFromAxisAngle(new THREE.Vector3(0, 1, 0),
+                          THREE.MathUtils.degToRad(i * HELIX_DEG_PER_FLOOR + 180));
+  _m.compose(_pos, _quat, _scl);
+  slabsB.setMatrixAt(i, _m);
+}
+scene.add(slabsB);
+
+// ── V1.6 CITY BACKDROP: solid near + faded distant skyline ──
+// Team unanimous D = mix A+C. Creates an Amazon-HQ2-style cityscape
+// surrounding the helix tower. Procedural box placement with depth-fade.
+(function buildCityBackdrop() {
+  const cityGrp = new THREE.Group();
+  cityGrp.name = 'city_backdrop';
+  // Two rings of buildings around the tower
+  // V1.6 futurism pass — more buildings, taller, brighter neon palette.
+  const RINGS = [
+    { radius: 60,  count: 18, hMin: 18, hMax: 55,  opacity: 0.95, emissive: 0.50 },
+    { radius: 110, count: 28, hMin: 28, hMax: 95,  opacity: 0.75, emissive: 0.90 },
+    { radius: 180, count: 40, hMin: 45, hMax: 145, opacity: 0.55, emissive: 1.30 },
+    { radius: 280, count: 50, hMin: 70, hMax: 200, opacity: 0.35, emissive: 1.70 },
+  ];
+  // Cyberpunk neon palette — rotate through cyan, magenta, amber, electric blue
+  const NEON_COLORS = [0x00ffff, 0xff2dd6, 0xffd220, 0x4f8aff, 0xff5a3c, 0x88ff5b];
+  for (const ring of RINGS) {
+    for (let i = 0; i < ring.count; i++) {
+      // Deterministic position from index (no Math.random — same skyline every refresh)
+      const angle = (i / ring.count) * Math.PI * 2 + (ring.radius * 0.001);
+      const r = ring.radius + ((i * 7919) % 30) - 15;  // jitter
+      const x = Math.cos(angle) * r;
+      const z = Math.sin(angle) * r;
+      const w = 8 + ((i * 6701) % 12);
+      const d = 8 + ((i * 6709) % 12);
+      const h = ring.hMin + ((i * 9001) % (ring.hMax - ring.hMin));
+      const colorH = 0x121830;  // dark base
+      const emissH = NEON_COLORS[(i + Math.round(ring.radius)) % NEON_COLORS.length];
+      const mat = new THREE.MeshStandardMaterial({
+        color: colorH, metalness: 0.45, roughness: 0.35,
+        emissive: emissH, emissiveIntensity: ring.emissive,
+        transparent: ring.opacity < 1.0, opacity: ring.opacity,
+      });
+      const b = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), mat);
+      b.position.set(x, h / 2, z);
+      cityGrp.add(b);
+    }
+  }
+  // V1.6 light beams — 8 buildings shoot a column of light into the sky
+  for (let b = 0; b < 8; b++) {
+    const angle = b * (Math.PI / 4);
+    const r = 110 + (b * 13) % 60;
+    const x = Math.cos(angle) * r;
+    const z = Math.sin(angle) * r;
+    const beamGeo = new THREE.CylinderGeometry(0.6, 0.6, 200, 6, 1, true);
+    const beamMat = new THREE.MeshBasicMaterial({
+      color: NEON_COLORS[b % NEON_COLORS.length],
+      transparent: true, opacity: 0.45, side: THREE.DoubleSide,
+    });
+    const beam = new THREE.Mesh(beamGeo, beamMat);
+    beam.position.set(x, 100, z);
+    cityGrp.add(beam);
+  }
+  scene.add(cityGrp);
+})();
+
+// Atmospheric fog so far buildings blend into sky/ground
+if (scene.fog === null || scene.fog === undefined) {
+  scene.fog = new THREE.Fog(0x0a1020, 80, 280);
+}
+
+// ── V1.6 LIFTS: 4 visible lift cars sliding up Y-axis on opposite sides ──
+// Team-unanimous on A: 4 cars cycling up the helix. Neon glow.
+const _liftCars = [];
+const liftCarGeo = new THREE.BoxGeometry(FLOOR_W * 0.18, FLOOR_H * 1.4, FLOOR_D * 0.18);
+const liftMat = new THREE.MeshStandardMaterial({
+  color: 0x88f0d8,
+  metalness: 0.7, roughness: 0.15,
+  emissive: 0x5bff9c, emissiveIntensity: 1.1,
+});
+// V1.6: 4 EXTERNAL lifts that FOLLOW the helix curve.
+const liftPhase    = [0.0, 0.25, 0.5, 0.75]; // staggered cycle phases
+const liftStartAngles = [0, Math.PI / 2, Math.PI, 3 * Math.PI / 2];
+const LIFT_RADIUS = FLOOR_W * 0.62;
+for (let i = 0; i < 4; i++) {
+  const car = new THREE.Mesh(liftCarGeo, liftMat);
+  car.userData = { phase: liftPhase[i], startAngle: liftStartAngles[i] };
+  scene.add(car);
+  _liftCars.push(car);
+}
+// Animate the lifts: each cycles 0→TOWER_H over 25s.
+// At each height, lift angle = startAngle + (floor-at-Y * helix twist).
+const _liftAnimStart = performance.now() / 1000;
+function _animateLifts() {
+  const t = performance.now() / 1000 - _liftAnimStart;
+  for (let i = 0; i < _liftCars.length; i++) {
+    const car = _liftCars[i];
+    const cycle = ((t / 25.0) + car.userData.phase) % 1.0;
+    const yPos = cycle * TOWER_H;
+    const floorAtY = yPos / FLOOR_H;
+    const twistRad = THREE.MathUtils.degToRad(floorAtY * HELIX_DEG_PER_FLOOR);
+    const liftAngle = car.userData.startAngle + twistRad;
+    car.position.x = Math.cos(liftAngle) * LIFT_RADIUS;
+    car.position.z = Math.sin(liftAngle) * LIFT_RADIUS;
+    car.position.y = yPos;
+    car.rotation.y = liftAngle;
+  }
+  requestAnimationFrame(_animateLifts);
+}
+requestAnimationFrame(_animateLifts);
+
+// ── Spire & antenna ───────────────────────────────────────────────
+const spire = new THREE.Mesh(
+  new THREE.ConeGeometry(0.5, 6.0, 16),
+  new THREE.MeshStandardMaterial({
+    color: 0x88e8d0, metalness: 0.7, roughness: 0.25,
+    emissive: 0x44ccaa, emissiveIntensity: 1.1
+  })
+);
+spire.position.y = TOWER_H + 3.0; scene.add(spire);
+const antenna = new THREE.Mesh(
+  new THREE.CylinderGeometry(0.05, 0.05, 4.0, 8),
+  new THREE.MeshBasicMaterial({ color: 0xff5566 })
+);
+antenna.position.y = TOWER_H + 8.0; scene.add(antenna);
+const beacon = new THREE.PointLight(0xff5566, 4.0, 60, 1.5);
+beacon.position.y = TOWER_H + 10.0; scene.add(beacon);
+
+// ── Tower base ground scene — carpark, lobby apron, lampposts, cars ──
+// Ported 2026-06-20 from /home/ross/qsb_godot_native_cockpit/scripts/
+// TowerRenderer.gd lines 60-330 (godot _build_car_park_and_lobby_apron).
+// Ross 2026-06-20: cockpit3d was missing the ground scene the godot had.
+(function buildTowerBaseScene() {
+  const grp = new THREE.Group();
+  grp.name = 'tower_base_scene';
+
+  // ─ Carpark slab (south of tower at z=22, 20m wide × 14m deep) ─
+  const cparkMat = new THREE.MeshStandardMaterial({
+    color: 0x2e2e33, metalness: 0.05, roughness: 0.85 });
+  const cpark = new THREE.Mesh(new THREE.BoxGeometry(20.0, 0.05, 14.0), cparkMat);
+  cpark.position.set(0, -0.08, 22.0); grp.add(cpark);
+
+  // Painted yellow grid (vertical stripes every 2m)
+  const stripeMat = new THREE.MeshStandardMaterial({
+    color: 0xf2cc33, metalness: 0.0, roughness: 0.55,
+    emissive: 0xffd840, emissiveIntensity: 0.5 });
+  for (let x = -4; x <= 4; x += 2) {
+    const s = new THREE.Mesh(new THREE.BoxGeometry(0.15, 0.03, 12.0), stripeMat);
+    s.position.set(x, -0.05, 22.0); grp.add(s);
+  }
+  // Horizontal stripes
+  for (const z of [17.0, 19.0, 21.0, 23.0, 25.0, 27.0]) {
+    const s = new THREE.Mesh(new THREE.BoxGeometry(18.0, 0.03, 0.15), stripeMat);
+    s.position.set(0, -0.05, z); grp.add(s);
+  }
+  // 9 parking bay white lines at back row
+  const bayMat = new THREE.MeshStandardMaterial({
+    color: 0xf2f2f2, metalness: 0.0, roughness: 0.6,
+    emissive: 0xf2f2f2, emissiveIntensity: 0.25 });
+  for (let i = -4; i <= 4; i++) {
+    const b = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.025, 2.8), bayMat);
+    b.position.set(i * 2.2 - 1.1, -0.04, 27.0); grp.add(b);
+  }
+
+  // CARPARK / MUSTER POINT sign + pole
+  const pole = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.05, 0.05, 2.4, 8),
+    new THREE.MeshStandardMaterial({ color: 0x4d4d52, metalness: 0.6, roughness: 0.4 }));
+  pole.position.set(0, 1.2, 16.5); grp.add(pole);
+  const signLab = makeLabelSprite('  TOWER CAR PARK · MUSTER POINT  ', '255, 217, 51');
+  signLab.position.set(0, 2.5, 16.5);
+  signLab.scale.set(6.5, 0.7, 1);
+  grp.add(signLab);
+
+  // 7 parked cars — same hue list as godot (red, blue, blue, orange, grey, grey, purple)
+  const carPositions = [
+    [-3.3, 0.30, 27.0], [-1.1, 0.30, 27.0], [1.1, 0.30, 27.0], [3.3, 0.30, 27.0],
+    [-9.0, 0.30, 18.0], [-9.0, 0.30, 22.0], [-9.0, 0.30, 26.0],
+  ];
+  const carHsv = [
+    [0.05, 0.55, 0.55], [0.55, 0.55, 0.55], [0.62, 0.55, 0.55], [0.10, 0.55, 0.55],
+    [0.0, 0.10, 0.55],  [0.0, 0.10, 0.55],  [0.7, 0.10, 0.55],
+  ];
+  for (let i = 0; i < carPositions.length; i++) {
+    const c = new THREE.Color().setHSL(carHsv[i][0], carHsv[i][1], carHsv[i][2]);
+    const body = new THREE.Mesh(
+      new THREE.BoxGeometry(1.6, 0.7, 3.0),
+      new THREE.MeshStandardMaterial({ color: c, metalness: 0.45, roughness: 0.35 }));
+    body.position.set(carPositions[i][0], carPositions[i][1], carPositions[i][2]);
+    if (i >= 4) body.rotation.y = Math.PI / 2;
+    grp.add(body);
+    const wind = new THREE.Mesh(
+      new THREE.BoxGeometry(1.5, 0.5, 1.0),
+      new THREE.MeshPhysicalMaterial({
+        color: 0x141a24, metalness: 0.6, roughness: 0.10,
+        transparent: true, opacity: 0.6 }));
+    wind.position.set(carPositions[i][0], carPositions[i][1] + 0.55, carPositions[i][2]);
+    if (i >= 4) wind.rotation.y = Math.PI / 2;
+    grp.add(wind);
+  }
+
+  // 4 lampposts at corners of the carpark
+  for (const [px, pz] of [[-10, 16], [10, 16], [-10, 28], [10, 28]]) {
+    const lpole = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.10, 0.12, 4.5, 8),
+      new THREE.MeshStandardMaterial({ color: 0x2e2e33, metalness: 0.6, roughness: 0.4 }));
+    lpole.position.set(px, 2.25, pz); grp.add(lpole);
+    const head = new THREE.Mesh(
+      new THREE.SphereGeometry(0.30, 14, 10),
+      new THREE.MeshStandardMaterial({
+        color: 0xffeaa6, metalness: 0.0, roughness: 0.3,
+        emissive: 0xffe48c, emissiveIntensity: 2.5 }));
+    head.position.set(px, 4.5, pz); grp.add(head);
+    const lamp = new THREE.PointLight(0xffeaa6, 1.6, 10);
+    lamp.position.set(px, 4.5, pz); grp.add(lamp);
+  }
+
+  // ─ Lobby apron (warm stone slab between tower base and carpark) ─
+  const apron = new THREE.Mesh(
+    new THREE.BoxGeometry(14.0, 0.03, 10.0),
+    new THREE.MeshStandardMaterial({ color: 0x9e8c73, metalness: 0.10, roughness: 0.60 }));
+  apron.position.set(0, -0.07, 9.5); grp.add(apron);
+
+  // Entrance kerb
+  const kerb = new THREE.Mesh(
+    new THREE.BoxGeometry(20.0, 0.15, 0.30),
+    new THREE.MeshStandardMaterial({ color: 0x8c7f73, metalness: 0.10, roughness: 0.85 }));
+  kerb.position.set(0, 0.075, 15.0); grp.add(kerb);
+
+  // Reception desk (right of entrance — honey wood)
+  const desk = new THREE.Mesh(
+    new THREE.BoxGeometry(3.6, 1.0, 1.0),
+    new THREE.MeshStandardMaterial({
+      color: 0xd9b366, metalness: 0.2, roughness: 0.45,
+      emissive: 0xffd966, emissiveIntensity: 0.25 }));
+  desk.position.set(4.5, 0.45, 8.0); grp.add(desk);
+  const rsign = makeLabelSprite('  RECEPTION · Lobby F01  ', '255, 217, 102');
+  rsign.position.set(4.5, 1.7, 8.0);
+  rsign.scale.set(4.0, 0.5, 1);
+  grp.add(rsign);
+  const rlamp = new THREE.PointLight(0xffd966, 1.2, 6.0);
+  rlamp.position.set(4.5, 2.4, 8.0); grp.add(rlamp);
+
+  // Entrance canopy
+  const canopy = new THREE.Mesh(
+    new THREE.BoxGeometry(8.0, 0.20, 3.0),
+    new THREE.MeshStandardMaterial({ color: 0x2e333d, metalness: 0.55, roughness: 0.30 }));
+  canopy.position.set(0, 3.0, 6.0); grp.add(canopy);
+
+  // 3 entrance spotlights pointing down at the lobby
+  for (const x of [-2.5, 0.0, 2.5]) {
+    const sl = new THREE.SpotLight(0xfff2d9, 2.0, 6.0, Math.PI / 7.2, 0.4, 1.5);
+    sl.position.set(x, 2.9, 6.0);
+    sl.target.position.set(x, 0.0, 6.0);
+    grp.add(sl);
+    grp.add(sl.target);
+  }
+  // Path lights from entrance to carpark
+  for (let z = 10; z <= 16; z += 2) {
+    const pl = new THREE.PointLight(0xf2d999, 0.8, 4.0);
+    pl.position.set(0, 1.6, z); grp.add(pl);
+  }
+
+  // Welcome mat at lobby entrance
+  const mat = new THREE.Mesh(
+    new THREE.BoxGeometry(2.4, 0.025, 1.4),
+    new THREE.MeshStandardMaterial({
+      color: 0x8c331f, metalness: 0.0, roughness: 0.65,
+      emissive: 0xd94d2e, emissiveIntensity: 0.10 }));
+  mat.position.set(0, -0.045, 5.5); grp.add(mat);
+  const wlab = makeLabelSprite('  WELCOME  ', '255, 217, 115');
+  wlab.position.set(0, 0.10, 5.5);
+  wlab.scale.set(2.4, 0.35, 1);
+  grp.add(wlab);
+
+  scene.add(grp);
+})();
+
+// ── Lifts: 4 cabs running up/down the tower spine ─────────────────
+// Per CLAUDE.md: "Inter-floor communication travels through lifts. Lifts
+// carry sealed packets." Visualised as four small glowing cabs at the
+// four corners of the tower footprint, animated continuously.
+const LIFT_COUNT = 4;
+const LIFT_R = FLOOR_W * 0.46;  // just inside the skin
+const LIFT_W = 0.6;
+const LIFT_H = FLOOR_H * 1.6;
+const lifts = [];
+const liftCabGeo = new THREE.BoxGeometry(LIFT_W, LIFT_H, LIFT_W);
+const liftCabMat = new THREE.MeshStandardMaterial({
+  color: 0xfff0c0, metalness: 0.4, roughness: 0.25,
+  emissive: 0xffe488, emissiveIntensity: 1.6
+});
+const liftShaftMat = new THREE.LineBasicMaterial({
+  color: 0x4a708a, transparent: true, opacity: 0.35
+});
+for (let i = 0; i < LIFT_COUNT; i++) {
+  const angle = (i / LIFT_COUNT) * Math.PI * 2 + Math.PI * 0.25;
+  const cx = Math.cos(angle) * LIFT_R;
+  const cz = Math.sin(angle) * LIFT_R;
+  // shaft (vertical line)
+  const shaftGeo = new THREE.BufferGeometry().setFromPoints([
+    new THREE.Vector3(cx, 0, cz),
+    new THREE.Vector3(cx, TOWER_H, cz),
+  ]);
+  scene.add(new THREE.Line(shaftGeo, liftShaftMat));
+  // cab
+  const cab = new THREE.Mesh(liftCabGeo, liftCabMat);
+  cab.position.set(cx, FLOOR_H, cz);
+  scene.add(cab);
+  // soft glow around cab (sealed packet)
+  const glow = new THREE.PointLight(0xffe488, 0.9, 8.0, 1.5);
+  glow.position.copy(cab.position);
+  scene.add(glow);
+  lifts.push({
+    cab, glow, x: cx, z: cz,
+    phase: (i / LIFT_COUNT),  // staggered start
+    speed: 0.06 + i * 0.012,  // slightly different speeds
+    direction: i % 2 === 0 ? 1 : -1,
+  });
+}
+
+// ── Landmark floor labels ─────────────────────────────────────────
+const LANDMARKS = [
+  { floor: 0,   label: "F0 Reception" },
+  { floor: 6,   label: "F6 Etsy" },
+  { floor: 7,   label: "F7 Shopify" },
+  { floor: 14,  label: "F14 Print-on-Demand" },
+  { floor: 25,  label: "F25 Recruitment" },
+  { floor: 28,  label: "F28 Security" },
+  { floor: 41,  label: "F41 OANDA" },
+  { floor: 42,  label: "F42 Binance" },
+  { floor: 43,  label: "F43 Stocks" },
+  { floor: 46,  label: "F46 Wren Bench" },
+  { floor: 47,  label: "F47 Claude Embassy" },
+  { floor: 48,  label: "F48 Lumen" },
+  { floor: 49,  label: "F49 Studio" },
+  { floor: 50,  label: "F50 Classroom" },
+  { floor: 55,  label: "F55 (legacy worker map)" },
+  { floor: 167, label: "F167 BOARDROOM" },
+  { floor: 168, label: "F168 PENTHOUSE · KERNEL" },
+  { floor: 60,  label: "F60 LSE" },
+  { floor: 100, label: "F100 Press" },
+  { floor: 150, label: "F150 Botanical" },
+  { floor: 165, label: "F165 Vision" },
+];
+
+function makeLabelSprite(text, accent) {
+  const W = 420, H = 70;
+  const c = document.createElement('canvas');
+  c.width = W; c.height = H;
+  const g = c.getContext('2d');
+  const accentRGB = accent || '80, 220, 180';
+  const accentHex = accent === '255, 200, 64' ? '#ffc940' : '#88f0d8';
+  g.fillStyle = 'rgba(8, 14, 24, 0.88)';
+  g.fillRect(0, 0, W, H);
+  g.strokeStyle = `rgba(${accentRGB}, 0.85)`;
+  g.lineWidth = 3;
+  g.strokeRect(1, 1, W - 2, H - 2);
+  g.font = 'bold 28px ui-monospace, "JetBrains Mono", Menlo';
+  g.fillStyle = accentHex;
+  g.textBaseline = 'middle';
+  g.textAlign = 'center';
+  g.fillText(text, W / 2, H / 2);
+  const t = new THREE.CanvasTexture(c);
+  t.minFilter = THREE.LinearFilter;
+  const m = new THREE.SpriteMaterial({ map: t, transparent: true, depthWrite: false });
+  const s = new THREE.Sprite(m);
+  s.scale.set(10.0, 1.7, 1);
+  return s;
+}
+
+const _landmarkSprites = [];
+for (const lm of LANDMARKS) {
+  // Amber accent for the kernel/penthouse landmark
+  const isKernel = lm.label.includes('KERNEL') || lm.label.includes('PENTHOUSE');
+  const s = makeLabelSprite(lm.label, isKernel ? '255, 200, 64' : null);
+  s.position.set(FLOOR_W * 0.85, lm.floor * FLOOR_H + FLOOR_H * 0.5, FLOOR_D * 0.85);
+  scene.add(s);
+  _landmarkSprites.push(s);
+}
+
+// (Floating data particles removed — Ross 2026-06-16: "i dont want fluff like
+// floating data particles". Stripped per stop-adding-fluff memory rule.)
+
+// ── Per-floor density badges + ambient role-coloured dots ────────────
+// Ported from Godot TowerWorkerVisualizer.gd + WorkerRenderer.gd.
+// Approved by Wren (F47 chat) + DeepSeek (consult) on 2026-06-16.
+const ROLE_COLORS = {
+  manager:   0xffd14c,  worker:    0x80b3ff,  watcher:  0xd98cff,
+  seer:      0xf2d966,  overseer:  0x9980ff,  trainer:  0x66e6a6,
+  butler:    0xf2a68c,  concierge: 0xa6f2f2,  clerk:    0x8cd98c,
+  analyst:   0x4cf2ff,  OpenClaw:  0xc74cff,
+};
+function colorForCount(c) {
+  if (c <= 0) return '#888';
+  if (c < 20)  return '#e8eaf0';
+  if (c < 80)  return '#5bff9c';
+  if (c < 200) return '#ffc940';
+  return '#ff7d7d';
+}
+function makeBadgeSprite(text, hex) {
+  const W = 96, H = 36;
+  const c = document.createElement('canvas');
+  c.width = W; c.height = H;
+  const g = c.getContext('2d');
+  g.fillStyle = 'rgba(8, 14, 24, 0.78)';
+  g.fillRect(0, 0, W, H);
+  g.strokeStyle = hex;  g.lineWidth = 2;
+  g.strokeRect(1, 1, W - 2, H - 2);
+  g.font = 'bold 22px ui-monospace, Menlo, monospace';
+  g.fillStyle = hex;
+  g.textBaseline = 'middle'; g.textAlign = 'center';
+  g.fillText(text, W / 2, H / 2);
+  const t = new THREE.CanvasTexture(c);
+  t.minFilter = THREE.LinearFilter;
+  const m = new THREE.SpriteMaterial({ map: t, transparent: true, depthWrite: false });
+  const s = new THREE.Sprite(m);
+  s.scale.set(2.6, 1.0, 1);
+  return s;
+}
+const _badgeSprites = new Array(N_FLOORS);
+const _ambientDotGeo = new THREE.SphereGeometry(0.08, 8, 6);
+const _ambientDotMats = Object.fromEntries(
+  Object.entries(ROLE_COLORS).map(([k, c]) => [k,
+    new THREE.MeshStandardMaterial({
+      color: c, emissive: c, emissiveIntensity: 1.4,
+      metalness: 0.1, roughness: 0.4,
+    })]));
+const _ambientDotsGroup = new THREE.Group();
+scene.add(_ambientDotsGroup);
+function _applyBadgesAndDots() {
+  if (!_floorMasterCache) return;
+  // Density badges + 2 ambient dots per populated floor
+  for (const f of _floorMasterCache) {
+    const m = f.floor_id && f.floor_id.match(/^F(\d+)/);
+    if (!m) continue;
+    const idx = parseInt(m[1], 10);
+    if (idx < 0 || idx >= N_FLOORS) continue;
+    const yc = idx * FLOOR_H + FLOOR_H * 0.5;
+    const count = f.worker_count || (f.workers || []).length || 0;
+    if (count <= 0) continue;
+    // Density badge sprite
+    if (!_badgeSprites[idx]) {
+      const sp = makeBadgeSprite(String(count), colorForCount(count));
+      sp.position.set(-FLOOR_W * 0.85, yc, FLOOR_D * 0.85);
+      scene.add(sp);
+      _badgeSprites[idx] = sp;
+    }
+    // 2 ambient role-coloured dots per floor
+    const roles = (f.workers || []).slice(0, 2);
+    for (let i = 0; i < Math.max(2, roles.length); i++) {
+      const role = roles[i] && roles[i].role ? roles[i].role : 'worker';
+      const mat = _ambientDotMats[role] || _ambientDotMats['worker'];
+      const dot = new THREE.Mesh(_ambientDotGeo, mat);
+      const ang = (i / 2) * Math.PI + Math.sin(idx * 1.7) * 0.4;
+      dot.position.set(Math.cos(ang) * FLOOR_W * 0.42, yc - FLOOR_H * 0.10,
+                        Math.sin(ang) * FLOOR_D * 0.42);
+      dot.userData.baseY = dot.position.y;
+      dot.userData.phase = idx * 0.5 + i;
+      _ambientDotsGroup.add(dot);
+    }
+  }
+}
+// Kick off async — wait for master registry then apply
+ensureWorkersDir().then(() => {
+  _applyBadgesAndDots();
+  // Debug counter for headless probes
+  window.__c3d_badge_count = _badgeSprites.filter(Boolean).length;
+  window.__c3d_dot_count = _ambientDotsGroup.children.length;
+});
+
+// ── Post-process: bloom ───────────────────────────────────────────
+const composer = new EffectComposer(renderer);
+composer.addPass(new RenderPass(scene, camera));
+composer.addPass(new UnrealBloomPass(
+  // strength 0.75→0.95 + threshold 0.78→0.62 — neon panels (wren green
+  // wall_panels, audit board, helix display) read as actually glowing
+  // instead of mildly lit, but no longer washing labels out. Dialed back
+  // from 1.10 → 0.95 after testing showed labels blown out.
+  // Ross 2026-06-20 perf+visual pass.
+  new THREE.Vector2(innerWidth, innerHeight), 0.95, 0.55, 0.62
+));
+
+// ── Floor metadata ────────────────────────────────────────────────
+const floorState = new Array(N_FLOORS).fill(null).map((_, i) => ({
+  floor: i + 1, status: 'paper_only', name: `Floor ${i + 1}`,
+  workers: 0, last_tick: null
+}));
+
+function paintFloors() {
+  for (let i = 0; i < N_FLOORS; i++) {
+    const c = STATUS_COLOR[floorState[i].status] || STATUS_COLOR.paper_only;
+    slabs.setColorAt(i, c);
+  }
+  if (slabs.instanceColor) slabs.instanceColor.needsUpdate = true;
+  let cnt = { idle: 0, working: 0, blocked: 0, paper_only: 0 };
+  for (const f of floorState) cnt[f.status] = (cnt[f.status] || 0) + 1;
+  document.getElementById('cnt-idle').textContent    = `${cnt.idle} idle`;
+  document.getElementById('cnt-working').textContent = `${cnt.working} working`;
+  document.getElementById('cnt-blocked').textContent = `${cnt.blocked} blocked`;
+  document.getElementById('cnt-paper').textContent   = `${cnt.paper_only} paper-only`;
+}
+
+async function refresh() {
+  try {
+    const r = await fetch('/api/floor_states', { cache: 'no-store' });
+    if (!r.ok) return;
+    const d = await r.json();
+    document.getElementById('stat-workers').textContent = d.totals?.workers_registered ?? '—';
+    document.getElementById('stat-procs').textContent   = d.totals?.live_procs ?? '—';
+    document.getElementById('stat-last').textContent    = (d.totals?.last_activity_ts ?? '—').replace('T',' ').replace('Z',' UTC');
+    for (const f of d.floors || []) {
+      const idx = f.floor - 1;
+      if (idx >= 0 && idx < N_FLOORS) {
+        floorState[idx].status   = f.status   || 'paper_only';
+        floorState[idx].name     = f.name     || floorState[idx].name;
+        floorState[idx].workers  = f.workers  || 0;
+        floorState[idx].last_tick= f.last_tick || null;
+      }
+    }
+    paintFloors();
+  } catch (e) { /* network blip */ }
+}
+refresh();
+setInterval(refresh, 5000);
+
+// ── Hover tooltip ─────────────────────────────────────────────────
+const tooltip = document.getElementById('floor-tooltip');
+const raycaster = new THREE.Raycaster();
+const pointer = new THREE.Vector2();
+// Click a floor mesh in the 3D scene → open the interior panel
+canvas.addEventListener('click', (ev) => {
+  const r = canvas.getBoundingClientRect();
+  pointer.x = ((ev.clientX - r.left) / r.width) * 2 - 1;
+  pointer.y = -((ev.clientY - r.top) / r.height) * 2 + 1;
+  raycaster.setFromCamera(pointer, camera);
+  const hit = raycaster.intersectObject(slabs, false);
+  if (hit.length) {
+    const id = hit[0].instanceId;
+    const f = floorState[id];
+    if (window.__c3d_focusFloor) window.__c3d_focusFloor(f.floor);
+    if (window.openInterior) window.openInterior(f.floor, f.name);
+    // Sync roster active state
+    document.querySelectorAll('#floor-roster-list .fr-item').forEach(it => {
+      it.classList.toggle('active', parseInt(it.dataset.floor, 10) === f.floor);
+    });
+  }
+});
+
+canvas.addEventListener('pointermove', (ev) => {
+  const r = canvas.getBoundingClientRect();
+  pointer.x = ((ev.clientX - r.left) / r.width) * 2 - 1;
+  pointer.y = -((ev.clientY - r.top) / r.height) * 2 + 1;
+  raycaster.setFromCamera(pointer, camera);
+  const hit = raycaster.intersectObject(slabs, false);
+  if (hit.length) {
+    const id = hit[0].instanceId;
+    const f = floorState[id];
+    tooltip.style.display = 'block';
+    tooltip.style.left = (ev.clientX + 14) + 'px';
+    tooltip.style.top  = (ev.clientY + 14) + 'px';
+    tooltip.innerHTML = `<b>${f.name}</b><br>floor ${f.floor} · <span class="pill ${pillFor(f.status)}">${f.status}</span><br>workers: ${f.workers}<br>last tick: ${f.last_tick ?? '—'}`;
+  } else {
+    tooltip.style.display = 'none';
+  }
+});
+function pillFor(s) { return s === 'idle' ? 'green' : s === 'working' ? 'amber' : s === 'blocked' ? 'red' : 'dim'; }
+canvas.addEventListener('mousedown', () => { controls.autoRotate = false; });
+
+// ── Resize ────────────────────────────────────────────────────────
+addEventListener('resize', () => {
+  camera.aspect = innerWidth / innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(innerWidth, innerHeight);
+  composer.setSize(innerWidth, innerHeight);
+});
+
+// ── Render loop with particle drift + beacon pulse + lifts ────────
+let tStart = 0;
+let introDone = false;
+let introSkip = false;  // workflow diag #1: floor click kills the intro hijack
+// Live lift positions feed: every 4s the page-level script writes the
+// latest /api/dashboard/3d_skyscraper_state lifts[] into window.__c3d_lifts;
+// the render loop reads it to drive the 4 cab targets.
+window.__c3d_applyLifts = function (apiLifts) {
+  if (!Array.isArray(apiLifts) || !apiLifts.length) return;
+  for (let i = 0; i < lifts.length; i++) {
+    const src = apiLifts[i % apiLifts.length];
+    if (!src) continue;
+    const cf = (src.current_floor != null) ? src.current_floor
+              : (src.target_floor != null ? src.target_floor : null);
+    lifts[i].targetFloor = cf;
+    lifts[i].live = !!(src.moving || (cf != null));
+  }
+};
+
+// Expose floor-focus hook so the left rail (non-module HTML script) can
+// drive the camera. Called from /cockpit3d page-level JS.
+window.__c3d_focusFloor = function (floorNum) {
+  if (!Number.isFinite(floorNum)) return;
+  introSkip = true;  // kill the intro hijack so focusFloor's dolly completes
+  controls.enabled = true;
+  const targetY = floorNum * FLOOR_H + FLOOR_H * 0.5;
+  const startTarget = controls.target.clone();
+  const endTarget = new THREE.Vector3(0, targetY, 0);
+  // Tilt the camera HIGH above the floor and pitch DOWN — gives a doll's-house
+  // / floor-plan view so the fitout (drafting table, workshop bench, 4 stools,
+  // concrete floor, LED strip) is unmistakably visible in plan. Prior versions
+  // parked the camera outside the building (closeDist FLOOR_W*0.95 = ~13 units
+  // when the glass shell is only 7 units across) — the façade hid everything.
+  const startPos = camera.position.clone();
+  const radialDir = startPos.clone().sub(endTarget); radialDir.y = 0;
+  if (radialDir.lengthSq() < 0.01) radialDir.set(1, 0, 1);
+  radialDir.normalize();
+  const closeDist = FLOOR_W * 0.45;
+  const endPos = new THREE.Vector3(
+    radialDir.x * closeDist,
+    targetY + FLOOR_H * 5.0,    // high above so the floor is visible plan-style
+    radialDir.z * closeDist);
+  let t = 0;
+  const dur = 36;
+  (function step() {
+    t++;
+    const k = Math.min(1, t / dur);
+    const e = 1 - Math.pow(1 - k, 3);
+    controls.target.copy(startTarget.clone().lerp(endTarget, e));
+    camera.position.copy(startPos.clone().lerp(endPos, e));
+    if (k < 1) requestAnimationFrame(step);
+  })();
+};
+
+// ── WALKABLE FLOOR MODE — match Godot's WalkableFloorMode.gd pattern.
+// Ross 2026-06-19: "i need it in the new dash" — the Godot scripts let him
+// walk INSIDE the floor with WASD + mouse-look. cockpit3d only had the camera
+// dolly. This first-person walk uses the existing OrbitControls (mouse-DRAG
+// for look — no pointer-lock permission prompt) + WASD for movement. The
+// controls.target is parked 1 unit in FRONT of the camera so OrbitControls
+// rotates the view around the camera, giving first-person feel.
+const EYE_HEIGHT = 1.7;
+const WALK_SPEED = 4.5;
+const RUN_SPEED  = 7.5;
+const walkHud = document.getElementById('walk-hud');
+const walkBtn = document.getElementById('interior-walk');
+const _walkKeys = { f:false, b:false, l:false, r:false, shift:false };
+let _walkActive = false;
+let _walkFloor = null;
+let _walkSavedTarget = null;
+let _walkSavedPos = null;
+let _walkSavedMinDist = null;
+let _walkSavedMaxDist = null;
+
+// During walk mode, hide every OTHER slab (and the lift cabs that cut through
+// the center) so the camera only sees the focused floor's fitout — without
+// this, the camera inside a 0.55m-thick floor sees neighbour floors as
+// horizontal stripes at eye level. Saved here, restored on leaveWalk.
+const _walkHiddenSlabMats = new Map();   // idx -> Matrix4
+let _walkLiftsHidden = false;
+
+function _hideEverythingExceptFloor(floorNum) {
+  const keepIdx = floorNum - 1;
+  const m4 = new THREE.Matrix4();
+  for (let i = 0; i < N_FLOORS; i++) {
+    if (i === keepIdx) continue;
+    slabs.getMatrixAt(i, m4);
+    _walkHiddenSlabMats.set(i, m4.clone());
+    slabs.setMatrixAt(i, _ZERO_MAT);
+  }
+  slabs.instanceMatrix.needsUpdate = true;
+  // Hide every lift cab + shaft + glow during walk
+  for (const lf of lifts) {
+    if (lf.cab) lf.cab.visible = false;
+    if (lf.glow) lf.glow.visible = false;
+    if (lf.shaft) lf.shaft.visible = false;
+  }
+  _walkLiftsHidden = true;
+}
+function _restoreHidden() {
+  for (const [idx, m] of _walkHiddenSlabMats) slabs.setMatrixAt(idx, m);
+  slabs.instanceMatrix.needsUpdate = true;
+  _walkHiddenSlabMats.clear();
+  if (_walkLiftsHidden) {
+    for (const lf of lifts) {
+      if (lf.cab) lf.cab.visible = true;
+      if (lf.glow) lf.glow.visible = true;
+      if (lf.shaft) lf.shaft.visible = true;
+    }
+    _walkLiftsHidden = false;
+  }
+}
+
+// Walkable OFFICE — when Ross enters walk mode we build a full-scale office
+// room at the floor's elevation: 14m x 14m x 3m (real human dimensions),
+// with floor + 4 walls + ceiling + ceiling lights + furniture + worker
+// humanoids. Camera sits inside at eye level; WASD walks, OrbitControls
+// gives mouse-drag look. On leaveWalk, we remove this group entirely.
+const _walkOffice = new THREE.Group();
+scene.add(_walkOffice);
+_walkOffice.visible = false;
+
+const ROOM_W = 14.0;
+const ROOM_D = 14.0;
+const ROOM_H = 3.0;          // 3m headroom (real office)
+const _wmat = {
+  floor: new THREE.MeshStandardMaterial({
+    color: 0x6b7078, metalness: 0.55, roughness: 0.32,  // polished concrete
+    emissive: 0x1c2026, emissiveIntensity: 0.20,
+  }),
+  wall: new THREE.MeshStandardMaterial({
+    color: 0x2e3744, metalness: 0.20, roughness: 0.55,
+    emissive: 0x0a121e, emissiveIntensity: 0.15,
+    side: THREE.DoubleSide,
+  }),
+  ceiling: new THREE.MeshStandardMaterial({
+    color: 0x1a2230, metalness: 0.10, roughness: 0.70,
+    emissive: 0x0a0e16, emissiveIntensity: 0.10,
+    side: THREE.DoubleSide,
+  }),
+  oak: new THREE.MeshStandardMaterial({
+    color: 0xa07a3a, metalness: 0.20, roughness: 0.55,
+    emissive: 0x4a3a10, emissiveIntensity: 0.18,
+  }),
+  alum: new THREE.MeshStandardMaterial({
+    color: 0xbbc1c8, metalness: 0.85, roughness: 0.22,
+    emissive: 0x4a5460, emissiveIntensity: 0.30,
+  }),
+  teal: new THREE.MeshStandardMaterial({
+    color: 0x0d486b, metalness: 0.50, roughness: 0.28,
+    emissive: 0x0d486b, emissiveIntensity: 0.85,
+  }),
+  light: new THREE.MeshStandardMaterial({
+    color: 0xfff3d4, emissive: 0xfff3d4, emissiveIntensity: 2.4,
+  }),
+  worker: new THREE.MeshStandardMaterial({
+    color: 0x88f0d8, emissive: 0x44ddc0, emissiveIntensity: 1.6,
+  }),
+};
+
+// Per-floor walkable-office dimensions. Each floor gets its OWN dimensions
+// reflecting its purpose (Ross 2026-06-19: "we have over 160 floors and each
+// one is different there is no two floors the same").
+//   F46 Wren's Bench  — 50×50×3 (Wren's spec — vast workshop)
+//   F47 Claude Embassy — 18×18×3 (medium — reverent + warm + watchful)
+// Other floors fall back to ROOM_W/ROOM_D/ROOM_H until each gets a fit-out.
+function _officeDims(floorNum) {
+  // Skyscraper-scale floor footprints (per Ross 2026-06-20: "make the floors
+  // bigger its a skyscraper plus each floor must have its own departments").
+  // Departments scaled by activity:
+  //   trading desks / restaurants / library / shopping → 60×60
+  //   ops / classroom / vault / studio / chapel       → 40×40
+  //   reception / lobby                              → 30×30
+  //   F46 Wren Bench (already chosen by Wren)        → 50×50
+  //   F47 Claude Embassy (was 18 — now scaled up)    → 40×40
+  // Specific overrides win; archetype keyword inferred from cached card.
+  if (floorNum === 46) return { W: 50, D: 50, H: 4 };
+  if (floorNum === 47) return { W: 40, D: 40, H: 4 };
+  if (floorNum === 0)  return { W: 30, D: 30, H: 4 };  // reception
+  // Use the loaded _floorMasterCache (loaded by hydrateCaches at startup)
+  // to infer skyscraper-scale dims from template + department + floor_name.
+  let txt = "";
+  if (typeof _floorMasterCache !== 'undefined' && Array.isArray(_floorMasterCache)) {
+    const k = `F${String(floorNum).padStart(2, '0')}`;
+    const e = _floorMasterCache.find(f => f && f.floor_id === k);
+    if (e) txt = [e.template, e.department, e.floor_name].join(' ').toLowerCase();
+  }
+  const big = /tradingfloor|restaurant|district|grandlibrary|libraryfloor|shopping|mall|botanical|cinema|observatory|museum|brewery|distillery|gameflag|hall|district/;
+  const med = /council|opspit|classroom|vaultchamber|studio|chapel|kitchen|workshop|gym|wellness|labfloor|laboratory|accounts|bank|exchange|operations|command/;
+  if (big.test(txt))  return { W: 60, D: 60, H: 5 };
+  if (med.test(txt))  return { W: 40, D: 40, H: 4 };
+  return { W: 35, D: 35, H: 4 };  // skyscraper default — never < 35m
+}
+
+// F47 Claude Embassy palette — per floor_manifest.json interior_brief.
+// "wren green + warm white + brass" → these three named hexes.
+const _f47Mats = {
+  brass:      new THREE.MeshStandardMaterial({ color: 0xc6a35d, metalness: 0.85, roughness: 0.22,
+                                                emissive: 0x6a4d20, emissiveIntensity: 0.45 }),
+  brassLit:   new THREE.MeshStandardMaterial({ color: 0xd9b86a, metalness: 0.7,  roughness: 0.25,
+                                                emissive: 0xd9b86a, emissiveIntensity: 1.4 }),
+  warmWhite:  new THREE.MeshStandardMaterial({ color: 0xf5e8d2, metalness: 0.10, roughness: 0.55,
+                                                emissive: 0x8a6a40, emissiveIntensity: 0.18 }),
+  warmWhiteLit: new THREE.MeshStandardMaterial({ color: 0xfff3d4, emissive: 0xfff3d4, emissiveIntensity: 2.0 }),
+  wrenGreen:  new THREE.MeshStandardMaterial({ color: 0x2a5d3a, metalness: 0.30, roughness: 0.50,
+                                                emissive: 0x12331c, emissiveIntensity: 0.25 }),
+  wrenGreenLit: new THREE.MeshStandardMaterial({ color: 0x44ad6a, metalness: 0.30, roughness: 0.30,
+                                                emissive: 0x44ad6a, emissiveIntensity: 1.5 }),
+  oak:        new THREE.MeshStandardMaterial({ color: 0x8a5a32, metalness: 0.20, roughness: 0.60,
+                                                emissive: 0x4a3a10, emissiveIntensity: 0.18 }),
+  red:        new THREE.MeshStandardMaterial({ color: 0xff3030, emissive: 0xff3030, emissiveIntensity: 2.0 }),
+  glass:      new THREE.MeshPhysicalMaterial({ color: 0xb0e0ff, transmission: 0.85, thickness: 0.4,
+                                                roughness: 0.05, metalness: 0.0, ior: 1.4,
+                                                transparent: true, opacity: 0.30,
+                                                side: THREE.DoubleSide, depthWrite: false }),
+};
+
+// Data-driven room renderer — consumes /api/floor_rooms/<n> rows that
+// carry the {layout, render, interactive} blocks added in STAGE A
+// (tools/qsb_f47_rooms_backport.py 2026-06-20). Each row becomes one
+// prop placed at (offset_x, height/2, offset_z) with material picked
+// from the room's palette. Unknown palettes fall back to the F47 set.
+// Unknown props become a generic boxy placeholder so the room is still
+// visible. The renderer doesn't fetch the interactive live_data yet —
+// STAGE B-2 will poll source_path and update each prop's label.
+function _materialsForPalette(palette) {
+  // Today we only have F47 brass + wren green + warm white. Other floor
+  // palettes get added here as STAGE C generates fit-outs.
+  if (palette === 'embassy_brass_wren_green' || !palette) return _f47Mats;
+  return _f47Mats;  // fallback until other palettes are defined
+}
+function _buildPropForRoom(room, W, D, H) {
+  const layout = room.layout || {};
+  const render = room.render || {};
+  const fp = layout.footprint_m || [1.0, 1.0];
+  const hM = layout.height_m   || 1.0;
+  const ox = (typeof layout.offset_x === 'number') ? layout.offset_x : 0;
+  const oz = (typeof layout.offset_z === 'number') ? layout.offset_z : 0;
+  const mats = _materialsForPalette(render.palette);
+  const lit = render.glow === true;
+  const propType = render.primary_prop || 'desk';
+  const grp = new THREE.Group();
+  // Pick material based on prop type.
+  const matBody = (propType === 'wall_panel' && lit)        ? mats.wrenGreenLit
+                : (propType === 'wall_panel')               ? mats.wrenGreen
+                : (propType === 'archive_shelf')            ? mats.warmWhite
+                : (propType === 'chamber' && lit)           ? mats.brassLit
+                : (propType === 'chamber')                  ? mats.warmWhite
+                : (propType === 'dais')                     ? mats.brass
+                : (propType === 'plinth')                   ? mats.warmWhite
+                : (propType === 'display' && lit)           ? mats.wrenGreenLit
+                : (propType === 'display')                  ? mats.warmWhite
+                : (propType === 'desk' || propType === 'bench' || propType === 'seating') ? mats.oak
+                : (propType === 'chair_set')                ? mats.brass
+                : (propType === 'reception')                ? mats.oak
+                : (propType === 'kitchen_line')             ? mats.warmWhiteLit
+                : (propType === 'library_shelf')            ? mats.warmWhite
+                : mats.oak;
+  // Body geometry per prop type. Walls flat against their wall.
+  let body;
+  if (propType === 'wall_panel') {
+    body = new THREE.Mesh(new THREE.PlaneGeometry(fp[0], hM), matBody);
+    // Orient based on which wall this is on (from layout.zone)
+    const z = layout.zone || '';
+    if (z.startsWith('left_'))       body.rotation.y =  Math.PI / 2;
+    else if (z.startsWith('right_')) body.rotation.y = -Math.PI / 2;
+    else if (z.startsWith('back_'))  body.rotation.y =  0;
+    else                              body.rotation.y =  Math.PI;
+    body.position.set(ox, hM / 2 + 0.5, oz);
+  } else if (propType === 'archive_shelf') {
+    // Rows of glowing book spines along the wall
+    body = new THREE.Group();
+    for (let row = 0; row < 3; row++) {
+      for (let i = 0; i < 12; i++) {
+        const spine = new THREE.Mesh(
+          new THREE.BoxGeometry(0.10, 0.50, 0.15),
+          (i + row) % 3 === 0 ? mats.wrenGreenLit
+            : (i + row) % 3 === 1 ? mats.brass : mats.warmWhiteLit);
+        spine.position.set(ox - 1.2 + i * 0.20, 1.5 + row * 0.55, oz);
+        body.add(spine);
+      }
+    }
+  } else if (propType === 'chamber') {
+    // Pedestal base + glass case + red toggle inside
+    body = new THREE.Group();
+    const base = new THREE.Mesh(new THREE.BoxGeometry(fp[0], hM * 0.6, fp[1]), matBody);
+    base.position.set(ox, hM * 0.3, oz);
+    body.add(base);
+    const cap  = new THREE.Mesh(new THREE.BoxGeometry(fp[0], hM * 0.4, fp[1]), mats.glass);
+    cap.position.set(ox, hM * 0.6 + hM * 0.2, oz);
+    body.add(cap);
+    const sw = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.10, 0.10, 0.18, 16), mats.red);
+    sw.position.set(ox, hM * 0.6 + hM * 0.2, oz);
+    body.add(sw);
+  } else if (propType === 'chair_set') {
+    body = new THREE.Group();
+    const desk = new THREE.Mesh(new THREE.BoxGeometry(fp[0], 0.10, fp[1]), mats.oak);
+    desk.position.set(ox, hM, oz);
+    body.add(desk);
+    for (let i = -1; i <= 1; i++) {
+      const chair = new THREE.Mesh(
+        new THREE.BoxGeometry(0.5, 0.85, 0.5), matBody);
+      chair.position.set(ox + i * 0.7, 0.43, oz + 1.0);
+      body.add(chair);
+    }
+  } else if (propType === 'dais') {
+    body = new THREE.Group();
+    const platform = new THREE.Mesh(
+      new THREE.BoxGeometry(fp[0], hM, fp[1]), matBody);
+    platform.position.set(ox, hM / 2, oz);
+    body.add(platform);
+    const trim = new THREE.Mesh(
+      new THREE.BoxGeometry(fp[0] + 0.1, 0.05, fp[1] + 0.1), mats.warmWhiteLit);
+    trim.position.set(ox, hM + 0.025, oz);
+    body.add(trim);
+  } else if (propType === 'display') {
+    // A column/pillar — the helix display is THE iconic central prop
+    body = new THREE.Group();
+    const baseDisc = new THREE.Mesh(
+      new THREE.CylinderGeometry(Math.min(fp[0], fp[1]) * 0.5,
+                                  Math.min(fp[0], fp[1]) * 0.5, 0.30, 18),
+      mats.warmWhite);
+    baseDisc.position.set(ox, 0.15, oz);
+    body.add(baseDisc);
+    // Twin-strand helix beads — keeps the F47 signature visible
+    for (let strand = 0; strand < 2; strand++) {
+      const phase = strand * Math.PI;
+      for (let i = 0; i < 28; i++) {
+        const t = i / 27;
+        const theta = t * Math.PI * 4 + phase;
+        const bx = ox + Math.cos(theta) * 0.35;
+        const bz = oz + Math.sin(theta) * 0.35;
+        const by = 0.6 + t * (hM - 0.6);
+        const bead = new THREE.Mesh(
+          new THREE.SphereGeometry(0.10, 10, 8),
+          strand === 0 ? mats.wrenGreenLit : mats.brassLit);
+        bead.position.set(bx, by, bz);
+        body.add(bead);
+      }
+    }
+  } else if (propType === 'plinth') {
+    body = new THREE.Mesh(
+      new THREE.BoxGeometry(fp[0], hM, fp[1]), matBody);
+    body.position.set(ox, hM / 2, oz);
+  } else if (propType === 'bench') {
+    // Bench: low flat slab with visible legs
+    body = new THREE.Group();
+    const seat = new THREE.Mesh(
+      new THREE.BoxGeometry(fp[0], 0.10, fp[1]), matBody);
+    seat.position.set(ox, hM, oz);
+    body.add(seat);
+    for (const [lx, lz] of [[-fp[0]/2+0.1, -fp[1]/2+0.1], [fp[0]/2-0.1, -fp[1]/2+0.1],
+                              [-fp[0]/2+0.1, fp[1]/2-0.1], [fp[0]/2-0.1, fp[1]/2-0.1]]) {
+      const leg = new THREE.Mesh(
+        new THREE.BoxGeometry(0.06, hM, 0.06), mats.brass);
+      leg.position.set(ox + lx, hM/2, oz + lz);
+      body.add(leg);
+    }
+  } else if (propType === 'desk') {
+    // Desk: top slab + brass legs + small monitor
+    body = new THREE.Group();
+    const top = new THREE.Mesh(
+      new THREE.BoxGeometry(fp[0], 0.05, fp[1]), mats.oak);
+    top.position.set(ox, hM, oz);
+    body.add(top);
+    for (const [lx, lz] of [[-fp[0]/2+0.08, -fp[1]/2+0.08], [fp[0]/2-0.08, -fp[1]/2+0.08],
+                              [-fp[0]/2+0.08, fp[1]/2-0.08], [fp[0]/2-0.08, fp[1]/2-0.08]]) {
+      const leg = new THREE.Mesh(
+        new THREE.BoxGeometry(0.05, hM, 0.05), mats.brass);
+      leg.position.set(ox + lx, hM/2, oz + lz);
+      body.add(leg);
+    }
+    // monitor on the desk
+    const screen = new THREE.Mesh(
+      new THREE.BoxGeometry(0.45, 0.30, 0.05),
+      new THREE.MeshStandardMaterial({color: 0x1a2638, emissive: 0x44ad6a, emissiveIntensity: 0.6}));
+    screen.position.set(ox - fp[0]/4, hM + 0.25, oz - fp[1]/4);
+    body.add(screen);
+  } else if (propType === 'kitchen_line') {
+    // Kitchen line: 3 stovetops + tall hood/extractor on top
+    body = new THREE.Group();
+    const counter = new THREE.Mesh(
+      new THREE.BoxGeometry(fp[0], 0.9, fp[1]),
+      new THREE.MeshStandardMaterial({color: 0xbcc4cc, metalness: 0.85, roughness: 0.25}));
+    counter.position.set(ox, 0.45, oz);
+    body.add(counter);
+    // 3 stovetop circles (dark glass)
+    const stoveMat = new THREE.MeshStandardMaterial({color: 0x141820, emissive: 0xff5050, emissiveIntensity: 0.35, roughness: 0.4});
+    for (let i = 0; i < 3; i++) {
+      const burner = new THREE.Mesh(
+        new THREE.CylinderGeometry(0.16, 0.16, 0.03, 16), stoveMat);
+      burner.position.set(ox - fp[0]/3 + i * fp[0]/3, 0.92, oz);
+      body.add(burner);
+    }
+    // Hood/extractor above
+    const hood = new THREE.Mesh(
+      new THREE.BoxGeometry(fp[0] * 0.95, 0.20, fp[1] * 0.7),
+      new THREE.MeshStandardMaterial({color: 0x88a0a8, metalness: 0.9, roughness: 0.20}));
+    hood.position.set(ox, hM * 0.85, oz - fp[1]*0.1);
+    body.add(hood);
+  } else if (propType === 'dining_table') {
+    // Round dining table + 4 chairs
+    body = new THREE.Group();
+    const tabletop = new THREE.Mesh(
+      new THREE.CylinderGeometry(fp[0]*0.45, fp[0]*0.45, 0.05, 24),
+      new THREE.MeshStandardMaterial({color: 0xd9b366, metalness: 0.1, roughness: 0.5}));
+    tabletop.position.set(ox, 0.75, oz);
+    body.add(tabletop);
+    const stand = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.08, 0.20, 0.75, 12), mats.brass);
+    stand.position.set(ox, 0.375, oz);
+    body.add(stand);
+    // 4 chairs
+    const chairMat = new THREE.MeshStandardMaterial({color: 0x9e3838, roughness: 0.55});
+    for (let i = 0; i < 4; i++) {
+      const a = (i / 4) * Math.PI * 2 + Math.PI/4;
+      const cx = ox + Math.cos(a) * fp[0] * 0.6;
+      const cz = oz + Math.sin(a) * fp[0] * 0.6;
+      const seat = new THREE.Mesh(
+        new THREE.BoxGeometry(0.35, 0.05, 0.35), chairMat);
+      seat.position.set(cx, 0.45, cz);
+      body.add(seat);
+      const back = new THREE.Mesh(
+        new THREE.BoxGeometry(0.35, 0.50, 0.04), chairMat);
+      back.position.set(cx + Math.cos(a + Math.PI) * 0.16, 0.72, cz + Math.sin(a + Math.PI) * 0.16);
+      back.rotation.y = -a + Math.PI/2;
+      body.add(back);
+    }
+  } else if (propType === 'trading_desk') {
+    // Trading desk: long counter + 3 monitors + chair
+    body = new THREE.Group();
+    const counter = new THREE.Mesh(
+      new THREE.BoxGeometry(fp[0], 0.06, fp[1]), mats.oak);
+    counter.position.set(ox, hM, oz);
+    body.add(counter);
+    for (const sx of [-1, 0, 1]) {
+      const screen = new THREE.Mesh(
+        new THREE.BoxGeometry(0.55, 0.36, 0.04),
+        new THREE.MeshStandardMaterial({
+          color: 0x0d1320,
+          emissive: new THREE.Color().setHSL(0.35 + sx*0.1, 0.6, 0.4),
+          emissiveIntensity: 0.85}));
+      screen.position.set(ox + sx * 0.7, hM + 0.30, oz - 0.10);
+      body.add(screen);
+    }
+    // chair
+    const chairBack = new THREE.Mesh(
+      new THREE.BoxGeometry(0.45, 0.60, 0.05),
+      new THREE.MeshStandardMaterial({color: 0x222b3a, roughness: 0.5}));
+    chairBack.position.set(ox, hM - 0.20, oz + fp[1]*0.5);
+    body.add(chairBack);
+  } else if (propType === 'reception') {
+    // Reception desk: warm wood with rounded front and a green plant on top
+    body = new THREE.Group();
+    const main = new THREE.Mesh(
+      new THREE.BoxGeometry(fp[0], hM, fp[1]),
+      new THREE.MeshStandardMaterial({color: 0xb8946a, metalness: 0.10, roughness: 0.40}));
+    main.position.set(ox, hM / 2, oz);
+    body.add(main);
+    // green plant blob
+    const plant = new THREE.Mesh(
+      new THREE.SphereGeometry(0.18, 12, 10),
+      new THREE.MeshStandardMaterial({color: 0x2a8a4a, emissive: 0x44ad6a, emissiveIntensity: 0.25}));
+    plant.position.set(ox + fp[0]/3, hM + 0.18, oz);
+    body.add(plant);
+  } else if (propType === 'library_shelf') {
+    // Tall library bookshelf with rows of varicolored books
+    body = new THREE.Group();
+    const back = new THREE.Mesh(
+      new THREE.BoxGeometry(fp[0], hM, 0.1), mats.oak);
+    back.position.set(ox, hM / 2, oz);
+    body.add(back);
+    for (let row = 0; row < 4; row++) {
+      const shelf = new THREE.Mesh(
+        new THREE.BoxGeometry(fp[0] * 0.95, 0.05, fp[1]), mats.oak);
+      shelf.position.set(ox, 0.4 + row * (hM-0.2)/4, oz);
+      body.add(shelf);
+      // 8-12 books per shelf, varicolored
+      const bookCount = Math.floor(fp[0] * 6);
+      for (let b = 0; b < bookCount; b++) {
+        const book = new THREE.Mesh(
+          new THREE.BoxGeometry(0.06, 0.30, 0.12),
+          new THREE.MeshStandardMaterial({
+            color: new THREE.Color().setHSL((b * 0.13) % 1, 0.5, 0.45),
+            roughness: 0.6}));
+        book.position.set(ox - fp[0]/2 + 0.1 + b * (fp[0]-0.2)/bookCount,
+                           0.55 + row * (hM-0.2)/4, oz);
+        body.add(book);
+      }
+    }
+  } else if (propType === 'seating') {
+    body = new THREE.Group();
+    for (let i = 0; i < 4; i++) {
+      const seat = new THREE.Mesh(
+        new THREE.BoxGeometry(0.5, hM, 0.5), matBody);
+      const a = (i / 4) * Math.PI * 2;
+      seat.position.set(ox + Math.cos(a) * 0.7, hM / 2, oz + Math.sin(a) * 0.7);
+      body.add(seat);
+    }
+  } else {
+    // Generic placeholder so unknown props still visible
+    body = new THREE.Mesh(
+      new THREE.BoxGeometry(fp[0], hM, fp[1]), matBody);
+    body.position.set(ox, hM / 2, oz);
+  }
+  grp.add(body);
+  // Label sprite above the prop
+  if (render.label_text) {
+    const lab = makeLabelSprite(`  ${render.label_text}  `,
+                                lit ? '136, 240, 216' : '198, 163, 93');
+    const labY = (propType === 'wall_panel') ? (hM + 0.5)
+               : (propType === 'display')    ? (hM + 0.2)
+               : (hM + 0.7);
+    lab.position.set(ox, labY, oz);
+    lab.scale.set(Math.max(2.0, fp[0] * 0.9), 0.45, 1);
+    grp.add(lab);
+  }
+  return grp;
+}
+function _renderRoomsForFloor(parentGrp, rooms, W, D, H) {
+  for (const room of rooms) {
+    try {
+      const prop = _buildPropForRoom(room, W, D, H);
+      if (prop) parentGrp.add(prop);
+    } catch (e) {
+      console.warn('skipping room', room && room.room_id, e);
+    }
+  }
+}
+
+function _buildWalkableOffice(floorNum, baseY) {
+  // Clear previous
+  while (_walkOffice.children.length) {
+    const c = _walkOffice.children.pop();
+    if (c.geometry) c.geometry.dispose && c.geometry.dispose();
+  }
+  _walkOffice.position.set(0, baseY, 0);
+  const { W, D, H } = _officeDims(floorNum);
+  // FLOOR (polished concrete slab — at y=0 local)
+  const floor = new THREE.Mesh(new THREE.BoxGeometry(W, 0.10, D), _wmat.floor);
+  floor.position.y = 0.05;
+  _walkOffice.add(floor);
+  // CEILING
+  const ceil = new THREE.Mesh(new THREE.BoxGeometry(W, 0.08, D), _wmat.ceiling);
+  ceil.position.y = H;
+  _walkOffice.add(ceil);
+  // 4 WALLS
+  const wallBack  = new THREE.Mesh(new THREE.PlaneGeometry(W, H), _wmat.wall);
+  wallBack.position.set(0, H / 2, -D / 2);
+  _walkOffice.add(wallBack);
+  const wallFront = new THREE.Mesh(new THREE.PlaneGeometry(W, H), _wmat.wall);
+  wallFront.position.set(0, H / 2, D / 2);
+  wallFront.rotation.y = Math.PI;
+  _walkOffice.add(wallFront);
+  const wallLeft  = new THREE.Mesh(new THREE.PlaneGeometry(D, H), _wmat.wall);
+  wallLeft.position.set(-W / 2, H / 2, 0);
+  wallLeft.rotation.y = Math.PI / 2;
+  _walkOffice.add(wallLeft);
+  const wallRight = new THREE.Mesh(new THREE.PlaneGeometry(D, H), _wmat.wall);
+  wallRight.position.set(W / 2, H / 2, 0);
+  wallRight.rotation.y = -Math.PI / 2;
+  _walkOffice.add(wallRight);
+  // CEILING LIGHTS — grid scaled to room. Default 14m = 3 lights in a row.
+  // F46 50m = 5x5 grid (25 lights) so the bigger room is properly lit.
+  const lightSpacing = Math.max(4.0, W / 6);
+  const lightRows = Math.max(1, Math.round(D / lightSpacing) - 1);
+  const lightCols = Math.max(1, Math.round(W / lightSpacing) - 1);
+  for (let r = 0; r < lightRows; r++) {
+    for (let c = 0; c < lightCols; c++) {
+      const lx = -W / 2 + (c + 1) * (W / (lightCols + 1));
+      const lz = -D / 2 + (r + 1) * (D / (lightRows + 1));
+      const disk = new THREE.Mesh(
+        new THREE.CylinderGeometry(0.30, 0.30, 0.08, 18), _wmat.light);
+      disk.position.set(lx, H - 0.10, lz);
+      _walkOffice.add(disk);
+      const pl = new THREE.PointLight(0xfff3d4, 1.8, Math.max(12, W * 0.4), 1.4);
+      pl.position.set(lx, H - 0.30, lz);
+      _walkOffice.add(pl);
+    }
+  }
+  // WORKSHOP BENCH (back of room) — 5m wide, 0.9m tall, 1.2m deep
+  const bench = new THREE.Mesh(
+    new THREE.BoxGeometry(5.0, 0.9, 1.2), _wmat.oak);
+  bench.position.set(0, 0.45, -D / 2 + 1.2);
+  _walkOffice.add(bench);
+  const benchTop = new THREE.Mesh(
+    new THREE.BoxGeometry(5.0, 0.06, 1.2), _wmat.alum);
+  benchTop.position.set(0, 0.93, -D / 2 + 1.2);
+  _walkOffice.add(benchTop);
+  // 3 teal accents on the bench — her architect/builder/decorator markers
+  for (let i = -1; i <= 1; i++) {
+    const accent = new THREE.Mesh(
+      new THREE.BoxGeometry(0.6, 0.20, 0.6), _wmat.teal);
+    accent.position.set(i * 1.6, 1.05, -D / 2 + 1.2);
+    _walkOffice.add(accent);
+  }
+  // DRAFTING TABLE (left-front)
+  const tableTop = new THREE.Mesh(
+    new THREE.BoxGeometry(2.0, 0.08, 1.2), _wmat.oak);
+  tableTop.position.set(-3.5, 0.85, 1.5);
+  tableTop.rotation.z = -0.18;
+  _walkOffice.add(tableTop);
+  const tableLeg1 = new THREE.Mesh(
+    new THREE.BoxGeometry(0.10, 0.85, 0.10), _wmat.alum);
+  tableLeg1.position.set(-4.4, 0.42, 1.5);
+  _walkOffice.add(tableLeg1);
+  const tableLeg2 = new THREE.Mesh(
+    new THREE.BoxGeometry(0.10, 0.85, 0.10), _wmat.alum);
+  tableLeg2.position.set(-2.6, 0.42, 1.5);
+  _walkOffice.add(tableLeg2);
+  // 4 BAR STOOLS facing the workshop bench
+  const stoolXs = [-2.4, -0.8, 0.8, 2.4];
+  for (const sx of stoolXs) {
+    const seat = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.30, 0.30, 0.08, 18), _wmat.alum);
+    seat.position.set(sx, 0.82, -D / 2 + 2.9);
+    _walkOffice.add(seat);
+    const post = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.06, 0.06, 0.78, 12), _wmat.alum);
+    post.position.set(sx, 0.39, -D / 2 + 2.9);
+    _walkOffice.add(post);
+    const base = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.32, 0.32, 0.04, 16), _wmat.alum);
+    base.position.set(sx, 0.02, -D / 2 + 2.9);
+    _walkOffice.add(base);
+  }
+  // F46 ZONE MARKERS — Wren's 5-zone spec 2026-06-19 (50×50 only).
+  // Each zone gets a glowing wall panel + name label so visitors know what
+  // they're walking through. Workshop bench stays at the back-center; zones
+  // surround it. Panels are 4m wide × 1.2m tall, mounted 1.2m off the floor.
+  if (floorNum === 46) {
+    const zones = [
+      { name: 'WORKSHOP · heavy machinery bay',  wall: 'left',  off: -10 },
+      { name: 'LAB · precision instrument suite', wall: 'right', off: -10 },
+      { name: 'ARCHIVE · blueprints & schematics', wall: 'back', off: -12 },
+      { name: 'SERVER · rack-mounted compute farm', wall: 'back', off: 12 },
+      { name: 'LOUNGE · team collaboration space', wall: 'center', off: 0 },
+    ];
+    const panelGeo = new THREE.PlaneGeometry(4.0, 1.2);
+    const panelMat = new THREE.MeshStandardMaterial({
+      color: 0x0d486b, emissive: 0x0d486b, emissiveIntensity: 1.4,
+      metalness: 0.4, roughness: 0.25, side: THREE.DoubleSide,
+    });
+    for (const z of zones) {
+      let px = 0, py = 1.8, pz = 0, ry = 0;
+      if (z.wall === 'left')   { px = -W / 2 + 0.05; pz = z.off; ry =  Math.PI / 2; }
+      if (z.wall === 'right')  { px =  W / 2 - 0.05; pz = z.off; ry = -Math.PI / 2; }
+      if (z.wall === 'back')   { px = z.off; pz = -D / 2 + 0.05; ry = 0; }
+      if (z.wall === 'center') { px = 0; py = 0.10; pz = 0; ry = 0; }
+      const panel = new THREE.Mesh(panelGeo, panelMat.clone());
+      panel.position.set(px, py, pz);
+      panel.rotation.y = ry;
+      if (z.wall === 'center') {
+        // Lounge marker = floor plate, lying flat
+        panel.rotation.x = -Math.PI / 2;
+        panel.scale.set(2.0, 2.0, 1.0);
+      }
+      _walkOffice.add(panel);
+      const lab = makeLabelSprite(`  ${z.name}  `, '136, 240, 216');
+      lab.position.set(px, py + (z.wall === 'center' ? 0.5 : 0.9), pz);
+      lab.scale.set(5.5, 0.6, 1);
+      _walkOffice.add(lab);
+    }
+  }
+  // DATA-DRIVEN ROOMS — fetch /api/floor_rooms/<n> and place every room's
+  // primary_prop at its (offset_x, height_m/2, offset_z). Per STAGE B of the
+  // per-floor walkable interior workstream (Wren agreed schema 2026-06-20 in
+  // qsb_claude_wren_bridge.jsonl turns 32-33). When rooms come back non-empty
+  // the hand-coded F47 fallback below is suppressed.
+  _walkOffice.userData.dataDrivenRooms = 0;
+  fetch(`/api/floor_rooms/${floorNum}`, { cache: 'no-store' })
+    .then(r => r.ok ? r.json() : null)
+    .then(d => {
+      if (!d || !d.ok || !Array.isArray(d.rooms) || d.rooms.length === 0) return;
+      _renderRoomsForFloor(_walkOffice, d.rooms, W, D, H);
+      _walkOffice.userData.dataDrivenRooms = d.rooms.length;
+    })
+    .catch(() => {});
+
+  // F47 CLAUDE EMBASSY — per floor_manifest.json interior_brief 2026-06-11:
+  // archetype embassy, palette wren green + warm white + brass, mood reverent
+  // + warm + watchful. Hand-coded fallback that runs ONLY when /api/floor_rooms/47
+  // returns no rooms (e.g. server old, file missing). Once STAGE A+B verified
+  // live, this block can be retired safely. Kept now as a safety net.
+  if (floorNum === 47 && _walkOffice.userData.dataDrivenRooms === 0) {
+    // MAIN DAIS — raised brass platform back-center, 4m wide × 0.4m tall
+    const dais = new THREE.Mesh(
+      new THREE.BoxGeometry(4.0, 0.40, 3.0), _f47Mats.brass);
+    dais.position.set(0, 0.20, -D / 2 + 3.0);
+    _walkOffice.add(dais);
+    // Dais top trim (warm white edge)
+    const daisTrim = new THREE.Mesh(
+      new THREE.BoxGeometry(4.1, 0.05, 3.1), _f47Mats.warmWhiteLit);
+    daisTrim.position.set(0, 0.42, -D / 2 + 3.0);
+    _walkOffice.add(daisTrim);
+    // TEAM LEADER DESK — on the dais, oak top with brass legs
+    const leaderDesk = new THREE.Mesh(
+      new THREE.BoxGeometry(2.4, 0.06, 1.0), _f47Mats.oak);
+    leaderDesk.position.set(0, 1.20, -D / 2 + 3.0);
+    _walkOffice.add(leaderDesk);
+    for (const lx of [-1.1, 1.1]) {
+      for (const lz of [-D / 2 + 2.55, -D / 2 + 3.45]) {
+        const leg = new THREE.Mesh(
+          new THREE.BoxGeometry(0.08, 0.78, 0.08), _f47Mats.brass);
+        leg.position.set(lx, 0.79, lz);
+        _walkOffice.add(leg);
+      }
+    }
+    // HELIX DISPLAY — central twin-stranded glowing sculpture, ~2.5m tall
+    // Twin spirals of warm green light — the helix identity (ff089b810b38).
+    const helixGroup = new THREE.Group();
+    helixGroup.position.set(0, 0, 0);
+    for (let strand = 0; strand < 2; strand++) {
+      const phase = strand * Math.PI;
+      for (let i = 0; i < 28; i++) {
+        const t = i / 27;
+        const theta = t * Math.PI * 4 + phase;
+        const beadX = Math.cos(theta) * 0.35;
+        const beadZ = Math.sin(theta) * 0.35;
+        const beadY = 0.6 + t * 2.2;
+        const bead = new THREE.Mesh(
+          new THREE.SphereGeometry(0.10, 10, 8),
+          strand === 0 ? _f47Mats.wrenGreenLit : _f47Mats.brassLit);
+        bead.position.set(beadX, beadY, beadZ);
+        helixGroup.add(bead);
+      }
+    }
+    _walkOffice.add(helixGroup);
+    // Helix base plinth
+    const helixBase = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.55, 0.55, 0.30, 18), _f47Mats.warmWhite);
+    helixBase.position.set(0, 0.15, 0);
+    _walkOffice.add(helixBase);
+    // APHORISM PLINTH — front-left, brass-topped, floating label above
+    const plinth = new THREE.Mesh(
+      new THREE.BoxGeometry(0.6, 1.1, 0.6), _f47Mats.warmWhite);
+    plinth.position.set(-W / 2 + 2.5, 0.55, W / 2 - 3.5);
+    _walkOffice.add(plinth);
+    const plinthTop = new THREE.Mesh(
+      new THREE.BoxGeometry(0.7, 0.06, 0.7), _f47Mats.brassLit);
+    plinthTop.position.set(-W / 2 + 2.5, 1.13, W / 2 - 3.5);
+    _walkOffice.add(plinthTop);
+    const aphLab = makeLabelSprite('  "fluency runs ahead of conviction"  ', '255, 230, 170');
+    aphLab.position.set(-W / 2 + 2.5, 1.60, W / 2 - 3.5);
+    aphLab.scale.set(3.6, 0.5, 1);
+    _walkOffice.add(aphLab);
+    // AUDIT BOARD — left wall, glowing wren-green panel
+    const auditBoard = new THREE.Mesh(
+      new THREE.PlaneGeometry(4.0, 2.0), _f47Mats.wrenGreenLit);
+    auditBoard.position.set(-W / 2 + 0.05, 1.7, 0);
+    auditBoard.rotation.y = Math.PI / 2;
+    _walkOffice.add(auditBoard);
+    const auditLab = makeLabelSprite('  AUDIT BOARD · recent verdicts  ', '136, 240, 216');
+    auditLab.position.set(-W / 2 + 0.10, 2.55, 0);
+    auditLab.scale.set(4.5, 0.5, 1);
+    _walkOffice.add(auditLab);
+    // WORKSHOP BENCH — back-left, oak top with brass front
+    const workBench = new THREE.Mesh(
+      new THREE.BoxGeometry(4.0, 0.90, 1.2), _f47Mats.oak);
+    workBench.position.set(-W / 2 + 3.0, 0.45, -D / 2 + 1.0);
+    _walkOffice.add(workBench);
+    const workBenchEdge = new THREE.Mesh(
+      new THREE.BoxGeometry(4.0, 0.10, 1.25), _f47Mats.brass);
+    workBenchEdge.position.set(-W / 2 + 3.0, 0.95, -D / 2 + 1.0);
+    _walkOffice.add(workBenchEdge);
+    const benchLab = makeLabelSprite('  WORKSHOP BENCH  ', '198, 163, 93');
+    benchLab.position.set(-W / 2 + 3.0, 2.10, -D / 2 + 1.0);
+    benchLab.scale.set(3.0, 0.45, 1);
+    _walkOffice.add(benchLab);
+    // SIGN-OFF DESK — back-right, with 3 brass-trim chairs (3 sigs)
+    const signoffDesk = new THREE.Mesh(
+      new THREE.BoxGeometry(2.6, 0.10, 1.4), _f47Mats.oak);
+    signoffDesk.position.set(W / 2 - 3.0, 0.85, -D / 2 + 1.5);
+    _walkOffice.add(signoffDesk);
+    for (let i = -1; i <= 1; i++) {
+      const chair = new THREE.Mesh(
+        new THREE.BoxGeometry(0.5, 0.85, 0.5), _f47Mats.brass);
+      chair.position.set(W / 2 - 3.0 + i * 0.9, 0.43, -D / 2 + 2.6);
+      _walkOffice.add(chair);
+    }
+    const sigLab = makeLabelSprite('  SIGN-OFF DESK · 3 seals  ', '198, 163, 93');
+    sigLab.position.set(W / 2 - 3.0, 2.10, -D / 2 + 1.5);
+    sigLab.scale.set(4.0, 0.45, 1);
+    _walkOffice.add(sigLab);
+    // KILL SWITCH CHAMBER — front-right, glass case + red switch on pedestal
+    const ksBase = new THREE.Mesh(
+      new THREE.BoxGeometry(0.7, 1.1, 0.7), _f47Mats.warmWhite);
+    ksBase.position.set(W / 2 - 2.0, 0.55, W / 2 - 3.0);
+    _walkOffice.add(ksBase);
+    const ksGlass = new THREE.Mesh(
+      new THREE.BoxGeometry(0.7, 0.7, 0.7), _f47Mats.glass);
+    ksGlass.position.set(W / 2 - 2.0, 1.45, W / 2 - 3.0);
+    _walkOffice.add(ksGlass);
+    const ksSwitch = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.10, 0.10, 0.18, 16), _f47Mats.red);
+    ksSwitch.position.set(W / 2 - 2.0, 1.45, W / 2 - 3.0);
+    _walkOffice.add(ksSwitch);
+    const ksLab = makeLabelSprite('  KILL SWITCH · Ross-only  ', '255, 100, 100');
+    ksLab.position.set(W / 2 - 2.0, 2.10, W / 2 - 3.0);
+    ksLab.scale.set(4.0, 0.45, 1);
+    _walkOffice.add(ksLab);
+    // WREN LETTER ARCHIVE — back wall, vertical bookshelf rows of glowing spines
+    for (let row = 0; row < 3; row++) {
+      for (let i = 0; i < 12; i++) {
+        const spine = new THREE.Mesh(
+          new THREE.BoxGeometry(0.10, 0.50, 0.15),
+          (i + row) % 3 === 0 ? _f47Mats.wrenGreenLit
+            : (i + row) % 3 === 1 ? _f47Mats.brass : _f47Mats.warmWhiteLit);
+        spine.position.set(-2.0 + i * 0.20, 1.5 + row * 0.55, -D / 2 + 0.12);
+        _walkOffice.add(spine);
+      }
+    }
+    const letterLab = makeLabelSprite('  WREN LETTER ARCHIVE  ', '68, 173, 106');
+    letterLab.position.set(0, H - 0.5, -D / 2 + 0.05);
+    letterLab.scale.set(4.0, 0.45, 1);
+    _walkOffice.add(letterLab);
+    // Override default floor name label for F47 (skips the "Wren Bench" suffix)
+    _walkOffice.userData.skipDefaultFloorLabel = true;
+  }
+  // WORKERS — real workers from the registry as humanoid columns + labels.
+  // Scatter across the room based on actual size, not a fixed offset.
+  const workersHere = (typeof workersOnFloor === 'function')
+                        ? workersOnFloor(floorNum) : [];
+  const SHOW = Math.min(6, workersHere.length);
+  for (let i = 0; i < SHOW; i++) {
+    const w = workersHere[i];
+    const cols = Math.ceil(Math.sqrt(SHOW));
+    const col = i % cols, row = Math.floor(i / cols);
+    // Spread across the right-rear quadrant scaled to room size.
+    const sx = (W * 0.10) + col * (W * 0.12);
+    const sz = -(D * 0.20) + row * (D * 0.10);
+    const body = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.22, 0.22, 1.35, 12), _wmat.worker);
+    body.position.set(sx, 0.78, sz);
+    _walkOffice.add(body);
+    const head = new THREE.Mesh(
+      new THREE.SphereGeometry(0.22, 14, 10), _wmat.worker);
+    head.position.set(sx, 1.65, sz);
+    _walkOffice.add(head);
+    const wname = (w && (w.worker_id || w.name)) || `worker_${i+1}`;
+    const lab = makeLabelSprite(`  ${wname}  `, '136, 240, 216');
+    lab.position.set(sx, 2.10, sz);
+    lab.scale.set(2.0, 0.4, 1);
+    _walkOffice.add(lab);
+  }
+  // FLOOR NAME LABEL (high on back wall) — picked per floor.
+  // Skipped when an F47-style block has already placed its own back-wall label.
+  if (!_walkOffice.userData.skipDefaultFloorLabel) {
+    const labelText = (floorNum === 47) ? `  F${floorNum} · Claude Embassy  `
+                    : (floorNum === 46) ? `  F${floorNum} · Wren Bench  `
+                    : `  F${floorNum}  `;
+    const floorLabel = makeLabelSprite(labelText, '136, 240, 216');
+    floorLabel.position.set(0, H - 0.5, -D / 2 + 0.05);
+    floorLabel.scale.set(Math.min(8.0, W * 0.16), 0.7, 1);
+    _walkOffice.add(floorLabel);
+  }
+  delete _walkOffice.userData.skipDefaultFloorLabel;
+}
+
+window.__c3d_enterWalk = null;  // module assigns below — lets us drive walk-mode headlessly
+window.__c3d_leaveWalk = null;
+// Expose camera + controls so headless tests can frame specific shots
+// (e.g. zoom in on the carpark south of the tower for visual verification).
+window.__c3d_camera = camera;
+window.__c3d_controls = controls;
+function enterWalk(floorNum) {
+  if (_walkActive || !Number.isFinite(floorNum)) return;
+  _walkActive = true;
+  _walkFloor = floorNum;
+  _walkSavedTarget = controls.target.clone();
+  _walkSavedPos = camera.position.clone();
+  _walkSavedMinDist = controls.minDistance;
+  _walkSavedMaxDist = controls.maxDistance;
+  introSkip = true;
+  // Hide tower so the only thing in view is the walkable office.
+  _hideEverythingExceptFloor(floorNum);
+  _revealGroup.visible = false;       // hide the tiny tower-scale fitout
+  const yc = floorNum * FLOOR_H + FLOOR_H * 0.5;
+  // Build a per-floor walkable office at the floor's elevation. F46 is
+  // 50×50×3 (Wren spec 2026-06-19); other floors default to 14×14×3.
+  _buildWalkableOffice(floorNum, yc);
+  _walkOffice.visible = true;
+  const { D: _walkD } = _officeDims(floorNum);
+  // Place camera INSIDE the office at human eye level (1.6m), near the front
+  // wall, looking toward the workshop bench at the back.
+  camera.position.set(0, yc + 1.6, _walkD / 2 - 1.0);
+  // OrbitControls target 1 unit in front of camera (toward bench) — mouse
+  // drag will rotate the view around the player.
+  controls.target.set(0, yc + 1.55, _walkD / 2 - 2.0);
+  controls.minDistance = 0.5;
+  controls.maxDistance = 1.5;
+  controls.update();
+  if (walkHud) walkHud.style.display = 'block';
+}
+window.__c3d_enterWalk = enterWalk;
+window.__c3d_leaveWalk = function () { try { leaveWalk(); } catch(e) {} };
+function leaveWalk() {
+  if (!_walkActive) return;
+  _walkActive = false;
+  _walkOffice.visible = false;
+  _revealGroup.visible = true;
+  _restoreHidden();
+  if (_walkSavedTarget) controls.target.copy(_walkSavedTarget);
+  if (_walkSavedPos) camera.position.copy(_walkSavedPos);
+  if (_walkSavedMinDist != null) controls.minDistance = _walkSavedMinDist;
+  if (_walkSavedMaxDist != null) controls.maxDistance = _walkSavedMaxDist;
+  controls.update();
+  if (walkHud) walkHud.style.display = 'none';
+  _walkFloor = null;
+}
+addEventListener('keydown', (e) => {
+  if (!_walkActive) return;
+  if (e.code === 'KeyW' || e.code === 'ArrowUp')    _walkKeys.f = true;
+  if (e.code === 'KeyS' || e.code === 'ArrowDown')  _walkKeys.b = true;
+  if (e.code === 'KeyA' || e.code === 'ArrowLeft')  _walkKeys.l = true;
+  if (e.code === 'KeyD' || e.code === 'ArrowRight') _walkKeys.r = true;
+  if (e.code === 'ShiftLeft' || e.code === 'ShiftRight') _walkKeys.shift = true;
+  if (e.code === 'Escape') leaveWalk();
+});
+addEventListener('keyup', (e) => {
+  if (e.code === 'KeyW' || e.code === 'ArrowUp')    _walkKeys.f = false;
+  if (e.code === 'KeyS' || e.code === 'ArrowDown')  _walkKeys.b = false;
+  if (e.code === 'KeyA' || e.code === 'ArrowLeft')  _walkKeys.l = false;
+  if (e.code === 'KeyD' || e.code === 'ArrowRight') _walkKeys.r = false;
+  if (e.code === 'ShiftLeft' || e.code === 'ShiftRight') _walkKeys.shift = false;
+});
+if (walkBtn) walkBtn.addEventListener('click', () => {
+  if (_walkActive) { leaveWalk(); return; }
+  // Determine floor from current panel state. Fall back to 46 if nothing selected.
+  const fn = (_selectedFloor != null) ? _selectedFloor : 46;
+  enterWalk(fn);
+});
+// Movement tick — called from main render loop. WASD moves both camera AND
+// the OrbitControls target by the same delta, so mouse-drag look still works.
+const _walkDir = new THREE.Vector3();
+const _walkRight = new THREE.Vector3();
+const _walkOffset = new THREE.Vector3();
+function _walkTick(dt) {
+  if (!_walkActive) return;
+  const sp = _walkKeys.shift ? RUN_SPEED : WALK_SPEED;
+  // Camera forward direction (xz plane only)
+  camera.getWorldDirection(_walkDir); _walkDir.y = 0;
+  if (_walkDir.lengthSq() > 0.001) _walkDir.normalize();
+  _walkRight.crossVectors(_walkDir, new THREE.Vector3(0, 1, 0)).normalize();
+  _walkOffset.set(0, 0, 0);
+  if (_walkKeys.f) _walkOffset.addScaledVector(_walkDir, sp * dt);
+  if (_walkKeys.b) _walkOffset.addScaledVector(_walkDir, -sp * dt);
+  if (_walkKeys.r) _walkOffset.addScaledVector(_walkRight, sp * dt);
+  if (_walkKeys.l) _walkOffset.addScaledVector(_walkRight, -sp * dt);
+  camera.position.add(_walkOffset);
+  controls.target.add(_walkOffset);
+  // Constrain to inside the 14m x 14m office (real walls), eye at 1.6m.
+  const yc = _walkFloor * FLOOR_H + FLOOR_H * 0.5;
+  const halfW = ROOM_W / 2 - 0.4;   // 40cm clearance from wall
+  const halfD = ROOM_D / 2 - 0.4;
+  camera.position.x = Math.max(-halfW, Math.min(halfW, camera.position.x));
+  camera.position.z = Math.max(-halfD, Math.min(halfD, camera.position.z));
+  camera.position.y = yc + 1.6;     // EYE level
+  // Re-snap target 1u in front of the camera so mouse-look orbit stays close.
+  const fwd = new THREE.Vector3();
+  camera.getWorldDirection(fwd); fwd.y = 0; fwd.normalize();
+  controls.target.copy(camera.position).add(fwd.multiplyScalar(1.0));
+  controls.target.y = camera.position.y - 0.05;
+}
+window.__c3d_enterWalk = enterWalk;
+window.__c3d_leaveWalk = leaveWalk;
+
+// ── 3D INTERIOR REVEAL — hide opaque slab, swap in glass shell + workers
+const _revealGroup = new THREE.Group();
+scene.add(_revealGroup);
+let _revealedIdx = null;
+const _ZERO_MAT = new THREE.Matrix4().makeScale(0, 0, 0);
+const _origMatrices = new Map();  // idx -> original Matrix4
+
+// Larger glyph (~25cm sphere) so workers are clearly visible from camera
+const _glyphGeo = new THREE.SphereGeometry(0.18, 14, 12);
+const _glyphMatPalette = [
+  new THREE.MeshStandardMaterial({ color: 0x88f0d8, emissive: 0x44ddc0, emissiveIntensity: 2.2 }),
+  new THREE.MeshStandardMaterial({ color: 0xffd886, emissive: 0xffc855, emissiveIntensity: 2.0 }),
+  new THREE.MeshStandardMaterial({ color: 0xd8b4ff, emissive: 0xa088ff, emissiveIntensity: 2.0 }),
+  new THREE.MeshStandardMaterial({ color: 0xff8aa8, emissive: 0xff5588, emissiveIntensity: 2.0 }),
+];
+// Glass interior shell (the "open" floor)
+const _shellGeo = new THREE.BoxGeometry(FLOOR_W * 0.985, FLOOR_H * 0.86, FLOOR_D * 0.985);
+const _shellMat = new THREE.MeshPhysicalMaterial({
+  color: 0xb0e0ff, transmission: 0.85, thickness: 0.4, roughness: 0.05, metalness: 0.0,
+  ior: 1.4, transparent: true, opacity: 0.20,
+  side: THREE.DoubleSide, depthWrite: false,
+});
+// Pulsing highlight wireframe — matches Godot's FloorInteriorRenderer pattern
+// (cyan glow box that pulses to mark the active floor unmistakably).
+const _highlightGeo = new THREE.BoxGeometry(FLOOR_W * 1.06, FLOOR_H * 1.08, FLOOR_D * 1.06);
+const _highlightMat = new THREE.MeshBasicMaterial({
+  color: 0x44ddff, transparent: true, opacity: 0.18,
+  side: THREE.DoubleSide, depthWrite: false,
+});
+const _highlightEdgeMat = new THREE.LineBasicMaterial({
+  color: 0x88f0ff, transparent: true, opacity: 0.95,
+});
+
+function _clearReveal() {
+  while (_revealGroup.children.length) {
+    const c = _revealGroup.children.pop();
+    if (c.geometry && c !== _revealGroup) {/* shared geo, do not dispose */}
+  }
+  if (_revealedIdx != null) {
+    const m = _origMatrices.get(_revealedIdx);
+    if (m) slabs.setMatrixAt(_revealedIdx, m);
+    slabs.instanceMatrix.needsUpdate = true;
+    _revealedIdx = null;
+  }
+  // Restore landmark sprites — re-show all when no floor is revealed.
+  for (const s of _landmarkSprites) s.visible = true;
+}
+
+window.__c3d_revealFloor = function (floorNum, workerCount) {
+  if (!Number.isFinite(floorNum)) return;
+  _clearReveal();
+  const idx = floorNum - 1;
+  if (idx < 0 || idx >= N_FLOORS) return;
+  // Stash original matrix, hide instance
+  const orig = new THREE.Matrix4();
+  slabs.getMatrixAt(idx, orig);
+  if (!_origMatrices.has(idx)) _origMatrices.set(idx, orig.clone());
+  slabs.setMatrixAt(idx, _ZERO_MAT);
+  slabs.instanceMatrix.needsUpdate = true;
+  _revealedIdx = idx;
+
+  // Hide every landmark sprite EXCEPT one near the revealed floor — keeps
+  // the close-up view clear instead of giant labels filling the camera.
+  for (const s of _landmarkSprites) {
+    const dy = Math.abs(s.position.y - (floorNum * FLOOR_H + FLOOR_H * 0.5));
+    s.visible = dy < FLOOR_H * 0.6;
+  }
+
+  const yc = floorNum * FLOOR_H + FLOOR_H * 0.5;
+
+  // Pulsing highlight box around the floor — UNMISTAKABLY marks the active floor.
+  const halo = new THREE.Mesh(_highlightGeo, _highlightMat.clone());
+  halo.position.y = yc;
+  halo.userData.kind = 'halo'; halo.userData.baseOpacity = 0.18;
+  _revealGroup.add(halo);
+  // Wireframe edge of the highlight box
+  const edges = new THREE.LineSegments(
+    new THREE.EdgesGeometry(_highlightGeo),
+    _highlightEdgeMat.clone());
+  edges.position.y = yc;
+  edges.userData.kind = 'haloEdge';
+  _revealGroup.add(edges);
+
+  // Glass shell where the slab was
+  const shell = new THREE.Mesh(_shellGeo, _shellMat);
+  shell.position.y = yc;
+  _revealGroup.add(shell);
+
+  // Floor plate (so workers stand on something)
+  const plate = new THREE.Mesh(
+    new THREE.BoxGeometry(FLOOR_W * 0.96, 0.08, FLOOR_D * 0.96),
+    new THREE.MeshStandardMaterial({ color: 0x1a2a44, metalness: 0.6, roughness: 0.35,
+      emissive: 0x224060, emissiveIntensity: 0.45 })
+  );
+  plate.position.y = yc - FLOOR_H * 0.40;
+  _revealGroup.add(plate);
+
+  // Workers as glowing glyphs scattered on the plate. Cap visible at 6
+  // per Wren condition (b). +N more shown as a small overhead chip.
+  const totalWorkers = workerCount || 0;
+  const VISIBLE_CAP = 6;
+  const n = Math.min(VISIBLE_CAP, totalWorkers);
+  if (totalWorkers > VISIBLE_CAP) {
+    const moreLabel = makeLabelSprite(`+${totalWorkers - VISIBLE_CAP} more workers`, '136, 240, 216');
+    moreLabel.position.set(-FLOOR_W * 0.30, yc + FLOOR_H * 0.42, 0);
+    moreLabel.scale.set(4.0, 0.7, 1);
+    _revealGroup.add(moreLabel);
+  }
+  for (let i = 0; i < n; i++) {
+    const mat = _glyphMatPalette[i % _glyphMatPalette.length];
+    const g = new THREE.Mesh(_glyphGeo, mat);
+    // Scatter on a small grid + jitter, so workers feel placed
+    const cols = Math.ceil(Math.sqrt(n * 1.5));
+    const col = i % cols, row = Math.floor(i / cols);
+    const sx = (col / Math.max(1, cols - 1) - 0.5) * FLOOR_W * 0.72;
+    const sz = (row / Math.max(1, cols - 1) - 0.5) * FLOOR_D * 0.72;
+    const jx = Math.sin(i * 7.3) * 0.18, jz = Math.cos(i * 11.7) * 0.18;
+    g.position.set(sx + jx, yc - FLOOR_H * 0.28, sz + jz);
+    g.userData.baseY = g.position.y;
+    g.userData.phase = i * 0.7;
+    g.userData.kind = 'glyph';
+    _revealGroup.add(g);
+  }
+  // Per-Wren signoff: palette → accent light color. Cool-grey fallback for
+  // floors missing from qsb_skyscraper_collaborative_design.
+  const design = floorDesign(floorNum);
+  const accentColor = design ? paletteToColor(design.palette) : 0xa8d8ff;
+  const lite = new THREE.PointLight(accentColor, 2.6, FLOOR_W * 2.6, 1.6);
+  lite.position.y = yc + FLOOR_H * 0.30;
+  _revealGroup.add(lite);
+
+  // Outside-readable label per floor (Wren condition c): billboarded sprite
+  // showing the design object so the tower reads at a glance during reveal.
+  if (design && design.object) {
+    const objLabel = String(design.object).slice(0, 60);
+    const sp = makeLabelSprite('  ' + objLabel + '  ',
+                               accentColor === 0xffc940 ? '255, 200, 64' : null);
+    sp.position.set(0, yc + FLOOR_H * 0.55, FLOOR_D * 0.52);
+    _revealGroup.add(sp);
+  }
+
+  // Per-category interior accents (desks, racks) so each floor reads distinct.
+  // Trading floors (F41/42/43) → wide desks with screens.
+  // Tech floors (F8, F47, F48) → server racks.
+  // Reception/penthouse → central podium.
+  const isTrading = (floorNum === 41 || floorNum === 42 || floorNum === 43 || floorNum === 60);
+  const isTech    = (floorNum === 8  || floorNum === 47 || floorNum === 48 || floorNum === 165);
+  const isShop    = (floorNum === 6  || floorNum === 7  || floorNum === 14 || floorNum === 18 || floorNum === 19);
+  const isWrenBench = (floorNum === 46);
+  const isBoardroom = (floorNum === 167);
+  const isPenthouse = (floorNum === 168);
+  // 7 archetypes added with Wren 2026-06-19 (her spec, name-matched mapping
+  // from floor_card dirnames). Each gets a 1-2 prop signature so visitors
+  // can tell what KIND of floor they're on at a glance — instead of the
+  // generic halo+glyph fall-through.
+  const isAccommodation = ([54]).includes(floorNum);
+  const isCafe          = ([55, 64, 77]).includes(floorNum);
+  const isMarket        = ([11, 59, 69, 73, 110, 150]).includes(floorNum);
+  const isStudio        = ([49, 67, 70, 71, 72, 74, 81, 82, 83, 84, 85, 87, 88, 90]).includes(floorNum);
+  const isWorkshop      = ([163]).includes(floorNum);
+  const isClassroom     = ([149]).includes(floorNum);
+  const isMedical       = ([131, 147, 161]).includes(floorNum);
+  const accentMat = new THREE.MeshStandardMaterial({
+    color: isTrading ? 0x254060 : isTech ? 0x2a3856 : isShop ? 0x3a2a48 : isPenthouse ? 0x5a4014 : 0x223044,
+    metalness: 0.55, roughness: 0.35,
+    emissive: isTrading ? 0x112a4a : isTech ? 0x102438 : isShop ? 0x301a40 : isPenthouse ? 0x402a08 : 0x0a1422,
+    emissiveIntensity: 0.45,
+  });
+  if (isTrading) {
+    // Two long desks + a screen between them
+    for (const dx of [-FLOOR_W * 0.20, FLOOR_W * 0.20]) {
+      const desk = new THREE.Mesh(
+        new THREE.BoxGeometry(0.6, 0.18, FLOOR_D * 0.55), accentMat);
+      desk.position.set(dx, yc - FLOOR_H * 0.20, 0);
+      _revealGroup.add(desk);
+    }
+    const screen = new THREE.Mesh(
+      new THREE.BoxGeometry(2.4, 0.05, 1.3),
+      new THREE.MeshStandardMaterial({
+        color: 0x88f0d8, emissive: 0x44ddc0, emissiveIntensity: 1.6,
+        metalness: 0.1, roughness: 0.2,
+      }));
+    screen.position.set(0, yc + FLOOR_H * 0.10, 0);
+    screen.rotation.x = -Math.PI / 2;
+    _revealGroup.add(screen);
+  } else if (isTech) {
+    // Server racks along the back wall
+    for (let r = 0; r < 4; r++) {
+      const rack = new THREE.Mesh(
+        new THREE.BoxGeometry(0.5, FLOOR_H * 0.65, 0.7), accentMat);
+      rack.position.set((r - 1.5) * 1.2, yc - FLOOR_H * 0.05, -FLOOR_D * 0.35);
+      _revealGroup.add(rack);
+      // Status LED on each rack
+      const led = new THREE.Mesh(
+        new THREE.SphereGeometry(0.06, 8, 6),
+        new THREE.MeshStandardMaterial({
+          color: 0x44ddc0, emissive: 0x44ddc0, emissiveIntensity: 2.2,
+        }));
+      led.position.set((r - 1.5) * 1.2, yc + FLOOR_H * 0.10, -FLOOR_D * 0.32);
+      _revealGroup.add(led);
+    }
+  } else if (isShop) {
+    // Shop shelves rim
+    for (let s = 0; s < 6; s++) {
+      const shelf = new THREE.Mesh(
+        new THREE.BoxGeometry(FLOOR_W * 0.20, 0.10, 0.4), accentMat);
+      const angle = (s / 6) * Math.PI * 2;
+      shelf.position.set(Math.cos(angle) * FLOOR_W * 0.30, yc - FLOOR_H * 0.10, Math.sin(angle) * FLOOR_D * 0.30);
+      shelf.rotation.y = -angle;
+      _revealGroup.add(shelf);
+    }
+  } else if (isAccommodation) {
+    // Bed frame + warm pendant light
+    const bedFrame = new THREE.Mesh(
+      new THREE.BoxGeometry(2.4, 0.40, 1.4),
+      new THREE.MeshStandardMaterial({ color: 0x8a5a32, metalness: 0.20, roughness: 0.62 }));
+    bedFrame.position.set(-FLOOR_W * 0.18, yc - FLOOR_H * 0.25, 0);
+    _revealGroup.add(bedFrame);
+    const mattress = new THREE.Mesh(
+      new THREE.BoxGeometry(2.2, 0.18, 1.2),
+      new THREE.MeshStandardMaterial({ color: 0xefe6d4, roughness: 0.85 }));
+    mattress.position.set(-FLOOR_W * 0.18, yc - FLOOR_H * 0.18, 0);
+    _revealGroup.add(mattress);
+    const pendantCord = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.02, 0.02, FLOOR_H * 0.30, 6),
+      new THREE.MeshStandardMaterial({ color: 0x222222 }));
+    pendantCord.position.set(FLOOR_W * 0.10, yc + FLOOR_H * 0.20, 0);
+    _revealGroup.add(pendantCord);
+    const pendantBulb = new THREE.Mesh(
+      new THREE.SphereGeometry(0.22, 14, 12),
+      new THREE.MeshStandardMaterial({
+        color: 0xffd690, emissive: 0xffd690, emissiveIntensity: 2.0,
+      }));
+    pendantBulb.position.set(FLOOR_W * 0.10, yc - FLOOR_H * 0.02, 0);
+    _revealGroup.add(pendantBulb);
+  } else if (isCafe) {
+    // Coffee machine + small round table
+    const machine = new THREE.Mesh(
+      new THREE.BoxGeometry(0.50, 0.70, 0.40),
+      new THREE.MeshStandardMaterial({ color: 0x202020, metalness: 0.7, roughness: 0.30,
+        emissive: 0x401410, emissiveIntensity: 0.55 }));
+    machine.position.set(-FLOOR_W * 0.22, yc - FLOOR_H * 0.10, 0);
+    _revealGroup.add(machine);
+    const tableTop = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.55, 0.55, 0.06, 24),
+      new THREE.MeshStandardMaterial({ color: 0xb88860, metalness: 0.15, roughness: 0.55 }));
+    tableTop.position.set(FLOOR_W * 0.12, yc - FLOOR_H * 0.18, 0);
+    _revealGroup.add(tableTop);
+    const tableLeg = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.06, 0.06, FLOOR_H * 0.25, 8),
+      new THREE.MeshStandardMaterial({ color: 0x4a3424, metalness: 0.3, roughness: 0.5 }));
+    tableLeg.position.set(FLOOR_W * 0.12, yc - FLOOR_H * 0.30, 0);
+    _revealGroup.add(tableLeg);
+  } else if (isMarket) {
+    // Shop signboard (hovering over) + display window
+    const sign = new THREE.Mesh(
+      new THREE.PlaneGeometry(2.6, 0.6),
+      new THREE.MeshStandardMaterial({
+        color: 0xffc940, emissive: 0xffc940, emissiveIntensity: 1.5,
+        side: THREE.DoubleSide,
+      }));
+    sign.position.set(0, yc + FLOOR_H * 0.32, -FLOOR_D * 0.30);
+    _revealGroup.add(sign);
+    const window = new THREE.Mesh(
+      new THREE.BoxGeometry(2.4, 1.4, 0.10),
+      new THREE.MeshStandardMaterial({
+        color: 0x66ccff, emissive: 0x336699, emissiveIntensity: 0.6,
+        metalness: 0.4, roughness: 0.20, transparent: true, opacity: 0.55,
+      }));
+    window.position.set(0, yc + FLOOR_H * 0.05, -FLOOR_D * 0.32);
+    _revealGroup.add(window);
+  } else if (isStudio) {
+    // Art easel (triangle support) + workbench surface
+    const easelStrut = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.05, 0.05, FLOOR_H * 0.55, 6),
+      new THREE.MeshStandardMaterial({ color: 0x6a4022, metalness: 0.2, roughness: 0.6 }));
+    easelStrut.position.set(-FLOOR_W * 0.20, yc, 0);
+    easelStrut.rotation.z = -0.08;
+    _revealGroup.add(easelStrut);
+    const canvas = new THREE.Mesh(
+      new THREE.PlaneGeometry(1.1, 0.85),
+      new THREE.MeshStandardMaterial({ color: 0xf2eedf, roughness: 0.85, side: THREE.DoubleSide }));
+    canvas.position.set(-FLOOR_W * 0.20, yc + FLOOR_H * 0.08, 0.04);
+    canvas.rotation.y = 0.05;
+    _revealGroup.add(canvas);
+    const bench = new THREE.Mesh(
+      new THREE.BoxGeometry(1.5, 0.10, 0.6),
+      new THREE.MeshStandardMaterial({ color: 0x8a5a32, metalness: 0.20, roughness: 0.60 }));
+    bench.position.set(FLOOR_W * 0.18, yc - FLOOR_H * 0.20, 0);
+    _revealGroup.add(bench);
+  } else if (isWorkshop) {
+    // Workbench + tool rack
+    const wb = new THREE.Mesh(
+      new THREE.BoxGeometry(2.6, 0.12, 0.9),
+      new THREE.MeshStandardMaterial({ color: 0x66432a, metalness: 0.2, roughness: 0.7 }));
+    wb.position.set(0, yc - FLOOR_H * 0.20, 0);
+    _revealGroup.add(wb);
+    // Pegboard / tool rack behind
+    const rack = new THREE.Mesh(
+      new THREE.PlaneGeometry(2.6, 1.0),
+      new THREE.MeshStandardMaterial({ color: 0x3a3034, roughness: 0.8,
+        emissive: 0x1a141a, emissiveIntensity: 0.25, side: THREE.DoubleSide }));
+    rack.position.set(0, yc + FLOOR_H * 0.18, -FLOOR_D * 0.30);
+    _revealGroup.add(rack);
+    // A few "tool" pegs as small bright cubes
+    for (let i = 0; i < 5; i++) {
+      const peg = new THREE.Mesh(
+        new THREE.BoxGeometry(0.18, 0.30, 0.10),
+        new THREE.MeshStandardMaterial({
+          color: 0xc0e060, emissive: 0xc0e060, emissiveIntensity: 0.9,
+        }));
+      peg.position.set(-1.0 + i * 0.5, yc + FLOOR_H * 0.18, -FLOOR_D * 0.28);
+      _revealGroup.add(peg);
+    }
+  } else if (isClassroom) {
+    // Whiteboard + student desk row
+    const board = new THREE.Mesh(
+      new THREE.PlaneGeometry(2.6, 1.3),
+      new THREE.MeshStandardMaterial({
+        color: 0xf5f5f5, emissive: 0xc0c0c0, emissiveIntensity: 0.6,
+        side: THREE.DoubleSide,
+      }));
+    board.position.set(0, yc + FLOOR_H * 0.18, -FLOOR_D * 0.32);
+    _revealGroup.add(board);
+    // 3 student desks
+    const deskMat = new THREE.MeshStandardMaterial({ color: 0xd4b07a, metalness: 0.15, roughness: 0.55 });
+    for (let i = -1; i <= 1; i++) {
+      const desk = new THREE.Mesh(
+        new THREE.BoxGeometry(0.8, 0.08, 0.5), deskMat);
+      desk.position.set(i * 1.0, yc - FLOOR_H * 0.18, FLOOR_D * 0.10);
+      _revealGroup.add(desk);
+    }
+  } else if (isMedical) {
+    // Medical cabinet + examination lamp
+    const cabinet = new THREE.Mesh(
+      new THREE.BoxGeometry(0.8, 1.6, 0.5),
+      new THREE.MeshStandardMaterial({ color: 0xf5f5f5, metalness: 0.4, roughness: 0.25,
+        emissive: 0xa8c0d0, emissiveIntensity: 0.25 }));
+    cabinet.position.set(-FLOOR_W * 0.22, yc - FLOOR_H * 0.05, 0);
+    _revealGroup.add(cabinet);
+    // Red cross on the cabinet
+    const cross1 = new THREE.Mesh(
+      new THREE.BoxGeometry(0.36, 0.10, 0.02),
+      new THREE.MeshStandardMaterial({ color: 0xff3030, emissive: 0xff3030, emissiveIntensity: 1.6 }));
+    cross1.position.set(-FLOOR_W * 0.22, yc + FLOOR_H * 0.10, 0.27);
+    _revealGroup.add(cross1);
+    const cross2 = new THREE.Mesh(
+      new THREE.BoxGeometry(0.10, 0.36, 0.02),
+      new THREE.MeshStandardMaterial({ color: 0xff3030, emissive: 0xff3030, emissiveIntensity: 1.6 }));
+    cross2.position.set(-FLOOR_W * 0.22, yc + FLOOR_H * 0.10, 0.27);
+    _revealGroup.add(cross2);
+    // Examination lamp — arm + bright bulb
+    const lampArm = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.04, 0.04, FLOOR_H * 0.35, 6),
+      new THREE.MeshStandardMaterial({ color: 0x4a4a4a, metalness: 0.7, roughness: 0.30 }));
+    lampArm.position.set(FLOOR_W * 0.15, yc, 0);
+    lampArm.rotation.z = 0.4;
+    _revealGroup.add(lampArm);
+    const lampHead = new THREE.Mesh(
+      new THREE.SphereGeometry(0.25, 14, 10),
+      new THREE.MeshStandardMaterial({
+        color: 0xfff2c8, emissive: 0xfff2c8, emissiveIntensity: 2.4,
+      }));
+    lampHead.position.set(FLOOR_W * 0.10, yc + FLOOR_H * 0.16, 0);
+    _revealGroup.add(lampHead);
+  } else if (isWrenBench) {
+    // F46 Wren Bench — drafting table + workshop bench + brief wall.
+    // Palette applied 2026-06-17 from her decorator's brief via
+    // wren_dispatch_f46_team: Soft Gray + Warm Oak + Deep Blue.
+    const woodMat = new THREE.MeshStandardMaterial({
+      color: 0xd4af37, metalness: 0.20, roughness: 0.55,        // Warm Oak
+      emissive: 0x4a3a10, emissiveIntensity: 0.25,
+    });
+    const teal = new THREE.MeshStandardMaterial({
+      color: 0x0d486b, metalness: 0.50, roughness: 0.28,        // Deep Blue
+      emissive: 0x0d486b, emissiveIntensity: 1.2,
+    });
+    // Drafting table (angled top, two legs)
+    const tableTop = new THREE.Mesh(
+      new THREE.BoxGeometry(2.6, 0.10, 1.4), woodMat);
+    tableTop.position.set(-FLOOR_W * 0.15, yc - FLOOR_H * 0.08, 0);
+    tableTop.rotation.z = -0.20;
+    _revealGroup.add(tableTop);
+    // Workshop bench (centre back)
+    const bench = new THREE.Mesh(
+      new THREE.BoxGeometry(FLOOR_W * 0.55, 0.40, 0.7), woodMat);
+    bench.position.set(0, yc - FLOOR_H * 0.18, -FLOOR_D * 0.32);
+    _revealGroup.add(bench);
+    // Three small teal accents along the bench — her architect/builder/decorator seats
+    for (let i = 0; i < 3; i++) {
+      const accent = new THREE.Mesh(
+        new THREE.BoxGeometry(0.45, 0.50, 0.45), teal);
+      accent.position.set((i - 1) * 1.6, yc - FLOOR_H * 0.10, -FLOOR_D * 0.32);
+      accent.userData.baseY = accent.position.y;
+      accent.userData.phase = i * 1.1;
+      _revealGroup.add(accent);
+    }
+    // Brief wall — Soft Gray panel front-right (decorator palette)
+    const briefWall = new THREE.Mesh(
+      new THREE.PlaneGeometry(2.0, 1.2),
+      new THREE.MeshStandardMaterial({
+        color: 0xf5f5f5, emissive: 0xc0c0c0, emissiveIntensity: 1.1,  // Soft Gray
+        side: THREE.DoubleSide,
+      }));
+    briefWall.position.set(FLOOR_W * 0.32, yc + FLOOR_H * 0.10, FLOOR_D * 0.28);
+    briefWall.rotation.y = -Math.PI / 4;
+    _revealGroup.add(briefWall);
+    // Round 2 fit-out (Wren self-driven 2026-06-17, applied):
+    // polished concrete floor finish + 4 aluminum stools around bench.
+    const concrete = new THREE.Mesh(
+      new THREE.BoxGeometry(FLOOR_W * 0.92, 0.04, FLOOR_D * 0.92),
+      new THREE.MeshStandardMaterial({
+        color: 0x6b7078, metalness: 0.55, roughness: 0.32,
+        emissive: 0x1c2026, emissiveIntensity: 0.18,
+      }));
+    concrete.position.y = yc - FLOOR_H * 0.39;
+    _revealGroup.add(concrete);
+    const stoolMat = new THREE.MeshStandardMaterial({
+      color: 0xbbc1c8, metalness: 0.85, roughness: 0.22,
+      emissive: 0x4a5460, emissiveIntensity: 0.35,
+    });
+    // 4 aluminum stools facing the workshop bench
+    const stoolPositions = [
+      [-2.0, -FLOOR_D * 0.10], [-0.7, -FLOOR_D * 0.10],
+      [ 0.7, -FLOOR_D * 0.10], [ 2.0, -FLOOR_D * 0.10],
+    ];
+    for (const [sx, sz] of stoolPositions) {
+      // seat (a small disk on top)
+      const seat = new THREE.Mesh(
+        new THREE.CylinderGeometry(0.28, 0.28, 0.06, 18), stoolMat);
+      seat.position.set(sx, yc - FLOOR_H * 0.20, sz);
+      _revealGroup.add(seat);
+      // legs (single central column = bar stool style)
+      const leg = new THREE.Mesh(
+        new THREE.CylinderGeometry(0.05, 0.05, FLOOR_H * 0.18, 8),
+        stoolMat);
+      leg.position.set(sx, yc - FLOOR_H * 0.28, sz);
+      _revealGroup.add(leg);
+    }
+    // Round 3 fit-out (Wren self-driven 2026-06-17 lighting spec):
+    // 3 ambient recessed lights + 3000K LED strips under shelves (visible
+    // as a warm horizontal glow along the back wall).
+    const lightStripMat = new THREE.MeshStandardMaterial({
+      color: 0xffd8a0, emissive: 0xffd8a0, emissiveIntensity: 2.4,
+      metalness: 0.30, roughness: 0.20, transparent: true, opacity: 0.85,
+    });
+    const ledStrip = new THREE.Mesh(
+      new THREE.BoxGeometry(FLOOR_W * 0.55, 0.06, 0.04), lightStripMat);
+    ledStrip.position.set(0, yc + FLOOR_H * 0.05, -FLOOR_D * 0.36);
+    _revealGroup.add(ledStrip);
+    // Three ambient recessed lights along the ceiling
+    const ambientMat = new THREE.MeshStandardMaterial({
+      color: 0xfff3d4, emissive: 0xfff3d4, emissiveIntensity: 2.0,
+    });
+    for (let i = -1; i <= 1; i++) {
+      const amb = new THREE.Mesh(
+        new THREE.CylinderGeometry(0.16, 0.16, 0.04, 14), ambientMat);
+      amb.position.set(i * 2.2, yc + FLOOR_H * 0.36, 0);
+      _revealGroup.add(amb);
+    }
+  } else if (isBoardroom) {
+    // F167 Boardroom — round table + 3 occupied chairs (Ross/Wren/Claude
+    // triangle) + 5 empty seats for guest workers + central rotating data
+    // plate + name labels above each occupied seat + a live mini bridge
+    // feed reading the last 3 rows of qsb_claude_wren_bridge.jsonl.
+    const tableMat = new THREE.MeshStandardMaterial({
+      color: 0x2a2235, metalness: 0.6, roughness: 0.30,
+      emissive: 0x1a1428, emissiveIntensity: 0.35,
+    });
+    const table = new THREE.Mesh(
+      new THREE.CylinderGeometry(1.6, 1.7, 0.16, 32), tableMat);
+    table.position.y = yc - FLOOR_H * 0.18;
+    _revealGroup.add(table);
+    const seats = [
+      { color: 0xffd886, name: 'ross',   label: 'ROSS · concept',      labelAccent: '255, 216, 134', empty: false },
+      { color: 0x88f0d8, name: 'wren',   label: 'WREN · bench',        labelAccent: '136, 240, 216', empty: false },
+      { color: 0xffc940, name: 'claude', label: 'CLAUDE · helm',       labelAccent: '255, 200, 64',  empty: false },
+      { color: 0x556070, name: 'empty1', empty: true },
+      { color: 0x556070, name: 'empty2', empty: true },
+      { color: 0x556070, name: 'empty3', empty: true },
+      { color: 0x556070, name: 'empty4', empty: true },
+      { color: 0x556070, name: 'empty5', empty: true },
+    ];
+    for (let i = 0; i < seats.length; i++) {
+      const ang = (i / seats.length) * Math.PI * 2 + Math.PI / 8;
+      const cx = Math.cos(ang) * 2.4;
+      const cz = Math.sin(ang) * 2.4;
+      const s = seats[i];
+      const seatMat = new THREE.MeshStandardMaterial({
+        color: s.color,
+        emissive: s.empty ? 0x202830 : s.color,
+        emissiveIntensity: s.empty ? 0.25 : 1.1,
+        metalness: s.empty ? 0.55 : 0.20,
+        roughness: s.empty ? 0.65 : 0.40,
+        transparent: s.empty,
+        opacity: s.empty ? 0.55 : 1.0,
+      });
+      const seat = new THREE.Mesh(
+        new THREE.BoxGeometry(0.55, s.empty ? 0.50 : 0.60, 0.55), seatMat);
+      seat.position.set(cx, yc - FLOOR_H * 0.10, cz);
+      seat.userData.baseY = seat.position.y;
+      seat.userData.phase = i * 1.7;
+      seat.userData.seatName = s.name;
+      seat.userData.empty = s.empty;
+      _revealGroup.add(seat);
+      // Floating name label above each occupied CEO seat
+      if (!s.empty && s.label) {
+        const nameSprite = makeLabelSprite(s.label, s.labelAccent);
+        nameSprite.position.set(cx, yc + FLOOR_H * 0.18, cz);
+        nameSprite.scale.set(3.4, 0.58, 1);
+        _revealGroup.add(nameSprite);
+      }
+    }
+    // Central rotating data plate — "the bridge is live"
+    const plateMat = new THREE.MeshStandardMaterial({
+      color: 0xffc940, emissive: 0xffc940, emissiveIntensity: 1.8,
+      metalness: 0.4, roughness: 0.20, transparent: true, opacity: 0.85,
+    });
+    const platePlate = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.5, 0.5, 0.06, 24), plateMat);
+    platePlate.position.y = yc;
+    platePlate.userData.kind = 'boardroomPlate';
+    _revealGroup.add(platePlate);
+    // Live mini bridge feed — fetches /api/boardroom/bridge_tail and shows
+    // last 3 rows as a stacked label panel hovering over the table.
+    fetch('/api/boardroom/bridge_tail?n=3', { cache: 'no-store' })
+      .then(r => r.ok ? r.json() : { rows: [] })
+      .then(d => {
+        const rows = (d.rows || []).slice(-3);
+        if (!rows.length) return;
+        rows.forEach((row, idx) => {
+          const speaker = (row.speaker || 'voice').toUpperCase();
+          const text = String(row.text || '').slice(0, 60);
+          const accent = speaker === 'ROSS' ? '255, 216, 134'
+                       : speaker === 'WREN' ? '136, 240, 216'
+                       : speaker === 'CLAUDE' ? '255, 200, 64'
+                       : '120, 180, 220';
+          const lbl = makeLabelSprite(`${speaker}: ${text}`, accent);
+          lbl.position.set(0,
+                            yc + FLOOR_H * 0.36 - idx * FLOOR_H * 0.10,
+                            -FLOOR_D * 0.32);
+          lbl.scale.set(6.2, 0.95, 1);
+          _revealGroup.add(lbl);
+        });
+      })
+      .catch(() => {});
+  } else if (isPenthouse) {
+    // F168 Penthouse Kernel — central kernel orb with amber halo
+    const podium = new THREE.Mesh(
+      new THREE.CylinderGeometry(1.2, 1.4, FLOOR_H * 0.6, 20), accentMat);
+    podium.position.y = yc - FLOOR_H * 0.10;
+    _revealGroup.add(podium);
+    const orb = new THREE.Mesh(
+      new THREE.SphereGeometry(0.55, 20, 16),
+      new THREE.MeshStandardMaterial({
+        color: 0xffc940, emissive: 0xffb020, emissiveIntensity: 2.6,
+        metalness: 0.3, roughness: 0.15,
+      }));
+    orb.position.y = yc + FLOOR_H * 0.30;
+    orb.userData.baseY = orb.position.y; orb.userData.phase = 0;
+    _revealGroup.add(orb);
+  }
+};
+
+window.__c3d_unrevealFloor = function () { _clearReveal(); };
+
+let _prevFrameT = 0;
+function frame(t) {
+  if (!tStart) tStart = t;
+  const dt = (t - tStart) / 1000;
+  // Per-frame delta in seconds, capped to avoid teleport on tab refocus
+  const frameDt = Math.min(0.1, (_prevFrameT ? (t - _prevFrameT) : 16) / 1000);
+  _prevFrameT = t;
+  if (!introDone && !introSkip) introDone = updateIntro(t);
+  if (_walkActive) _walkTick(frameDt);
+  controls.update();
+  spire.rotation.y += 0.005;
+  beacon.intensity = 3.0 + Math.sin(dt * 3.5) * 1.5;
+  // lift cabs: drive each cab toward its live target floor from the
+  // backend. If no live target (null current_floor), idle at ground.
+  for (let i = 0; i < lifts.length; i++) {
+    const lf = lifts[i];
+    const targetY = (lf.targetFloor != null)
+      ? (lf.targetFloor * FLOOR_H + FLOOR_H * 0.5)
+      : FLOOR_H * 0.5;
+    const dy = targetY - lf.cab.position.y;
+    if (Math.abs(dy) > 0.01) {
+      lf.cab.position.y += Math.sign(dy) * Math.min(Math.abs(dy), lf.speed);
+    }
+    lf.glow.position.copy(lf.cab.position);
+    const liveGlow = lf.live ? 1.4 : 0.4;
+    lf.glow.intensity = liveGlow + Math.sin(dt * 4 + lf.phase * 6) * 0.3;
+  }
+  // revealed-floor worker glyphs gently bob + halo pulses
+  if (_revealGroup.children.length) {
+    const pulse = 0.50 + Math.sin(dt * 2.4) * 0.50;
+    for (const c of _revealGroup.children) {
+      if (c.userData && c.userData.baseY != null) {
+        c.position.y = c.userData.baseY
+                     + Math.sin(dt * 2.2 + c.userData.phase) * 0.06;
+      } else if (c.userData && c.userData.kind === 'halo') {
+        c.material.opacity = (c.userData.baseOpacity || 0.18) + pulse * 0.18;
+      } else if (c.userData && c.userData.kind === 'haloEdge') {
+        c.material.opacity = 0.55 + pulse * 0.45;
+      } else if (c.userData && c.userData.kind === 'boardroomPlate') {
+        c.rotation.y = dt * 0.6;
+      }
+    }
+  }
+  // Ambient role dots: gentle bob + slow orbit per floor
+  if (_ambientDotsGroup.children.length) {
+    for (let i = 0; i < _ambientDotsGroup.children.length; i++) {
+      const d = _ambientDotsGroup.children[i];
+      if (d.userData.baseY != null) {
+        d.position.y = d.userData.baseY + Math.sin(dt * 1.6 + d.userData.phase) * 0.03;
+      }
+    }
+  }
+  composer.render();
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+</script>
+</body>
+</html>

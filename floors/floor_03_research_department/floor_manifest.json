@@ -1,0 +1,24 @@
+{
+  "ok": true,
+  "floor_number": 3,
+  "floor_name": "Research Department",
+  "floor_kind": "auto_generated_from_dir_name",
+  "created_ts": "2026-06-11T14:40:49.185810Z",
+  "advisory_only": true,
+  "interior_brief": {
+    "archetype": "lab",
+    "palette": "white + matte stainless",
+    "furniture": [
+      "benches",
+      "equipment",
+      "terminals"
+    ],
+    "lighting": "cool task LEDs",
+    "mood": "precise",
+    "designed_by": "F66 Architects + Fitters team (sweep 2)",
+    "fitted_at": "2026-06-11T14:40:49.185810Z",
+    "godot_scene_brief": "render an lab floor with white + matte stainless palette"
+  },
+  "fitted_out": true,
+  "fit_out_ts": "2026-06-11T14:40:49.185810Z"
+}

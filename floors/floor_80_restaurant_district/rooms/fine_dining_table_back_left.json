@@ -1,0 +1,34 @@
+{
+  "room_id": "fine_dining_table_back_left",
+  "name": "Fine Dining Table",
+  "category": "seating",
+  "purpose": "Providing a fine dining experience for guests.",
+  "concierge_blurb": "Experience the elegance of fine dining with an exquisite table set for your pleasure.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -2.5,
+    "offset_z": 1.0,
+    "footprint_m": [
+      6,
+      4
+    ],
+    "height_m": 1.8
+  },
+  "render": {
+    "primary_prop": "chair_set",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Fine Dining Set",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_80"
+}

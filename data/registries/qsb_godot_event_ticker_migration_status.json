@@ -1,0 +1,19 @@
+{
+  "ok": true,
+  "kind": "qsb_godot_event_ticker_migration_status",
+  "phase": "QSB_OLD_DASHBOARD_TO_GODOT_FEATURE_MIGRATION_V1",
+  "generated_ts": "2026-06-09T21:35:00+00:00",
+  "godot_files": [
+    "scripts/EventTicker.gd",
+    "scripts/EventStreamAnimator.gd",
+    "scripts/HUDController.gd"
+  ],
+  "row_fields": ["ts", "category", "source", "message", "severity"],
+  "max_rows": 25,
+  "categories": ["BOOT", "SAFETY", "TELEMETRY", "TRADE", "WARN", "FLOOR", "VOICE", "EVT"],
+  "shows_stale_data": true,
+  "shows_button_feedback": true,
+  "shows_kernel_replies": true,
+  "shows_openclaw_tickets": true,
+  "shows_smoke_test_results": true
+}

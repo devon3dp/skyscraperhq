@@ -1,0 +1,62 @@
+{
+  "phase": "QSB_KERNEL_COGNITIVE_LAYER_ACTUAL_IMPLEMENTATION_REPAIR_V1",
+  "checkpoint_kind": "PREPATCH",
+  "timestamp_utc_reference_probe": "20260609T195750Z",
+  "current_date_utc": "2026-06-09",
+  "evidence_referenced": {
+    "learning_smoke_v2_log": "data/logs/qsb_kernel_learning_smoke_test_v2_20260609T195750Z.log",
+    "learning_smoke_v2_latest": "data/registries/qsb_kernel_learning_smoke_test_v2_latest.json",
+    "thinking_upgrade_probe_log": "data/logs/qsb_kernel_thinking_upgrade_probe_20260609T195750Z.log",
+    "thinking_upgrade_probe_latest": "data/registries/qsb_kernel_thinking_upgrade_probe_latest.json"
+  },
+  "learning_smoke_v2_verdict_at_checkpoint": {
+    "passes": 16,
+    "warnings": 0,
+    "failures": 0,
+    "verdict": "PASS"
+  },
+  "missing_cognitive_registries_at_checkpoint": [
+    "data/registries/qsb_kernel_cognitive_tick_latest.json",
+    "data/registries/qsb_kernel_perception_snapshot.json",
+    "data/registries/qsb_kernel_attention_state.json",
+    "data/registries/qsb_kernel_working_memory.json",
+    "data/registries/qsb_kernel_self_model.json",
+    "data/registries/qsb_kernel_reflection_state.json",
+    "data/registries/qsb_kernel_learning_assimilation_state.json",
+    "data/registries/qsb_kernel_goal_stack.json",
+    "data/registries/qsb_kernel_curiosity_queue.json",
+    "data/registries/qsb_kernel_opencore_supervision_state.json"
+  ],
+  "missing_scripts_at_checkpoint": [
+    "scripts/qsb_kernel_cognitive_tick.sh",
+    "scripts/qsb_kernel_cognitive_status.sh",
+    "scripts/qsb_kernel_cognitive_smoke_test.sh"
+  ],
+  "missing_python_modules_at_checkpoint": [
+    "src/tower/kernel_perception_layer.py",
+    "src/tower/kernel_attention_layer.py",
+    "src/tower/kernel_working_memory.py",
+    "src/tower/kernel_self_model.py",
+    "src/tower/kernel_reflection_layer.py",
+    "src/tower/kernel_learning_assimilation.py",
+    "src/tower/kernel_goal_stack.py",
+    "src/tower/kernel_curiosity_queue.py",
+    "src/tower/kernel_opencore_supervision_bridge.py"
+  ],
+  "uncertainty_route_status_at_checkpoint": "FALLBACK_TO_GENERIC_IDENTITY",
+  "execution_locks_at_checkpoint": {
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "model_inference_enabled": false,
+    "live_dispatch_enabled": false,
+    "autonomous_workers_enabled": false,
+    "direct_provider_access": false,
+    "live_trading_enabled": false,
+    "real_order_execution_enabled": false,
+    "openclaw_execution_enabled": false,
+    "binance_order_execution_enabled": false,
+    "stock_order_execution_enabled": false,
+    "web_access_autonomous_enabled": false,
+    "maintenance_auto_repair_enabled": false
+  }
+}

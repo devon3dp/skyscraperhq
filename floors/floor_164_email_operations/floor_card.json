@@ -1,0 +1,88 @@
+{
+  "floor_id": "floor_164",
+  "floor_number": 164,
+  "floor_name": "Email Operations",
+  "department": "F164 Email Operations",
+  "zone": "external_comms",
+  "archetype": "comms_centre",
+  "staff_lead": "Email Operations Manager",
+  "tour_blurb": "F164 is Email Operations: inbound messages are read here, sorted, and walked upstairs by hand. Outbound replies leave from the same desk. A buzzing room of sorting bays, inbox consoles, and a ticker tape; every letter is checked for tone, every reply is checked for what it must not say.",
+  "visitor_open": true,
+  "advisory_only": true,
+  "endpoints": [],
+  "live_signals": {
+    "master_mailbox_handle": "hqskyscraper@gmail.com",
+    "master_mailbox_credentials_location": "floors/floor_28_security_department/vault/.env.galaxy_sim (NOT displayed)",
+    "credentials_in_card": false,
+    "mailbox_signed_in_observed_at": "2026-06-13T20:55:00Z (Galaxy Chrome session, recorded in qsb_session_diary.md)",
+    "imap_config_present": false,
+    "imap_config_search_path": "floors/floor_28_security_department/vault/.env.outlook.imap (and yahoo/zoho/fastmail variants)",
+    "receiver_state_path": "data/registries/qsb_email_receiver_state.json",
+    "receiver_state_present": false,
+    "last_triage_log_ts": "2026-06-11T10:54:02Z",
+    "triage_log_path": "data/registries/qsb_email_triage_log.jsonl",
+    "triage_log_rows": 4,
+    "triage_log_kind": "seed_examples (return_request, shipping_complaint, newsletter_subscribe, spam_or_marketing)",
+    "outbound_queue_path": "data/registries/qsb_email_outbound_queue.jsonl",
+    "outbound_queue_present": false,
+    "workers_employed": 34,
+    "workers_advisory_only": true,
+    "workers_real_money_access": false,
+    "inbox_polling_seconds": 300,
+    "polling_active": false,
+    "execution_allowed": false,
+    "send_allowed": false,
+    "auto_reply_mode": "draft_only (queued, not sent)",
+    "authorized_send_brands_count": 15,
+    "confidentiality_protocol_enforced": true
+  },
+  "evidence_paths": [
+    "floors/floor_164_email_operations/floor_manifest.json",
+    "data/registries/qsb_floor164_email_ops_workers.json",
+    "data/registries/qsb_email_triage_log.jsonl",
+    "tools/qsb_email_receiver.py",
+    "tools/qsb_email_triage.py",
+    "tools/qsb_email_sender.py",
+    "protocols/SKYSCRAPER_EMAIL_ARCHITECTURE_V1.md"
+  ],
+  "built_at": "2026-06-14T17:40:00Z",
+  "built_by": "skyscraper_floor_card_push",
+  "lessons_learned_for_next_agent": "F164 is wired in design but cold in runtime: the receiver script (tools/qsb_email_receiver.py) requires an IMAP config in floors/floor_28_security_department/vault/.env.outlook.imap (or yahoo/zoho/fastmail variants) and NONE of those files exist yet. The hqskyscraper@gmail.com account does exist and is verified signed-in via Chrome on the Galaxy (qsb_session_diary 2026-06-13 20:55Z), but Gmail OAuth has not been wired \u2014 so polling is dormant and the triage log only carries 4 seed example rows from 2026-06-11. NEVER print the mailbox password, recovery code, or any other credential into the floor_card or any visitor-facing surface; the vault path may be NAMED but its contents must stay sealed. All 34 employed workers are advisory_only=true / real_money_access=false; auto-reply mode is draft-only into qsb_email_outbound_queue.jsonl, never direct-send, until OAuth is added and Ross flips a send-gate explicitly.",
+  "team_roster": [
+    {
+      "id": "f164.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "spawned_id": "930aaca733",
+      "spawned_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F164",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f164.operator.01",
+      "spawned_id": "5b3b5d01b4"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F164",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f164.operator.02",
+      "spawned_id": "83d07e1614"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F164",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f164.operator.03",
+      "spawned_id": "eed6098f03"
+    }
+  ],
+  "floor_manager": "f164.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

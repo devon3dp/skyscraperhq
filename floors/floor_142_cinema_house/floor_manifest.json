@@ -1,0 +1,35 @@
+{
+  "ok": true,
+  "floor_number": 142,
+  "floor_name": "Cinema House",
+  "floor_kind": "designed_by_f66_architects_v1",
+  "description": "screenings + curation + retro",
+  "designed_by": "F66 Architects' Office",
+  "designed_ts": "2026-06-11T09:13:04.497262Z",
+  "role_inventory": [
+    "Programmer",
+    "Projectionist",
+    "Curator",
+    "Box Office",
+    "Concessions",
+    "Print Archivist"
+  ],
+  "advisory_only": true,
+  "interior_brief": {
+    "archetype": "recreation",
+    "palette": "forest green + warm wood",
+    "furniture": [
+      "lounging",
+      "games tables",
+      "bar/snack counter",
+      "plants"
+    ],
+    "lighting": "warm + flexible",
+    "mood": "restorative",
+    "designed_by": "F66 Architects + F17 Graphics + Fitters team",
+    "fitted_at": "2026-06-11T14:39:45.620109Z",
+    "godot_scene_brief": "render an recreation floor with forest green + warm wood palette, restorative mood, key furniture: lounging, games tables, bar/snack counter"
+  },
+  "fitted_out": true,
+  "fit_out_ts": "2026-06-11T14:39:45.620109Z"
+}

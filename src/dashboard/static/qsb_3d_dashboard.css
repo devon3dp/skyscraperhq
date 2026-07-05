@@ -1,0 +1,336 @@
+/* QSB Dashboard 3D Total Revamp V1
+   Phase: QSB_DASHBOARD_3D_TOTAL_REVAMP_WORKERS_OPENCLAW_V1
+   Transforms the visual hierarchy without rewriting the SVG renderer:
+   - left activity rail showing per-floor class breakdown
+   - fixed-position selected-floor interior panel (right of tower)
+   - OpenClaw supervisor card bottom-right
+   - telemetry truth overlay top-left
+*/
+
+/* Stronger atmospheric depth on the stage. */
+.stage-body{
+  background:
+    radial-gradient(ellipse at 50% 12%, rgba(140,210,255,0.16) 0%, rgba(20,30,45,0) 50%),
+    radial-gradient(ellipse at 50% 92%, rgba(80,140,210,0.18) 0%, rgba(8,12,22,0) 65%),
+    linear-gradient(180deg,#040b1e 0%, #02060f 100%) !important;
+}
+#qsbTower2D svg .qsb-bg polygon{
+  filter:
+    drop-shadow(0 0 22px rgba(140,200,255,0.30))
+    drop-shadow(0 0 60px rgba(80,140,220,0.16)) !important;
+}
+
+/* ── Telemetry Truth overlay (top-left of stage) ── */
+.qsb-3d-truth{
+  position:absolute; top:46px; left:14px; z-index:30;
+  min-width:260px; padding:9px 11px;
+  background:rgba(10,18,32,0.82); color:#cfdcef;
+  border:1px solid rgba(120,160,200,0.34);
+  border-radius:7px;
+  backdrop-filter: blur(8px);
+  box-shadow:0 8px 26px rgba(0,0,0,0.4),
+             inset 0 0 18px rgba(80,140,220,0.10);
+  font-family:'JetBrains Mono', ui-monospace, monospace;
+  font-size:11px;
+  pointer-events:none;
+}
+.qsb-3d-truth h5{
+  margin:0 0 6px 0; font-size:10px; letter-spacing:.08em;
+  color:#7ec8ff; text-transform:uppercase;
+}
+.qsb-3d-truth-row{display:flex; justify-content:space-between; gap:8px; padding:1px 0}
+.qsb-3d-truth-row > span:first-child{color:#9fb6d4}
+.qsb-3d-truth-row > span:last-child{font-weight:600}
+.qsb-3d-truth-note{margin-top:6px; font-size:10px; color:#9fb6d4; line-height:1.3}
+
+/* ── Activity Rail (left edge of tower, paints per-floor) ── */
+#qsb3dActivityRail{
+  position:absolute; top:46px; left:0; bottom:14px;
+  width:14px; z-index:25;
+  pointer-events:none;
+}
+
+/* ── Selected Floor Interior Panel (right rail of stage) ── */
+.qsb-3d-interior{
+  position:absolute; top:46px; right:14px; z-index:30;
+  width:300px; max-height:74vh; overflow:auto;
+  padding:10px 12px;
+  background:rgba(10,18,32,0.85); color:#cfdcef;
+  border:1px solid rgba(120,160,200,0.40);
+  border-radius:8px;
+  backdrop-filter: blur(8px);
+  box-shadow:0 8px 26px rgba(0,0,0,0.45),
+             inset 0 0 22px rgba(80,140,220,0.12);
+  font-family:'Inter', system-ui, sans-serif;
+  font-size:11.5px;
+}
+.qsb-3d-interior h4{
+  margin:0 0 4px 0; font-size:12px; color:#ffd684;
+  letter-spacing:.04em;
+}
+.qsb-3d-interior .sub{font-size:10px; color:#9fb6d4; margin-bottom:8px}
+.qsb-3d-room{
+  margin:8px 0 4px 0; padding:4px 6px;
+  border-left:2px solid #6ea8ff;
+  background:rgba(60,100,170,0.10); border-radius:0 4px 4px 0;
+}
+.qsb-3d-room-name{font-size:10.5px; color:#a4c8ff; letter-spacing:.03em}
+.qsb-3d-room-count{font-size:9.5px; color:#9fb6d4; margin-left:6px}
+.qsb-3d-worker-row{
+  display:flex; gap:8px; padding:3px 6px;
+  border-bottom:1px dashed rgba(120,160,200,.10);
+  font-family:'JetBrains Mono', ui-monospace, monospace;
+  font-size:10.5px;
+}
+.qsb-3d-worker-row:last-child{border-bottom:none}
+.qsb-3d-worker-cls{
+  display:inline-block; min-width:18px; text-align:center;
+  padding:0 4px; border-radius:99px;
+  background:rgba(80,140,220,0.20); color:#a4c8ff;
+  font-size:9px;
+}
+.qsb-3d-worker-cls.training_worker{background:rgba(220,170,80,0.22); color:#fbd784}
+.qsb-3d-worker-cls.candidate_worker{background:rgba(180,230,140,0.22); color:#c8efa0}
+.qsb-3d-worker-cls.lesson_worker{background:rgba(255,170,80,0.22); color:#ffd0a0}
+.qsb-3d-worker-cls.resting_worker{background:rgba(120,140,180,0.22); color:#9fb6d4}
+.qsb-3d-worker-name{flex:1; color:#cfdcef; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+.qsb-3d-worker-state{color:#7ec8ff; font-size:9px}
+.qsb-3d-worker-state.working{color:#3fcf6e}
+.qsb-3d-worker-state.moving{color:#ffe066}
+.qsb-3d-worker-state.training{color:#fbd784}
+.qsb-3d-worker-state.resting{color:#9fb6d4}
+.qsb-3d-worker-task{
+  color:#9fb6d4; font-size:9px;
+  overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+  max-width:90px;
+}
+.qsb-3d-interior-empty{padding:14px 8px; color:#9fb6d4; font-size:10.5px; text-align:center}
+
+/* ── OpenClaw supervisor card (bottom-right of stage) ── */
+.qsb-3d-openclaw{
+  position:absolute; bottom:16px; right:14px; z-index:30;
+  min-width:240px; padding:10px 12px;
+  background:linear-gradient(180deg, rgba(40,20,60,0.86), rgba(20,15,35,0.86));
+  color:#d6c0ff;
+  border:1px solid rgba(176,138,255,0.55);
+  border-radius:8px;
+  backdrop-filter: blur(8px);
+  box-shadow:0 8px 26px rgba(120,80,200,0.30),
+             inset 0 0 18px rgba(176,138,255,0.18);
+  font-family:'JetBrains Mono', ui-monospace, monospace;
+  font-size:11px;
+}
+.qsb-3d-openclaw h5{
+  margin:0 0 4px 0; font-size:10px; letter-spacing:.08em;
+  color:#e0c8ff; text-transform:uppercase;
+}
+.qsb-3d-openclaw-row{display:flex; justify-content:space-between; gap:8px; padding:1px 0}
+.qsb-3d-openclaw-row > span:first-child{color:#a890d4}
+.qsb-3d-openclaw-pulse{
+  display:inline-block; width:8px; height:8px; border-radius:50%;
+  background:#b08aff; box-shadow:0 0 10px #b08aff;
+  margin-right:6px; vertical-align:middle;
+}
+.qsb-3d-openclaw-tickets{margin-top:6px; max-height:160px; overflow:auto}
+.qsb-3d-openclaw-tk{
+  border-left:2px solid #b08aff; padding:3px 6px; margin:3px 0;
+  background:rgba(60,40,90,0.4); border-radius:0 3px 3px 0;
+  font-size:10px;
+}
+.qsb-3d-openclaw-tk-sev{
+  display:inline-block; padding:0 5px; border-radius:99px;
+  font-size:8.5px; margin-right:5px;
+  background:rgba(176,138,255,0.22); color:#e0c8ff;
+}
+.qsb-3d-openclaw-tk-sev.warning{background:rgba(220,170,80,0.22); color:#fbd784}
+.qsb-3d-openclaw-tk-sev.critical{background:rgba(255,80,80,0.22); color:#ffb0b0}
+
+/* ── Per-floor activity badge nodes painted by qsb_3d_floors.js ── */
+.qsb-3d-actbadge text{
+  font-family:'JetBrains Mono', ui-monospace, monospace;
+  font-size:7.5px;
+  paint-order: stroke;
+  stroke: rgba(8,12,22,0.7); stroke-width:1.5;
+}
+.qsb-3d-floor-pulse{
+  fill:none; stroke:#ffe066; stroke-opacity:.7; stroke-width:1.2;
+}
+
+/* ── Render Visible Layer ────────────────────────────────────────── */
+/* Phase: QSB_RENDER_VISIBLE_WORKERS_AND_LIFTS_FIX_V1                 */
+
+/* Lift strip — left edge of stage, vertical column of 9 real lifts. */
+.qsb-lift-strip{
+  position:absolute; top:46px; left:14px; z-index:32;
+  width:260px; padding:9px 11px;
+  background:rgba(10,18,34,0.86); color:#cfdcef;
+  border:1px solid rgba(110,200,255,0.40);
+  border-radius:8px;
+  backdrop-filter: blur(8px);
+  font: 11px/1.42 Inter, "Segoe UI", system-ui, sans-serif;
+  box-shadow: 0 0 16px rgba(40,80,140,0.45);
+}
+.qsb-lift-strip h4{
+  margin:0 0 6px; font-size:11.5px; letter-spacing:0.04em;
+  color:#9fdcff; text-transform:uppercase;
+}
+.qsb-lift-rows{ display:flex; flex-direction:column; gap:3px; }
+.qsb-lift-row{
+  display:grid; grid-template-columns:84px 44px 38px 28px 1fr;
+  align-items:center; gap:4px;
+  padding:3px 4px; border-radius:4px;
+  background:rgba(20,40,70,0.55);
+  border-left:3px solid rgba(110,170,230,0.65);
+  font-size:10.6px;
+}
+.qsb-lift-row.moving{ border-left-color:#5bff9c; background:rgba(40,80,55,0.55); }
+.qsb-lift-row.idle  { border-left-color:#7dc1ff; }
+.qsb-lift-row.stale { border-left-color:#ffb44a; background:rgba(60,50,30,0.55); }
+.qsb-lift-name{ font-weight:700; color:#dfeefb; }
+.qsb-lift-name.type-main{ color:#a0e8ff; }
+.qsb-lift-name.type-executive{ color:#ffd47e; }
+.qsb-lift-name.type-service{ color:#aaffc5; }
+.qsb-lift-name.type-memory{ color:#d8b4ff; }
+.qsb-lift-name.type-model{ color:#ffb6d6; }
+.qsb-lift-name.type-security{ color:#ff9090; }
+.qsb-lift-name.type-stairwell{ color:#cad7e8; }
+.qsb-lift-type{ color:#8aa6c6; font-size:9.8px; }
+.qsb-lift-floor{ color:#bcd5ec; font-size:9.8px; }
+.qsb-lift-status{ text-align:right; font-weight:700; font-size:9.6px; }
+.qsb-lift-status.moving{ color:#5bff9c; }
+.qsb-lift-status.idle  { color:#a8d4ff; }
+.qsb-lift-status.stale { color:#ffb44a; }
+.qsb-lift-empty{ color:#94a7c1; font-style:italic; }
+
+/* Workforce summary pill — top-right of stage, beside legend.       */
+.qsb-workforce-summary{
+  position:absolute; top:46px; right:14px; z-index:32;
+  min-width:240px; padding:9px 11px;
+  background:rgba(10,18,32,0.86); color:#cfdcef;
+  border:1px solid rgba(255,215,128,0.40);
+  border-radius:8px;
+  backdrop-filter: blur(8px);
+  font: 11px/1.42 Inter, "Segoe UI", system-ui, sans-serif;
+  box-shadow: 0 0 16px rgba(140,100,40,0.35);
+}
+.qsb-workforce-summary h4{
+  margin:0 0 6px; font-size:11.5px; letter-spacing:0.04em;
+  color:#ffd886; text-transform:uppercase;
+}
+.qsb-wf-line{
+  display:flex; justify-content:space-between; gap:8px;
+  padding:1px 0; font-size:10.6px;
+}
+.qsb-wf-line span{ color:#9fb6d4; }
+.qsb-wf-line b{ color:#ffe7a8; font-weight:700; }
+.qsb-wf-note{
+  margin-top:6px; padding-top:6px;
+  border-top:1px dashed rgba(255,215,128,0.30);
+  color:#bcd5ec; font-size:9.8px; font-style:italic;
+}
+
+/* Make lift shafts more visible by darkening the tower background  */
+/* lattice slightly so the brighter glow paths stand out.            */
+#qsbTower2D svg g.qsb-shafts line{
+  stroke-opacity: 0.78;
+}
+
+/* ── Floor 41 OANDA Interior ─────────────────────────────────────── */
+/* Phase: QSB_FLOOR_41_OANDA_FULL_TRADING_FLOOR_REBUILD_V1            */
+
+.qsb-f41-oanda{
+  position:absolute; top:46px; right:14px; bottom:14px;
+  width:760px; max-width:55vw; z-index:34;
+  padding:10px 12px;
+  background:rgba(8,16,28,0.92); color:#dfeefb;
+  border:1px solid rgba(110,200,255,0.5);
+  border-radius:8px;
+  backdrop-filter: blur(10px);
+  font: 11.5px/1.45 Inter, "Segoe UI", system-ui, sans-serif;
+  box-shadow: 0 0 18px rgba(60,120,200,0.55);
+  overflow:auto;
+}
+.f41-hdr{ display:grid; grid-template-columns:1fr 1fr 1fr 1fr 1fr; gap:6px; align-items:center; margin-bottom:6px; }
+.f41-hdr-title{ color:#a0e8ff; font-weight:700; letter-spacing:0.03em; }
+.f41-hdr-mode{ color:#ffd886; font-size:10.6px; }
+.f41-hdr-acct{ color:#bfe0ff; font-size:10.4px; }
+.f41-hdr-pnl{ font-size:10.6px; }
+.f41-hdr-pnl .pnl-up{ color:#5bff9c; font-weight:700; }
+.f41-hdr-pnl .pnl-down{ color:#ff8aa0; font-weight:700; }
+.f41-hdr-pnl .pnl-flat{ color:#9fb6d4; }
+.f41-hdr-oc{ color:#d8b4ff; font-size:10.4px; text-align:right; }
+
+.f41-grid{ display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+.f41-col{ display:flex; flex-direction:column; gap:8px; }
+.f41-card{
+  background:rgba(16,28,48,0.85); border:1px solid rgba(80,140,200,0.35);
+  border-radius:6px; padding:7px 9px;
+}
+.f41-card h5{
+  margin:0 0 5px; font-size:11px; color:#9fdcff;
+  text-transform:uppercase; letter-spacing:0.04em;
+}
+.f41-tbl{ width:100%; border-collapse:collapse; font-size:10.6px; }
+.f41-tbl th{ color:#8aa6c6; text-align:left; font-weight:600; padding:2px 4px; border-bottom:1px solid rgba(80,140,200,0.25); }
+.f41-tbl td{ padding:2px 4px; border-bottom:1px solid rgba(40,60,90,0.4); }
+.f41-tbl .pnl-up{ color:#5bff9c; }
+.f41-tbl .pnl-down{ color:#ff8aa0; }
+.f41-tbl .pnl-flat{ color:#9fb6d4; }
+
+.f41-close-btn{
+  background:rgba(255,140,140,0.18); color:#ffb0b0;
+  border:1px solid rgba(255,140,140,0.4); border-radius:4px;
+  padding:1px 6px; cursor:pointer; font-size:10px;
+}
+.f41-close-btn:hover{ background:rgba(255,140,140,0.32); }
+
+.f41-thought{
+  display:grid; grid-template-columns:96px 84px 1fr; gap:6px;
+  padding:2px 4px; border-bottom:1px solid rgba(40,60,90,0.4);
+  font-size:10.6px;
+}
+.f41-thought-w{ color:#a0e8ff; }
+.f41-thought-topic{ color:#ffd886; font-size:10px; }
+.f41-thought-txt{ color:#dfeefb; }
+
+.f41-finding{ padding:2px 4px; font-size:10.6px; border-left:3px solid #6ec1ff; margin:2px 0; padding-left:8px; }
+.f41-finding.sev-ok{ border-left-color:#5bff9c; }
+.f41-finding.sev-warn{ border-left-color:#ffd886; color:#ffe1a0; }
+.f41-finding.sev-high{ border-left-color:#ff8aa0; color:#ffd0d8; }
+.f41-finding.sev-critical{ border-left-color:#ff4060; color:#ffc8d2; background:rgba(120,20,30,0.4); }
+
+.f41-tickets-hdr{ color:#ffd886; font-size:10.6px; margin-top:5px; padding-top:5px; border-top:1px dashed rgba(255,215,128,0.3); }
+.f41-ticket{ padding:2px 4px; font-size:10.6px; border-left:3px solid #ffd886; margin:2px 0; padding-left:8px; }
+.f41-ticket.sev-critical{ border-left-color:#ff4060; background:rgba(120,20,30,0.4); }
+
+.f41-form-row{ display:grid; grid-template-columns:84px 60px 70px 1fr 110px; gap:5px; margin:4px 0; }
+.f41-form-row select, .f41-form-row input{
+  background:rgba(10,20,40,0.85); color:#dfeefb;
+  border:1px solid rgba(110,170,230,0.45); border-radius:4px;
+  padding:3px 5px; font-size:10.6px;
+}
+.f41-form-row button{
+  background:rgba(95,255,156,0.18); color:#5bff9c;
+  border:1px solid rgba(95,255,156,0.5); border-radius:4px;
+  padding:3px 6px; cursor:pointer; font-size:10.6px; font-weight:700;
+}
+.f41-form-row button:hover{ background:rgba(95,255,156,0.32); }
+.f41-form-note{ color:#9fb6d4; font-size:10px; font-style:italic; margin-top:3px; }
+.f41-action-result{
+  margin-top:5px; padding:3px 5px;
+  background:rgba(20,40,70,0.6); border-radius:4px;
+  color:#bfe0ff; font-size:10px; font-family:monospace;
+  word-break:break-all; max-height:60px; overflow:auto;
+}
+
+.f41-room{ padding:3px 4px; border-bottom:1px solid rgba(40,60,90,0.4); font-size:10.6px; }
+.f41-room b{ color:#a0e8ff; }
+.f41-room-workers{ display:flex; flex-wrap:wrap; gap:4px; margin-top:2px; }
+.f41-room-w{
+  background:rgba(20,40,70,0.7); color:#bfe0ff;
+  padding:1px 5px; border-radius:3px; font-size:9.8px;
+  border:1px solid rgba(80,140,200,0.35);
+}
+.f41-room-w i{ color:#9fb6d4; font-style:normal; }
+.f41-empty{ color:#9fb6d4; font-style:italic; padding:20px; text-align:center; }
+.muted{ color:#9fb6d4; font-style:italic; padding:6px 0; }

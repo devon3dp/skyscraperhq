@@ -1,0 +1,15 @@
+{
+  "ok": true,
+  "torch_version": "2.12.0+cu130",
+  "cuda_available": false,
+  "cuda_version_in_torch": "13.0",
+  "gpu_name": null,
+  "phase": "QSB_ML_RL_TORCH_LAB_INSTALL_AND_SMOKE_TEST_V1",
+  "generated_ts": "2026-06-09T16:50:03+00:00",
+  "kind": "qsb_ml_rl_torch_status",
+  "execution_allowed": false,
+  "real_money_live_trading_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "advisory_only": true
+}

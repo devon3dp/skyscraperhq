@@ -1,0 +1,15 @@
+{
+  "name": "stamp_f47_record",
+  "description": "Append an audit row to F47 team records. Use after every job boundary.",
+  "params": {
+    "type": "object",
+    "properties": {
+      "kind":    {"type": "string", "description": "short kebab-case category (e.g. 'job_started', 'decision_made')"},
+      "summary": {"type": "string", "description": "one-line human-readable note, <300 chars"}
+    },
+    "required": ["kind", "summary"]
+  },
+  "safety_class": "stamp",
+  "entrypoint": "skill:run",
+  "tags": ["audit", "f47", "boundary"]
+}

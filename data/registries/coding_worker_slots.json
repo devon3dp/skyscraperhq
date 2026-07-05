@@ -1,0 +1,42 @@
+[
+  {
+    "id": "coding_intake_worker",
+    "name": "Coding Intake Worker",
+    "floor_id": "floor_05",
+    "role": "request_intake",
+    "status": "simulation_ready",
+    "model_bound": false
+  },
+  {
+    "id": "patch_queue_worker",
+    "name": "Patch Queue Worker",
+    "floor_id": "floor_05",
+    "role": "patch_preparation",
+    "status": "simulation_ready",
+    "model_bound": false
+  },
+  {
+    "id": "review_queue_worker",
+    "name": "Review Queue Worker",
+    "floor_id": "floor_05",
+    "role": "code_review_preparation",
+    "status": "simulation_ready",
+    "model_bound": false
+  },
+  {
+    "id": "test_queue_worker",
+    "name": "Test Queue Worker",
+    "floor_id": "floor_05",
+    "role": "test_preparation",
+    "status": "simulation_ready",
+    "model_bound": false
+  },
+  {
+    "id": "handoff_worker",
+    "name": "Model Handoff Worker",
+    "floor_id": "floor_05",
+    "role": "sealed_packet_handoff_to_floor_24",
+    "status": "simulation_ready",
+    "model_bound": false
+  }
+]

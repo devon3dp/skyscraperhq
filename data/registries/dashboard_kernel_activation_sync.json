@@ -1,0 +1,23 @@
+{
+  "sync_status": "dashboard_kernel_activation_sync_complete",
+  "kernel_installed": true,
+  "QSBKernelCore_instantiated": true,
+  "activation_status": "active_local_only",
+  "active_kernel_source": "rebased_kernel",
+  "worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "model_inference_enabled": false,
+  "backup_dir": "/vaults/nvme0/qsb_tower_v1/data/backups/dashboard_kernel_sync_20260607T213848Z",
+  "updated_files": [
+    "building.json",
+    "executive_command_policy.json",
+    "floor_53_penthouse_handoff.json",
+    "kernel_discovery_manifest.json",
+    "kernel_health_display.json",
+    "kernel_installation_socket.json",
+    "kernel_monitoring_interface.json",
+    "kernel_readiness_latest.json",
+    "penthouse_policy.json",
+    "tower_command_handoff.json"
+  ]
+}

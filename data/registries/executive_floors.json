@@ -1,0 +1,83 @@
+[
+  {
+    "floor_id": "floor_46",
+    "number": 46,
+    "department": "Executive Support Department",
+    "role": "executive_reports_summaries_escalation_support",
+    "status": "online",
+    "zone": "ZONE D",
+    "execution_enabled": false,
+    "command_level": 1
+  },
+  {
+    "floor_id": "floor_47",
+    "number": 47,
+    "department": "Executive Operations Department",
+    "role": "upper_tower_operational_coordination",
+    "status": "online",
+    "zone": "ZONE D",
+    "execution_enabled": false,
+    "command_level": 2
+  },
+  {
+    "floor_id": "floor_48",
+    "number": 48,
+    "department": "Strategic Planning Department",
+    "role": "roadmap_project_sequence_and_long_range_planning",
+    "status": "online",
+    "zone": "ZONE D",
+    "execution_enabled": false,
+    "command_level": 3
+  },
+  {
+    "floor_id": "floor_49",
+    "number": 49,
+    "department": "Resource Management Department",
+    "role": "capacity_resources_workers_models_and_provider_usage_planning",
+    "status": "online",
+    "zone": "ZONE D",
+    "execution_enabled": false,
+    "command_level": 4
+  },
+  {
+    "floor_id": "floor_50",
+    "number": 50,
+    "department": "Building Governance Department",
+    "role": "tower_rules_upgrade_governance_registry_policy_version_control",
+    "status": "online",
+    "zone": "ZONE D",
+    "execution_enabled": false,
+    "command_level": 5
+  },
+  {
+    "floor_id": "floor_51",
+    "number": 51,
+    "department": "Executive Council Department",
+    "role": "cross_department_review_and_final_recommendation_layer",
+    "status": "online",
+    "zone": "ZONE D",
+    "execution_enabled": false,
+    "command_level": 6
+  },
+  {
+    "floor_id": "floor_52",
+    "number": 52,
+    "department": "Infrastructure Command Department",
+    "role": "building_wide_infrastructure_command_visibility",
+    "status": "online",
+    "zone": "ZONE D",
+    "execution_enabled": false,
+    "command_level": 7
+  },
+  {
+    "floor_id": "floor_53",
+    "number": 53,
+    "department": "Tower Command Department",
+    "role": "top_level_tower_command_and_kernel_handoff_preparation",
+    "status": "online",
+    "zone": "ZONE D",
+    "execution_enabled": false,
+    "command_level": 8,
+    "penthouse_handoff_ready": true
+  }
+]

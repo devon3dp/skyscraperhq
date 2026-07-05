@@ -1,0 +1,28 @@
+{
+  "floor_id": "floor_168",
+  "floor_number": 168,
+  "floor_name": "Penthouse · Kernel",
+  "department": "QSB Tower Penthouse — Kernel House",
+  "zone": "ZONE TOP",
+  "archetype": "penthouse_kernel",
+  "staff_lead": "QSB Kernel 4.5 (not yet built; symbolic rebased_kernel artifact present)",
+  "tour_blurb": "The Penthouse — top of the tower, reserved only for the future QSB Kernel 4.5. The current inherited 4.6-offline-kernel-symbolic artifact runs advisory-only: local chat, narration, dashboard status. All execution gates remain locked false. The Penthouse is the brain Ross is designing; do not promote symbolic artifacts to live execution.",
+  "visitor_open": false,
+  "advisory_only": true,
+  "execution_mode": "PREVIEW_ONLY",
+  "live_signals": {
+    "kernel_present": "rebased_kernel (4.6-offline-symbolic)",
+    "active_local_only": true,
+    "qsb_kernel_4_5_built": false
+  },
+  "gate_posture": {
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "openclaw_real_tool_execution_enabled": false,
+    "real_money_live_trading_enabled": false,
+    "live_dispatch_enabled": false,
+    "autonomous_workers_enabled": false,
+    "model_inference_enabled": true,
+    "direct_provider_access": true
+  }
+}

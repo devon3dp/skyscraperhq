@@ -1,0 +1,49 @@
+{
+  "ok": true,
+  "kind": "qsb_claude_sandbox_smoke_test_latest",
+  "ts": "2026-06-09T22:52:25Z",
+  "pass": 8,
+  "fail": 0,
+  "results": [
+    {
+      "name": "utc_ts looks ISO-Z",
+      "ok": true,
+      "detail": "2026-06-09T22:52:25Z"
+    },
+    {
+      "name": "FailureModeLab.run hello",
+      "ok": true,
+      "detail": "ran"
+    },
+    {
+      "name": "FailureModeLab refuses to leak QSB_OPENAI_API_KEY",
+      "ok": true,
+      "detail": "leak blocked"
+    },
+    {
+      "name": "tower_garden render has \u2605 for F47",
+      "ok": true,
+      "detail": "F47 marked"
+    },
+    {
+      "name": "tower_garden haiku has 3 lines",
+      "ok": true,
+      "detail": "3 lines"
+    },
+    {
+      "name": "daily_synthesize returns non-empty",
+      "ok": true,
+      "detail": "long enough"
+    },
+    {
+      "name": "file:/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_long_letter_box.jsonl",
+      "ok": true,
+      "detail": "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_long_letter_box.jsonl"
+    },
+    {
+      "name": "file:/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_letter_drawer.jsonl",
+      "ok": true,
+      "detail": "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_letter_drawer.jsonl"
+    }
+  ]
+}

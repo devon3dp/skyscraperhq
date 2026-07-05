@@ -1,0 +1,34 @@
+{
+  "room_id": "tectonic_model",
+  "name": "Tectonic Model Room",
+  "category": "display",
+  "purpose": "Displays a scaled model of the Earth's tectonic plates.",
+  "concierge_blurb": "A large, detailed model of the world\u2019s tectonic plates.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -6.5,
+    "offset_z": 0.0,
+    "footprint_m": [
+      12,
+      8
+    ],
+    "height_m": 2.3
+  },
+  "render": {
+    "primary_prop": "chamber",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Plates",
+    "glow": true
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/tectonic_plates.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 60
+  },
+  "floor": "floor_137"
+}

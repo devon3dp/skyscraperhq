@@ -1,0 +1,31 @@
+{
+  "room_id": "data_archiving_area",
+  "name": "Data Archiving Area",
+  "category": "archive",
+  "purpose": "Holds historical records and data for future reference.",
+  "concierge_blurb": "Rows of shelves filled with archived data and documents.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -8.0,
+    "offset_z": 5.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "archive_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Archives",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_13"
+}

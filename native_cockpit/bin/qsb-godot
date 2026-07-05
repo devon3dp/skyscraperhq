@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+set -e
+
+if command -v godot4 >/dev/null 2>&1; then
+  exec godot4 "$@"
+fi
+
+if command -v godot-4 >/dev/null 2>&1; then
+  exec godot-4 "$@"
+fi
+
+if [ -x /snap/bin/godot-4 ]; then
+  exec /snap/bin/godot-4 "$@"
+fi
+
+if command -v godot >/dev/null 2>&1; then
+  exec godot "$@"
+fi
+
+if command -v snap >/dev/null 2>&1 && snap list godot-4 >/dev/null 2>&1; then
+  exec snap run godot-4 "$@"
+fi
+
+echo "ERROR: Godot command not found."
+exit 127

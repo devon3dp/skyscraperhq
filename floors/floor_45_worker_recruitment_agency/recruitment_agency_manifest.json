@@ -1,0 +1,34 @@
+{
+  "ok": true,
+  "kind": "department_manifest",
+  "phase": "QSB_SKYSCRAPER_100_PERCENT_ONLINE_INTERACTIVE_3D_WORKFORCE_COMPLETION_V1",
+  "generated_ts": "2026-06-30T13:46:34.684916+00:00",
+  "floor_id": "floor_45",
+  "department": "Recruitment Agency",
+  "sub_department": "recruitment",
+  "co_located_on_floor": "floor_45_worker_recruitment_agency",
+  "purpose": "Operational interior for Recruitment Agency. Workers stationed at real rooms with real roles; no random visuals.",
+  "rooms": [
+    "Candidate Intake",
+    "Screening Desk",
+    "Hiring Desk",
+    "Assignment Board",
+    "New Worker Orientation"
+  ],
+  "roles": [
+    "recruiter",
+    "screener",
+    "hiring_officer",
+    "orientation_lead",
+    "intake_clerk"
+  ],
+  "worker_count": 80,
+  "default_class": "candidate_worker",
+  "default_state": "awaiting_assignment",
+  "advisory_only": true,
+  "execution_allowed": false,
+  "active_local_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

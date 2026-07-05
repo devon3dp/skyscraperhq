@@ -1,0 +1,31 @@
+{
+  "ok": true,
+  "kind": "eqsb_hardware_observatory",
+  "phase": "EQSB_SYSTEM_OBSERVATORY_HARDWARE_FLOOR_LIVE_TELEMETRY_REPAIR_V1",
+  "generated_ts": "2026-06-30T13:46:34.317534+00:00",
+  "cpu_summary": "AMD Ryzen 9 7950X3D 16-Core Processor",
+  "gpu_summary": "NVIDIA GeForce RTX 5070 Ti",
+  "memory_pressure": "low",
+  "qsb_data_mb": 10055,
+  "ollama_present": true,
+  "airllm_venv_present": true,
+  "advice_count": 2,
+  "read_only_commands_used": [
+    "uname",
+    "hostname",
+    "lscpu",
+    "free",
+    "df",
+    "lsblk",
+    "nvidia-smi (if present)",
+    "ss",
+    "ps/pgrep",
+    "du"
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

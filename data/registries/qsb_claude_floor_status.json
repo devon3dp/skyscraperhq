@@ -1,0 +1,29 @@
+{
+  "ok": true,
+  "kind": "qsb_claude_floor_status",
+  "ts": "2026-06-09T22:40:25Z",
+  "floor_id": "F47",
+  "status": {
+    "provider_name": "Anthropic Claude",
+    "floor_id": "F47",
+    "enabled": true,
+    "env_key_present": false,
+    "external_calls_allowed": false,
+    "manual_test_mode": true,
+    "model_name": "local-claude-cli",
+    "masked_key": "(local floor \u2014 no api key required)",
+    "last_test": null,
+    "last_error_masked": null,
+    "notes": [
+      "Claude CLI detected at /usr/bin/claude."
+    ],
+    "cost_guard": {
+      "max_requests_per_session": 5,
+      "max_tokens_per_request": 1000,
+      "log_prompts": false,
+      "mask_secrets": true,
+      "external_calls_enabled_global": false
+    }
+  },
+  "advisory_only": true
+}

@@ -1,0 +1,16 @@
+{
+  "ok": true,
+  "kind": "qsb_godot_worker_team_render_contract",
+  "phase": "QSB_GODOT_PROFESSIONAL_COCKPIT_VISUAL_UPGRADE_AFTER_FIRST_LAUNCH_V1",
+  "generated_ts": "2026-06-09T16:25:51+00:00",
+  "verified_total": 2191,
+  "v1_render": "HUD counts only \u2014 no individual sprites",
+  "v2_plan": "per-floor ring of count-scaled emissive spheres + selected-floor team chips",
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "live_payments_enabled": false,
+  "live_listings_publishing_enabled": false
+}

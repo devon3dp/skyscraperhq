@@ -1,0 +1,34 @@
+{
+  "room_id": "data_visualization_gallery",
+  "name": "Visualization Gallery",
+  "category": "display",
+  "purpose": "A space to showcase and present data visualizations.",
+  "concierge_blurb": "Interactive screens display real-time market trends and insights.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -7.0,
+    "offset_z": 6.5,
+    "footprint_m": [
+      12.0,
+      8.0
+    ],
+    "height_m": 1.8
+  },
+  "render": {
+    "primary_prop": "display",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Visualizations",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/market_trends.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 30
+  },
+  "floor": "floor_34"
+}

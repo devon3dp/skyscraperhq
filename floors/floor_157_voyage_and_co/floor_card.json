@@ -1,0 +1,70 @@
+{
+  "floor_id": "floor_157",
+  "floor_number": 157,
+  "floor_name": "Voyage & Co",
+  "department": "public_dropship_storefront_v1",
+  "zone": "ZONE F \u00b7 CROWN",
+  "archetype": "public_dropship_storefront_v1",
+  "staff_lead": "F66 Architects' Office",
+  "tour_blurb": "Voyage \u2014 pack lighter, go further.",
+  "visitor_open": false,
+  "advisory_only": true,
+  "execution_mode": "PREVIEW_ONLY",
+  "skeleton": true,
+  "skeleton_source": "floor_manifest.json",
+  "skeleton_generated_ts": "2026-06-17",
+  "live_signals": {
+    "theme": "travel_essentials",
+    "categories": [
+      "packing",
+      "power",
+      "comfort",
+      "security",
+      "documents"
+    ],
+    "palette": "navy / brass / cream",
+    "tagline": "Voyage \u2014 pack lighter, go further."
+  },
+  "gate_posture": {
+    "advisory_only": true,
+    "execution_allowed": false,
+    "live_payments_enabled": false
+  },
+  "team_roster": [
+    {
+      "id": "f157.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "spawned_id": "479d3bdd4c",
+      "spawned_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F157",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f157.operator.01",
+      "spawned_id": "207955e713"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F157",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f157.operator.02",
+      "spawned_id": "c0393c6031"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F157",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f157.operator.03",
+      "spawned_id": "945d2047c8"
+    }
+  ],
+  "floor_manager": "f157.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

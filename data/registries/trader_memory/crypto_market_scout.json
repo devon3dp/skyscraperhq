@@ -1,0 +1,610 @@
+{
+  "worker_id": "crypto_market_scout",
+  "instrument": "BNBUSDT",
+  "strategy": {
+    "name": "mean_revert",
+    "params": {
+      "lookback_min": 5,
+      "threshold_bps": 5
+    }
+  },
+  "stats": {
+    "wins": 36,
+    "losses": 47,
+    "total_pnl": -1.18579,
+    "win_streak": 1,
+    "loss_streak": 0,
+    "trades_total": 87,
+    "last_trade_ts": "2026-06-21T18:47:46Z"
+  },
+  "open_trades": [
+    {
+      "order_id": "3046496",
+      "side": "BUY",
+      "qty": 0.084,
+      "entry_px": 589.51,
+      "opened_ts": "2026-06-21T15:53:33Z"
+    },
+    {
+      "order_id": "3047826",
+      "side": "BUY",
+      "qty": 0.084,
+      "entry_px": 589.42,
+      "opened_ts": "2026-06-21T16:08:39Z"
+    },
+    {
+      "order_id": "3049332",
+      "side": "SELL",
+      "qty": 0.084,
+      "entry_px": 590.23,
+      "opened_ts": "2026-06-21T16:23:42Z"
+    },
+    {
+      "order_id": "3062530",
+      "side": "BUY",
+      "qty": 0.084,
+      "entry_px": 591.42,
+      "opened_ts": "2026-06-21T18:47:46Z"
+    }
+  ],
+  "closed_trades": [
+    {
+      "order_id": "3045342",
+      "side": "SELL",
+      "qty": 0.084,
+      "entry_px": 589.76,
+      "opened_ts": "2026-06-21T15:38:23Z",
+      "exit_px": 589.36,
+      "pnl": 0.0336,
+      "won": true,
+      "closed_ts": "2026-06-21T16:07:55Z"
+    },
+    {
+      "order_id": "3044339",
+      "side": "BUY",
+      "qty": 0.084,
+      "entry_px": 589.94,
+      "opened_ts": "2026-06-21T15:23:11Z",
+      "exit_px": 589.75,
+      "pnl": -0.01596,
+      "won": false,
+      "closed_ts": "2026-06-21T15:48:01Z"
+    },
+    {
+      "order_id": "3043171",
+      "side": "SELL",
+      "qty": 0.084,
+      "entry_px": 590.29,
+      "opened_ts": "2026-06-21T15:08:10Z",
+      "exit_px": 590.0,
+      "pnl": 0.02436,
+      "won": true,
+      "closed_ts": "2026-06-21T15:27:57Z"
+    },
+    {
+      "order_id": "3041525",
+      "side": "SELL",
+      "qty": 0.084,
+      "entry_px": 589.2,
+      "opened_ts": "2026-06-21T14:53:08Z",
+      "exit_px": 590.0,
+      "pnl": -0.0672,
+      "won": false,
+      "closed_ts": "2026-06-21T15:27:56Z"
+    },
+    {
+      "order_id": "3037742",
+      "side": "SELL",
+      "qty": 0.085,
+      "entry_px": 588.11,
+      "opened_ts": "2026-06-21T14:08:00Z",
+      "exit_px": 588.48,
+      "pnl": -0.03145,
+      "won": false,
+      "closed_ts": "2026-06-21T14:27:56Z"
+    },
+    {
+      "order_id": "3034697",
+      "side": "BUY",
+      "qty": 0.085,
+      "entry_px": 587.82,
+      "opened_ts": "2026-06-21T13:25:53Z",
+      "exit_px": 588.11,
+      "pnl": 0.02465,
+      "won": true,
+      "closed_ts": "2026-06-21T14:07:56Z"
+    },
+    {
+      "order_id": "3033509",
+      "side": "SELL",
+      "qty": 0.084,
+      "entry_px": 588.31,
+      "opened_ts": "2026-06-21T13:10:46Z",
+      "exit_px": 588.12,
+      "pnl": 0.01596,
+      "won": true,
+      "closed_ts": "2026-06-21T14:07:56Z"
+    },
+    {
+      "order_id": "3032284",
+      "side": "SELL",
+      "qty": 0.085,
+      "entry_px": 586.76,
+      "opened_ts": "2026-06-21T12:55:45Z",
+      "exit_px": 588.11,
+      "pnl": -0.11475,
+      "won": false,
+      "closed_ts": "2026-06-21T13:22:24Z"
+    },
+    {
+      "order_id": "3030952",
+      "side": "SELL",
+      "qty": 0.085,
+      "entry_px": 586.65,
+      "opened_ts": "2026-06-21T12:40:38Z",
+      "exit_px": 587.0,
+      "pnl": -0.02975,
+      "won": false,
+      "closed_ts": "2026-06-21T13:02:27Z"
+    },
+    {
+      "order_id": "3029322",
+      "side": "SELL",
+      "qty": 0.085,
+      "entry_px": 586.2,
+      "opened_ts": "2026-06-21T12:25:35Z",
+      "exit_px": 586.79,
+      "pnl": -0.05015,
+      "won": false,
+      "closed_ts": "2026-06-21T12:42:21Z"
+    },
+    {
+      "order_id": "3024630",
+      "side": "SELL",
+      "qty": 0.084,
+      "entry_px": 588.8,
+      "opened_ts": "2026-06-21T11:39:33Z",
+      "exit_px": 585.6,
+      "pnl": 0.2688,
+      "won": true,
+      "closed_ts": "2026-06-21T12:22:26Z"
+    },
+    {
+      "order_id": "3022923",
+      "side": "BUY",
+      "qty": 0.084,
+      "entry_px": 588.99,
+      "opened_ts": "2026-06-21T11:24:22Z",
+      "exit_px": 588.73,
+      "pnl": -0.02184,
+      "won": false,
+      "closed_ts": "2026-06-21T11:42:30Z"
+    },
+    {
+      "order_id": "3021389",
+      "side": "SELL",
+      "qty": 0.084,
+      "entry_px": 589.84,
+      "opened_ts": "2026-06-21T11:09:19Z",
+      "exit_px": 588.74,
+      "pnl": 0.0924,
+      "won": true,
+      "closed_ts": "2026-06-21T11:42:29Z"
+    },
+    {
+      "order_id": "3019794",
+      "side": "BUY",
+      "qty": 0.084,
+      "entry_px": 590.19,
+      "opened_ts": "2026-06-21T10:54:09Z",
+      "exit_px": 588.73,
+      "pnl": -0.12264,
+      "won": false,
+      "closed_ts": "2026-06-21T11:42:29Z"
+    },
+    {
+      "order_id": "3018600",
+      "side": "SELL",
+      "qty": 0.084,
+      "entry_px": 590.57,
+      "opened_ts": "2026-06-21T10:39:03Z",
+      "exit_px": 588.74,
+      "pnl": 0.15372,
+      "won": true,
+      "closed_ts": "2026-06-21T11:42:28Z"
+    },
+    {
+      "order_id": "3017284",
+      "side": "SELL",
+      "qty": 0.084,
+      "entry_px": 591.41,
+      "opened_ts": "2026-06-21T10:23:52Z",
+      "exit_px": 588.74,
+      "pnl": 0.22428,
+      "won": true,
+      "closed_ts": "2026-06-21T11:42:27Z"
+    },
+    {
+      "order_id": "3015919",
+      "side": "BUY",
+      "qty": 0.084,
+      "entry_px": 590.18,
+      "opened_ts": "2026-06-21T10:08:44Z",
+      "exit_px": 588.73,
+      "pnl": -0.1218,
+      "won": false,
+      "closed_ts": "2026-06-21T11:42:26Z"
+    },
+    {
+      "order_id": "3011849",
+      "side": "BUY",
+      "qty": 0.084,
+      "entry_px": 588.77,
+      "opened_ts": "2026-06-21T09:22:43Z",
+      "exit_px": 590.13,
+      "pnl": 0.11424,
+      "won": true,
+      "closed_ts": "2026-06-21T10:02:24Z"
+    },
+    {
+      "order_id": "3007658",
+      "side": "BUY",
+      "qty": 0.085,
+      "entry_px": 587.76,
+      "opened_ts": "2026-06-21T08:37:33Z",
+      "exit_px": 588.55,
+      "pnl": 0.06715,
+      "won": true,
+      "closed_ts": "2026-06-21T09:02:17Z"
+    },
+    {
+      "order_id": "3006100",
+      "side": "BUY",
+      "qty": 0.084,
+      "entry_px": 589.86,
+      "opened_ts": "2026-06-21T08:22:32Z",
+      "exit_px": 587.74,
+      "pnl": -0.17808,
+      "won": false,
+      "closed_ts": "2026-06-21T08:42:16Z"
+    },
+    {
+      "order_id": "3004691",
+      "side": "SELL",
+      "qty": 0.084,
+      "entry_px": 590.28,
+      "opened_ts": "2026-06-21T08:07:29Z",
+      "exit_px": 587.75,
+      "pnl": 0.21252,
+      "won": true,
+      "closed_ts": "2026-06-21T08:42:15Z"
+    },
+    {
+      "order_id": "3003563",
+      "side": "BUY",
+      "qty": 0.084,
+      "entry_px": 591.15,
+      "opened_ts": "2026-06-21T07:52:28Z",
+      "exit_px": 589.85,
+      "pnl": -0.1092,
+      "won": false,
+      "closed_ts": "2026-06-21T08:22:21Z"
+    },
+    {
+      "order_id": "3002021",
+      "side": "SELL",
+      "qty": 0.084,
+      "entry_px": 590.59,
+      "opened_ts": "2026-06-21T07:37:26Z",
+      "exit_px": 590.71,
+      "pnl": -0.01008,
+      "won": false,
+      "closed_ts": "2026-06-21T08:02:17Z"
+    },
+    {
+      "order_id": "3000727",
+      "side": "SELL",
+      "qty": 0.084,
+      "entry_px": 590.7,
+      "opened_ts": "2026-06-21T07:22:25Z",
+      "exit_px": 590.81,
+      "pnl": -0.00924,
+      "won": false,
+      "closed_ts": "2026-06-21T07:42:18Z"
+    },
+    {
+      "order_id": "2999562",
+      "side": "BUY",
+      "qty": 0.084,
+      "entry_px": 589.63,
+      "opened_ts": "2026-06-21T07:07:24Z",
+      "exit_px": 590.8,
+      "pnl": 0.09828,
+      "won": true,
+      "closed_ts": "2026-06-21T07:42:17Z"
+    },
+    {
+      "order_id": "2995836",
+      "side": "SELL",
+      "qty": 0.084,
+      "entry_px": 589.57,
+      "opened_ts": "2026-06-21T06:22:22Z",
+      "exit_px": 591.41,
+      "pnl": -0.15456,
+      "won": false,
+      "closed_ts": "2026-06-21T06:42:14Z"
+    },
+    {
+      "order_id": "2994524",
+      "side": "BUY",
+      "qty": 0.084,
+      "entry_px": 589.19,
+      "opened_ts": "2026-06-21T06:07:21Z",
+      "exit_px": 591.4,
+      "pnl": 0.18564,
+      "won": true,
+      "closed_ts": "2026-06-21T06:42:13Z"
+    },
+    {
+      "order_id": "2990827",
+      "side": "SELL",
+      "qty": 0.084,
+      "entry_px": 589.24,
+      "opened_ts": "2026-06-21T05:22:17Z",
+      "exit_px": 590.43,
+      "pnl": -0.09996,
+      "won": false,
+      "closed_ts": "2026-06-21T05:42:14Z"
+    },
+    {
+      "order_id": "2949274",
+      "side": "BUY",
+      "qty": 0.085,
+      "entry_px": 586.32,
+      "opened_ts": "2026-06-20T21:06:53Z",
+      "exit_px": 585.71,
+      "pnl": -0.05185,
+      "won": false,
+      "closed_ts": "2026-06-20T21:31:43Z"
+    },
+    {
+      "order_id": "2948328",
+      "side": "SELL",
+      "qty": 0.085,
+      "entry_px": 586.21,
+      "opened_ts": "2026-06-20T20:51:52Z",
+      "exit_px": 586.38,
+      "pnl": -0.01445,
+      "won": false,
+      "closed_ts": "2026-06-20T21:11:45Z"
+    },
+    {
+      "order_id": "2947324",
+      "side": "SELL",
+      "qty": 0.085,
+      "entry_px": 585.07,
+      "opened_ts": "2026-06-20T20:36:51Z",
+      "exit_px": 586.38,
+      "pnl": -0.11135,
+      "won": false,
+      "closed_ts": "2026-06-20T21:11:44Z"
+    },
+    {
+      "order_id": "2946228",
+      "side": "BUY",
+      "qty": 0.085,
+      "entry_px": 585.58,
+      "opened_ts": "2026-06-20T20:21:50Z",
+      "exit_px": 586.14,
+      "pnl": 0.0476,
+      "won": true,
+      "closed_ts": "2026-06-20T20:51:42Z"
+    },
+    {
+      "order_id": "2945083",
+      "side": "SELL",
+      "qty": 0.085,
+      "entry_px": 586.01,
+      "opened_ts": "2026-06-20T20:06:48Z",
+      "exit_px": 585.48,
+      "pnl": 0.04505,
+      "won": true,
+      "closed_ts": "2026-06-20T20:31:42Z"
+    },
+    {
+      "order_id": "2944156",
+      "side": "BUY",
+      "qty": 0.085,
+      "entry_px": 586.09,
+      "opened_ts": "2026-06-20T19:51:47Z",
+      "exit_px": 586.01,
+      "pnl": -0.0068,
+      "won": false,
+      "closed_ts": "2026-06-20T20:11:41Z"
+    },
+    {
+      "order_id": "2940989",
+      "side": "SELL",
+      "qty": 0.085,
+      "entry_px": 586.3,
+      "opened_ts": "2026-06-20T19:11:15Z",
+      "exit_px": 585.67,
+      "pnl": 0.05355,
+      "won": true,
+      "closed_ts": "2026-06-20T19:31:43Z"
+    },
+    {
+      "order_id": "2937303",
+      "side": "BUY",
+      "qty": 0.085,
+      "entry_px": 586.67,
+      "opened_ts": "2026-06-20T18:25:54Z",
+      "exit_px": 585.66,
+      "pnl": -0.08585,
+      "won": false,
+      "closed_ts": "2026-06-20T19:31:42Z"
+    },
+    {
+      "order_id": "2933429",
+      "side": "SELL",
+      "qty": 0.085,
+      "entry_px": 585.08,
+      "opened_ts": "2026-06-20T17:40:44Z",
+      "exit_px": 585.67,
+      "pnl": -0.05015,
+      "won": false,
+      "closed_ts": "2026-06-20T19:31:41Z"
+    },
+    {
+      "order_id": "2931622",
+      "side": "BUY",
+      "qty": 0.085,
+      "entry_px": 585.34,
+      "opened_ts": "2026-06-20T17:25:34Z",
+      "exit_px": 585.66,
+      "pnl": 0.0272,
+      "won": true,
+      "closed_ts": "2026-06-20T19:31:40Z"
+    },
+    {
+      "order_id": "2930168",
+      "side": "SELL",
+      "qty": 0.085,
+      "entry_px": 585.63,
+      "opened_ts": "2026-06-20T17:10:29Z",
+      "exit_px": 586.22,
+      "pnl": -0.05015,
+      "won": false,
+      "closed_ts": "2026-06-20T19:15:29Z"
+    },
+    {
+      "order_id": "2925700",
+      "side": "BUY",
+      "qty": 0.085,
+      "entry_px": 586.48,
+      "opened_ts": "2026-06-20T16:25:26Z",
+      "exit_px": 586.8,
+      "pnl": 0.0272,
+      "won": true,
+      "closed_ts": "2026-06-20T16:55:22Z"
+    },
+    {
+      "order_id": "2921617",
+      "side": "SELL",
+      "qty": 0.085,
+      "entry_px": 587.07,
+      "opened_ts": "2026-06-20T15:46:40Z",
+      "exit_px": 585.78,
+      "pnl": 0.10965,
+      "won": true,
+      "closed_ts": "2026-06-20T16:35:23Z"
+    },
+    {
+      "order_id": "2919936",
+      "side": "BUY",
+      "qty": 0.085,
+      "entry_px": 587.23,
+      "opened_ts": "2026-06-20T15:31:35Z",
+      "exit_px": 587.22,
+      "pnl": -0.00085,
+      "won": false,
+      "closed_ts": "2026-06-20T16:00:09Z"
+    },
+    {
+      "order_id": "2917988",
+      "side": "SELL",
+      "qty": 0.085,
+      "entry_px": 586.7,
+      "opened_ts": "2026-06-20T15:16:32Z",
+      "exit_px": 587.07,
+      "pnl": -0.03145,
+      "won": false,
+      "closed_ts": "2026-06-20T16:00:08Z"
+    },
+    {
+      "order_id": "2916195",
+      "side": "BUY",
+      "qty": 0.085,
+      "entry_px": 585.73,
+      "opened_ts": "2026-06-20T15:01:29Z",
+      "exit_px": 586.7,
+      "pnl": 0.08245,
+      "won": true,
+      "closed_ts": "2026-06-20T15:40:14Z"
+    },
+    {
+      "order_id": "2913980",
+      "side": "SELL",
+      "qty": 0.08499999999999999,
+      "entry_px": 586.49,
+      "opened_ts": "2026-06-20T14:46:28Z",
+      "exit_px": 586.71,
+      "pnl": -0.0187,
+      "won": false,
+      "closed_ts": "2026-06-20T15:40:13Z"
+    },
+    {
+      "order_id": "2912426",
+      "side": "SELL",
+      "qty": 0.085,
+      "entry_px": 582.55,
+      "opened_ts": "2026-06-20T14:31:26Z",
+      "exit_px": 585.9,
+      "pnl": -0.28475,
+      "won": false,
+      "closed_ts": "2026-06-20T15:00:26Z"
+    },
+    {
+      "order_id": "2910861",
+      "side": "SELL",
+      "qty": 0.085,
+      "entry_px": 582.71,
+      "opened_ts": "2026-06-20T14:16:23Z",
+      "exit_px": 586.13,
+      "pnl": -0.2907,
+      "won": false,
+      "closed_ts": "2026-06-20T15:00:23Z"
+    },
+    {
+      "order_id": "2909087",
+      "side": "BUY",
+      "qty": 0.085,
+      "entry_px": 584.15,
+      "opened_ts": "2026-06-20T14:01:21Z",
+      "exit_px": 582.8,
+      "pnl": -0.11475,
+      "won": false,
+      "closed_ts": "2026-06-20T14:20:09Z"
+    },
+    {
+      "order_id": "2907593",
+      "side": "SELL",
+      "qty": 0.085,
+      "entry_px": 584.33,
+      "opened_ts": "2026-06-20T13:46:01Z",
+      "exit_px": 583.0,
+      "pnl": 0.11305,
+      "won": true,
+      "closed_ts": "2026-06-20T14:20:08Z"
+    },
+    {
+      "order_id": "2906024",
+      "side": "SELL",
+      "qty": 0.085,
+      "entry_px": 583.31,
+      "opened_ts": "2026-06-20T13:30:59Z",
+      "exit_px": 584.15,
+      "pnl": -0.0714,
+      "won": false,
+      "closed_ts": "2026-06-20T14:01:26Z"
+    }
+  ],
+  "strategy_history": [
+    {
+      "ts": "2026-06-19T18:19:18Z",
+      "from": "momentum",
+      "to": "mean_revert",
+      "reason": "loss_streak 5"
+    }
+  ]
+}

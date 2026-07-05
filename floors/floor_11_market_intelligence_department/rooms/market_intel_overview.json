@@ -1,0 +1,34 @@
+{
+  "room_id": "market_intel_overview",
+  "name": "Overview Room",
+  "category": "workshop",
+  "purpose": "This room provides an overview of the department\u2019s activities.",
+  "concierge_blurb": "An open space for sharing insights and updates.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -5.5,
+    "offset_z": 0,
+    "footprint_m": [
+      12,
+      8
+    ],
+    "height_m": 3
+  },
+  "render": {
+    "primary_prop": "information_board",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Overview Room",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/market_overview.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_11"
+}

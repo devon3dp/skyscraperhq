@@ -1,0 +1,34 @@
+{
+  "room_id": "botanical_workshop",
+  "name": "Botanical Workshop",
+  "category": "workshop",
+  "purpose": "To conduct research and experiments on plant biology.",
+  "concierge_blurb": "Discover the science behind our botanical wonders.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -6.0,
+    "offset_z": 4.0,
+    "footprint_m": [
+      12.0,
+      8.0
+    ],
+    "height_m": 1.5
+  },
+  "render": {
+    "primary_prop": "workbench",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Research Lab",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_150"
+}

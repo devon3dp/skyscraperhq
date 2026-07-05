@@ -1,0 +1,72 @@
+[
+  {
+    "role": "general_reasoning",
+    "purpose": "General response, planning, and reasoning tasks.",
+    "preferred_markers": [
+      "qwen",
+      "llama",
+      "mistral",
+      "neural"
+    ],
+    "floor": "floor_27"
+  },
+  {
+    "role": "coding",
+    "purpose": "Code generation, bug fixing, refactoring, and test scaffolding.",
+    "preferred_markers": [
+      "coder",
+      "codellama",
+      "deepseek"
+    ],
+    "floor": "floor_27"
+  },
+  {
+    "role": "vision",
+    "purpose": "Image and screenshot interpretation.",
+    "preferred_markers": [
+      "llava",
+      "vision"
+    ],
+    "floor": "floor_27"
+  },
+  {
+    "role": "research",
+    "purpose": "Research summaries, comparison, analysis, and synthesis.",
+    "preferred_markers": [
+      "mistral",
+      "qwen",
+      "neural"
+    ],
+    "floor": "floor_27"
+  },
+  {
+    "role": "embedding",
+    "purpose": "Semantic memory, indexing, similarity search, retrieval.",
+    "preferred_markers": [
+      "embed",
+      "nomic"
+    ],
+    "floor": "floor_27"
+  },
+  {
+    "role": "heavy_coding",
+    "purpose": "Larger coding and architecture tasks.",
+    "preferred_markers": [
+      "13b",
+      "40b",
+      "iquest",
+      "codellama"
+    ],
+    "floor": "floor_27"
+  },
+  {
+    "role": "fast_fallback",
+    "purpose": "Fast lightweight local fallback.",
+    "preferred_markers": [
+      "1b",
+      "3.2",
+      "7b"
+    ],
+    "floor": "floor_27"
+  }
+]

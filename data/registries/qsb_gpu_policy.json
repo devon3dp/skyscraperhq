@@ -1,0 +1,35 @@
+{
+  "policy_version": 1,
+  "authored_at": "2026-07-03T06:00:00Z",
+  "authored_by": "ross · claude · council",
+  "notes": "GPU sharing policy. Wren has priority — she uses it most. Any agent must check qsb_gpu_check.py before loading a model bigger than 3GB VRAM. Warden enforces hard limits.",
+  "hard_limits": {
+    "max_model_size_gib": 9,
+    "auto_evict_above_gib": 10,
+    "max_concurrent_leases": 1
+  },
+  "priority": [
+    "wren",
+    "hermes",
+    "forge",
+    "sage",
+    "iquest",
+    "claude",
+    "others"
+  ],
+  "leases": {
+    "default_ttl_s": 300,
+    "wren_grace_after_session_s": 30,
+    "yield_to_wren_if_active_within_s": 30
+  },
+  "warden": {
+    "tick_seconds": 15,
+    "ollama_ps_url": "http://127.0.0.1:11434/api/ps",
+    "ollama_generate_url": "http://127.0.0.1:11434/api/generate",
+    "state_file": "data/registries/qsb_gpu_state.json",
+    "leases_file": "data/registries/qsb_gpu_leases.jsonl",
+    "http_port": 8853
+  },
+  "evict_policy": "keep_alive_zero",
+  "safety_deny_no_override": true
+}

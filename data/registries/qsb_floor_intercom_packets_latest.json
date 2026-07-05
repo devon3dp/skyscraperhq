@@ -1,0 +1,332 @@
+{
+  "ok": true,
+  "kind": "qsb_floor_intercom_packets_latest",
+  "phase": "QSB_FLOOR_41_42_43_INTERCOM_AND_FLOOR_43_VISIBLE_V1",
+  "generated_ts": "2026-06-30T13:46:36.774836+00:00",
+  "packet_count": 11,
+  "packets": [
+    {
+      "packet_id": "pkt_intercom_b147290d",
+      "kind": "fx_market_brief",
+      "from_floor": "floor_41",
+      "to_floor": "floor_42",
+      "lift": "service_lift",
+      "sealed": true,
+      "body": {
+        "summary": "OANDA practice FX brief for Binance correlation review.",
+        "prices": [
+          {
+            "instrument": "EUR_USD",
+            "bid": 1.13973,
+            "ask": 1.13982,
+            "spread_pips": 0.9
+          },
+          {
+            "instrument": "GBP_USD",
+            "bid": 1.322,
+            "ask": 1.32213,
+            "spread_pips": 1.3
+          },
+          {
+            "instrument": "USD_JPY",
+            "bid": 162.41,
+            "ask": 162.426,
+            "spread_pips": 1.6
+          },
+          {
+            "instrument": "AUD_USD",
+            "bid": 0.68906,
+            "ask": 0.6892,
+            "spread_pips": 1.4
+          },
+          {
+            "instrument": "USD_CAD",
+            "bid": 1.42232,
+            "ask": 1.42251,
+            "spread_pips": 1.9
+          }
+        ],
+        "realized_pnl": -225.176,
+        "unrealized_pnl": 0.0,
+        "source": "qsb_floor41_oanda_prices_latest.json + qsb_floor41_oanda_pnl.json"
+      },
+      "advisory_only": true,
+      "execution_allowed": false,
+      "real_money_live_trading_enabled": false,
+      "ts": "2026-06-30T13:46:36.774789+00:00",
+      "source_registry": "qsb_floor41_oanda_prices_latest.json + qsb_floor41_oanda_pnl.json"
+    },
+    {
+      "packet_id": "pkt_intercom_27a41024",
+      "kind": "fx_market_brief",
+      "from_floor": "floor_41",
+      "to_floor": "floor_43",
+      "lift": "service_lift",
+      "sealed": true,
+      "body": {
+        "summary": "OANDA FX brief shared with Stocks for USD strength cross-check.",
+        "usd_pairs": [
+          {
+            "instrument": "EUR_USD",
+            "bid": 1.13973,
+            "ask": 1.13982,
+            "spread": 9e-05,
+            "spread_pips": 0.9,
+            "ts": "2026-06-30T13:46:33.233800431Z",
+            "source": "oanda_practice_api"
+          },
+          {
+            "instrument": "GBP_USD",
+            "bid": 1.322,
+            "ask": 1.32213,
+            "spread": 0.00013,
+            "spread_pips": 1.3,
+            "ts": "2026-06-30T13:46:35.017527634Z",
+            "source": "oanda_practice_api"
+          },
+          {
+            "instrument": "USD_JPY",
+            "bid": 162.41,
+            "ask": 162.426,
+            "spread": 0.016,
+            "spread_pips": 1.6,
+            "ts": "2026-06-30T13:46:35.110547560Z",
+            "source": "oanda_practice_api"
+          },
+          {
+            "instrument": "AUD_USD",
+            "bid": 0.68906,
+            "ask": 0.6892,
+            "spread": 0.00014,
+            "spread_pips": 1.4,
+            "ts": "2026-06-30T13:46:27.020962420Z",
+            "source": "oanda_practice_api"
+          }
+        ],
+        "source": "qsb_floor41_oanda_prices_latest.json"
+      },
+      "advisory_only": true,
+      "execution_allowed": false,
+      "real_money_live_trading_enabled": false,
+      "ts": "2026-06-30T13:46:36.774805+00:00",
+      "source_registry": "qsb_floor41_oanda_prices_latest.json"
+    },
+    {
+      "packet_id": "pkt_intercom_2daf7e48",
+      "kind": "crypto_status_brief",
+      "from_floor": "floor_42",
+      "to_floor": "floor_41",
+      "lift": "service_lift",
+      "sealed": true,
+      "body": {
+        "summary": "Binance testnet floor status for OANDA risk awareness.",
+        "mode": "testnet_preview_only",
+        "rooms": 6,
+        "workers": 8,
+        "source": "qsb_floor42_binance_interior.json"
+      },
+      "advisory_only": true,
+      "execution_allowed": false,
+      "real_money_live_trading_enabled": false,
+      "ts": "2026-06-30T13:46:36.774810+00:00",
+      "source_registry": "qsb_floor42_binance_interior.json"
+    },
+    {
+      "packet_id": "pkt_intercom_dacd37f7",
+      "kind": "equities_brief",
+      "from_floor": "floor_43",
+      "to_floor": "floor_41",
+      "lift": "service_lift",
+      "sealed": true,
+      "body": {
+        "summary": "Stocks paper floor brief \u2014 sector breadth and provider state.",
+        "provider": "alpaca",
+        "environment": "paper",
+        "market_status": "credentials_absent",
+        "default_symbols": [
+          "AAPL",
+          "MSFT",
+          "NVDA",
+          "TSLA",
+          "SPY",
+          "QQQ"
+        ],
+        "source": "stock_floor_status.json + stock_paper_strategy_latest.json"
+      },
+      "advisory_only": true,
+      "execution_allowed": false,
+      "real_money_live_trading_enabled": false,
+      "ts": "2026-06-30T13:46:36.774813+00:00",
+      "source_registry": "stock_floor_status.json + stock_paper_strategy_latest.json"
+    },
+    {
+      "packet_id": "pkt_intercom_562d656d",
+      "kind": "equities_brief",
+      "from_floor": "floor_43",
+      "to_floor": "floor_42",
+      "lift": "service_lift",
+      "sealed": true,
+      "body": {
+        "summary": "Stocks paper floor brief shared with Binance for equity-crypto correlation review.",
+        "market_status": "credentials_absent",
+        "default_symbols": [
+          "AAPL",
+          "MSFT",
+          "NVDA",
+          "TSLA",
+          "SPY",
+          "QQQ"
+        ],
+        "source": "stock_paper_strategy_latest.json"
+      },
+      "advisory_only": true,
+      "execution_allowed": false,
+      "real_money_live_trading_enabled": false,
+      "ts": "2026-06-30T13:46:36.774815+00:00",
+      "source_registry": "stock_paper_strategy_latest.json"
+    },
+    {
+      "packet_id": "pkt_intercom_593fc8c6",
+      "kind": "audit_fan_in",
+      "from_floor": "floor_41",
+      "to_floor": "floor_31",
+      "lift": "memory_lift",
+      "sealed": true,
+      "body": {
+        "summary": "Audit fan-in: floor sent intercom packets this tick.",
+        "intercom_packets_sent": 2,
+        "source": "qsb_floor_intercom_bus.py"
+      },
+      "advisory_only": true,
+      "execution_allowed": false,
+      "real_money_live_trading_enabled": false,
+      "ts": "2026-06-30T13:46:36.774818+00:00",
+      "source_registry": "qsb_floor_intercom_bus.py"
+    },
+    {
+      "packet_id": "pkt_intercom_018f1517",
+      "kind": "audit_fan_in",
+      "from_floor": "floor_42",
+      "to_floor": "floor_31",
+      "lift": "memory_lift",
+      "sealed": true,
+      "body": {
+        "summary": "Audit fan-in: floor sent intercom packets this tick.",
+        "intercom_packets_sent": 1,
+        "source": "qsb_floor_intercom_bus.py"
+      },
+      "advisory_only": true,
+      "execution_allowed": false,
+      "real_money_live_trading_enabled": false,
+      "ts": "2026-06-30T13:46:36.774823+00:00",
+      "source_registry": "qsb_floor_intercom_bus.py"
+    },
+    {
+      "packet_id": "pkt_intercom_95499c3e",
+      "kind": "audit_fan_in",
+      "from_floor": "floor_43",
+      "to_floor": "floor_31",
+      "lift": "memory_lift",
+      "sealed": true,
+      "body": {
+        "summary": "Audit fan-in: floor sent intercom packets this tick.",
+        "intercom_packets_sent": 2,
+        "source": "qsb_floor_intercom_bus.py"
+      },
+      "advisory_only": true,
+      "execution_allowed": false,
+      "real_money_live_trading_enabled": false,
+      "ts": "2026-06-30T13:46:36.774826+00:00",
+      "source_registry": "qsb_floor_intercom_bus.py"
+    },
+    {
+      "packet_id": "pkt_intercom_5343d32e",
+      "kind": "cross_market_labels",
+      "from_floor": "floor_31",
+      "to_floor": "floor_41",
+      "lift": "memory_lift",
+      "sealed": true,
+      "body": {
+        "summary": "Cross-market advisory labels from Audit/Ledger.",
+        "labels": [
+          "no_cross_signal"
+        ],
+        "label_reasons": [
+          "no cross-market signal threshold met"
+        ],
+        "source": "cross_market_bus_latest.json"
+      },
+      "advisory_only": true,
+      "execution_allowed": false,
+      "real_money_live_trading_enabled": false,
+      "ts": "2026-06-30T13:46:36.774829+00:00",
+      "source_registry": "cross_market_bus_latest.json"
+    },
+    {
+      "packet_id": "pkt_intercom_06ace34b",
+      "kind": "cross_market_labels",
+      "from_floor": "floor_31",
+      "to_floor": "floor_42",
+      "lift": "memory_lift",
+      "sealed": true,
+      "body": {
+        "summary": "Cross-market advisory labels from Audit/Ledger.",
+        "labels": [
+          "no_cross_signal"
+        ],
+        "label_reasons": [
+          "no cross-market signal threshold met"
+        ],
+        "source": "cross_market_bus_latest.json"
+      },
+      "advisory_only": true,
+      "execution_allowed": false,
+      "real_money_live_trading_enabled": false,
+      "ts": "2026-06-30T13:46:36.774833+00:00",
+      "source_registry": "cross_market_bus_latest.json"
+    },
+    {
+      "packet_id": "pkt_intercom_7d67725e",
+      "kind": "cross_market_labels",
+      "from_floor": "floor_31",
+      "to_floor": "floor_43",
+      "lift": "memory_lift",
+      "sealed": true,
+      "body": {
+        "summary": "Cross-market advisory labels from Audit/Ledger.",
+        "labels": [
+          "no_cross_signal"
+        ],
+        "label_reasons": [
+          "no cross-market signal threshold met"
+        ],
+        "source": "cross_market_bus_latest.json"
+      },
+      "advisory_only": true,
+      "execution_allowed": false,
+      "real_money_live_trading_enabled": false,
+      "ts": "2026-06-30T13:46:36.774835+00:00",
+      "source_registry": "cross_market_bus_latest.json"
+    }
+  ],
+  "lift_routes": {
+    "floor_41->floor_42": "service_lift",
+    "floor_41->floor_43": "service_lift",
+    "floor_42->floor_41": "service_lift",
+    "floor_42->floor_43": "service_lift",
+    "floor_43->floor_41": "service_lift",
+    "floor_43->floor_42": "service_lift",
+    "floor_41->floor_31": "memory_lift",
+    "floor_42->floor_31": "memory_lift",
+    "floor_43->floor_31": "memory_lift",
+    "floor_31->floor_41": "memory_lift",
+    "floor_31->floor_42": "memory_lift",
+    "floor_31->floor_43": "memory_lift"
+  },
+  "architecture_rule": "Departments do not communicate directly. All packets travel through lifts.",
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

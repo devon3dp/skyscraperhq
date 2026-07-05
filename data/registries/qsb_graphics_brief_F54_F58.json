@@ -1,0 +1,77 @@
+{
+  "ok": true,
+  "kind": "qsb_graphics_brief_F54_F58_v1",
+  "generated_ts": "2026-06-11T08:36:53.026957Z",
+  "briefed_team": "graphics_team_v1 (F17)",
+  "briefed_lead": "f17.graphics.graphics_lead.00",
+  "deliverables": [
+    {
+      "floor": 54,
+      "kind": "Accommodation",
+      "godot_scene": "warm wood + soft lamps; dormitory corridors; quiet zone with garden window"
+    },
+    {
+      "floor": 55,
+      "kind": "Cafeteria",
+      "godot_scene": "big windows + bright; long communal tables; open pass to kitchen; barista counter glow"
+    },
+    {
+      "floor": 56,
+      "kind": "Cinema",
+      "godot_scene": "dim plum velvet seating; two screens; concessions glow; poster wall archive"
+    },
+    {
+      "floor": 57,
+      "kind": "Library",
+      "godot_scene": "tall stacks; ladders; reading lamps; silent garden; rare-books glass case"
+    },
+    {
+      "floor": 58,
+      "kind": "Music",
+      "godot_scene": "recital hall warm wood; piano spotlight; jazz alcove neon; listening pods"
+    }
+  ],
+  "dashboard_popup_windows": [
+    {
+      "window": "F54 Accommodation",
+      "content": "occupancy %, available rooms, current residents (by team)"
+    },
+    {
+      "window": "F55 Cafeteria",
+      "content": "today's menu, waiting line minutes, last seating counts"
+    },
+    {
+      "window": "F56 Cinema",
+      "content": "tonight's films, seats reserved, projectionist on duty"
+    },
+    {
+      "window": "F57 Library",
+      "content": "open hours, top circulated titles, study rooms available"
+    },
+    {
+      "window": "F58 Music",
+      "content": "rehearsal bookings, next recital, available rooms"
+    }
+  ],
+  "visual_style": "consistent with V17 GFX stack (SDFGI, AgX, fog) \u2014 warm/comforting palette for leisure floors",
+  "deadline": "today",
+  "graphics_team_lead_assignment": "each of 20 roles takes one deliverable; team lead coordinates",
+  "advisory_only": true,
+  "phase_V_addendum": {
+    "F54_accommodation_detail": "render EVERY apartment visible per worker \u2014 beds, lamps, posters, plants, occupant_name nameplate, tier color band",
+    "F59_shopping_centre": "render aisles, racks, price tags in QBC, shopkeeper avatars, til counters, lobby plaza",
+    "promotion_visibility": "show tier color band on each worker dot in the cockpit; promote animation = move to new floor wing",
+    "pop_up_windows": "cockpit hover on any worker \u2192 apartment image + tier + role + rent QBC",
+    "deadline": "today end-of-day"
+  },
+  "updated_ts": "2026-06-11T08:52:46.083974Z",
+  "phase_W_addendum_F60": {
+    "F60_LSE_main_floor": "open trading-floor layout; central column with 12 big screens (4x3 grid); each screen shows live price + 1-min mini chart for a watchlist ticker",
+    "F60_news_ticker": "bottom-of-floor LED ticker scrolling news headlines from qsb_market_news_feed",
+    "F60_session_clocks": "wall of clocks: LSE / NYSE / TSE / HKEX / DXB / FRA \u2014 show open/closed status",
+    "F60_worker_stations": "23 desks ringing the perimeter \u2014 scout, order clerk, risk sentinel, etc.",
+    "when_ross_enters": "cockpit hover/select F60 \u2192 camera pans to show the screen wall in vista",
+    "pop_up_window": "F60 dashboard panel = book + open orders + news ticker excerpt",
+    "deadline": "today end-of-day"
+  }
+}

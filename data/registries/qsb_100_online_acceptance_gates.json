@@ -1,0 +1,333 @@
+{
+  "ok": true,
+  "phase": "QSB_SKYSCRAPER_100_PERCENT_ONLINE_INTERACTIVE_3D_WORKFORCE_COMPLETION_V1",
+  "kind": "qsb_100_online_acceptance_gates",
+  "generated_ts": "2026-06-30T13:46:37.031449+00:00",
+  "total_gates": 26,
+  "passed_count": 23,
+  "failed_count": 3,
+  "gates": [
+    {
+      "gate_id": "G1",
+      "name": "Dashboard loads",
+      "passed": false,
+      "evidence": "port_listening=False \u00b7 GET / HTTP 0",
+      "validation_command": "curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:8765/",
+      "source_files": [
+        "src/dashboard/server.py"
+      ],
+      "source_registries": [],
+      "repair_if_failed": "./scripts/qsb_dashboard_start.sh"
+    },
+    {
+      "gate_id": "G2",
+      "name": "Interactive 3D renderer present (SVG primary + Babylon fallback)",
+      "passed": true,
+      "evidence": "babylon=True tower2d=True scene=True container=True",
+      "validation_command": "ls src/dashboard/static/{vendor/babylon.js,qsb_tower_2d.js,qsb_scene.js}; grep -q qsbTower2D src/dashboard/static/index.html",
+      "source_files": [
+        "src/dashboard/static/qsb_tower_2d.js",
+        "src/dashboard/static/qsb_scene.js",
+        "src/dashboard/static/index.html"
+      ],
+      "source_registries": [],
+      "repair_if_failed": "Re-include scripts in index.html."
+    },
+    {
+      "gate_id": "G3",
+      "name": "Floors clickable",
+      "passed": true,
+      "evidence": "handleScenePick + openFloorWindow present in cockpit.js",
+      "validation_command": "grep -E 'handleScenePick|openFloorWindow' src/dashboard/static/cockpit.js",
+      "source_files": [
+        "src/dashboard/static/cockpit.js"
+      ],
+      "source_registries": [],
+      "repair_if_failed": "Verify onPick wiring on QSB_TOWER_2D_INIT."
+    },
+    {
+      "gate_id": "G4",
+      "name": "Key floor interiors return /api/floor_detail",
+      "passed": false,
+      "evidence": "key_floor_count=13 responding_with_200=0",
+      "validation_command": "for n in 30 31 36 38 41 42 43 44 45 47 49 52 53; do curl ...; done",
+      "source_files": [
+        "src/dashboard/server.py"
+      ],
+      "source_registries": [],
+      "repair_if_failed": "Verify each floor's manifest + floor_detail handler."
+    },
+    {
+      "gate_id": "G5",
+      "name": "No random worker swarm (exterior shows counts only)",
+      "passed": true,
+      "evidence": "exterior.show_individual_workers=False; visual_audit rebuilt_in_v3=2",
+      "validation_command": "curl /api/workforce/view_mode | jq .default_mode",
+      "source_files": [],
+      "source_registries": [
+        "qsb_worker_visual_policy.json",
+        "qsb_dashboard_visual_audit.json"
+      ],
+      "repair_if_failed": "Run qsb_workforce_expansion_v1 + qsb_workforce_operations."
+    },
+    {
+      "gate_id": "G6",
+      "name": "Worker taxonomy complete (8 classes)",
+      "passed": true,
+      "evidence": "needed=8 actual=8",
+      "validation_command": "curl /api/workforce/taxonomy | jq '.classes[].class'",
+      "source_files": [],
+      "source_registries": [
+        "qsb_worker_taxonomy.json"
+      ],
+      "repair_if_failed": "Run qsb_workforce_operations."
+    },
+    {
+      "gate_id": "G7",
+      "name": "Workers assigned to rooms/stations (>=1000)",
+      "passed": true,
+      "evidence": "station_count=2029 rooms_present=True",
+      "validation_command": "curl /api/workforce/station_assignments",
+      "source_files": [],
+      "source_registries": [
+        "qsb_worker_station_assignments.json",
+        "qsb_worker_room_assignments.json"
+      ],
+      "repair_if_failed": "Run qsb_workforce_expansion_v1."
+    },
+    {
+      "gate_id": "G8",
+      "name": "SIM workers hidden externally; only visible in Training Academy",
+      "passed": true,
+      "evidence": "sim_audit.should_be_hidden_externally=True",
+      "validation_command": "curl /api/workforce/sim_audit | jq .should_be_hidden_externally",
+      "source_files": [],
+      "source_registries": [
+        "qsb_sim_worker_audit.json"
+      ],
+      "repair_if_failed": "Run qsb_workforce_operations."
+    },
+    {
+      "gate_id": "G9",
+      "name": "Worker movements source-backed (each ties to a trade or event)",
+      "passed": true,
+      "evidence": "movement_count=25 sample_with_source=6",
+      "validation_command": "curl /api/telemetry/worker_movements | jq '.movements[0]'",
+      "source_files": [],
+      "source_registries": [
+        "qsb_worker_movements_latest.json"
+      ],
+      "repair_if_failed": "./scripts/qsb_build_worker_movements.sh"
+    },
+    {
+      "gate_id": "G10",
+      "name": "Live packets source-backed",
+      "passed": true,
+      "evidence": "packet_count=48 sample_with_ts_and_id=6",
+      "validation_command": "curl /api/workforce/live_packets",
+      "source_files": [],
+      "source_registries": [
+        "qsb_live_packets_latest.json"
+      ],
+      "repair_if_failed": "Re-run qsb_workforce_expansion_v1.build_live_packets."
+    },
+    {
+      "gate_id": "G11",
+      "name": "Lift movements source-backed OR honestly idle",
+      "passed": true,
+      "evidence": "lift_movement_count=12",
+      "validation_command": "curl /api/telemetry/lift_movements",
+      "source_files": [],
+      "source_registries": [
+        "qsb_lift_movements_latest.json"
+      ],
+      "repair_if_failed": ""
+    },
+    {
+      "gate_id": "G12",
+      "name": "Recruitment Agency complete",
+      "passed": true,
+      "evidence": "manifest+rooms+workers per qsb_department_completion_audit",
+      "validation_command": "curl /api/workforce/department_audit",
+      "source_files": [],
+      "source_registries": [
+        "qsb_department_completion_audit.json"
+      ],
+      "repair_if_failed": ""
+    },
+    {
+      "gate_id": "G13",
+      "name": "Training Academy complete",
+      "passed": true,
+      "evidence": "manifest+rooms+workers per qsb_department_completion_audit",
+      "validation_command": "curl /api/workforce/department_audit",
+      "source_files": [],
+      "source_registries": [
+        "qsb_department_completion_audit.json"
+      ],
+      "repair_if_failed": ""
+    },
+    {
+      "gate_id": "G14",
+      "name": "Lessons Room complete",
+      "passed": true,
+      "evidence": "manifest+rooms+workers per qsb_department_completion_audit",
+      "validation_command": "curl /api/workforce/department_audit",
+      "source_files": [],
+      "source_registries": [
+        "qsb_department_completion_audit.json"
+      ],
+      "repair_if_failed": ""
+    },
+    {
+      "gate_id": "G15",
+      "name": "Worker Operations Control complete",
+      "passed": true,
+      "evidence": "manifest+rooms+workers per qsb_department_completion_audit",
+      "validation_command": "curl /api/workforce/department_audit",
+      "source_files": [],
+      "source_registries": [
+        "qsb_department_completion_audit.json"
+      ],
+      "repair_if_failed": ""
+    },
+    {
+      "gate_id": "G16",
+      "name": "Rewards Office complete",
+      "passed": true,
+      "evidence": "manifest+rooms+workers per qsb_department_completion_audit",
+      "validation_command": "curl /api/workforce/department_audit",
+      "source_files": [],
+      "source_registries": [
+        "qsb_department_completion_audit.json"
+      ],
+      "repair_if_failed": ""
+    },
+    {
+      "gate_id": "G17",
+      "name": "Promotion Board complete",
+      "passed": true,
+      "evidence": "manifest+rooms+workers per qsb_department_completion_audit",
+      "validation_command": "curl /api/workforce/department_audit",
+      "source_files": [],
+      "source_registries": [
+        "qsb_department_completion_audit.json"
+      ],
+      "repair_if_failed": ""
+    },
+    {
+      "gate_id": "G18",
+      "name": "Disciplinary Review Board complete",
+      "passed": true,
+      "evidence": "manifest+rooms+workers per qsb_department_completion_audit",
+      "validation_command": "curl /api/workforce/department_audit",
+      "source_files": [],
+      "source_registries": [
+        "qsb_department_completion_audit.json"
+      ],
+      "repair_if_failed": ""
+    },
+    {
+      "gate_id": "G19",
+      "name": "Rest/Dormitory floor complete",
+      "passed": true,
+      "evidence": "manifest+rooms+workers per qsb_department_completion_audit",
+      "validation_command": "curl /api/workforce/department_audit",
+      "source_files": [],
+      "source_registries": [
+        "qsb_department_completion_audit.json"
+      ],
+      "repair_if_failed": ""
+    },
+    {
+      "gate_id": "G20",
+      "name": "Accounts / PnL Department connected",
+      "passed": true,
+      "evidence": "accounts.worker_count=5 current_state=active",
+      "validation_command": "curl /api/telemetry/accounts_floor",
+      "source_files": [],
+      "source_registries": [
+        "qsb_accounts_floor_state.json"
+      ],
+      "repair_if_failed": ""
+    },
+    {
+      "gate_id": "G21",
+      "name": "Profit Command connected",
+      "passed": true,
+      "evidence": "realized_pnl=2672.9312 open_count=20",
+      "validation_command": "curl /api/profit_command",
+      "source_files": [],
+      "source_registries": [
+        "qsb_profit_command.json"
+      ],
+      "repair_if_failed": ""
+    },
+    {
+      "gate_id": "G22",
+      "name": "Hardware Systems Floor connected (CPU/GPU/RAM read)",
+      "passed": true,
+      "evidence": "cpu=AMD Ryzen 9 7950X3D 16-Core Processor gpu=['NVIDIA GeForce RTX 5070 Ti'] ram_bytes=66233671680",
+      "validation_command": "./scripts/eqsb_hardware_observatory_scan.sh",
+      "source_files": [],
+      "source_registries": [
+        "eqsb_hardware_understanding.json"
+      ],
+      "repair_if_failed": ""
+    },
+    {
+      "gate_id": "G23",
+      "name": "Narrator history + endpoints connected",
+      "passed": true,
+      "evidence": "narrator_history_present=True recent_count=40",
+      "validation_command": "curl /api/narrator/history",
+      "source_files": [],
+      "source_registries": [
+        "qsb_narrator_history_latest.json"
+      ],
+      "repair_if_failed": ""
+    },
+    {
+      "gate_id": "G24",
+      "name": "Kernel chat workforce + hardware + worker_truth topics wired",
+      "passed": true,
+      "evidence": "topics_present=True",
+      "validation_command": "grep -E 'workforce_v1|worker_truth|Hardware Observatory' src/tower/kernel_dialogue_adapter.py",
+      "source_files": [
+        "src/tower/kernel_dialogue_adapter.py"
+      ],
+      "source_registries": [],
+      "repair_if_failed": ""
+    },
+    {
+      "gate_id": "G25",
+      "name": "Health probe \u2014 /, /api/unified, /api/dashboard/live_telemetry all 200",
+      "passed": false,
+      "evidence": "/=0 /api/unified=0 /api/dashboard/live_telemetry=0",
+      "validation_command": "./scripts/qsb_dashboard_frontend_check.sh",
+      "source_files": [
+        "scripts/qsb_dashboard_frontend_check.sh"
+      ],
+      "source_registries": [],
+      "repair_if_failed": ""
+    },
+    {
+      "gate_id": "G26",
+      "name": "Real-money/live execution locks remain closed",
+      "passed": true,
+      "evidence": "real_money_live_trading_enabled=False default_verdict=ALLOW_READ_ONLY",
+      "validation_command": "curl /api/eqsb/guardian | jq .default_verdict_for_read_only",
+      "source_files": [],
+      "source_registries": [
+        "qsb_paper_trading_policy.json",
+        "eqsb_guardian_state.json"
+      ],
+      "repair_if_failed": ""
+    }
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false
+}

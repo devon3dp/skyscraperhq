@@ -1,0 +1,72 @@
+{
+  "floor_id": "floor_115",
+  "floor_number": 115,
+  "floor_name": "Quality Assurance Lab",
+  "department": "designed_by_f66_architects_v1",
+  "zone": "ZONE E \u00b7 MID-RISE",
+  "archetype": "designed_by_f66_architects_v1",
+  "staff_lead": "F66 Architects' Office",
+  "tour_blurb": "testing + certification",
+  "visitor_open": false,
+  "advisory_only": true,
+  "execution_mode": "PREVIEW_ONLY",
+  "skeleton": true,
+  "skeleton_source": "floor_manifest.json",
+  "skeleton_generated_ts": "2026-06-17",
+  "live_signals": {
+    "theme": null,
+    "categories": null,
+    "palette": null,
+    "tagline": null
+  },
+  "gate_posture": {
+    "advisory_only": true,
+    "execution_allowed": false,
+    "live_payments_enabled": false
+  },
+  "team_roster": [
+    {
+      "id": "f115.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "spawned_id": "34b02024b1",
+      "spawned_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F115",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f115.operator.01",
+      "spawned_id": "a97de7c3de"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F115",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f115.operator.02",
+      "spawned_id": "c14d9d480e"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F115",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f115.operator.03",
+      "spawned_id": "b0c68f2e96"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F115",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f115.operator.04",
+      "spawned_id": "caa718ac79"
+    }
+  ],
+  "floor_manager": "f115.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

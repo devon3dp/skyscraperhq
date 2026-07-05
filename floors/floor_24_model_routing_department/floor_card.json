@@ -1,0 +1,64 @@
+{
+  "floor_id": "floor_24",
+  "floor_number": 24,
+  "floor_name": "Model Routing Department",
+  "department": "Model Routing Department",
+  "zone": "ZONE B \u00b7 OPERATIONS",
+  "archetype": "generic",
+  "staff_lead": "TBD",
+  "tour_blurb": "Model Routing Department \u2014 a floor in the QSB Tower. Skeleton card auto-generated; full fit-out pending.",
+  "visitor_open": false,
+  "advisory_only": true,
+  "execution_mode": "PREVIEW_ONLY",
+  "skeleton": true,
+  "skeleton_source": "floor_manifest.json",
+  "skeleton_generated_ts": "2026-06-17",
+  "live_signals": {
+    "theme": null,
+    "categories": null,
+    "palette": null,
+    "tagline": null
+  },
+  "gate_posture": {
+    "advisory_only": true,
+    "execution_allowed": false,
+    "live_payments_enabled": false
+  },
+  "team_roster": [
+    {
+      "id": "f024.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "spawned_id": "656e3f0eaf",
+      "spawned_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F024",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f024.operator.01",
+      "spawned_id": "95c54b0041"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F024",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f024.operator.02",
+      "spawned_id": "86d408342e"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F024",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f024.operator.03",
+      "spawned_id": "9d7f285077"
+    }
+  ],
+  "floor_manager": "f024.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

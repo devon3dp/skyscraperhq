@@ -1,0 +1,10 @@
+{
+  "name": "make_diary_entry",
+  "description": "Append a one-line entry to qsb_session_diary.md with a timestamp. Wren uses this to leave herself + next-Wren notes.",
+  "safety_class": "stamp",
+  "params": {
+    "text": { "type": "string", "required": true }
+  },
+  "authored_by": "Claude for Wren training tier-4",
+  "authored_ts": "2026-06-17"
+}

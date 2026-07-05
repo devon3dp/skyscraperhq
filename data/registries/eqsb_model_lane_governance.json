@@ -1,0 +1,135 @@
+{
+  "schema_version": "eqsb_major_v1.0",
+  "kind": "eqsb_model_lane_governance",
+  "generated_ts": "2026-06-09T08:56:44.959236+00:00",
+  "lanes": [
+    {
+      "lane_id": "lane_local_ollama",
+      "role": "local_advisory_speech_paraphrase",
+      "isolation": "tower_venv",
+      "execution_allowed": false,
+      "may_unlock_gates": false,
+      "registry_truth_outranks": true,
+      "wired_into_autoloop": false,
+      "wired_into_trading": false,
+      "wired_into_openclaw": false,
+      "wired_into_workers": false,
+      "notes": "Local Ollama; chat paraphrase only."
+    },
+    {
+      "lane_id": "lane_local_llama",
+      "role": "local_advisory_reasoning",
+      "isolation": "tower_venv",
+      "execution_allowed": false,
+      "may_unlock_gates": false,
+      "registry_truth_outranks": true,
+      "wired_into_autoloop": false,
+      "wired_into_trading": false,
+      "wired_into_openclaw": false,
+      "wired_into_workers": false,
+      "notes": "Llama-family local models; advisory only."
+    },
+    {
+      "lane_id": "lane_airllm_chamber",
+      "role": "isolated_advisory_reasoning",
+      "isolation": "/vaults/ai/airllm_lab/.venv (separate venv)",
+      "execution_allowed": false,
+      "may_unlock_gates": false,
+      "registry_truth_outranks": true,
+      "wired_into_autoloop": false,
+      "wired_into_trading": false,
+      "wired_into_openclaw": false,
+      "wired_into_workers": false,
+      "notes": "AirLLM big-model chamber; never shares a process with QSB."
+    },
+    {
+      "lane_id": "lane_future_locked_provider",
+      "role": "external_provider_advisory_reserved",
+      "isolation": "external_https",
+      "execution_allowed": false,
+      "may_unlock_gates": false,
+      "registry_truth_outranks": true,
+      "wired_into_autoloop": false,
+      "wired_into_trading": false,
+      "wired_into_openclaw": false,
+      "wired_into_workers": false,
+      "notes": "Reserved slot for a future external provider; remains locked until separately approved."
+    }
+  ],
+  "lane_verdicts": [
+    {
+      "lane_id": "lane_local_ollama",
+      "verdict": "advisory_only",
+      "violations": [],
+      "validated_ts": "2026-06-09T08:56:44.959228+00:00"
+    },
+    {
+      "lane_id": "lane_local_llama",
+      "verdict": "advisory_only",
+      "violations": [],
+      "validated_ts": "2026-06-09T08:56:44.959232+00:00"
+    },
+    {
+      "lane_id": "lane_airllm_chamber",
+      "verdict": "advisory_only",
+      "violations": [],
+      "validated_ts": "2026-06-09T08:56:44.959234+00:00"
+    },
+    {
+      "lane_id": "lane_future_locked_provider",
+      "verdict": "advisory_only",
+      "violations": [],
+      "validated_ts": "2026-06-09T08:56:44.959235+00:00"
+    }
+  ],
+  "validation_rules": [
+    "model output is advisory",
+    "model output must be checked against registry truth",
+    "model output must not overwrite structured state",
+    "model output must not invent Kernel state",
+    "model output must not erase uncertainty",
+    "model output must not claim real quantum hardware unless verified",
+    "model output must be labelled paraphrase when not registry-backed",
+    "model output may never enable execution gates"
+  ],
+  "governance_outputs": [
+    "accepted",
+    "advisory_only",
+    "rejected",
+    "contradiction_detected",
+    "requires_human_review"
+  ],
+  "default_lane_verdict": "advisory_only",
+  "kernel_truth_note": "Models do not define EQSB. They paraphrase. Registry truth outranks paraphrase. Any model output that contradicts registry truth yields BLOCK_MODEL_OVERRIDE.",
+  "lane_count": 4,
+  "source_files": [
+    "src/tower/eqsb_model_governance.py",
+    "src/tower/local_model_inference_gateway.py"
+  ],
+  "active_local_only": true,
+  "advisory_only": true,
+  "execution_allowed": false,
+  "paper_only": true,
+  "not_financial_advice": true,
+  "worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "external_provider_execution_enabled": false,
+  "openclaw_execution_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "live_dispatch_enabled": false,
+  "direct_provider_access": false,
+  "live_trading_enabled": false,
+  "order_execution_enabled": false,
+  "practice_order_execution_enabled": false,
+  "stock_order_execution_enabled": false,
+  "stock_live_trading_enabled": false,
+  "stock_paper_order_execution_enabled": false,
+  "binance_order_execution_enabled": false,
+  "binance_live_trading_enabled": false,
+  "model_inference_enabled": false,
+  "autonomous_workers_enabled": false,
+  "maintenance_auto_repair_enabled": false,
+  "web_access_autonomous_enabled": false,
+  "governance_hash": "9bc2a639ac66fa19"
+}

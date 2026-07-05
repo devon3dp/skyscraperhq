@@ -1,0 +1,16 @@
+{
+  "ts": "2026-06-08T16:11:08.353855+00:00",
+  "readiness_status": "NOT_READY_FOR_KERNEL_INTEGRATION",
+  "checks_run": 34,
+  "passed": 29,
+  "warnings": 2,
+  "critical_failures": 2,
+  "kernel_installed": false,
+  "kernel_logic_present": true,
+  "dormant_kernel_imported": true,
+  "dormant_kernel_activation_enabled": false,
+  "worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "model_inference_enabled": false,
+  "live_dispatch_enabled": false
+}

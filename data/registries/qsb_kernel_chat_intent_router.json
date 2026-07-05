@@ -1,0 +1,70 @@
+{
+  "ok": true,
+  "kind": "qsb_kernel_chat_intent_router",
+  "phase": "QSB_KERNEL_CHAT_REGISTRY_AWARE_ROUTING_REPAIR_V1",
+  "generated_ts": "2026-06-09T16:00:16+00:00",
+  "intents": {
+    "IDENTITY": [
+      "who are you",
+      "what are you",
+      "your identity",
+      "what kernel",
+      "introduce yourself"
+    ],
+    "RECENT_UPGRADES": [
+      "recent upgrades",
+      "watched upgrades",
+      "phase history",
+      "upgrade ledger",
+      "latest phase"
+    ],
+    "GODOT_NATIVE_STATUS": [
+      "godot",
+      "native cockpit",
+      "panda3d",
+      "qsb_3d_engine_status",
+      "3d engine status"
+    ],
+    "MISSING_FEATURES": [
+      "missing features",
+      "feature parity",
+      "missing backlog",
+      "what is still missing"
+    ],
+    "LEARNING_EVIDENCE": [
+      "evidence you are reading registries",
+      "learning loop",
+      "observatory",
+      "not static text"
+    ],
+    "COMMERCE_WING": [
+      "commerce wing",
+      "etsy",
+      "online shops",
+      "1000 workers",
+      "2191 workers"
+    ],
+    "FLOOR_STATUS": [
+      "floor 41",
+      "floor 42",
+      "floor 35",
+      "penthouse"
+    ],
+    "HARDWARE_CODE_OBSERVATORY": [
+      "hardware observatory",
+      "code observatory",
+      "claude ledger"
+    ],
+    "SAFETY_LOCKS": [
+      "guardian",
+      "live trading",
+      "execution locks",
+      "secrets"
+    ]
+  },
+  "router_implementation": "src/tower/kernel_dialogue_adapter.py :: _wants_eqsb_topic() + per-topic handler blocks",
+  "identity_only_when": "intent == IDENTITY OR no topic block produced",
+  "execution_allowed": false,
+  "active_local_only": true,
+  "real_money_live_trading_enabled": false
+}

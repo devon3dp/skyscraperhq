@@ -1,0 +1,42 @@
+{
+  "ok": true,
+  "floor_number": 93,
+  "floor_name": "Game Development Three",
+  "floor_kind": "designed_by_f66_architects_v1",
+  "description": "VR + AR",
+  "designed_by": "F66 Architects' Office",
+  "designed_ts": "2026-06-11T09:13:04.497262Z",
+  "role_inventory": [
+    "Studio Lead",
+    "VR Designer",
+    "Programmer",
+    "Artist",
+    "XR Specialist",
+    "QA"
+  ],
+  "advisory_only": true,
+  "interior_brief": {
+    "archetype": "hr_office",
+    "palette": [
+      "#2a2018",
+      "#604030",
+      "#ffa050"
+    ],
+    "furniture": [
+      "desks",
+      "meeting area",
+      "common space",
+      "storage"
+    ],
+    "lighting": "task + ambient",
+    "mood": "welcoming",
+    "designed_by": "F66 Architects + F17 Graphics + Fitters team",
+    "fitted_at": "2026-06-11T14:39:45.620109Z",
+    "godot_scene_brief": "render an generic floor with neutral grey + accent per floor theme palette, professional mood, key furniture: desks, meeting area, common space",
+    "signature": "Interview booths, name badge wall, hiring board",
+    "diversified_ts": "2026-06-11T17:57:45Z",
+    "diversified_by": "qsb_archetype_diversifier_v1"
+  },
+  "fitted_out": true,
+  "fit_out_ts": "2026-06-11T14:39:45.620109Z"
+}

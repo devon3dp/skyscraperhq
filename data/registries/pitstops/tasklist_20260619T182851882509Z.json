@@ -1,0 +1,5 @@
+[
+  {"id":"1","status":"in_progress","subject":"Finish Qwen2.5-32B download ASAP","description":"32B at 27/65 GB. WALL = network. Tether at 0.17 KB/s avg / HF benchmark 5 KB/s. snapshot_download left alive (resumable). Awaiting Ross to switch SIM/tether or wait for data cycle reset. 72B still paused."},
+  {"id":"2","status":"completed","subject":"Continue deep-dive memory + letter read","description":"Done — read 10+ memories, last 3 letters, helix verified, saved feedback_date_stamp_memories.md"},
+  {"id":"3","status":"pending","subject":"Resume F47 walkable_interior + inventory rooms","description":"The 18:05 tannoy items that didn't land before reboot — F47 (Claude Embassy) fitout completion."}
+]

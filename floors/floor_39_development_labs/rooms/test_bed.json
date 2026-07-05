@@ -1,0 +1,34 @@
+{
+  "room_id": "test_bed",
+  "name": "Test Bed",
+  "category": "lab",
+  "purpose": "A space to test and debug new software.",
+  "concierge_blurb": "Testing environment with multiple stations.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 8.0,
+    "offset_z": -3.0,
+    "footprint_m": [
+      12.0,
+      6.0
+    ],
+    "height_m": 1.5
+  },
+  "render": {
+    "primary_prop": "workbench",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Test Bed",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 0
+  },
+  "floor": "floor_39"
+}

@@ -1,0 +1,31 @@
+{
+  "room_id": "multi_camera_setup",
+  "name": "Multi-Camera Setup",
+  "category": "operations",
+  "purpose": "Prepares multiple camera angles for broadcasts.",
+  "concierge_blurb": "Here's where the cameras are set up.",
+  "current_state": "already_exists",
+  "visitor_open": false,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 8.0,
+    "offset_z": -4.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 1.5
+  },
+  "render": {
+    "primary_prop": "plinth",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Multi-Cam Setup",
+    "glow": true
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_90"
+}

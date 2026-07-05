@@ -1,0 +1,34 @@
+{
+  "room_id": "audit_room",
+  "name": "Audit Room",
+  "category": "audit",
+  "purpose": "Room for reviewing financial and operational data of the press.",
+  "concierge_blurb": "Inspect the fiscal and operational health of Academic Press.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -4.0,
+    "offset_z": 6.0,
+    "footprint_m": [
+      5,
+      3
+    ],
+    "height_m": 1.8
+  },
+  "render": {
+    "primary_prop": "plinth",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Audit Room",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_100"
+}

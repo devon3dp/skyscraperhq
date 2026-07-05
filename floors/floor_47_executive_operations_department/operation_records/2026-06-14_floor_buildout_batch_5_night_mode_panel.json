@@ -1,0 +1,32 @@
+{
+  "record_id": "f47_floor_buildout_batch_5_night_mode_panel",
+  "ts_utc": "2026-06-14T17:01:17Z",
+  "floor": "floor_47",
+  "batch": "5_night_mode_panel",
+  "builder": "f47_floor_buildout_batch_5 (claude opus 4.7)",
+  "authorization": "CLAUDE.md 2026-06-13 workshop bench amendment + Ross 2026-06-14 helm window",
+  "items_built": [
+    "night_mode_panel"
+  ],
+  "artifacts_written": [
+    "floors/floor_47_executive_operations_department/rooms/night_mode_panel.json"
+  ],
+  "verification": {
+    "room_json_present": true,
+    "schema_matches_prior_rooms": true,
+    "visitor_open": false,
+    "live_signal_computed_from_clock": true,
+    "currently_night_mode": false,
+    "current_utc_hour_at_build": 17,
+    "constraints_respected": {
+      "no_claude_md_edit": true,
+      "no_vault_edit": true,
+      "no_env_edit": true,
+      "no_gate_edit": true,
+      "visitor_safe_concierge_blurb": true,
+      "read_only_descriptor": true
+    }
+  },
+  "lessons_appended_to": "data/registries/qsb_f47_agent_lessons.jsonl",
+  "advisory_only": true
+}

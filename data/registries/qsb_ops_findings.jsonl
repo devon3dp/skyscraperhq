@@ -1,0 +1,595 @@
+{"ts": "2026-06-10T22:36:41Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-10T22:36:41Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-10T22:36:41Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-10T22:36:41Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit alive", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-10T22:36:41Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-10T22:58:09Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-10T22:58:09Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-10T22:58:09Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-10T22:58:09Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit alive", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-10T22:58:09Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-10T23:02:43Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-10T23:02:43Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-10T23:02:43Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-10T23:02:44Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit alive", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-10T23:02:44Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-10T23:09:12Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-10T23:09:12Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-10T23:09:12Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-10T23:09:12Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-10T23:09:12Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T07:50:22Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T07:50:22Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T07:50:22Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T07:50:22Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T07:50:22Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T11:24:34Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T11:24:34Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T11:24:34Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T11:24:34Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T11:24:34Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T11:29:52Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T11:29:52Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T11:29:52Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T11:29:52Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T11:29:52Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T11:35:05Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T11:35:05Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T11:35:05Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T11:35:05Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T11:35:05Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T11:40:16Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T11:40:16Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T11:40:16Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T11:40:16Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T11:40:16Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T11:45:30Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T11:45:30Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T11:45:30Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T11:45:30Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T11:45:30Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T11:50:42Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T11:50:42Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T11:50:42Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T11:50:42Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T11:50:42Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T11:55:58Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T11:55:58Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T11:55:58Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T11:55:58Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T11:55:58Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T12:01:13Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T12:01:13Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T12:01:13Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T12:01:13Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T12:01:13Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T12:06:25Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T12:06:25Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T12:06:25Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T12:06:25Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T12:06:25Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T12:11:37Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T12:11:37Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T12:11:37Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T12:11:37Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T12:11:37Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T12:16:48Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T12:16:48Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T12:16:48Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T12:16:48Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T12:16:48Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T12:22:01Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T12:22:01Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T12:22:01Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T12:22:01Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T12:22:01Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T12:25:07Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T12:25:07Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T12:25:07Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T12:25:07Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T12:25:07Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T12:30:21Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T12:30:21Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T12:30:21Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T12:30:21Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T12:30:21Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T12:35:33Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T12:35:33Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T12:35:33Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T12:35:34Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T12:35:34Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T12:40:48Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T12:40:48Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T12:40:48Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T12:40:49Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T12:40:49Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T12:46:03Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T12:46:03Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T12:46:03Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T12:46:03Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T12:46:03Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T12:51:19Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T12:51:19Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T12:51:19Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T12:51:19Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T12:51:19Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T12:56:31Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T12:56:31Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T12:56:31Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T12:56:31Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T12:56:31Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T13:01:44Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T13:01:44Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T13:01:44Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T13:01:44Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T13:01:44Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T13:06:55Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T13:06:55Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T13:06:55Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T13:06:56Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T13:06:56Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T13:12:11Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T13:12:11Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T13:12:11Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T13:12:11Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T13:12:11Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T13:17:24Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T13:17:24Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T13:17:24Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T13:17:24Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T13:17:24Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T13:22:38Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T13:22:38Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T13:22:38Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T13:22:38Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T13:22:38Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T13:27:50Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T13:27:50Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T13:27:50Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T13:27:50Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T13:27:50Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T13:33:02Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T13:33:02Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T13:33:02Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T13:33:02Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T13:33:02Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T13:38:16Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T13:38:16Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T13:38:16Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T13:38:16Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T13:38:16Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T13:43:29Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T13:43:29Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T13:43:29Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T13:43:29Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T13:43:29Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T13:48:42Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T13:48:42Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T13:48:42Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T13:48:42Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T13:48:42Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T13:53:58Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T13:53:58Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T13:53:58Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T13:53:58Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T13:53:58Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T13:59:13Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T13:59:13Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T13:59:13Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T13:59:13Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T13:59:13Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T14:04:28Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T14:04:28Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T14:04:28Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T14:04:28Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T14:04:28Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T16:15:40Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T16:15:40Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T16:15:40Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T16:15:40Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T16:15:40Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T16:20:40Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T16:20:40Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T16:20:40Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T16:20:40Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T16:20:40Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T16:25:40Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T16:25:40Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T16:25:40Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T16:25:40Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T16:25:40Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T16:30:40Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T16:30:40Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T16:30:40Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T16:30:40Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T16:30:40Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T16:35:40Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T16:35:40Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T16:35:40Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T16:35:40Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T16:35:40Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T16:40:40Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T16:40:40Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T16:40:40Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T16:40:40Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T16:40:40Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T16:45:40Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T16:45:40Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T16:45:40Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T16:45:40Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T16:45:40Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T16:50:40Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T16:50:40Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T16:50:40Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T16:50:40Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T16:50:40Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T16:55:40Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T16:55:40Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T16:55:40Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T16:55:40Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit alive", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T16:55:40Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T17:00:40Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T17:00:40Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T17:00:40Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T17:00:40Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit alive", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T17:00:40Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T17:05:40Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T17:05:40Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T17:05:40Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T17:05:41Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit alive", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T17:05:41Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T17:10:41Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T17:10:41Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T17:10:41Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T17:10:41Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T17:10:41Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T17:15:41Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T17:15:41Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T17:15:41Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T17:15:41Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit alive", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T17:15:41Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T17:20:41Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T17:20:41Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T17:20:41Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T17:20:41Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit alive", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T17:20:41Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T17:25:41Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T17:25:41Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T17:25:41Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T17:25:41Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T17:25:41Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T17:30:41Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T17:30:41Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T17:30:41Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T17:30:41Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit alive", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T17:30:41Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T17:35:41Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T17:35:41Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T17:35:41Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T17:35:41Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit alive", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T17:35:41Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T17:40:41Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T17:40:41Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T17:40:41Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T17:40:41Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit alive", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T17:40:41Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T17:45:41Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T17:45:41Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T17:45:41Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T17:45:41Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit alive", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T17:45:41Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T17:50:41Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T17:50:41Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T17:50:41Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T17:50:41Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit alive", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T17:50:41Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T17:55:41Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T17:55:41Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T17:55:41Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T17:55:41Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit alive", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T17:55:41Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T18:00:41Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T18:00:41Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T18:00:41Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T18:00:41Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit alive", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T18:00:41Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T18:05:41Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T18:05:41Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T18:05:41Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T18:05:41Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit alive", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T18:05:41Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T18:10:41Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T18:10:41Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T18:10:41Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T18:10:41Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit alive", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T18:10:41Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T18:15:41Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T18:15:41Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T18:15:41Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T18:15:41Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit alive", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T18:15:41Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T18:20:41Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T18:20:41Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T18:20:41Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T18:20:41Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit alive", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T18:20:41Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T18:25:41Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T18:25:41Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T18:25:41Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T18:25:41Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit alive", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T18:25:42Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T18:30:42Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T18:30:42Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T18:30:42Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T18:30:42Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T18:30:42Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T18:35:42Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T18:35:42Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T18:35:42Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T18:35:42Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T18:35:42Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T18:40:42Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T18:40:42Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T18:40:42Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T18:40:42Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T18:40:42Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T18:45:42Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T18:45:42Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T18:45:42Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T18:45:42Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T18:45:42Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T18:50:42Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T18:50:42Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T18:50:42Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T18:50:42Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T18:50:42Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T18:55:42Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T18:55:42Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T18:55:42Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T18:55:42Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T18:55:42Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T19:00:42Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T19:00:42Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T19:00:42Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T19:00:42Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T19:00:42Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T19:05:42Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T19:05:42Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T19:05:42Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T19:05:42Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T19:05:42Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T19:10:42Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T19:10:42Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T19:10:42Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T19:10:42Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T19:10:42Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T19:15:42Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T19:15:42Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T19:15:42Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T19:15:42Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T19:15:42Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T19:20:42Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T19:20:42Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T19:20:42Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T19:20:42Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T19:20:42Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T19:25:42Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T19:25:42Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T19:25:42Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T19:25:42Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T19:25:42Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T19:30:42Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T19:30:42Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T19:30:42Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T19:30:42Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T19:30:42Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T19:35:42Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T19:35:42Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T19:35:42Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T19:35:42Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T19:35:42Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T19:40:42Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T19:40:42Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T19:40:42Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T19:40:42Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T19:40:42Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T19:45:42Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T19:45:42Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T19:45:42Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T19:45:43Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T19:45:43Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T19:50:43Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T19:50:43Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T19:50:43Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T19:50:43Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T19:50:43Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T19:55:43Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T19:55:43Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T19:55:43Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T19:55:43Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T19:55:43Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T20:00:43Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T20:00:43Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T20:00:43Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T20:00:43Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T20:00:43Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T20:05:43Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T20:05:43Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T20:05:43Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T20:05:43Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T20:05:43Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T20:10:43Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T20:10:43Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T20:10:43Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T20:10:43Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit alive", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T20:10:43Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T20:15:43Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T20:15:43Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T20:15:43Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T20:15:43Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit alive", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T20:15:43Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T20:20:43Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T20:20:43Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T20:20:43Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T20:20:43Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit alive", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T20:20:43Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T20:25:43Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T20:25:43Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T20:25:43Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T20:25:43Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit alive", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T20:25:43Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T20:30:43Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T20:30:43Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T20:30:43Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T20:30:43Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit alive", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T20:30:43Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T20:35:43Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T20:35:43Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T20:35:43Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T20:35:43Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit alive", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T20:35:43Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T20:40:43Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T20:40:43Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T20:40:43Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T20:40:43Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit alive", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T20:40:43Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T20:45:43Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T20:45:43Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T20:45:43Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T20:45:43Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit alive", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T20:45:43Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T20:50:43Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-11T20:50:43Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T20:50:43Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T20:50:43Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit alive", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-11T20:50:43Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-16T11:49:07Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-16T11:49:07Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-16T11:49:07Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-16T11:49:07Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit alive", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-16T11:49:07Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-16T13:32:25Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-16T13:32:25Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-16T13:32:25Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-16T13:32:25Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit alive", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-16T13:32:25Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-16T15:13:37Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-16T15:13:37Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-16T15:13:37Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-16T15:13:37Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit alive", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-16T15:13:37Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-16T19:08:01Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-16T19:08:01Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-16T19:08:01Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-16T19:08:01Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit alive", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-16T19:08:01Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-16T19:26:01Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-16T19:26:01Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-16T19:26:01Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-16T19:26:01Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit alive", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-16T19:26:01Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-16T23:37:27Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-16T23:37:27Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-16T23:37:27Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-16T23:37:27Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-16T23:37:27Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-16T23:50:36Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-16T23:50:36Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-16T23:50:36Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-16T23:50:36Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-16T23:50:36Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-17T00:07:08Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-17T00:07:08Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-17T00:07:08Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-17T00:07:08Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-17T00:07:08Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-17T00:22:52Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-17T00:22:52Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-17T00:22:52Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-17T00:22:52Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-17T00:22:52Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-17T00:45:11Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-17T00:45:11Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-17T00:45:11Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-17T00:45:11Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-17T00:45:11Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-17T00:47:27Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-17T00:47:27Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-17T00:47:27Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-17T00:47:27Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-17T00:47:27Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-17T01:03:20Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-17T01:03:20Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-17T01:03:20Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-17T01:03:20Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-17T01:03:20Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-17T01:13:16Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-17T01:13:16Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-17T01:13:16Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-17T01:13:16Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-17T01:13:16Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-17T01:56:03Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-17T01:56:03Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-17T01:56:03Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-17T01:56:03Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-17T01:56:03Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-17T02:08:51Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-17T02:08:51Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-17T02:08:51Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-17T02:08:51Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-17T02:08:51Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-17T10:41:12Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-17T10:41:12Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-17T10:41:12Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-17T10:41:12Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-17T10:41:12Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-17T11:59:47Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-17T11:59:47Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-17T11:59:47Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-17T11:59:47Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-17T11:59:47Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-17T12:31:38Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-17T12:31:38Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-17T12:31:38Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-17T12:31:38Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-17T12:31:38Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-17T12:38:56Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-17T12:38:56Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-17T12:38:56Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-17T12:38:56Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-17T12:38:56Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-17T15:15:23Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-17T15:15:23Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-17T15:15:23Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-17T15:15:23Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-17T15:15:23Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-17T15:17:43Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-17T15:17:43Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-17T15:17:43Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-17T15:17:43Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-17T15:17:43Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-17T15:36:39Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-17T15:36:39Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-17T15:36:39Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-17T15:36:39Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-17T15:36:39Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-17T17:18:13Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-17T17:18:13Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-17T17:18:13Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-17T17:18:13Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-17T17:18:13Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-30T13:46:37Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-30T13:46:37Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-30T13:46:37Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-30T13:46:37Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-30T13:46:37Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-30T16:58:44Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-30T16:58:44Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-30T16:58:44Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-30T16:58:44Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-30T16:58:44Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-30T17:03:57Z", "team": "maintenance", "role": "registry_janitor", "finding": "10 registries >24h old", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-30T17:03:57Z", "team": "maintenance", "role": "gate_audit_runner", "finding": "all critical gates locked", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-30T17:03:57Z", "team": "maintenance", "role": "pnl_reconciler", "finding": "F44 reconciles", "severity": "green", "advisory_only": true}
+{"ts": "2026-06-30T17:03:57Z", "team": "maintenance", "role": "cockpit_health_keeper", "finding": "cockpit DOWN", "severity": "amber", "advisory_only": true}
+{"ts": "2026-06-30T17:03:57Z", "team": "smoke_test", "role": "test_signal_recorder", "finding": "5 smoke results >24h", "severity": "amber", "advisory_only": true}

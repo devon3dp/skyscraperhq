@@ -1,0 +1,34 @@
+{
+  "room_id": "trading_desk_26",
+  "name": "Trading Desk Hub",
+  "category": "trading",
+  "purpose": "Handling financial transactions and trades.",
+  "concierge_blurb": "Experience the heart of commerce at our trading desk hub.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.5,
+    "offset_z": -2.3,
+    "footprint_m": [
+      14,
+      7
+    ],
+    "height_m": 0.9
+  },
+  "render": {
+    "primary_prop": "trading_desk",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Trading Hub",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/trades.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_26"
+}

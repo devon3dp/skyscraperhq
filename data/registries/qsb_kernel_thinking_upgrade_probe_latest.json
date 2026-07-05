@@ -1,0 +1,12 @@
+{
+  "timestamp_utc": "20260609T195750Z",
+  "log": "data/logs/qsb_kernel_thinking_upgrade_probe_20260609T195750Z.log",
+  "purpose": "Probe whether the QSB Kernel now explains its cognition, upgrades, evidence sources, attention, learning, and remaining gaps.",
+  "commands_run": [
+    "qsb_kernel_cognitive_tick.sh if present",
+    "qsb_kernel_cognitive_status.sh if present",
+    "qsb_kernel_learning_smoke_test_v2.sh if present",
+    "qsb_kernel_cognitive_smoke_test.sh if present",
+    "qsb_kernel_chat.sh cognitive self-report questions"
+  ]
+}

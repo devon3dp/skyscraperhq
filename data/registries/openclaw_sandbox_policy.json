@@ -1,0 +1,32 @@
+{
+  "policy": "openclaw_sandbox_visual_layer_v1",
+  "version": "1.0",
+  "mode": "sandbox_visual_only",
+  "openclaw_sandbox_enabled": true,
+  "openclaw_visualization_enabled": true,
+  "openclaw_execution_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "live_dispatch_enabled": false,
+  "worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "external_provider_execution_enabled": false,
+  "direct_provider_access": false,
+  "live_trading_enabled": false,
+  "order_execution_enabled": false,
+  "practice_order_execution_enabled": false,
+  "allowed": [
+    "display OpenClaw sandbox workers",
+    "read paper strategy summaries",
+    "read sandbox performance summaries",
+    "generate sandbox-only recommendations",
+    "animate lift packets and worker motion in dashboard"
+  ],
+  "forbidden": [
+    "execute OpenClaw tools",
+    "place OANDA orders",
+    "enable autonomous dispatch",
+    "enable external providers",
+    "enable real worker execution"
+  ]
+}

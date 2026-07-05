@@ -1,0 +1,45 @@
+{
+  "ok": true,
+  "kind": "qsb_accounts_floor_state",
+  "phase": "EQSB_SYSTEM_OBSERVATORY_HARDWARE_FLOOR_LIVE_TELEMETRY_REPAIR_V1",
+  "generated_ts": "2026-06-30T13:46:32.847392+00:00",
+  "floor_number": 44,
+  "department": "Accounts / PnL Department",
+  "manifest_path": "floors/floor_44_accounts_department/floor_manifest.json",
+  "worker_count": 5,
+  "workers": [
+    {
+      "worker_id": "wrk_pnl_accountant",
+      "display_name": "PnL Accountant",
+      "home_floor": "floor_44_accounts_department"
+    },
+    {
+      "worker_id": "wrk_resource_accountant",
+      "display_name": "Resource Accountant",
+      "home_floor": "floor_44_accounts_department"
+    },
+    {
+      "worker_id": "wrk_trade_ledger_clerk",
+      "display_name": "Trade Ledger Clerk",
+      "home_floor": "floor_44_accounts_department"
+    },
+    {
+      "worker_id": "wrk_reward_accountant",
+      "display_name": "Reward Accountant",
+      "home_floor": "floor_44_accounts_department"
+    },
+    {
+      "worker_id": "wrk_loss_review_clerk",
+      "display_name": "Loss Review Clerk",
+      "home_floor": "floor_44_accounts_department"
+    }
+  ],
+  "previous_state": "floor_44_future_systems_vacant placeholder",
+  "current_state": "active",
+  "feeds_profit_command": true,
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false
+}

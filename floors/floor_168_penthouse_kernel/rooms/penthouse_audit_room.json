@@ -1,0 +1,31 @@
+{
+  "room_id": "penthouse_audit_room",
+  "name": "Audit Room",
+  "category": "audit",
+  "purpose": "This room is used for internal audits and reviews.",
+  "concierge_blurb": "Witness the meticulous review of Kernel operations and records.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_right",
+    "offset_x": 4.0,
+    "offset_z": -5.0,
+    "footprint_m": [
+      8,
+      6
+    ],
+    "height_m": 1.5
+  },
+  "render": {
+    "primary_prop": "archive_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Audit Room",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_168"
+}

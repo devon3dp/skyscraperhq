@@ -1,0 +1,31 @@
+{
+  "room_id": "audit_room_60",
+  "name": "Audit Room",
+  "category": "audit",
+  "purpose": "Used for internal reviews and compliance checks on trading activities.",
+  "concierge_blurb": "This room is dedicated to ensuring the integrity of transactions through rigorous audits.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -4.0,
+    "offset_z": 2.5,
+    "footprint_m": [
+      3.0,
+      3.0
+    ],
+    "height_m": 1.8
+  },
+  "render": {
+    "primary_prop": "archive_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Audit Room",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_60"
+}

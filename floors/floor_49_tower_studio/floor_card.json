@@ -1,0 +1,105 @@
+{
+  "floor_id": "floor_49",
+  "floor_number": 49,
+  "floor_name": "Tower Studio",
+  "department": "F49 Tower Studio",
+  "zone": "creative_atelier",
+  "archetype": "studio",
+  "staff_lead": "Studio Director (Wren brief)",
+  "tour_blurb": "Forty-nine is Tower Studio \u2014 the creative atelier. Drafts, mock-ups, layouts, and visual experiments take shape here, with light streaming in through the big windows. If a floor upstairs needs a fresh look or a polished surface, the Studio is where the brief lands first.",
+  "tour_blurb_source": "data/registries/qsb_open_day_tour.json#floors[id=floor_49]",
+  "visitor_open": true,
+  "advisory_only": true,
+  "endpoints": [
+    "/",
+    "/healthz"
+  ],
+  "live_signals": {
+    "probed_ts": "2026-06-14T18:07:00Z",
+    "http_root": {
+      "url": "http://127.0.0.1:8849/",
+      "status_code": 200,
+      "page_title": "Tower Studio \u2014 Websites, identity, and IT, designed inside the QSB Tower."
+    },
+    "healthz": {
+      "url": "http://127.0.0.1:8849/healthz",
+      "status_code": 200,
+      "response": {
+        "ok": true,
+        "service": "tower_studio"
+      }
+    },
+    "systemd_unit": "qsb-tower-studio.service",
+    "systemd_scope": "user",
+    "systemd_active": "active",
+    "systemd_enabled": "enabled",
+    "service_description": "QSB Tower Studio \u2014 Floor 49 public-facing studio (port 8849)"
+  },
+  "source_paths": {
+    "service_entrypoint": "tools/qsb_studio_serve.py",
+    "module": "src/tower/floors/floor_49_tower_studio/",
+    "systemd_unit_file": "~/.config/systemd/user/qsb-tower-studio.service",
+    "pid_file": "data/run/qsb_studio_serve.pid",
+    "logs_dir": "data/logs/web/"
+  },
+  "gates": {
+    "preview_only": true,
+    "local_only": true,
+    "real_payments_enabled": false,
+    "public_api_open": false,
+    "model_inference_external_apis": false
+  },
+  "evidence_paths": [
+    "data/registries/qsb_open_day_tour.json",
+    "src/tower/floors/floor_49_tower_studio/",
+    "tools/qsb_studio_serve.py"
+  ],
+  "built_at": "2026-06-14T18:07:00Z",
+  "built_by": "skyscraper_floor_card_push",
+  "lessons_learned_for_next_agent": "F49 Tower Studio runs as a USER-scope systemd unit (qsb-tower-studio.service on port 8849), not system-scope \u2014 `systemctl is-active` from a non-user shell returns 'not-found'; always probe with `systemctl --user`. /healthz returns {ok:true,service:tower_studio}; /api/state is NOT wired (404) \u2014 take the page <title> off `GET /` for live brand-signal instead. Note the floor identity lives at floors/floor_49_tower_studio/ for the visitor-facing studio brand; the legacy floors/floor_49_resource_management_department/ is a separate internal-ops floor that shares the number 49 and is unrelated to this card.",
+  "team_roster": [
+    {
+      "id": "f049.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "spawned_id": "2dfbd3bdd7",
+      "spawned_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "designer",
+      "role": "designer on F049",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f049.designer.01",
+      "spawned_id": "4c923b9167"
+    },
+    {
+      "category": "designer",
+      "role": "designer on F049",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f049.designer.02",
+      "spawned_id": "986c9eb18e"
+    },
+    {
+      "category": "designer",
+      "role": "designer on F049",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f049.designer.03",
+      "spawned_id": "83c34edb1a"
+    },
+    {
+      "category": "designer",
+      "role": "designer on F049",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f049.designer.04",
+      "spawned_id": "1bd87d2cb8"
+    }
+  ],
+  "floor_manager": "f049.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

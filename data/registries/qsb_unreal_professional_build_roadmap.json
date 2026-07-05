@@ -1,0 +1,50 @@
+{
+  "phase": "QSB_UNREAL_PROFESSIONAL_SKYSCRAPER_HUD_DASHBOARD_DIRECTION_V2",
+  "stage": 8,
+  "title": "Implementation Roadmap",
+  "sequential_chain": [
+    "Stage 3 (HUD contract)",
+    "Stage 4 (world)",
+    "Stage 5 (interiors)",
+    "Stage 6 (model floors)"
+  ],
+  "parallel_tracks": [
+    {
+      "name": "voice",
+      "stage": 7,
+      "runs_alongside": [
+        "5",
+        "6"
+      ]
+    },
+    {
+      "name": "data bridge",
+      "stage": 9,
+      "runs_alongside": [
+        "4",
+        "5"
+      ]
+    },
+    {
+      "name": "smoke tests",
+      "stage": 10,
+      "runs_alongside": [
+        "7",
+        "8",
+        "9"
+      ]
+    }
+  ],
+  "first_playable_milestone": "After Stage 6 complete: 3D skyscraper + 5 furnished floors (Claude/GPT/DeepSeek/trading/command) + voice working + data flowing from /api/traders_live",
+  "remaining_after_playable": [
+    "Stage 9 data bridge fully wired",
+    "Stage 10 smoke tests",
+    "Stage 11 team brief",
+    "Stage 12 validation",
+    "Stage 13 final report"
+  ],
+  "signoff": "DeepSeek sequential 3->4->5->6 with parallel 7. Claude approves.",
+  "_meta": {
+    "ts": "2026-06-25T12:18:39Z"
+  }
+}

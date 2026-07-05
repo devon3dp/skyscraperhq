@@ -1,0 +1,62 @@
+{
+  "ok": true,
+  "kind": "qsb_floor42_binance_testnet_state",
+  "generated_ts": "2026-06-10T20:26:44+00:00",
+  "floor_id": "floor_42_binance_testnet",
+  "floor_label": "Floor 42 \u2014 Binance Testnet",
+  "status": "ready_for_orders",
+  "flags": {
+    "testnet_only": true,
+    "live_real_money_binance_enabled": false,
+    "binance_order_execution_enabled": false,
+    "binance_testnet_order_execution_enabled": false,
+    "external_api_calls_enabled": false,
+    "autonomous_dispatch_enabled": false,
+    "preview_only": true,
+    "kill_switch_on": false
+  },
+  "guards": {
+    "execution_mode": "TESTNET_ONLY",
+    "binance_env_required": "testnet",
+    "base_url_testnet": "https://testnet.binance.vision",
+    "base_url_production": "https://api.binance.com",
+    "allowed_symbols": [
+      "BTCUSDT",
+      "ETHUSDT",
+      "BNBUSDT",
+      "SOLUSDT",
+      "ADAUSDT"
+    ],
+    "max_quantity_per_order_quote_usdt": 200.0,
+    "max_open_trades": 3,
+    "max_trades_per_hour": 6,
+    "max_spread_bps": 15.0,
+    "max_daily_loss_usdt": 50.0,
+    "kill_switch_must_be_off": true,
+    "manual_confirmation_required": true
+  },
+  "credentials": {
+    "needed_env_vars": [
+      "QSB_BINANCE_TESTNET_API_KEY",
+      "QSB_BINANCE_TESTNET_API_SECRET"
+    ],
+    "seen": [
+      "QSB_BINANCE_TESTNET_API_KEY",
+      "QSB_BINANCE_TESTNET_API_SECRET"
+    ],
+    "missing": [],
+    "ready": true
+  },
+  "policy": "Binance testnet only. Real-money endpoints hard-disabled. Workers need certification + manual confirm to place. All guardrails enforced server-side before any API call.",
+  "onboarding_steps": [
+    "1. Visit https://testnet.binance.vision and log in with GitHub.",
+    "2. Generate an API key + secret on the testnet (one-time).",
+    "3. Save the key + secret in /vaults/nvme0/qsb_tower_v1/.env.binance_testnet:",
+    "     export QSB_BINANCE_TESTNET_API_KEY='...'",
+    "     export QSB_BINANCE_TESTNET_API_SECRET='...'",
+    "4. Run: source .env.binance_testnet && python3 tools/qsb_binance.py preflight",
+    "5. Once preflight reports OK, certified workers may place testnet orders via CLI."
+  ],
+  "world_clock_aware": true,
+  "trading_sessions_module": "tower.cognitive_kernel.trading_sessions"
+}

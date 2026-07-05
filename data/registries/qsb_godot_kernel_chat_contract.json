@@ -1,0 +1,27 @@
+{
+  "ok": true,
+  "kind": "qsb_godot_kernel_chat_contract",
+  "phase": "QSB_GODOT_PROFESSIONAL_3D_DASHBOARD_UPGRADE_V1",
+  "generated_ts": "2026-06-09T15:52:38+00:00",
+  "endpoint": "http://127.0.0.1:8765/api/kernel_chat",
+  "method": "POST",
+  "request_body": {
+    "message": "<string>"
+  },
+  "response_field": "reply",
+  "wired_via": "scripts/KernelChatBridge.gd + InspectorPanels chat_send signal",
+  "test_questions": [
+    "Kernel, who are you?",
+    "Kernel, what floor is OpenClaw on?",
+    "Kernel, what is Floor 41 OANDA doing right now?",
+    "Kernel, what does the Commerce Wing do?",
+    "Kernel, what is broken right now?"
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "live_payments_enabled": false,
+  "live_listings_publishing_enabled": false
+}

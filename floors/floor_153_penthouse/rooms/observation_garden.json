@@ -1,0 +1,34 @@
+{
+  "room_id": "observation_garden",
+  "name": "Observation Garden",
+  "category": "seating",
+  "purpose": "Offers a serene space for contemplation and observation.",
+  "concierge_blurb": "Relax in this tranquil garden, overlooking the cityscape.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 8.0,
+    "offset_z": -4.5,
+    "footprint_m": [
+      7,
+      6
+    ],
+    "height_m": 1.2
+  },
+  "render": {
+    "primary_prop": "garden_bed",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Garden",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 0
+  },
+  "floor": "floor_153"
+}

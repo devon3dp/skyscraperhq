@@ -1,0 +1,37 @@
+[
+  {
+    "id": "check_floor_05",
+    "description": "Coding Department module and registry present.",
+    "required_file": "src/tower/coding_department.py"
+  },
+  {
+    "id": "check_floor_21",
+    "description": "Adapter Systems module and registry present.",
+    "required_file": "src/tower/adapter_systems.py"
+  },
+  {
+    "id": "check_floor_23",
+    "description": "AIR LLM Operations module and registry present.",
+    "required_file": "src/tower/air_llm_operations.py"
+  },
+  {
+    "id": "check_floor_24",
+    "description": "Model Routing module and registry present.",
+    "required_file": "src/tower/model_routing_department.py"
+  },
+  {
+    "id": "check_floor_27",
+    "description": "Local Model Operations module and registry present.",
+    "required_file": "src/tower/local_model_operations.py"
+  },
+  {
+    "id": "check_lifts",
+    "description": "Lift Network module present.",
+    "required_file": "src/tower/lifts.py"
+  },
+  {
+    "id": "check_model_infra",
+    "description": "Model Infrastructure module present.",
+    "required_file": "src/tower/model_infrastructure.py"
+  }
+]

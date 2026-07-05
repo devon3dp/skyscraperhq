@@ -1,0 +1,34 @@
+{
+  "room_id": "qa_library",
+  "name": "QA Library",
+  "category": "library",
+  "purpose": "A repository for quality assurance literature and research.",
+  "concierge_blurb": "Books on QA processes fill the shelves here.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -6.0,
+    "offset_z": 4.5,
+    "footprint_m": [
+      12,
+      8
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "library_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "QA Lib",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": null,
+    "refresh_seconds": null
+  },
+  "floor": "floor_115"
+}

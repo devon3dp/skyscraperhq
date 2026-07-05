@@ -1,0 +1,44 @@
+{
+  "ok": true,
+  "kind": "qsb_floor44_master_book",
+  "venues": {
+    "oanda_practice": {
+      "pnl_usd": 0.0,
+      "trades_recorded": 975,
+      "last_trade_ts": null
+    },
+    "binance_testnet": {
+      "pnl_usd": 9.999999999999965e-05,
+      "trades_recorded": 7,
+      "last_trade_ts": "2026-06-11T08:44:29.575141Z"
+    },
+    "alpaca_paper": {
+      "pnl_usd": 0.0,
+      "trades_recorded": 1,
+      "last_trade_ts": null
+    }
+  },
+  "total_packets": 983,
+  "updated_ts": "2026-06-30T16:58:50.064149Z",
+  "advisory_only": true,
+  "real_money": false,
+  "operational_spend": {
+    "total_gbp": 22.67,
+    "rows": [
+      {
+        "ts": "2026-06-11T13:06:32.681093Z",
+        "request_id": "pr_72ef1f3c61",
+        "vendor": null,
+        "amount_gbp": 5.48,
+        "purpose": null
+      },
+      {
+        "ts": "2026-06-11T13:06:32.703947Z",
+        "request_id": "pr_67c1003cfc",
+        "vendor": null,
+        "amount_gbp": 17.19,
+        "purpose": null
+      }
+    ]
+  }
+}

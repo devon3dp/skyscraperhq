@@ -1,0 +1,31 @@
+{
+  "room_id": "cognitive_linguistics_study_area",
+  "name": "Cognitive Linguistics Study Area",
+  "category": "seating",
+  "purpose": "This area is for cognitive linguistics research and discussion.",
+  "concierge_blurb": "Comfortable seating surrounds a large whiteboard for collaborative work.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      15,
+      8
+    ],
+    "height_m": 2.2
+  },
+  "render": {
+    "primary_prop": "chair_set",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Cognitive Study",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_130"
+}

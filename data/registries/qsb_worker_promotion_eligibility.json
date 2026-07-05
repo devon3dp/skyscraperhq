@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "kind": "qsb_worker_promotion_eligibility",
+  "generated_ts": "2026-06-30T13:46:34.510953+00:00",
+  "total_eligible_now": 0,
+  "eligible_workers": [],
+  "policy_note": "Promotion eligibility requires reward_points >= next-rank threshold AND zero strikes. Strikes block promotion until redemption path completes.",
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

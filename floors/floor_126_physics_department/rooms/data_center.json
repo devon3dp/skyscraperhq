@@ -1,0 +1,34 @@
+{
+  "room_id": "data_center",
+  "name": "Data Center",
+  "category": "operations",
+  "purpose": "A room dedicated to data management and analysis.",
+  "concierge_blurb": "Visitors see servers and workstations.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -5.0,
+    "offset_z": 8.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "server_rack",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Data Ctr.",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/data_center.jsonl",
+    "display": "big_number",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_126"
+}

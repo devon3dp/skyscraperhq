@@ -1,0 +1,11 @@
+{
+  "ok": true,
+  "kind": "qsb_pyqt_admin_fallback_status",
+  "phase": "QSB_GODOT_NATIVE_COCKPIT_PRIMARY_GRAPHICS_ENGINE_SWITCH_V1",
+  "generated_ts": "2026-06-09T20:32:00+00:00",
+  "role": "fallback_admin_only",
+  "target": false,
+  "do_not_use_as_visual_success": true,
+  "purpose": "Operator admin shell when neither Godot nor browser dashboard is suitable (headless / SSH / CI).",
+  "warning": "Improvements to the PyQt fallback are NOT cockpit success. Godot is the visual target."
+}

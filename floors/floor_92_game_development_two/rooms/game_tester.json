@@ -1,0 +1,34 @@
+{
+  "room_id": "game_tester",
+  "name": "Game Tester",
+  "category": "operations",
+  "purpose": "This room is for testing and debugging video games.",
+  "concierge_blurb": "Visitors see a setup with multiple monitors displaying game screens.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -8.0,
+    "offset_z": 4.0,
+    "footprint_m": [
+      10,
+      5
+    ],
+    "height_m": 2.3
+  },
+  "render": {
+    "primary_prop": "monitor_wall",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Game Tester",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_92"
+}

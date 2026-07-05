@@ -1,0 +1,31 @@
+{
+  "room_id": "rest_area",
+  "name": "Rest Area",
+  "category": "seating",
+  "purpose": "A quiet space for traders to rest and socialize.",
+  "concierge_blurb": "Relax after a busy trading session in this comfy corner.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -6.0,
+    "offset_z": -5.0,
+    "footprint_m": [
+      8,
+      12
+    ],
+    "height_m": 1.3
+  },
+  "render": {
+    "primary_prop": "chair_set",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Rest Area",
+    "glow": true
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_42"
+}

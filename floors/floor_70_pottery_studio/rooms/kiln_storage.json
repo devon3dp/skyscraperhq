@@ -1,0 +1,34 @@
+{
+  "room_id": "kiln_storage",
+  "name": "Kiln Storage Room",
+  "category": "operations",
+  "purpose": "This room stores the kilns used for firing pottery.",
+  "concierge_blurb": "Storage area for large pottery kilns and accessories.",
+  "current_state": "already_exists",
+  "visitor_open": false,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -6.0,
+    "offset_z": 4.0,
+    "footprint_m": [
+      8,
+      12
+    ],
+    "height_m": 1.5
+  },
+  "render": {
+    "primary_prop": "archive_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Kiln Storage",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_70"
+}

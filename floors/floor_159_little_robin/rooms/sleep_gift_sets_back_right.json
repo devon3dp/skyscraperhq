@@ -1,0 +1,34 @@
+{
+  "room_id": "sleep_gift_sets_back_right",
+  "name": "Sleep Gift Sets Workshop",
+  "category": "workshop",
+  "purpose": "Packaging of sleep and gift sets.",
+  "concierge_blurb": "Crafting perfect gifts for new parents here!",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_right",
+    "offset_x": 8.0,
+    "offset_z": -7.5,
+    "footprint_m": [
+      6.0,
+      4.0
+    ],
+    "height_m": 1.2
+  },
+  "render": {
+    "primary_prop": "bench",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Gift Sets",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 0
+  },
+  "floor": "floor_159"
+}

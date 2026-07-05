@@ -1,0 +1,35 @@
+{
+  "ok": true,
+  "floor_number": 141,
+  "floor_name": "Theater & Performance",
+  "floor_kind": "designed_by_f66_architects_v1",
+  "description": "productions + rehearsal + workshop",
+  "designed_by": "F66 Architects' Office",
+  "designed_ts": "2026-06-11T09:13:04.497262Z",
+  "role_inventory": [
+    "Artistic Director",
+    "Director",
+    "Stage Manager",
+    "Actor",
+    "Actor",
+    "Technical Director"
+  ],
+  "advisory_only": true,
+  "interior_brief": {
+    "archetype": "gallery",
+    "palette": "white walls + black accents",
+    "furniture": [
+      "plinths",
+      "benches",
+      "hanging system",
+      "reception"
+    ],
+    "lighting": "track lighting",
+    "mood": "contemplative",
+    "designed_by": "F66 Architects + F17 Graphics + Fitters team",
+    "fitted_at": "2026-06-11T14:39:45.620109Z",
+    "godot_scene_brief": "render an gallery floor with white walls + black accents palette, contemplative mood, key furniture: plinths, benches, hanging system"
+  },
+  "fitted_out": true,
+  "fit_out_ts": "2026-06-11T14:39:45.620109Z"
+}

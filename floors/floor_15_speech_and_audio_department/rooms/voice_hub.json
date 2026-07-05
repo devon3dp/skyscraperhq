@@ -1,0 +1,34 @@
+{
+  "room_id": "voice_hub",
+  "name": "Voice Hub",
+  "category": "operations",
+  "purpose": "Central hub for voice commerce operations.",
+  "concierge_blurb": "Welcome to the heart of voice commerce operations.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      8,
+      6
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "trading_desk",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Voice Hub",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/voice_orders.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 30
+  },
+  "floor": "floor_15"
+}

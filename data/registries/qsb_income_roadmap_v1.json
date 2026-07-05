@@ -1,0 +1,55 @@
+{
+  "ok": true,
+  "kind": "qsb_income_roadmap_v1",
+  "generated_ts": "2026-06-11T08:40:28.928961Z",
+  "horizon_days": 30,
+  "streams": [
+    {
+      "name": "AI Strategy Newsletter (paid sub)",
+      "source_floor": "F47 (Wren) + F11 (market intel)",
+      "deliverable": "weekly long-form market intel + tower-internal insights",
+      "price": "\u00a310/month or \u00a3100/year",
+      "channel": "Substack / Buttondown",
+      "mvp_step": "draft issue 1: \"What a 58-floor AI tower learned watching the market open\"",
+      "next_owner": "F47 wren_scribe pool"
+    },
+    {
+      "name": "Strategy Refinement Reports",
+      "source_floor": "F47 + F37 simulation labs + F31 audit",
+      "deliverable": "one-shot reports analyzing a strategy proposal end-to-end via the classroom",
+      "price": "\u00a325-\u00a350 per report",
+      "channel": "Gumroad / direct invoice",
+      "mvp_step": "public template + sample report on EUR/GBP range scalp",
+      "next_owner": "F31 audit pool"
+    },
+    {
+      "name": "Virtual Consulting (Wren-led)",
+      "source_floor": "F47",
+      "deliverable": "1-hour Zoom: strategy critique with classroom-based evidence",
+      "price": "\u00a375-\u00a3150/session",
+      "channel": "Calendly + Stripe",
+      "mvp_step": "landing page + booking flow",
+      "next_owner": "F17 graphics (webpage) + F20 api (booking endpoint)"
+    },
+    {
+      "name": "Corporate Partnership (white-label classroom)",
+      "source_floor": "F25 + F47",
+      "deliverable": "embed classroom-cohort-training as a white-label module",
+      "price": "\u00a3500-\u00a32k/month subscription",
+      "channel": "targeted outreach to 5 fintech edtech firms",
+      "mvp_step": "pitch deck + technical one-pager",
+      "next_owner": "F48 strategic_planning pool"
+    },
+    {
+      "name": "Tower-as-a-Visit (paid demo)",
+      "source_floor": "F49 resource + F50 governance",
+      "deliverable": "curated walkthrough of the cockpit + Q&A, for AI-curious investors",
+      "price": "\u00a320-\u00a340/visit (capped 50/week)",
+      "channel": "Eventbrite + Zoom",
+      "mvp_step": "recorded promo + sign-up page",
+      "next_owner": "F17 graphics"
+    }
+  ],
+  "aggregate_30_day_target": "\u00a3500-\u00a32000 first month if all 5 launched lean",
+  "advisory_only": true
+}

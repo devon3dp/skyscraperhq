@@ -1,0 +1,96 @@
+{
+  "ok": true,
+  "kind": "qsb_native_graphics_engine_audit_v2",
+  "phase": "QSB_NATIVE_COCKPIT_STANDALONE_SKYSCRAPER_PLATFORM_V2",
+  "generated_ts": "2026-06-09T15:00:00+00:00",
+  "system": {
+    "os": "Linux 6.17.0-35-generic Ubuntu 24.04",
+    "python": "3.12.3",
+    "display_server": ":0 (X11)",
+    "wayland_display": "",
+    "gpu_hardware": "NVIDIA (PCI 01:00.0, device 2c05 rev a1)",
+    "nvidia_smi_status": "FAILED — NVML library version 580.159 mismatch with userspace driver",
+    "gpu_usable_via_x11": true,
+    "glxinfo_available": false
+  },
+  "engines_probed": {
+    "godot": {
+      "available": false,
+      "installed": false,
+      "binary_path": null,
+      "install_path": "apt install godot OR download from godotengine.org",
+      "notes": "Strong choice for native 3D but requires separate install + .pck packaging. Not available on this machine now."
+    },
+    "panda3d": {
+      "available": false,
+      "installed": false,
+      "install_path": "pip install panda3d",
+      "notes": "Pure Python 3D scene graph. Easy to add but requires pip install plus Python venv setup."
+    },
+    "pyside6": {
+      "available": false,
+      "installed": false,
+      "install_path": "pip install PySide6",
+      "notes": "Modern Qt6 bindings; the local Qt6 has libQt6DBus version mismatch (undefined symbol _ZN9QtPrivate23CompatPropertySafePointC1...). Risky."
+    },
+    "pyqt6": {
+      "available": false,
+      "installed": true,
+      "version": "6.9.0",
+      "broken_reason": "libQt6DBus.so.6 undefined symbol — Qt6 system libraries out of sync with PyQt6 wheel.",
+      "notes": "Installed but unusable until system Qt6 is fixed."
+    },
+    "pyqt5": {
+      "available": true,
+      "installed": true,
+      "version": "5.15.13",
+      "qt_version": "5.15.13",
+      "modules_present": ["QtCore", "QtGui", "QtWidgets", "QtOpenGL"],
+      "modules_absent": ["Qt3DCore", "Qt3DExtras", "Qt3DRender"],
+      "qt3d_install_hint": "apt install python3-pyqt5.qt3d (sudo needed)",
+      "qgl_widget_glx_failure_on_offscreen_test": true,
+      "qgl_widget_should_work_with_real_display": true,
+      "notes": "Strong baseline for native desktop window + QGraphicsView 2.5D scene engine. Suitable for production today; Qt3D would be an opt-in upgrade once apt install is approved."
+    },
+    "tkinter": {
+      "available": true,
+      "installed": true,
+      "version": "8.6",
+      "notes": "Reliable fallback. No 3D, but native window works."
+    },
+    "kivy": {"available": false, "installed": false},
+    "pygame": {"available": false, "installed": false},
+    "pyglet": {"available": false, "installed": false},
+    "moderngl": {"available": false, "installed": false}
+  },
+  "openssl_status": "n/a",
+  "vulkan_status": "not_detected (vulkaninfo not installed)",
+  "answers": {
+    "godot_usable_now": false,
+    "panda3d_usable_now": false,
+    "pyside6_usable_now": false,
+    "pyqt6_usable_now": false,
+    "pyqt5_usable_now": true,
+    "tkinter_usable_now": true,
+    "fastest_standalone_path": "PyQt5 + QGraphicsView (our own scene engine on the Qt painter)",
+    "most_reliable_on_this_machine": "PyQt5",
+    "best_packaging_path": "PyInstaller into a single executable using PyQt5",
+    "dependencies_missing_for_full_3d": ["python3-pyqt5.qt3d (apt)"],
+    "build_immediately_capable": true
+  },
+  "verified_workforce_baseline": {
+    "canonical_workers_before": 1191,
+    "new_v2_workers_employed": 1000,
+    "verified_total": 2191,
+    "commerce_wing_floors": 14,
+    "shop_opportunities_mapped": 15,
+    "openclaw_findings": 57,
+    "openclaw_tickets": 0,
+    "floor_masterplan_entries": 53
+  },
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

@@ -1,0 +1,31 @@
+{
+  "ok": true,
+  "kind": "qsb_native_graphics_engine_decision_v2",
+  "phase": "QSB_NATIVE_COCKPIT_STANDALONE_SKYSCRAPER_PLATFORM_V2",
+  "generated_ts": "2026-06-09T15:00:00+00:00",
+  "primary_engine": "PyQt5 + QGraphicsView 2.5D scene engine",
+  "primary_engine_version": "PyQt5 5.15.13 / Qt 5.15.13",
+  "fallback_engine": "Tkinter Canvas",
+  "future_upgrade_path": "PyQt5 Qt3D (apt install python3-pyqt5.qt3d) — once approved, the same scene engine can swap its renderer to QEntity / QMesh without rewriting the data layer",
+  "reason": [
+    "Godot, Panda3D, PySide6 NOT installed on this machine. PyQt6 installed but broken (libQt6DBus symbol mismatch).",
+    "PyQt5 5.15.13 IS installed and stable.",
+    "QGraphicsView gives a proper hardware-accelerated 2D scene graph with transforms, opacity, animations, hit-testing — exactly what we need for a depth-cued tower diagram with clickable floors, lift cars, OpenClaw marker, worker density swirls.",
+    "Building our own scene engine (the QSB Scene Engine) on top of QGraphicsView keeps the data layer engine-agnostic; we can swap to Qt3D, Panda3D, or Godot later without rewriting the floor/worker/lift/openclaw renderers.",
+    "Result: a real native desktop window running TODAY, no Chrome dependency, no WebGL dependency."
+  ],
+  "risks": [
+    "Not true 3D — the tower is depth-cued isometric/pseudo-3D with shading, not a Z-buffered mesh. For real perspective 3D the user must install python3-pyqt5.qt3d or pip-install Panda3D.",
+    "If the user runs this over SSH without X11 forwarding the window will not open. Health-check warns explicitly."
+  ],
+  "install_needed_now": [],
+  "install_needed_for_future_3d": ["python3-pyqt5.qt3d (apt)", "OR pip install panda3d"],
+  "first_prototype_command": "./scripts/qsb_native_cockpit_run.sh",
+  "packaging_path": "PyInstaller --onefile native_cockpit/qt/main.py  (when packaging is requested)",
+  "browser_dashboard_remains_as_fallback": "http://127.0.0.1:8765/?v=next3d&floor=55",
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

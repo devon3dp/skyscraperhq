@@ -1,0 +1,247 @@
+{
+  "ok": true,
+  "kind": "qsb_wren_daily_delegation",
+  "date": "2026-06-11",
+  "team_leader": "f47.wren.auditor.01",
+  "tracks": [
+    {
+      "name": "rule_extraction",
+      "task": "extract trading rules from OANDA post-mortem (per Auger)",
+      "count": 36
+    },
+    {
+      "name": "opening_watch",
+      "task": "monitor 10 queued Alpaca orders at 9:30 fill",
+      "count": 36
+    },
+    {
+      "name": "binance_market_pulse",
+      "task": "follow BTC/ETH/BNB/ADA on testnet, log each tick",
+      "count": 36
+    },
+    {
+      "name": "floor_population_audit",
+      "task": "recheck themed-match % per floor; flag drift",
+      "count": 36
+    },
+    {
+      "name": "lift_packet_courier",
+      "task": "shuttle sealed packets between floors",
+      "count": 36
+    },
+    {
+      "name": "aphorism_steward",
+      "task": "rotate F47 aphorism display; capture insights",
+      "count": 35
+    },
+    {
+      "name": "memory_journaling",
+      "task": "append daily observations to F47 records",
+      "count": 35
+    }
+  ],
+  "delegations": [
+    {
+      "worker_id": "f47.wren.scribe.01",
+      "track": "rule_extraction"
+    },
+    {
+      "worker_id": "f47.wren.scribe.02",
+      "track": "opening_watch"
+    },
+    {
+      "worker_id": "f47.wren.scribe.03",
+      "track": "binance_market_pulse"
+    },
+    {
+      "worker_id": "f47.wren.scribe.04",
+      "track": "floor_population_audit"
+    },
+    {
+      "worker_id": "f47.wren.scribe.05",
+      "track": "lift_packet_courier"
+    },
+    {
+      "worker_id": "f47.wren.scribe.06",
+      "track": "aphorism_steward"
+    },
+    {
+      "worker_id": "f47.wren.scribe.07",
+      "track": "memory_journaling"
+    },
+    {
+      "worker_id": "f47.wren.scribe.08",
+      "track": "rule_extraction"
+    },
+    {
+      "worker_id": "f47.wren.auditor.01",
+      "track": "opening_watch"
+    },
+    {
+      "worker_id": "f47.wren.auditor.02",
+      "track": "binance_market_pulse"
+    },
+    {
+      "worker_id": "f47.wren.auditor.03",
+      "track": "floor_population_audit"
+    },
+    {
+      "worker_id": "f47.wren.auditor.04",
+      "track": "lift_packet_courier"
+    },
+    {
+      "worker_id": "f47.wren.auditor.05",
+      "track": "aphorism_steward"
+    },
+    {
+      "worker_id": "f47.wren.auditor.06",
+      "track": "memory_journaling"
+    },
+    {
+      "worker_id": "f47.wren.auditor.07",
+      "track": "rule_extraction"
+    },
+    {
+      "worker_id": "f47.wren.auditor.08",
+      "track": "opening_watch"
+    },
+    {
+      "worker_id": "f47.wren.ledger_clerk.01",
+      "track": "binance_market_pulse"
+    },
+    {
+      "worker_id": "f47.wren.ledger_clerk.02",
+      "track": "floor_population_audit"
+    },
+    {
+      "worker_id": "f47.wren.ledger_clerk.03",
+      "track": "lift_packet_courier"
+    },
+    {
+      "worker_id": "f47.wren.ledger_clerk.04",
+      "track": "aphorism_steward"
+    },
+    {
+      "worker_id": "f47.wren.ledger_clerk.05",
+      "track": "memory_journaling"
+    },
+    {
+      "worker_id": "f47.wren.ledger_clerk.06",
+      "track": "rule_extraction"
+    },
+    {
+      "worker_id": "f47.wren.strategy_researcher.01",
+      "track": "opening_watch"
+    },
+    {
+      "worker_id": "f47.wren.strategy_researcher.02",
+      "track": "binance_market_pulse"
+    },
+    {
+      "worker_id": "f47.wren.strategy_researcher.03",
+      "track": "floor_population_audit"
+    },
+    {
+      "worker_id": "f47.wren.strategy_researcher.04",
+      "track": "lift_packet_courier"
+    },
+    {
+      "worker_id": "f47.wren.strategy_researcher.05",
+      "track": "aphorism_steward"
+    },
+    {
+      "worker_id": "f47.wren.strategy_researcher.06",
+      "track": "memory_journaling"
+    },
+    {
+      "worker_id": "f47.wren.librarian.01",
+      "track": "rule_extraction"
+    },
+    {
+      "worker_id": "f47.wren.librarian.02",
+      "track": "opening_watch"
+    },
+    {
+      "worker_id": "f47.wren.librarian.03",
+      "track": "binance_market_pulse"
+    },
+    {
+      "worker_id": "f47.wren.librarian.04",
+      "track": "floor_population_audit"
+    },
+    {
+      "worker_id": "f47.wren.librarian.05",
+      "track": "lift_packet_courier"
+    },
+    {
+      "worker_id": "f47.wren.librarian.06",
+      "track": "aphorism_steward"
+    },
+    {
+      "worker_id": "f47.wren.curriculum_tutor.01",
+      "track": "memory_journaling"
+    },
+    {
+      "worker_id": "f47.wren.curriculum_tutor.02",
+      "track": "rule_extraction"
+    },
+    {
+      "worker_id": "f47.wren.curriculum_tutor.03",
+      "track": "opening_watch"
+    },
+    {
+      "worker_id": "f47.wren.curriculum_tutor.04",
+      "track": "binance_market_pulse"
+    },
+    {
+      "worker_id": "f47.wren.curriculum_tutor.05",
+      "track": "floor_population_audit"
+    },
+    {
+      "worker_id": "f47.wren.floor_diplomat.01",
+      "track": "lift_packet_courier"
+    },
+    {
+      "worker_id": "f47.wren.floor_diplomat.02",
+      "track": "aphorism_steward"
+    },
+    {
+      "worker_id": "f47.wren.floor_diplomat.03",
+      "track": "memory_journaling"
+    },
+    {
+      "worker_id": "f47.wren.floor_diplomat.04",
+      "track": "rule_extraction"
+    },
+    {
+      "worker_id": "f47.wren.floor_diplomat.05",
+      "track": "opening_watch"
+    },
+    {
+      "worker_id": "f47.wren.helix_watcher.01",
+      "track": "binance_market_pulse"
+    },
+    {
+      "worker_id": "f47.wren.helix_watcher.02",
+      "track": "floor_population_audit"
+    },
+    {
+      "worker_id": "f47.wren.helix_watcher.03",
+      "track": "lift_packet_courier"
+    },
+    {
+      "worker_id": "f47.wren.helix_watcher.04",
+      "track": "aphorism_steward"
+    },
+    {
+      "worker_id": "f47.wren.wren_steward.01",
+      "track": "memory_journaling"
+    },
+    {
+      "worker_id": "f47.wren.wren_steward.02",
+      "track": "rule_extraction"
+    }
+  ],
+  "total_workers_assigned": 250,
+  "advisory_only": true
+}

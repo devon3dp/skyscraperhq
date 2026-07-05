@@ -1,0 +1,113 @@
+{
+  "schema_version": "eqsb_major_v1.0",
+  "kind": "eqsb_cadence_state",
+  "generated_ts": "2026-06-30T13:46:34.781536+00:00",
+  "cadence_id": "cadence_default",
+  "cadence_mode": "kernel_state_maintenance_and_introspection",
+  "is_autonomous_execution": false,
+  "last_tick_ts": "2026-06-30T13:46:34.781542+00:00",
+  "tick_count": 73,
+  "tick_interval_hint_seconds": 60,
+  "loop": [
+    {
+      "step": 1,
+      "name": "read_state",
+      "purpose": "snapshot registries"
+    },
+    {
+      "step": 2,
+      "name": "validate_axioms",
+      "purpose": "compliance check"
+    },
+    {
+      "step": 3,
+      "name": "update_memory",
+      "purpose": "short/long window refresh"
+    },
+    {
+      "step": 4,
+      "name": "update_beliefs",
+      "purpose": "lifecycle progression"
+    },
+    {
+      "step": 5,
+      "name": "compute_entropy",
+      "purpose": "uncertainty scoring"
+    },
+    {
+      "step": 6,
+      "name": "detect_contradictions",
+      "purpose": "surface conflicts"
+    },
+    {
+      "step": 7,
+      "name": "generate_hypotheses",
+      "purpose": "competing explanations"
+    },
+    {
+      "step": 8,
+      "name": "compute_quantum_signal",
+      "purpose": "advisory uncertainty signal"
+    },
+    {
+      "step": 9,
+      "name": "select_hypothesis",
+      "purpose": "advisory collapse"
+    },
+    {
+      "step": 10,
+      "name": "update_introspection",
+      "purpose": "rebuild operator view"
+    },
+    {
+      "step": 11,
+      "name": "write_replay_event",
+      "purpose": "append to ledger"
+    }
+  ],
+  "checks": {
+    "state_read_ok": true,
+    "axioms_checked": true,
+    "beliefs_updated": true,
+    "entropy_updated": true,
+    "contradictions_checked": true,
+    "hypotheses_generated": true,
+    "quantum_signal_updated": true,
+    "introspection_updated": true,
+    "replay_logged": true,
+    "model_lanes_governed": true,
+    "guardian_envelope": true,
+    "memory_policy_present": true,
+    "symbol_registry": true,
+    "symbolic_graph_built": true
+  },
+  "loop_completeness_pct": 100.0,
+  "next_tick_recommendation": "Cadence complete \u2014 replay ledger ready for review.",
+  "previous_tick_ts": "2026-06-17T17:18:00.669236+00:00",
+  "active_local_only": true,
+  "advisory_only": true,
+  "execution_allowed": false,
+  "paper_only": true,
+  "not_financial_advice": true,
+  "worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "external_provider_execution_enabled": false,
+  "openclaw_execution_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "live_dispatch_enabled": false,
+  "direct_provider_access": false,
+  "live_trading_enabled": false,
+  "order_execution_enabled": false,
+  "practice_order_execution_enabled": false,
+  "stock_order_execution_enabled": false,
+  "stock_live_trading_enabled": false,
+  "stock_paper_order_execution_enabled": false,
+  "binance_order_execution_enabled": false,
+  "binance_live_trading_enabled": false,
+  "model_inference_enabled": false,
+  "autonomous_workers_enabled": false,
+  "maintenance_auto_repair_enabled": false,
+  "web_access_autonomous_enabled": false,
+  "cadence_hash": "8329ab6c8a3a351b"
+}

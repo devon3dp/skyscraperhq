@@ -1,0 +1,34 @@
+{
+  "room_id": "risk_assessment_seminar_room",
+  "name": "Risk Assessment Seminar Room",
+  "category": "workshop",
+  "purpose": "A room for conducting seminars and meetings on risk assessment.",
+  "concierge_blurb": "A large table with seating around it, ready for discussions.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": 4.5,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 2.3
+  },
+  "render": {
+    "primary_prop": "chair_set",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Risk Seminars",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": null,
+    "refresh_seconds": 600
+  },
+  "floor": "floor_12"
+}

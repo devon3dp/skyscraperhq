@@ -1,0 +1,22 @@
+{
+  "id": "b1",
+  "level": "B1",
+  "name": "Core Services",
+  "role": "SQLite databases, event logs, diagnostics, configuration, registries, and lift control foundations.",
+  "status": "online",
+  "kernel_required": false,
+  "kernel_installed": false,
+  "models_required": false,
+  "execution_enabled": false,
+  "worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "providers_are_external": true,
+  "lift_access": [
+    "service_lift",
+    "memory_lift",
+    "security_lift",
+    "emergency_stairwell"
+  ],
+  "created_or_verified": "2026-06-07T18:02:02.927740+00:00",
+  "notice": "Infrastructure service layer only. No kernel, workers, or provider execution enabled."
+}

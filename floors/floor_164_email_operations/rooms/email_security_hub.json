@@ -1,0 +1,34 @@
+{
+  "room_id": "email_security_hub",
+  "name": "Security Hub",
+  "category": "security",
+  "purpose": "Monitoring and securing the email operations.",
+  "concierge_blurb": "The Security Hub ensures that all communications are safe and compliant.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -6.0,
+    "offset_z": 2.0,
+    "footprint_m": [
+      8,
+      6
+    ],
+    "height_m": 1.5
+  },
+  "render": {
+    "primary_prop": "wall_panel",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Security Hub",
+    "glow": true
+  },
+  "interactive": {
+    "type": "tail",
+    "source_path": "data/registries/security_logs.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_164"
+}

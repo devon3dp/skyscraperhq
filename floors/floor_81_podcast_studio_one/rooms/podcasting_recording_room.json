@@ -1,0 +1,34 @@
+{
+  "room_id": "podcasting_recording_room",
+  "name": "Podcast Recording Booth",
+  "category": "workshop",
+  "purpose": "Records high-quality audio for podcast episodes.",
+  "concierge_blurb": "Witness the magic of recording that goes into every episode.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": -8.0,
+    "footprint_m": [
+      12,
+      8
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Recording Booth",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 0
+  },
+  "floor": "floor_81"
+}

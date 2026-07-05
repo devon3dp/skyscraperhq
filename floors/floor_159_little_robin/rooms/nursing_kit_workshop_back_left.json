@@ -1,0 +1,34 @@
+{
+  "room_id": "nursing_kit_workshop_back_left",
+  "name": "Nursing Kit Workshop",
+  "category": "workshop",
+  "purpose": "Assembly and packaging of nursing kits.",
+  "concierge_blurb": "See how our nursing kits are crafted here!",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -8.0,
+    "offset_z": -7.5,
+    "footprint_m": [
+      6.0,
+      4.0
+    ],
+    "height_m": 1.2
+  },
+  "render": {
+    "primary_prop": "bench",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Nursing Kits",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 0
+  },
+  "floor": "floor_159"
+}

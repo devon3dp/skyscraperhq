@@ -1,0 +1,44 @@
+{
+  "room_id": "applier_room",
+  "name": "Applier Room",
+  "category": "operations",
+  "floor": "floor_47",
+  "purpose": "this room is for the heartbeat to apply fully-signed green proposals to the working tree.",
+  "concierge_blurb": "Once a proposal is green and signed, the Applier Room writes it into the building. Every applied patch leaves a permanent record.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [
+    "tools/qsb_proposal_applier.py",
+    "data/registries/qsb_code_apply_audit.jsonl"
+  ],
+  "live_signals": {
+    "last_applied_proposal_id": "audit-2026-06-14T16:43:40.537179Z-shop_catalog_gaps-653029",
+    "last_apply_ts": "2026-06-14T16:43:40.617362Z",
+    "last_applier": "qsb_proposal_applier",
+    "audit_source": "data/registries/qsb_code_apply_audit.jsonl"
+  },
+  "built_at": "2026-06-14T17:10:00Z",
+  "built_by": "f47_floor_buildout_batch_1",
+  "layout": {
+    "zone": "back_right",
+    "offset_x": 5.5,
+    "offset_z": -5.0,
+    "footprint_m": [
+      1.6,
+      0.8
+    ],
+    "height_m": 0.85
+  },
+  "render": {
+    "primary_prop": "desk",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "APPLIER",
+    "glow": false
+  },
+  "interactive": {
+    "type": "tail",
+    "source_path": "data/registries/qsb_code_apply_audit.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 60
+  }
+}

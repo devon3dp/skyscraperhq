@@ -1,0 +1,31 @@
+{
+  "room_id": "penthouse_reception",
+  "name": "Reception",
+  "category": "reception",
+  "purpose": "The welcoming area for visitors and guests.",
+  "concierge_blurb": "A grand entrance with a warm welcome awaits your arrival.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.0,
+    "offset_z": -3.0,
+    "footprint_m": [
+      6,
+      4
+    ],
+    "height_m": 1.8
+  },
+  "render": {
+    "primary_prop": "reception",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Reception",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_168"
+}

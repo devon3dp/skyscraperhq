@@ -1,0 +1,93 @@
+{
+  "ok": true,
+  "kind": "qsb_missing_floor_resolution",
+  "generated_ts": "2026-06-30T13:46:34.754972+00:00",
+  "floors": {
+    "30": {
+      "label": "Disciplinary Review Board (sub-dept)",
+      "floor_dir_present": true,
+      "floor_manifest_present": true
+    },
+    "31": {
+      "label": "Audit / Ledger",
+      "floor_dir_present": true,
+      "floor_manifest_present": true
+    },
+    "35": {
+      "label": "Hardware Systems (sub-dept on Infrastructure Services)",
+      "floor_dir_present": true,
+      "floor_manifest_present": true
+    },
+    "36": {
+      "label": "Training Academy (sub-dept on Expansion Planning)",
+      "floor_dir_present": true,
+      "floor_manifest_present": true
+    },
+    "37": {
+      "label": "Simulation Labs",
+      "floor_dir_present": true,
+      "floor_manifest_present": true
+    },
+    "38": {
+      "label": "Sandbox + Lessons Room (sub-dept)",
+      "floor_dir_present": true,
+      "floor_manifest_present": true
+    },
+    "41": {
+      "label": "OANDA Practice Trading",
+      "floor_dir_present": true,
+      "floor_manifest_present": false
+    },
+    "42": {
+      "label": "Binance Trading",
+      "floor_dir_present": true,
+      "floor_manifest_present": true
+    },
+    "43": {
+      "label": "Stock Exchange",
+      "floor_dir_present": true,
+      "floor_manifest_present": false
+    },
+    "44": {
+      "label": "Accounts / PnL + Rewards + Promotion (sub-depts)",
+      "floor_dir_present": true,
+      "floor_manifest_present": true
+    },
+    "45": {
+      "label": "Recruitment Agency",
+      "floor_dir_present": true,
+      "floor_manifest_present": true
+    },
+    "47": {
+      "label": "Worker Operations Control (sub-dept on Executive Operations)",
+      "floor_dir_present": true,
+      "floor_manifest_present": true
+    },
+    "49": {
+      "label": "Rest / Dormitory (sub-dept on Resource Management)",
+      "floor_dir_present": true,
+      "floor_manifest_present": false
+    },
+    "52": {
+      "label": "Floor Operations (sub-dept on Infrastructure Command)",
+      "floor_dir_present": true,
+      "floor_manifest_present": true
+    },
+    "53": {
+      "label": "Tower Command",
+      "floor_dir_present": true,
+      "floor_manifest_present": true
+    }
+  },
+  "missing_floor_dirs": [],
+  "missing_floor_manifests": [
+    41,
+    43,
+    49
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

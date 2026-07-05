@@ -1,0 +1,136 @@
+{
+  "ok": true,
+  "kind": "qsb_lift_movements_latest",
+  "phase": "EQSB_SYSTEM_OBSERVATORY_HARDWARE_FLOOR_LIVE_TELEMETRY_REPAIR_V1",
+  "generated_ts": "2026-06-30T13:46:34.506602+00:00",
+  "movement_count": 12,
+  "movements": [
+    {
+      "lift_id": "main_low_rise",
+      "source_floor": 25,
+      "target_floor": 41,
+      "passenger_worker_id": "market_scout",
+      "packet_id": "pkt_92063b0bdc8a",
+      "reason": "lift_packet_routed",
+      "timestamp": "2026-06-30T13:46:29.639883+00:00",
+      "status": "delivered"
+    },
+    {
+      "lift_id": "main_low_rise",
+      "source_floor": 41,
+      "target_floor": 37,
+      "passenger_worker_id": "spread_watcher",
+      "packet_id": "pkt_3ba68ea8cb42",
+      "reason": "lift_packet_routed",
+      "timestamp": "2026-06-30T13:46:29.639966+00:00",
+      "status": "delivered"
+    },
+    {
+      "lift_id": "main_low_rise",
+      "source_floor": 37,
+      "target_floor": 38,
+      "passenger_worker_id": "risk_sentinel",
+      "packet_id": "pkt_bcc1d2200aaf",
+      "reason": "lift_packet_routed",
+      "timestamp": "2026-06-30T13:46:29.640015+00:00",
+      "status": "delivered"
+    },
+    {
+      "lift_id": "main_low_rise",
+      "source_floor": 38,
+      "target_floor": 41,
+      "passenger_worker_id": "paper_strategy_analyst",
+      "packet_id": "pkt_2587bd69dc3e",
+      "reason": "lift_packet_routed",
+      "timestamp": "2026-06-30T13:46:29.640059+00:00",
+      "status": "delivered"
+    },
+    {
+      "lift_id": "main_low_rise",
+      "source_floor": 25,
+      "target_floor": 41,
+      "passenger_worker_id": "kernel_commentary_runner",
+      "packet_id": "pkt_bd145201a913",
+      "reason": "lift_packet_routed",
+      "timestamp": "2026-06-30T13:46:29.640105+00:00",
+      "status": "delivered"
+    },
+    {
+      "lift_id": "main_low_rise",
+      "source_floor": 41,
+      "target_floor": 37,
+      "passenger_worker_id": "ledger_clerk",
+      "packet_id": "pkt_08a19c6ef8fb",
+      "reason": "lift_packet_routed",
+      "timestamp": "2026-06-30T13:46:29.640142+00:00",
+      "status": "delivered"
+    },
+    {
+      "lift_id": "main_low_rise",
+      "source_floor": 37,
+      "target_floor": 38,
+      "passenger_worker_id": "equity_market_scout",
+      "packet_id": "pkt_753f75ac808e",
+      "reason": "lift_packet_routed",
+      "timestamp": "2026-06-30T13:46:29.640177+00:00",
+      "status": "delivered"
+    },
+    {
+      "lift_id": "main_low_rise",
+      "source_floor": 38,
+      "target_floor": 41,
+      "passenger_worker_id": "stock_spread_watcher",
+      "packet_id": "pkt_dd660388db54",
+      "reason": "lift_packet_routed",
+      "timestamp": "2026-06-30T13:46:29.640211+00:00",
+      "status": "delivered"
+    },
+    {
+      "lift_id": "main_low_rise",
+      "source_floor": 25,
+      "target_floor": 41,
+      "passenger_worker_id": "equity_momentum_analyst",
+      "packet_id": "pkt_665a7cf74db3",
+      "reason": "lift_packet_routed",
+      "timestamp": "2026-06-30T13:46:29.640244+00:00",
+      "status": "delivered"
+    },
+    {
+      "lift_id": "main_low_rise",
+      "source_floor": 41,
+      "target_floor": 37,
+      "passenger_worker_id": "cross_market_correlation_clerk",
+      "packet_id": "pkt_e1ed589ad5e4",
+      "reason": "lift_packet_routed",
+      "timestamp": "2026-06-30T13:46:29.640277+00:00",
+      "status": "delivered"
+    },
+    {
+      "lift_id": "main_low_rise",
+      "source_floor": 37,
+      "target_floor": 38,
+      "passenger_worker_id": "risk_on_off_observer",
+      "packet_id": "pkt_99ef9245a08b",
+      "reason": "lift_packet_routed",
+      "timestamp": "2026-06-30T13:46:29.640313+00:00",
+      "status": "delivered"
+    },
+    {
+      "lift_id": "main_low_rise",
+      "source_floor": 38,
+      "target_floor": 41,
+      "passenger_worker_id": "stock_ledger_clerk",
+      "packet_id": "pkt_ab625a64c097",
+      "reason": "lift_packet_routed",
+      "timestamp": "2026-06-30T13:46:29.640348+00:00",
+      "status": "delivered"
+    }
+  ],
+  "source": "worker_sandbox_lift_packets_latest.json",
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

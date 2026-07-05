@@ -1,0 +1,53 @@
+{
+  "ok": true,
+  "kind": "floor_manifest",
+  "phase": "EQSB_SYSTEM_OBSERVATORY_HARDWARE_FLOOR_LIVE_TELEMETRY_REPAIR_V1",
+  "generated_ts": "2026-06-30T13:46:32.847307+00:00",
+  "floor_id": "floor_44",
+  "department": "Accounts / PnL Department",
+  "version": "1.0",
+  "role": "tower_pnl_and_accounting_layer",
+  "kernel_required": false,
+  "models_required": false,
+  "execution_enabled": false,
+  "hardwired_providers": false,
+  "purpose": "Real-data accounting for paper-trade PnL, reward-point ledger, loss reviews, and resource accounting. Live trading remains disabled.",
+  "workers": [
+    {
+      "worker_id": "wrk_pnl_accountant",
+      "display_name": "PnL Accountant",
+      "role_description": "Aggregates realized + unrealized PnL across paper floors.",
+      "home_floor": "floor_44_accounts_department"
+    },
+    {
+      "worker_id": "wrk_resource_accountant",
+      "display_name": "Resource Accountant",
+      "role_description": "Tracks data/logs and data/backups size growth.",
+      "home_floor": "floor_44_accounts_department"
+    },
+    {
+      "worker_id": "wrk_trade_ledger_clerk",
+      "display_name": "Trade Ledger Clerk",
+      "role_description": "Keeps the paper-trade SQLite ledger consistent.",
+      "home_floor": "floor_44_accounts_department"
+    },
+    {
+      "worker_id": "wrk_reward_accountant",
+      "display_name": "Reward Accountant",
+      "role_description": "Posts reward-point ledger entries from workforce scorecards.",
+      "home_floor": "floor_44_accounts_department"
+    },
+    {
+      "worker_id": "wrk_loss_review_clerk",
+      "display_name": "Loss Review Clerk",
+      "role_description": "Routes losing paper trades into lesson_review queue.",
+      "home_floor": "floor_44_accounts_department"
+    }
+  ],
+  "notice": "Replaces the floor_44_future_systems_vacant placeholder. Accounts/PnL feeds Profit Command via qsb_accounts_floor_state.json.",
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false
+}

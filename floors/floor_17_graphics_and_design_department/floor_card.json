@@ -1,0 +1,70 @@
+{
+  "floor_id": "floor_17",
+  "floor_number": 17,
+  "floor_name": "Product Design Studio + Prompt-to-Product",
+  "department": "Product Design Studio + Prompt-to-Product",
+  "zone": "ZONE B",
+  "archetype": "commerce_wing_floor",
+  "staff_lead": "F17 crew",
+  "tour_blurb": "Product Design Studio + Prompt-to-Product \u2014 part of the QSB Tower commerce wing. Advisory only; no live orders or live payments flow through this floor without an explicit operator-confirmed unlock.",
+  "visitor_open": true,
+  "advisory_only": true,
+  "execution_mode": "PREVIEW_ONLY",
+  "live_payments_in_play": false,
+  "live_listings_publishing_enabled": false,
+  "live_signals": {
+    "mode": "PREVIEW_ONLY",
+    "advisory_only": true
+  },
+  "gate_posture": {
+    "live_payments_enabled": false,
+    "live_listings_publishing_enabled": false,
+    "execution_allowed": false,
+    "advisory_only": true
+  },
+  "team_roster": [
+    {
+      "id": "f017.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "spawned_id": "c3c8dd34cd",
+      "spawned_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F017",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f017.operator.01",
+      "spawned_id": "2acadb7685"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F017",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f017.operator.02",
+      "spawned_id": "2438c10840"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F017",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f017.operator.03",
+      "spawned_id": "66279e50d8"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F017",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f017.operator.04",
+      "spawned_id": "09407f2d83"
+    }
+  ],
+  "floor_manager": "f017.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

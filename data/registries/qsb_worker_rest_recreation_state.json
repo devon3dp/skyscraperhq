@@ -1,0 +1,41 @@
+{
+  "ok": true,
+  "kind": "qsb_worker_rest_recreation_state",
+  "phase": "QSB_FULL_SKYSCRAPER_OCCUPANCY_COMMERCE_WORKFORCE_EXPANSION_V1",
+  "generated_ts": "2026-06-30T13:46:36.978028+00:00",
+  "rest_floors": [
+    40
+  ],
+  "recreation_floors": [
+    39
+  ],
+  "sleep_pods_count": 80,
+  "standby_lounge_count": 30,
+  "quiet_recovery_count": 20,
+  "break_room_count": 30,
+  "workers_currently_resting": 24,
+  "rotation_policy": "8h shifts with hot-desking; idle workers cycle to standby",
+  "rooms": [
+    "Sleep Pods",
+    "Standby Lounge",
+    "Quiet Recovery Room",
+    "Break Room",
+    "Game Room",
+    "Morale Board",
+    "Wellness Monitor",
+    "Shift Change Desk",
+    "Coffee Bar"
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "worker_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "live_payments_enabled": false,
+  "live_listings_publishing_enabled": false,
+  "external_api_calls_enabled": false,
+  "secrets_in_logs": false,
+  "manual_approval_required_for_commerce": true
+}

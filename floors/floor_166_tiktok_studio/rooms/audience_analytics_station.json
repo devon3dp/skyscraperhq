@@ -1,0 +1,31 @@
+{
+  "room_id": "audience_analytics_station",
+  "name": "Audience Analytics Station",
+  "category": "admin",
+  "purpose": "Monitors and analyzes audience engagement metrics.",
+  "concierge_blurb": "This station tracks follower growth and engagement.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": -6.0,
+    "footprint_m": [
+      4,
+      3
+    ],
+    "height_m": 1.2
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "ANALYTICS",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_166"
+}

@@ -1,0 +1,129 @@
+{
+  "floor_id": "floor_50",
+  "floor_number": 50,
+  "floor_name": "ML / RL Classroom",
+  "department": "F50 ML / RL Classroom",
+  "zone": "ZONE D",
+  "archetype": "classroom",
+  "staff_lead": "ml_rl_teacher",
+  "tour_blurb": "The fiftieth is the Classroom \u2014 where workers learn before they earn certifications. Lessons, drills, and graded exercises run all day; nothing leaves this floor until the instructors are satisfied. It's the gate between curiosity and competence, and the Tower is stricter about it than you might expect.",
+  "visitor_open": true,
+  "advisory_only": true,
+  "endpoints": [],
+  "live_signals": {
+    "classroom_map": {
+      "primary_floor": 8,
+      "primary_floor_name": "Training Academy",
+      "classrooms_named": [
+        "ML/RL Classroom",
+        "Deep Learning Classroom",
+        "Reinforcement Learning Classroom",
+        "DQN / QDNN Classroom",
+        "Torch Practical Lab",
+        "Strategy Simulation Classroom"
+      ],
+      "source": "data/registries/qsb_ml_rl_classroom_map.json"
+    },
+    "curriculum_topics_sample": [
+      "Torch basics",
+      "Tensors",
+      "Neural network forward pass",
+      "Backward pass + autograd",
+      "Optimizer step",
+      "DQN concept"
+    ],
+    "training_artifacts": {
+      "cohort_training_runs_count": 76,
+      "cohort_training_runs_path": "data/registries/qsb_cohort_training_runs.jsonl",
+      "experiment_registry_path": "data/registries/qsb_ml_rl_experiment_registry.json",
+      "simulation_registry_path": "data/registries/qsb_ml_rl_simulation_registry.json",
+      "training_assignments_path": "data/registries/qsb_ml_rl_training_assignments.json",
+      "worker_curriculum_progress_path": "data/registries/qsb_worker_ml_rl_curriculum_progress.json"
+    },
+    "certification_artifacts": {
+      "certified_worker_count": 766,
+      "in_progress_count": 0,
+      "specialist_certs_attempted": 2844,
+      "specialist_passes_by_tier": {
+        "Rookie": 1098,
+        "Bronze": 110,
+        "Silver": 1,
+        "Gold": 0,
+        "Master": 0
+      },
+      "worker_certification_status_path": "data/registries/qsb_worker_certification_status.json",
+      "specialist_certs_path": "data/registries/qsb_specialist_certs.json"
+    },
+    "lab_status_artifacts": [
+      "data/registries/qsb_ml_rl_lab_status.json",
+      "data/registries/qsb_ml_rl_lab_verified_for_integration.json",
+      "data/registries/qsb_ml_rl_torch_status.json",
+      "data/registries/qsb_ml_rl_package_install_status.json",
+      "data/registries/qsb_kernel_ml_rl_learning_evidence.json"
+    ],
+    "gate_posture": {
+      "execution_allowed": false,
+      "active_local_only": true,
+      "advisory_only": true,
+      "worker_execution_enabled": false,
+      "autonomous_dispatch_enabled": false,
+      "real_money_live_trading_enabled": false
+    }
+  },
+  "evidence_paths": [
+    "data/registries/qsb_open_day_tour.json",
+    "data/registries/qsb_ml_rl_classroom_map.json",
+    "data/registries/qsb_classroom_map.json",
+    "data/registries/qsb_ml_rl_curriculum.json",
+    "data/registries/qsb_cohort_training_runs.jsonl",
+    "data/registries/qsb_worker_certification_status.json",
+    "data/registries/qsb_specialist_certs.json",
+    "data/registries/qsb_ml_rl_experiment_registry.json",
+    "data/registries/qsb_ml_rl_simulation_registry.json",
+    "data/registries/qsb_ml_rl_training_assignments.json",
+    "data/registries/qsb_worker_ml_rl_curriculum_progress.json",
+    "data/registries/qsb_ml_rl_lab_status.json",
+    "data/registries/qsb_kernel_ml_rl_learning_evidence.json"
+  ],
+  "directory_note": "The disk directory is floor_50_building_governance_department from an earlier governance-spine pass, but the tour, registries, and worker pipeline all bind floor_50 to the ML / RL Classroom. Floor card follows the tour-of-record. A future rename / reconciliation is recommended but out of scope for the card build.",
+  "built_at": "2026-06-14T18:05:00Z",
+  "built_by": "skyscraper_floor_card_push",
+  "lessons_learned_for_next_agent": "F50's on-disk dir name (floor_50_building_governance_department) disagrees with the tour-of-record (qsb_open_day_tour.json#floor_50 = 'ML / RL Classroom'). When binding the card, trust the tour + registries that workers actually depend on (ml_rl_classroom_map, curriculum, cohort_training_runs, worker_certification_status), and flag the dir-name drift in directory_note rather than silently picking the manifest. No /api/f50/* endpoints exist yet \u2014 training/certification is surfaced only through registry artifacts, so the card's live_signals must point at JSON paths, not HTTP probes. Keep advisory_only=true: training writes registries, it does not flip any execution gate.",
+  "team_roster": [
+    {
+      "id": "f050.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "spawned_id": "33c64f76f1",
+      "spawned_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F050",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f050.operator.01",
+      "spawned_id": "a9751bbf33"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F050",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f050.operator.02",
+      "spawned_id": "6b5714f2e2"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F050",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f050.operator.03",
+      "spawned_id": "3bc24fa4d4"
+    }
+  ],
+  "floor_manager": "f050.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

@@ -1,0 +1,31 @@
+{
+  "room_id": "media_library",
+  "name": "Media Library",
+  "category": "library",
+  "purpose": "Keeps a collection of media assets for reference.",
+  "concierge_blurb": "Store and organize all the media here.",
+  "current_state": "already_exists",
+  "visitor_open": false,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -8.0,
+    "offset_z": 12.0,
+    "footprint_m": [
+      9,
+      6
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "archive_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Media Lib",
+    "glow": true
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_90"
+}

@@ -1,0 +1,31 @@
+{
+  "room_id": "storage_cubicle",
+  "name": "Storage Cubicle",
+  "category": "operations",
+  "purpose": "Holds temporarily stored goods.",
+  "concierge_blurb": "See where items are held before final processing.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -6.5,
+    "offset_z": 4.2,
+    "footprint_m": [
+      3,
+      5
+    ],
+    "height_m": 1.8
+  },
+  "render": {
+    "primary_prop": "warehouse_rack",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Storage Cubicle",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_111"
+}

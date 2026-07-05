@@ -1,0 +1,34 @@
+{
+  "room_id": "team_cafe",
+  "name": "Team Cafe",
+  "category": "seating",
+  "purpose": "This room is a break area where team members can relax and socialize.",
+  "concierge_blurb": "A cozy seating area with coffee machines and snacks.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -3.0,
+    "offset_z": -6.0,
+    "footprint_m": [
+      8,
+      7
+    ],
+    "height_m": 1.5
+  },
+  "render": {
+    "primary_prop": "chair_set",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Team Cafe",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_95"
+}

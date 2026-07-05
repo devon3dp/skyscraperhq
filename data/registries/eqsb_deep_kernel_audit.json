@@ -1,0 +1,41 @@
+{
+  "schema_version": "eqsb_v1.0",
+  "generated_ts": "2026-06-09T08:56:44.942891+00:00",
+  "kind": "eqsb_deep_kernel_audit",
+  "audit_answers": {
+    "1_symbolic_logic_present": true,
+    "2_belief_database_present": true,
+    "3_memory_continuity_present": true,
+    "4_kernel_introspection_present": true,
+    "5_local_model_paraphrase_only_for": [
+      "natural-language wrapper after kernel introspection block"
+    ],
+    "6_entropy_logic_present": false,
+    "7_quantum_logic_present": false,
+    "8_floor_worker_symbolic_graph": "Floors and workers existed in registries but had no symbolic graph form.",
+    "9_safety_policy_present": true,
+    "10_missing_for_true_eqsb": []
+  },
+  "lock_count_true": 0,
+  "active_local_only": true,
+  "advisory_only": true,
+  "execution_allowed": false,
+  "paper_only": true,
+  "not_financial_advice": true,
+  "worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "external_provider_execution_enabled": false,
+  "openclaw_execution_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "live_dispatch_enabled": false,
+  "direct_provider_access": false,
+  "live_trading_enabled": false,
+  "order_execution_enabled": false,
+  "practice_order_execution_enabled": false,
+  "stock_order_execution_enabled": false,
+  "stock_live_trading_enabled": false,
+  "stock_paper_order_execution_enabled": false,
+  "binance_order_execution_enabled": false,
+  "binance_live_trading_enabled": false
+}

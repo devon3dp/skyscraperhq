@@ -1,0 +1,154 @@
+{
+  "ok": true,
+  "kind": "qsb_department_interiors_state",
+  "generated_ts": "2026-06-30T13:46:34.746228+00:00",
+  "departments_with_interior_layer": 9,
+  "departments": [
+    {
+      "department": "Recruitment Agency",
+      "floor_number": 45,
+      "rooms_built": [
+        "Candidate Intake",
+        "Screening Desk",
+        "Hiring Desk",
+        "Assignment Board",
+        "New Worker Orientation"
+      ],
+      "worker_count": 80,
+      "default_class": "candidate_worker",
+      "default_state": "awaiting_assignment",
+      "manifest_path": "floors/floor_45_worker_recruitment_agency/recruitment_agency_manifest.json",
+      "interior_renderer_hint": "qsb_rebuild_workers.js paints each worker at qsb_worker_room_assignments[floor][room][station]"
+    },
+    {
+      "department": "Training Academy",
+      "floor_number": 36,
+      "rooms_built": [
+        "Training Pods",
+        "Simulation Room",
+        "Strategy Classroom",
+        "Safety Rules Classroom",
+        "Graduation Desk"
+      ],
+      "worker_count": 150,
+      "default_class": "training_worker",
+      "default_state": "training",
+      "manifest_path": "floors/floor_36_expansion_planning_department/training_academy_manifest.json",
+      "interior_renderer_hint": "qsb_rebuild_workers.js paints each worker at qsb_worker_room_assignments[floor][room][station]"
+    },
+    {
+      "department": "Lessons Room",
+      "floor_number": 38,
+      "rooms_built": [
+        "Mistake Review Desk",
+        "Lesson Library",
+        "Repeated Error Board",
+        "Redemption Desk",
+        "Cleared Worker Board"
+      ],
+      "worker_count": 50,
+      "default_class": "lesson_worker",
+      "default_state": "reviewing_lesson",
+      "manifest_path": "floors/floor_38_sandbox_operations/lessons_room_manifest.json",
+      "interior_renderer_hint": "qsb_rebuild_workers.js paints each worker at qsb_worker_room_assignments[floor][room][station]"
+    },
+    {
+      "department": "Worker Operations Control",
+      "floor_number": 47,
+      "rooms_built": [
+        "Task Dispatch Board",
+        "Movement Control",
+        "Floor Assignment Desk",
+        "Idle Worker Roster",
+        "Active Worker Roster"
+      ],
+      "worker_count": 90,
+      "default_class": "operational_worker",
+      "default_state": "idle_at_station",
+      "manifest_path": "floors/floor_47_executive_operations_department/worker_operations_control_manifest.json",
+      "interior_renderer_hint": "qsb_rebuild_workers.js paints each worker at qsb_worker_room_assignments[floor][room][station]"
+    },
+    {
+      "department": "Rewards Office",
+      "floor_number": 44,
+      "rooms_built": [
+        "Worker of the Day",
+        "Worker of the Week",
+        "Worker of the Month",
+        "Medal Cabinet",
+        "Reward Point Ledger"
+      ],
+      "worker_count": 60,
+      "default_class": "operational_worker",
+      "default_state": "idle_at_station",
+      "manifest_path": "floors/floor_44_accounts_department/rewards_office_manifest.json",
+      "interior_renderer_hint": "qsb_rebuild_workers.js paints each worker at qsb_worker_room_assignments[floor][room][station]"
+    },
+    {
+      "department": "Promotion Board",
+      "floor_number": 44,
+      "rooms_built": [
+        "Promotion Review Table",
+        "Eligible Workers Board",
+        "Pending Colonel Approval",
+        "Rank Ladder"
+      ],
+      "worker_count": 40,
+      "default_class": "operational_worker",
+      "default_state": "idle_at_station",
+      "manifest_path": "floors/floor_44_accounts_department/promotion_board_manifest.json",
+      "interior_renderer_hint": "qsb_rebuild_workers.js paints each worker at qsb_worker_room_assignments[floor][room][station]"
+    },
+    {
+      "department": "Disciplinary Review Board",
+      "floor_number": 30,
+      "rooms_built": [
+        "Strike Desk",
+        "Guardian Block Review",
+        "Retraining Orders",
+        "Suspension Board",
+        "Redemption Path"
+      ],
+      "worker_count": 70,
+      "default_class": "operational_worker",
+      "default_state": "idle_at_station",
+      "manifest_path": "floors/floor_30_permissions_department/disciplinary_review_board_manifest.json",
+      "interior_renderer_hint": "qsb_rebuild_workers.js paints each worker at qsb_worker_room_assignments[floor][room][station]"
+    },
+    {
+      "department": "Rest / Dormitory Floor",
+      "floor_number": 49,
+      "rooms_built": [
+        "Rest Pods",
+        "Standby Lounge",
+        "Shift Change Desk",
+        "Offline Worker Bay"
+      ],
+      "worker_count": 280,
+      "default_class": "resting_worker",
+      "default_state": "resting",
+      "manifest_path": "floors/floor_49_resource_management_department/rest_dormitory_floor_manifest.json",
+      "interior_renderer_hint": "qsb_rebuild_workers.js paints each worker at qsb_worker_room_assignments[floor][room][station]"
+    },
+    {
+      "department": "Floor Operations Department",
+      "floor_number": 52,
+      "rooms_built": [
+        "Floor Directory",
+        "Department Registry",
+        "Floor Health Board",
+        "Missing Room Board"
+      ],
+      "worker_count": 180,
+      "default_class": "operational_worker",
+      "default_state": "idle_at_station",
+      "manifest_path": "floors/floor_52_infrastructure_command_department/floor_operations_department_manifest.json",
+      "interior_renderer_hint": "qsb_rebuild_workers.js paints each worker at qsb_worker_room_assignments[floor][room][station]"
+    }
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

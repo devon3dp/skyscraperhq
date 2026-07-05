@@ -1,0 +1,20 @@
+{
+  "ok": true,
+  "kind": "qsb_etsy_listing_drafts",
+  "generated_ts": "2026-06-30T13:46:36.980723+00:00",
+  "drafts": [],
+  "draft_count": 0,
+  "note": "drafts created by Etsy floor workers will be appended here; nothing publishes without explicit user unlock",
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "worker_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "live_payments_enabled": false,
+  "live_listings_publishing_enabled": false,
+  "external_api_calls_enabled": false,
+  "secrets_in_logs": false,
+  "manual_approval_required_for_commerce": true
+}

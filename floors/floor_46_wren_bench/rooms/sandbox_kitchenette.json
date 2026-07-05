@@ -1,0 +1,34 @@
+{
+  "room_id": "sandbox_kitchenette",
+  "name": "Sandbox Kitchenette",
+  "category": "kitchen",
+  "purpose": "This area provides a sandbox for testing and developing new tools.",
+  "concierge_blurb": "A small kitchenette with essential tools for development work.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 5.0,
+    "offset_z": -3.0,
+    "footprint_m": [
+      4,
+      2
+    ],
+    "height_m": 1.8
+  },
+  "render": {
+    "primary_prop": "kitchen_line",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Sandbox Kt",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/sandbox_usage.jsonl",
+    "display": "big_number",
+    "refresh_seconds": 60
+  },
+  "floor": "floor_46"
+}

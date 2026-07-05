@@ -1,0 +1,123 @@
+[
+  {
+    "floor_id": "floor_41",
+    "number": 41,
+    "name": "Future Systems / Vacant",
+    "zone": "ZONE C",
+    "status": "vacant_ready",
+    "activation_status": "ready_not_activated",
+    "utilities": [
+      "power",
+      "storage",
+      "network",
+      "registry",
+      "dashboard_visibility"
+    ],
+    "lift_access": [
+      "main_high_rise",
+      "service_lift",
+      "security_lift",
+      "emergency_stairwell"
+    ],
+    "activation_hook": "floors/floor_41_future_systems_vacant/activation_hook/activate_floor_41.json",
+    "suggested_future_use": "Advanced Systems Department"
+  },
+  {
+    "floor_id": "floor_42",
+    "number": 42,
+    "name": "Binance Trading Floor",
+    "zone": "ZONE C",
+    "status": "occupied",
+    "activation_status": "staged_paper_only",
+    "utilities": [
+      "power",
+      "storage",
+      "network",
+      "registry",
+      "dashboard_visibility"
+    ],
+    "lift_access": [
+      "main_high_rise",
+      "service_lift",
+      "security_lift",
+      "emergency_stairwell"
+    ],
+    "activation_hook": "floors/floor_42_binance_trading_floor/floor_manifest.json",
+    "phase": "BINANCE_FLOOR_42_TRADING_FLOOR_V1",
+    "binance_enabled": true,
+    "binance_order_execution_enabled": false,
+    "binance_live_trading_enabled": false,
+    "paper_trading_enabled": true,
+    "previous_suggested_future_use": "Advanced Automation Department"
+  },
+  {
+    "floor_id": "floor_43",
+    "number": 43,
+    "name": "Future Systems / Vacant",
+    "zone": "ZONE C",
+    "status": "vacant_ready",
+    "activation_status": "ready_not_activated",
+    "utilities": [
+      "power",
+      "storage",
+      "network",
+      "registry",
+      "dashboard_visibility"
+    ],
+    "lift_access": [
+      "main_high_rise",
+      "service_lift",
+      "security_lift",
+      "emergency_stairwell"
+    ],
+    "activation_hook": "floors/floor_43_future_systems_vacant/activation_hook/activate_floor_43.json",
+    "suggested_future_use": "Advanced Memory Department"
+  },
+  {
+    "floor_id": "floor_44",
+    "number": 44,
+    "name": "Future Systems / Vacant",
+    "zone": "ZONE C",
+    "status": "vacant_ready",
+    "activation_status": "ready_not_activated",
+    "utilities": [
+      "power",
+      "storage",
+      "network",
+      "registry",
+      "dashboard_visibility"
+    ],
+    "lift_access": [
+      "main_high_rise",
+      "service_lift",
+      "security_lift",
+      "emergency_stairwell"
+    ],
+    "activation_hook": "floors/floor_44_future_systems_vacant/activation_hook/activate_floor_44.json",
+    "suggested_future_use": "Advanced Simulation Department"
+  },
+  {
+    "floor_id": "floor_45",
+    "number": 45,
+    "name": "Future Systems / Vacant",
+    "zone": "ZONE C",
+    "status": "vacant_ready",
+    "activation_status": "ready_not_activated",
+    "utilities": [
+      "power",
+      "storage",
+      "network",
+      "registry",
+      "dashboard_visibility"
+    ],
+    "lift_access": [
+      "main_high_rise",
+      "executive_lift",
+      "service_lift",
+      "security_lift",
+      "emergency_stairwell"
+    ],
+    "activation_hook": "floors/floor_45_future_systems_vacant/activation_hook/activate_floor_45.json",
+    "suggested_future_use": "Executive Expansion Buffer"
+  }
+]

@@ -1,0 +1,21 @@
+{
+  "version": "1.1",
+  "floor": "floor_38",
+  "department": "Sandbox Operations",
+  "sandbox_only": true,
+  "dry_run_only": true,
+  "containment_mode": "sealed_metadata_envelopes_only",
+  "kernel_installed": false,
+  "kernel_logic_present": false,
+  "execution_enabled": false,
+  "worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "model_inference_enabled": false,
+  "autonomous_workers_enabled": false,
+  "live_dispatch_enabled": false,
+  "shell_execution_enabled": false,
+  "filesystem_write_enabled": false,
+  "network_enabled": false,
+  "real_process_spawn_enabled": false,
+  "notice": "Floor 38 contains simulated task envelopes only. It does not execute workers, providers, models, shell commands, or kernel logic."
+}

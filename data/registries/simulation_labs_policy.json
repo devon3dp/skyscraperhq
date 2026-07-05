@@ -1,0 +1,22 @@
+{
+  "version": "1.1",
+  "floor": "floor_37",
+  "department": "Simulation Labs",
+  "role": "Dry-run simulation of candidate workers, lift paths, sealed packets, routing decisions, and building readiness.",
+  "kernel_required": false,
+  "kernel_installed": false,
+  "kernel_logic_present": false,
+  "models_required": false,
+  "execution_enabled": false,
+  "worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "model_inference_enabled": false,
+  "autonomous_workers_enabled": false,
+  "live_dispatch_enabled": false,
+  "simulation_only": true,
+  "dry_run_only": true,
+  "writes_real_lift_packets": false,
+  "calls_external_providers": false,
+  "activates_candidates": false,
+  "principle": "Floor 37 simulates future movement without moving real workers or executing providers."
+}

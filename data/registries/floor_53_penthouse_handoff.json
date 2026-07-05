@@ -1,0 +1,31 @@
+{
+  "handoff_id": "floor_53_to_penthouse_handoff",
+  "source_floor": "floor_53",
+  "source_department": "Tower Command Department",
+  "target": "penthouse",
+  "status": "handoff_channel_ready",
+  "sealed_packets": true,
+  "allowed_lifts": [
+    "executive_lift",
+    "service_lift",
+    "security_lift",
+    "emergency_stairwell"
+  ],
+  "kernel_installed": true,
+  "execution_enabled": false,
+  "QSBKernelCore_instantiated": true,
+  "active_kernel_source": "rebased_kernel",
+  "activation_status": "active_local_only",
+  "worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "model_inference_enabled": false,
+  "live_dispatch_enabled": false,
+  "kernel_logic_present": true,
+  "autonomous_workers_enabled": false,
+  "direct_provider_access": false,
+  "critical_failures": 0,
+  "failures": 0,
+  "warnings": 0,
+  "updated_ts": "2026-06-07T21:38:48.824394+00:00",
+  "handoff_status": "active_local_only_kernel_handoff_ready"
+}

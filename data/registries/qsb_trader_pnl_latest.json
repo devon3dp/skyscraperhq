@@ -1,0 +1,528 @@
+{
+  "ts": "2026-06-21T16:16:11Z",
+  "kind": "trader_pnl_aggregate",
+  "by_floor": {
+    "F41": {
+      "floor": "F41",
+      "ok": true,
+      "closes_total": 975,
+      "grand_by_mode": {
+        "paper_simulator": {
+          "pnl": -225.176,
+          "trades": 975,
+          "wins": 0,
+          "losses": 649
+        }
+      },
+      "top_workers": [
+        {
+          "worker_id": "f41_paper_strategy_analyst",
+          "total_trades": 326,
+          "total_pnl": -105.546,
+          "by_mode": {
+            "paper_simulator": {
+              "pnl": -105.546,
+              "trades": 326,
+              "wins": 0,
+              "losses": 216
+            }
+          }
+        },
+        {
+          "worker_id": "f41_risk_sentinel",
+          "total_trades": 319,
+          "total_pnl": -99.932,
+          "by_mode": {
+            "paper_simulator": {
+              "pnl": -99.932,
+              "trades": 319,
+              "wins": 0,
+              "losses": 211
+            }
+          }
+        },
+        {
+          "worker_id": "f41_order_entry_clerk",
+          "total_trades": 102,
+          "total_pnl": -0.924,
+          "by_mode": {
+            "paper_simulator": {
+              "pnl": -0.924,
+              "trades": 102,
+              "wins": 0,
+              "losses": 67
+            }
+          }
+        },
+        {
+          "worker_id": "f41_market_scout",
+          "total_trades": 102,
+          "total_pnl": -0.966,
+          "by_mode": {
+            "paper_simulator": {
+              "pnl": -0.966,
+              "trades": 102,
+              "wins": 0,
+              "losses": 70
+            }
+          }
+        },
+        {
+          "worker_id": "f41_floor_manager",
+          "total_trades": 101,
+          "total_pnl": -0.952,
+          "by_mode": {
+            "paper_simulator": {
+              "pnl": -0.952,
+              "trades": 101,
+              "wins": 0,
+              "losses": 69
+            }
+          }
+        },
+        {
+          "worker_id": "f41_trade_ledger_clerk",
+          "total_trades": 8,
+          "total_pnl": -5.614,
+          "by_mode": {
+            "paper_simulator": {
+              "pnl": -5.614,
+              "trades": 8,
+              "wins": 0,
+              "losses": 5
+            }
+          }
+        },
+        {
+          "worker_id": "f41_lessons_clerk",
+          "total_trades": 8,
+          "total_pnl": -5.614,
+          "by_mode": {
+            "paper_simulator": {
+              "pnl": -5.614,
+              "trades": 8,
+              "wins": 0,
+              "losses": 5
+            }
+          }
+        },
+        {
+          "worker_id": "f41_openclaw_oanda_inspector",
+          "total_trades": 5,
+          "total_pnl": -5.614,
+          "by_mode": {
+            "paper_simulator": {
+              "pnl": -5.614,
+              "trades": 5,
+              "wins": 0,
+              "losses": 5
+            }
+          }
+        },
+        {
+          "worker_id": "f41_kernel_commentary_runner",
+          "total_trades": 3,
+          "total_pnl": 0.0,
+          "by_mode": {
+            "paper_simulator": {
+              "pnl": 0.0,
+              "trades": 3,
+              "wins": 0,
+              "losses": 0
+            }
+          }
+        },
+        {
+          "worker_id": "f41_pnl_accountant",
+          "total_trades": 1,
+          "total_pnl": -0.014,
+          "by_mode": {
+            "paper_simulator": {
+              "pnl": -0.014,
+              "trades": 1,
+              "wins": 0,
+              "losses": 1
+            }
+          }
+        }
+      ],
+      "oanda_lifetime": {
+        "ts": "2026-06-21T16:13:55Z",
+        "lastTransactionID": 1648,
+        "fills_with_pl": 27,
+        "grand_pl_gbp": 214.2639,
+        "by_instrument": {
+          "AUD_USD": {
+            "pl": 0.063,
+            "trades": 1,
+            "wins": 1,
+            "losses": 0
+          },
+          "BCO_USD": {
+            "pl": -1.8711,
+            "trades": 1,
+            "wins": 0,
+            "losses": 1
+          },
+          "DE30_EUR": {
+            "pl": 61.3495,
+            "trades": 1,
+            "wins": 1,
+            "losses": 0
+          },
+          "EUR_USD": {
+            "pl": 150.1083,
+            "trades": 13,
+            "wins": 2,
+            "losses": 11
+          },
+          "GBP_JPY": {
+            "pl": -0.3367,
+            "trades": 1,
+            "wins": 0,
+            "losses": 1
+          },
+          "GBP_USD": {
+            "pl": -0.709,
+            "trades": 2,
+            "wins": 1,
+            "losses": 1
+          },
+          "NAS100_USD": {
+            "pl": 22.8235,
+            "trades": 1,
+            "wins": 1,
+            "losses": 0
+          },
+          "SPX500_USD": {
+            "pl": -9.2211,
+            "trades": 1,
+            "wins": 0,
+            "losses": 1
+          },
+          "UK100_GBP": {
+            "pl": 23.5,
+            "trades": 1,
+            "wins": 1,
+            "losses": 0
+          },
+          "US30_USD": {
+            "pl": -29.0992,
+            "trades": 1,
+            "wins": 0,
+            "losses": 1
+          },
+          "USD_JPY": {
+            "pl": 0.1707,
+            "trades": 1,
+            "wins": 1,
+            "losses": 0
+          },
+          "WTICO_USD": {
+            "pl": -1.7879,
+            "trades": 1,
+            "wins": 0,
+            "losses": 1
+          },
+          "XAG_USD": {
+            "pl": -5.6687,
+            "trades": 1,
+            "wins": 0,
+            "losses": 1
+          },
+          "XAU_USD": {
+            "pl": 4.9426,
+            "trades": 1,
+            "wins": 1,
+            "losses": 0
+          }
+        }
+      }
+    },
+    "F42": {
+      "floor": "F42",
+      "ok": true,
+      "workers": [
+        {
+          "worker_id": "f42_market_scout",
+          "trades": 311,
+          "placed_ok": 275,
+          "placement_rate": 0.884,
+          "notional_total": 9610.0,
+          "instruments": [
+            "BTCUSDT"
+          ]
+        },
+        {
+          "worker_id": "f42_spread_watcher",
+          "trades": 225,
+          "placed_ok": 192,
+          "placement_rate": 0.853,
+          "notional_total": 9130.0,
+          "instruments": [
+            "ETHUSDT"
+          ]
+        },
+        {
+          "worker_id": "crypto_market_scout",
+          "trades": 172,
+          "placed_ok": 136,
+          "placement_rate": 0.791,
+          "notional_total": 8600.0,
+          "instruments": [
+            "BNBUSDT"
+          ]
+        }
+      ],
+      "note": "no close-cycle on this floor yet \u2014 pnl_attribution TODO",
+      "broker": {
+        "floor": "F42",
+        "ok": true,
+        "filled_trades": 1088,
+        "broker_pnl_usdt_by_symbol": {
+          "BTCUSDT": {
+            "realized_pnl": -0.214621,
+            "matched_qty": 0.10739,
+            "open_long_qty": 0.02201,
+            "open_short_qty": 0,
+            "trades_total": 497,
+            "by_worker": {
+              "unattributed": {
+                "realized_pnl": 21.234552,
+                "matched_qty": 0.04127
+              },
+              "f42_market_scout": {
+                "realized_pnl": -21.449173,
+                "matched_qty": 0.06612
+              }
+            }
+          },
+          "ETHUSDT": {
+            "realized_pnl": -3.916521,
+            "matched_qty": 3.7497,
+            "open_long_qty": 0.4291,
+            "open_short_qty": 0,
+            "trades_total": 343,
+            "by_worker": {
+              "unattributed": {
+                "realized_pnl": 13.108074,
+                "matched_qty": 1.4196
+              },
+              "f42_spread_watcher": {
+                "realized_pnl": -17.024595,
+                "matched_qty": 2.3301
+              }
+            }
+          },
+          "BNBUSDT": {
+            "realized_pnl": -1.53585,
+            "matched_qty": 9.276,
+            "open_long_qty": 1.981,
+            "open_short_qty": 0,
+            "trades_total": 248,
+            "by_worker": {
+              "unattributed": {
+                "realized_pnl": 15.60755,
+                "matched_qty": 3.862
+              },
+              "crypto_market_scout": {
+                "realized_pnl": -17.1434,
+                "matched_qty": 5.414
+              }
+            }
+          }
+        },
+        "broker_pnl_usdt_total": -5.667
+      }
+    },
+    "F43": {
+      "floor": "F43",
+      "ok": true,
+      "workers": [
+        {
+          "worker_id": "f43_tech_scout",
+          "trades": 160,
+          "placed_ok": 66,
+          "placement_rate": 0.412,
+          "notional_total": 8000.0,
+          "instruments": [
+            "QQQ"
+          ]
+        },
+        {
+          "worker_id": "f43_stock_scout",
+          "trades": 150,
+          "placed_ok": 52,
+          "placement_rate": 0.347,
+          "notional_total": 7500.0,
+          "instruments": [
+            "AAPL",
+            "SPY"
+          ]
+        },
+        {
+          "worker_id": "f43_index_watcher",
+          "trades": 127,
+          "placed_ok": 45,
+          "placement_rate": 0.354,
+          "notional_total": 6350.0,
+          "instruments": [
+            "SPY"
+          ]
+        }
+      ],
+      "note": "no close-cycle on this floor yet \u2014 pnl_attribution TODO",
+      "broker": {
+        "floor": "F43",
+        "ok": true,
+        "filled_orders": 109,
+        "broker_pnl_usd_by_symbol": {
+          "SPY": {
+            "realized_pnl": -1.035359,
+            "matched_qty": 1.098824,
+            "open_long_qty": 0.133843,
+            "open_short_qty": 0,
+            "trades_total": 30,
+            "by_worker": {
+              "unattributed": {
+                "realized_pnl": 0.370441,
+                "matched_qty": 0.027428
+              },
+              "f43_stock_scout": {
+                "realized_pnl": -0.216906,
+                "matched_qty": 0.067101
+              },
+              "f43_index_watcher": {
+                "realized_pnl": -1.188895,
+                "matched_qty": 1.004295
+              }
+            }
+          },
+          "QQQ": {
+            "realized_pnl": -0.38575,
+            "matched_qty": 1.513253,
+            "open_long_qty": 0.203188,
+            "open_short_qty": 0,
+            "trades_total": 41,
+            "by_worker": {
+              "unattributed": {
+                "realized_pnl": 0.563679,
+                "matched_qty": 0.021438
+              },
+              "f43_tech_scout": {
+                "realized_pnl": -0.949429,
+                "matched_qty": 1.491816
+              }
+            }
+          },
+          "AAPL": {
+            "realized_pnl": 6.348119,
+            "matched_qty": 2.747679,
+            "open_long_qty": 0.335742,
+            "open_short_qty": 0,
+            "trades_total": 27,
+            "by_worker": {
+              "unattributed": {
+                "realized_pnl": 5.779957,
+                "matched_qty": 1.068036
+              },
+              "f43_stock_scout": {
+                "realized_pnl": 0.568163,
+                "matched_qty": 1.679643
+              }
+            }
+          },
+          "META": {
+            "realized_pnl": 0.0,
+            "matched_qty": 0.0,
+            "open_long_qty": 0.01768,
+            "open_short_qty": 0,
+            "trades_total": 1,
+            "by_worker": {}
+          },
+          "JPM": {
+            "realized_pnl": 0.0,
+            "matched_qty": 0.0,
+            "open_long_qty": 0.016046,
+            "open_short_qty": 0,
+            "trades_total": 1,
+            "by_worker": {}
+          },
+          "MSFT": {
+            "realized_pnl": 0.0,
+            "matched_qty": 0.0,
+            "open_long_qty": 0.025291,
+            "open_short_qty": 0,
+            "trades_total": 1,
+            "by_worker": {}
+          },
+          "NVDA": {
+            "realized_pnl": 0.0,
+            "matched_qty": 0.0,
+            "open_long_qty": 0.049558,
+            "open_short_qty": 0,
+            "trades_total": 1,
+            "by_worker": {}
+          },
+          "AMD": {
+            "realized_pnl": 0.0,
+            "matched_qty": 0.0,
+            "open_long_qty": 0.010796,
+            "open_short_qty": 0,
+            "trades_total": 1,
+            "by_worker": {}
+          },
+          "AMZN": {
+            "realized_pnl": 0.0,
+            "matched_qty": 0.0,
+            "open_long_qty": 0.041975,
+            "open_short_qty": 0,
+            "trades_total": 1,
+            "by_worker": {}
+          },
+          "GOOGL": {
+            "realized_pnl": 0.0,
+            "matched_qty": 0.0,
+            "open_long_qty": 0.028033,
+            "open_short_qty": 0,
+            "trades_total": 1,
+            "by_worker": {}
+          },
+          "LINK/USD": {
+            "realized_pnl": 0.0,
+            "matched_qty": 0.0,
+            "open_long_qty": 1.25868,
+            "open_short_qty": 0,
+            "trades_total": 1,
+            "by_worker": {}
+          },
+          "SOL/USD": {
+            "realized_pnl": 0.0,
+            "matched_qty": 0.0,
+            "open_long_qty": 0.225966,
+            "open_short_qty": 0,
+            "trades_total": 1,
+            "by_worker": {}
+          },
+          "ETH/USD": {
+            "realized_pnl": 0.0,
+            "matched_qty": 0.0,
+            "open_long_qty": 0.014807,
+            "open_short_qty": 0,
+            "trades_total": 1,
+            "by_worker": {}
+          },
+          "BTC/USD": {
+            "realized_pnl": 0.0,
+            "matched_qty": 0.0,
+            "open_long_qty": 0.000391,
+            "open_short_qty": 0,
+            "trades_total": 1,
+            "by_worker": {}
+          }
+        },
+        "broker_pnl_usd_total": 4.927
+      }
+    }
+  }
+}

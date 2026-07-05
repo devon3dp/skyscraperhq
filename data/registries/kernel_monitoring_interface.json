@@ -1,0 +1,29 @@
+{
+  "interface_id": "kernel_monitoring_interface",
+  "status": "ready",
+  "monitors": [
+    "kernel socket empty/full state",
+    "kernel health future port",
+    "kernel event console",
+    "floor 53 handoff",
+    "security precheck",
+    "emergency stairwell validation"
+  ],
+  "kernel_installed": true,
+  "execution_enabled": false,
+  "QSBKernelCore_instantiated": true,
+  "active_kernel_source": "rebased_kernel",
+  "activation_status": "active_local_only",
+  "worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "model_inference_enabled": false,
+  "live_dispatch_enabled": false,
+  "kernel_logic_present": true,
+  "autonomous_workers_enabled": false,
+  "direct_provider_access": false,
+  "critical_failures": 0,
+  "failures": 0,
+  "warnings": 0,
+  "updated_ts": "2026-06-07T21:38:48.824394+00:00",
+  "monitoring_status": "watching_active_local_kernel"
+}

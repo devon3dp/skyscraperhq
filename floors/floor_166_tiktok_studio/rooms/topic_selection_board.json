@@ -1,0 +1,31 @@
+{
+  "room_id": "topic_selection_board",
+  "name": "Topic Selection Board",
+  "category": "reception",
+  "purpose": "Where topics for AI battles are selected.",
+  "concierge_blurb": "Here, the moderates select the next battle topic.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -6.0,
+    "offset_z": 8.0,
+    "footprint_m": [
+      4,
+      3
+    ],
+    "height_m": 1.2
+  },
+  "render": {
+    "primary_prop": "plinth",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "TOPIC BOARD",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_166"
+}

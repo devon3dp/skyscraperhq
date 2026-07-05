@@ -1,0 +1,99 @@
+{
+  "ok": true,
+  "kind": "qsb_penthouse_interactive_layout",
+  "phase": "QSB_KERNEL_CHAT_PENTHOUSE_AND_3D_DASHBOARD_REALITY_FIX_V1",
+  "generated_ts": "2026-06-30T13:46:36.731714+00:00",
+  "floor": 55,
+  "department": "Penthouse / Kernel Command",
+  "zones": [
+    {
+      "id": "z01",
+      "name": "Kernel Core Chamber",
+      "responsibility": "active_local_only kernel introspection + cadence beat"
+    },
+    {
+      "id": "z02",
+      "name": "Colonel Desk",
+      "responsibility": "Colonel observations + concierge briefings"
+    },
+    {
+      "id": "z03",
+      "name": "Guardian Lock Console",
+      "responsibility": "13 execution locks, live state + safety envelope"
+    },
+    {
+      "id": "z04",
+      "name": "EQSB Cadence Console",
+      "responsibility": "tick_count, cadence-driven paper strategy beat"
+    },
+    {
+      "id": "z05",
+      "name": "Memory / Belief Wall",
+      "responsibility": "top beliefs, axiom strength, memory policy"
+    },
+    {
+      "id": "z06",
+      "name": "OpenClaw Supervisor Feed",
+      "responsibility": "current floor, route, tickets, findings"
+    },
+    {
+      "id": "z07",
+      "name": "Profit Command Feed",
+      "responsibility": "realized PnL, open trades, profit_command directives"
+    },
+    {
+      "id": "z08",
+      "name": "Hardware Observatory Feed",
+      "responsibility": "CPU, GPU, RAM, disk, ollama, airllm_venv"
+    },
+    {
+      "id": "z09",
+      "name": "Code Observatory Feed",
+      "responsibility": "phase events, last Claude change, recent registry writes"
+    },
+    {
+      "id": "z10",
+      "name": "Narration / Speech Console",
+      "responsibility": "speech voice, narrator mode, commentary state"
+    },
+    {
+      "id": "z11",
+      "name": "Repair Priority Board",
+      "responsibility": "what is broken, what to fix next, severity, source"
+    }
+  ],
+  "interactions": [
+    {
+      "id": "kernel_chat",
+      "label": "Kernel chat console",
+      "binding": "/api/kernel_chat POST"
+    },
+    {
+      "id": "voice_test",
+      "label": "Speech test",
+      "binding": "QSB_SPEECH.testVoice()"
+    },
+    {
+      "id": "openclaw_inspect",
+      "label": "Inspect OpenClaw route",
+      "binding": "GET /api/openclaw/route"
+    },
+    {
+      "id": "cadence_tick_now",
+      "label": "Run one cadence tick",
+      "binding": "POST /api/eqsb/tick"
+    },
+    {
+      "id": "repair_priority_open",
+      "label": "Open repair priority",
+      "binding": "GET /api/dashboard/penthouse_repair_priority"
+    }
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "worker_execution_enabled": false,
+  "autonomous_dispatch_enabled": false
+}

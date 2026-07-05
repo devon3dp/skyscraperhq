@@ -1,0 +1,40 @@
+{
+  "record_id": "f47_floor_buildout_batch_2",
+  "ts_utc": "2026-06-14T17:15:00Z",
+  "floor": "floor_47",
+  "batch": "2_design_and_drawing",
+  "builder": "f47_floor_buildout_batch_2 (claude opus 4.7)",
+  "authorization": "CLAUDE.md 2026-06-13 workshop bench amendment + Ross 2026-06-14 25-agent helm window",
+  "items_built": [
+    "architect_drawing_table",
+    "decorator_atelier",
+    "fitter_bench",
+    "graphic_designer_corner",
+    "blueprint_file"
+  ],
+  "artifacts_written": [
+    "floors/floor_47_executive_operations_department/rooms/architect_drawing_table.json",
+    "floors/floor_47_executive_operations_department/sketches/architect_drawing_table.md",
+    "floors/floor_47_executive_operations_department/rooms/decorator_atelier.json",
+    "floors/floor_47_executive_operations_department/sketches/decorator_atelier.md",
+    "floors/floor_47_executive_operations_department/rooms/fitter_bench.json",
+    "floors/floor_47_executive_operations_department/rooms/graphic_designer_corner.json",
+    "floors/floor_47_executive_operations_department/sketches/graphic_designer_corner.md",
+    "floors/floor_47_executive_operations_department/rooms/blueprint_file.json",
+    "floors/floor_47_executive_operations_department/sketches/blueprint_file.md"
+  ],
+  "verification": {
+    "jq_parse_all_5_json": "pass",
+    "files_present": 9,
+    "files_expected": 9,
+    "constraints_respected": {
+      "no_claude_md_edit": true,
+      "no_vault_edit": true,
+      "no_env_edit": true,
+      "no_gate_edit": true,
+      "visitor_safe_concierge_blurbs": true
+    }
+  },
+  "lessons_appended_to": "data/registries/qsb_f47_agent_lessons.jsonl",
+  "advisory_only": true
+}

@@ -1,0 +1,67 @@
+{
+  "floor_id": "floor_43",
+  "floor_number": 43,
+  "floor_name": "Stock Exchange Trading Floor",
+  "department": "Stock Exchange Trading Floor",
+  "zone": "ZONE C \u00b7 CRAFT + COMMERCE",
+  "archetype": "generic",
+  "staff_lead": "TBD",
+  "tour_blurb": "Stock Exchange Trading Floor \u2014 a floor in the QSB Tower. Skeleton card auto-generated; full fit-out pending.",
+  "visitor_open": false,
+  "advisory_only": true,
+  "execution_mode": "PREVIEW_ONLY",
+  "skeleton": true,
+  "skeleton_source": "floor_manifest.json",
+  "skeleton_generated_ts": "2026-06-17",
+  "live_signals": {
+    "theme": null,
+    "categories": null,
+    "palette": null,
+    "tagline": null
+  },
+  "gate_posture": {
+    "advisory_only": true,
+    "execution_allowed": false,
+    "live_payments_enabled": false
+  },
+  "guards": {
+    "max_open_trades": 24
+  },
+  "team_roster": [
+    {
+      "id": "f043.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "spawned_id": "86d6839500",
+      "spawned_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F043",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f043.operator.01",
+      "spawned_id": "2f9a188bbd"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F043",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f043.operator.02",
+      "spawned_id": "ddf164a6d3"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F043",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f043.operator.03",
+      "spawned_id": "8e37f11fae"
+    }
+  ],
+  "floor_manager": "f043.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

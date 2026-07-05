@@ -1,0 +1,47 @@
+{
+  "ok": true,
+  "kind": "qsb_worker_lift_render_root_cause",
+  "phase": "QSB_RENDER_VISIBLE_WORKERS_AND_LIFTS_FIX_V1",
+  "generated_ts": "2026-06-09T12:30:00+00:00",
+  "summary": "Workers and lifts are technically rendered, but the operator perceives them as invisible because (a) selectedFloor is never initialized from the URL, so the floor inspector stays in its 'Click a floor' placeholder even when ?floor=42 is in the URL; (b) the lift shafts are drawn at 0.36 opacity blue lines on a dark gradient background and the 9 capsules carry generic initials with no lift identity or status; (c) Floor 42 (and trading floors 41/43) have no entries in qsb_worker_room_assignments because the V1 generator only emitted rooms for admin floors 30/36/38/44/45/47/49/52; (d) tower-zoomed view does not paint per-floor density badges, so the 1191 canonical workers reduce to invisible totals; (e) the dashboard sidebar 'Workers' panel reads /api/unified.workers which only contains 64 legacy sandbox seeds, producing the misleading '64 visible' line.",
+  "questions": {
+    "why_1191_workers_counted_but_not_visible": "The exterior renderer shows aggregate counts only. There is no per-floor density badge on the SVG floor slabs that summarizes workers-per-floor. Individual labels are deliberately suppressed at the zoomed-out level to avoid 1191 unreadable labels.",
+    "why_only_64_visible": "64 is the length of the /api/unified.workers list, which contains the legacy sandbox seeds (market_scout, oanda_executor, etc.). The 'Workers' right-rail panel reads /api/unified and prints len(workers). It is not a render cap — it is the cardinality of a legacy registry.",
+    "visible_worker_budget": "qsb_worker_visible_scene_state.json sets interior_workers_per_floor_when_selected=8 and exterior_per_floor_badges_count=80 (5 classes * 16 sample floors). There is no hardcoded 64 cap anywhere in the renderer.",
+    "is_64_a_cap": "No. 64 is the cardinality of /api/unified.workers (legacy seed list).",
+    "why_floor_42_interior_empty": "Floor 42 has 2 canonical V1 workers but qsb_worker_room_assignments.by_floor_room contains entries only for floors 30/36/38/44/45/47/49/52. The Binance trading floor (42), OANDA (41), and Stocks (43) were never given room assignments.",
+    "why_inspector_says_click_a_floor_when_url_has_floor_42": "Neither cockpit.js nor qsb_3d_app.js parses URLSearchParams. window.QSB.selectedFloor is initialized to null and only set when a 'qsb:pick' event is dispatched (i.e. a click on an SVG floor slab). URL parameter ?floor=42 is ignored.",
+    "why_9_lifts_not_visibly_rendered": "qsb_tower_2d.js does draw 9 lift shafts (line 332 buildShafts) and 9 capsules (line 402 buildCapsules), but: stroke rgba(80,170,240,0.36) on dark navy background is near-invisible; capsule labels are 2-letter initials with no lift_id/status/current_floor; no per-lift indicator strip is drawn at the side of the tower; idle capsules sit parked without any IDLE label.",
+    "which_function_renders_lifts": "qsb_tower_2d.js :: buildShafts() + buildCapsules() inside the SVG renderer. Babylon scene also renders capsules in qsb_scene.js.",
+    "which_function_renders_workers": "qsb_tower_2d.js + qsb_rebuild_workers.js (in-slab grid dots for selected floor) + qsb_3d_workers.js (named rows in right-side interior panel).",
+    "which_function_renders_selected_floor_interiors": "qsb_3d_workers.js :: renderSelectedFloorInterior(floor, cache). This requires window.QSB.selectedFloor to be non-null. It is never set from URL.",
+    "which_state_variable_is_failing": "window.QSB.selectedFloor — never initialized from window.location.search, only set via click event."
+  },
+  "current_render_inventory": {
+    "lift_shafts_drawn": 9,
+    "lift_shaft_stroke": "rgba(80,170,240,0.36) — too faint",
+    "lift_shaft_glow": "rgba(110,210,255,0.22) width 5.0 — barely visible on dark background",
+    "lift_capsules_drawn": 9,
+    "lift_capsule_labels": "2-letter initials hardcoded ['MS','SW','RS','PS','KC','LC','OM','SI','CA'] — not bound to lifts.json registry",
+    "lift_id_labels_on_tower": 0,
+    "lift_status_indicators": 0,
+    "floor_slabs_drawn": 53,
+    "per_floor_worker_badges": 0,
+    "selected_floor_interior_panel": true,
+    "selected_floor_init_from_url": false,
+    "canonical_workers_in_payload": 1191,
+    "active_workers_in_payload": 1131,
+    "legacy_unified_workers": 64,
+    "floors_with_room_assignments": 8,
+    "floors_missing_room_assignments": [
+      "floor_41_oanda_practice",
+      "floor_42_binance_trading",
+      "floor_43_stock_exchange"
+    ]
+  },
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

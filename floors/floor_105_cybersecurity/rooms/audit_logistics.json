@@ -1,0 +1,34 @@
+{
+  "room_id": "audit_logistics",
+  "name": "Audit Logistics Room",
+  "category": "audit",
+  "purpose": "Manages and audits the logistics of security operations.",
+  "concierge_blurb": "Ensures all cybersecurity actions are logged and audited for compliance.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -5.0,
+    "offset_z": -4.0,
+    "footprint_m": [
+      8,
+      6
+    ],
+    "height_m": 1.2
+  },
+  "render": {
+    "primary_prop": "table",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Audit Log",
+    "glow": false
+  },
+  "interactive": {
+    "type": "count",
+    "source_path": null,
+    "display": "big_number",
+    "refresh_seconds": 120
+  },
+  "floor": "floor_105"
+}

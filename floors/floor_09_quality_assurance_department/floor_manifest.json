@@ -1,0 +1,31 @@
+{
+  "ok": true,
+  "floor_number": 9,
+  "floor_name": "Quality Assurance Department",
+  "floor_kind": "auto_generated_from_dir_name",
+  "created_ts": "2026-06-11T14:40:49.185810Z",
+  "advisory_only": true,
+  "interior_brief": {
+    "archetype": "qa_lab",
+    "palette": [
+      "#10282a",
+      "#306060",
+      "#66f2b2"
+    ],
+    "furniture": [
+      "desks",
+      "meeting area",
+      "common space"
+    ],
+    "lighting": "task + ambient",
+    "mood": "methodical",
+    "designed_by": "F66 Architects + Fitters team (sweep 2)",
+    "fitted_at": "2026-06-11T14:40:49.185810Z",
+    "godot_scene_brief": "render an generic floor with neutral grey + accent palette",
+    "signature": "Test rigs, pass/fail boards, scenario whiteboards",
+    "diversified_ts": "2026-06-11T17:57:45Z",
+    "diversified_by": "qsb_archetype_diversifier_v1"
+  },
+  "fitted_out": true,
+  "fit_out_ts": "2026-06-11T14:40:49.185810Z"
+}

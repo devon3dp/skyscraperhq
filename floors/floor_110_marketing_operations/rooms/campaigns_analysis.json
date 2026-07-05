@@ -1,0 +1,34 @@
+{
+  "room_id": "campaigns_analysis",
+  "name": "Campaign Analysis Hub",
+  "category": "audit",
+  "purpose": "Analyze and optimize marketing campaigns.",
+  "concierge_blurb": "Interactive dashboards display key metrics for ongoing analysis.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "center",
+    "offset_x": 0.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      15,
+      6
+    ],
+    "height_m": 2.4
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Campaign Hub",
+    "glow": true
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/campaign_metrics.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_110"
+}

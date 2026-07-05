@@ -1,0 +1,34 @@
+{
+  "room_id": "test_logistics",
+  "name": "Test Logistics",
+  "category": "operations",
+  "purpose": "Manages the flow of products for testing.",
+  "concierge_blurb": "Here we coordinate and manage all logistics related to product testing, ensuring everything runs smoothly.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "right_wall",
+    "offset_x": 7.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      6,
+      4
+    ],
+    "height_m": 1.5
+  },
+  "render": {
+    "primary_prop": "trading_desk",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Logistics Desk",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_8"
+}

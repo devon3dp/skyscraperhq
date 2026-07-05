@@ -1,0 +1,34 @@
+{
+  "room_id": "library_area",
+  "name": "Library Area",
+  "category": "library",
+  "purpose": "Provides a quiet space for research and study.",
+  "concierge_blurb": "Dive into the archives or find a peaceful spot to read in our library area.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": -8.0,
+    "footprint_m": [
+      12,
+      12
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "library_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Library Area",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 0
+  },
+  "floor": "floor_149"
+}

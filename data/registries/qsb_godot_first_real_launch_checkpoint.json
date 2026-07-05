@@ -1,0 +1,49 @@
+{
+  "ok": true,
+  "kind": "qsb_godot_first_real_launch_manifest",
+  "phase": "QSB_GODOT_PROFESSIONAL_COCKPIT_VISUAL_UPGRADE_AFTER_FIRST_LAUNCH_V1",
+  "generated_ts": "2026-06-09T16:18:59+00:00",
+  "verified": {
+    "godot_version": "4.6.1.stable.mono",
+    "renderer": "gl_compatibility (software/llvmpipe fallback)",
+    "project_path_user_runtime": "/home/ross/qsb_godot_native_cockpit",
+    "project_source_qsb_root": "native_cockpit/godot_qsb/",
+    "main_scene": "res://scenes/Main.tscn",
+    "floors": 53,
+    "workers": 2191,
+    "lifts": 9,
+    "openclaw_visible": true,
+    "hud_visible": true,
+    "keyboard_nav": [
+      "UP/DOWN/1/2/3",
+      "mouse wheel zoom"
+    ],
+    "safety_locks": {
+      "real_money": false,
+      "listings_publish": false,
+      "payments": false,
+      "openclaw_exec": false
+    }
+  },
+  "limitations": [
+    "rough prototype materials",
+    "no mouse click floor pick",
+    "no control bar / Kernel chat / event ticker in-app",
+    "no floor interiors",
+    "auto-orbit always on, can't pause",
+    "software rendering (llvmpipe) \u2014 no GPU acceleration"
+  ],
+  "files_snapshotted": [
+    "Main.gd.snapshot",
+    "Main.tscn.snapshot",
+    "graphics_driver_notes.txt",
+    "project.godot.snapshot",
+    "project_path.txt",
+    "qsb_godot_launch_check.sh.snapshot",
+    "qsb_godot_run.sh.snapshot",
+    "run_command.txt",
+    "visual_baseline.md"
+  ],
+  "execution_allowed": false,
+  "real_money_live_trading_enabled": false
+}

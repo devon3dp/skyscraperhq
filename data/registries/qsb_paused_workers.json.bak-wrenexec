@@ -1,0 +1,60 @@
+{
+  "belief_driven_bnb": {
+    "paused_at": "2026-06-30T13:11:44.052829Z",
+    "reason": "5min: W73/L59 -\u00a36.90 \u00b7 avg_l 1.5\u00d7 avg_w",
+    "paused_by": "claude_education_pass_2"
+  },
+  "belief_driven_xau": {
+    "paused_at": "2026-06-30T13:08:39.637607Z",
+    "reason": "WR_analysis_2026-06-30: negative net pnl, avg loss exceeds avg win by >2x. Wins \u00a30.00, losses dominate. Re-evaluate after 1hr.",
+    "paused_by": "claude_post_595_fix"
+  },
+  "belief_driven_xag": {
+    "paused_at": "2026-06-30T13:08:39.637607Z",
+    "reason": "WR_analysis_2026-06-30: negative net pnl, avg loss exceeds avg win by >2x. Wins \u00a30.00, losses dominate. Re-evaluate after 1hr.",
+    "paused_by": "claude_post_595_fix"
+  },
+  "belief_driven_nas": {
+    "paused_at": "2026-06-30T13:11:44.052829Z",
+    "reason": "5min: W4/L2 +66% WR but avg_l \u00a34.20",
+    "paused_by": "claude_education_pass_2"
+  },
+  "belief_driven_gbp": {
+    "paused_at": "2026-06-30T13:11:44.052829Z",
+    "reason": "5min: W7/L1 87% WR but avg_l \u00a31.45 vs avg_w \u00a30.18",
+    "paused_by": "claude_education_pass_2"
+  },
+  "belief_driven_jp225": {
+    "reason": "oanda UNITS_INVALID (JP225 needs integer qty)",
+    "paused_at": "2026-06-30T19:10:00Z"
+  },
+  "belief_driven_btc": {
+    "paused": true,
+    "paused_at": "2026-06-30T18:25:04Z",
+    "reason": "loss_streak_3_sum=-1.73",
+    "killed_procs": 2
+  },
+  "belief_driven_us10y": {
+    "paused_at": "2026-07-01T10:24:46.095651Z",
+    "reason": "Ross 2026-07-01 OANDA all-hands: US10Y flat regime + orphan history + repeated re-entry without wins. Pause pending regime-aware strategy from parallel agent.",
+    "paused_by": "hq-claude"
+  },
+  "belief_driven_dia": {
+    "paused": true,
+    "reason": "Wren command (authority) 2026-07-01: pause Alpaca F43 - pot erosion, resume when order-flow imbalance scanner is live",
+    "paused_at": "2026-07-01T14:01:35Z",
+    "source": "wren_via_thinkpad_ceo"
+  },
+  "belief_driven_iwm": {
+    "paused": true,
+    "reason": "Wren command (authority) 2026-07-01: pause Alpaca F43 - pot erosion, resume when order-flow imbalance scanner is live",
+    "paused_at": "2026-07-01T14:01:35Z",
+    "source": "wren_via_thinkpad_ceo"
+  },
+  "belief_driven_xlf": {
+    "paused": true,
+    "reason": "Wren command (authority) 2026-07-01: pause Alpaca F43 - pot erosion, resume when order-flow imbalance scanner is live",
+    "paused_at": "2026-07-01T14:01:35Z",
+    "source": "wren_via_thinkpad_ceo"
+  }
+}

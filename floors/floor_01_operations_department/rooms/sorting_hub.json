@@ -1,0 +1,34 @@
+{
+  "room_id": "sorting_hub",
+  "name": "Sorting Hub",
+  "category": "operations",
+  "purpose": "Organizing orders for distribution.",
+  "concierge_blurb": "Watch the sorting process streamline logistics.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.5,
+    "offset_z": -3.5,
+    "footprint_m": [
+      12,
+      8
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "sorting_conveyor",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Sorting Hub",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 0
+  },
+  "floor": "floor_1"
+}

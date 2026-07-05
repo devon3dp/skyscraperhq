@@ -1,0 +1,76 @@
+{
+  "registry": "qsb_research_facility_v1",
+  "phase": "QSB_TOWER_OPERATIONS_V1",
+  "ts": "2026-06-08T13:54:48.192127+00:00",
+  "tasks": [
+    {
+      "task_id": "rt_001",
+      "title": "Catalog QSB Tower V1.3 floor manifests",
+      "status": "in_progress",
+      "owner": "Architecture Researcher",
+      "created_ts": "2026-06-08T13:54:48.192129+00:00",
+      "updated_ts": "2026-06-08T13:54:48.192130+00:00"
+    },
+    {
+      "task_id": "rt_002",
+      "title": "AirLLM advisory chamber capability inventory",
+      "status": "in_progress",
+      "owner": "Model Capability Researcher",
+      "created_ts": "2026-06-08T13:54:48.192131+00:00",
+      "updated_ts": "2026-06-08T13:54:48.192132+00:00"
+    },
+    {
+      "task_id": "rt_003",
+      "title": "Cross-market correlation baseline (paper)",
+      "status": "queued",
+      "owner": "Architecture Researcher",
+      "created_ts": "2026-06-08T13:54:48.192133+00:00",
+      "updated_ts": "2026-06-08T13:54:48.192134+00:00"
+    },
+    {
+      "task_id": "rt_004",
+      "title": "OpenClaw readiness criteria documentation",
+      "status": "queued",
+      "owner": "Code Pattern Researcher",
+      "created_ts": "2026-06-08T13:54:48.192135+00:00",
+      "updated_ts": "2026-06-08T13:54:48.192136+00:00"
+    },
+    {
+      "task_id": "rt_005",
+      "title": "Sound/speech routing pattern survey",
+      "status": "queued",
+      "owner": "Architecture Researcher",
+      "created_ts": "2026-06-08T13:54:48.192136+00:00",
+      "updated_ts": "2026-06-08T13:54:48.192137+00:00"
+    }
+  ],
+  "web_access_gate": "LOCKED",
+  "live_trading_enabled": false,
+  "order_execution_enabled": false,
+  "practice_order_execution_enabled": false,
+  "binance_order_execution_enabled": false,
+  "binance_live_trading_enabled": false,
+  "stock_order_execution_enabled": false,
+  "stock_live_trading_enabled": false,
+  "stock_paper_order_execution_enabled": false,
+  "cross_market_execution_enabled": false,
+  "worker_execution_enabled": false,
+  "recruited_worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "external_provider_execution_enabled": false,
+  "openclaw_execution_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "live_dispatch_enabled": false,
+  "direct_provider_access": false,
+  "recruitment_openclaw_execution_enabled": false,
+  "recruited_worker_live_execution_enabled": false,
+  "recruited_worker_provider_access_enabled": false,
+  "recruited_worker_autonomous_dispatch_enabled": false,
+  "maintenance_auto_repair_enabled": false,
+  "web_access_autonomous_enabled": false,
+  "worker_real_registry_enabled": true,
+  "openclaw_readiness_enabled": true,
+  "security_enforcement_enabled": true,
+  "it_network_observability_enabled": true
+}

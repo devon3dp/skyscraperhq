@@ -1,0 +1,27 @@
+{
+  "ok": true,
+  "kind": "qsb_godot_professional_upgrade_score",
+  "phase": "QSB_GODOT_PROFESSIONAL_COCKPIT_VISUAL_UPGRADE_AFTER_FIRST_LAUNCH_V1",
+  "generated_ts": "2026-06-09T16:25:51+00:00",
+  "passed": 28,
+  "total": 28,
+  "professional_score": 100.0,
+  "automated_launch_check": "11/11 (100.0)",
+  "headless_parse_errors": 0,
+  "engine": "Godot 4.6.1 stable mono",
+  "renderer_runtime": "gl_compatibility / llvmpipe (software fallback)",
+  "honest_caveats": [
+    "Live animation channels for lifts and openclaw are SCAFFOLDED in V1 \u2014 telemetry is pulled and tickered, but the 3D meshes don't lerp yet. V2 plan recorded.",
+    "Floor interiors render as room lists in the chat panel inspector (no in-world 3D props yet). V2 will spawn prop meshes above the selected slab.",
+    "Per-floor MultiMesh worker sprites NOT added \u2014 verified 2,191 displayed in HUD only.",
+    "Voice toggles are signal-only \u2014 no fake TTS in V1.",
+    "Software rendering (llvmpipe) limits FPS but did not block the upgrade. Driver fix recommended to user separately."
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "live_payments_enabled": false,
+  "live_listings_publishing_enabled": false
+}

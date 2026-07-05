@@ -1,0 +1,386 @@
+[
+  {
+    "id": "sim_worker_floor_01",
+    "floor_id": "floor_01",
+    "department": "Operations Department",
+    "type": "simulation_worker",
+    "status": "idle",
+    "model_bound": false
+  },
+  {
+    "id": "sim_worker_floor_02",
+    "floor_id": "floor_02",
+    "department": "Memory Department",
+    "type": "simulation_worker",
+    "status": "idle",
+    "model_bound": false
+  },
+  {
+    "id": "sim_worker_floor_03",
+    "floor_id": "floor_03",
+    "department": "Research Department",
+    "type": "simulation_worker",
+    "status": "idle",
+    "model_bound": false
+  },
+  {
+    "id": "sim_worker_floor_04",
+    "floor_id": "floor_04",
+    "department": "Knowledge Department",
+    "type": "simulation_worker",
+    "status": "idle",
+    "model_bound": false
+  },
+  {
+    "id": "sim_worker_floor_05",
+    "floor_id": "floor_05",
+    "department": "Coding Department",
+    "type": "simulation_worker",
+    "status": "idle",
+    "model_bound": false
+  },
+  {
+    "id": "sim_worker_floor_06",
+    "floor_id": "floor_06",
+    "department": "Engineering Department",
+    "type": "simulation_worker",
+    "status": "idle",
+    "model_bound": false
+  },
+  {
+    "id": "sim_worker_floor_07",
+    "floor_id": "floor_07",
+    "department": "Architecture Department",
+    "type": "simulation_worker",
+    "status": "idle",
+    "model_bound": false
+  },
+  {
+    "id": "sim_worker_floor_08",
+    "floor_id": "floor_08",
+    "department": "Testing Department",
+    "type": "simulation_worker",
+    "status": "idle",
+    "model_bound": false
+  },
+  {
+    "id": "sim_worker_floor_09",
+    "floor_id": "floor_09",
+    "department": "Quality Assurance Department",
+    "type": "simulation_worker",
+    "status": "idle",
+    "model_bound": false
+  },
+  {
+    "id": "sim_worker_floor_10",
+    "floor_id": "floor_10",
+    "department": "Trading Simulation Department",
+    "type": "simulation_worker",
+    "status": "idle",
+    "model_bound": false
+  },
+  {
+    "id": "sim_worker_floor_11",
+    "floor_id": "floor_11",
+    "department": "Market Intelligence Department",
+    "type": "simulation_worker",
+    "status": "idle",
+    "model_bound": false
+  },
+  {
+    "id": "sim_worker_floor_12",
+    "floor_id": "floor_12",
+    "department": "Risk Analysis Department",
+    "type": "simulation_worker",
+    "status": "idle",
+    "model_bound": false
+  },
+  {
+    "id": "sim_worker_floor_13",
+    "floor_id": "floor_13",
+    "department": "Vision Department",
+    "type": "simulation_worker",
+    "status": "idle",
+    "model_bound": false
+  },
+  {
+    "id": "sim_worker_floor_14",
+    "floor_id": "floor_14",
+    "department": "Media Department",
+    "type": "simulation_worker",
+    "status": "idle",
+    "model_bound": false
+  },
+  {
+    "id": "sim_worker_floor_15",
+    "floor_id": "floor_15",
+    "department": "Speech and Audio Department",
+    "type": "simulation_worker",
+    "status": "idle",
+    "model_bound": false
+  },
+  {
+    "id": "sim_worker_floor_16",
+    "floor_id": "floor_16",
+    "department": "Document Processing Department",
+    "type": "simulation_worker",
+    "status": "idle",
+    "model_bound": false
+  },
+  {
+    "id": "sim_worker_floor_17",
+    "floor_id": "floor_17",
+    "department": "Graphics and Design Department",
+    "type": "simulation_worker",
+    "status": "idle",
+    "model_bound": false
+  },
+  {
+    "id": "sim_worker_floor_18",
+    "floor_id": "floor_18",
+    "department": "Automation Department",
+    "type": "simulation_worker",
+    "status": "idle",
+    "model_bound": false
+  },
+  {
+    "id": "sim_worker_floor_19",
+    "floor_id": "floor_19",
+    "department": "Workflow Management Department",
+    "type": "simulation_worker",
+    "status": "idle",
+    "model_bound": false
+  },
+  {
+    "id": "sim_worker_floor_20",
+    "floor_id": "floor_20",
+    "department": "API Services Department",
+    "type": "simulation_worker",
+    "status": "idle",
+    "model_bound": false
+  },
+  {
+    "id": "sim_worker_floor_21",
+    "floor_id": "floor_21",
+    "department": "Adapter Systems Department",
+    "type": "simulation_worker",
+    "status": "idle",
+    "model_bound": false
+  },
+  {
+    "id": "sim_worker_floor_22",
+    "floor_id": "floor_22",
+    "department": "Integration Services Department",
+    "type": "simulation_worker",
+    "status": "idle",
+    "model_bound": false
+  },
+  {
+    "id": "sim_worker_floor_23",
+    "floor_id": "floor_23",
+    "department": "AIR LLM Operations Department",
+    "type": "simulation_worker",
+    "status": "idle",
+    "model_bound": false
+  },
+  {
+    "id": "sim_worker_floor_24",
+    "floor_id": "floor_24",
+    "department": "Model Routing Department",
+    "type": "simulation_worker",
+    "status": "idle",
+    "model_bound": false
+  },
+  {
+    "id": "sim_worker_floor_25",
+    "floor_id": "floor_25",
+    "department": "Agent Coordination Department",
+    "type": "simulation_worker",
+    "status": "idle",
+    "model_bound": false
+  },
+  {
+    "id": "sim_worker_floor_26",
+    "floor_id": "floor_26",
+    "department": "Model Evaluation Department",
+    "type": "simulation_worker",
+    "status": "idle",
+    "model_bound": false
+  },
+  {
+    "id": "sim_worker_floor_27",
+    "floor_id": "floor_27",
+    "department": "Local Model Operations Department",
+    "type": "simulation_worker",
+    "status": "idle",
+    "model_bound": false
+  },
+  {
+    "id": "sim_worker_floor_28",
+    "floor_id": "floor_28",
+    "department": "Security Department",
+    "type": "simulation_worker",
+    "status": "idle",
+    "model_bound": false
+  },
+  {
+    "id": "sim_worker_floor_29",
+    "floor_id": "floor_29",
+    "department": "Guardian Department",
+    "type": "simulation_worker",
+    "status": "idle",
+    "model_bound": false
+  },
+  {
+    "id": "sim_worker_floor_30",
+    "floor_id": "floor_30",
+    "department": "Permissions Department",
+    "type": "simulation_worker",
+    "status": "idle",
+    "model_bound": false
+  },
+  {
+    "id": "sim_worker_floor_31",
+    "floor_id": "floor_31",
+    "department": "Audit Department",
+    "type": "simulation_worker",
+    "status": "idle",
+    "model_bound": false
+  },
+  {
+    "id": "sim_worker_floor_32",
+    "floor_id": "floor_32",
+    "department": "Compliance Department",
+    "type": "simulation_worker",
+    "status": "idle",
+    "model_bound": false
+  },
+  {
+    "id": "sim_worker_floor_33",
+    "floor_id": "floor_33",
+    "department": "Diagnostics Department",
+    "type": "simulation_worker",
+    "status": "idle",
+    "model_bound": false
+  },
+  {
+    "id": "sim_worker_floor_34",
+    "floor_id": "floor_34",
+    "department": "Monitoring Department",
+    "type": "simulation_worker",
+    "status": "idle",
+    "model_bound": false
+  },
+  {
+    "id": "sim_worker_floor_35",
+    "floor_id": "floor_35",
+    "department": "Infrastructure Services Department",
+    "type": "simulation_worker",
+    "status": "idle",
+    "model_bound": false
+  },
+  {
+    "id": "sim_worker_floor_36",
+    "floor_id": "floor_36",
+    "department": "Expansion Planning Department",
+    "type": "simulation_worker",
+    "status": "idle",
+    "model_bound": false
+  },
+  {
+    "id": "sim_worker_floor_37",
+    "floor_id": "floor_37",
+    "department": "Simulation Labs",
+    "type": "simulation_worker",
+    "status": "idle",
+    "model_bound": false
+  },
+  {
+    "id": "sim_worker_floor_38",
+    "floor_id": "floor_38",
+    "department": "Sandbox Operations",
+    "type": "simulation_worker",
+    "status": "idle",
+    "model_bound": false
+  },
+  {
+    "id": "sim_worker_floor_39",
+    "floor_id": "floor_39",
+    "department": "Development Labs",
+    "type": "simulation_worker",
+    "status": "idle",
+    "model_bound": false
+  },
+  {
+    "id": "sim_worker_floor_40",
+    "floor_id": "floor_40",
+    "department": "Prototype Systems",
+    "type": "simulation_worker",
+    "status": "idle",
+    "model_bound": false
+  },
+  {
+    "id": "sim_worker_floor_46",
+    "floor_id": "floor_46",
+    "department": "Executive Support Department",
+    "type": "simulation_worker",
+    "status": "idle",
+    "model_bound": false
+  },
+  {
+    "id": "sim_worker_floor_47",
+    "floor_id": "floor_47",
+    "department": "Executive Operations Department",
+    "type": "simulation_worker",
+    "status": "idle",
+    "model_bound": false
+  },
+  {
+    "id": "sim_worker_floor_48",
+    "floor_id": "floor_48",
+    "department": "Strategic Planning Department",
+    "type": "simulation_worker",
+    "status": "idle",
+    "model_bound": false
+  },
+  {
+    "id": "sim_worker_floor_49",
+    "floor_id": "floor_49",
+    "department": "Resource Management Department",
+    "type": "simulation_worker",
+    "status": "idle",
+    "model_bound": false
+  },
+  {
+    "id": "sim_worker_floor_50",
+    "floor_id": "floor_50",
+    "department": "Building Governance Department",
+    "type": "simulation_worker",
+    "status": "idle",
+    "model_bound": false
+  },
+  {
+    "id": "sim_worker_floor_51",
+    "floor_id": "floor_51",
+    "department": "Executive Council Department",
+    "type": "simulation_worker",
+    "status": "idle",
+    "model_bound": false
+  },
+  {
+    "id": "sim_worker_floor_52",
+    "floor_id": "floor_52",
+    "department": "Infrastructure Command Department",
+    "type": "simulation_worker",
+    "status": "idle",
+    "model_bound": false
+  },
+  {
+    "id": "sim_worker_floor_53",
+    "floor_id": "floor_53",
+    "department": "Tower Command Department",
+    "type": "simulation_worker",
+    "status": "idle",
+    "model_bound": false
+  }
+]

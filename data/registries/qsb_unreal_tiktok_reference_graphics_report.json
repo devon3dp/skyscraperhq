@@ -1,0 +1,31 @@
+{
+  "ts": "2026-06-28T15:50:00Z",
+  "directive": "QSB_UNREAL_TIKTOK_REFERENCE_LEVEL_GRAPHICS_UPGRADE_V1",
+  "answers": {
+    "Q1_target_recorded": true,
+    "Q2_direct_access": false,
+    "Q2_user_action": "drop frames/MP4 into references/visual_targets/tiktok_skyscraper_reference/",
+    "Q3_blockers": ["plugin lacks Material/UMG/Blueprint API", "lighting needs rebuild", "no in-engine HUD", "no animated cabs", "no cinematic camera"],
+    "Q4_passes_needed": ["blockout_cleanup", "material", "architecture_detail", "city_detail", "motion", "hud", "interior", "polish"],
+    "Q5_material_pass": "scripts/qsb_unreal_apply_cinematic_material_pass.py + .sh + /tmp/qsb_ue_material_pass.py recipe (11 materials)",
+    "Q6_lighting_pass": "scripts/qsb_unreal_apply_lighting_pass.py + .sh + /tmp/qsb_ue_lighting_pass.py recipe (SkyAtmosphere + Fog + Build Lighting)",
+    "Q7_skyscraper_generator": "scripts/qsb_unreal_generate_professional_skyscraper.py + .sh (reads canonical floor count, V8_Arch_*)",
+    "Q8_city_generator": "scripts/qsb_unreal_generate_futuristic_city.py + .sh (V9_City_*)",
+    "Q9_hud_target": "data/registries/qsb_unreal_professional_hud_target.json + data/logs/qsb_unreal_professional_hud_target.md",
+    "Q10_team_delegated": "data/registries/qsb_unreal_visual_team_board.json + .md",
+    "Q11_visible_build_loop": "scripts/qsb_unreal_visible_cinematic_build_loop.sh",
+    "Q12_screenshots_path": "data/screenshots/unreal_cinematic_build/",
+    "Q13_visual_score_overall": 3,
+    "Q14_next_visible_task": "land Materials via UE Python + extend plugin with set_actor_material",
+    "Q15_next_command": [
+      "./scripts/qsb_unreal_visible_cinematic_build_suite.sh",
+      "./scripts/qsb_unreal_visible_cinematic_build_loop.sh",
+      "cat data/logs/qsb_unreal_tiktok_reference_graphics_report.md"
+    ]
+  },
+  "cinematic_suite_result": "6/6 PASS",
+  "smoke_results": ["tiktok_ref 0", "mat_light 0", "prof_sky 0", "city 0", "hud_target 0", "quality 0"],
+  "scene_actor_count_estimate": 700,
+  "canonical_floor_count": 169,
+  "recipes_written": ["/tmp/qsb_ue_material_pass.py", "/tmp/qsb_ue_lighting_pass.py"]
+}

@@ -1,0 +1,142 @@
+{
+  "ok": true,
+  "phase": "QSB_DASHBOARD_TOTAL_REBUILD_3D_WORKERS_OPENCLAW_ONLINE_V1",
+  "kind": "qsb_dashboard_total_rebuild_acceptance_gates",
+  "generated_ts": "2026-06-09T11:27:18.385758+00:00",
+  "iteration": 1,
+  "gates": [
+    {
+      "gate_id": "G1",
+      "name": "Dashboard loads",
+      "passed": true,
+      "evidence": "port_listening=True html=200",
+      "repair_if_failed": "./scripts/qsb_dashboard_start.sh"
+    },
+    {
+      "gate_id": "G2",
+      "name": "New 3D renderer active (probe 21/21 passed)",
+      "passed": true,
+      "evidence": "state=rebuilt_default_mode_to_show_selected_floor_workers probe_passed=21/21 default_mode=selected_floor_and_groups",
+      "repair_if_failed": ""
+    },
+    {
+      "gate_id": "G3",
+      "name": "Floors clickable + selectedFloor tracked",
+      "passed": true,
+      "evidence": "handleScenePick + selectedFloor present in cockpit.js",
+      "repair_if_failed": ""
+    },
+    {
+      "gate_id": "G4",
+      "name": "Selected floor interior populated (9+ departments)",
+      "passed": true,
+      "evidence": "departments_with_interior=9",
+      "repair_if_failed": ""
+    },
+    {
+      "gate_id": "G5",
+      "name": "Workers placed at rooms per floor",
+      "passed": true,
+      "evidence": "by_floor_room keys=8",
+      "repair_if_failed": ""
+    },
+    {
+      "gate_id": "G6",
+      "name": "Workers have stations + tasks",
+      "passed": true,
+      "evidence": "stations=1000 task_count=644",
+      "repair_if_failed": ""
+    },
+    {
+      "gate_id": "G7",
+      "name": "No random worker swarm (exterior individual workers off)",
+      "passed": true,
+      "evidence": "exterior.show_individual_workers=False",
+      "repair_if_failed": ""
+    },
+    {
+      "gate_id": "G8",
+      "name": "Default view is NOT counts_only \u2014 workers can appear",
+      "passed": true,
+      "evidence": "default_worker_view_mode=selected_floor_and_groups",
+      "repair_if_failed": ""
+    },
+    {
+      "gate_id": "G9",
+      "name": "SIM workers separated from operational view",
+      "passed": true,
+      "evidence": "should_be_hidden_externally=True relocation_floor=36",
+      "repair_if_failed": ""
+    },
+    {
+      "gate_id": "G10",
+      "name": "OpenClaw supervisor role defined",
+      "passed": true,
+      "evidence": "role=roaming floor manager / supervisor / inspector / ticket gene",
+      "repair_if_failed": ""
+    },
+    {
+      "gate_id": "G11",
+      "name": "OpenClaw visual source-backed (route deterministic)",
+      "passed": true,
+      "evidence": "current_floor=45 advanced_by=eqsb_cadence_state.tick_count is_random=False",
+      "repair_if_failed": ""
+    },
+    {
+      "gate_id": "G12",
+      "name": "Departments/floors have manifests (>=90% coverage)",
+      "passed": true,
+      "evidence": "manifests_present=15/15 pct=100.0",
+      "repair_if_failed": ""
+    },
+    {
+      "gate_id": "G13",
+      "name": "Worker movements source-backed (>=1 record from real trades)",
+      "passed": true,
+      "evidence": "movement_count=35",
+      "repair_if_failed": ""
+    },
+    {
+      "gate_id": "G14",
+      "name": "Live packets source-backed",
+      "passed": true,
+      "evidence": "packet_count=45",
+      "repair_if_failed": ""
+    },
+    {
+      "gate_id": "G15",
+      "name": "Narrator endpoints + history wired",
+      "passed": true,
+      "evidence": "narrator_history_present=True recent_count=3",
+      "repair_if_failed": ""
+    },
+    {
+      "gate_id": "G16",
+      "name": "Kernel chat workforce + rebuild topics wired",
+      "passed": true,
+      "evidence": "topics_present=True",
+      "repair_if_failed": ""
+    },
+    {
+      "gate_id": "G17",
+      "name": "Safety locks remain closed",
+      "passed": true,
+      "evidence": "real_money_live=False guardian_safety=OK",
+      "repair_if_failed": ""
+    },
+    {
+      "gate_id": "G18",
+      "name": "Real-money trading remains OFF (immutable in code)",
+      "passed": true,
+      "evidence": "real_money_live_trading_enabled=False",
+      "repair_if_failed": ""
+    }
+  ],
+  "passed_count": 18,
+  "failed_count": 0,
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

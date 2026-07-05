@@ -1,0 +1,278 @@
+{
+  "cap_gbp": 5000.0,
+  "committed_gbp": 369.73379897785566,
+  "by_venue": {
+    "oanda_practice": 3207.400788640307,
+    "alpaca_paper": 0.0,
+    "binance_testnet": 952.0696527642606
+  },
+  "open_positions": {
+    "pre_belief_driven_eth_1782553580454": {
+      "venue": "binance_testnet",
+      "instrument": "ETHUSDT",
+      "qty": 0.008533445482997707,
+      "price": 1582.43,
+      "notional_gbp": 10.80286410852805,
+      "worker_id": "belief_driven_eth",
+      "opened_ts": "2026-06-27T09:46:20Z"
+    },
+    "pre_belief_driven_bnb_1782553580497": {
+      "venue": "binance_testnet",
+      "instrument": "BNBUSDT",
+      "qty": 0.04344905139052697,
+      "price": 564.66,
+      "notional_gbp": 19.627153086539966,
+      "worker_id": "belief_driven_bnb",
+      "opened_ts": "2026-06-27T09:46:20Z"
+    },
+    "6509918": {
+      "venue": "binance_testnet",
+      "instrument": "ETHUSDT",
+      "qty": 0.008533445482997707,
+      "price": 1582.97,
+      "notional_gbp": 10.806550556976704,
+      "worker_id": "belief_driven_eth",
+      "opened_ts": "2026-06-27T10:10:26Z"
+    },
+    "3999921": {
+      "venue": "binance_testnet",
+      "instrument": "BNBUSDT",
+      "qty": 0.04344905139052697,
+      "price": 563.9,
+      "notional_gbp": 19.600736063294526,
+      "worker_id": "belief_driven_bnb",
+      "opened_ts": "2026-06-27T10:10:26Z"
+    },
+    "9804031": {
+      "venue": "binance_testnet",
+      "instrument": "BTCUSDT",
+      "qty": 0.00036903709203214255,
+      "price": 60439.39,
+      "notional_gbp": 17.843501383837246,
+      "worker_id": "belief_driven_btc_momentum",
+      "opened_ts": "2026-06-27T10:10:43Z"
+    },
+    "9804038": {
+      "venue": "binance_testnet",
+      "instrument": "BTCUSDT",
+      "qty": 0.0003690369874921267,
+      "price": 60439.83,
+      "notional_gbp": 17.843626230189013,
+      "worker_id": "belief_driven_btc",
+      "opened_ts": "2026-06-27T10:10:48Z"
+    },
+    "9825072": {
+      "venue": "binance_testnet",
+      "instrument": "BTCUSDT",
+      "qty": 0.0003690369874921268,
+      "price": 60347.0,
+      "notional_gbp": 17.8162200673499,
+      "worker_id": "belief_driven_btc_momentum",
+      "opened_ts": "2026-06-27T11:50:35Z"
+    },
+    "6526723": {
+      "venue": "binance_testnet",
+      "instrument": "ETHUSDT",
+      "qty": 0.007904922118568155,
+      "price": 1584.29,
+      "notional_gbp": 10.018951250581075,
+      "worker_id": "belief_driven_eth",
+      "opened_ts": "2026-06-27T11:50:56Z"
+    },
+    "4007468": {
+      "venue": "binance_testnet",
+      "instrument": "BNBUSDT",
+      "qty": 0.03545796672013952,
+      "price": 563.17,
+      "notional_gbp": 15.975090494224776,
+      "worker_id": "belief_driven_bnb",
+      "opened_ts": "2026-06-27T11:50:56Z"
+    },
+    "9825142": {
+      "venue": "binance_testnet",
+      "instrument": "BTCUSDT",
+      "qty": 0.00036925985152080985,
+      "price": 60330.0,
+      "notional_gbp": 17.821957473800367,
+      "worker_id": "belief_driven_btc",
+      "opened_ts": "2026-06-27T11:50:58Z"
+    },
+    "4007495": {
+      "venue": "binance_testnet",
+      "instrument": "BNBUSDT",
+      "qty": 0.035442336423393256,
+      "price": 563.16,
+      "notional_gbp": 15.967764944158516,
+      "worker_id": "belief_driven_bnb",
+      "opened_ts": "2026-06-27T11:51:08Z"
+    },
+    "6527085": {
+      "venue": "binance_testnet",
+      "instrument": "ETHUSDT",
+      "qty": 0.007904922118568155,
+      "price": 1583.17,
+      "notional_gbp": 10.01186844036284,
+      "worker_id": "belief_driven_eth",
+      "opened_ts": "2026-06-27T11:53:16Z"
+    },
+    "9827450": {
+      "venue": "binance_testnet",
+      "instrument": "BTCUSDT",
+      "qty": 0.0003690345314244437,
+      "price": 60306.0,
+      "notional_gbp": 17.803997161666,
+      "worker_id": "belief_driven_btc",
+      "opened_ts": "2026-06-27T12:03:21Z"
+    },
+    "9827510": {
+      "venue": "binance_testnet",
+      "instrument": "BTCUSDT",
+      "qty": 0.0003690369874921267,
+      "price": 60309.22,
+      "notional_gbp": 17.805066293439932,
+      "worker_id": "belief_driven_btc_momentum",
+      "opened_ts": "2026-06-27T12:03:37Z"
+    },
+    "4008761": {
+      "venue": "binance_testnet",
+      "instrument": "BNBUSDT",
+      "qty": 0.035442336423393256,
+      "price": 562.67,
+      "notional_gbp": 15.953871548280546,
+      "worker_id": "belief_driven_bnb",
+      "opened_ts": "2026-06-27T12:10:46Z"
+    },
+    "6530294": {
+      "venue": "binance_testnet",
+      "instrument": "ETHUSDT",
+      "qty": 0.00790492211856815,
+      "price": 1582.44,
+      "notional_gbp": 10.007251965845589,
+      "worker_id": "belief_driven_eth",
+      "opened_ts": "2026-06-27T12:11:11Z"
+    },
+    "9829382": {
+      "venue": "binance_testnet",
+      "instrument": "BTCUSDT",
+      "qty": 0.0003690369874921267,
+      "price": 60276.95,
+      "notional_gbp": 17.795539234570835,
+      "worker_id": "belief_driven_btc",
+      "opened_ts": "2026-06-27T12:12:56Z"
+    },
+    "9829441": {
+      "venue": "binance_testnet",
+      "instrument": "BTCUSDT",
+      "qty": 0.0003690369874921267,
+      "price": 60272.82,
+      "notional_gbp": 17.794319936364165,
+      "worker_id": "belief_driven_btc_momentum",
+      "opened_ts": "2026-06-27T12:13:14Z"
+    },
+    "pre_ensemble_bnbusdt_1782562492299": {
+      "venue": "binance_testnet",
+      "instrument": "BNBUSDT",
+      "qty": 0.0070884672846786515,
+      "price": 562.83,
+      "notional_gbp": 3.1916816334685487,
+      "worker_id": "ensemble_bnbusdt",
+      "opened_ts": "2026-06-27T12:14:52Z"
+    },
+    "pre_ensemble_ethusdt_1782562492343": {
+      "venue": "binance_testnet",
+      "instrument": "ETHUSDT",
+      "qty": 0.00158098442371363,
+      "price": 1582.53,
+      "notional_gbp": 2.0015642240476246,
+      "worker_id": "ensemble_ethusdt",
+      "opened_ts": "2026-06-27T12:14:52Z"
+    },
+    "6531013": {
+      "venue": "binance_testnet",
+      "instrument": "ETHUSDT",
+      "qty": 0.00790492211856815,
+      "price": 1582.48,
+      "notional_gbp": 10.00750492335338,
+      "worker_id": "belief_driven_eth",
+      "opened_ts": "2026-06-27T12:14:56Z"
+    },
+    "4009080": {
+      "venue": "binance_testnet",
+      "instrument": "BNBUSDT",
+      "qty": 0.035442336423393256,
+      "price": 562.83,
+      "notional_gbp": 15.958408167342743,
+      "worker_id": "belief_driven_bnb",
+      "opened_ts": "2026-06-27T12:14:56Z"
+    },
+    "4009308": {
+      "venue": "binance_testnet",
+      "instrument": "BNBUSDT",
+      "qty": 0.035442336423393256,
+      "price": 563.08,
+      "notional_gbp": 15.965496634627423,
+      "worker_id": "belief_driven_bnb",
+      "opened_ts": "2026-06-27T12:18:16Z"
+    },
+    "6531578": {
+      "venue": "binance_testnet",
+      "instrument": "ETHUSDT",
+      "qty": 0.006719183800782928,
+      "price": 1583.13,
+      "notional_gbp": 8.509873160426784,
+      "worker_id": "belief_driven_eth",
+      "opened_ts": "2026-06-27T12:19:00Z"
+    },
+    "pre_ensemble_bnbusdt_1782563781470": {
+      "venue": "binance_testnet",
+      "instrument": "BNBUSDT",
+      "qty": 0.0070884672846786515,
+      "price": 563.6,
+      "notional_gbp": 3.1960481293159106,
+      "worker_id": "ensemble_bnbusdt",
+      "opened_ts": "2026-06-27T12:36:21Z"
+    },
+    "4018144": {
+      "venue": "binance_testnet",
+      "instrument": "BNBUSDT",
+      "qty": 0.035442336423393256,
+      "price": 563.45,
+      "notional_gbp": 15.975987566208747,
+      "worker_id": "belief_driven_bnb",
+      "opened_ts": "2026-06-27T14:03:54Z"
+    },
+    "6553233": {
+      "venue": "binance_testnet",
+      "instrument": "ETHUSDT",
+      "qty": 0.00790492211856815,
+      "price": 1589.63,
+      "notional_gbp": 10.052721077871592,
+      "worker_id": "belief_driven_eth",
+      "opened_ts": "2026-06-27T14:05:15Z"
+    },
+    "pre_ensemble_btcusdt_1782570494925": {
+      "venue": "binance_testnet",
+      "instrument": "BTCUSDT",
+      "qty": 7.380739749842535e-05,
+      "price": 60600.01,
+      "notional_gbp": 3.578183221182841,
+      "worker_id": "ensemble_btcusdt",
+      "opened_ts": "2026-06-27T14:28:14Z"
+    }
+  },
+  "fx_to_gbp": {
+    "GBP": 1.0,
+    "USD": 0.8,
+    "USDT": 0.8,
+    "USDC": 0.8,
+    "EUR": 0.85,
+    "JPY": 0.0053,
+    "CHF": 0.9,
+    "AUD": 0.52,
+    "CAD": 0.59
+  },
+  "updated_at": "2026-06-27T14:28:14Z",
+  "refused_count": 906,
+  "reserved_count": 165527,
+  "released_count": 165420
+}

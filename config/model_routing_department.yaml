@@ -1,0 +1,19 @@
+model_routing_department:
+  version: 1.1
+  floor_id: floor_24
+  role: model_routing_exchange
+  direct_provider_access: false
+  execution_enabled: false
+  models_required: false
+  kernel_required: false
+
+lifts:
+  incoming_from_departments: service_lift
+  outgoing_to_model_services: model_lift
+
+targets:
+  local_model_operations: floor_27
+  external_provider_sockets: floor_23
+  air_llm_cloud_roof: roof
+
+principle: Floor 24 routes sealed packets. It does not execute providers.

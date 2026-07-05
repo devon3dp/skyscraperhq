@@ -1,0 +1,34 @@
+{
+  "room_id": "expansion_plan_office",
+  "name": "Expansion Planning Office",
+  "category": "admin",
+  "purpose": "Manages administrative tasks for the department.",
+  "concierge_blurb": "A desk with maps and charts covers one wall of this office.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "desk",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Admin Desk",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_36"
+}

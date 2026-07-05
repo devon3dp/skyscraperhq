@@ -1,0 +1,14 @@
+{
+  "id": "train_L3_dispatch_forge",
+  "title": "Level 3 — Dispatch Forge and save his reply",
+  "stages": [
+    {
+      "kind": "forge",
+      "prompt": "Use wren_dispatch_f46_team with worker='forge' and task='Write a 6-line Python function called ross_greeting(name) that returns a warm one-line greeting'. Do exactly ONE dispatch. STAGE_OUT: the first 200 chars of Forge's reply."
+    },
+    {
+      "kind": "save",
+      "prompt": "Use wren_write_file with path='data/wren_sandbox/L3_forge_output.py' and content that contains Forge's function from the prior stage (extract from prior context). STAGE_OUT: the tool result."
+    }
+  ]
+}

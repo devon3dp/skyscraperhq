@@ -1,0 +1,18 @@
+{
+  "ok": true,
+  "kind": "qsb_trading_floor_room_assignments",
+  "phase": "QSB_RENDER_VISIBLE_WORKERS_AND_LIFTS_FIX_V1",
+  "generated_ts": "2026-06-30T13:46:35.049901+00:00",
+  "trading_assignments_count": {
+    "41": 8,
+    "42": 2,
+    "43": 3
+  },
+  "total_stations_assigned": 13,
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

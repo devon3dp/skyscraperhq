@@ -1,0 +1,9 @@
+{
+  "ok": true, "kind": "qsb_tower_packet_flow_status", "ts": "2026-06-09T22:06:58Z",
+  "max_packets": 24,
+  "spawn_period_seconds": 0.6,
+  "categories": ["kernel","worker","smoke","ledger","openclaw","ml","banking","trading","commerce","activity"],
+  "path": "parabolic arc between random source and dest floors at ring radius +0.7",
+  "pulse_on_arrival": true,
+  "owner_script": "TowerPacketFlow.gd"
+}

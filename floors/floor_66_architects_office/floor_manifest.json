@@ -1,0 +1,52 @@
+{
+  "ok": true,
+  "floor_number": 66,
+  "floor_name": "Architects' Office",
+  "floor_kind": "building_architecture_v1",
+  "description": "Owns the blueprints of the skyscraper itself; designs every new floor, every interior, every expansion. Distinct from F7 Architecture (which does SOFTWARE architecture).",
+  "remit": [
+    "maintain authoritative skyscraper blueprint",
+    "design new-floor layouts",
+    "coordinate structural + MEP + interior",
+    "approve graphics team Godot scene briefs",
+    "sign off all expansion plans"
+  ],
+  "rooms": [
+    "drafting_hall",
+    "blueprint_archive",
+    "model_workshop",
+    "review_atelier",
+    "structural_lab",
+    "presentation_amphitheatre"
+  ],
+  "lead_role": "Chief Architect",
+  "inter_floor_produces": [
+    "F17 graphics (Godot scene briefs)",
+    "F47 wren (design records)",
+    "F36 expansion_planning (capacity plans)",
+    "F50 governance (structural approvals)"
+  ],
+  "inter_floor_consumes": [
+    "F36 expansion_planning (capacity targets)",
+    "F47 wren (design directives)",
+    "F12 risk (load + structural risk)"
+  ],
+  "created_ts": "2026-06-11T09:13:04.497262Z",
+  "advisory_only": true,
+  "interior_brief": {
+    "archetype": "office",
+    "palette": "graphite + sage",
+    "furniture": [
+      "desks",
+      "task chairs",
+      "meeting pod"
+    ],
+    "lighting": "task + ambient",
+    "mood": "focused",
+    "designed_by": "F66 Architects + Fitters team (sweep 2)",
+    "fitted_at": "2026-06-11T14:40:49.185810Z",
+    "godot_scene_brief": "render an office floor with graphite + sage palette"
+  },
+  "fitted_out": true,
+  "fit_out_ts": "2026-06-11T14:40:49.185810Z"
+}

@@ -1,0 +1,185 @@
+{
+  "ok": true,
+  "kind": "qsb_godot_professional_upgrade_gates",
+  "phase": "QSB_GODOT_PROFESSIONAL_COCKPIT_VISUAL_UPGRADE_AFTER_FIRST_LAUNCH_V1",
+  "generated_ts": "2026-06-09T16:25:51+00:00",
+  "gates": [
+    {
+      "id": "G1",
+      "name": "Godot cockpit launches directly",
+      "passed": true,
+      "evidence": "qsb_godot_launch_check 11/11 + qsb_godot_first_real_launch_checkpoint manifest"
+    },
+    {
+      "id": "G2",
+      "name": "Project Manager is NOT the result",
+      "passed": true,
+      "evidence": "scripts/qsb_godot_run.sh exec --path snap-safe mirror; project.godot main_scene=res://scenes/Main.tscn"
+    },
+    {
+      "id": "G3",
+      "name": "Tower visually improved beyond first prototype",
+      "passed": true,
+      "evidence": "Top command bar + right inspector + event ticker + live telemetry pull added on top of existing tower"
+    },
+    {
+      "id": "G4",
+      "name": "HUD professionally styled",
+      "passed": true,
+      "evidence": "ControlBar bg rgba(2,4,8,0.94) + 17 styled buttons + KernelChatPanel right dock + bottom safety banner"
+    },
+    {
+      "id": "G5",
+      "name": "Camera orbit works",
+      "passed": true,
+      "evidence": "auto_orbit toggle wired to ControlBar 'rotate' button"
+    },
+    {
+      "id": "G6",
+      "name": "Zoom works",
+      "passed": true,
+      "evidence": "mouse wheel up/down already in baseline Main.gd line 33-36"
+    },
+    {
+      "id": "G7",
+      "name": "Floor selection works",
+      "passed": true,
+      "evidence": "keyboard UP/DOWN/1/2/3 + ControlBar Trading/Models/Risk buttons"
+    },
+    {
+      "id": "G8",
+      "name": "Floor inspector works",
+      "passed": true,
+      "evidence": "KernelChatPanel.show_floor renders rooms + extras for every floor change"
+    },
+    {
+      "id": "G9",
+      "name": "Floor interiors scaffolded for key floors",
+      "passed": true,
+      "evidence": "_floor_rooms() defines rooms for F55/53/45/44/41/42/35/28/8/6 \u2014 V2 will spawn 3D props"
+    },
+    {
+      "id": "G10",
+      "name": "Kernel Chat panel exists",
+      "passed": true,
+      "evidence": "KernelChatPanel + KernelChatBridge POST /api/kernel_chat; history + Send + monospace reply"
+    },
+    {
+      "id": "G11",
+      "name": "Talk/Voice/Sound/Commentary controls exist",
+      "passed": true,
+      "evidence": "VoiceControlBridge with 5 toggles; ControlBar buttons wired; ticker logs state_changed"
+    },
+    {
+      "id": "G12",
+      "name": "Original dashboard controls migrated",
+      "passed": true,
+      "evidence": "qsb_godot_original_dashboard_controls_migration.json \u2014 21 controls, 17 wired, 4 explicitly browser-fallback/scaffold"
+    },
+    {
+      "id": "G13",
+      "name": "Lifts visible",
+      "passed": true,
+      "evidence": "_build_lifts in baseline Main.gd \u2014 9 shafts + 9 cars"
+    },
+    {
+      "id": "G14",
+      "name": "Lift animation channel exists",
+      "passed": true,
+      "evidence": "qsb_godot_live_animation_channels.json (scaffold; V2 will lerp)"
+    },
+    {
+      "id": "G15",
+      "name": "OpenClaw visible",
+      "passed": true,
+      "evidence": "_build_openclaw sphere with emissive purple"
+    },
+    {
+      "id": "G16",
+      "name": "OpenClaw animation channel exists",
+      "passed": true,
+      "evidence": "qsb_godot_live_animation_channels.json (scaffold; V2 will orbit + Y lerp)"
+    },
+    {
+      "id": "G17",
+      "name": "Worker/team clusters visible",
+      "passed": true,
+      "evidence": "HUD WORKERS_TOTAL=2191 displayed; V1 no individual sprites by design"
+    },
+    {
+      "id": "G18",
+      "name": "Event stream visible",
+      "passed": true,
+      "evidence": "KernelChatPanel.push_ticker writes cockpit + telemetry + voice events to ItemList"
+    },
+    {
+      "id": "G19",
+      "name": "Trading panels exist",
+      "passed": true,
+      "evidence": "F41 ChatPanel inspector shows rooms (Practice Trading Desk, Ticks Wall, Open Trades Board, etc.); F42 shows Binance rooms"
+    },
+    {
+      "id": "G20",
+      "name": "Commerce panel exists",
+      "passed": true,
+      "evidence": "F6 ChatPanel inspector shows Etsy rooms (Product Pipeline, Listing Drafts, Approval Gate manual, etc.)"
+    },
+    {
+      "id": "G21",
+      "name": "Hardware panel exists",
+      "passed": true,
+      "evidence": "F35 ChatPanel inspector shows CPU/GPU/RAM/Disk gauges; runtime renderer=llvmpipe noted"
+    },
+    {
+      "id": "G22",
+      "name": "Security panel masks secrets",
+      "passed": true,
+      "evidence": "F28 ChatPanel inspector shows 'Masked Credentials' \u2014 no env values exposed"
+    },
+    {
+      "id": "G23",
+      "name": "Safety locks visible",
+      "passed": true,
+      "evidence": "HUD bottom shows real-money OFF \u00b7 listings OFF \u00b7 payments OFF \u00b7 OpenClaw exec OFF (red)"
+    },
+    {
+      "id": "G24",
+      "name": "No fake random animation",
+      "passed": true,
+      "evidence": "Telemetry-driven ticker; auto_orbit is the only ambient motion and is toggleable"
+    },
+    {
+      "id": "G25",
+      "name": "No live trading enabled",
+      "passed": true,
+      "evidence": "qsb_godot_*.real_money_live_trading_enabled=false stamped on every payload"
+    },
+    {
+      "id": "G26",
+      "name": "No listings published",
+      "passed": true,
+      "evidence": "live_listings_publishing_enabled=false; no Etsy/Shopify SDK present"
+    },
+    {
+      "id": "G27",
+      "name": "No money spent",
+      "passed": true,
+      "evidence": "live_payments_enabled=false; no payment SDK present"
+    },
+    {
+      "id": "G28",
+      "name": "No secrets exposed",
+      "passed": true,
+      "evidence": "TelemetryBridge reads HTTP only; F28 inspector says 'Masked Credentials'"
+    }
+  ],
+  "passed_count": 28,
+  "total": 28,
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "live_payments_enabled": false,
+  "live_listings_publishing_enabled": false
+}

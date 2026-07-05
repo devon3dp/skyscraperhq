@@ -1,0 +1,36 @@
+QSB Native Cockpit V2 Health Check · 2026-06-09T15:14:45Z
+engine_python: /usr/bin/python3
+  ✓ pyqt5_importable_system_python — /usr/bin/python3 has PyQt5
+  ✓ telemetry_bridge_imports — telemetry_bridge OK
+  ✓ workforce_total_2191 — verified=2191
+  ✓ registry_qsb_native_graphics_engine_audit_v2
+  ✓ registry_qsb_native_graphics_engine_decision_v2
+  ✓ registry_qsb_native_cockpit_project_v2
+  ✓ registry_qsb_native_cockpit_architecture_v2
+  ✓ registry_qsb_native_scene_contract
+  ✓ registry_qsb_native_workforce_import_audit
+  ✓ registry_qsb_native_worker_scene_summary
+  ✓ registry_qsb_native_cockpit_api_contract
+  ✓ registry_qsb_native_cockpit_health_fix
+  ✓ registry_qsb_native_cockpit_screenshot_proof
+  ✓ registry_qsb_original_dashboard_feature_inventory
+  ✓ registry_qsb_native_cockpit_feature_inventory
+  ✓ registry_qsb_native_feature_parity_matrix
+  ✓ registry_qsb_native_missing_features_backlog
+  ✓ registry_qsb_native_cockpit_completion_gates_v1
+  ✓ registry_qsb_native_cockpit_completion_score_v1
+  ✓ file_native_cockpit/qt/main.py
+  ✓ file_native_cockpit/qt/telemetry_bridge.py
+  ✓ file_native_cockpit/qt/requirements.txt
+  ✓ file_native_cockpit/README.md
+  ✓ file_native_cockpit/package_plan.md
+  ✓ run_script_executable
+  ✓ run_script_uses_system_python
+  ✓ safety_locks_closed — all five locks=false
+  ✓ display_present DISPLAY=:0 WAYLAND=
+  ✓ headless_instantiation — scene_items=391
+  ✓ screenshot_proof_present
+
+score: 100.0 (30/30)
+failed:none
+score=100.0 (30/30)

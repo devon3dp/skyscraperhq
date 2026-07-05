@@ -1,0 +1,64 @@
+{
+  "registry": "airllm_storage_status_v1",
+  "phase": "AIRLLM_BIG_MODEL_CHAMBER_REGISTRY_V1",
+  "registered_ts": "2026-06-08T10:30:00Z",
+  "chamber_id": "airllm_big_model_chamber_v1",
+  "storage_mount": "/vaults/ai",
+  "backing_device": "/dev/nvme2n1p1",
+  "filesystem_size_human": "469G",
+  "filesystem_used_human": "8.0G",
+  "filesystem_free_human": "437G",
+  "filesystem_use_pct": 2,
+  "airllm_lab_size_human": "5.3G",
+  "airllm_cache_size_human": "2.8G",
+  "directories": {
+    "ai_storage_root": "/vaults/ai",
+    "airllm_lab": "/vaults/ai/airllm_lab",
+    "venv": "/vaults/ai/airllm_lab/.venv",
+    "huggingface_cache": "/vaults/ai/cache/huggingface",
+    "huggingface_hub_cache": "/vaults/ai/cache/huggingface/hub",
+    "transformers_cache": "/vaults/ai/cache/huggingface/transformers",
+    "pip_cache": "/vaults/ai/cache/pip",
+    "torch_cache": "/vaults/ai/cache/torch",
+    "cuda_cache": "/vaults/ai/cache/cuda",
+    "tmp": "/vaults/ai/cache/tmp",
+    "models": "/vaults/ai/models",
+    "shards": "/vaults/ai/shards"
+  },
+  "root_partition": {
+    "filesystem": "/dev/nvme3n1p2",
+    "size_human": "468G",
+    "used_human": "411G",
+    "free_human": "34G",
+    "use_pct": 93,
+    "protected": true,
+    "high_usage_warning": true,
+    "forbidden_for_airllm": [
+      "model_shards",
+      "huggingface_cache",
+      "torch_cache",
+      "pip_cache",
+      "cuda_cache",
+      "tmp"
+    ]
+  },
+  "do_not_use_paths": [
+    "/home/ross/airllm_lab"
+  ],
+  "environment_variables_required": {
+    "AI_STORAGE": "/vaults/ai",
+    "PIP_CACHE_DIR": "/vaults/ai/cache/pip",
+    "HF_HOME": "/vaults/ai/cache/huggingface",
+    "HUGGINGFACE_HUB_CACHE": "/vaults/ai/cache/huggingface/hub",
+    "TRANSFORMERS_CACHE": "/vaults/ai/cache/huggingface/transformers",
+    "TORCH_HOME": "/vaults/ai/cache/torch",
+    "TMPDIR": "/vaults/ai/cache/tmp",
+    "CUDA_CACHE_PATH": "/vaults/ai/cache/cuda"
+  },
+  "advisory_only": true,
+  "execution_allowed": false,
+  "notes": [
+    "All AirLLM cache and model storage is offloaded to /vaults/ai (/dev/nvme2n1p1).",
+    "Root partition is at 93% and must remain protected from AirLLM growth."
+  ]
+}

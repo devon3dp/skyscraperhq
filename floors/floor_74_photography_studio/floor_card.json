@@ -1,0 +1,72 @@
+{
+  "floor_id": "floor_74",
+  "floor_number": 74,
+  "floor_name": "Photography Studio",
+  "department": "designed_by_f66_architects_v1",
+  "zone": "ZONE D \u00b7 COMMERCE WING",
+  "archetype": "designed_by_f66_architects_v1",
+  "staff_lead": "F66 Architects' Office",
+  "tour_blurb": "portrait + commercial + product",
+  "visitor_open": false,
+  "advisory_only": true,
+  "execution_mode": "PREVIEW_ONLY",
+  "skeleton": true,
+  "skeleton_source": "floor_manifest.json",
+  "skeleton_generated_ts": "2026-06-17",
+  "live_signals": {
+    "theme": null,
+    "categories": null,
+    "palette": null,
+    "tagline": null
+  },
+  "gate_posture": {
+    "advisory_only": true,
+    "execution_allowed": false,
+    "live_payments_enabled": false
+  },
+  "team_roster": [
+    {
+      "id": "f074.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "spawned_id": "e1295cd7b3",
+      "spawned_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F074",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f074.operator.01",
+      "spawned_id": "4f532c0454"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F074",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f074.operator.02",
+      "spawned_id": "37d92721c7"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F074",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f074.operator.03",
+      "spawned_id": "ed60352224"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F074",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f074.operator.04",
+      "spawned_id": "a42f205234"
+    }
+  ],
+  "floor_manager": "f074.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

@@ -1,0 +1,34 @@
+{
+  "room_id": "display_area_60",
+  "name": "Market Data Display",
+  "category": "display",
+  "purpose": "Displays real-time market data and charts for traders to reference.",
+  "concierge_blurb": "See the latest market movements in this dynamic display area.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": -4.5,
+    "footprint_m": [
+      3.2,
+      1.8
+    ],
+    "height_m": 1.6
+  },
+  "render": {
+    "primary_prop": "display",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Data Display",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/market_data.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 60
+  },
+  "floor": "floor_60"
+}

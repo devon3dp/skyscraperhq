@@ -1,0 +1,100 @@
+{
+  "generated_at": "2026-07-03T20:59:39Z",
+  "fleet": {
+    "win_rate_pct": 42.4,
+    "expectancy": 0.0001224478721417037,
+    "total_trades": 4246,
+    "open_positions": 49,
+    "benched_duds": 33,
+    "session_pnl_gbp": 0.38
+  },
+  "top_traders": [
+    {
+      "name": "belief_driven_msft",
+      "win_rate_pct": 50.0,
+      "expectancy": 0.09250000000000114,
+      "pnl_gbp": 0.0
+    },
+    {
+      "name": "belief_driven_gld",
+      "win_rate_pct": 0.0,
+      "expectancy": 0.06999999999999318,
+      "pnl_gbp": 0.0
+    },
+    {
+      "name": "belief_driven_iwm",
+      "win_rate_pct": 0.0,
+      "expectancy": 0.037106041718293556,
+      "pnl_gbp": 0.0
+    },
+    {
+      "name": "belief_driven_spy",
+      "win_rate_pct": 50.0,
+      "expectancy": 0.03562499999999602,
+      "pnl_gbp": 0.0
+    },
+    {
+      "name": "belief_driven_wheat",
+      "win_rate_pct": 0.0,
+      "expectancy": 0.02187499999999898,
+      "pnl_gbp": 0.0
+    },
+    {
+      "name": "belief_driven_qqq",
+      "win_rate_pct": 0.0,
+      "expectancy": 0.02085937500000057,
+      "pnl_gbp": 0.0
+    }
+  ],
+  "worst_traders": [
+    {
+      "name": "belief_driven_jp225",
+      "win_rate_pct": 33.3,
+      "expectancy": -0.00020345052083333334,
+      "pnl_gbp": 0.0
+    },
+    {
+      "name": "belief_driven_xau",
+      "win_rate_pct": 0.0,
+      "expectancy": -0.00012664794921887768,
+      "pnl_gbp": 0.0
+    },
+    {
+      "name": "belief_driven_nas",
+      "win_rate_pct": 0.0,
+      "expectancy": -9.765625000013323e-05,
+      "pnl_gbp": 0.0
+    },
+    {
+      "name": "belief_driven_xag",
+      "win_rate_pct": 0.0,
+      "expectancy": -4.2724609374998005e-05,
+      "pnl_gbp": 0.0
+    },
+    {
+      "name": "belief_driven_eur",
+      "win_rate_pct": 34.1,
+      "expectancy": -7.361164338818524e-11,
+      "pnl_gbp": 0.0
+    },
+    {
+      "name": "ensemble_bnbusdt",
+      "win_rate_pct": 39.0,
+      "expectancy": -9.130634234729254e-59,
+      "pnl_gbp": 0.0
+    }
+  ],
+  "regime": {
+    "trending": 16,
+    "flat": 80,
+    "total": 96
+  },
+  "venues": [
+    {
+      "venue": "oanda_practice",
+      "pnl_gbp": 0.3798,
+      "trades": 2,
+      "win_rate_pct": 100.0
+    }
+  ]
+}

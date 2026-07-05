@@ -1,0 +1,9 @@
+{
+  "timestamp_utc": "20260609T195750Z",
+  "passes": 16,
+  "warnings": 0,
+  "failures": 0,
+  "verdict": "PASS",
+  "log": "data/logs/qsb_kernel_learning_smoke_test_v2_20260609T195750Z.log",
+  "purpose": "Strictly checks whether Kernel answers from upgrade/Godot/feature registries instead of canned identity fallback."
+}

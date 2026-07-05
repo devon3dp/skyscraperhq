@@ -1,0 +1,34 @@
+{
+  "room_id": "inspection_lab",
+  "name": "Inspection Lab",
+  "category": "lab",
+  "purpose": "Conducting detailed product inspections.",
+  "concierge_blurb": "Where products are meticulously checked for quality.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -8.0,
+    "offset_z": 2.0,
+    "footprint_m": [
+      6,
+      4
+    ],
+    "height_m": 1.5
+  },
+  "render": {
+    "primary_prop": "workbench",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Inspection Lab",
+    "glow": false
+  },
+  "interactive": {
+    "type": "toggle",
+    "source_path": "data/registries/inspection_schedule.json",
+    "display": "status_dot",
+    "refresh_seconds": 60
+  },
+  "floor": "floor_9"
+}

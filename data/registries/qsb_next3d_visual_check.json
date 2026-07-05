@@ -1,0 +1,32 @@
+{
+  "ok": true,
+  "kind": "qsb_next3d_visual_check",
+  "phase": "QSB_NEXTGEN_3D_DASHBOARD_GREENFIELD_REBUILD_V1",
+  "generated_ts": "2026-06-09T13:37:18+00:00",
+  "passed": 15,
+  "total": 15,
+  "automated_score": 100.0,
+  "failed": [],
+  "screenshots": [
+    {
+      "floor": 55,
+      "path": "data/screenshots/qsb_next3d_floor55.png",
+      "bytes": 145122
+    },
+    {
+      "floor": 41,
+      "path": "data/screenshots/qsb_next3d_floor41.png",
+      "bytes": 145122
+    },
+    {
+      "floor": 42,
+      "path": "data/screenshots/qsb_next3d_floor42.png",
+      "bytes": 145122
+    }
+  ],
+  "screenshot_tool": "google-chrome --headless",
+  "manual_visual_required": true,
+  "execution_allowed": false,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

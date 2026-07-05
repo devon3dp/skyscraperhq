@@ -1,0 +1,34 @@
+{
+  "room_id": "archive_room",
+  "name": "Archive Room",
+  "category": "library",
+  "purpose": "Preserving historical data and news archives.",
+  "concierge_blurb": "Archiving important news stories and data.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_right",
+    "offset_x": 8.0,
+    "offset_z": -2.0,
+    "footprint_m": [
+      10,
+      6
+    ],
+    "height_m": 1.5
+  },
+  "render": {
+    "primary_prop": "archive_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Archive Room",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/archive_catalog.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_99"
+}

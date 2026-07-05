@@ -1,0 +1,37 @@
+[
+  {
+    "id": "floor_52_to_diagnostics",
+    "source": "floor_52",
+    "target": "floor_33",
+    "purpose": "diagnostics visibility",
+    "status": "linked"
+  },
+  {
+    "id": "floor_52_to_monitoring",
+    "source": "floor_52",
+    "target": "floor_34",
+    "purpose": "monitoring visibility",
+    "status": "linked"
+  },
+  {
+    "id": "floor_52_to_infrastructure",
+    "source": "floor_52",
+    "target": "floor_35",
+    "purpose": "infrastructure service visibility",
+    "status": "linked"
+  },
+  {
+    "id": "floor_52_to_expansion",
+    "source": "floor_52",
+    "target": "floor_36",
+    "purpose": "expansion capacity visibility",
+    "status": "linked"
+  },
+  {
+    "id": "floor_52_to_security",
+    "source": "floor_52",
+    "target": "floor_28_floor_32",
+    "purpose": "security spine visibility",
+    "status": "linked"
+  }
+]

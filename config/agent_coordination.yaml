@@ -1,0 +1,49 @@
+agent_coordination:
+  version: 1.1
+  floor: floor_25
+  department: Worker Recruitment and Coordination Department
+  candidate_registration_enabled: true
+  execution_enabled: false
+  worker_execution_enabled: false
+  provider_execution_enabled: false
+  autonomous_workers_enabled: false
+  live_dispatch_enabled: false
+  kernel_installed: false
+  kernel_logic_present: false
+
+routing:
+  incoming_lifts:
+    - main_mid_rise
+    - service_lift
+    - security_lift
+  outgoing_lifts:
+    - service_lift
+    - security_lift
+  model_requests_route_through: floor_24
+  local_model_inventory_route_through: floor_27
+  external_provider_sockets_route_through: floor_23
+  adapter_route_through: floor_21
+
+safety:
+  manual_approval_required: true
+  security_spine_required: true
+  no_autonomous_execution: true
+  no_kernel_build: true
+  no_provider_calls: true
+
+
+indirect_model_access:
+  model_lift_indirect_via: floor_24
+  first_leg:
+    from: floor_25
+    to: floor_24
+    allowed_lifts:
+      - service_lift
+      - main_mid_rise
+  second_leg:
+    from: floor_24
+    to: floor_27
+    allowed_lifts:
+      - model_lift
+  direct_provider_access: false
+  execution_enabled: false

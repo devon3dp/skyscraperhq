@@ -1,0 +1,143 @@
+{
+  "ok": true,
+  "phase": "QSB_OPENCLAW_PAPER_TRADE_WORKERS_3D_SKYSCRAPER_V2",
+  "kind": "qsb_openclaw_state",
+  "generated_ts": "2026-06-09T08:00:12.748010+00:00",
+  "status": "active",
+  "openclaw_visual_enabled": true,
+  "openclaw_sandbox_enabled": true,
+  "openclaw_trade_supervision_enabled": true,
+  "openclaw_diagnostic_ticketing_enabled": true,
+  "openclaw_real_tool_execution_enabled": false,
+  "limb_role": "internal_operations_supervision",
+  "responsibilities": [
+    "inspect trading floors",
+    "inspect open paper/testnet trades",
+    "inspect worker reports",
+    "create diagnostic tickets",
+    "report to Kernel / Guardian / dashboard",
+    "display allowed paper/testnet actions",
+    "display blocked unsafe actions"
+  ],
+  "allowed_paper_actions": [
+    "inspect_floor_state",
+    "inspect_open_paper_trades",
+    "inspect_worker_reports",
+    "open_paper_trade",
+    "close_paper_trade",
+    "update_pnl",
+    "create_diagnostic_ticket",
+    "report_to_kernel",
+    "report_to_guardian",
+    "report_to_dashboard",
+    "summarize_worker_lessons"
+  ],
+  "blocked_unsafe_actions": [
+    "place_real_money_order",
+    "place_binance_live_order",
+    "place_oanda_live_order",
+    "unlock_execution_gate",
+    "bypass_guardian_verdict",
+    "expose_api_key",
+    "log_api_secret",
+    "modify_lock_matrix",
+    "execute_arbitrary_shell",
+    "fetch_external_url_without_proxy",
+    "promote_kernel_to_executing_logic"
+  ],
+  "supervised_floors": [
+    "floor_30_permissions_risk",
+    "floor_31_audit_ledger",
+    "floor_37_simulation_labs",
+    "floor_38_sandbox_operations",
+    "floor_41_oanda_practice_trading",
+    "floor_42_binance_trading_floor",
+    "floor_43_stock_exchange_floor",
+    "floor_45_worker_recruitment_agency",
+    "floor_53_tower_command"
+  ],
+  "sandbox_workers": [
+    {
+      "id": "openclaw_market_probe",
+      "name": "OpenClaw Market Probe",
+      "role": "Sandbox-only inspection of Floor 41 paper market state.",
+      "home_floor": "floor_41",
+      "sandbox_only": true,
+      "execution_enabled": false
+    },
+    {
+      "id": "openclaw_strategy_mapper",
+      "name": "OpenClaw Strategy Mapper",
+      "role": "Maps paper signals into candidate strategy notes.",
+      "home_floor": "floor_37",
+      "sandbox_only": true,
+      "execution_enabled": false
+    },
+    {
+      "id": "openclaw_risk_guard",
+      "name": "OpenClaw Risk Guard",
+      "role": "Checks that all execution locks remain closed.",
+      "home_floor": "floor_30",
+      "sandbox_only": true,
+      "execution_enabled": false
+    },
+    {
+      "id": "openclaw_lift_observer",
+      "name": "OpenClaw Lift Observer",
+      "role": "Watches sandbox packets move through the tower lift system.",
+      "home_floor": "floor_25",
+      "sandbox_only": true,
+      "execution_enabled": false
+    }
+  ],
+  "sandbox_worker_count": 4,
+  "diagnostic_tickets": [
+    {
+      "ticket_id": "tkt_eqsb_contradiction_score",
+      "severity": "info",
+      "title": "EQSB contradiction_score is non-zero",
+      "evidence": "entropy.contradiction_score=20.0",
+      "advised_action": "review eqsb_contradiction_report.json",
+      "routing": [
+        "kernel",
+        "guardian",
+        "dashboard"
+      ]
+    },
+    {
+      "ticket_id": "tkt_floor41_paper_ledger_active",
+      "severity": "info",
+      "title": "Floor 41 paper ledger has entries",
+      "evidence": "entry_count=503",
+      "advised_action": "inspect via /api/openclaw/trade_reports",
+      "routing": [
+        "dashboard"
+      ]
+    },
+    {
+      "ticket_id": "tkt_binance_paper_lab_active",
+      "severity": "info",
+      "title": "Binance paper strategy lab is observing testnet",
+      "evidence": "mode=binance_paper_strategy_lab",
+      "advised_action": "watch open paper-trade count vs max=20",
+      "routing": [
+        "dashboard"
+      ]
+    }
+  ],
+  "diagnostic_ticket_count": 3,
+  "current_open_trade_count": 3,
+  "max_open_trades": 20,
+  "reports_routed_to": [
+    "kernel",
+    "guardian",
+    "dashboard"
+  ],
+  "openclaw_execution_enabled": false,
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "live_trading_enabled": false,
+  "binance_live_trading_enabled": false
+}

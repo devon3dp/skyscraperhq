@@ -1,0 +1,135 @@
+{
+  "ok": true,
+  "kind": "qsb_floor46_commerce_pricing",
+  "generated_ts": "2026-06-09T17:34:24+00:00",
+  "policy": "Advisory only. PricingAdvisor never edits product prices; it proposes changes for operator approval.",
+  "product_count": 6,
+  "projected_monthly_revenue": 2262.0,
+  "projected_monthly_profit": 1783.5,
+  "best_by_projected_profit": [
+    {
+      "sku": "QSB-PRINT-001",
+      "current_price": 18.0,
+      "advisory_action": "raise",
+      "advisory_reason": "under market by 18.2% with healthy margin 75.0%; lift price toward anchor",
+      "projected_monthly_revenue": 630.0,
+      "projected_monthly_profit": 472.5,
+      "margin_percent": 75.0,
+      "vs_market_percent": -18.18
+    },
+    {
+      "sku": "QSB-STICKER-002",
+      "current_price": 6.0,
+      "advisory_action": "raise",
+      "advisory_reason": "under market by 20.0% with healthy margin 80.0%; lift price toward anchor",
+      "projected_monthly_revenue": 480.0,
+      "projected_monthly_profit": 384.0,
+      "margin_percent": 80.0,
+      "vs_market_percent": -20.0
+    },
+    {
+      "sku": "QSB-PAT-004",
+      "current_price": 24.0,
+      "advisory_action": "raise",
+      "advisory_reason": "under market by 14.3% with healthy margin 100.0%; lift price toward anchor",
+      "projected_monthly_revenue": 360.0,
+      "projected_monthly_profit": 360.0,
+      "margin_percent": 100.0,
+      "vs_market_percent": -14.29
+    }
+  ],
+  "worst_by_margin": [
+    {
+      "sku": "QSB-TEE-006",
+      "current_price": 24.0,
+      "advisory_action": "raise",
+      "advisory_reason": "under market by 11.1% with healthy margin 62.5%; lift price toward anchor",
+      "projected_monthly_revenue": 288.0,
+      "projected_monthly_profit": 180.0,
+      "margin_percent": 62.5,
+      "vs_market_percent": -11.11
+    },
+    {
+      "sku": "QSB-MUG-005",
+      "current_price": 18.0,
+      "advisory_action": "raise",
+      "advisory_reason": "under market by 10.0% with healthy margin 63.9%; lift price toward anchor",
+      "projected_monthly_revenue": 324.0,
+      "projected_monthly_profit": 207.0,
+      "margin_percent": 63.89,
+      "vs_market_percent": -10.0
+    },
+    {
+      "sku": "QSB-PRINT-001",
+      "current_price": 18.0,
+      "advisory_action": "raise",
+      "advisory_reason": "under market by 18.2% with healthy margin 75.0%; lift price toward anchor",
+      "projected_monthly_revenue": 630.0,
+      "projected_monthly_profit": 472.5,
+      "margin_percent": 75.0,
+      "vs_market_percent": -18.18
+    }
+  ],
+  "recommendations": [
+    {
+      "sku": "QSB-PRINT-001",
+      "current_price": 18.0,
+      "advisory_action": "raise",
+      "advisory_reason": "under market by 18.2% with healthy margin 75.0%; lift price toward anchor",
+      "projected_monthly_revenue": 630.0,
+      "projected_monthly_profit": 472.5,
+      "margin_percent": 75.0,
+      "vs_market_percent": -18.18
+    },
+    {
+      "sku": "QSB-STICKER-002",
+      "current_price": 6.0,
+      "advisory_action": "raise",
+      "advisory_reason": "under market by 20.0% with healthy margin 80.0%; lift price toward anchor",
+      "projected_monthly_revenue": 480.0,
+      "projected_monthly_profit": 384.0,
+      "margin_percent": 80.0,
+      "vs_market_percent": -20.0
+    },
+    {
+      "sku": "QSB-DIGI-003",
+      "current_price": 9.0,
+      "advisory_action": "raise",
+      "advisory_reason": "under market by 18.2% with healthy margin 100.0%; lift price toward anchor",
+      "projected_monthly_revenue": 180.0,
+      "projected_monthly_profit": 180.0,
+      "margin_percent": 100.0,
+      "vs_market_percent": -18.18
+    },
+    {
+      "sku": "QSB-PAT-004",
+      "current_price": 24.0,
+      "advisory_action": "raise",
+      "advisory_reason": "under market by 14.3% with healthy margin 100.0%; lift price toward anchor",
+      "projected_monthly_revenue": 360.0,
+      "projected_monthly_profit": 360.0,
+      "margin_percent": 100.0,
+      "vs_market_percent": -14.29
+    },
+    {
+      "sku": "QSB-MUG-005",
+      "current_price": 18.0,
+      "advisory_action": "raise",
+      "advisory_reason": "under market by 10.0% with healthy margin 63.9%; lift price toward anchor",
+      "projected_monthly_revenue": 324.0,
+      "projected_monthly_profit": 207.0,
+      "margin_percent": 63.89,
+      "vs_market_percent": -10.0
+    },
+    {
+      "sku": "QSB-TEE-006",
+      "current_price": 24.0,
+      "advisory_action": "raise",
+      "advisory_reason": "under market by 11.1% with healthy margin 62.5%; lift price toward anchor",
+      "projected_monthly_revenue": 288.0,
+      "projected_monthly_profit": 180.0,
+      "margin_percent": 62.5,
+      "vs_market_percent": -11.11
+    }
+  ]
+}

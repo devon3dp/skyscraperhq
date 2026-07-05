@@ -1,0 +1,34 @@
+{
+  "room_id": "reception_desk",
+  "name": "Front Desk",
+  "category": "reception",
+  "purpose": "This is where Iris greets and signs in visitors.",
+  "concierge_blurb": "Iris, the friendly face of the Tower, greets you here.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      3,
+      5
+    ],
+    "height_m": 1.2
+  },
+  "render": {
+    "primary_prop": "desk",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "RECEPTION",
+    "glow": false
+  },
+  "interactive": {
+    "type": "toggle",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_0"
+}

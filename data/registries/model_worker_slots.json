@@ -1,0 +1,52 @@
+[
+  {
+    "id": "general_reasoning_slot",
+    "name": "General Reasoning Worker Slot",
+    "role": "general_reasoning",
+    "preferred_floor": "floor_27",
+    "bound_provider": null,
+    "bound_model": null,
+    "status": "unbound_ready",
+    "hardwired": false
+  },
+  {
+    "id": "coding_model_slot",
+    "name": "Coding Model Worker Slot",
+    "role": "coding",
+    "preferred_floor": "floor_27",
+    "bound_provider": null,
+    "bound_model": null,
+    "status": "unbound_ready",
+    "hardwired": false
+  },
+  {
+    "id": "vision_model_slot",
+    "name": "Vision Model Worker Slot",
+    "role": "vision",
+    "preferred_floor": "floor_27",
+    "bound_provider": null,
+    "bound_model": null,
+    "status": "unbound_ready",
+    "hardwired": false
+  },
+  {
+    "id": "research_model_slot",
+    "name": "Research Model Worker Slot",
+    "role": "research",
+    "preferred_floor": "floor_27",
+    "bound_provider": null,
+    "bound_model": null,
+    "status": "unbound_ready",
+    "hardwired": false
+  },
+  {
+    "id": "claude_code_port_slot",
+    "name": "Claude Code Port Slot",
+    "role": "coding_external_port",
+    "preferred_floor": "floor_05",
+    "bound_provider": "claude",
+    "bound_model": null,
+    "status": "socket_ready_not_connected",
+    "hardwired": false
+  }
+]

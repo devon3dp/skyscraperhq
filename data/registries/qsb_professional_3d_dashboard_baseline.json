@@ -1,0 +1,50 @@
+{
+  "ok": true,
+  "kind": "qsb_professional_3d_dashboard_baseline",
+  "phase": "QSB_GODOT_PROFESSIONAL_3D_DASHBOARD_UPGRADE_V1",
+  "generated_ts": "2026-06-09T15:45:19+00:00",
+  "godot_available": true,
+  "godot_version": "4.6.1.stable.mono.official.14d19694e",
+  "panda3d_available": true,
+  "panda3d_version": "1.10.16",
+  "pyqt_role": "fallback_admin_only",
+  "current_visual_state": {
+    "tower_renders": true,
+    "tower_floors": 53,
+    "lifts": 9,
+    "openclaw": true,
+    "worker_density_chips": "ring of 1-10 spheres per populated floor",
+    "selected_floor_halo": true,
+    "hud": "build badge + workforce/openclaw/pnl pills + safety banner + selected-floor RichTextLabel",
+    "what_works": "tower geometry, camera orbit/zoom/keyboard nav, raycast floor pick, HTTP telemetry poll",
+    "what_is_missing": [
+      "Real PBR materials with window strips",
+      "Shadows + glow polish",
+      "Animated packet trails between floors (EventStreamAnimator)",
+      "Floor interior scenes for Penthouse/F41/F42/Commerce/Hardware",
+      "Top command bar with original dashboard controls",
+      "Inline Kernel chat widget",
+      "Voice/Talk/Commentary buttons (scaffolded)",
+      "Inspector panels (lift/openclaw/trading/commerce/hardware/security)",
+      "MultiMesh worker instancing for selected floor"
+    ]
+  },
+  "what_must_be_upgraded": [
+    "TowerRenderer.gd \u2014 window strips, PBR materials, shadow",
+    "LiftRenderer.gd \u2014 emissive trail, status badge",
+    "OpenClawRenderer.gd \u2014 orbit ring + trail",
+    "EventStreamAnimator.gd \u2014 packet animation (NEW)",
+    "HUDController.gd \u2014 top command bar + inspector router",
+    "ControlBar.gd \u2014 original dashboard controls (NEW)",
+    "KernelChatBridge.gd \u2014 POST /api/kernel_chat (NEW)",
+    "VoiceControlBridge.gd \u2014 scaffold panel (NEW)",
+    "PenthouseInterior.gd / OANDAInterior.gd / BinanceInterior.gd / CommerceInterior.gd / HardwareInterior.gd (NEW)"
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "live_payments_enabled": false,
+  "live_listings_publishing_enabled": false
+}

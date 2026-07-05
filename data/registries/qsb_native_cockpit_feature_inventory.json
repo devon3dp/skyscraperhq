@@ -1,0 +1,40 @@
+{
+  "ok": true,
+  "kind": "qsb_native_cockpit_feature_inventory",
+  "phase": "QSB_NATIVE_COCKPIT_FEATURE_PARITY_AND_INTERACTION_UPGRADE_V1",
+  "generated_ts": "2026-06-09T15:00:24+00:00",
+  "engine": "PyQt5 5.15.13 + QGraphicsView",
+  "features_present_v2_baseline": [
+    "tower scene 53 floors",
+    "category-coloured slabs",
+    "worker count chip per floor",
+    "profit/kernel/safety/rest alignment dots",
+    "9 lift shafts + 9 lift cars",
+    "OpenClaw orb",
+    "Penthouse crown",
+    "HUD sidebar: workforce / floors / openclaw / trading PnL / commerce / penthouse / hardware",
+    "safety lock banner (5 rows red)",
+    "floor inspector for clicked floors",
+    "refresh + browser-fallback buttons",
+    "wheel zoom + drag pan (QGraphicsView)",
+    "auto-refresh every 5 seconds",
+    "F41 OANDA inspector with PnL summary",
+    "F42 Binance inspector with mode + rooms + workers + locks",
+    "F43 Stocks inspector",
+    "F55/53 Penthouse inspector with gauges",
+    "F6 Etsy / F14 POD inspectors",
+    "F35 Hardware inspector",
+    "headless instantiation proven by screenshot"
+  ],
+  "features_added_this_phase_v1_upgrade": [
+    "event ticker dock (bottom)",
+    "Kernel chat panel (POST /api/kernel_chat from Qt)",
+    "interactive lift click \u2192 lift detail card",
+    "interactive OpenClaw click \u2192 supervisor card",
+    "keyboard nav: PgUp/PgDn/Home/End + arrow keys for floor selection",
+    "Hardware Systems detail card with full audit",
+    "Security/Secrets masked status card (F11)",
+    "Commerce Wing summary panel",
+    "narrator/commentary toggle in HUD"
+  ]
+}

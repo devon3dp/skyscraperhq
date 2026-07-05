@@ -1,0 +1,35 @@
+{
+  "ok": true,
+  "floor_number": 81,
+  "floor_name": "Podcast Studio One",
+  "floor_kind": "designed_by_f66_architects_v1",
+  "description": "long-form conversation",
+  "designed_by": "F66 Architects' Office",
+  "designed_ts": "2026-06-11T09:13:04.497262Z",
+  "role_inventory": [
+    "Producer",
+    "Engineer",
+    "Host Coach",
+    "Editor",
+    "Booker",
+    "Studio Manager"
+  ],
+  "advisory_only": true,
+  "interior_brief": {
+    "archetype": "studio",
+    "palette": "black + accent neon",
+    "furniture": [
+      "mixing desk",
+      "isolation booth",
+      "equipment racks",
+      "client sofa"
+    ],
+    "lighting": "dimmable RGB",
+    "mood": "creative + focused",
+    "designed_by": "F66 Architects + F17 Graphics + Fitters team",
+    "fitted_at": "2026-06-11T14:39:45.620109Z",
+    "godot_scene_brief": "render an studio floor with black + accent neon palette, creative + focused mood, key furniture: mixing desk, isolation booth, equipment racks"
+  },
+  "fitted_out": true,
+  "fit_out_ts": "2026-06-11T14:39:45.620109Z"
+}

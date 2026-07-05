@@ -1,0 +1,34 @@
+{
+  "room_id": "data_center",
+  "name": "Data Center",
+  "category": "operations",
+  "purpose": "Houses and manages the department's data.",
+  "concierge_blurb": "The heart of our climate research operations.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -6.0,
+    "offset_z": 4.0,
+    "footprint_m": [
+      5,
+      3
+    ],
+    "height_m": 1.8
+  },
+  "render": {
+    "primary_prop": "server_rack",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Data Center",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_121"
+}

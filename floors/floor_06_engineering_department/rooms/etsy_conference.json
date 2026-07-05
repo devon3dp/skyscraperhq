@@ -1,0 +1,34 @@
+{
+  "room_id": "etsy_conference",
+  "name": "Conference Room",
+  "category": "reception",
+  "purpose": "For meetings and client presentations.",
+  "concierge_blurb": "A space for important discussions and strategic planning.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 4.0,
+    "offset_z": -4.0,
+    "footprint_m": [
+      10,
+      8
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "conference_table",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Conf Room",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": null,
+    "refresh_seconds": 600
+  },
+  "floor": "floor_6"
+}

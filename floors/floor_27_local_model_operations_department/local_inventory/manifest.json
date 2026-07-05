@@ -1,0 +1,9 @@
+{
+  "floor_id": "floor_27",
+  "department": "Local Model Operations Department",
+  "role": "optional_local_model_inventory",
+  "requires_ollama": false,
+  "tower_boot_requires_models": false,
+  "status": "inventory_ready",
+  "notice": "Local models are optional tenants. The tower runs without them."
+}

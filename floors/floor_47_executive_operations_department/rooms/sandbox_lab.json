@@ -1,0 +1,44 @@
+{
+  "room_id": "sandbox_lab",
+  "name": "Sandbox Lab",
+  "category": "workshop",
+  "floor": "floor_47",
+  "purpose": "this installation is for running proposals in an isolated sandbox and emitting a green/red verdict.",
+  "concierge_blurb": "Before any change touches the building, it is tested in the Sandbox Lab. Only proposals that come back green continue toward signature.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [
+    "tools/qsb_proposal_sandbox.py",
+    "data/registries/qsb_code_apply_audit.jsonl"
+  ],
+  "live_signals": {
+    "last_verdict": "green",
+    "last_run_ts": "2026-06-14T16:43:40.617362Z",
+    "last_run_proposal_id": "audit-2026-06-14T16:43:40.537179Z-shop_catalog_gaps-653029",
+    "verdict_source": "data/registries/qsb_code_apply_audit.jsonl (sandbox_green field)"
+  },
+  "built_at": "2026-06-14T17:10:00Z",
+  "built_by": "f47_floor_buildout_batch_1",
+  "layout": {
+    "zone": "back_right",
+    "offset_x": 6.5,
+    "offset_z": -3.0,
+    "footprint_m": [
+      1.4,
+      1.0
+    ],
+    "height_m": 0.9
+  },
+  "render": {
+    "primary_prop": "bench",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "SANDBOX",
+    "glow": false
+  },
+  "interactive": {
+    "type": "tail",
+    "source_path": "data/registries/qsb_proposal_sandbox_runs.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 60
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "ok": true, "kind": "qsb_tower_worker_animation_status", "ts": "2026-06-09T22:06:58Z",
+  "animator": "TowerWorkerActivityAnimator.gd",
+  "wiggle_period_seconds": 4.0,
+  "floors_changed_per_tick": 3,
+  "delta_range": "-2..+2",
+  "visualizer_dot_animation": {
+    "ring_radius_motion": true,
+    "vertical_bob": true,
+    "phase_offset_per_dot": true
+  }
+}

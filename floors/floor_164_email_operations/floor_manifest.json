@@ -1,0 +1,77 @@
+{
+  "ok": true,
+  "floor_number": 164,
+  "floor_name": "Email Operations",
+  "floor_kind": "email_orchestration_v1",
+  "description": "Central digital mailroom. All 16 brand emails (1 master + 15 shops) feed here. F164 reads, triages, auto-replies, escalates to F108 Customer Service.",
+  "remit": [
+    "monitor inbound mail across all 16 brand aliases",
+    "parse + classify (order_confirm, customer_enquiry, return_request, spam, marketing)",
+    "auto-reply with order updates + standard answers",
+    "escalate complex enquiries to F108",
+    "maintain shop_alias \u2192 original_email mapping",
+    "enforce confidentiality protocol on all outbound mail (no internal terms)",
+    "archive every thread + attach to F44 customer record"
+  ],
+  "inter_floor_produces": [
+    "F108 Customer Service (escalations)",
+    "F44 Accounts (order paperwork)",
+    "F47 Wren (digest)"
+  ],
+  "inter_floor_consumes": [
+    "F114 Mailroom (analog parity)",
+    "F30 Permissions (sealed packets)",
+    "F32 Compliance (gdpr audit)"
+  ],
+  "email_architecture_v1": {
+    "master_inbox": "(Ross to provide \u2014 Gmail OAuth access stored in vault/.env.google)",
+    "aliases_pattern": "<shop_slug>@<masterinbox>+<plus_tag> (gmail plus-addressing)",
+    "or_upgrade": "<shop_slug>@skyscraper.shop (when domain bought + Cloudflare Email Routing)",
+    "read_method": "Gmail API via OAuth (read-only initially; reply scope added after audit)",
+    "reply_method": "send-as aliases or SMTP via API",
+    "inbox_polling_seconds": 300
+  },
+  "authorized_send_brands": [
+    "lumiere-beauty",
+    "pinwheel-toys",
+    "pawsworth-pets",
+    "hearthstone-kitchen",
+    "vector-tech",
+    "trailhead-outdoor",
+    "stretch-fitness",
+    "quilltree-office",
+    "voyage-and-co",
+    "greenhouse-lane",
+    "little-robin",
+    "inkwell-and-co",
+    "twilight-wellness",
+    "living-light-eco",
+    "maker-lane"
+  ],
+  "created_ts": "2026-06-11T10:38:14.786061Z",
+  "advisory_only": true,
+  "interior_brief": {
+    "archetype": "comms_centre",
+    "palette": [
+      "#1a2840",
+      "#3a6090",
+      "#c780ff"
+    ],
+    "furniture": [
+      "desks",
+      "meeting area",
+      "common space",
+      "storage"
+    ],
+    "lighting": "task + ambient",
+    "mood": "buzzing",
+    "designed_by": "F66 Architects + F17 Graphics + Fitters team",
+    "fitted_at": "2026-06-11T14:39:45.620109Z",
+    "godot_scene_brief": "render an generic floor with neutral grey + accent per floor theme palette, professional mood, key furniture: desks, meeting area, common space",
+    "signature": "Mail sorting bays, console with inboxes, ticker tape",
+    "diversified_ts": "2026-06-11T17:57:45Z",
+    "diversified_by": "qsb_archetype_diversifier_v1"
+  },
+  "fitted_out": true,
+  "fit_out_ts": "2026-06-11T14:39:45.620109Z"
+}

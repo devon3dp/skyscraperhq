@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "kind": "qsb_kernel_godot_loop_sources",
+  "phase": "QSB_GODOT_DASHBOARD_AUTONOMOUS_PRODUCTION_LOOP_V1",
+  "ts": "2026-06-09T22:00:00+00:00",
+  "sources_kernel_should_read_for_loop_report": [
+    "data/registries/qsb_godot_production_readiness_gates.json",
+    "data/registries/qsb_godot_production_readiness_gate_check.json",
+    "data/registries/qsb_godot_autonomous_loop_state.json",
+    "data/registries/qsb_godot_autonomous_loop_score.json",
+    "data/registries/qsb_godot_autonomous_loop_backlog.json",
+    "data/registries/qsb_godot_feature_migration_smoke_test_latest.json",
+    "data/registries/qsb_godot_primary_professional_score.json",
+    "data/registries/qsb_godot_control_wiring_status.json",
+    "data/registries/qsb_godot_floor_navigation_migration_status.json",
+    "data/registries/qsb_godot_floor_interiors_status.json",
+    "data/registries/qsb_godot_telemetry_bridge_sources.json"
+  ],
+  "logs": [
+    "data/logs/qsb_godot_autonomous_loop.jsonl",
+    "data/logs/qsb_godot_visual_self_review_*.txt"
+  ]
+}

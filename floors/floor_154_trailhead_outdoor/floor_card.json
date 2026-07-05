@@ -1,0 +1,70 @@
+{
+  "floor_id": "floor_154",
+  "floor_number": 154,
+  "floor_name": "Trailhead Outdoor",
+  "department": "public_dropship_storefront_v1",
+  "zone": "ZONE F \u00b7 CROWN",
+  "archetype": "public_dropship_storefront_v1",
+  "staff_lead": "F66 Architects' Office",
+  "tour_blurb": "Trailhead \u2014 where the path begins.",
+  "visitor_open": false,
+  "advisory_only": true,
+  "execution_mode": "PREVIEW_ONLY",
+  "skeleton": true,
+  "skeleton_source": "floor_manifest.json",
+  "skeleton_generated_ts": "2026-06-17",
+  "live_signals": {
+    "theme": "outdoor_and_camping",
+    "categories": [
+      "shelter",
+      "cookware",
+      "sleep",
+      "navigation",
+      "clothing"
+    ],
+    "palette": "forest / amber / stone",
+    "tagline": "Trailhead \u2014 where the path begins."
+  },
+  "gate_posture": {
+    "advisory_only": true,
+    "execution_allowed": false,
+    "live_payments_enabled": false
+  },
+  "team_roster": [
+    {
+      "id": "f154.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "spawned_id": "7045833e10",
+      "spawned_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F154",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f154.operator.01",
+      "spawned_id": "bc49c4482b"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F154",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f154.operator.02",
+      "spawned_id": "53e4e55fb6"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F154",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f154.operator.03",
+      "spawned_id": "2f29525476"
+    }
+  ],
+  "floor_manager": "f154.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

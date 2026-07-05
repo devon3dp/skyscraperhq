@@ -1,0 +1,16 @@
+[Unit]
+Description=QSB Tower Floor 25 — Worker Recruitment loop
+After=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/qsb_tower_v1
+Environment=PATH=%h/qsb_tower_v1/.venv/bin:/usr/local/bin:/usr/bin:/bin
+ExecStart=%h/qsb_tower_v1/.venv/bin/python3 %h/qsb_tower_v1/tools/qsb_f25_worker_recruitment_loop.py
+Restart=always
+RestartSec=10
+StandardOutput=append:%h/qsb_tower_v1/logs/qsb_f25_loop.log
+StandardError=append:%h/qsb_tower_v1/logs/qsb_f25_loop.log
+
+[Install]
+WantedBy=default.target

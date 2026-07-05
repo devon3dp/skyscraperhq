@@ -1,0 +1,53 @@
+{
+  "ok": true,
+  "phase": "QSB_MASTER_SYSTEM_SELF_AUDIT_AND_REPAIR_ROADMAP_V1",
+  "kind": "qsb_missing_modules_and_departments",
+  "generated_ts": "2026-06-30T13:46:37.770488+00:00",
+  "missing_modules": [
+    {
+      "item_id": "F_manager_approval_workflow",
+      "feature_name": "Colonel/Manager approval workflow for paper trades",
+      "suggested_phase": "QSB_MANAGER_APPROVAL_WORKFLOW_V1",
+      "severity": "P2"
+    }
+  ],
+  "missing_departments": [
+    {
+      "item_id": "D_promotion_eligibility_static",
+      "department": "Promotion ladder advances on real signals",
+      "severity": "P2",
+      "suggested_phase": "QSB_PROMOTION_BOARD_V1"
+    },
+    {
+      "item_id": "E_training_academy_floor",
+      "department": "Dedicated Training Academy floor",
+      "severity": "P2",
+      "suggested_phase": "QSB_TRAINING_ACADEMY_FLOOR_V1"
+    },
+    {
+      "item_id": "E_narration_broadcast_floor",
+      "department": "Dedicated Narration / Commentary department",
+      "severity": "P3",
+      "suggested_phase": "QSB_NARRATION_DEPARTMENT_V1"
+    },
+    {
+      "item_id": "E_profit_command_floor",
+      "department": "Profit Command department",
+      "severity": "P3",
+      "suggested_phase": null
+    }
+  ],
+  "missing_floors": [
+    {
+      "item_id": "E_training_academy_floor",
+      "feature_name": "Dedicated Training Academy floor",
+      "severity": "P2",
+      "suggested_phase": "QSB_TRAINING_ACADEMY_FLOOR_V1"
+    }
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false
+}

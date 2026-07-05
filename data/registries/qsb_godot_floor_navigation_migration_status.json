@@ -1,0 +1,31 @@
+{
+  "ok": true,
+  "kind": "qsb_godot_floor_navigation_migration_status",
+  "phase": "QSB_OLD_DASHBOARD_TO_GODOT_FEATURE_MIGRATION_V1",
+  "generated_ts": "2026-06-09T21:35:00+00:00",
+  "godot_files": [
+    "scripts/FloorInteraction.gd",
+    "scripts/FloorInspector.gd (deprecated stub)",
+    "scripts/FloorInteriorRenderer.gd",
+    "scripts/CameraController.gd",
+    "scripts/Main.gd (_refresh_inspector, _floor_dept, etc.)"
+  ],
+  "features": {
+    "floor_list":         {"present": true},
+    "previous_floor":     {"present": true,  "wired_via": "←/→ keys"},
+    "next_floor":         {"present": true,  "wired_via": "←/→ keys"},
+    "selected_floor":     {"present": true},
+    "focus_floor":        {"present": true},
+    "enter_floor":        {"present": true,  "wired_via": "click-to-select + camera focus"},
+    "exit_floor":         {"present": true,  "wired_via": "Reset"},
+    "pin_floor":          {"present": false, "wired_via": "(planned)"},
+    "floor_inspector":    {"present": true},
+    "floor_interior_view":{"present": true},
+    "department_labels":  {"present": true}
+  },
+  "priority_interiors": [
+    "F25 Recruitment", "F35 Hardware", "F41 OANDA", "F42 Binance",
+    "F43 Stocks", "F44 Accounts/PnL", "F46 Commerce", "F48 Lumen",
+    "F49 Tower Studio", "F50 ML/RL Lab", "F51 Research", "F53 Penthouse"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "kind": "qsb_floor48_lumen_ai_state",
+  "generated_ts": "2026-07-05T07:02:09+00:00",
+  "floor_id": "floor_48_lumen_ai",
+  "floor_label": "Floor 48 \u2014 Lumen AI (Chat Service)",
+  "brand_name": "Lumen",
+  "brand_tagline": "A chat AI grown inside QSB Tower.",
+  "status": "active_local_only",
+  "flags": {
+    "preview_only": true,
+    "local_only": true,
+    "model_inference_external_apis": false,
+    "real_payments_enabled": false,
+    "public_api_open": false,
+    "rate_limit_active": true,
+    "conversation_history_active": true,
+    "kernel_powered": true
+  },
+  "engine": "Powered by the local QSB Kernel substrate (kernel_dialogue_adapter). Not a separate LLM. External model inference is gated; until that gate flips, every reply comes from the topic table the Kernel has already learned.",
+  "honest_description": "Lumen does not invent text. Lumen looks up structured answers from the Kernel's topic table. If you ask Lumen a question that doesn't match a topic, Lumen will say so.",
+  "policy": "Local-only chat service. Real customers and real billing require operator-flipped gates (public_api_open, real_payments_enabled) in a separate session."
+}

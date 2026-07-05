@@ -1,0 +1,34 @@
+{
+  "room_id": "production_control",
+  "name": "Production Control Room",
+  "category": "operations",
+  "purpose": "This room manages the technical aspects of podcast recordings.",
+  "concierge_blurb": "Central control hub for all audio and video feeds.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      8,
+      6
+    ],
+    "height_m": 1.5
+  },
+  "render": {
+    "primary_prop": "wall_panel",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Prod Control",
+    "glow": true
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/control_room_status.jsonl",
+    "display": "big_number",
+    "refresh_seconds": 60
+  },
+  "floor": "floor_84"
+}

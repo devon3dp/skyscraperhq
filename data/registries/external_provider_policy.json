@@ -1,0 +1,32 @@
+{
+  "version": "1.1",
+  "floor_id": "floor_23",
+  "department": "AIR LLM Operations Department",
+  "role": "external_provider_socket_layer",
+  "providers_are_external": true,
+  "tower_owns": [
+    "sockets",
+    "registries",
+    "health_records",
+    "capability_records",
+    "handoff_paths"
+  ],
+  "tower_does_not_own": [
+    "external_models",
+    "cloud_inference",
+    "provider_accounts",
+    "provider_runtime"
+  ],
+  "execution_enabled": false,
+  "hardwired_providers": false,
+  "kernel_required": false,
+  "models_required": false,
+  "receives_from": [
+    "floor_24"
+  ],
+  "incoming_lift": "model_lift",
+  "hands_off_to": [
+    "roof"
+  ],
+  "notice": "Floor 23 manages provider sockets only. External providers remain outside the building."
+}

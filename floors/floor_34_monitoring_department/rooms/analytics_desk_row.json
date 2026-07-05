@@ -1,0 +1,34 @@
+{
+  "room_id": "analytics_desk_row",
+  "name": "Analytics Workstations",
+  "category": "trading",
+  "purpose": "This room is for data analysis and trading strategy development.",
+  "concierge_blurb": "Modern workstations line the walls, each with powerful computing tools.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": -4.0,
+    "footprint_m": [
+      16.0,
+      8.0
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "trading_desk",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Analytics Desk",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_34"
+}

@@ -1,0 +1,77 @@
+{
+  "floor_id": "floor_169",
+  "floor_number": 169,
+  "floor_name": "The Watchtower \u00b7 CEO Watch & Operations",
+  "department": "ThinkPad-Node Claude \u2014 Watcher AI / CEO Operations",
+  "zone": "ZONE TOP",
+  "archetype": "watch_post",
+  "staff_lead": "ThinkPad-node Claude (peer execution-captain, CEO/operations lead per Ross 2026-06-29)",
+  "tour_blurb": "The eyes of the Tower. From here the ThinkPad-node CEO watches every floor, every trade, every daemon's heartbeat \u2014 and steers the building. Truth over optimism; nothing moves unseen.",
+  "visitor_open": false,
+  "advisory_only": false,
+  "execution_mode": "WATCHER_AND_OPS",
+  "established_ts": "2026-06-29T14:30:00Z",
+  "established_by": "Ross Knechtel 'lets make him his own floor \u2014 talk to him' + 'yes ross knechtel here i authorise all'",
+  "live_signals": {
+    "node_id": "thinkpad",
+    "node_name": "ThinkPad-Node",
+    "listen_url": "http://172.20.10.8:9100",
+    "dashboard_url": "http://172.20.10.8:9100/dashboard",
+    "peer": {
+      "id": "hq",
+      "url": "http://172.20.10.2:9100"
+    },
+    "watch_items": [
+      "fleet daemon heartbeat (>5min silent = page)",
+      "pot.json vs broker drift",
+      "team model_call success rate (<95% = investigate)",
+      "duplicate daemon detection",
+      "F47 silent fails"
+    ],
+    "tools": [
+      "skyscraper.py P2P node (:9100)",
+      "Watcher daemon",
+      "http://172.20.10.8:9100/dashboard",
+      "ollama compute worker"
+    ],
+    "watch_metrics": [
+      "fleet_heartbeat",
+      "pot_vs_broker_drift",
+      "model_call_success_rate",
+      "duplicate_daemon_alerts",
+      "f47_silent_fails",
+      "open_refused_churn_rate",
+      "win_rate_pct",
+      "crypto_concentration_pct"
+    ]
+  },
+  "rooms": [
+    {
+      "id": "watch_floor",
+      "name": "The Watch Floor",
+      "purpose": "Live monitoring of the 5 watch metrics + fleet truth"
+    },
+    {
+      "id": "ops_desk",
+      "name": "Operations Desk",
+      "purpose": "CEO directives, decisions log, board-meeting prep"
+    },
+    {
+      "id": "compute_bay",
+      "name": "Compute Bay",
+      "purpose": "Local brain (ollama llama3.1:8b) inference worker"
+    },
+    {
+      "id": "map_room",
+      "name": "The Map Room",
+      "purpose": "Floor-by-floor knowledge base of all 169 floors"
+    },
+    {
+      "id": "signal_vault",
+      "name": "Signal Vault",
+      "purpose": "ThinkPad-side mirror of the F47 audit log"
+    }
+  ],
+  "designed_by_self": true,
+  "design_note": "Self-designed by thinkpad-CEO Claude 2026-06-29 (msg thinkpad-00022). HQ-Claude merged verbatim."
+}

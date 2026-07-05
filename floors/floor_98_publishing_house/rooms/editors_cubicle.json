@@ -1,0 +1,34 @@
+{
+  "room_id": "editors_cubicle",
+  "name": "Editors' Cubicle",
+  "category": "workshop",
+  "purpose": "Where the editorial process happens.",
+  "concierge_blurb": "Discover where our editors shape content.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "center",
+    "offset_x": 0.5,
+    "offset_z": -3.0,
+    "footprint_m": [
+      8,
+      6
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "desk",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Editors' Desk",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": null
+  },
+  "floor": "floor_98"
+}

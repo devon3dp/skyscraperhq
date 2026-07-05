@@ -1,0 +1,34 @@
+{
+  "room_id": "astronomy_display",
+  "name": "Astronomy Display",
+  "category": "display",
+  "purpose": "Displays current astronomical data and images.",
+  "concierge_blurb": "Visitors view stunning visuals of the cosmos.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "center",
+    "offset_x": 0.0,
+    "offset_z": -4.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "plinth",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Astronomy Display",
+    "glow": true
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/astronomy_display.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_145"
+}

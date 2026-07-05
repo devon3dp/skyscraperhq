@@ -1,0 +1,21 @@
+{
+  "ts": "2026-06-28T15:18:00Z",
+  "tiktok_reference_url": "https://www.tiktok.com/@synclaro_marcoheer/video/7655064851110284576",
+  "direct_access": false,
+  "reason_no_direct_access": "TikTok renders via JS behind a login wall; Claude WebFetch and Wren wren_curl both return only the bare HTML scaffold + 'TikTok - Make Your Day' title",
+  "reference_folder": "references/visual_targets/tiktok_skyscraper_reference/",
+  "user_action_required": "drop reference frames or a short MP4 into the folder above; visual scorer counts them",
+  "visual_targets": {
+    "skyscraper_feel": "cinematic, futuristic, polished",
+    "environment_detail": "high-detail, multi-asset",
+    "materials": ["dark glass", "metal frame", "brushed steel", "neon cyan", "neon violet", "gold trim", "emissive windows", "hologram", "data stream", "selected floor glow"],
+    "lighting": "strong hero lighting + cinematic atmosphere + night mode",
+    "neon_accents": ["cyan", "violet", "gold"],
+    "city_background": "animated, layered skyline",
+    "camera_movement": "smooth scripted flythrough",
+    "hud_overlay": "professional, game-like, diegetic where possible",
+    "believable_scale": "yes (169 floors × 30cm fits ~50m apparent height)",
+    "interior_exterior_transitions": "click-to-enter, room reveal",
+    "dashboard_integration": "in-world panels (not browser overlay)"
+  }
+}

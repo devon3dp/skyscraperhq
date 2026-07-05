@@ -1,0 +1,34 @@
+{
+  "room_id": "podcasting_studio",
+  "name": "Podcast Studio Two",
+  "category": "operations",
+  "purpose": "Recording and editing news and current affairs podcasts.",
+  "concierge_blurb": "Welcome to the heart of Podcast Studio Two, where voices shape public opinion.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "center",
+    "offset_x": 0.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      20,
+      15
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Podcast Studio",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/podcast_live_stream.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 60
+  },
+  "floor": "floor_82"
+}

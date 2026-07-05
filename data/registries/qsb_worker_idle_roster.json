@@ -1,0 +1,1021 @@
+{
+  "ok": true,
+  "kind": "qsb_worker_idle_roster",
+  "generated_ts": "2026-06-30T13:46:34.651602+00:00",
+  "idle_worker_count": 108,
+  "workers": [
+    {
+      "worker_id": "sim_worker_floor_01",
+      "display_name": "sim_worker_floor_01",
+      "role": "unassigned",
+      "class": "training_worker",
+      "home_floor": "operations_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "sim_worker_floor_02",
+      "display_name": "sim_worker_floor_02",
+      "role": "unassigned",
+      "class": "training_worker",
+      "home_floor": "memory_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "sim_worker_floor_03",
+      "display_name": "sim_worker_floor_03",
+      "role": "unassigned",
+      "class": "training_worker",
+      "home_floor": "research_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "sim_worker_floor_04",
+      "display_name": "sim_worker_floor_04",
+      "role": "unassigned",
+      "class": "training_worker",
+      "home_floor": "knowledge_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "sim_worker_floor_05",
+      "display_name": "sim_worker_floor_05",
+      "role": "unassigned",
+      "class": "training_worker",
+      "home_floor": "coding_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "sim_worker_floor_06",
+      "display_name": "sim_worker_floor_06",
+      "role": "unassigned",
+      "class": "training_worker",
+      "home_floor": "engineering_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "sim_worker_floor_07",
+      "display_name": "sim_worker_floor_07",
+      "role": "unassigned",
+      "class": "training_worker",
+      "home_floor": "architecture_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "sim_worker_floor_08",
+      "display_name": "sim_worker_floor_08",
+      "role": "unassigned",
+      "class": "training_worker",
+      "home_floor": "testing_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "sim_worker_floor_09",
+      "display_name": "sim_worker_floor_09",
+      "role": "unassigned",
+      "class": "training_worker",
+      "home_floor": "quality_assurance_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "sim_worker_floor_10",
+      "display_name": "sim_worker_floor_10",
+      "role": "unassigned",
+      "class": "training_worker",
+      "home_floor": "trading_simulation_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "sim_worker_floor_11",
+      "display_name": "sim_worker_floor_11",
+      "role": "unassigned",
+      "class": "training_worker",
+      "home_floor": "market_intelligence_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "sim_worker_floor_12",
+      "display_name": "sim_worker_floor_12",
+      "role": "unassigned",
+      "class": "training_worker",
+      "home_floor": "risk_analysis_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "sim_worker_floor_13",
+      "display_name": "sim_worker_floor_13",
+      "role": "unassigned",
+      "class": "training_worker",
+      "home_floor": "vision_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "sim_worker_floor_14",
+      "display_name": "sim_worker_floor_14",
+      "role": "unassigned",
+      "class": "training_worker",
+      "home_floor": "media_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "sim_worker_floor_15",
+      "display_name": "sim_worker_floor_15",
+      "role": "unassigned",
+      "class": "training_worker",
+      "home_floor": "speech_and_audio_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "sim_worker_floor_16",
+      "display_name": "sim_worker_floor_16",
+      "role": "unassigned",
+      "class": "training_worker",
+      "home_floor": "document_processing_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "sim_worker_floor_17",
+      "display_name": "sim_worker_floor_17",
+      "role": "unassigned",
+      "class": "training_worker",
+      "home_floor": "graphics_and_design_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "sim_worker_floor_18",
+      "display_name": "sim_worker_floor_18",
+      "role": "unassigned",
+      "class": "training_worker",
+      "home_floor": "automation_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "sim_worker_floor_19",
+      "display_name": "sim_worker_floor_19",
+      "role": "unassigned",
+      "class": "training_worker",
+      "home_floor": "workflow_management_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "sim_worker_floor_20",
+      "display_name": "sim_worker_floor_20",
+      "role": "unassigned",
+      "class": "training_worker",
+      "home_floor": "api_services_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "sim_worker_floor_21",
+      "display_name": "sim_worker_floor_21",
+      "role": "unassigned",
+      "class": "training_worker",
+      "home_floor": "adapter_systems_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "sim_worker_floor_22",
+      "display_name": "sim_worker_floor_22",
+      "role": "unassigned",
+      "class": "training_worker",
+      "home_floor": "integration_services_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "sim_worker_floor_23",
+      "display_name": "sim_worker_floor_23",
+      "role": "unassigned",
+      "class": "training_worker",
+      "home_floor": "air_llm_operations_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "sim_worker_floor_24",
+      "display_name": "sim_worker_floor_24",
+      "role": "unassigned",
+      "class": "training_worker",
+      "home_floor": "model_routing_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "sim_worker_floor_25",
+      "display_name": "sim_worker_floor_25",
+      "role": "unassigned",
+      "class": "training_worker",
+      "home_floor": "agent_coordination_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "sim_worker_floor_26",
+      "display_name": "sim_worker_floor_26",
+      "role": "unassigned",
+      "class": "training_worker",
+      "home_floor": "model_evaluation_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "sim_worker_floor_27",
+      "display_name": "sim_worker_floor_27",
+      "role": "unassigned",
+      "class": "training_worker",
+      "home_floor": "local_model_operations_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "sim_worker_floor_28",
+      "display_name": "sim_worker_floor_28",
+      "role": "unassigned",
+      "class": "training_worker",
+      "home_floor": "security_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "sim_worker_floor_29",
+      "display_name": "sim_worker_floor_29",
+      "role": "unassigned",
+      "class": "training_worker",
+      "home_floor": "guardian_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "sim_worker_floor_30",
+      "display_name": "sim_worker_floor_30",
+      "role": "unassigned",
+      "class": "training_worker",
+      "home_floor": "permissions_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "sim_worker_floor_31",
+      "display_name": "sim_worker_floor_31",
+      "role": "unassigned",
+      "class": "training_worker",
+      "home_floor": "audit_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "sim_worker_floor_32",
+      "display_name": "sim_worker_floor_32",
+      "role": "unassigned",
+      "class": "training_worker",
+      "home_floor": "compliance_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "sim_worker_floor_33",
+      "display_name": "sim_worker_floor_33",
+      "role": "unassigned",
+      "class": "training_worker",
+      "home_floor": "diagnostics_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "sim_worker_floor_34",
+      "display_name": "sim_worker_floor_34",
+      "role": "unassigned",
+      "class": "training_worker",
+      "home_floor": "monitoring_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "sim_worker_floor_35",
+      "display_name": "sim_worker_floor_35",
+      "role": "unassigned",
+      "class": "training_worker",
+      "home_floor": "infrastructure_services_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "sim_worker_floor_36",
+      "display_name": "sim_worker_floor_36",
+      "role": "unassigned",
+      "class": "training_worker",
+      "home_floor": "expansion_planning_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "sim_worker_floor_37",
+      "display_name": "sim_worker_floor_37",
+      "role": "unassigned",
+      "class": "training_worker",
+      "home_floor": "simulation_labs",
+      "status": "active"
+    },
+    {
+      "worker_id": "sim_worker_floor_38",
+      "display_name": "sim_worker_floor_38",
+      "role": "unassigned",
+      "class": "training_worker",
+      "home_floor": "sandbox_operations",
+      "status": "active"
+    },
+    {
+      "worker_id": "sim_worker_floor_39",
+      "display_name": "sim_worker_floor_39",
+      "role": "unassigned",
+      "class": "training_worker",
+      "home_floor": "development_labs",
+      "status": "active"
+    },
+    {
+      "worker_id": "sim_worker_floor_40",
+      "display_name": "sim_worker_floor_40",
+      "role": "unassigned",
+      "class": "training_worker",
+      "home_floor": "prototype_systems",
+      "status": "active"
+    },
+    {
+      "worker_id": "sim_worker_floor_46",
+      "display_name": "sim_worker_floor_46",
+      "role": "unassigned",
+      "class": "training_worker",
+      "home_floor": "executive_support_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "sim_worker_floor_47",
+      "display_name": "sim_worker_floor_47",
+      "role": "unassigned",
+      "class": "training_worker",
+      "home_floor": "executive_operations_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "sim_worker_floor_48",
+      "display_name": "sim_worker_floor_48",
+      "role": "unassigned",
+      "class": "training_worker",
+      "home_floor": "strategic_planning_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "sim_worker_floor_49",
+      "display_name": "sim_worker_floor_49",
+      "role": "unassigned",
+      "class": "training_worker",
+      "home_floor": "resource_management_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "sim_worker_floor_50",
+      "display_name": "sim_worker_floor_50",
+      "role": "unassigned",
+      "class": "training_worker",
+      "home_floor": "building_governance_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "sim_worker_floor_51",
+      "display_name": "sim_worker_floor_51",
+      "role": "unassigned",
+      "class": "training_worker",
+      "home_floor": "executive_council_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "sim_worker_floor_52",
+      "display_name": "sim_worker_floor_52",
+      "role": "unassigned",
+      "class": "training_worker",
+      "home_floor": "infrastructure_command_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "sim_worker_floor_53",
+      "display_name": "sim_worker_floor_53",
+      "role": "unassigned",
+      "class": "training_worker",
+      "home_floor": "tower_command_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "f45_equity_market_scout",
+      "display_name": "Equity Market Scout",
+      "role": "Reads US equities quotes from Floor 43 gateway. Sandbox only.",
+      "class": "training_worker",
+      "home_floor": "floor_45",
+      "status": "active"
+    },
+    {
+      "worker_id": "f45_crypto_market_scout",
+      "display_name": "Crypto Market Scout",
+      "role": "Reads Binance testnet public market data. Sandbox only.",
+      "class": "training_worker",
+      "home_floor": "floor_45",
+      "status": "active"
+    },
+    {
+      "worker_id": "f45_fx_market_scout",
+      "display_name": "FX Market Scout",
+      "role": "Reads OANDA practice pricing. Sandbox only.",
+      "class": "training_worker",
+      "home_floor": "floor_45",
+      "status": "active"
+    },
+    {
+      "worker_id": "f45_cross_market_analyst",
+      "display_name": "Cross-Market Analyst",
+      "role": "Reads OANDA + Binance + Stocks; builds paper-only correlations.",
+      "class": "training_worker",
+      "home_floor": "floor_45",
+      "status": "active"
+    },
+    {
+      "worker_id": "f45_risk_gatekeeper",
+      "display_name": "Risk Gatekeeper",
+      "role": "Verifies execution locks remain closed before any packet.",
+      "class": "training_worker",
+      "home_floor": "floor_45",
+      "status": "active"
+    },
+    {
+      "worker_id": "f45_ledger_runner",
+      "display_name": "Ledger Runner",
+      "role": "Carries paper observations to the Floor 31 audit ledger.",
+      "class": "training_worker",
+      "home_floor": "floor_45",
+      "status": "active"
+    },
+    {
+      "worker_id": "f45_airllm_advisory_clerk",
+      "display_name": "AirLLM Advisory Clerk",
+      "role": "Reads AirLLM chamber registry. Never invokes the model.",
+      "class": "training_worker",
+      "home_floor": "floor_45",
+      "status": "active"
+    },
+    {
+      "worker_id": "f45_kernel_liaison",
+      "display_name": "Kernel Liaison",
+      "role": "Carries kernel-review packets toward the Penthouse.",
+      "class": "training_worker",
+      "home_floor": "floor_45",
+      "status": "active"
+    },
+    {
+      "worker_id": "f45_openclaw_sandbox_observer",
+      "display_name": "OpenClaw Sandbox Observer",
+      "role": "Observes the OpenClaw Visual Sandbox on Floor 38. Sees only.",
+      "class": "training_worker",
+      "home_floor": "floor_45",
+      "status": "active"
+    },
+    {
+      "worker_id": "f45_strategy_backtester",
+      "display_name": "Strategy Backtester",
+      "role": "Runs sandbox backtests on Floor 37. Paper-only results.",
+      "class": "training_worker",
+      "home_floor": "floor_45",
+      "status": "active"
+    },
+    {
+      "worker_id": "f45_volatility_watcher",
+      "display_name": "Volatility Watcher",
+      "role": "Tracks paper-only volatility across markets.",
+      "class": "training_worker",
+      "home_floor": "floor_45",
+      "status": "active"
+    },
+    {
+      "worker_id": "f45_correlation_mapper",
+      "display_name": "Correlation Mapper",
+      "role": "Maps cross-market correlations to Floor 25 Agent Coordination.",
+      "class": "training_worker",
+      "home_floor": "floor_45",
+      "status": "active"
+    },
+    {
+      "worker_id": "sim_worker_floor_01",
+      "display_name": "SIM \u00b7 sim_worker_floor_01",
+      "role": "simulation_worker",
+      "class": "training_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "operational_floor": "floor_36_expansion_planning_department",
+      "legacy_floor_id": "floor_01",
+      "status": "training",
+      "origin": "legacy_workers_json_seed"
+    },
+    {
+      "worker_id": "sim_worker_floor_02",
+      "display_name": "SIM \u00b7 sim_worker_floor_02",
+      "role": "simulation_worker",
+      "class": "training_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "operational_floor": "floor_36_expansion_planning_department",
+      "legacy_floor_id": "floor_02",
+      "status": "training",
+      "origin": "legacy_workers_json_seed"
+    },
+    {
+      "worker_id": "sim_worker_floor_03",
+      "display_name": "SIM \u00b7 sim_worker_floor_03",
+      "role": "simulation_worker",
+      "class": "training_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "operational_floor": "floor_36_expansion_planning_department",
+      "legacy_floor_id": "floor_03",
+      "status": "training",
+      "origin": "legacy_workers_json_seed"
+    },
+    {
+      "worker_id": "sim_worker_floor_04",
+      "display_name": "SIM \u00b7 sim_worker_floor_04",
+      "role": "simulation_worker",
+      "class": "training_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "operational_floor": "floor_36_expansion_planning_department",
+      "legacy_floor_id": "floor_04",
+      "status": "training",
+      "origin": "legacy_workers_json_seed"
+    },
+    {
+      "worker_id": "sim_worker_floor_05",
+      "display_name": "SIM \u00b7 sim_worker_floor_05",
+      "role": "simulation_worker",
+      "class": "training_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "operational_floor": "floor_36_expansion_planning_department",
+      "legacy_floor_id": "floor_05",
+      "status": "training",
+      "origin": "legacy_workers_json_seed"
+    },
+    {
+      "worker_id": "sim_worker_floor_06",
+      "display_name": "SIM \u00b7 sim_worker_floor_06",
+      "role": "simulation_worker",
+      "class": "training_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "operational_floor": "floor_36_expansion_planning_department",
+      "legacy_floor_id": "floor_06",
+      "status": "training",
+      "origin": "legacy_workers_json_seed"
+    },
+    {
+      "worker_id": "sim_worker_floor_07",
+      "display_name": "SIM \u00b7 sim_worker_floor_07",
+      "role": "simulation_worker",
+      "class": "training_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "operational_floor": "floor_36_expansion_planning_department",
+      "legacy_floor_id": "floor_07",
+      "status": "training",
+      "origin": "legacy_workers_json_seed"
+    },
+    {
+      "worker_id": "sim_worker_floor_08",
+      "display_name": "SIM \u00b7 sim_worker_floor_08",
+      "role": "simulation_worker",
+      "class": "training_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "operational_floor": "floor_36_expansion_planning_department",
+      "legacy_floor_id": "floor_08",
+      "status": "training",
+      "origin": "legacy_workers_json_seed"
+    },
+    {
+      "worker_id": "sim_worker_floor_09",
+      "display_name": "SIM \u00b7 sim_worker_floor_09",
+      "role": "simulation_worker",
+      "class": "training_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "operational_floor": "floor_36_expansion_planning_department",
+      "legacy_floor_id": "floor_09",
+      "status": "training",
+      "origin": "legacy_workers_json_seed"
+    },
+    {
+      "worker_id": "sim_worker_floor_10",
+      "display_name": "SIM \u00b7 sim_worker_floor_10",
+      "role": "simulation_worker",
+      "class": "training_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "operational_floor": "floor_36_expansion_planning_department",
+      "legacy_floor_id": "floor_10",
+      "status": "training",
+      "origin": "legacy_workers_json_seed"
+    },
+    {
+      "worker_id": "sim_worker_floor_11",
+      "display_name": "SIM \u00b7 sim_worker_floor_11",
+      "role": "simulation_worker",
+      "class": "training_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "operational_floor": "floor_36_expansion_planning_department",
+      "legacy_floor_id": "floor_11",
+      "status": "training",
+      "origin": "legacy_workers_json_seed"
+    },
+    {
+      "worker_id": "sim_worker_floor_12",
+      "display_name": "SIM \u00b7 sim_worker_floor_12",
+      "role": "simulation_worker",
+      "class": "training_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "operational_floor": "floor_36_expansion_planning_department",
+      "legacy_floor_id": "floor_12",
+      "status": "training",
+      "origin": "legacy_workers_json_seed"
+    },
+    {
+      "worker_id": "sim_worker_floor_13",
+      "display_name": "SIM \u00b7 sim_worker_floor_13",
+      "role": "simulation_worker",
+      "class": "training_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "operational_floor": "floor_36_expansion_planning_department",
+      "legacy_floor_id": "floor_13",
+      "status": "training",
+      "origin": "legacy_workers_json_seed"
+    },
+    {
+      "worker_id": "sim_worker_floor_14",
+      "display_name": "SIM \u00b7 sim_worker_floor_14",
+      "role": "simulation_worker",
+      "class": "training_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "operational_floor": "floor_36_expansion_planning_department",
+      "legacy_floor_id": "floor_14",
+      "status": "training",
+      "origin": "legacy_workers_json_seed"
+    },
+    {
+      "worker_id": "sim_worker_floor_15",
+      "display_name": "SIM \u00b7 sim_worker_floor_15",
+      "role": "simulation_worker",
+      "class": "training_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "operational_floor": "floor_36_expansion_planning_department",
+      "legacy_floor_id": "floor_15",
+      "status": "training",
+      "origin": "legacy_workers_json_seed"
+    },
+    {
+      "worker_id": "sim_worker_floor_16",
+      "display_name": "SIM \u00b7 sim_worker_floor_16",
+      "role": "simulation_worker",
+      "class": "training_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "operational_floor": "floor_36_expansion_planning_department",
+      "legacy_floor_id": "floor_16",
+      "status": "training",
+      "origin": "legacy_workers_json_seed"
+    },
+    {
+      "worker_id": "sim_worker_floor_17",
+      "display_name": "SIM \u00b7 sim_worker_floor_17",
+      "role": "simulation_worker",
+      "class": "training_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "operational_floor": "floor_36_expansion_planning_department",
+      "legacy_floor_id": "floor_17",
+      "status": "training",
+      "origin": "legacy_workers_json_seed"
+    },
+    {
+      "worker_id": "sim_worker_floor_18",
+      "display_name": "SIM \u00b7 sim_worker_floor_18",
+      "role": "simulation_worker",
+      "class": "training_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "operational_floor": "floor_36_expansion_planning_department",
+      "legacy_floor_id": "floor_18",
+      "status": "training",
+      "origin": "legacy_workers_json_seed"
+    },
+    {
+      "worker_id": "sim_worker_floor_19",
+      "display_name": "SIM \u00b7 sim_worker_floor_19",
+      "role": "simulation_worker",
+      "class": "training_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "operational_floor": "floor_36_expansion_planning_department",
+      "legacy_floor_id": "floor_19",
+      "status": "training",
+      "origin": "legacy_workers_json_seed"
+    },
+    {
+      "worker_id": "sim_worker_floor_20",
+      "display_name": "SIM \u00b7 sim_worker_floor_20",
+      "role": "simulation_worker",
+      "class": "training_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "operational_floor": "floor_36_expansion_planning_department",
+      "legacy_floor_id": "floor_20",
+      "status": "training",
+      "origin": "legacy_workers_json_seed"
+    },
+    {
+      "worker_id": "sim_worker_floor_21",
+      "display_name": "SIM \u00b7 sim_worker_floor_21",
+      "role": "simulation_worker",
+      "class": "training_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "operational_floor": "floor_36_expansion_planning_department",
+      "legacy_floor_id": "floor_21",
+      "status": "training",
+      "origin": "legacy_workers_json_seed"
+    },
+    {
+      "worker_id": "sim_worker_floor_22",
+      "display_name": "SIM \u00b7 sim_worker_floor_22",
+      "role": "simulation_worker",
+      "class": "training_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "operational_floor": "floor_36_expansion_planning_department",
+      "legacy_floor_id": "floor_22",
+      "status": "training",
+      "origin": "legacy_workers_json_seed"
+    },
+    {
+      "worker_id": "sim_worker_floor_23",
+      "display_name": "SIM \u00b7 sim_worker_floor_23",
+      "role": "simulation_worker",
+      "class": "training_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "operational_floor": "floor_36_expansion_planning_department",
+      "legacy_floor_id": "floor_23",
+      "status": "training",
+      "origin": "legacy_workers_json_seed"
+    },
+    {
+      "worker_id": "sim_worker_floor_24",
+      "display_name": "SIM \u00b7 sim_worker_floor_24",
+      "role": "simulation_worker",
+      "class": "training_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "operational_floor": "floor_36_expansion_planning_department",
+      "legacy_floor_id": "floor_24",
+      "status": "training",
+      "origin": "legacy_workers_json_seed"
+    },
+    {
+      "worker_id": "sim_worker_floor_25",
+      "display_name": "SIM \u00b7 sim_worker_floor_25",
+      "role": "simulation_worker",
+      "class": "training_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "operational_floor": "floor_36_expansion_planning_department",
+      "legacy_floor_id": "floor_25",
+      "status": "training",
+      "origin": "legacy_workers_json_seed"
+    },
+    {
+      "worker_id": "sim_worker_floor_26",
+      "display_name": "SIM \u00b7 sim_worker_floor_26",
+      "role": "simulation_worker",
+      "class": "training_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "operational_floor": "floor_36_expansion_planning_department",
+      "legacy_floor_id": "floor_26",
+      "status": "training",
+      "origin": "legacy_workers_json_seed"
+    },
+    {
+      "worker_id": "sim_worker_floor_27",
+      "display_name": "SIM \u00b7 sim_worker_floor_27",
+      "role": "simulation_worker",
+      "class": "training_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "operational_floor": "floor_36_expansion_planning_department",
+      "legacy_floor_id": "floor_27",
+      "status": "training",
+      "origin": "legacy_workers_json_seed"
+    },
+    {
+      "worker_id": "sim_worker_floor_28",
+      "display_name": "SIM \u00b7 sim_worker_floor_28",
+      "role": "simulation_worker",
+      "class": "training_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "operational_floor": "floor_36_expansion_planning_department",
+      "legacy_floor_id": "floor_28",
+      "status": "training",
+      "origin": "legacy_workers_json_seed"
+    },
+    {
+      "worker_id": "sim_worker_floor_29",
+      "display_name": "SIM \u00b7 sim_worker_floor_29",
+      "role": "simulation_worker",
+      "class": "training_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "operational_floor": "floor_36_expansion_planning_department",
+      "legacy_floor_id": "floor_29",
+      "status": "training",
+      "origin": "legacy_workers_json_seed"
+    },
+    {
+      "worker_id": "sim_worker_floor_30",
+      "display_name": "SIM \u00b7 sim_worker_floor_30",
+      "role": "simulation_worker",
+      "class": "training_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "operational_floor": "floor_36_expansion_planning_department",
+      "legacy_floor_id": "floor_30",
+      "status": "training",
+      "origin": "legacy_workers_json_seed"
+    },
+    {
+      "worker_id": "sim_worker_floor_31",
+      "display_name": "SIM \u00b7 sim_worker_floor_31",
+      "role": "simulation_worker",
+      "class": "training_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "operational_floor": "floor_36_expansion_planning_department",
+      "legacy_floor_id": "floor_31",
+      "status": "training",
+      "origin": "legacy_workers_json_seed"
+    },
+    {
+      "worker_id": "sim_worker_floor_32",
+      "display_name": "SIM \u00b7 sim_worker_floor_32",
+      "role": "simulation_worker",
+      "class": "training_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "operational_floor": "floor_36_expansion_planning_department",
+      "legacy_floor_id": "floor_32",
+      "status": "training",
+      "origin": "legacy_workers_json_seed"
+    },
+    {
+      "worker_id": "sim_worker_floor_33",
+      "display_name": "SIM \u00b7 sim_worker_floor_33",
+      "role": "simulation_worker",
+      "class": "training_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "operational_floor": "floor_36_expansion_planning_department",
+      "legacy_floor_id": "floor_33",
+      "status": "training",
+      "origin": "legacy_workers_json_seed"
+    },
+    {
+      "worker_id": "sim_worker_floor_34",
+      "display_name": "SIM \u00b7 sim_worker_floor_34",
+      "role": "simulation_worker",
+      "class": "training_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "operational_floor": "floor_36_expansion_planning_department",
+      "legacy_floor_id": "floor_34",
+      "status": "training",
+      "origin": "legacy_workers_json_seed"
+    },
+    {
+      "worker_id": "sim_worker_floor_35",
+      "display_name": "SIM \u00b7 sim_worker_floor_35",
+      "role": "simulation_worker",
+      "class": "training_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "operational_floor": "floor_36_expansion_planning_department",
+      "legacy_floor_id": "floor_35",
+      "status": "training",
+      "origin": "legacy_workers_json_seed"
+    },
+    {
+      "worker_id": "sim_worker_floor_36",
+      "display_name": "SIM \u00b7 sim_worker_floor_36",
+      "role": "simulation_worker",
+      "class": "training_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "operational_floor": "floor_36_expansion_planning_department",
+      "legacy_floor_id": "floor_36",
+      "status": "training",
+      "origin": "legacy_workers_json_seed"
+    },
+    {
+      "worker_id": "sim_worker_floor_37",
+      "display_name": "SIM \u00b7 sim_worker_floor_37",
+      "role": "simulation_worker",
+      "class": "training_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "operational_floor": "floor_36_expansion_planning_department",
+      "legacy_floor_id": "floor_37",
+      "status": "training",
+      "origin": "legacy_workers_json_seed"
+    },
+    {
+      "worker_id": "sim_worker_floor_38",
+      "display_name": "SIM \u00b7 sim_worker_floor_38",
+      "role": "simulation_worker",
+      "class": "training_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "operational_floor": "floor_36_expansion_planning_department",
+      "legacy_floor_id": "floor_38",
+      "status": "training",
+      "origin": "legacy_workers_json_seed"
+    },
+    {
+      "worker_id": "sim_worker_floor_39",
+      "display_name": "SIM \u00b7 sim_worker_floor_39",
+      "role": "simulation_worker",
+      "class": "training_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "operational_floor": "floor_36_expansion_planning_department",
+      "legacy_floor_id": "floor_39",
+      "status": "training",
+      "origin": "legacy_workers_json_seed"
+    },
+    {
+      "worker_id": "sim_worker_floor_40",
+      "display_name": "SIM \u00b7 sim_worker_floor_40",
+      "role": "simulation_worker",
+      "class": "training_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "operational_floor": "floor_36_expansion_planning_department",
+      "legacy_floor_id": "floor_40",
+      "status": "training",
+      "origin": "legacy_workers_json_seed"
+    },
+    {
+      "worker_id": "sim_worker_floor_46",
+      "display_name": "SIM \u00b7 sim_worker_floor_46",
+      "role": "simulation_worker",
+      "class": "training_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "operational_floor": "floor_36_expansion_planning_department",
+      "legacy_floor_id": "floor_46",
+      "status": "training",
+      "origin": "legacy_workers_json_seed"
+    },
+    {
+      "worker_id": "sim_worker_floor_47",
+      "display_name": "SIM \u00b7 sim_worker_floor_47",
+      "role": "simulation_worker",
+      "class": "training_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "operational_floor": "floor_36_expansion_planning_department",
+      "legacy_floor_id": "floor_47",
+      "status": "training",
+      "origin": "legacy_workers_json_seed"
+    },
+    {
+      "worker_id": "sim_worker_floor_48",
+      "display_name": "SIM \u00b7 sim_worker_floor_48",
+      "role": "simulation_worker",
+      "class": "training_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "operational_floor": "floor_36_expansion_planning_department",
+      "legacy_floor_id": "floor_48",
+      "status": "training",
+      "origin": "legacy_workers_json_seed"
+    },
+    {
+      "worker_id": "sim_worker_floor_49",
+      "display_name": "SIM \u00b7 sim_worker_floor_49",
+      "role": "simulation_worker",
+      "class": "training_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "operational_floor": "floor_36_expansion_planning_department",
+      "legacy_floor_id": "floor_49",
+      "status": "training",
+      "origin": "legacy_workers_json_seed"
+    },
+    {
+      "worker_id": "sim_worker_floor_50",
+      "display_name": "SIM \u00b7 sim_worker_floor_50",
+      "role": "simulation_worker",
+      "class": "training_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "operational_floor": "floor_36_expansion_planning_department",
+      "legacy_floor_id": "floor_50",
+      "status": "training",
+      "origin": "legacy_workers_json_seed"
+    },
+    {
+      "worker_id": "sim_worker_floor_51",
+      "display_name": "SIM \u00b7 sim_worker_floor_51",
+      "role": "simulation_worker",
+      "class": "training_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "operational_floor": "floor_36_expansion_planning_department",
+      "legacy_floor_id": "floor_51",
+      "status": "training",
+      "origin": "legacy_workers_json_seed"
+    },
+    {
+      "worker_id": "sim_worker_floor_52",
+      "display_name": "SIM \u00b7 sim_worker_floor_52",
+      "role": "simulation_worker",
+      "class": "training_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "operational_floor": "floor_36_expansion_planning_department",
+      "legacy_floor_id": "floor_52",
+      "status": "training",
+      "origin": "legacy_workers_json_seed"
+    },
+    {
+      "worker_id": "sim_worker_floor_53",
+      "display_name": "SIM \u00b7 sim_worker_floor_53",
+      "role": "simulation_worker",
+      "class": "training_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "operational_floor": "floor_36_expansion_planning_department",
+      "legacy_floor_id": "floor_53",
+      "status": "training",
+      "origin": "legacy_workers_json_seed"
+    }
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false
+}

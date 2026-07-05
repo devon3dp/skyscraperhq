@@ -1,0 +1,81 @@
+{
+  "floor_id": "floor_28",
+  "floor_number": 28,
+  "floor_name": "Security Department",
+  "department": "F28 Security & Vault",
+  "zone": "security_ops",
+  "archetype": "security_ops",
+  "staff_lead": "Vault Warden",
+  "tour_blurb": "Twenty-eight houses Security and the Vault. Credentials, keys, and sensitive references live here behind strict access rules \u2014 no floor reads from the Vault directly, every request travels by sealed lift packet. The guardians on this floor take their work seriously, and we're grateful they do.",
+  "concierge_blurb": "Security & Vault. Sensitive references are kept behind sealed-packet access only \u2014 no floor reads directly. A dashboard deny-guard watches every endpoint and logs anything off-pattern.",
+  "visitor_open": false,
+  "advisory_only": true,
+  "endpoints": [],
+  "live_signals": {
+    "vault_present": true,
+    "dashboard_deny_guard_active": true,
+    "dashboard_security_audit_log": "data/registries/qsb_dashboard_security_audit.jsonl",
+    "access_gates_present": true,
+    "access_gates_source": "floors/floor_28_security_department/access_gates/security_gates.json",
+    "execution_enabled": false,
+    "enforcement_enabled": false,
+    "hardwired_providers": false,
+    "providers_are_external": true,
+    "read_only_to_visitors": true,
+    "vault_contents_redacted": true
+  },
+  "evidence_paths": [
+    "floors/floor_28_security_department/floor_manifest.json",
+    "floors/floor_28_security_department/access_gates/security_gates.json",
+    "data/registries/qsb_dashboard_security_audit.jsonl",
+    "data/registries/qsb_open_day_tour.json"
+  ],
+  "built_at": "2026-06-14T18:20:00Z",
+  "built_by": "skyscraper_floor_card_push",
+  "lessons_learned_for_next_agent": "F28 floor_card lives at the floor root \u2014 never inside vault/. The card must NEVER list credential names, env file paths, or any contents of vault/; vault_present=true is the signal, the actual references stay sealed. visitor_open=false because the floor itself is back-of-house, even though the tour_blurb is concierge-narrated for the open-day walkthrough. The deny-guard signal points at qsb_dashboard_security_audit.jsonl \u2014 that log is the visitor-safe proof the gate is alive, not the gate's contents.",
+  "team_roster": [
+    {
+      "id": "f028.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "spawned_id": "5eb08bc59e",
+      "spawned_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "guard",
+      "role": "guard on F028",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f028.guard.01",
+      "spawned_id": "0b024d5df7"
+    },
+    {
+      "category": "guard",
+      "role": "guard on F028",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f028.guard.02",
+      "spawned_id": "6b5242a4af"
+    },
+    {
+      "category": "guard",
+      "role": "guard on F028",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f028.guard.03",
+      "spawned_id": "4baa4ab000"
+    },
+    {
+      "category": "guard",
+      "role": "guard on F028",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f028.guard.04",
+      "spawned_id": "132accea34"
+    }
+  ],
+  "floor_manager": "f028.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

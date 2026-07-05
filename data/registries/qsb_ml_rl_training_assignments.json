@@ -1,0 +1,53 @@
+{
+  "ok": true,
+  "kind": "qsb_ml_rl_training_assignments",
+  "phase": "QSB_ML_RL_LAB_CLASSROOM_RESEARCH_WORKER_INTEGRATION_V1",
+  "generated_ts": "2026-06-09T16:49:28+00:00",
+  "cohort_size": 18,
+  "cohort_floor": 8,
+  "rotation_policy": "8-hour shift rotation; trainees alternate between classroom and lab notebook",
+  "assignments": [
+    {
+      "cohort": "alpha",
+      "classroom_track": [
+        "cur_torch_basics",
+        "cur_tensors",
+        "cur_forward_pass"
+      ]
+    },
+    {
+      "cohort": "beta",
+      "classroom_track": [
+        "cur_backward_pass",
+        "cur_optimizer",
+        "cur_dqn_concept"
+      ]
+    },
+    {
+      "cohort": "gamma",
+      "classroom_track": [
+        "cur_reward_functions",
+        "cur_overfitting",
+        "cur_paper_sim"
+      ]
+    },
+    {
+      "cohort": "delta",
+      "classroom_track": [
+        "cur_risk_aware_rl",
+        "cur_why_live_locked",
+        "cur_backtest_reading"
+      ]
+    }
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "live_payments_enabled": false,
+  "live_listings_publishing_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "worker_execution_enabled": false,
+  "secrets_in_logs": false
+}

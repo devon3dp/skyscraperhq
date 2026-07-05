@@ -1,0 +1,34 @@
+{
+  "room_id": "discussion_zone",
+  "name": "Discussion Zone",
+  "category": "workshop",
+  "purpose": "Encourages collaborative learning and debate.",
+  "concierge_blurb": "Engage in lively discussions with peers in the Discussion Zone.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 6.0,
+    "offset_z": -4.0,
+    "footprint_m": [
+      12,
+      8
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Discussion Zone",
+    "glow": true
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/discussion_zone.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_149"
+}

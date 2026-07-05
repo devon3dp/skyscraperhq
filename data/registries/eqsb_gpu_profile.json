@@ -1,0 +1,36 @@
+{
+  "ok": true,
+  "kind": "eqsb_gpu_profile",
+  "generated_ts": "2026-06-30T13:46:33.342546+00:00",
+  "nvidia_smi_present": true,
+  "nvidia_driver": "595.71.05",
+  "cuda_version": "13.2",
+  "cuda_available_python": false,
+  "gpu_models": [
+    "NVIDIA GeForce RTX 5070 Ti"
+  ],
+  "vram_mib": [
+    {
+      "total": 16303,
+      "used": 14048,
+      "free": 1787
+    }
+  ],
+  "utilization_pct": [
+    0
+  ],
+  "temperature_c": [
+    42
+  ],
+  "suitability": {
+    "dashboard_rendering": "CPU-only OK; no GPU needed for SVG/Babylon on browser side.",
+    "local_models_ollama": "Adequate on CPU; small models (llama3.2:latest) run locally.",
+    "airllm_advisory_chamber": "Needs separate VRAM if GPU present; AirLLM runs in its own venv."
+  },
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

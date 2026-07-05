@@ -1,0 +1,78 @@
+{
+  "worker_id": "f41_trade_ledger_clerk",
+  "instrument": "USD_JPY",
+  "strategy": {
+    "name": "mean_revert",
+    "params": {
+      "lookback_min": 5,
+      "threshold_bps": 5
+    }
+  },
+  "stats": {
+    "wins": 0,
+    "losses": 4,
+    "total_pnl": -5.6,
+    "win_streak": 0,
+    "loss_streak": 4,
+    "trades_total": 4,
+    "last_trade_ts": "2026-06-20T19:51:47.159513+00:00"
+  },
+  "open_trades": [],
+  "closed_trades": [
+    {
+      "order_id": "trd_00000304",
+      "side": "BUY",
+      "qty": 100.0,
+      "entry_px": 148.322,
+      "opened_ts": "2026-06-20T19:31:46.541272+00:00",
+      "exit_px": 148.308,
+      "pnl": -1.4,
+      "won": false,
+      "closed_ts": "2026-06-20T19:51:47.159513+00:00",
+      "strategy_name": "ad_hoc_cohort",
+      "close_reason": "cycle_close_age_1200s"
+    },
+    {
+      "order_id": "trd_00000293",
+      "side": "BUY",
+      "qty": 100.0,
+      "entry_px": 148.322,
+      "opened_ts": "2026-06-20T19:21:46.014972+00:00",
+      "exit_px": 148.308,
+      "pnl": -1.4,
+      "won": false,
+      "closed_ts": "2026-06-20T19:41:46.656162+00:00",
+      "strategy_name": "ad_hoc_cohort",
+      "close_reason": "cycle_close_age_1200s"
+    },
+    {
+      "order_id": "trd_00000142",
+      "side": "BUY",
+      "qty": 100.0,
+      "entry_px": 148.322,
+      "opened_ts": "2026-06-20T16:35:27.151285+00:00",
+      "exit_px": 148.308,
+      "pnl": -1.4,
+      "won": false,
+      "closed_ts": "2026-06-20T16:55:27.678140+00:00",
+      "strategy_name": "ad_hoc_cohort",
+      "close_reason": "cycle_close_age_1200s"
+    },
+    {
+      "order_id": "trd_00000131",
+      "side": "BUY",
+      "qty": 100.0,
+      "entry_px": 148.322,
+      "opened_ts": "2026-06-20T16:25:26.689997+00:00",
+      "exit_px": 148.308,
+      "pnl": -1.4,
+      "won": false,
+      "closed_ts": "2026-06-20T16:45:27.229204+00:00",
+      "strategy_name": "ad_hoc_cohort",
+      "close_reason": "cycle_close_age_1200s"
+    }
+  ],
+  "strategy_history": [],
+  "backfilled_from": "qsb_floor41_oanda_closed_trades.json",
+  "backfilled_ts": "2026-06-21T16:22:56Z"
+}

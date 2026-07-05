@@ -1,0 +1,129 @@
+/* V6 Cognitive Panel — floating overlay on the existing dashboard. */
+#qsb_v6_banner {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 28px; line-height: 28px;
+  text-align: center;
+  background: linear-gradient(90deg, #ffd05d, #ff8c42);
+  color: #1a1d23;
+  font-weight: 700;
+  font-size: 12.5px;
+  letter-spacing: 0.06em;
+  z-index: 100000;
+  border-bottom: 2px solid #1a1d23;
+  cursor: pointer;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.5);
+}
+#qsb_v6_banner:hover { background: linear-gradient(90deg, #ffc845, #ff7a2e); }
+#qsb_v6_panel {
+  position: fixed;
+  top: 80px;          /* below header + V6 banner */
+  right: 12px;
+  width: 460px;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+  background: rgba(8, 12, 20, 0.97);
+  color: #d8e3f0;
+  border: 3px solid #ffd05d;   /* bright orange-yellow border */
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 12.5px;
+  line-height: 1.45;
+  z-index: 99999;
+  box-shadow: 0 0 0 1px #ff8c42, 0 8px 36px rgba(255, 208, 93, 0.35);
+  backdrop-filter: blur(6px);
+}
+#qsb_v6_panel::before {
+  content: "";
+  position: absolute;
+  top: -3px; left: -3px; right: -3px;
+  height: 3px;
+  background: linear-gradient(90deg, #ffd05d, #ff8c42, #ffd05d);
+  border-radius: 10px 10px 0 0;
+}
+#qsb_v6_panel h2 {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #ffd05d;
+  display: flex; align-items: center; justify-content: space-between;
+}
+#qsb_v6_panel h2 .v6-pill {
+  font-size: 10px; font-weight: 600;
+  background: #2d4159; color: #d8e3f0;
+  padding: 2px 8px; border-radius: 8px; letter-spacing: 0.06em;
+}
+#qsb_v6_panel .v6-headline {
+  background: linear-gradient(135deg, #ffd05d22, #6b8cff22);
+  border: 1px solid #ffd05d44;
+  padding: 9px 11px; border-radius: 7px;
+  margin-bottom: 12px;
+  color: #ffe4a0;
+  font-weight: 600;
+}
+#qsb_v6_panel .v6-section { margin-bottom: 12px; }
+#qsb_v6_panel .v6-section h3 {
+  margin: 0 0 4px 0;
+  font-size: 11.5px; color: #6b8cff;
+  text-transform: uppercase; letter-spacing: 0.06em;
+  border-bottom: 1px dashed #2d4159;
+  padding-bottom: 3px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between;
+}
+#qsb_v6_panel .v6-section h3 .v6-collapse-marker {
+  font-size: 10px; color: #5a7090;
+}
+#qsb_v6_panel .v6-section .v6-body {
+  padding-left: 4px;
+}
+#qsb_v6_panel .v6-section.collapsed .v6-body { display: none; }
+#qsb_v6_panel .v6-row {
+  display: flex; justify-content: space-between; gap: 12px;
+  border-bottom: 1px dotted #1c2a3c;
+  padding: 2px 0;
+}
+#qsb_v6_panel .v6-row .v6-k { color: #9aaec5; }
+#qsb_v6_panel .v6-row .v6-v { color: #e8eaf2; font-variant-numeric: tabular-nums; }
+#qsb_v6_panel .v6-row .v6-v.good { color: #4ade80; }
+#qsb_v6_panel .v6-row .v6-v.warn { color: #ffd05d; }
+#qsb_v6_panel .v6-row .v6-v.bad  { color: #f87171; }
+#qsb_v6_panel ul.v6-bullets {
+  margin: 0; padding-left: 14px;
+}
+#qsb_v6_panel ul.v6-bullets li {
+  color: #b8c5d4; margin-bottom: 2px;
+}
+#qsb_v6_panel ul.v6-bullets li.risk { color: #f87171; }
+#qsb_v6_panel ul.v6-bullets li.pending { color: #ffd05d; }
+#qsb_v6_panel a.v6-link {
+  color: #6b8cff; text-decoration: none;
+}
+#qsb_v6_panel a.v6-link:hover { text-decoration: underline; }
+#qsb_v6_panel .v6-meta {
+  font-size: 10.5px; color: #5a7090; margin-top: 8px;
+  border-top: 1px solid #2d4159; padding-top: 6px;
+}
+#qsb_v6_panel .v6-pillrow {
+  display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0;
+}
+#qsb_v6_panel .v6-pillrow .v6-mini-pill {
+  background: #1c2a3c; color: #d8e3f0;
+  padding: 2px 8px; border-radius: 10px;
+  font-size: 11px; font-weight: 600;
+}
+#qsb_v6_panel .v6-toggle {
+  position: absolute; top: 8px; right: 8px;
+  background: transparent; color: #9aaec5; border: 1px solid #2d4159;
+  border-radius: 6px; padding: 2px 8px; font-size: 11px;
+  cursor: pointer;
+}
+#qsb_v6_panel.collapsed {
+  width: 220px; max-height: 56px; overflow: hidden;
+}
+#qsb_v6_panel.collapsed > *:not(h2):not(.v6-toggle) { display: none; }
+#qsb_v6_panel .v6-warning {
+  color: #f87171;
+}

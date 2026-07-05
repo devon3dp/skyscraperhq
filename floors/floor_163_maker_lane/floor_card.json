@@ -1,0 +1,70 @@
+{
+  "floor_id": "floor_163",
+  "floor_number": 163,
+  "floor_name": "Maker Lane",
+  "department": "public_dropship_storefront_v1",
+  "zone": "ZONE F \u00b7 CROWN",
+  "archetype": "public_dropship_storefront_v1",
+  "staff_lead": "F66 Architects' Office",
+  "tour_blurb": "Maker Lane \u2014 make it yours.",
+  "visitor_open": false,
+  "advisory_only": true,
+  "execution_mode": "PREVIEW_ONLY",
+  "skeleton": true,
+  "skeleton_source": "floor_manifest.json",
+  "skeleton_generated_ts": "2026-06-17",
+  "live_signals": {
+    "theme": "hobbies_and_crafts",
+    "categories": [
+      "knit_crochet",
+      "painting",
+      "models",
+      "needlecraft",
+      "accessories"
+    ],
+    "palette": "butter / berry / clay",
+    "tagline": "Maker Lane \u2014 make it yours."
+  },
+  "gate_posture": {
+    "advisory_only": true,
+    "execution_allowed": false,
+    "live_payments_enabled": false
+  },
+  "team_roster": [
+    {
+      "id": "f163.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "spawned_id": "2aac10fd22",
+      "spawned_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F163",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f163.operator.01",
+      "spawned_id": "05cf0845a6"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F163",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f163.operator.02",
+      "spawned_id": "5e726b7f56"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F163",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f163.operator.03",
+      "spawned_id": "2207cadf57"
+    }
+  ],
+  "floor_manager": "f163.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

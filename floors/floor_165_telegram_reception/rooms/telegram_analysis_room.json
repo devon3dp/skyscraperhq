@@ -1,0 +1,34 @@
+{
+  "room_id": "telegram_analysis_room",
+  "name": "Telegram Analysis Room",
+  "category": "audit",
+  "purpose": "Analyzes Telegram data for insights and patterns.",
+  "concierge_blurb": "A quiet room where analysts review Telegram communications.",
+  "current_state": "already_exists",
+  "visitor_open": false,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "center",
+    "offset_x": 0.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      3,
+      2
+    ],
+    "height_m": 1.5
+  },
+  "render": {
+    "primary_prop": "wall_panel",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Analysis Room",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/analytics_reports.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 30
+  },
+  "floor": "floor_165"
+}

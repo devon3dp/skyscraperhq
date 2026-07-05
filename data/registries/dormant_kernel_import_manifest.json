@@ -1,0 +1,95 @@
+{
+  "manifest_type": "dormant_kernel_import",
+  "import_ts": "2026-06-07",
+  "imported_by": "QSB Tower V1.3 dormant import process",
+
+  "source_path": "/vaults/nvme0/qsb_skyscraper/kernel",
+  "target_path": "/vaults/nvme0/qsb_tower_v1/penthouse/kernel_installation_socket/dormant_imported_kernel",
+  "imported_as": "dormant_standby_kernel",
+
+  "detected_identity": {
+    "name": "QSB Kernel",
+    "full_name": "Quantum Symbolic Brain Kernel",
+    "version": "4.6-offline-kernel-symbolic",
+    "role": "Locked Penthouse Kernel",
+    "principle": "Models are workers. QSB is the kernel."
+  },
+  "detected_version": "4.6-offline-kernel-symbolic",
+
+  "copied_files": {
+    "kernel": [
+      "kernel_core.py",
+      "axiom_core.py",
+      "continuity_core.py",
+      "belief_core.py",
+      "symbolic_core.py",
+      "identity_core.py",
+      "reflection_core.py",
+      "__init__.py",
+      "identity.json",
+      "continuity_state.json",
+      "README.md",
+      "COGNITIVE_47_README.md"
+    ],
+    "source_support": [
+      "penthouse.py",
+      "add_cognitive_kernel_47.py",
+      "promote_symbolic_to_kernel.py"
+    ]
+  },
+
+  "sha256_hashes": {
+    "kernel/kernel_core.py":        "82ed521f912c0bcb78fee3e326f91c4501ece64317d1b1f9ffa3727f70120a41",
+    "kernel/axiom_core.py":         "7315294641009cc19caa70b93a5e61d207cb2f62b7b22555598c2f8cf4d9e1f9",
+    "kernel/continuity_core.py":    "9279e12b7c190108bdfba6f86863dc60227f532745149fb7c98a70267be53981",
+    "kernel/belief_core.py":        "9cd46b6a7619acdc011c89bc7944c8ceffed4bcfc916e40337b1e65a599836ae",
+    "kernel/symbolic_core.py":      "c65a425223c720244dbd6e69084814de083ad3258cb403e239bcfcf25270a1ef",
+    "kernel/identity_core.py":      "a502d9ea2f01150259e8529a69424553d3aafc248eb4442265c3775177a42215",
+    "kernel/reflection_core.py":    "dd16c7346d99d96a4f606b674e6a177a1c30cb12269d8e326f50155a6fdbb003",
+    "kernel/__init__.py":           "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "kernel/identity.json":         "c9e449ec53d92309f7a531726e46ba8d27666fbe244db1eaa9a3e6e651e54710",
+    "kernel/continuity_state.json": "c45cbb011573f17bf211f98b7d676f8e929d37cbc8a0467ac7cec16730ce1b67",
+    "kernel/README.md":             "800ab94b26585887f0a510c218a64679d51017366ae92070f56a60e19dc9b79f",
+    "kernel/COGNITIVE_47_README.md":"cebe9f5176f21c393586e543ebcc7778239bdc3a8d47a17da393435f70420547",
+    "source_support/penthouse.py":  "8699bd66683a32ce8317f5901990bf7aaa9829dabe5a0fad3a4889287d931da5"
+  },
+
+  "safety_flags": {
+    "kernel_installed": false,
+    "kernel_logic_present": true,
+    "execution_enabled": false,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "model_inference_enabled": false,
+    "live_dispatch_enabled": false,
+    "activation_enabled": false,
+    "direct_execution_allowed": false,
+    "requires_adapter": true,
+    "requires_operator_approval_before_activation": true
+  },
+
+  "forbidden_paths_check": {
+    "penthouse/kernel.py": "absent",
+    "penthouse/qsb_kernel_4_5.py": "absent",
+    "src/tower/kernel.py": "absent",
+    "src/tower/qsb_kernel_4_5.py": "absent",
+    "result": "all_forbidden_paths_absent"
+  },
+
+  "compatibility_summary": {
+    "hardcoded_old_root": true,
+    "requires_path_rebase_before_activation": true,
+    "requires_old_skyscraper_module_replacement": true,
+    "kernel_sub_cores_are_read_safely": true,
+    "penthouse_py_must_not_be_run": true
+  },
+
+  "next_steps": [
+    "1. Review this manifest and the analysis report.",
+    "2. Run verify_dormant_kernel_import.sh to confirm hashes.",
+    "3. Design path-rebase layer before any activation attempt.",
+    "4. Replace old skyscraper module references with new tower equivalents.",
+    "5. Obtain explicit operator approval before activation phase.",
+    "6. Activation is a separate explicit phase — NOT part of this import."
+  ]
+}

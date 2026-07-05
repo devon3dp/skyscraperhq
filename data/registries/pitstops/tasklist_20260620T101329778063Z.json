@@ -1,0 +1,6 @@
+[
+  {"id":"1","subject":"Finish Qwen2.5-32B download ASAP","status":"in_progress","note":"~37 GB on disk, 8 dual-iface curls running (Netgear+iPhone 4 each), 1.8 MB/s aggregate, ETA ~4h. Runner: /tmp/qwen32b_dual.sh PID 96765, log /tmp/qwen32b_dual.log. Both unlimited per Ross 2026-06-20."},
+  {"id":"7","subject":"Close Phase 2 of trader learning loop","status":"pending"},
+  {"id":"8","subject":"Save wren-as-live-backup-twin memory rule","status":"pending"},
+  {"id":"9","subject":"Per-floor walkable 3D interiors","status":"in_progress","note":"STAGE A+B+C v1 shipped. Skyscraper-scale dims pushed (60×60 trading/restaurant/library, 40×40 ops/labs/accounts, 35×35 default). 5 smoke floors regen'd at bigger scale. Just before pitstop investigating Ross's question 'what happened to background picture / where is car park' — about to take cockpit3d home screenshot to verify sky+ground render. SAVED /tmp/skyscraper/shots/cockpit3d_home_check.png 957KB"}
+]

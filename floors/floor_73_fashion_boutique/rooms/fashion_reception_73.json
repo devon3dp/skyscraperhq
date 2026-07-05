@@ -1,0 +1,34 @@
+{
+  "room_id": "fashion_reception_73",
+  "name": "Customer Service Center",
+  "category": "reception",
+  "purpose": "Handling customer inquiries and orders.",
+  "concierge_blurb": "Your journey to style begins here.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -4.5,
+    "offset_z": 0.0,
+    "footprint_m": [
+      6,
+      8
+    ],
+    "height_m": 1.2
+  },
+  "render": {
+    "primary_prop": "desk",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Customer Desk",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_73"
+}

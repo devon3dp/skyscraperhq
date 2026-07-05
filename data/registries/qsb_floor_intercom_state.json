@@ -1,0 +1,72 @@
+{
+  "ok": true,
+  "kind": "qsb_floor_intercom_state",
+  "phase": "QSB_FLOOR_41_42_43_INTERCOM_AND_FLOOR_43_VISIBLE_V1",
+  "generated_ts": "2026-06-30T13:46:36.775110+00:00",
+  "per_floor": {
+    "floor_41": {
+      "sent": 3,
+      "received": 3,
+      "kinds_sent": {
+        "fx_market_brief": 2,
+        "audit_fan_in": 1
+      },
+      "lift_use": {
+        "service_lift": 2,
+        "memory_lift": 1
+      }
+    },
+    "floor_42": {
+      "sent": 2,
+      "received": 3,
+      "kinds_sent": {
+        "crypto_status_brief": 1,
+        "audit_fan_in": 1
+      },
+      "lift_use": {
+        "service_lift": 1,
+        "memory_lift": 1
+      }
+    },
+    "floor_43": {
+      "sent": 3,
+      "received": 2,
+      "kinds_sent": {
+        "equities_brief": 2,
+        "audit_fan_in": 1
+      },
+      "lift_use": {
+        "service_lift": 2,
+        "memory_lift": 1
+      }
+    },
+    "floor_31": {
+      "sent": 3,
+      "received": 3,
+      "kinds_sent": {
+        "cross_market_labels": 3
+      },
+      "lift_use": {
+        "memory_lift": 3
+      }
+    }
+  },
+  "total_packets": 11,
+  "lifts_used": [
+    "memory_lift",
+    "service_lift"
+  ],
+  "kinds": [
+    "audit_fan_in",
+    "cross_market_labels",
+    "crypto_status_brief",
+    "equities_brief",
+    "fx_market_brief"
+  ],
+  "rule": "Direct floor-to-floor communication is FORBIDDEN. Every packet here was routed via a lift.",
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

@@ -1,0 +1,44 @@
+{
+  "ok": true,
+  "kind": "qsb_floor41_oanda_trade_risk_checks",
+  "phase": "QSB_FLOOR_41_OANDA_FULL_TRADING_FLOOR_REBUILD_V1",
+  "generated_ts": "2026-06-30T13:46:36.671210+00:00",
+  "rules": [
+    {
+      "rule": "entry_reason_required",
+      "blocking": true
+    },
+    {
+      "rule": "close_reason_required",
+      "blocking": true
+    },
+    {
+      "rule": "guardian_state_in_OK_DEGRADED_DRIFTING",
+      "blocking": true
+    },
+    {
+      "rule": "no_live_environment_ever",
+      "blocking": true
+    },
+    {
+      "rule": "spread_pips_le_5.0",
+      "blocking": true
+    },
+    {
+      "rule": "units_in_1_to_50000",
+      "blocking": true
+    }
+  ],
+  "recent_blocks": [],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "oanda_practice_paper_trading_allowed": true,
+  "live_money_enabled": false,
+  "oanda_live_environment_allowed": false,
+  "real_production_trading_allowed": false,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "worker_execution_enabled": false,
+  "autonomous_dispatch_enabled": false
+}

@@ -1,0 +1,16 @@
+{
+  "handoff_id": "floor_53_to_penthouse_handoff",
+  "source_floor": "floor_53",
+  "source_department": "Tower Command Department",
+  "target": "penthouse",
+  "status": "handoff_channel_ready",
+  "sealed_packets": true,
+  "allowed_lifts": [
+    "executive_lift",
+    "service_lift",
+    "security_lift",
+    "emergency_stairwell"
+  ],
+  "kernel_installed": false,
+  "execution_enabled": false
+}

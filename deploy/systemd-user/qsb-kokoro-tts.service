@@ -1,0 +1,16 @@
+[Unit]
+Description=QSB Tower Kokoro TTS sidecar — :8851
+After=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/qsb_tower_v1
+Environment=PATH=%h/qsb_tower_v1/.venv/bin:/usr/local/bin:/usr/bin:/bin
+ExecStart=%h/qsb_tower_v1/.venv/bin/python3 %h/qsb_tower_v1/tools/qsb_kokoro_serve.py
+Restart=always
+RestartSec=10
+StandardOutput=append:%h/qsb_tower_v1/logs/qsb_kokoro_serve.log
+StandardError=append:%h/qsb_tower_v1/logs/qsb_kokoro_serve.log
+
+[Install]
+WantedBy=default.target

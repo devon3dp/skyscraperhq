@@ -1,0 +1,34 @@
+{
+  "room_id": "history_display_hall",
+  "name": "History Display Hall",
+  "category": "display",
+  "purpose": "A space to showcase historical artifacts and exhibits.",
+  "concierge_blurb": "Marvel at the artifacts of history.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 1.5,
+    "offset_z": 0.0,
+    "footprint_m": [
+      14.0,
+      7.0
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "plinth",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Display Hall",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_139"
+}

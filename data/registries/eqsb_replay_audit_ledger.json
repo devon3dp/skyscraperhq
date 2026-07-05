@@ -1,0 +1,512 @@
+{
+  "schema_version": "eqsb_major_v1.0",
+  "kind": "eqsb_replay_audit_ledger",
+  "generated_ts": "2026-06-09T08:56:44.961103+00:00",
+  "event_kinds_supported": [
+    "kernel question",
+    "registry snapshot reference",
+    "axiom validation",
+    "cadence tick",
+    "memory update",
+    "belief update",
+    "symbol update",
+    "entropy update",
+    "quantum signal update",
+    "hypothesis update",
+    "contradiction detection",
+    "guardian verdict",
+    "model governance decision",
+    "introspection build",
+    "repair suggestion"
+  ],
+  "event_log_path": "data/logs/eqsb_kernel_events.jsonl",
+  "audit_log_path": "data/logs/eqsb_kernel_major_audit.jsonl",
+  "event_count_total": 316,
+  "audit_event_count_total": 17,
+  "events_by_kind": {
+    "deep_audit": 12,
+    "build_identity_and_axioms": 11,
+    "build_memory_policy": 20,
+    "build_belief_lifecycle": 20,
+    "build_symbolic_graph": 20,
+    "detect_contradictions": 20,
+    "build_hypotheses": 20,
+    "compute_entropy": 20,
+    "compute_quantum_signal": 20,
+    "build_model_lane_governance": 20,
+    "build_advisory_decision_protocol": 11,
+    "build_quantum_roadmap": 11,
+    "build_kernel_introspection": 19,
+    "major_audit": 17,
+    "build_architecture_layers": 8,
+    "build_axioms": 9,
+    "build_continuity_state": 9,
+    "build_symbol_registry": 9,
+    "build_symbolic_state": 9,
+    "build_guardian_state": 9,
+    "cadence_tick": 9,
+    "build_replay_ledger": 7,
+    "build_kernel_self_audit": 6
+  },
+  "last_per_event": {
+    "deep_audit": {
+      "ts": "2026-06-09T08:56:44.943465+00:00",
+      "summary": {
+        "event": "deep_audit",
+        "missing_count": 0,
+        "ts": "2026-06-09T08:56:44.943465+00:00"
+      }
+    },
+    "build_identity_and_axioms": {
+      "ts": "2026-06-09T08:56:44.943680+00:00",
+      "summary": {
+        "event": "build_identity_and_axioms",
+        "ts": "2026-06-09T08:56:44.943680+00:00"
+      }
+    },
+    "build_memory_policy": {
+      "ts": "2026-06-09T08:56:44.952276+00:00",
+      "summary": {
+        "event": "build_memory_policy",
+        "ts": "2026-06-09T08:56:44.952276+00:00"
+      }
+    },
+    "build_belief_lifecycle": {
+      "ts": "2026-06-09T08:56:44.953184+00:00",
+      "summary": {
+        "event": "build_belief_lifecycle",
+        "belief_count": 18,
+        "ts": "2026-06-09T08:56:44.953184+00:00"
+      }
+    },
+    "build_symbolic_graph": {
+      "ts": "2026-06-09T08:56:44.956011+00:00",
+      "summary": {
+        "event": "build_symbolic_graph",
+        "node_count": 70,
+        "edge_count": 186,
+        "ts": "2026-06-09T08:56:44.956011+00:00"
+      }
+    },
+    "detect_contradictions": {
+      "ts": "2026-06-09T08:56:44.959068+00:00",
+      "summary": {
+        "event": "detect_contradictions",
+        "contradiction_count": 0,
+        "ts": "2026-06-09T08:56:44.959068+00:00"
+      }
+    },
+    "build_hypotheses": {
+      "ts": "2026-06-09T08:56:44.958356+00:00",
+      "summary": {
+        "event": "build_hypotheses",
+        "selected": "hyp_quantum_simulated_advisory",
+        "ts": "2026-06-09T08:56:44.958356+00:00"
+      }
+    },
+    "compute_entropy": {
+      "ts": "2026-06-09T08:56:44.956812+00:00",
+      "summary": {
+        "event": "compute_entropy",
+        "entropy_score": 17.2,
+        "drift_score": 8.0,
+        "ts": "2026-06-09T08:56:44.956812+00:00"
+      }
+    },
+    "compute_quantum_signal": {
+      "ts": "2026-06-09T08:56:44.957686+00:00",
+      "summary": {
+        "event": "compute_quantum_signal",
+        "selected": "hyp_oanda_credentials_missing",
+        "ts": "2026-06-09T08:56:44.957686+00:00"
+      }
+    },
+    "build_model_lane_governance": {
+      "ts": "2026-06-09T08:56:44.959396+00:00",
+      "summary": {
+        "event": "build_model_lane_governance",
+        "lane_count": 4,
+        "ts": "2026-06-09T08:56:44.959396+00:00"
+      }
+    },
+    "build_advisory_decision_protocol": {
+      "ts": "2026-06-09T08:56:44.950004+00:00",
+      "summary": {
+        "event": "build_advisory_decision_protocol",
+        "ts": "2026-06-09T08:56:44.950004+00:00"
+      }
+    },
+    "build_quantum_roadmap": {
+      "ts": "2026-06-09T08:56:44.950129+00:00",
+      "summary": {
+        "event": "build_quantum_roadmap",
+        "ts": "2026-06-09T08:56:44.950129+00:00"
+      }
+    },
+    "build_kernel_introspection": {
+      "ts": "2026-06-09T08:56:44.951128+00:00",
+      "summary": {
+        "event": "build_kernel_introspection",
+        "ts": "2026-06-09T08:56:44.951128+00:00"
+      }
+    },
+    "major_audit": {
+      "ts": "2026-06-09T08:56:44.941890+00:00",
+      "summary": {
+        "event": "major_audit",
+        "missing_count": 0,
+        "ts": "2026-06-09T08:56:44.941890+00:00"
+      }
+    },
+    "build_architecture_layers": {
+      "ts": "2026-06-09T08:56:44.951353+00:00",
+      "summary": {
+        "event": "build_architecture_layers",
+        "ts": "2026-06-09T08:56:44.951353+00:00"
+      }
+    },
+    "build_axioms": {
+      "ts": "2026-06-09T08:56:44.952006+00:00",
+      "summary": {
+        "event": "build_axioms",
+        "ts": "2026-06-09T08:56:44.952006+00:00"
+      }
+    },
+    "build_continuity_state": {
+      "ts": "2026-06-09T08:56:44.952507+00:00",
+      "summary": {
+        "event": "build_continuity_state",
+        "ts": "2026-06-09T08:56:44.952507+00:00"
+      }
+    },
+    "build_symbol_registry": {
+      "ts": "2026-06-09T08:56:44.953542+00:00",
+      "summary": {
+        "event": "build_symbol_registry",
+        "ts": "2026-06-09T08:56:44.953542+00:00"
+      }
+    },
+    "build_symbolic_state": {
+      "ts": "2026-06-09T08:56:44.953737+00:00",
+      "summary": {
+        "event": "build_symbolic_state",
+        "ts": "2026-06-09T08:56:44.953737+00:00"
+      }
+    },
+    "build_guardian_state": {
+      "ts": "2026-06-09T08:56:44.959849+00:00",
+      "summary": {
+        "event": "build_guardian_state",
+        "safety_state": "OK",
+        "default_verdict": "ALLOW_READ_ONLY",
+        "ts": "2026-06-09T08:56:44.959849+00:00"
+      }
+    },
+    "cadence_tick": {
+      "ts": "2026-06-09T08:56:44.960207+00:00",
+      "summary": {
+        "event": "cadence_tick",
+        "tick_count": 9,
+        "ts": "2026-06-09T08:56:44.960207+00:00"
+      }
+    },
+    "build_replay_ledger": {
+      "ts": "2026-06-09T08:23:53.486416+00:00",
+      "summary": {
+        "event": "build_replay_ledger",
+        "ts": "2026-06-09T08:23:53.486416+00:00"
+      }
+    },
+    "build_kernel_self_audit": {
+      "ts": "2026-06-09T08:23:53.488042+00:00",
+      "summary": {
+        "event": "build_kernel_self_audit",
+        "ts": "2026-06-09T08:23:53.488042+00:00"
+      }
+    }
+  },
+  "recent_events_tail": [
+    {
+      "event": "build_architecture_layers",
+      "layer_count": 16,
+      "ts": "2026-06-09T08:56:44.951353+00:00",
+      "execution_allowed": false,
+      "advisory_only": true
+    },
+    {
+      "event": "build_axioms",
+      "axiom_count": 22,
+      "categories": [
+        "audit",
+        "continuity",
+        "entropy",
+        "guardian",
+        "identity",
+        "memory",
+        "quantum",
+        "symbolic",
+        "truth"
+      ],
+      "ts": "2026-06-09T08:56:44.952006+00:00",
+      "execution_allowed": false,
+      "advisory_only": true
+    },
+    {
+      "event": "build_memory_policy",
+      "continuity_depth": 1,
+      "ts": "2026-06-09T08:56:44.952276+00:00",
+      "execution_allowed": false,
+      "advisory_only": true
+    },
+    {
+      "event": "build_continuity_state",
+      "boot_posture": "CONSERVATIVE",
+      "drift_alert_count": 0,
+      "stale_flag_count": 1,
+      "ts": "2026-06-09T08:56:44.952507+00:00",
+      "execution_allowed": false,
+      "advisory_only": true
+    },
+    {
+      "event": "build_belief_lifecycle",
+      "belief_count": 18,
+      "state_counts": {
+        "PROVISIONAL": 0,
+        "ACTIVE": 0,
+        "STRENGTHENED": 18,
+        "AGING": 0,
+        "DEPRECATED": 0,
+        "RETIRED": 0,
+        "QUARANTINED": 0
+      },
+      "ts": "2026-06-09T08:56:44.953184+00:00",
+      "execution_allowed": false,
+      "advisory_only": true
+    },
+    {
+      "event": "build_symbol_registry",
+      "symbol_count": 15,
+      "ts": "2026-06-09T08:56:44.953542+00:00",
+      "execution_allowed": false,
+      "advisory_only": true
+    },
+    {
+      "event": "build_symbolic_state",
+      "by_type": {
+        "kernel": 1,
+        "guardian": 1,
+        "axiom": 1,
+        "memory": 2,
+        "belief": 1,
+        "entropy_signal": 2,
+        "quantum_signal": 3,
+        "hypothesis": 1,
+        "contradiction": 1,
+        "registry": 1,
+        "model_lane": 1
+      },
+      "ts": "2026-06-09T08:56:44.953737+00:00",
+      "execution_allowed": false,
+      "advisory_only": true
+    },
+    {
+      "event": "build_symbolic_graph",
+      "node_count": 70,
+      "edge_count": 186,
+      "ts": "2026-06-09T08:56:44.956011+00:00",
+      "execution_allowed": false,
+      "advisory_only": true
+    },
+    {
+      "event": "compute_entropy",
+      "entropy_score": 17.2,
+      "drift_score": 8.0,
+      "ts": "2026-06-09T08:56:44.956812+00:00",
+      "execution_allowed": false,
+      "advisory_only": true
+    },
+    {
+      "event": "compute_quantum_signal",
+      "mode": "simulated_quantum_entropy",
+      "selected": "hyp_oanda_credentials_missing",
+      "uncertainty_score": 0.7333,
+      "ts": "2026-06-09T08:56:44.957686+00:00",
+      "execution_allowed": false,
+      "advisory_only": true
+    },
+    {
+      "event": "build_hypotheses",
+      "hypothesis_count": 11,
+      "selected": "hyp_quantum_simulated_advisory",
+      "ts": "2026-06-09T08:56:44.958356+00:00",
+      "execution_allowed": false,
+      "advisory_only": true
+    },
+    {
+      "event": "detect_contradictions",
+      "contradiction_count": 0,
+      "by_severity": {},
+      "ts": "2026-06-09T08:56:44.959068+00:00",
+      "execution_allowed": false,
+      "advisory_only": true
+    },
+    {
+      "event": "build_model_lane_governance",
+      "lane_count": 4,
+      "ts": "2026-06-09T08:56:44.959396+00:00",
+      "execution_allowed": false,
+      "advisory_only": true
+    },
+    {
+      "event": "build_guardian_state",
+      "safety_state": "OK",
+      "default_verdict": "ALLOW_READ_ONLY",
+      "ts": "2026-06-09T08:56:44.959849+00:00",
+      "execution_allowed": false,
+      "advisory_only": true
+    },
+    {
+      "event": "cadence_tick",
+      "tick_count": 9,
+      "loop_completeness_pct": 100.0,
+      "ts": "2026-06-09T08:56:44.960207+00:00",
+      "execution_allowed": false,
+      "advisory_only": true
+    }
+  ],
+  "recent_audit_tail": [
+    {
+      "event": "major_audit",
+      "missing_count": 1,
+      "ts": "2026-06-09T07:27:52.228332+00:00",
+      "execution_allowed": false,
+      "advisory_only": true
+    },
+    {
+      "event": "major_audit",
+      "missing_count": 1,
+      "ts": "2026-06-09T07:28:28.704148+00:00",
+      "execution_allowed": false,
+      "advisory_only": true
+    },
+    {
+      "event": "major_audit",
+      "missing_count": 1,
+      "ts": "2026-06-09T07:28:28.723822+00:00",
+      "execution_allowed": false,
+      "advisory_only": true
+    },
+    {
+      "event": "major_audit",
+      "missing_count": 0,
+      "ts": "2026-06-09T07:28:44.477037+00:00",
+      "execution_allowed": false,
+      "advisory_only": true
+    },
+    {
+      "event": "major_audit",
+      "missing_count": 0,
+      "ts": "2026-06-09T07:28:44.497196+00:00",
+      "execution_allowed": false,
+      "advisory_only": true
+    },
+    {
+      "event": "major_audit",
+      "missing_count": 0,
+      "ts": "2026-06-09T07:36:44.526037+00:00",
+      "execution_allowed": false,
+      "advisory_only": true
+    },
+    {
+      "event": "major_audit",
+      "missing_count": 0,
+      "ts": "2026-06-09T07:36:44.800269+00:00",
+      "execution_allowed": false,
+      "advisory_only": true
+    },
+    {
+      "event": "major_audit",
+      "missing_count": 0,
+      "ts": "2026-06-09T07:36:44.821007+00:00",
+      "execution_allowed": false,
+      "advisory_only": true
+    },
+    {
+      "event": "major_audit",
+      "missing_count": 0,
+      "ts": "2026-06-09T07:36:44.841641+00:00",
+      "execution_allowed": false,
+      "advisory_only": true
+    },
+    {
+      "event": "major_audit",
+      "missing_count": 0,
+      "ts": "2026-06-09T07:36:44.861762+00:00",
+      "execution_allowed": false,
+      "advisory_only": true
+    },
+    {
+      "event": "major_audit",
+      "missing_count": 0,
+      "ts": "2026-06-09T08:08:07.805285+00:00",
+      "execution_allowed": false,
+      "advisory_only": true
+    },
+    {
+      "event": "major_audit",
+      "missing_count": 0,
+      "ts": "2026-06-09T08:08:07.826458+00:00",
+      "execution_allowed": false,
+      "advisory_only": true
+    },
+    {
+      "event": "major_audit",
+      "missing_count": 0,
+      "ts": "2026-06-09T08:23:53.468273+00:00",
+      "execution_allowed": false,
+      "advisory_only": true
+    },
+    {
+      "event": "major_audit",
+      "missing_count": 0,
+      "ts": "2026-06-09T08:23:53.488674+00:00",
+      "execution_allowed": false,
+      "advisory_only": true
+    },
+    {
+      "event": "major_audit",
+      "missing_count": 0,
+      "ts": "2026-06-09T08:56:44.941854+00:00",
+      "execution_allowed": false,
+      "advisory_only": true
+    }
+  ],
+  "repair_suggestions": [],
+  "replay_note": "Replay is reconstructable by re-running each builder in the cadence loop order. Important kernel state transitions are always appended to data/logs/eqsb_kernel_events.jsonl.",
+  "active_local_only": true,
+  "advisory_only": true,
+  "execution_allowed": false,
+  "paper_only": true,
+  "not_financial_advice": true,
+  "worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "external_provider_execution_enabled": false,
+  "openclaw_execution_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "live_dispatch_enabled": false,
+  "direct_provider_access": false,
+  "live_trading_enabled": false,
+  "order_execution_enabled": false,
+  "practice_order_execution_enabled": false,
+  "stock_order_execution_enabled": false,
+  "stock_live_trading_enabled": false,
+  "stock_paper_order_execution_enabled": false,
+  "binance_order_execution_enabled": false,
+  "binance_live_trading_enabled": false,
+  "model_inference_enabled": false,
+  "autonomous_workers_enabled": false,
+  "maintenance_auto_repair_enabled": false,
+  "web_access_autonomous_enabled": false,
+  "replay_ledger_hash": "8901b5b1e9bd7026"
+}

@@ -1,0 +1,33 @@
+{
+  "record_id": "f47_floor_buildout_batch_5_room_view_from_window",
+  "ts_utc": "2026-06-14T17:02:00Z",
+  "floor": "floor_47",
+  "batch": "5_room_view_from_window",
+  "builder": "f47_floor_buildout_batch_5_room_view_from_window (claude opus 4.7)",
+  "authorization": "CLAUDE.md 2026-06-13 workshop bench amendment + Ross 2026-06-14 helm window",
+  "items_built": [
+    "view_from_window"
+  ],
+  "artifacts_written": [
+    "floors/floor_47_executive_operations_department/rooms/view_from_window.json",
+    "floors/floor_47_executive_operations_department/sketches/view_from_window.md"
+  ],
+  "verification": {
+    "jq_parse_json": "pass",
+    "sketch_word_count": 276,
+    "sketch_word_cap_300": "pass",
+    "visitor_open": true,
+    "constraints_respected": {
+      "no_claude_md_edit": true,
+      "no_vault_edit": true,
+      "no_env_edit": true,
+      "no_gate_edit": true,
+      "no_host_paths_in_live_signals": true,
+      "no_external_api_call": true,
+      "visitor_safe_concierge_blurb": true
+    }
+  },
+  "acceptance_test_check": "Descriptor returns view_text (no host paths, no costs) — PASS.",
+  "lessons_appended_to": "data/registries/qsb_f47_agent_lessons.jsonl",
+  "advisory_only": true
+}

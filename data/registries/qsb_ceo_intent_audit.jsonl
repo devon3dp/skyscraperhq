@@ -1,0 +1,3 @@
+{"ts": "2026-07-05T11:53:49.307046Z", "ceo": "tp_pip", "intent": "none_recognized", "executed": false, "detail": {"reply_head": "[offline reply from TP-Pip] I hear you: \"ORDER v4 \u00b7 Ross needs proof you can execute.\n\nReply with a PowerShell Invoke-WebRequest that POSTs to http://192.168.1.7\". My brain is currently unreachable (n"}}
+{"ts": "2026-07-05T11:53:51.351293Z", "ceo": "acer_cass", "intent": "write_file", "executed": true, "detail": {"ok": true, "wrote": "data/acer_cass_sandbox/proof_v4.md", "bytes": 73}}
+{"ts": "2026-07-05T12:18:29.581989Z", "ceo": "tp_pip", "intent": "write_file", "executed": true, "detail": {"ok": true, "wrote": "data/tp_pip_sandbox/proof_v5.md", "bytes": 80}}

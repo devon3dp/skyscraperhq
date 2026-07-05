@@ -1,0 +1,30 @@
+{
+  "ok": true,
+  "kind": "qsb_godot_availability_audit",
+  "phase": "QSB_GODOT_NATIVE_3D_COCKPIT_REBUILD_V1",
+  "generated_ts": "2026-06-09T15:21:58+00:00",
+  "godot_installed": false,
+  "godot_command": null,
+  "godot_version": null,
+  "godot3_installed": false,
+  "godot4_installed": false,
+  "available_install_paths": {
+    "snap": "sudo snap install godot-4 (snap is available on this system)",
+    "official_download_x86_64_linux": "https://godotengine.org/download/linux/ \u2014 extract Godot_v4.x_stable_linux.x86_64 to /usr/local/bin/godot4",
+    "apt_official_repo": "Not in default Ubuntu 24.04 apt repo. Add deb https://flathub.org or use snap.",
+    "flatpak": "flatpak is NOT installed on this machine."
+  },
+  "recommended_install_command_for_this_machine": "sudo snap install godot-4 --classic",
+  "alternative_official_install": "wget https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_linux.x86_64.zip && unzip Godot_v4.3-stable_linux.x86_64.zip && sudo mv Godot_v4.3-stable_linux.x86_64 /usr/local/bin/godot4 && sudo chmod +x /usr/local/bin/godot4",
+  "can_run_headless_after_install": true,
+  "can_export_after_install": true,
+  "panda3d_installed": false,
+  "panda3d_install_command": "/usr/bin/python3 -m pip install --user panda3d",
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "live_payments_enabled": false,
+  "live_listings_publishing_enabled": false
+}

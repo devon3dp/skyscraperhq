@@ -1,0 +1,18 @@
+{
+  "id": "train_L4_smoke_test",
+  "title": "Level 4 — Smoke-test what you shipped",
+  "stages": [
+    {
+      "kind": "verify",
+      "prompt": "Use wren_bash cmd='wc -l data/wren_sandbox/L3_forge_output.py && head -5 data/wren_sandbox/L3_forge_output.py'. STAGE_OUT: the output verbatim."
+    },
+    {
+      "kind": "syntax_check",
+      "prompt": "Use wren_bash cmd='python3 -c \"import ast; ast.parse(open(\\\\\\\"data/wren_sandbox/L3_forge_output.py\\\\\\\").read()); print(\\\\\\\"syntax OK\\\\\\\")\"'. STAGE_OUT: pass or fail with the error message if fail."
+    },
+    {
+      "kind": "verdict",
+      "prompt": "Given the prior 2 stages: does L3_forge_output.py pass the sandbox exit gate (file exists with lines, syntax valid)? STAGE_OUT: 'GATE: passed' or 'GATE: blocked + reason'. One line only."
+    }
+  ]
+}

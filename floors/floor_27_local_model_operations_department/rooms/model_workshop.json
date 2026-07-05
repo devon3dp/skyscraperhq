@@ -1,0 +1,34 @@
+{
+  "room_id": "model_workshop",
+  "name": "Model Workshop",
+  "category": "workshop",
+  "purpose": "This room is for crafting and refining models.",
+  "concierge_blurb": "Visitors see tools and materials used to create precision models.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -8.0,
+    "offset_z": 4.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "workbench",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Model Workshop",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": null,
+    "refresh_seconds": 0
+  },
+  "floor": "floor_27"
+}

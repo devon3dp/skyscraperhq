@@ -1,0 +1,34 @@
+{
+  "id": "train_L6_promote_to_production",
+  "title": "Level 6 — Promote iQuest's warm_hi() from team_sandbox to production via exit gate",
+  "stages": [
+    {
+      "kind": "recall",
+      "prompt": "Use wren_read_file with path='data/team_sandbox/L5_wren_hermes_iquest.md'. Extract iQuest's Python code block. STAGE_OUT: the 3 lines of Python code, no fences, verbatim."
+    },
+    {
+      "kind": "syntax_check",
+      "prompt": "Use wren_write_file with path='data/team_sandbox/warm_hi_candidate.py' and content that puts iQuest's code (from prior stage) into a proper file with a module docstring line at the top. STAGE_OUT: tool result."
+    },
+    {
+      "kind": "syntax_verify",
+      "prompt": "Use wren_bash cmd='python3 -c \"import ast; ast.parse(open(\\\\\\\"data/team_sandbox/warm_hi_candidate.py\\\\\\\").read()); print(\\\\\\\"PASS\\\\\\\")\"'. STAGE_OUT: PASS or the error."
+    },
+    {
+      "kind": "smoke_run",
+      "prompt": "Use wren_bash cmd='python3 -c \"import sys; sys.path.insert(0, \\\\\\\"data/team_sandbox\\\\\\\"); from warm_hi_candidate import warm_hi; print(warm_hi(\\\\\\\"Ross\\\\\\\"))\"'. STAGE_OUT: the greeting string. Should mention Ross + today ISO date."
+    },
+    {
+      "kind": "gate_review",
+      "prompt": "Given the prior 4 stages: syntax passed? smoke ran? output correct format? Answer YES only if all three. STAGE_OUT: 'EXIT GATE: passed' if yes, 'EXIT GATE: blocked + reason' if no."
+    },
+    {
+      "kind": "ship",
+      "prompt": "If prior stage said 'EXIT GATE: passed', use wren_write_file with path='tools/qsb_warm_hi.py' and copy the content of data/team_sandbox/warm_hi_candidate.py (auto-backup will fire if the file exists). If exit gate was BLOCKED, do wren_stamp_f47_record kind='wren_promotion_blocked' summary='team_sandbox/warm_hi_candidate.py held: <reason>' instead. STAGE_OUT: what you did."
+    },
+    {
+      "kind": "verify_production",
+      "prompt": "If prior stage shipped, use wren_bash cmd='python3 -c \"from tools.qsb_warm_hi import warm_hi; print(warm_hi(\\\\\\\"Ross\\\\\\\"))\"' to verify the promoted file works in production. STAGE_OUT: the greeting output. End with 'L6 VERDICT: shipped_to_production=<yes|no>, works_in_prod=<yes|no>'."
+    }
+  ]
+}

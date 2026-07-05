@@ -1,0 +1,20 @@
+{
+  "ok": true,
+  "kind": "eqsb_storage_profile",
+  "generated_ts": "2026-06-30T13:46:33.453142+00:00",
+  "df_h": "Filesystem      Size  Used Avail Use% Mounted on\n/dev/nvme3n1p2  468G  362G   82G  82% /\n/dev/nvme1n1p4  824G   87G  696G  12% /vaults/nvme0\n/dev/nvme2n1p1  469G  167G  279G  38% /vaults/ai",
+  "lsblk_json_present": true,
+  "qsb_project_mb": 13565,
+  "qsb_data_mb": 10055,
+  "qsb_data_backups_mb": 1578,
+  "qsb_data_db_mb": 2969,
+  "qsb_data_logs_mb": 346,
+  "vaults_ai_present": true,
+  "vaults_ai_airllm_lab_present": true,
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

@@ -1,0 +1,21 @@
+{
+  "ok": true,
+  "phase": "QSB_SKYSCRAPER_100_PERCENT_ONLINE_INTERACTIVE_3D_WORKFORCE_COMPLETION_V1",
+  "kind": "qsb_100_online_completion_score",
+  "generated_ts": "2026-06-30T13:46:37.031695+00:00",
+  "completion_score": 88.5,
+  "passed": 23,
+  "total": 26,
+  "is_100_online": false,
+  "honest_note": "100/100 only when every gate passes with evidence. Score does NOT count endpoints that return 200 unless they are accompanied by the required content.",
+  "failed_gates": [
+    "G1",
+    "G4",
+    "G25"
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false
+}

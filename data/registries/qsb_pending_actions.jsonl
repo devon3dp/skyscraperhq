@@ -1,0 +1,1 @@
+{"ts": "2026-06-21T05:49:42Z", "kind": "pull_when_done_registered", "role": "claude", "subject": "hermes3:70b", "trigger": "ollama list contains qwen2.5:32b", "tool": "tools/qsb_pull_when_done.py", "note": "Ross 2026-06-21: pull hermes3:70b AFTER qwen2.5:32b download finishes. Watcher polls every 60s."}

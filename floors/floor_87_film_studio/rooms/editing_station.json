@@ -1,0 +1,34 @@
+{
+  "room_id": "editing_station",
+  "name": "Editing Suite",
+  "category": "workshop",
+  "purpose": "This room is for editing and post-production work.",
+  "concierge_blurb": "Step into the heart of video production, where edits flow seamlessly.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      8,
+      12
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Editing Suite",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_87"
+}

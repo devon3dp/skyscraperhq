@@ -1,0 +1,120 @@
+{
+  "enabled": true,
+  "authorized_by": "ross_chat_2026-06-14",
+  "ts_authorized": "2026-06-14T21:25:00Z",
+  "comment": "offline-Wren tier-2 tool-use loop. Conservative defaults: bash off, edit = propose-only. Ross flips per-tool when ready.",
+  "ollama_endpoint": "http://127.0.0.1:11434/api/chat",
+  "default_model": "qwen2.5:32b",
+  "caps": {
+    "max_turns_per_session": 6,
+    "max_tool_calls_per_session": 20,
+    "max_context_chars": 24000,
+    "max_tool_result_chars": 8000,
+    "max_wall_seconds_per_session": 180
+  },
+  "wren_full_control_apprentice": true,
+  "apprentice_graduation": {
+    "approvals_to_graduate": 20,
+    "current": {
+      "wren_edit_file": 0,
+      "wren_bash": 1,
+      "wren_scrcpy": 0,
+      "wren_curl": 0
+    }
+  },
+  "tools": {
+    "wren_read_file": {
+      "enabled": true
+    },
+    "wren_grep_repo": {
+      "enabled": true
+    },
+    "wren_retrieve": {
+      "enabled": true,
+      "index_at": "data/registries/wren_rag/"
+    },
+    "wren_edit_file": {
+      "enabled": true,
+      "mode": "claude_signoff"
+    },
+    "wren_bash": {
+      "enabled": true,
+      "mode": "claude_signoff",
+      "binary_allowlist": [
+        "ls",
+        "cat",
+        "grep",
+        "rg",
+        "find",
+        "python3",
+        "wc",
+        "head",
+        "tail",
+        "jq",
+        "df",
+        "du",
+        "git",
+        "awk",
+        "sort",
+        "uniq",
+        "tr"
+      ]
+    },
+    "wren_scrcpy": {
+      "enabled": true,
+      "mode": "claude_signoff",
+      "action_allowlist": [
+        "list_devices",
+        "screenshot",
+        "tap",
+        "dump_ui"
+      ]
+    },
+    "wren_curl": {
+      "enabled": true,
+      "mode": "claude_signoff",
+      "host_allowlist": [
+        "127.0.0.1",
+        "localhost",
+        "api.telegram.org"
+      ],
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "ross_amendment_2026-06-17": "Added 127.0.0.1 + localhost so Wren can reach /api/claude_chat + dashboard endpoints; added api.telegram.org for receptionist push."
+    },
+    "wren_stamp_f47_record": {
+      "enabled": true
+    },
+    "wren_propose_patch": {
+      "enabled": true
+    },
+    "wren_list_skills": {
+      "enabled": true
+    },
+    "wren_run_skill": {
+      "enabled": true
+    }
+  },
+  "safety_deny_paths": [
+    "CLAUDE.md",
+    "floors/floor_28_security_department/vault/",
+    "tools/qsb_consult_external.py",
+    "tools/qsb_oanda.py",
+    "src/tower/qsb_floor41_oanda",
+    "data/registries/qsb_proposal_autoapply_gate.json",
+    "data/registries/qsb_provider_agentic_gate.json",
+    "data/registries/qsb_wren_local_agentic_gate.json"
+  ],
+  "kill_switch_path": "data/registries/qsb_wren_local_agentic_gate.json",
+  "notes_for_ross": "to enable bash: set tools.wren_bash.enabled=true. to enable direct edits (no propose-to-bench): set tools.wren_edit_file.mode='direct'. to allow curl on specific hosts: add to tools.wren_curl.host_allowlist. to disable everything: set top-level enabled=false.",
+  "history": [
+    {
+      "ts": "2026-06-23T12:30:00Z",
+      "change": "default_model qwen3.5:9b \u2192 qwen2.5:32b",
+      "by": "ross_take_lead + claude_diagnosed_gpu_collision",
+      "reason": "9b drifts on synthesis; 32b already pulled in Ollama (19.9GB); GPU has 16GB but Ollama auto-offloads to CPU when oversized"
+    }
+  ]
+}

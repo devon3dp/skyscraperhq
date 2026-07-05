@@ -1,0 +1,38 @@
+{
+  "ts": "2026-06-20T09:55:00Z",
+  "kind": "design_agreement",
+  "subject": "per_floor_walkable_interiors_v1",
+  "decided_by": ["claude", "wren_qwen2.5_7b"],
+  "ross_authorized": "talk to wren and lets get the interior 3d walkaround on all individual floors",
+  "schema_v1": {
+    "rooms_file_path": "floors/floor_<NN>_<slug>/rooms/<room_id>.json",
+    "added_blocks": {
+      "layout": {
+        "zone": "back_left|back_right|center|front_left|front_right|left_wall|right_wall|back_wall|front_wall|ceiling",
+        "footprint_m": [1.0, 1.0],
+        "height_m": 1.0
+      },
+      "render": {
+        "primary_prop": "desk|dais|wall_panel|plinth|bench|chamber|archive_shelf|chair_set|display|reception|seating|kitchen_line|trading_desk|server_rack|library_shelf|garden_bed|altar",
+        "palette": "<palette key from floor card or default>",
+        "label_text": "short in-world label",
+        "glow": false
+      },
+      "interactive": {
+        "type": "live_data|toggle|tail|count|none",
+        "source_path": "data/registries/<...>.jsonl|.json|null",
+        "display": "scrolling_list|big_number|status_dot|none",
+        "refresh_seconds": 60
+      }
+    }
+  },
+  "execution_plan": [
+    "STAGE A: back-port F47's 25 hand-coded rooms with layout+render+interactive",
+    "STAGE B: rewrite _buildWalkableOffice to iterate rooms/*.json data-driven",
+    "STAGE C: tools/qsb_floor_rooms_seed.py with per-floor qwen2.5:7b call from tour_blurb"
+  ],
+  "evidence_paths": [
+    "data/registries/qsb_claude_wren_bridge.jsonl",
+    "floors/floor_47_executive_operations_department/rooms/"
+  ]
+}

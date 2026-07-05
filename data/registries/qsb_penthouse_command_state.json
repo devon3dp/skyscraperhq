@@ -1,0 +1,51 @@
+{
+  "ok": true,
+  "kind": "qsb_penthouse_command_state",
+  "phase": "QSB_KERNEL_CHAT_PENTHOUSE_AND_3D_DASHBOARD_REALITY_FIX_V1",
+  "generated_ts": "2026-06-30T13:46:36.731155+00:00",
+  "kernel_active": true,
+  "kernel_continuity": "CONTINUITY_CONFIRMED",
+  "kernel_source": "rebased_kernel",
+  "cadence_tick": 73,
+  "cadence_last_ts": "2026-06-30T13:46:34.781542+00:00",
+  "guardian_state": "OK",
+  "locks_open": 0,
+  "openclaw_current_floor": 30,
+  "openclaw_advanced_by": "eqsb_cadence_state.tick_count",
+  "workers_canonical": 1190,
+  "workers_active": 1190,
+  "trading_modules_status": {
+    "oanda_floor41_mode": "oanda_practice_api",
+    "binance_floor42_mode": "testnet_preview_only",
+    "stocks_floor43_mode": "paper_preview_only",
+    "real_money_locked": true
+  },
+  "pnl_summary": {
+    "realized": -225.176,
+    "unrealized": 0.0,
+    "total": -225.176,
+    "open_count": 0,
+    "closed_count": 975
+  },
+  "zone_count": 11,
+  "decorative_removed": [
+    "ambient_particle_drift",
+    "random_pulse_dots",
+    "decorative_orbit_rings"
+  ],
+  "moving_elements_now_telemetry_bound": [
+    "cadence_tick_pulse",
+    "openclaw_route_marker",
+    "guardian_alert_pulse",
+    "trade_event_flash",
+    "narrator_event_glow",
+    "hardware_warning_flash"
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "worker_execution_enabled": false,
+  "autonomous_dispatch_enabled": false
+}

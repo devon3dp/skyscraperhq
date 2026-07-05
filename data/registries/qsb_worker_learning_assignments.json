@@ -1,0 +1,99 @@
+{
+  "ok": true,
+  "kind": "qsb_worker_learning_assignments",
+  "phase": "QSB_ML_RL_LAB_CLASSROOM_RESEARCH_WORKER_INTEGRATION_V1",
+  "generated_ts": "2026-06-09T16:49:28+00:00",
+  "assignments": [
+    {
+      "role": "trainee",
+      "tracks": [
+        "Torch Fundamentals",
+        "DQN Basics",
+        "RL Safety"
+      ]
+    },
+    {
+      "role": "strategy_analyst",
+      "tracks": [
+        "Paper Strategy Simulation",
+        "Backtest Reading",
+        "Experiment Logging"
+      ]
+    },
+    {
+      "role": "market_scout",
+      "tracks": [
+        "Paper Strategy Simulation",
+        "Risk-Aware Rewards"
+      ]
+    },
+    {
+      "role": "risk_watcher",
+      "tracks": [
+        "Risk-Aware Rewards",
+        "Model Failure Detection"
+      ]
+    },
+    {
+      "role": "seer",
+      "tracks": [
+        "RL Safety",
+        "Overfitting Detection"
+      ]
+    },
+    {
+      "role": "overseer",
+      "tracks": [
+        "Safe Advisory Reporting",
+        "Experiment Logging"
+      ]
+    },
+    {
+      "role": "floor_manager",
+      "tracks": [
+        "RL Safety",
+        "Safe Advisory Reporting"
+      ]
+    },
+    {
+      "role": "research_worker",
+      "tracks": [
+        "Torch Fundamentals",
+        "DQN Basics",
+        "Experiment Logging"
+      ]
+    },
+    {
+      "role": "classroom_teacher",
+      "tracks": [
+        "Torch Fundamentals",
+        "RL Safety",
+        "Safe Advisory Reporting"
+      ]
+    },
+    {
+      "role": "lessons_clerk",
+      "tracks": [
+        "Backtest Reading",
+        "Model Failure Detection"
+      ]
+    },
+    {
+      "role": "audit_clerk",
+      "tracks": [
+        "Experiment Logging",
+        "Safe Advisory Reporting"
+      ]
+    }
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "live_payments_enabled": false,
+  "live_listings_publishing_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "worker_execution_enabled": false,
+  "secrets_in_logs": false
+}

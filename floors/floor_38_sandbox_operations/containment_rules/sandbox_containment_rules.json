@@ -1,0 +1,56 @@
+[
+  {
+    "rule_id": "no_shell_execution",
+    "field": "shell_execution_enabled",
+    "required_value": false,
+    "description": "shell_execution_enabled must equal False"
+  },
+  {
+    "rule_id": "no_filesystem_writes",
+    "field": "filesystem_write_enabled",
+    "required_value": false,
+    "description": "filesystem_write_enabled must equal False"
+  },
+  {
+    "rule_id": "no_network",
+    "field": "network_enabled",
+    "required_value": false,
+    "description": "network_enabled must equal False"
+  },
+  {
+    "rule_id": "no_model_inference",
+    "field": "model_inference_enabled",
+    "required_value": false,
+    "description": "model_inference_enabled must equal False"
+  },
+  {
+    "rule_id": "no_worker_execution",
+    "field": "worker_execution_enabled",
+    "required_value": false,
+    "description": "worker_execution_enabled must equal False"
+  },
+  {
+    "rule_id": "no_provider_execution",
+    "field": "provider_execution_enabled",
+    "required_value": false,
+    "description": "provider_execution_enabled must equal False"
+  },
+  {
+    "rule_id": "no_kernel_installation",
+    "field": "kernel_installed",
+    "required_value": false,
+    "description": "kernel_installed must equal False"
+  },
+  {
+    "rule_id": "dry_run_only",
+    "field": "dry_run_only",
+    "required_value": true,
+    "description": "dry_run_only must equal True"
+  },
+  {
+    "rule_id": "sealed_required",
+    "field": "sealed",
+    "required_value": true,
+    "description": "sealed must equal True"
+  }
+]

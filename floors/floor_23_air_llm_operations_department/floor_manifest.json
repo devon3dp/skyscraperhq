@@ -1,0 +1,42 @@
+{
+  "floor_id": "floor_23",
+  "department": "AIR LLM Operations Department",
+  "version": "1.1",
+  "role": "external_provider_socket_layer",
+  "kernel_required": false,
+  "models_required": false,
+  "execution_enabled": false,
+  "hardwired_providers": false,
+  "providers_are_external": true,
+  "receives_from": [
+    "floor_24"
+  ],
+  "incoming_lift": "model_lift",
+  "roof_link": "roof/air_llm_cloud",
+  "notice": "Floor 23 manages sockets, capabilities, health records, and future handoff paths. It does not execute providers.",
+  "interior_brief": {
+    "archetype": "ops_hub",
+    "palette": [
+      "#102030",
+      "#3060a0",
+      "#80b2ff"
+    ],
+    "furniture": [
+      "desks",
+      "meeting area",
+      "common space",
+      "storage"
+    ],
+    "lighting": "task + ambient",
+    "mood": "command-and-control",
+    "designed_by": "F66 Architects + F17 Graphics + Fitters team",
+    "fitted_at": "2026-06-11T14:39:45.620109Z",
+    "godot_scene_brief": "render an generic floor with neutral grey + accent per floor theme palette, professional mood, key furniture: desks, meeting area, common space",
+    "signature": "Curved console arc, status walls, ops director's chair",
+    "diversified_ts": "2026-06-11T17:57:45Z",
+    "diversified_by": "qsb_archetype_diversifier_v1"
+  },
+  "fitted_out": true,
+  "fit_out_ts": "2026-06-11T14:39:45.620109Z",
+  "floor_name": "Air Llm Operations Department"
+}

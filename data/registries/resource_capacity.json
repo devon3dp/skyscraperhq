@@ -1,0 +1,16 @@
+{
+  "floor": "floor_49",
+  "department": "Resource Management Department",
+  "kernel_installed": false,
+  "models_required": false,
+  "execution_enabled": false,
+  "tower_capacity": {
+    "floors_total": 53,
+    "vacant_expansion_floors": 5,
+    "lifts": 9,
+    "worker_slots_registered": 48,
+    "external_provider_sockets": 6,
+    "local_models_detected_from_floor_27": "dynamic"
+  },
+  "resource_policy": "Track resource capacity only. Do not execute providers or models."
+}

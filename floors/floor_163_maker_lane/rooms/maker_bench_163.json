@@ -1,0 +1,34 @@
+{
+  "room_id": "maker_bench_163",
+  "name": "Maker Bench",
+  "category": "workshop",
+  "purpose": "A space for makers to create and experiment.",
+  "concierge_blurb": "Explore tools, materials, and the creative process.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -8.0,
+    "offset_z": 2.5,
+    "footprint_m": [
+      14,
+      6
+    ],
+    "height_m": 1.8
+  },
+  "render": {
+    "primary_prop": "bench",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Maker Bench",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": null,
+    "refresh_seconds": 0
+  },
+  "floor": "floor_163"
+}

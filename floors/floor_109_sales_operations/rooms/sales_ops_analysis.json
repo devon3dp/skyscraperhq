@@ -1,0 +1,34 @@
+{
+  "room_id": "sales_ops_analysis",
+  "name": "Analysis Hub",
+  "category": "workshop",
+  "purpose": "A space for in-depth analysis and data visualization.",
+  "concierge_blurb": "Interactive screens display real-time sales data.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": -5.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 1.8
+  },
+  "render": {
+    "primary_prop": "desk",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Sales Analysis",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/sales_data.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 60
+  },
+  "floor": "floor_109"
+}

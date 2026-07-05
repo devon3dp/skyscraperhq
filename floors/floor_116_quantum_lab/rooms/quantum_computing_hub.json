@@ -1,0 +1,34 @@
+{
+  "room_id": "quantum_computing_hub",
+  "name": "Quantum Hub",
+  "category": "lab",
+  "purpose": "This room houses the quantum computing experiments and research.",
+  "concierge_blurb": "Welcome to the heart of our quantum computing research.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "center",
+    "offset_x": 0.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      15,
+      15
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "plinth",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Quantum Hub",
+    "glow": true
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/qubits.jsonl",
+    "display": "big_number",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_116"
+}

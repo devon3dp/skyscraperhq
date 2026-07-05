@@ -1,0 +1,60 @@
+{
+  "ok": true,
+  "floor_number": 60,
+  "floor_name": "London Stock Exchange",
+  "floor_kind": "lse_paper_trading_floor_v1",
+  "description": "UK equities paper-trading floor. Real Yahoo Finance prices, local paper book, no broker hookup yet.",
+  "open_hours": "08:00-16:30 UK time",
+  "currency": "GBP",
+  "data_source": "Yahoo Finance quotes (real-time-ish, free)",
+  "paper_ledger": "data/registries/qsb_floor60_lse_paper_ledger.jsonl",
+  "paper_book": "data/registries/qsb_floor60_lse_paper_book.json",
+  "initial_cash_gbp": 100000.0,
+  "slippage_bps_per_side": 5.0,
+  "tickers_universe": [
+    "VOD.L",
+    "BP.L",
+    "HSBA.L",
+    "BARC.L",
+    "GSK.L",
+    "RIO.L",
+    "SHEL.L",
+    "LLOY.L",
+    "TSCO.L",
+    "NWG.L",
+    "AZN.L",
+    "ULVR.L",
+    "PRU.L",
+    "BT-A.L",
+    "REL.L"
+  ],
+  "inter_floor_produces": [
+    "F44 accounts (trade_settlement packets)",
+    "F47 wren (lessons)",
+    "F11 market intel (LSE pulse)"
+  ],
+  "inter_floor_consumes": [
+    "F11 market intel (UK market open/close + macro)",
+    "F12 risk (cap checks)"
+  ],
+  "created_ts": "2026-06-11T08:46:32.419374Z",
+  "advisory_only": true,
+  "real_money": false,
+  "interior_brief": {
+    "archetype": "trading",
+    "palette": "graphite + amber",
+    "furniture": [
+      "trader desks",
+      "wall screens",
+      "ticker boards",
+      "quiet booths"
+    ],
+    "lighting": "screen-friendly cool",
+    "mood": "alert + focused",
+    "designed_by": "F66 Architects + F17 Graphics + Fitters team",
+    "fitted_at": "2026-06-11T14:39:45.620109Z",
+    "godot_scene_brief": "render an trading floor with graphite + amber palette, alert + focused mood, key furniture: trader desks, wall screens, ticker boards"
+  },
+  "fitted_out": true,
+  "fit_out_ts": "2026-06-11T14:39:45.620109Z"
+}

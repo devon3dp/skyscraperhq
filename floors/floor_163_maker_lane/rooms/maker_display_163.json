@@ -1,0 +1,34 @@
+{
+  "room_id": "maker_display_163",
+  "name": "Maker Display",
+  "category": "display",
+  "purpose": "A showcase for maker creations.",
+  "concierge_blurb": "Admire the craftsmanship of our makers.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.0,
+    "offset_z": -2.5,
+    "footprint_m": [
+      14,
+      6
+    ],
+    "height_m": 3.0
+  },
+  "render": {
+    "primary_prop": "display",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Maker Display",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": null,
+    "refresh_seconds": 0
+  },
+  "floor": "floor_163"
+}

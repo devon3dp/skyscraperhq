@@ -1,0 +1,70 @@
+{
+  "floor_id": "floor_162",
+  "floor_number": 162,
+  "floor_name": "Living Light Eco",
+  "department": "public_dropship_storefront_v1",
+  "zone": "ZONE F \u00b7 CROWN",
+  "archetype": "public_dropship_storefront_v1",
+  "staff_lead": "F66 Architects' Office",
+  "tour_blurb": "Living Light \u2014 kinder daily.",
+  "visitor_open": false,
+  "advisory_only": true,
+  "execution_mode": "PREVIEW_ONLY",
+  "skeleton": true,
+  "skeleton_source": "floor_manifest.json",
+  "skeleton_generated_ts": "2026-06-17",
+  "live_signals": {
+    "theme": "eco_friendly_living",
+    "categories": [
+      "kitchen",
+      "bath",
+      "out_and_about",
+      "refill",
+      "cleaning"
+    ],
+    "palette": "leaf / linen / sky",
+    "tagline": "Living Light \u2014 kinder daily."
+  },
+  "gate_posture": {
+    "advisory_only": true,
+    "execution_allowed": false,
+    "live_payments_enabled": false
+  },
+  "team_roster": [
+    {
+      "id": "f162.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "spawned_id": "394745832c",
+      "spawned_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F162",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f162.operator.01",
+      "spawned_id": "74a7b89b51"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F162",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f162.operator.02",
+      "spawned_id": "0b62b97ac7"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F162",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f162.operator.03",
+      "spawned_id": "d82bd5338f"
+    }
+  ],
+  "floor_manager": "f162.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

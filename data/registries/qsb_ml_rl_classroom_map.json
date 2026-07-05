@@ -1,0 +1,73 @@
+{
+  "ok": true,
+  "kind": "qsb_ml_rl_classroom_map",
+  "phase": "QSB_ML_RL_LAB_CLASSROOM_RESEARCH_WORKER_INTEGRATION_V1",
+  "generated_ts": "2026-06-09T16:49:28+00:00",
+  "primary_floor": 8,
+  "primary_floor_name": "Training Academy",
+  "classrooms": [
+    {
+      "id": "cls_ml_rl",
+      "name": "ML/RL Classroom",
+      "lead_role": "ml_rl_teacher"
+    },
+    {
+      "id": "cls_deep_learning",
+      "name": "Deep Learning Classroom",
+      "lead_role": "dl_teacher"
+    },
+    {
+      "id": "cls_reinforcement",
+      "name": "Reinforcement Learning Classroom",
+      "lead_role": "rl_teacher"
+    },
+    {
+      "id": "cls_dqn",
+      "name": "DQN / QDNN Classroom",
+      "lead_role": "rl_teacher"
+    },
+    {
+      "id": "cls_torch_practical",
+      "name": "Torch Practical Lab",
+      "lead_role": "torch_lab_instructor"
+    },
+    {
+      "id": "cls_strategy_sim",
+      "name": "Strategy Simulation Classroom",
+      "lead_role": "strategy_teacher"
+    },
+    {
+      "id": "cls_risk_sim",
+      "name": "Risk Simulation Classroom",
+      "lead_role": "risk_teacher"
+    },
+    {
+      "id": "cls_paper_training",
+      "name": "Paper Trading Training Room",
+      "lead_role": "paper_trading_teacher"
+    },
+    {
+      "id": "cls_certification",
+      "name": "Worker Certification Room",
+      "lead_role": "certifier"
+    },
+    {
+      "id": "cls_lessons_review",
+      "name": "Lessons Review Room",
+      "lead_role": "lessons_clerk"
+    }
+  ],
+  "lab_link": "/vaults/ai/qsb_ml_rl_lab",
+  "no_heavy_training_this_phase": true,
+  "no_live_market_execution": true,
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "live_payments_enabled": false,
+  "live_listings_publishing_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "worker_execution_enabled": false,
+  "secrets_in_logs": false
+}

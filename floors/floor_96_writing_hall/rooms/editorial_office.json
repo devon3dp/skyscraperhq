@@ -1,0 +1,34 @@
+{
+  "room_id": "editorial_office",
+  "name": "Editorial Office",
+  "category": "operations",
+  "purpose": "Managing the flow of written content.",
+  "concierge_blurb": "The heart of editorial decisions and operations.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -8.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      12,
+      18
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "desk",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Editorial Desk",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_96"
+}

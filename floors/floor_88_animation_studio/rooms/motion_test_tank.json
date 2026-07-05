@@ -1,0 +1,34 @@
+{
+  "room_id": "motion_test_tank",
+  "name": "Motion Test Tank",
+  "category": "trading",
+  "purpose": "A testing ground for motion graphics and animations before final release.",
+  "concierge_blurb": "Watch our latest creations come to life in the Motion Test Tank.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 8.0,
+    "offset_z": -3.0,
+    "footprint_m": [
+      15,
+      20
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "plinth",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Motion Test",
+    "glow": true
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": null,
+    "refresh_seconds": null
+  },
+  "floor": "floor_88"
+}

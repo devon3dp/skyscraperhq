@@ -1,0 +1,40 @@
+{
+  "id": "train_L10_new_dash_tile",
+  "title": "L10 — Wren builds MOOD-BADGE tile using iQuest + Forge, Claude-verify guards, ship as standalone file",
+  "stages": [
+    {
+      "kind": "design",
+      "prompt": "Use wren_write_file with path='data/wren_sandbox/L10_mood_badge_spec.md' and content='# MOOD BADGE tile spec\\n\\nExposes render_mood_badge(mood: str, energy: int) -> str returning inline HTML.\\nUse case: renders a small colored chip with mood word + energy fill.\\nColors: focused=green, sparky=orange, steady=blue, quiet=grey, cloudy=slate.\\n'. STAGE_OUT: tool result."
+    },
+    {
+      "kind": "iquest_python",
+      "prompt": "Use wren_dispatch_iquest task='Write ONLY the Python function render_mood_badge(mood: str, energy: int) -> str. It returns an HTML string with a colored span (based on mood color from a dict) and inline width for energy 0-9 bar. 10 lines max. Include the color dict. No imports.'. STAGE_OUT: paste iQuest code between backticks."
+    },
+    {
+      "kind": "write_candidate",
+      "prompt": "Use wren_write_file with path='data/wren_sandbox/L10_mood_badge_candidate.py' and content that combines: (a) docstring '\"\"\"mood_badge — Wren+iQuest L10 collaboration.\"\"\"', (b) blank line, (c) iQuest's function from prior stage (strip backticks). STAGE_OUT: tool result showing bytes."
+    },
+    {
+      "kind": "claude_verify",
+      "shell_cmd": "python3 -c 'import ast; ast.parse(open(\"data/wren_sandbox/L10_mood_badge_candidate.py\").read()); print(\"SYNTAX OK\")'",
+      "expect_exit": 0,
+      "expect_contains": "SYNTAX OK"
+    },
+    {
+      "kind": "claude_verify",
+      "shell_cmd": "cd data/wren_sandbox && python3 -c 'from L10_mood_badge_candidate import render_mood_badge; r = render_mood_badge(\"focused\", 7); assert \"focused\" in r.lower() or \"span\" in r.lower(); print(\"RENDER OK:\", r[:100])'",
+      "expect_exit": 0,
+      "expect_contains": "RENDER OK"
+    },
+    {
+      "kind": "ship",
+      "prompt": "Use wren_bash cmd='cp data/wren_sandbox/L10_mood_badge_candidate.py tools/qsb_mood_badge.py'. STAGE_OUT: bash result."
+    },
+    {
+      "kind": "claude_verify",
+      "shell_cmd": "python3 -c 'from tools.qsb_mood_badge import render_mood_badge; print(\"PROD RENDER:\", render_mood_badge(\"sparky\", 8))'",
+      "expect_exit": 0,
+      "expect_contains": "PROD RENDER"
+    }
+  ]
+}

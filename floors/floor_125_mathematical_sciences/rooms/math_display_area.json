@@ -1,0 +1,34 @@
+{
+  "room_id": "math_display_area",
+  "name": "Mathematical Display Area",
+  "category": "display",
+  "purpose": "A space to display mathematical models and theories.",
+  "concierge_blurb": "Experience the beauty of mathematical concepts through displays.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -6.0,
+    "offset_z": 2.0,
+    "footprint_m": [
+      5,
+      3
+    ],
+    "height_m": 1.8
+  },
+  "render": {
+    "primary_prop": "display",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Math Display",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 0
+  },
+  "floor": "floor_125"
+}

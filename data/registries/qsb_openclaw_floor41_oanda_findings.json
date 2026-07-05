@@ -1,0 +1,54 @@
+{
+  "ok": true,
+  "kind": "qsb_openclaw_floor41_oanda_findings",
+  "phase": "QSB_FLOOR_41_OANDA_FULL_TRADING_FLOOR_REBUILD_V1",
+  "generated_ts": "2026-06-30T13:46:36.681762+00:00",
+  "floor": 41,
+  "finding_count": 4,
+  "ticket_count": 1,
+  "findings": [
+    {
+      "severity": "OK",
+      "kind": "live_trading_off",
+      "detail": "live_trading_enabled=false (correct)"
+    },
+    {
+      "severity": "OK",
+      "kind": "snapshot_fresh",
+      "detail": "snapshot fresh"
+    },
+    {
+      "severity": "WARN",
+      "kind": "wide_spread",
+      "detail": "2 instruments above 6 pips"
+    },
+    {
+      "severity": "OK",
+      "kind": "open_trades_count",
+      "detail": "open trades=0"
+    }
+  ],
+  "tickets": [
+    {
+      "id": "oc_f41_003",
+      "severity": "WARN",
+      "issue": "wide spread on XAU_USD,XAG_USD"
+    }
+  ],
+  "recommended_fixes": [
+    "widen entry threshold or wait for normal spread"
+  ],
+  "supervisor_state": "active_local_only",
+  "real_tool_execution_enabled": false,
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "oanda_practice_paper_trading_allowed": true,
+  "live_money_enabled": false,
+  "oanda_live_environment_allowed": false,
+  "real_production_trading_allowed": false,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "worker_execution_enabled": false,
+  "autonomous_dispatch_enabled": false
+}

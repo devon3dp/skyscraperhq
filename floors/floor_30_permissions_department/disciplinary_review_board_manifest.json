@@ -1,0 +1,34 @@
+{
+  "ok": true,
+  "kind": "department_manifest",
+  "phase": "QSB_SKYSCRAPER_100_PERCENT_ONLINE_INTERACTIVE_3D_WORKFORCE_COMPLETION_V1",
+  "generated_ts": "2026-06-30T13:46:34.685427+00:00",
+  "floor_id": "floor_30",
+  "department": "Disciplinary Review Board",
+  "sub_department": "disciplinary_review_board",
+  "co_located_on_floor": "floor_30_permissions_department",
+  "purpose": "Operational interior for Disciplinary Review Board. Workers stationed at real rooms with real roles; no random visuals.",
+  "rooms": [
+    "Strike Desk",
+    "Guardian Block Review",
+    "Retraining Orders",
+    "Suspension Board",
+    "Redemption Path"
+  ],
+  "roles": [
+    "strike_officer",
+    "block_reviewer",
+    "retraining_orderly",
+    "suspension_clerk",
+    "redemption_warden"
+  ],
+  "worker_count": 70,
+  "default_class": "operational_worker",
+  "default_state": "idle_at_station",
+  "advisory_only": true,
+  "execution_allowed": false,
+  "active_local_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

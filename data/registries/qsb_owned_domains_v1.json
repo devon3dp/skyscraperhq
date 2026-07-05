@@ -1,0 +1,77 @@
+{
+  "ok": true,
+  "kind": "qsb_owned_domains_v1",
+  "generated_ts": "2026-06-11T13:06:32.735102Z",
+  "domains": [
+    {
+      "domain": "skyscraperhq.uk",
+      "status": "registered",
+      "renews": "2027-06-11",
+      "tld": ".uk",
+      "cost_usd": 6.98,
+      "cost_gbp_approx": 5.48,
+      "role": "primary_master",
+      "target": "main Skyscraper landing"
+    },
+    {
+      "domain": "quilltree.co.uk",
+      "status": "registered",
+      "renews": "2027-06-11",
+      "tld": ".co.uk",
+      "cost_usd": 6.98,
+      "cost_gbp_approx": 5.48,
+      "role": "shop_hero",
+      "target": "F156 Quilltree Office (Home Office)"
+    },
+    {
+      "domain": "pawsworth.co.uk",
+      "status": "registered",
+      "renews": "2027-06-11",
+      "tld": ".co.uk",
+      "cost_usd": 6.98,
+      "cost_gbp_approx": 5.48,
+      "role": "shop_hero",
+      "target": "F63 Pawsworth (Pets)"
+    },
+    {
+      "domain": "greenhouselane.co.uk",
+      "status": "registered",
+      "renews": "2027-06-11",
+      "tld": ".co.uk",
+      "cost_usd": 6.98,
+      "cost_gbp_approx": 5.48,
+      "role": "shop_hero",
+      "target": "F158 Greenhouse Lane (Garden)"
+    },
+    {
+      "domain": "stretchfitness.xyz",
+      "status": "registered",
+      "renews": "2027-06-11",
+      "tld": ".xyz",
+      "cost_usd": 0.67,
+      "cost_gbp_approx": 0.53,
+      "role": "shop_hero",
+      "target": "F155 Stretch Fitness (Fitness)",
+      "note": ".xyz selected instead of .co.uk during checkout"
+    }
+  ],
+  "total_domains": 5,
+  "total_cost_usd": 28.79,
+  "total_cost_gbp_approx": 22.67,
+  "icann_fees_usd": 0.2,
+  "free_domain_privacy_included": true,
+  "registrar": "namecheap.com",
+  "account_username": "skyscarperhq",
+  "order_number": "205020038",
+  "next_steps": [
+    "Sign up Cloudflare free account",
+    "Add each domain \u2192 free SSL + DNS",
+    "Point skyscraperhq.uk DNS at Cloudflare Pages",
+    "Deploy /web/shops/ \u2192 Pages",
+    "Set up Cloudflare Email Routing: lumiere@skyscraperhq.uk \u2192 knechtelross@gmail.com",
+    "Update Stripe business profile URL to https://skyscraperhq.uk",
+    "Recreate the 150 Payment Links with new redirect URLs",
+    "Update all 15 shop HTML with the permanent URL"
+  ],
+  "advisory_only": false
+}

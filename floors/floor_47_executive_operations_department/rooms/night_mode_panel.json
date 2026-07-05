@@ -1,0 +1,49 @@
+{
+  "room_id": "night_mode_panel",
+  "name": "Night Mode Panel",
+  "category": "operations",
+  "floor": "floor_47",
+  "purpose": "this panel controls the floor's night-mode lighting and reduced-activity schedule.",
+  "concierge_blurb": "After hours the floor dims, the forum slows, and the kettle clicks off. The panel here governs all of it.",
+  "current_state": "built",
+  "visitor_open": false,
+  "mutation_allowed": false,
+  "evidence_paths": [],
+  "live_signals": {
+    "night_mode_window": "22:00 - 06:00 UTC",
+    "window_start_utc_hour": 22,
+    "window_end_utc_hour": 6,
+    "currently_night_mode": false,
+    "current_utc_hour_at_build": 17,
+    "checked_at": "2026-06-14T17:01:17Z",
+    "read_only": true,
+    "dims_floors": [
+      "floor_47"
+    ],
+    "scope_note": "F47 only for now; other floors may opt in later by adding their floor_id to dims_floors."
+  },
+  "built_at": "2026-06-14T17:01:17Z",
+  "built_by": "f47_floor_buildout_batch_5",
+  "layout": {
+    "zone": "left_wall",
+    "offset_x": 0.05,
+    "offset_z": -7.5,
+    "footprint_m": [
+      1.4,
+      0.1
+    ],
+    "height_m": 1.0
+  },
+  "render": {
+    "primary_prop": "wall_panel",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "NIGHT MODE",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/qsb_night_mode.json",
+    "display": "status_dot",
+    "refresh_seconds": 60
+  }
+}

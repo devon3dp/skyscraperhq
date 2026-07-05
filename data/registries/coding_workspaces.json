@@ -1,0 +1,29 @@
+[
+  {
+    "id": "default_workspace",
+    "name": "Default Coding Workspace",
+    "floor_id": "floor_05",
+    "status": "ready",
+    "purpose": "General coding requests, future project work, patches, reviews, and tests.",
+    "direct_provider_access": false,
+    "routes_through": "floor_24"
+  },
+  {
+    "id": "claude_code_workspace",
+    "name": "Claude Code Workspace Port",
+    "floor_id": "floor_05",
+    "status": "socket_ready_not_connected",
+    "purpose": "Future Claude Code handoff workspace. No Claude execution is hardwired.",
+    "direct_provider_access": false,
+    "routes_through": "floor_24"
+  },
+  {
+    "id": "local_coder_workspace",
+    "name": "Local Coder Workspace Port",
+    "floor_id": "floor_05",
+    "status": "socket_ready_not_connected",
+    "purpose": "Future local coder handoff workspace. Routes to Floor 24 first.",
+    "direct_provider_access": false,
+    "routes_through": "floor_24"
+  }
+]

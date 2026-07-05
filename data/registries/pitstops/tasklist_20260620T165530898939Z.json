@@ -1,0 +1,7 @@
+[
+  {"id":"7","subject":"Phase 2 trader loop","status":"pending"},
+  {"id":"9","subject":"Per-floor walkable interiors","status":"in_progress"},
+  {"id":"15","subject":"Wren-32B Ollama pull","status":"in_progress","note":"20% (3.9/19 GB). Transformers direct path tested + stalled — abandoned. Ollama is the path. Run: ollama pull qwen2.5:32b — already running PID 15198."},
+  {"id":"19","subject":"TikTok rename","status":"pending","note":"Galaxy not connected. Plug USB to reconnect ADB."},
+  {"id":"20","subject":"Look at TikTok videos","status":"in_progress","note":"Have GLM 5.2 URL only. Need WHOADIE, Fabio Silva (Gemma 4), Taki Mong (Hermes Agent) URLs from Ross. All four appear LLM-related not graphics."}
+]

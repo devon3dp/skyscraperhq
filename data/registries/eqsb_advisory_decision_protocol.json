@@ -1,0 +1,116 @@
+{
+  "schema_version": "eqsb_v1.0",
+  "generated_ts": "2026-06-09T08:56:44.949887+00:00",
+  "kind": "eqsb_advisory_decision_protocol",
+  "decision_count": 4,
+  "decisions": [
+    {
+      "decision_id": "dec_hyp_oanda_credentials_missing",
+      "proposal": "Address: OANDA practice pricing not ready \u2014 likely missing creds",
+      "supporting_evidence": {
+        "pricing_ready": false
+      },
+      "contradicting_evidence": {},
+      "affected_floors": [
+        "floor_41"
+      ],
+      "risk_level": "MEDIUM",
+      "required_human_approval": true,
+      "execution_allowed": false,
+      "safe_next_step": "Verify .env.oanda_practice is sourced. Do NOT enable execution.",
+      "rollback_needed": false
+    },
+    {
+      "decision_id": "dec_hyp_stocks_market_data_stalled",
+      "proposal": "Address: Stocks public market data not ready",
+      "supporting_evidence": {
+        "public_market_data_ready": false
+      },
+      "contradicting_evidence": {},
+      "affected_floors": [
+        "floor_43"
+      ],
+      "risk_level": "MEDIUM",
+      "required_human_approval": true,
+      "execution_allowed": false,
+      "safe_next_step": "Source .env.alpaca and run the stocks gateway script.",
+      "rollback_needed": false
+    },
+    {
+      "decision_id": "dec_hyp_entropy_climbing",
+      "proposal": "Address: Entropy score climbing above 0.5",
+      "supporting_evidence": {
+        "entropy_score": 17.2
+      },
+      "contradicting_evidence": {},
+      "affected_floors": [],
+      "risk_level": "MEDIUM",
+      "required_human_approval": true,
+      "execution_allowed": false,
+      "safe_next_step": "Run scripts/eqsb_detect_contradictions.sh; address top contradictions.",
+      "rollback_needed": false
+    },
+    {
+      "decision_id": "dec_hyp_ctr_floor_named_no_manifest",
+      "proposal": "Address: Contradiction detected: Floor named in qsb_floor_name_map.json but no manifest dir",
+      "supporting_evidence": {
+        "floors_without_manifest": [
+          "1",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "2",
+          "20",
+          "3",
+          "4",
+          "44",
+          "6",
+          "7",
+          "8",
+          "9"
+        ]
+      },
+      "contradicting_evidence": {},
+      "affected_floors": [],
+      "risk_level": "LOW",
+      "required_human_approval": true,
+      "execution_allowed": false,
+      "safe_next_step": "Resolve the contradiction at its source; never bypass.",
+      "rollback_needed": false
+    }
+  ],
+  "protocol": [
+    "Every decision is advisory_only.",
+    "Every decision requires human approval before any action.",
+    "No decision may enable execution.",
+    "Rollback metadata is recorded for traceability."
+  ],
+  "active_local_only": true,
+  "advisory_only": true,
+  "execution_allowed": false,
+  "paper_only": true,
+  "not_financial_advice": true,
+  "worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "external_provider_execution_enabled": false,
+  "openclaw_execution_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "live_dispatch_enabled": false,
+  "direct_provider_access": false,
+  "live_trading_enabled": false,
+  "order_execution_enabled": false,
+  "practice_order_execution_enabled": false,
+  "stock_order_execution_enabled": false,
+  "stock_live_trading_enabled": false,
+  "stock_paper_order_execution_enabled": false,
+  "binance_order_execution_enabled": false,
+  "binance_live_trading_enabled": false
+}

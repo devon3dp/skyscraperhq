@@ -1,0 +1,15 @@
+air_llm_operations:
+  version: 1.1
+  floor_id: floor_23
+  role: external_provider_socket_layer
+  providers_are_external: true
+  execution_enabled: false
+  hardwired_providers: false
+  models_required: false
+  kernel_required: false
+
+lifts:
+  incoming_from_model_routing: model_lift
+  roof_link: external_air_llm_cloud
+
+principle: Floor 23 owns provider sockets and health records only. External providers remain outside the building.

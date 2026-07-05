@@ -1,0 +1,95 @@
+{
+  "floor_id": "floor_42",
+  "number": 42,
+  "department": "Binance Trading Floor",
+  "version": "1.0",
+  "zone": "ZONE C",
+  "status": "staged",
+  "role": "Local-only trading research, Binance public market data intake, optional Binance read-only account check, paper-only strategy simulation.",
+  "phase": "BINANCE_FLOOR_42_TRADING_FLOOR_V1",
+  "binance_enabled": true,
+  "binance_environment_default": "testnet",
+  "binance_read_only_default": true,
+  "live_trading_enabled": false,
+  "order_execution_enabled": false,
+  "practice_order_execution_enabled": false,
+  "binance_order_execution_enabled": false,
+  "binance_live_trading_enabled": false,
+  "paper_trading_enabled": true,
+  "worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "external_provider_execution_enabled": false,
+  "openclaw_execution_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "live_dispatch_enabled": false,
+  "direct_provider_access": false,
+  "local_model_commentary_enabled": true,
+  "kernel_required": true,
+  "kernel_activation_required": "active_local_only",
+  "credentials_source": "environment_variables_only",
+  "credentials_env_file": ".env.binance",
+  "required_env_for_private_read": [
+    "BINANCE_API_KEY",
+    "BINANCE_API_SECRET"
+  ],
+  "optional_env": [
+    "BINANCE_ENV",
+    "BINANCE_READ_ONLY",
+    "BINANCE_ORDER_EXECUTION_ENABLED"
+  ],
+  "default_symbols": [
+    "BTCUSDT",
+    "ETHUSDT",
+    "BNBUSDT",
+    "SOLUSDT"
+  ],
+  "lift_routes": [
+    "floor_42 -> floor_37",
+    "floor_42 -> floor_38",
+    "floor_42 -> floor_30",
+    "floor_42 -> floor_31",
+    "floor_42 -> floor_53"
+  ],
+  "allowed_operations": [
+    "read Binance public ticker/klines/orderbook",
+    "read Binance account info if API key and secret are present and read-only permitted",
+    "simulate paper strategy signals",
+    "log market observations",
+    "produce local-only model commentary"
+  ],
+  "forbidden_operations": [
+    "live order placement",
+    "testnet order placement until explicitly enabled",
+    "credential printing or logging",
+    "credential persistence in JSON registries",
+    "external provider routing",
+    "OpenClaw execution",
+    "autonomous worker dispatch"
+  ],
+  "interior_brief": {
+    "archetype": "ops_floor",
+    "palette": [
+      "#1a1e2a",
+      "#3a4050",
+      "#6a90c0"
+    ],
+    "furniture": [
+      "desks",
+      "meeting area",
+      "common space",
+      "storage"
+    ],
+    "lighting": "task + ambient",
+    "mood": "professional",
+    "designed_by": "F66 Architects + F17 Graphics + Fitters team",
+    "fitted_at": "2026-06-11T14:39:45.620109Z",
+    "godot_scene_brief": "render an generic floor with neutral grey + accent per floor theme palette, professional mood, key furniture: desks, meeting area, common space",
+    "signature": "Standard tower office layout \u2014 desks, meeting nook, kitchenette",
+    "diversified_ts": "2026-06-11T17:57:45Z",
+    "diversified_by": "qsb_archetype_diversifier_v1"
+  },
+  "fitted_out": true,
+  "fit_out_ts": "2026-06-11T14:39:45.620109Z",
+  "floor_name": "Binance Trading Floor"
+}

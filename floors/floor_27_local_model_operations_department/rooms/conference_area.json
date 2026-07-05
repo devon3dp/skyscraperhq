@@ -1,0 +1,34 @@
+{
+  "room_id": "conference_area",
+  "name": "Conference Area",
+  "category": "trading",
+  "purpose": "This area is for discussing and trading ideas related to models.",
+  "concierge_blurb": "Visitors see a lively discussion area with model-related props.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -4.0,
+    "offset_z": 8.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 3.0
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Conference Area",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": null,
+    "refresh_seconds": 0
+  },
+  "floor": "floor_27"
+}

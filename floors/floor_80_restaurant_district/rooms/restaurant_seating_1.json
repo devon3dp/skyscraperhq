@@ -1,0 +1,34 @@
+{
+  "room_id": "restaurant_seating_1",
+  "name": "Dining Room A",
+  "category": "seating",
+  "purpose": "Guests dine here, enjoying the culinary delights.",
+  "concierge_blurb": "Charming tables and chairs for a delightful dining experience.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -8.0,
+    "offset_z": 2.0,
+    "footprint_m": [
+      15,
+      15
+    ],
+    "height_m": 0.4
+  },
+  "render": {
+    "primary_prop": "chair_set",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Dining Room A",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_80"
+}

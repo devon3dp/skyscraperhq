@@ -1,0 +1,34 @@
+{
+  "room_id": "customer_consultation",
+  "name": "Customer Consultation Room",
+  "category": "reception",
+  "purpose": "Consulting with clients to understand their floral needs.",
+  "concierge_blurb": "Engage in personal consultations for your floral needs.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.5,
+    "offset_z": -3.5,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 1.7
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Consultation Dais",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 0
+  },
+  "floor": "floor_75"
+}

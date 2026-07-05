@@ -1,0 +1,251 @@
+{
+  "ok": true,
+  "kind": "qsb_worker_scene_state",
+  "phase": "QSB_RENDER_VISIBLE_WORKERS_AND_LIFTS_FIX_V1",
+  "generated_ts": "2026-06-30T13:46:35.078726+00:00",
+  "canonical_total": 1190,
+  "rendered_as_floor_badges": 22,
+  "classes_overall": {
+    "operational_worker": 1074,
+    "candidate_worker": 19,
+    "training_worker": 14
+  },
+  "per_floor": [
+    {
+      "floor": 5,
+      "total": 5,
+      "classes": {
+        "operational_worker": 5
+      },
+      "statuses": {
+        "active": 5
+      }
+    },
+    {
+      "floor": 12,
+      "total": 1,
+      "classes": {
+        "operational_worker": 1
+      },
+      "statuses": {
+        "active": 1
+      }
+    },
+    {
+      "floor": 13,
+      "total": 1,
+      "classes": {
+        "candidate_worker": 1
+      },
+      "statuses": {
+        "active": 1
+      }
+    },
+    {
+      "floor": 24,
+      "total": 5,
+      "classes": {
+        "operational_worker": 5
+      },
+      "statuses": {
+        "active": 5
+      }
+    },
+    {
+      "floor": 25,
+      "total": 3,
+      "classes": {
+        "operational_worker": 3
+      },
+      "statuses": {
+        "active": 3
+      }
+    },
+    {
+      "floor": 27,
+      "total": 3,
+      "classes": {
+        "operational_worker": 3
+      },
+      "statuses": {
+        "active": 3
+      }
+    },
+    {
+      "floor": 29,
+      "total": 1,
+      "classes": {
+        "operational_worker": 1
+      },
+      "statuses": {
+        "active": 1
+      }
+    },
+    {
+      "floor": 30,
+      "total": 77,
+      "classes": {
+        "operational_worker": 63,
+        "training_worker": 14
+      },
+      "statuses": {
+        "active": 77
+      }
+    },
+    {
+      "floor": 31,
+      "total": 7,
+      "classes": {
+        "operational_worker": 7
+      },
+      "statuses": {
+        "active": 7
+      }
+    },
+    {
+      "floor": 35,
+      "total": 11,
+      "classes": {
+        "operational_worker": 11
+      },
+      "statuses": {
+        "active": 11
+      }
+    },
+    {
+      "floor": 36,
+      "total": 153,
+      "classes": {
+        "operational_worker": 153
+      },
+      "statuses": {
+        "active": 153
+      }
+    },
+    {
+      "floor": 37,
+      "total": 9,
+      "classes": {
+        "operational_worker": 8,
+        "candidate_worker": 1
+      },
+      "statuses": {
+        "active": 9
+      }
+    },
+    {
+      "floor": 38,
+      "total": 53,
+      "classes": {
+        "operational_worker": 53
+      },
+      "statuses": {
+        "active": 53
+      }
+    },
+    {
+      "floor": 41,
+      "total": 8,
+      "classes": {
+        "operational_worker": 7,
+        "candidate_worker": 1
+      },
+      "statuses": {
+        "active": 8
+      }
+    },
+    {
+      "floor": 42,
+      "total": 2,
+      "classes": {
+        "operational_worker": 2
+      },
+      "statuses": {
+        "active": 2
+      }
+    },
+    {
+      "floor": 43,
+      "total": 3,
+      "classes": {
+        "operational_worker": 3
+      },
+      "statuses": {
+        "active": 3
+      }
+    },
+    {
+      "floor": 44,
+      "total": 104,
+      "classes": {
+        "operational_worker": 104
+      },
+      "statuses": {
+        "active": 104
+      }
+    },
+    {
+      "floor": 45,
+      "total": 96,
+      "classes": {
+        "operational_worker": 80,
+        "candidate_worker": 16
+      },
+      "statuses": {
+        "active": 96
+      }
+    },
+    {
+      "floor": 47,
+      "total": 90,
+      "classes": {
+        "operational_worker": 90
+      },
+      "statuses": {
+        "active": 90
+      }
+    },
+    {
+      "floor": 49,
+      "total": 280,
+      "classes": {
+        "operational_worker": 280
+      },
+      "statuses": {
+        "active": 280
+      }
+    },
+    {
+      "floor": 52,
+      "total": 180,
+      "classes": {
+        "operational_worker": 180
+      },
+      "statuses": {
+        "active": 180
+      }
+    },
+    {
+      "floor": 53,
+      "total": 15,
+      "classes": {
+        "operational_worker": 15
+      },
+      "statuses": {
+        "active": 15
+      }
+    }
+  ],
+  "policy": "Tower view paints per-floor density badges (counts + class). Selected floor view renders named worker rows in the inspector.",
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "live_dispatch_enabled": false,
+  "autonomous_workers_enabled": false,
+  "direct_provider_access": false
+}

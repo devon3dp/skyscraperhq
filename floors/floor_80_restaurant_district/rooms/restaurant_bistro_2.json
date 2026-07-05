@@ -1,0 +1,34 @@
+{
+  "room_id": "restaurant_bistro_2",
+  "name": "Bistro Bistro B",
+  "category": "operations",
+  "purpose": "More casual dining and quick service.",
+  "concierge_blurb": "Another bistro for casual dining and drinks.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.0,
+    "offset_z": 2.0,
+    "footprint_m": [
+      15,
+      15
+    ],
+    "height_m": 0.4
+  },
+  "render": {
+    "primary_prop": "dining_table",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Bistro B",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_80"
+}

@@ -1,0 +1,84 @@
+{
+  "room_id": "audit_board",
+  "name": "Audit Board",
+  "category": "audit",
+  "floor": "floor_47",
+  "purpose": "this board is the wall-mounted summary of recent audit verdicts.",
+  "concierge_blurb": "A board where the building's own self-checks are pinned for all to see. Red marks invite attention, not blame.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [
+    "data/registries/qsb_f47_audit_checks.jsonl"
+  ],
+  "live_signals": {
+    "source": "data/registries/qsb_f47_audit_checks.jsonl",
+    "total_rows": 8,
+    "last_7_verdicts": [
+      {
+        "track": "spend within cap",
+        "verdict": "unscored",
+        "ts": "2026-06-10T21:47:36Z"
+      },
+      {
+        "track": "gates locked",
+        "verdict": "unscored",
+        "ts": "2026-06-10T21:47:36Z"
+      },
+      {
+        "track": "helix continuity",
+        "verdict": "unscored",
+        "ts": "2026-06-10T21:47:36Z"
+      },
+      {
+        "track": "voice fingerprint",
+        "verdict": "unscored",
+        "ts": "2026-06-10T21:47:36Z"
+      },
+      {
+        "track": "team roster integrity",
+        "verdict": "unscored",
+        "ts": "2026-06-10T21:47:36Z"
+      },
+      {
+        "track": "F44 roll-up consistency",
+        "verdict": "unscored",
+        "ts": "2026-06-10T21:47:36Z"
+      },
+      {
+        "track": "activity_tail growth",
+        "verdict": "unscored",
+        "ts": "2026-06-10T21:47:36Z"
+      }
+    ],
+    "pass_count": 0,
+    "fail_count": 0,
+    "unscored_count": 7,
+    "traffic_light": "amber",
+    "traffic_light_reason": "rows record only that a check ran (kind/target/ts); no pass|fail verdict field is emitted yet \u2014 amber by convention until the verdict field is added"
+  },
+  "built_at": "2026-06-14T17:25:01Z",
+  "built_by": "f47_buildout_batch_3_room_5",
+  "lessons_learned_for_next_agent": "qsb_f47_audit_checks.jsonl rows today carry only {kind, target, frequency, ts, worker_id, role, floor} \u2014 there is NO verdict field, so pass:fail ratios cannot be computed. Traffic_light defaults to amber. The next agent wiring an auditor should extend the row schema with verdict:'pass'|'fail' + optional evidence_pointer; then the descriptor can flip green/red honestly. Per the brief: NEVER expose operator notes or internal reasons on this board \u2014 track + verdict + ts only.",
+  "layout": {
+    "zone": "left_wall",
+    "offset_x": 0.05,
+    "offset_z": 0.0,
+    "footprint_m": [
+      4.0,
+      0.1
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "wall_panel",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "AUDIT BOARD \u00b7 recent verdicts",
+    "glow": true
+  },
+  "interactive": {
+    "type": "tail",
+    "source_path": "data/registries/qsb_f47_audit_checks.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 60
+  }
+}

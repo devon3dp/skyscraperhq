@@ -1,0 +1,201 @@
+[
+  {
+    "name": "nomic-embed-text:latest",
+    "provider": "ollama",
+    "primary_role": "embedding",
+    "capabilities": [
+      "embedding"
+    ],
+    "size_hint": "embedding",
+    "status": "detected",
+    "detected_ts": "2026-06-07T16:14:36.234161+00:00",
+    "notes": "Imported from discovered_ollama_models.json."
+  },
+  {
+    "name": "qwen3.5:9b",
+    "provider": "ollama",
+    "primary_role": "research",
+    "capabilities": [
+      "research",
+      "general_reasoning"
+    ],
+    "size_hint": "medium",
+    "status": "detected",
+    "detected_ts": "2026-06-07T16:14:36.234176+00:00",
+    "notes": "Imported from discovered_ollama_models.json."
+  },
+  {
+    "name": "llama3.2:latest",
+    "provider": "ollama",
+    "primary_role": "general_reasoning",
+    "capabilities": [
+      "general_reasoning",
+      "fast_fallback"
+    ],
+    "size_hint": "small",
+    "status": "detected",
+    "detected_ts": "2026-06-07T16:14:36.234179+00:00",
+    "notes": "Imported from discovered_ollama_models.json."
+  },
+  {
+    "name": "neural-chat:7b",
+    "provider": "ollama",
+    "primary_role": "research",
+    "capabilities": [
+      "research",
+      "general_reasoning",
+      "fast_fallback"
+    ],
+    "size_hint": "medium",
+    "status": "detected",
+    "detected_ts": "2026-06-07T16:14:36.234183+00:00",
+    "notes": "Imported from discovered_ollama_models.json."
+  },
+  {
+    "name": "mistral:7b",
+    "provider": "ollama",
+    "primary_role": "research",
+    "capabilities": [
+      "research",
+      "general_reasoning",
+      "fast_fallback"
+    ],
+    "size_hint": "medium",
+    "status": "detected",
+    "detected_ts": "2026-06-07T16:14:36.234185+00:00",
+    "notes": "Imported from discovered_ollama_models.json."
+  },
+  {
+    "name": "codellama:13b",
+    "provider": "ollama",
+    "primary_role": "coding",
+    "capabilities": [
+      "coding",
+      "heavy_coding",
+      "general_reasoning"
+    ],
+    "size_hint": "medium_large",
+    "status": "detected",
+    "detected_ts": "2026-06-07T16:14:36.234187+00:00",
+    "notes": "Imported from discovered_ollama_models.json."
+  },
+  {
+    "name": "llama2:13b",
+    "provider": "ollama",
+    "primary_role": "heavy_coding",
+    "capabilities": [
+      "heavy_coding",
+      "general_reasoning"
+    ],
+    "size_hint": "medium_large",
+    "status": "detected",
+    "detected_ts": "2026-06-07T16:14:36.234189+00:00",
+    "notes": "Imported from discovered_ollama_models.json."
+  },
+  {
+    "name": "llama2-uncensored:7b",
+    "provider": "ollama",
+    "primary_role": "general_reasoning",
+    "capabilities": [
+      "general_reasoning",
+      "fast_fallback"
+    ],
+    "size_hint": "medium",
+    "status": "detected",
+    "detected_ts": "2026-06-07T16:14:36.234190+00:00",
+    "notes": "Imported from discovered_ollama_models.json."
+  },
+  {
+    "name": "qwen2.5:7b-instruct",
+    "provider": "ollama",
+    "primary_role": "research",
+    "capabilities": [
+      "research",
+      "general_reasoning",
+      "fast_fallback"
+    ],
+    "size_hint": "medium",
+    "status": "detected",
+    "detected_ts": "2026-06-07T16:14:36.234191+00:00",
+    "notes": "Imported from discovered_ollama_models.json."
+  },
+  {
+    "name": "qwen2.5-coder:7b-instruct",
+    "provider": "ollama",
+    "primary_role": "coding",
+    "capabilities": [
+      "coding",
+      "research",
+      "general_reasoning",
+      "fast_fallback"
+    ],
+    "size_hint": "medium",
+    "status": "detected",
+    "detected_ts": "2026-06-07T16:14:36.234193+00:00",
+    "notes": "Imported from discovered_ollama_models.json."
+  },
+  {
+    "name": "qwen2.5:7b",
+    "provider": "ollama",
+    "primary_role": "research",
+    "capabilities": [
+      "research",
+      "general_reasoning",
+      "fast_fallback"
+    ],
+    "size_hint": "medium",
+    "status": "detected",
+    "detected_ts": "2026-06-07T16:14:36.234194+00:00",
+    "notes": "Imported from discovered_ollama_models.json."
+  },
+  {
+    "name": "iquest-coder-v1:40b-instruct",
+    "provider": "ollama",
+    "primary_role": "coding",
+    "capabilities": [
+      "coding",
+      "heavy_coding"
+    ],
+    "size_hint": "large",
+    "status": "detected",
+    "detected_ts": "2026-06-07T16:14:36.234196+00:00",
+    "notes": "Imported from discovered_ollama_models.json."
+  },
+  {
+    "name": "llava:7b",
+    "provider": "ollama",
+    "primary_role": "vision",
+    "capabilities": [
+      "vision",
+      "fast_fallback"
+    ],
+    "size_hint": "medium",
+    "status": "detected",
+    "detected_ts": "2026-06-07T16:14:36.234197+00:00",
+    "notes": "Imported from discovered_ollama_models.json."
+  },
+  {
+    "name": "deepseek-coder:latest",
+    "provider": "ollama",
+    "primary_role": "coding",
+    "capabilities": [
+      "coding"
+    ],
+    "size_hint": "unknown",
+    "status": "detected",
+    "detected_ts": "2026-06-07T16:14:36.234198+00:00",
+    "notes": "Imported from discovered_ollama_models.json."
+  },
+  {
+    "name": "llama3:8b",
+    "provider": "ollama",
+    "primary_role": "general_reasoning",
+    "capabilities": [
+      "general_reasoning"
+    ],
+    "size_hint": "medium",
+    "status": "detected",
+    "detected_ts": "2026-06-07T16:14:36.234200+00:00",
+    "notes": "Imported from discovered_ollama_models.json."
+  }
+]

@@ -1,0 +1,34 @@
+{
+  "room_id": "back_right",
+  "name": "Simulation Archive",
+  "category": "archive",
+  "purpose": "Housing for past simulation records and data.",
+  "concierge_blurb": "Explore the archives of previous simulations.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_right",
+    "offset_x": 7.0,
+    "offset_z": -2.5,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 1.8
+  },
+  "render": {
+    "primary_prop": "archive_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Archive Shelf",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_37"
+}

@@ -1,0 +1,34 @@
+{
+  "room_id": "fashion_display_73",
+  "name": "Fashion Showcase",
+  "category": "display",
+  "purpose": "To display the latest fashion trends.",
+  "concierge_blurb": "Experience the vibrant world of fashion right here!",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      15,
+      8
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "plinth",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Fashion Showcase",
+    "glow": true
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_73"
+}

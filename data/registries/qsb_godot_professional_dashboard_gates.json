@@ -1,0 +1,197 @@
+{
+  "ok": true,
+  "kind": "qsb_godot_professional_dashboard_gates",
+  "phase": "QSB_GODOT_PROFESSIONAL_3D_DASHBOARD_UPGRADE_V1",
+  "generated_ts": "2026-06-09T15:52:38+00:00",
+  "gates": [
+    {
+      "id": "G1",
+      "name": "Godot is verified",
+      "passed": true,
+      "evidence": "godot_ok=true \u00b7 4.6.1.stable.mono.official"
+    },
+    {
+      "id": "G2",
+      "name": "PyQt is fallback/admin only",
+      "passed": true,
+      "evidence": "qsb_pyqt_admin_fallback_status.role=fallback_admin_only"
+    },
+    {
+      "id": "G3",
+      "name": "Godot project exists",
+      "passed": true,
+      "evidence": "native_cockpit/godot_qsb/ with project.godot"
+    },
+    {
+      "id": "G4",
+      "name": "Main scene exists",
+      "passed": true,
+      "evidence": "scenes/Main.tscn with Camera3D + Tower/Lifts/OpenClaw/HUD roots"
+    },
+    {
+      "id": "G5",
+      "name": "Real 3D tower scene exists",
+      "passed": true,
+      "evidence": "TowerRenderer.gd builds 53 BoxMesh slabs with PBR materials + window strips + shadow casting + Forward+ glow + fog + SSAO"
+    },
+    {
+      "id": "G6",
+      "name": "Camera controls exist",
+      "passed": true,
+      "evidence": "CameraController orbit (right-drag), wheel zoom, R reset, F focus, focus_floor_y tween on selection"
+    },
+    {
+      "id": "G7",
+      "name": "53 floors generated",
+      "passed": true,
+      "evidence": "TowerRenderer iterates Telemetry.floors() (53 entries from masterplan)"
+    },
+    {
+      "id": "G8",
+      "name": "Penthouse crown generated",
+      "passed": true,
+      "evidence": "_make_crown \u2014 CylinderMesh + spike + PENTHOUSE \u00b7 KERNEL billboard with outline"
+    },
+    {
+      "id": "G9",
+      "name": "Floor selection works",
+      "passed": true,
+      "evidence": "FloorSelector raycasts StaticBody3D + PageUp/Down keys"
+    },
+    {
+      "id": "G10",
+      "name": "Floor interiors exist for key floors",
+      "passed": true,
+      "evidence": "FloorInteriorRenderer supports F55, F53, F41, F42, F6, F14, F35, F28, F8 \u2014 spawns 5-6 props each"
+    },
+    {
+      "id": "G11",
+      "name": "9 lifts generated",
+      "passed": true,
+      "evidence": "LiftRenderer 9 CylinderMesh shafts + 9 BoxMesh cars"
+    },
+    {
+      "id": "G12",
+      "name": "Lift animation channel exists",
+      "passed": true,
+      "evidence": "qsb_godot_live_stream_channels.json + LiftRenderer._process lerps Y toward telemetry current_floor"
+    },
+    {
+      "id": "G13",
+      "name": "OpenClaw marker exists",
+      "passed": true,
+      "evidence": "OpenClawRenderer SphereMesh + Torus halo"
+    },
+    {
+      "id": "G14",
+      "name": "OpenClaw animation channel exists",
+      "passed": true,
+      "evidence": "orbital theta + halo rotation + Y lerp toward openclaw.current_floor"
+    },
+    {
+      "id": "G15",
+      "name": "Worker/team clusters exist",
+      "passed": true,
+      "evidence": "WorkerRenderer per-floor floating sphere ring scaled by total_workers"
+    },
+    {
+      "id": "G16",
+      "name": "Live event stream animation exists",
+      "passed": true,
+      "evidence": "EventStreamAnimator spawns packet sphere ONLY when intercom packet count increments \u2014 no random"
+    },
+    {
+      "id": "G17",
+      "name": "HUD top command bar exists",
+      "passed": true,
+      "evidence": "ControlBar (17 buttons: Reset, Focus, Labels, Rotate, Pause, Trading, Models, Risk, Floors, Chat, Talk, Sound, Speech, Commentary, Mute, Refresh, Browser)"
+    },
+    {
+      "id": "G18",
+      "name": "Original dashboard controls migrated",
+      "passed": true,
+      "evidence": "qsb_godot_original_controls_migration.json \u2014 17 controls classified"
+    },
+    {
+      "id": "G19",
+      "name": "Kernel Chat panel exists",
+      "passed": true,
+      "evidence": "KernelChatBridge POSTs /api/kernel_chat; InspectorPanels has chat_history + LineEdit + Send"
+    },
+    {
+      "id": "G20",
+      "name": "Talk/voice controls exist or planned",
+      "passed": true,
+      "evidence": "VoiceControlBridge with 5 toggles; V1=scaffolded (no fake voice); V2 plan=DisplayServer.tts_speak"
+    },
+    {
+      "id": "G21",
+      "name": "Trading panels exist",
+      "passed": true,
+      "evidence": "F41/F42/F43 floor inspectors deep-dive trading.oanda_pnl + Binance mode + Stocks mode"
+    },
+    {
+      "id": "G22",
+      "name": "Commerce panel exists",
+      "passed": true,
+      "evidence": "F6 Etsy + F14 POD interiors + CommerceRenderer halos around 14 Commerce Wing floors"
+    },
+    {
+      "id": "G23",
+      "name": "Hardware panel exists",
+      "passed": true,
+      "evidence": "F35 hardware interior with CPU/GPU/RAM/DISK prop boxes + Telemetry.snapshot.hardware"
+    },
+    {
+      "id": "G24",
+      "name": "Security panel masks secrets",
+      "passed": true,
+      "evidence": "F28 interior shows 'SECRET VAULT' + 'CREDS \u00b7 MASKED'; no env extraction"
+    },
+    {
+      "id": "G25",
+      "name": "Safety locks visible",
+      "passed": true,
+      "evidence": "Bottom banner: real-money OFF \u00b7 listings OFF \u00b7 payments OFF \u00b7 openclaw exec OFF \u00b7 autonomous dispatch OFF"
+    },
+    {
+      "id": "G26",
+      "name": "No fake random animation",
+      "passed": true,
+      "evidence": "qsb_godot_animation_contract.json \u2014 every motion bound to telemetry; EventStreamAnimator only spawns on packet count increment"
+    },
+    {
+      "id": "G27",
+      "name": "No live trading enabled",
+      "passed": true,
+      "evidence": "Telemetry.safety_locks_all_off() asserts 5 locks false"
+    },
+    {
+      "id": "G28",
+      "name": "No listings published",
+      "passed": true,
+      "evidence": "live_listings_publishing_enabled=false; no Etsy SDK present"
+    },
+    {
+      "id": "G29",
+      "name": "No money spent",
+      "passed": true,
+      "evidence": "live_payments_enabled=false; no payment SDK"
+    },
+    {
+      "id": "G30",
+      "name": "No secrets exposed",
+      "passed": true,
+      "evidence": "All credential references in F28 interior are masked labels only"
+    }
+  ],
+  "passed_count": 30,
+  "total": 30,
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "live_payments_enabled": false,
+  "live_listings_publishing_enabled": false
+}

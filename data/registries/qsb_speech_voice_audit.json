@@ -1,0 +1,33 @@
+{
+  "ok": true,
+  "kind": "qsb_speech_voice_audit",
+  "phase": "QSB_KERNEL_CHAT_PENTHOUSE_AND_3D_DASHBOARD_REALITY_FIX_V1",
+  "generated_ts": "2026-06-09T13:10:00+00:00",
+  "summary": "Two speech callers created SpeechSynthesisUtterance without voice/lang selection. On a Linux/Chromium system where the OS locale resolves to a German voice as the first entry, the browser used that voice for every speech event. Adding utterance.lang and utterance.voice = pickEnglishVoice() at every speak() call fixes it.",
+  "bugs_found": [
+    {
+      "file": "src/dashboard/static/cockpit.js",
+      "line_range": "1214-1218, 1248-1253, 2026",
+      "issue": "new SpeechSynthesisUtterance(text) without voice/lang — uses browser default."
+    },
+    {
+      "file": "src/dashboard/static/worker_voice.js",
+      "line_range": "38-41",
+      "issue": "voices[voiceIndex] where voiceIndex=0 by default — picks the OS-determined first voice, which may be German."
+    },
+    {
+      "file": "(missing)",
+      "issue": "No unified voice selector / preference store."
+    }
+  ],
+  "fix_applied": [
+    "NEW src/dashboard/static/qsb_speech_voice.js — single source of truth.",
+    "Patches cockpit.js + worker_voice.js to call QSB_SPEECH.speak(text).",
+    "Selector + test button added to the header."
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

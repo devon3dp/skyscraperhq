@@ -1,0 +1,34 @@
+{
+  "room_id": "cyber_security_center",
+  "name": "Security Command Center",
+  "category": "security",
+  "purpose": "Central hub for monitoring and managing cybersecurity threats.",
+  "concierge_blurb": "Monitors real-time data to protect the entire building from cyber threats.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "center",
+    "offset_x": 0.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Sec Cmd Ctr",
+    "glow": true
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/cybersecurity_alerts.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 30
+  },
+  "floor": "floor_105"
+}

@@ -1,0 +1,157 @@
+{
+  "floor_id": "floor_45",
+  "floor_number": 45,
+  "floor_name": "Worker Recruitment Agency",
+  "category": "recruitment_sandbox",
+  "zone": "OPERATIONS_TIER_45_53",
+  "phase": "QSB_TOWER_KERNEL_CHAT_AND_RECRUITMENT_AGENCY_V1",
+  "department": "Worker Recruitment Agency",
+  "short_label": "RECRUITMENT",
+  "color": "#7ad6ff",
+  "label_color": "#0a142a",
+  "purpose": "Sandbox-only recruitment, onboarding, training, and visual dispatch of simulated workers into QSB Tower workflows. Never enables real worker execution.",
+  "sandbox_only": true,
+  "execution_allowed": false,
+  "advisory_or_paper_only": true,
+  "not_financial_advice": true,
+  "sections": [
+    {
+      "section_id": "candidate_intake_desk",
+      "name": "Candidate Intake Desk",
+      "purpose": "Accept new sandbox worker candidates and stamp registry metadata."
+    },
+    {
+      "section_id": "screening_desk",
+      "name": "Screening Desk",
+      "purpose": "Safety screening + sandbox-only validation + execution-lock check."
+    },
+    {
+      "section_id": "training_pods",
+      "name": "Training Pods",
+      "purpose": "Sandbox training: strategy reading, market data reading, risk rules, ledger protocol, kernel etiquette."
+    },
+    {
+      "section_id": "assignment_board",
+      "name": "Assignment Board",
+      "purpose": "Assign workers to Floors 25, 38, 37, 30, 31, 41, 42, 43, 23."
+    },
+    {
+      "section_id": "dispatch_gate",
+      "name": "Dispatch Gate",
+      "purpose": "Animated dispatch of workers/packets to target floors. No real execution."
+    }
+  ],
+  "routes": [
+    {
+      "to": "floor_25",
+      "name": "Agent Coordination",
+      "route_type": "worker_recruitment_sandbox"
+    },
+    {
+      "to": "floor_38",
+      "name": "Sandbox Operations",
+      "route_type": "worker_recruitment_sandbox"
+    },
+    {
+      "to": "floor_37",
+      "name": "Simulation / Strategy",
+      "route_type": "worker_recruitment_sandbox"
+    },
+    {
+      "to": "floor_30",
+      "name": "Permissions / Risk",
+      "route_type": "worker_recruitment_sandbox"
+    },
+    {
+      "to": "floor_31",
+      "name": "Audit / Ledger",
+      "route_type": "worker_recruitment_sandbox"
+    },
+    {
+      "to": "floor_53",
+      "name": "Tower Command",
+      "route_type": "worker_recruitment_sandbox"
+    },
+    {
+      "to": "penthouse",
+      "name": "Kernel Review",
+      "route_type": "worker_recruitment_sandbox"
+    },
+    {
+      "to": "floor_41",
+      "name": "OANDA Trading Floor",
+      "route_type": "worker_recruitment_sandbox"
+    },
+    {
+      "to": "floor_42",
+      "name": "Binance Trading Floor",
+      "route_type": "worker_recruitment_sandbox"
+    },
+    {
+      "to": "floor_43",
+      "name": "Stock Exchange Floor",
+      "route_type": "worker_recruitment_sandbox"
+    },
+    {
+      "to": "floor_23",
+      "name": "AirLLM Advisory",
+      "route_type": "worker_recruitment_sandbox"
+    }
+  ],
+  "locked_false_flags": [
+    "live_trading_enabled",
+    "order_execution_enabled",
+    "practice_order_execution_enabled",
+    "stock_order_execution_enabled",
+    "stock_live_trading_enabled",
+    "stock_paper_order_execution_enabled",
+    "binance_order_execution_enabled",
+    "binance_live_trading_enabled",
+    "worker_execution_enabled",
+    "provider_execution_enabled",
+    "external_provider_execution_enabled",
+    "openclaw_execution_enabled",
+    "openclaw_real_tool_execution_enabled",
+    "autonomous_dispatch_enabled",
+    "live_dispatch_enabled",
+    "direct_provider_access"
+  ],
+  "registries": [
+    "data/registries/worker_recruitment_agency_status.json",
+    "data/registries/worker_candidate_registry.json",
+    "data/registries/worker_onboarding_queue.json",
+    "data/registries/worker_training_assignments.json"
+  ],
+  "audit_log": "data/logs/worker_recruitment_agency.jsonl",
+  "module": "src/tower/worker_recruitment_agency.py",
+  "endpoints": {
+    "floor_detail": "/api/floor_detail?floor=45",
+    "agency_status": "/api/recruitment_agency/status",
+    "agency_tick": "/api/recruitment_agency/tick",
+    "candidates": "/api/recruitment_agency/candidates"
+  },
+  "interior_brief": {
+    "archetype": "hr_office",
+    "palette": [
+      "#2a2018",
+      "#604030",
+      "#ffa050"
+    ],
+    "furniture": [
+      "desks",
+      "meeting area",
+      "common space",
+      "storage"
+    ],
+    "lighting": "task + ambient",
+    "mood": "welcoming",
+    "designed_by": "F66 Architects + F17 Graphics + Fitters team",
+    "fitted_at": "2026-06-11T14:39:45.620109Z",
+    "godot_scene_brief": "render an generic floor with neutral grey + accent per floor theme palette, professional mood, key furniture: desks, meeting area, common space",
+    "signature": "Interview booths, name badge wall, hiring board",
+    "diversified_ts": "2026-06-11T17:57:45Z",
+    "diversified_by": "qsb_archetype_diversifier_v1"
+  },
+  "fitted_out": true,
+  "fit_out_ts": "2026-06-11T14:39:45.620109Z"
+}

@@ -1,0 +1,151 @@
+{
+  "ok": true,
+  "kind": "qsb_truth_audit",
+  "ts": "2026-06-17T15:19:20.632582Z",
+  "buckets": {
+    "workers_total": {
+      "concept_label": "Unique workers across all rosters (deduped by worker_id|id)",
+      "canonical": {
+        "source": "/api/tower/state",
+        "path": "workers_unique",
+        "value": 9995,
+        "label": "deduped count"
+      },
+      "alternates": [
+        {
+          "source": "/api/unified",
+          "path": "worker_truth_debug.canonical_count",
+          "value": 9995,
+          "label": "Registry.workers() deduped",
+          "is_same_metric": true
+        },
+        {
+          "source": "/api/unified",
+          "path": "workers.length",
+          "value": 9995,
+          "label": "live state.workers list (same Registry source)",
+          "is_same_metric": true
+        },
+        {
+          "source": "/api/unified",
+          "path": "worker_truth_debug.preferred_count_for_ui",
+          "value": 9995,
+          "label": "Registry.workers() deduped",
+          "is_same_metric": true
+        }
+      ]
+    },
+    "certified_traders": {
+      "concept_label": "How many workers are 'certified' \u2014 multiple lenses",
+      "canonical": {
+        "source": "/api/tower/state",
+        "path": "certified_traders",
+        "value": 766,
+        "label": "All workers with any trading cert"
+      },
+      "alternates": [
+        {
+          "source": "/api/cognitive_unified",
+          "path": "certifications.by_status.certified",
+          "value": 125,
+          "label": "Different lens \u2014 currently-active cert STATUS (not unique workers)",
+          "is_same_metric": false
+        },
+        {
+          "source": "/api/cognitive_unified",
+          "path": "certifications.entry_count",
+          "value": 134,
+          "label": "Different lens \u2014 total cert log entries (multiple per worker)",
+          "is_same_metric": false
+        }
+      ]
+    },
+    "oanda_open_trades": {
+      "concept_label": "Open OANDA practice trades",
+      "canonical": {
+        "source": "/api/tower/state",
+        "path": "oanda_practice.open_trades",
+        "value": 0,
+        "label": "Live broker count"
+      },
+      "alternates": [
+        {
+          "source": "/api/cognitive_unified",
+          "path": "oanda_account.account_summary.openTradeCount",
+          "value": 0,
+          "label": "Same metric \u2014 V6 reads cached snapshot, may lag",
+          "is_same_metric": true
+        }
+      ]
+    },
+    "oanda_realized_gbp": {
+      "concept_label": "Realized OANDA practice PnL in GBP",
+      "canonical": {
+        "source": "/api/tower/state",
+        "path": "oanda_practice.realized_gbp",
+        "value": 252.1245,
+        "label": "From qsb_floor41_oanda_pnl.json"
+      },
+      "alternates": [
+        {
+          "source": "registry",
+          "path": "qsb_floor41_oanda_pnl.realized_pnl_total",
+          "value": 252.1245,
+          "label": "Raw registry file (same source)",
+          "is_same_metric": true
+        }
+      ]
+    },
+    "floors_count": {
+      "concept_label": "Total floors in tower",
+      "canonical": {
+        "source": "/api/tower/state",
+        "path": "floors_count",
+        "value": 173,
+        "label": "Counted from floors/floor_*/"
+      },
+      "alternates": [
+        {
+          "source": "manifest_glob",
+          "path": "floors/floor_*/floor_manifest.json",
+          "value": 166,
+          "label": "Filesystem manifest count (same source)",
+          "is_same_metric": true
+        }
+      ]
+    }
+  },
+  "mismatches": [
+    {
+      "concept": "floors_count",
+      "canonical_source": "/api/tower/state",
+      "canonical_path": "floors_count",
+      "canonical_value": 173,
+      "alt_source": "manifest_glob",
+      "alt_path": "floors/floor_*/floor_manifest.json",
+      "alt_value": 166,
+      "alt_label": "Filesystem manifest count (same source)",
+      "delta": -7.0
+    }
+  ],
+  "mismatch_count": 1,
+  "different_lenses": [
+    {
+      "concept": "certified_traders",
+      "alt_source": "/api/cognitive_unified",
+      "alt_path": "certifications.by_status.certified",
+      "alt_value": 125,
+      "alt_label": "Different lens \u2014 currently-active cert STATUS (not unique workers)"
+    },
+    {
+      "concept": "certified_traders",
+      "alt_source": "/api/cognitive_unified",
+      "alt_path": "certifications.entry_count",
+      "alt_value": 134,
+      "alt_label": "Different lens \u2014 total cert log entries (multiple per worker)"
+    }
+  ],
+  "different_lens_count": 2,
+  "explainer": "'mismatches' = same metric, different value (a real bug). 'different_lenses' = related but distinct metrics \u2014 informational, not drift.",
+  "advisory_only": true
+}

@@ -1,0 +1,31 @@
+{
+  "room_id": "conference_room",
+  "name": "Conference Room",
+  "category": "reception",
+  "purpose": "Hosting meetings and discussions on climate adaptation strategies.",
+  "concierge_blurb": "Join us in the Conference Room for important discussions on climate policy.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -6.5,
+    "offset_z": 3.0,
+    "footprint_m": [
+      7,
+      4
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "conference_table",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Conf Room",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_134"
+}

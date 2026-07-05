@@ -1,0 +1,58 @@
+{
+  "phase": "QSB_UNREAL_PROFESSIONAL_SKYSCRAPER_HUD_DASHBOARD_DIRECTION_V2",
+  "stage": 2,
+  "gpu": {
+    "vendor": "NVIDIA",
+    "model": "GeForce RTX 5070 Ti",
+    "vram_mb": 16303,
+    "driver": "580.159.04",
+    "cuda": "13.0",
+    "ue5_ready": true
+  },
+  "vulkan": {
+    "sdk_installed": false,
+    "vulkaninfo_present": false,
+    "required_for_ue5": true,
+    "action_needed": "sudo apt install vulkan-tools libvulkan1 mesa-vulkan-drivers"
+  },
+  "blender": {
+    "installed": false,
+    "optional_for_ue5": true
+  },
+  "storage": {
+    "target_path": "/vaults/nvme0/UnrealEngine",
+    "available_gb": 772,
+    "needed_gb_estimate": 80,
+    "ok": true
+  },
+  "ue5_zip": {
+    "path": "/home/ross/Linux_Unreal_Engine_5.8.0(1).zip",
+    "size_bytes": 39811310408,
+    "size_gb_approx": 37.1,
+    "extracted": false,
+    "engine_version": "5.8.0",
+    "platform": "Linux"
+  },
+  "project": {
+    "path": "/vaults/nvme0/qsb_unreal_skyscraper/QSB_Skyscraper.uproject",
+    "engine_association": "5.8",
+    "plugins_enabled": [
+      "DatasmithImporter",
+      "InterchangeEditor",
+      "DatasmithCADImporter",
+      "DatasmithC4DImporter"
+    ],
+    "has_existing_map": true,
+    "has_python_scripts": true
+  },
+  "verdict": "GPU ready (top-tier RTX 5070 Ti, 16GB VRAM). Vulkan needs install. Storage fine on /vaults/nvme0. Zip is 37GB downloaded but unextracted. Project skeleton exists with Datasmith pipeline already enabled.",
+  "next_actions": [
+    "1. Install Vulkan SDK + libs (sudo)",
+    "2. Extract UE5.8 zip to /vaults/nvme0/UnrealEngine (~40 min)",
+    "3. Verify Editor binary launches",
+    "4. Open existing QSB_Skyscraper.uproject"
+  ],
+  "_meta": {
+    "ts": "2026-06-25T12:14:16Z"
+  }
+}

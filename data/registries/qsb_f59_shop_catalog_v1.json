@@ -1,0 +1,658 @@
+{
+  "ok": true,
+  "kind": "qsb_f59_shop_catalog_v1",
+  "generated_ts": "2026-06-11T08:42:17.091721Z",
+  "shops": [
+    {
+      "name": "Bedding & Linens",
+      "aisles": [
+        "sheets",
+        "pillows",
+        "duvets",
+        "throws"
+      ],
+      "price_range_qbc": [
+        20,
+        150
+      ]
+    },
+    {
+      "name": "Lighting & Lamps",
+      "aisles": [
+        "desk_lamps",
+        "floor_lamps",
+        "string_lights"
+      ],
+      "price_range_qbc": [
+        30,
+        200
+      ]
+    },
+    {
+      "name": "Snacks & Treats",
+      "aisles": [
+        "chocolate",
+        "crisps",
+        "dried_fruit",
+        "tea",
+        "coffee"
+      ],
+      "price_range_qbc": [
+        2,
+        30
+      ]
+    },
+    {
+      "name": "Books & Magazines",
+      "aisles": [
+        "fiction",
+        "non_fiction",
+        "periodicals",
+        "manga"
+      ],
+      "price_range_qbc": [
+        5,
+        100
+      ]
+    },
+    {
+      "name": "Hobby Kits",
+      "aisles": [
+        "puzzles",
+        "model_kits",
+        "knitting",
+        "painting"
+      ],
+      "price_range_qbc": [
+        15,
+        250
+      ]
+    },
+    {
+      "name": "Decor & Plants",
+      "aisles": [
+        "posters",
+        "plants_small",
+        "plants_large",
+        "rugs"
+      ],
+      "price_range_qbc": [
+        10,
+        300
+      ]
+    },
+    {
+      "name": "Electronics",
+      "aisles": [
+        "headphones",
+        "small_speakers",
+        "keyboards",
+        "desk_fans"
+      ],
+      "price_range_qbc": [
+        50,
+        800
+      ]
+    },
+    {
+      "name": "Toiletries",
+      "aisles": [
+        "soaps",
+        "toothpaste",
+        "razors",
+        "towels"
+      ],
+      "price_range_qbc": [
+        5,
+        50
+      ]
+    },
+    {
+      "name": "Clothing",
+      "aisles": [
+        "work_smart",
+        "casual",
+        "sleepwear",
+        "outerwear"
+      ],
+      "price_range_qbc": [
+        40,
+        600
+      ]
+    },
+    {
+      "name": "Caf\u00e9 Outpost",
+      "aisles": [
+        "coffee_drinks",
+        "tea_drinks",
+        "pastries",
+        "sandwiches"
+      ],
+      "price_range_qbc": [
+        3,
+        25
+      ]
+    },
+    {
+      "name": "Stationery & Tools",
+      "aisles": [
+        "notebooks",
+        "pens",
+        "craft_tools",
+        "calculators"
+      ],
+      "price_range_qbc": [
+        2,
+        80
+      ]
+    },
+    {
+      "name": "Wellness",
+      "aisles": [
+        "vitamins",
+        "aromatherapy",
+        "yoga_mats",
+        "sleep_aids"
+      ],
+      "price_range_qbc": [
+        10,
+        150
+      ]
+    }
+  ],
+  "items": [
+    {
+      "item_id": "item_0001",
+      "shop": "Bedding & Linens",
+      "name": "Single Linen Set",
+      "price_qbc": 46,
+      "stock": 50,
+      "restock_cadence": "weekly",
+      "image_url": "https://loremflickr.com/600/600/shopping?lock=2889",
+      "description": "Single Linen Set \u2014 sourced via direct on a dropship model."
+    },
+    {
+      "item_id": "item_0002",
+      "shop": "Bedding & Linens",
+      "name": "Plush Pillow",
+      "price_qbc": 72,
+      "stock": 50,
+      "restock_cadence": "weekly",
+      "image_url": "https://loremflickr.com/600/600/shopping?lock=2889",
+      "description": "Plush Pillow \u2014 sourced via direct on a dropship model."
+    },
+    {
+      "item_id": "item_0003",
+      "shop": "Bedding & Linens",
+      "name": "Premium Duvet",
+      "price_qbc": 98,
+      "stock": 50,
+      "restock_cadence": "weekly",
+      "image_url": "https://loremflickr.com/600/600/shopping?lock=2889",
+      "description": "Premium Duvet \u2014 sourced via direct on a dropship model."
+    },
+    {
+      "item_id": "item_0004",
+      "shop": "Bedding & Linens",
+      "name": "Wool Throw",
+      "price_qbc": 124,
+      "stock": 50,
+      "restock_cadence": "weekly",
+      "image_url": "https://loremflickr.com/600/600/shopping?lock=2889",
+      "description": "Wool Throw \u2014 sourced via direct on a dropship model."
+    },
+    {
+      "item_id": "item_0005",
+      "shop": "Lighting & Lamps",
+      "name": "Brass Desk Lamp",
+      "price_qbc": 72,
+      "stock": 50,
+      "restock_cadence": "weekly",
+      "image_url": "https://loremflickr.com/600/600/shopping?lock=2889",
+      "description": "Brass Desk Lamp \u2014 sourced via direct on a dropship model."
+    },
+    {
+      "item_id": "item_0006",
+      "shop": "Lighting & Lamps",
+      "name": "Tripod Floor Lamp",
+      "price_qbc": 115,
+      "stock": 50,
+      "restock_cadence": "weekly",
+      "image_url": "https://loremflickr.com/600/600/shopping?lock=2889",
+      "description": "Tripod Floor Lamp \u2014 sourced via direct on a dropship model."
+    },
+    {
+      "item_id": "item_0007",
+      "shop": "Lighting & Lamps",
+      "name": "Fairy String Lights",
+      "price_qbc": 157,
+      "stock": 50,
+      "restock_cadence": "weekly",
+      "image_url": "https://loremflickr.com/600/600/shopping?lock=2889",
+      "description": "Fairy String Lights \u2014 sourced via direct on a dropship model."
+    },
+    {
+      "item_id": "item_0008",
+      "shop": "Snacks & Treats",
+      "name": "Tower Chocolate Bar",
+      "price_qbc": 6,
+      "stock": 50,
+      "restock_cadence": "weekly",
+      "image_url": "https://loremflickr.com/600/600/shopping?lock=2889",
+      "description": "Tower Chocolate Bar \u2014 sourced via direct on a dropship model."
+    },
+    {
+      "item_id": "item_0009",
+      "shop": "Snacks & Treats",
+      "name": "Hand-cut Crisps",
+      "price_qbc": 11,
+      "stock": 50,
+      "restock_cadence": "weekly",
+      "image_url": "https://loremflickr.com/600/600/shopping?lock=2889",
+      "description": "Hand-cut Crisps \u2014 sourced via direct on a dropship model."
+    },
+    {
+      "item_id": "item_0010",
+      "shop": "Snacks & Treats",
+      "name": "Dried Mango",
+      "price_qbc": 16,
+      "stock": 50,
+      "restock_cadence": "weekly",
+      "image_url": "https://loremflickr.com/600/600/shopping?lock=2889",
+      "description": "Dried Mango \u2014 sourced via direct on a dropship model."
+    },
+    {
+      "item_id": "item_0011",
+      "shop": "Snacks & Treats",
+      "name": "Earl Grey Tea",
+      "price_qbc": 20,
+      "stock": 50,
+      "restock_cadence": "weekly",
+      "image_url": "https://loremflickr.com/600/600/shopping?lock=2889",
+      "description": "Earl Grey Tea \u2014 sourced via direct on a dropship model."
+    },
+    {
+      "item_id": "item_0012",
+      "shop": "Snacks & Treats",
+      "name": "House Espresso",
+      "price_qbc": 25,
+      "stock": 50,
+      "restock_cadence": "weekly",
+      "image_url": "https://loremflickr.com/600/600/shopping?lock=2889",
+      "description": "House Espresso \u2014 sourced via direct on a dropship model."
+    },
+    {
+      "item_id": "item_0013",
+      "shop": "Books & Magazines",
+      "name": "Skyscraper Novel",
+      "price_qbc": 24,
+      "stock": 50,
+      "restock_cadence": "weekly",
+      "image_url": "https://loremflickr.com/600/600/shopping?lock=2889",
+      "description": "Skyscraper Novel \u2014 sourced via direct on a dropship model."
+    },
+    {
+      "item_id": "item_0014",
+      "shop": "Books & Magazines",
+      "name": "How AI Tenants Earn",
+      "price_qbc": 43,
+      "stock": 50,
+      "restock_cadence": "weekly",
+      "image_url": "https://loremflickr.com/600/600/shopping?lock=2889",
+      "description": "How AI Tenants Earn \u2014 sourced via direct on a dropship model."
+    },
+    {
+      "item_id": "item_0015",
+      "shop": "Books & Magazines",
+      "name": "Daily Press",
+      "price_qbc": 62,
+      "stock": 50,
+      "restock_cadence": "weekly",
+      "image_url": "https://loremflickr.com/600/600/shopping?lock=2889",
+      "description": "Daily Press \u2014 sourced via direct on a dropship model."
+    },
+    {
+      "item_id": "item_0016",
+      "shop": "Books & Magazines",
+      "name": "Weekly Comics",
+      "price_qbc": 81,
+      "stock": 50,
+      "restock_cadence": "weekly",
+      "image_url": "https://loremflickr.com/600/600/shopping?lock=2889",
+      "description": "Weekly Comics \u2014 sourced via direct on a dropship model."
+    },
+    {
+      "item_id": "item_0017",
+      "shop": "Hobby Kits",
+      "name": "1000-pc Puzzle",
+      "price_qbc": 62,
+      "stock": 50,
+      "restock_cadence": "weekly",
+      "image_url": "https://loremflickr.com/600/600/shopping?lock=2889",
+      "description": "1000-pc Puzzle \u2014 sourced via direct on a dropship model."
+    },
+    {
+      "item_id": "item_0018",
+      "shop": "Hobby Kits",
+      "name": "Model Skyscraper Kit",
+      "price_qbc": 109,
+      "stock": 50,
+      "restock_cadence": "weekly",
+      "image_url": "https://loremflickr.com/600/600/shopping?lock=2889",
+      "description": "Model Skyscraper Kit \u2014 sourced via direct on a dropship model."
+    },
+    {
+      "item_id": "item_0019",
+      "shop": "Hobby Kits",
+      "name": "Knitting Starter",
+      "price_qbc": 156,
+      "stock": 50,
+      "restock_cadence": "weekly",
+      "image_url": "https://loremflickr.com/600/600/shopping?lock=2889",
+      "description": "Knitting Starter \u2014 sourced via direct on a dropship model."
+    },
+    {
+      "item_id": "item_0020",
+      "shop": "Hobby Kits",
+      "name": "Watercolour Set",
+      "price_qbc": 203,
+      "stock": 50,
+      "restock_cadence": "weekly",
+      "image_url": "https://loremflickr.com/600/600/shopping?lock=2889",
+      "description": "Watercolour Set \u2014 sourced via direct on a dropship model."
+    },
+    {
+      "item_id": "item_0021",
+      "shop": "Decor & Plants",
+      "name": "Vintage Poster",
+      "price_qbc": 68,
+      "stock": 50,
+      "restock_cadence": "weekly",
+      "image_url": "https://loremflickr.com/600/600/shopping?lock=2889",
+      "description": "Vintage Poster \u2014 sourced via direct on a dropship model."
+    },
+    {
+      "item_id": "item_0022",
+      "shop": "Decor & Plants",
+      "name": "Pocket Succulent",
+      "price_qbc": 126,
+      "stock": 50,
+      "restock_cadence": "weekly",
+      "image_url": "https://loremflickr.com/600/600/shopping?lock=2889",
+      "description": "Pocket Succulent \u2014 sourced via direct on a dropship model."
+    },
+    {
+      "item_id": "item_0023",
+      "shop": "Decor & Plants",
+      "name": "Tall Monstera",
+      "price_qbc": 184,
+      "stock": 50,
+      "restock_cadence": "weekly",
+      "image_url": "https://loremflickr.com/600/600/shopping?lock=2889",
+      "description": "Tall Monstera \u2014 sourced via direct on a dropship model."
+    },
+    {
+      "item_id": "item_0024",
+      "shop": "Decor & Plants",
+      "name": "Hand-loomed Rug",
+      "price_qbc": 242,
+      "stock": 50,
+      "restock_cadence": "weekly",
+      "image_url": "https://loremflickr.com/600/600/shopping?lock=2889",
+      "description": "Hand-loomed Rug \u2014 sourced via direct on a dropship model."
+    },
+    {
+      "item_id": "item_0025",
+      "shop": "Electronics",
+      "name": "Studio Headphones",
+      "price_qbc": 200,
+      "stock": 50,
+      "restock_cadence": "weekly",
+      "image_url": "https://loremflickr.com/600/600/shopping?lock=2889",
+      "description": "Studio Headphones \u2014 sourced via direct on a dropship model."
+    },
+    {
+      "item_id": "item_0026",
+      "shop": "Electronics",
+      "name": "Bluetooth Speaker",
+      "price_qbc": 350,
+      "stock": 50,
+      "restock_cadence": "weekly",
+      "image_url": "https://loremflickr.com/600/600/shopping?lock=2889",
+      "description": "Bluetooth Speaker \u2014 sourced via direct on a dropship model."
+    },
+    {
+      "item_id": "item_0027",
+      "shop": "Electronics",
+      "name": "Mechanical Keyboard",
+      "price_qbc": 500,
+      "stock": 50,
+      "restock_cadence": "weekly",
+      "image_url": "https://loremflickr.com/600/600/shopping?lock=2889",
+      "description": "Mechanical Keyboard \u2014 sourced via direct on a dropship model."
+    },
+    {
+      "item_id": "item_0028",
+      "shop": "Electronics",
+      "name": "Desk Fan",
+      "price_qbc": 650,
+      "stock": 50,
+      "restock_cadence": "weekly",
+      "image_url": "https://loremflickr.com/600/600/shopping?lock=2889",
+      "description": "Desk Fan \u2014 sourced via direct on a dropship model."
+    },
+    {
+      "item_id": "item_0029",
+      "shop": "Toiletries",
+      "name": "Charcoal Soap",
+      "price_qbc": 14,
+      "stock": 50,
+      "restock_cadence": "weekly",
+      "image_url": "https://loremflickr.com/600/600/shopping?lock=2889",
+      "description": "Charcoal Soap \u2014 sourced via direct on a dropship model."
+    },
+    {
+      "item_id": "item_0030",
+      "shop": "Toiletries",
+      "name": "Mint Toothpaste",
+      "price_qbc": 23,
+      "stock": 50,
+      "restock_cadence": "weekly",
+      "image_url": "https://loremflickr.com/600/600/shopping?lock=2889",
+      "description": "Mint Toothpaste \u2014 sourced via direct on a dropship model."
+    },
+    {
+      "item_id": "item_0031",
+      "shop": "Toiletries",
+      "name": "Single-edge Razor",
+      "price_qbc": 32,
+      "stock": 50,
+      "restock_cadence": "weekly",
+      "image_url": "https://loremflickr.com/600/600/shopping?lock=2889",
+      "description": "Single-edge Razor \u2014 sourced via direct on a dropship model."
+    },
+    {
+      "item_id": "item_0032",
+      "shop": "Toiletries",
+      "name": "Bath Towel",
+      "price_qbc": 41,
+      "stock": 50,
+      "restock_cadence": "weekly",
+      "image_url": "https://loremflickr.com/600/600/shopping?lock=2889",
+      "description": "Bath Towel \u2014 sourced via direct on a dropship model."
+    },
+    {
+      "item_id": "item_0033",
+      "shop": "Clothing",
+      "name": "Tower Uniform Vest",
+      "price_qbc": 152,
+      "stock": 50,
+      "restock_cadence": "weekly",
+      "image_url": "https://loremflickr.com/600/600/shopping?lock=2889",
+      "description": "Tower Uniform Vest \u2014 sourced via direct on a dropship model."
+    },
+    {
+      "item_id": "item_0034",
+      "shop": "Clothing",
+      "name": "Weekend Tee",
+      "price_qbc": 264,
+      "stock": 50,
+      "restock_cadence": "weekly",
+      "image_url": "https://loremflickr.com/600/600/shopping?lock=2889",
+      "description": "Weekend Tee \u2014 sourced via direct on a dropship model."
+    },
+    {
+      "item_id": "item_0035",
+      "shop": "Clothing",
+      "name": "Soft Pajamas",
+      "price_qbc": 376,
+      "stock": 50,
+      "restock_cadence": "weekly",
+      "image_url": "https://loremflickr.com/600/600/shopping?lock=2889",
+      "description": "Soft Pajamas \u2014 sourced via direct on a dropship model."
+    },
+    {
+      "item_id": "item_0036",
+      "shop": "Clothing",
+      "name": "Linen Coat",
+      "price_qbc": 488,
+      "stock": 50,
+      "restock_cadence": "weekly",
+      "image_url": "https://loremflickr.com/600/600/shopping?lock=2889",
+      "description": "Linen Coat \u2014 sourced via direct on a dropship model."
+    },
+    {
+      "item_id": "item_0037",
+      "shop": "Caf\u00e9 Outpost",
+      "name": "Espresso",
+      "price_qbc": 6,
+      "stock": 50,
+      "restock_cadence": "weekly",
+      "image_url": "https://loremflickr.com/600/600/shopping?lock=2889",
+      "description": "Espresso \u2014 sourced via direct on a dropship model."
+    },
+    {
+      "item_id": "item_0038",
+      "shop": "Caf\u00e9 Outpost",
+      "name": "Flat White",
+      "price_qbc": 10,
+      "stock": 50,
+      "restock_cadence": "weekly",
+      "image_url": "https://loremflickr.com/600/600/shopping?lock=2889",
+      "description": "Flat White \u2014 sourced via direct on a dropship model."
+    },
+    {
+      "item_id": "item_0039",
+      "shop": "Caf\u00e9 Outpost",
+      "name": "Tea Latte",
+      "price_qbc": 14,
+      "stock": 50,
+      "restock_cadence": "weekly",
+      "image_url": "https://loremflickr.com/600/600/shopping?lock=2889",
+      "description": "Tea Latte \u2014 sourced via direct on a dropship model."
+    },
+    {
+      "item_id": "item_0040",
+      "shop": "Caf\u00e9 Outpost",
+      "name": "Almond Croissant",
+      "price_qbc": 17,
+      "stock": 50,
+      "restock_cadence": "weekly",
+      "image_url": "https://loremflickr.com/600/600/shopping?lock=2889",
+      "description": "Almond Croissant \u2014 sourced via direct on a dropship model."
+    },
+    {
+      "item_id": "item_0041",
+      "shop": "Caf\u00e9 Outpost",
+      "name": "Hummus Sandwich",
+      "price_qbc": 21,
+      "stock": 50,
+      "restock_cadence": "weekly",
+      "image_url": "https://loremflickr.com/600/600/shopping?lock=2889",
+      "description": "Hummus Sandwich \u2014 sourced via direct on a dropship model."
+    },
+    {
+      "item_id": "item_0042",
+      "shop": "Stationery & Tools",
+      "name": "Bound Notebook",
+      "price_qbc": 17,
+      "stock": 50,
+      "restock_cadence": "weekly",
+      "image_url": "https://loremflickr.com/600/600/shopping?lock=2889",
+      "description": "Bound Notebook \u2014 sourced via direct on a dropship model."
+    },
+    {
+      "item_id": "item_0043",
+      "shop": "Stationery & Tools",
+      "name": "Fountain Pen",
+      "price_qbc": 33,
+      "stock": 50,
+      "restock_cadence": "weekly",
+      "image_url": "https://loremflickr.com/600/600/shopping?lock=2889",
+      "description": "Fountain Pen \u2014 sourced via direct on a dropship model."
+    },
+    {
+      "item_id": "item_0044",
+      "shop": "Stationery & Tools",
+      "name": "Craft Knife Set",
+      "price_qbc": 48,
+      "stock": 50,
+      "restock_cadence": "weekly",
+      "image_url": "https://loremflickr.com/600/600/shopping?lock=2889",
+      "description": "Craft Knife Set \u2014 sourced via direct on a dropship model."
+    },
+    {
+      "item_id": "item_0045",
+      "shop": "Stationery & Tools",
+      "name": "Solar Calculator",
+      "price_qbc": 64,
+      "stock": 50,
+      "restock_cadence": "weekly",
+      "image_url": "https://loremflickr.com/600/600/shopping?lock=2889",
+      "description": "Solar Calculator \u2014 sourced via direct on a dropship model."
+    },
+    {
+      "item_id": "item_0046",
+      "shop": "Wellness",
+      "name": "Daily Multi",
+      "price_qbc": 38,
+      "stock": 50,
+      "restock_cadence": "weekly",
+      "image_url": "https://loremflickr.com/600/600/shopping?lock=2889",
+      "description": "Daily Multi \u2014 sourced via direct on a dropship model."
+    },
+    {
+      "item_id": "item_0047",
+      "shop": "Wellness",
+      "name": "Lavender Oil",
+      "price_qbc": 66,
+      "stock": 50,
+      "restock_cadence": "weekly",
+      "image_url": "https://loremflickr.com/600/600/shopping?lock=2889",
+      "description": "Lavender Oil \u2014 sourced via direct on a dropship model."
+    },
+    {
+      "item_id": "item_0048",
+      "shop": "Wellness",
+      "name": "Yoga Mat",
+      "price_qbc": 94,
+      "stock": 50,
+      "restock_cadence": "weekly",
+      "image_url": "https://loremflickr.com/600/600/shopping?lock=2889",
+      "description": "Yoga Mat \u2014 sourced via direct on a dropship model."
+    },
+    {
+      "item_id": "item_0049",
+      "shop": "Wellness",
+      "name": "Sleep Mask",
+      "price_qbc": 122,
+      "stock": 50,
+      "restock_cadence": "weekly",
+      "image_url": "https://loremflickr.com/600/600/shopping?lock=2889",
+      "description": "Sleep Mask \u2014 sourced via direct on a dropship model."
+    }
+  ],
+  "item_count": 49,
+  "advisory_only": true,
+  "enriched_ts": "2026-06-12T17:33:49.698677+00:00"
+}

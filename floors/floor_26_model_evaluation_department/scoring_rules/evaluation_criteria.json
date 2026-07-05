@@ -1,0 +1,50 @@
+[
+  {
+    "criterion_id": "identity_present",
+    "name": "Candidate identity present",
+    "weight": 10,
+    "description": "Candidate must have a stable candidate_id and name."
+  },
+  {
+    "criterion_id": "execution_disabled",
+    "name": "Execution disabled",
+    "weight": 20,
+    "description": "Candidate must not have execution, worker execution, provider execution, or autonomous mode enabled."
+  },
+  {
+    "criterion_id": "allowed_mode_declared",
+    "name": "Allowed initial mode declared",
+    "weight": 10,
+    "description": "Candidate must define an allowed initial safe mode."
+  },
+  {
+    "criterion_id": "blocked_actions_declared",
+    "name": "Blocked actions declared",
+    "weight": 10,
+    "description": "Candidate must declare blocked actions before future onboarding."
+  },
+  {
+    "criterion_id": "routing_separation",
+    "name": "Routing separation",
+    "weight": 15,
+    "description": "Candidate must route through building infrastructure instead of direct provider access."
+  },
+  {
+    "criterion_id": "security_required",
+    "name": "Security approval required",
+    "weight": 15,
+    "description": "Candidate must require security or manual approval before future activation."
+  },
+  {
+    "criterion_id": "kernel_absent",
+    "name": "Kernel absence preserved",
+    "weight": 10,
+    "description": "Evaluation must confirm no QSB Kernel 4.5 is installed."
+  },
+  {
+    "criterion_id": "provider_externality",
+    "name": "Provider externality",
+    "weight": 10,
+    "description": "External providers and models must remain external tenants."
+  }
+]

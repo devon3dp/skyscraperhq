@@ -1,0 +1,54 @@
+{
+  "phase": "QSB_UNREAL_PROFESSIONAL_SKYSCRAPER_HUD_DASHBOARD_DIRECTION_V2",
+  "ts": "2026-06-25T12:26:47Z",
+  "stages_completed": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "stage_outputs": {
+    "stage_1": "data/registries/qsb_canonical_tower_structure_audit.json",
+    "stage_2": "data/registries/qsb_unreal_install_audit.json",
+    "stage_3": "data/registries/qsb_unreal_hud_design_contract.json",
+    "stage_4": "data/registries/qsb_unreal_skyscraper_world_design.json",
+    "stage_5": "data/registries/qsb_unreal_floor_interior_design_rules.json",
+    "stage_6": "data/registries/qsb_unreal_model_floor_design.json",
+    "stage_7": "data/registries/qsb_unreal_voice_command_design.json",
+    "stage_8": "data/registries/qsb_unreal_professional_build_roadmap.json",
+    "stage_9": "scripts/qsb_unreal_export_live_snapshot.py",
+    "stage_10": "scripts/qsb_unreal_*_smoke_test.sh (5 + suite)",
+    "stage_11": "data/logs/qsb_instruction_to_claude_team_professional_unreal_dashboard.md",
+    "stage_12": "data/registries/qsb_unreal_professional_dashboard_suite_latest.json"
+  },
+  "canonical_floor_count": 169,
+  "ue5_engine_path": "/vaults/nvme0/UnrealEngine",
+  "ue5_editor_binary": "/vaults/nvme0/UnrealEngine/Engine/Binaries/Linux/UnrealEditor",
+  "ue5_project": "/vaults/nvme0/qsb_unreal_skyscraper/QSB_Skyscraper.uproject",
+  "data_bridge": "scripts/qsb_unreal_export_live_snapshot.py",
+  "snapshot_output": "/vaults/nvme0/qsb_unreal_skyscraper/Saved/QSB/qsb_live_snapshot.json",
+  "smoke_suite_pass_fail": "5/5 groups passed, 26/26 individual checks passed",
+  "team_signoffs": [
+    "DeepSeek (primary author stages 3-9)",
+    "OpenAI (co-review)",
+    "Wren (review)",
+    "Hermes (intermittent)",
+    "Claude (integrator)"
+  ],
+  "next_user_command": [
+    "sudo apt install -y vulkan-tools libvulkan1 mesa-vulkan-drivers",
+    "/vaults/nvme0/UnrealEngine/Engine/Binaries/Linux/UnrealEditor /vaults/nvme0/qsb_unreal_skyscraper/QSB_Skyscraper.uproject"
+  ],
+  "_meta": {
+    "author": "claude opus 4.7",
+    "issued_by": "ross knechtel"
+  }
+}

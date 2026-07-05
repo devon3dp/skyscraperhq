@@ -1,0 +1,40 @@
+{
+  "ok": true,
+  "kind": "qsb_native_cockpit_architecture_v2",
+  "phase": "QSB_NATIVE_COCKPIT_STANDALONE_SKYSCRAPER_PLATFORM_V2",
+  "generated_ts": "2026-06-09T15:10:00+00:00",
+  "layers": [
+    {
+      "name": "data layer",
+      "responsibility": "Read local QSB registries / fallback to HTTP if needed",
+      "module": "telemetry_bridge.py"
+    },
+    {
+      "name": "scene model layer",
+      "responsibility": "Normalize floors/lifts/openclaw/commerce into native scene snapshot",
+      "module": "telemetry_bridge.build_scene_snapshot()"
+    },
+    {
+      "name": "scene engine layer",
+      "responsibility": "Render the QSB skyscraper using QGraphicsScene + QGraphicsView",
+      "module": "main.QSBTowerScene / QSBTowerView"
+    },
+    {
+      "name": "HUD layer",
+      "responsibility": "Sidebar with verified totals + Commerce Wing + safety locks",
+      "module": "main.QSBHud"
+    },
+    {
+      "name": "interaction layer",
+      "responsibility": "Click-to-select-floor + zoom + pan + auto-refresh",
+      "module": "main.QSBNativeCockpit"
+    },
+    {
+      "name": "safety layer",
+      "responsibility": "Stamp safety locks on every payload; no credentials in logs",
+      "module": "telemetry_bridge"
+    }
+  ],
+  "no_browser_dependency": true,
+  "browser_dashboard_remains_as_fallback": true
+}

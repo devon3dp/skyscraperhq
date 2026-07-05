@@ -1,0 +1,33 @@
+{
+  "fit_out_round": 3,
+  "area": "main_workspace_corridor",
+  "lighting_spec": {
+    "ambient": {
+      "type": "recessed_ceiling_lights",
+      "spacing": "4ft",
+      "power": "120V circuit"
+    },
+    "accent": {
+      "type": "warm_white_led_strips",
+      "color_temp": "3000K",
+      "mount_height": "24in from floor",
+      "location": "under shelving units"
+    },
+    "task": {
+      "type": "adjustable_arm_fixtures",
+      "mount_height": "18in below work surface",
+      "location": "above each trading desk",
+      "power": "individual 15A circuits"
+    },
+    "controls": {
+      "type": "DALI dimming",
+      "purpose": "evening trading sessions"
+    }
+  },
+  "palette": {
+    "primary": "#F5ECEC",
+    "secondary": "#D8D8D8",
+    "tertiary": "#F4F1DE"
+  },
+  "status": "proposed"
+}

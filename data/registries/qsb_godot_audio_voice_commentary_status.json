@@ -1,0 +1,29 @@
+{
+  "ok": true,
+  "kind": "qsb_godot_audio_voice_commentary_status",
+  "ts": "2026-06-09T21:07:08Z",
+  "panel": "AudioControlPanel.gd (Control) in Audio tab",
+  "managers": {
+    "SoundManager":      {"present": true, "backend": "AudioStreamGenerator (procedural beeps + chimes)"},
+    "CommentaryManager": {"present": true, "backend": "spd-say --rate 10"},
+    "TalkBridge":        {"present": true, "state": "planned — mic capture not wired"}
+  },
+  "controls_visible": [
+    "Sound ON/OFF",
+    "Voice ON/OFF",
+    "Speaking Commentary ON/OFF",
+    "Event Beeps ON/OFF",
+    "Kernel Readout ON/OFF",
+    "OpenClaw Alerts ON/OFF",
+    "Mute All",
+    "Test Sound",
+    "Test Voice",
+    "Speak Latest Event",
+    "Speak Kernel Status",
+    "Talk (planned)"
+  ],
+  "top_bar_compact_buttons": ["Sound","Voice","Speak","Mute"],
+  "local_only": true,
+  "no_cloud_voice": true,
+  "no_external_provider": true
+}

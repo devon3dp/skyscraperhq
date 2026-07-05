@@ -1,0 +1,289 @@
+{
+  "ok": true,
+  "kind": "qsb_vacant_floor_population_plan",
+  "generated_ts": "2026-06-30T13:46:36.976143+00:00",
+  "vacancy_population": [
+    {
+      "floor": 1,
+      "before": "weak",
+      "after": "Order Fulfilment Hub",
+      "team_size": 35
+    },
+    {
+      "floor": 2,
+      "before": "weak",
+      "after": "Customer Memory Vault",
+      "team_size": 18
+    },
+    {
+      "floor": 3,
+      "before": "weak",
+      "after": "Product Research Lab",
+      "team_size": 30
+    },
+    {
+      "floor": 4,
+      "before": "weak",
+      "after": "Knowledge Library + Classroom Wing",
+      "team_size": 20
+    },
+    {
+      "floor": 5,
+      "before": "weak",
+      "after": "Code Observatory + Dev Squad",
+      "team_size": 15
+    },
+    {
+      "floor": 6,
+      "before": "weak",
+      "after": "Etsy Shop Floor",
+      "team_size": 32
+    },
+    {
+      "floor": 7,
+      "before": "weak",
+      "after": "Shopify Storefront Floor",
+      "team_size": 22
+    },
+    {
+      "floor": 8,
+      "before": "weak",
+      "after": "Trading + Commerce Classrooms",
+      "team_size": 48
+    },
+    {
+      "floor": 9,
+      "before": "weak",
+      "after": "Design Quality Review + Mistake Lab",
+      "team_size": 22
+    },
+    {
+      "floor": 10,
+      "before": "weak",
+      "after": "Strategy Lab + Sandbox Coupling",
+      "team_size": 25
+    },
+    {
+      "floor": 11,
+      "before": "weak",
+      "after": "Demand + Competitor Watch",
+      "team_size": 24
+    },
+    {
+      "floor": 12,
+      "before": "weak",
+      "after": "Commerce + Trading Risk Bench",
+      "team_size": 20
+    },
+    {
+      "floor": 13,
+      "before": "weak",
+      "after": "Product Image Studio + Mockup Wall",
+      "team_size": 18
+    },
+    {
+      "floor": 14,
+      "before": "weak",
+      "after": "Print-on-Demand Floor",
+      "team_size": 28
+    },
+    {
+      "floor": 15,
+      "before": "weak",
+      "after": "Voice Commerce Studio",
+      "team_size": 12
+    },
+    {
+      "floor": 16,
+      "before": "weak",
+      "after": "Listing Writer + SEO Lab",
+      "team_size": 22
+    },
+    {
+      "floor": 17,
+      "before": "weak",
+      "after": "Product Design Studio + Prompt-to-Product",
+      "team_size": 30
+    },
+    {
+      "floor": 18,
+      "before": "weak",
+      "after": "Marketing + Promotion Floor",
+      "team_size": 22
+    },
+    {
+      "floor": 19,
+      "before": "weak",
+      "after": "Customer Service Floor",
+      "team_size": 28
+    },
+    {
+      "floor": 20,
+      "before": "weak",
+      "after": "Platform Integration Bench",
+      "team_size": 20
+    },
+    {
+      "floor": 21,
+      "before": "weak",
+      "after": "Format / Schema Translation",
+      "team_size": 12
+    },
+    {
+      "floor": 22,
+      "before": "weak",
+      "after": "Lifts Department Operations",
+      "team_size": 14
+    },
+    {
+      "floor": 23,
+      "before": "weak",
+      "after": "AirLLM Chamber",
+      "team_size": 10
+    },
+    {
+      "floor": 24,
+      "before": "weak",
+      "after": "Lane Governance",
+      "team_size": 10
+    },
+    {
+      "floor": 25,
+      "before": "weak",
+      "after": "OpenClaw Coordination Office",
+      "team_size": 12
+    },
+    {
+      "floor": 26,
+      "before": "weak",
+      "after": "Commerce Accounting Floor",
+      "team_size": 22
+    },
+    {
+      "floor": 27,
+      "before": "weak",
+      "after": "Local Model Drafting Bench",
+      "team_size": 8
+    },
+    {
+      "floor": 28,
+      "before": "weak",
+      "after": "Security Operations Center",
+      "team_size": 18
+    },
+    {
+      "floor": 29,
+      "before": "weak",
+      "after": "Guardian Watch",
+      "team_size": 12
+    },
+    {
+      "floor": 30,
+      "before": "weak",
+      "after": "Permissions / Risk Department",
+      "team_size": 18
+    },
+    {
+      "floor": 31,
+      "before": "weak",
+      "after": "Audit / Ledger Department",
+      "team_size": 20
+    },
+    {
+      "floor": 32,
+      "before": "weak",
+      "after": "Platform Compliance Office",
+      "team_size": 16
+    },
+    {
+      "floor": 33,
+      "before": "weak",
+      "after": "Refund / Dispute Desk + Diagnostics",
+      "team_size": 16
+    },
+    {
+      "floor": 34,
+      "before": "weak",
+      "after": "Storefront Analytics Room",
+      "team_size": 18
+    },
+    {
+      "floor": 35,
+      "before": "weak",
+      "after": "Hardware Systems Floor",
+      "team_size": 14
+    },
+    {
+      "floor": 36,
+      "before": "weak",
+      "after": "Workforce Expansion Planning",
+      "team_size": 18
+    },
+    {
+      "floor": 37,
+      "before": "weak",
+      "after": "Strategy Labs",
+      "team_size": 22
+    },
+    {
+      "floor": 38,
+      "before": "weak",
+      "after": "Sandbox Ops Coupling",
+      "team_size": 16
+    },
+    {
+      "floor": 39,
+      "before": "weak",
+      "after": "Worker Recreation Floor",
+      "team_size": 20
+    },
+    {
+      "floor": 40,
+      "before": "weak",
+      "after": "Worker Rest / Dormitory Floor",
+      "team_size": 25
+    },
+    {
+      "floor": 44,
+      "before": "weak",
+      "after": "Trading + Commerce Accounting",
+      "team_size": 24
+    },
+    {
+      "floor": 46,
+      "before": "weak",
+      "after": "Executive Liaison + Concierge",
+      "team_size": 16
+    },
+    {
+      "floor": 48,
+      "before": "weak",
+      "after": "Strategic Plan Office",
+      "team_size": 14
+    },
+    {
+      "floor": 50,
+      "before": "weak",
+      "after": "Building Governance Council",
+      "team_size": 12
+    },
+    {
+      "floor": 51,
+      "before": "weak",
+      "after": "Executive Council Office",
+      "team_size": 10
+    }
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "worker_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "live_payments_enabled": false,
+  "live_listings_publishing_enabled": false,
+  "external_api_calls_enabled": false,
+  "secrets_in_logs": false,
+  "manual_approval_required_for_commerce": true
+}

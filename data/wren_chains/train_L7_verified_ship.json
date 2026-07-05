@@ -1,0 +1,11 @@
+{
+  "id": "train_L7_verified_ship",
+  "title": "L7 — Ship warm_hi with Claude-verify guards (no more fabrication)",
+  "stages": [
+    {"kind":"seed_note","prompt":"Use wren_write_file with path='data/team_sandbox/L7_notes.md' and content='# L7 — verified ship\\n- candidate at data/team_sandbox/warm_hi_candidate.py\\n- claude_verify guards prevent fabrication\\n'. STAGE_OUT: tool result."},
+    {"kind":"claude_verify","command":["python3","-c","import ast; ast.parse(open('data/team_sandbox/warm_hi_candidate.py').read()); print('SYNTAX OK')"],"expect_exit":0,"expect_contains":"SYNTAX OK"},
+    {"kind":"claude_verify","shell_cmd":"cd data/team_sandbox && python3 -c 'from warm_hi_candidate import warm_hi; print(warm_hi(\"Ross\"))'","expect_exit":0,"expect_contains":"Hello Ross"},
+    {"kind":"ship","prompt":"Use wren_bash cmd='cp data/team_sandbox/warm_hi_candidate.py tools/qsb_warm_hi.py'. STAGE_OUT: bash result."},
+    {"kind":"claude_verify","shell_cmd":"python3 -c 'from tools.qsb_warm_hi import warm_hi; print(warm_hi(\"Ross\"))'","expect_exit":0,"expect_contains":"Hello Ross"}
+  ]
+}

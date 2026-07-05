@@ -1,0 +1,34 @@
+{
+  "room_id": "project_tracking_board",
+  "name": "Project Tracking Board Room",
+  "category": "display",
+  "purpose": "Tracks the progress of various expansion projects.",
+  "concierge_blurb": "A large board with cards and markers for tracking projects.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": -4.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "plinth",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Project Plinth",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/tracking.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 60
+  },
+  "floor": "floor_36"
+}

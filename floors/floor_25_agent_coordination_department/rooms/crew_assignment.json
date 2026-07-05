@@ -1,0 +1,31 @@
+{
+  "room_id": "crew_assignment",
+  "name": "Crew Assignment Area",
+  "category": "operations",
+  "purpose": "Matches tasks with available crews.",
+  "concierge_blurb": "Tables lay out maps and plans for upcoming assignments.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": -5.5,
+    "footprint_m": [
+      12,
+      8
+    ],
+    "height_m": 1.6
+  },
+  "render": {
+    "primary_prop": "table_set",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Crew Planning",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_25"
+}

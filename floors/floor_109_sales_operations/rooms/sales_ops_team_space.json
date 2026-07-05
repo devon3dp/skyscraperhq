@@ -1,0 +1,31 @@
+{
+  "room_id": "sales_ops_team_space",
+  "name": "Team Collaboration Space",
+  "category": "seating",
+  "purpose": "A space for team members to collaborate and brainstorm.",
+  "concierge_blurb": "Flexible seating for meetings and casual discussions.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 5.0,
+    "offset_z": -3.0,
+    "footprint_m": [
+      8,
+      6
+    ],
+    "height_m": 2.2
+  },
+  "render": {
+    "primary_prop": "chair_set",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Collaboration",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_109"
+}

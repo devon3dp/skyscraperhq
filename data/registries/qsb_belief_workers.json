@@ -1,0 +1,533 @@
+{
+  "f42_market_scout": {
+    "venue": "binance",
+    "instruments": [
+      "BTCUSDT"
+    ]
+  },
+  "f42_spread_watcher": {
+    "venue": "binance",
+    "instruments": [
+      "ETHUSDT"
+    ]
+  },
+  "crypto_market_scout": {
+    "venue": "binance",
+    "instruments": [
+      "BNBUSDT"
+    ]
+  },
+  "belief_driven_btc": {
+    "venue": "binance",
+    "instruments": [
+      "BTCUSDT"
+    ]
+  },
+  "belief_driven_eur": {
+    "venue": "oanda",
+    "instruments": [
+      "EUR_USD"
+    ]
+  },
+  "belief_driven_gbp": {
+    "venue": "oanda",
+    "instruments": [
+      "GBP_USD"
+    ]
+  },
+  "belief_driven_jpy": {
+    "venue": "oanda",
+    "instruments": [
+      "USD_JPY"
+    ]
+  },
+  "belief_driven_spy": {
+    "venue": "alpaca",
+    "instruments": [
+      "SPY"
+    ]
+  },
+  "belief_driven_aapl": {
+    "venue": "alpaca",
+    "instruments": [
+      "AAPL"
+    ]
+  },
+  "belief_driven_qqq": {
+    "venue": "alpaca",
+    "instruments": [
+      "QQQ"
+    ]
+  },
+  "f41_kernel_commentary_runner": {
+    "venue": "oanda",
+    "instruments": [
+      "GBP_USD"
+    ]
+  },
+  "f41_order_entry_clerk": {
+    "venue": "oanda",
+    "instruments": [
+      "EUR_USD"
+    ]
+  },
+  "f41_openclaw_oanda_inspector": {
+    "venue": "oanda",
+    "instruments": [
+      "USD_JPY",
+      "EUR_USD"
+    ]
+  },
+  "f41_market_scout": {
+    "venue": "oanda",
+    "instruments": [
+      "GBP_USD"
+    ]
+  },
+  "f41_trade_ledger_clerk": {
+    "venue": "oanda",
+    "instruments": [
+      "EUR_USD",
+      "GBP_USD",
+      "USD_JPY"
+    ]
+  },
+  "f41_lessons_clerk": {
+    "venue": "oanda",
+    "instruments": [
+      "GBP_USD",
+      "USD_JPY",
+      "EUR_USD"
+    ]
+  },
+  "f41_risk_sentinel": {
+    "venue": "oanda",
+    "instruments": [
+      "USD_JPY",
+      "EUR_USD",
+      "GBP_USD"
+    ]
+  },
+  "f41_pnl_accountant": {
+    "venue": "oanda",
+    "instruments": [
+      "EUR_USD"
+    ]
+  },
+  "f41_paper_strategy_analyst": {
+    "venue": "oanda",
+    "instruments": [
+      "USD_JPY",
+      "GBP_USD",
+      "EUR_USD"
+    ]
+  },
+  "f41_floor_manager": {
+    "venue": "oanda",
+    "instruments": [
+      "GBP_USD"
+    ]
+  },
+  "belief_driven_eth": {
+    "venue": "binance",
+    "instruments": [
+      "ETHUSDT"
+    ]
+  },
+  "belief_driven_bnb": {
+    "venue": "binance",
+    "instruments": [
+      "BNBUSDT"
+    ]
+  },
+  "belief_driven_aud": {
+    "venue": "oanda",
+    "instruments": [
+      "AUD_USD"
+    ]
+  },
+  "belief_driven_chf": {
+    "venue": "oanda",
+    "instruments": [
+      "USD_CHF"
+    ]
+  },
+  "belief_driven_eurgbp": {
+    "venue": "oanda",
+    "instruments": [
+      "EUR_GBP"
+    ]
+  },
+  "belief_driven_tsla": {
+    "venue": "alpaca",
+    "instruments": [
+      "TSLA"
+    ]
+  },
+  "belief_driven_nvda": {
+    "venue": "alpaca",
+    "instruments": [
+      "NVDA"
+    ]
+  },
+  "belief_driven_msft": {
+    "venue": "alpaca",
+    "instruments": [
+      "MSFT"
+    ]
+  },
+  "belief_driven_xau": {
+    "venue": "oanda",
+    "instruments": [
+      "XAU_USD"
+    ]
+  },
+  "belief_driven_xag": {
+    "venue": "oanda",
+    "instruments": [
+      "XAG_USD"
+    ]
+  },
+  "belief_driven_wti": {
+    "venue": "oanda",
+    "instruments": [
+      "WTICO_USD"
+    ]
+  },
+  "belief_driven_bco": {
+    "venue": "oanda",
+    "instruments": [
+      "BCO_USD"
+    ]
+  },
+  "belief_driven_spx": {
+    "venue": "oanda",
+    "instruments": [
+      "SPX500_USD"
+    ]
+  },
+  "belief_driven_nas": {
+    "venue": "oanda",
+    "instruments": [
+      "NAS100_USD"
+    ]
+  },
+  "belief_driven_dow": {
+    "venue": "oanda",
+    "instruments": [
+      "US30_USD"
+    ]
+  },
+  "belief_driven_natgas": {
+    "venue": "oanda",
+    "instruments": [
+      "NATGAS_USD"
+    ]
+  },
+  "belief_driven_btc_momentum": {
+    "venue": "binance",
+    "instruments": [
+      "BTCUSDT"
+    ]
+  },
+  "belief_driven_eur_meanrevert": {
+    "venue": "oanda",
+    "instruments": [
+      "EUR_USD"
+    ]
+  },
+  "belief_driven_xau_breakout": {
+    "venue": "oanda",
+    "instruments": [
+      "XAU_USD"
+    ]
+  },
+  "ensemble_btcusdt": {
+    "venue": "binance",
+    "instruments": [
+      "BTCUSDT"
+    ]
+  },
+  "ensemble_eurusd": {
+    "venue": "oanda",
+    "instruments": [
+      "EUR_USD"
+    ]
+  },
+  "ensemble_xauusd": {
+    "venue": "oanda",
+    "instruments": [
+      "XAU_USD"
+    ]
+  },
+  "belief_driven_dia": {
+    "venue": "alpaca",
+    "instruments": [
+      "DIA"
+    ]
+  },
+  "belief_driven_xlf": {
+    "venue": "alpaca",
+    "instruments": [
+      "XLF"
+    ]
+  },
+  "belief_driven_gld": {
+    "venue": "alpaca",
+    "instruments": [
+      "GLD"
+    ]
+  },
+  "belief_driven_coin": {
+    "venue": "alpaca",
+    "instruments": [
+      "COIN"
+    ]
+  },
+  "belief_driven_iwm": {
+    "venue": "alpaca",
+    "instruments": [
+      "IWM"
+    ]
+  },
+  "ensemble_ethusdt": {
+    "venue": "binance",
+    "instruments": [
+      "ETHUSDT"
+    ]
+  },
+  "ensemble_bnbusdt": {
+    "venue": "binance",
+    "instruments": [
+      "BNBUSDT"
+    ]
+  },
+  "ensemble_gbpusd": {
+    "venue": "oanda",
+    "instruments": [
+      "GBP_USD"
+    ]
+  },
+  "ensemble_usdjpy": {
+    "venue": "oanda",
+    "instruments": [
+      "USD_JPY"
+    ]
+  },
+  "ensemble_audusd": {
+    "venue": "oanda",
+    "instruments": [
+      "AUD_USD"
+    ]
+  },
+  "ensemble_usdchf": {
+    "venue": "oanda",
+    "instruments": [
+      "USD_CHF"
+    ]
+  },
+  "ensemble_eurgbp": {
+    "venue": "oanda",
+    "instruments": [
+      "EUR_GBP"
+    ]
+  },
+  "ensemble_xagusd": {
+    "venue": "oanda",
+    "instruments": [
+      "XAG_USD"
+    ]
+  },
+  "ensemble_wticousd": {
+    "venue": "oanda",
+    "instruments": [
+      "WTICO_USD"
+    ]
+  },
+  "ensemble_bcousd": {
+    "venue": "oanda",
+    "instruments": [
+      "BCO_USD"
+    ]
+  },
+  "ensemble_spx500usd": {
+    "venue": "oanda",
+    "instruments": [
+      "SPX500_USD"
+    ]
+  },
+  "ensemble_nas100usd": {
+    "venue": "oanda",
+    "instruments": [
+      "NAS100_USD"
+    ]
+  },
+  "ensemble_us30usd": {
+    "venue": "oanda",
+    "instruments": [
+      "US30_USD"
+    ]
+  },
+  "ensemble_natgasusd": {
+    "venue": "oanda",
+    "instruments": [
+      "NATGAS_USD"
+    ]
+  },
+  "ensemble_spy": {
+    "venue": "alpaca",
+    "instruments": [
+      "SPY"
+    ]
+  },
+  "ensemble_aapl": {
+    "venue": "alpaca",
+    "instruments": [
+      "AAPL"
+    ]
+  },
+  "ensemble_qqq": {
+    "venue": "alpaca",
+    "instruments": [
+      "QQQ"
+    ]
+  },
+  "ensemble_tsla": {
+    "venue": "alpaca",
+    "instruments": [
+      "TSLA"
+    ]
+  },
+  "ensemble_nvda": {
+    "venue": "alpaca",
+    "instruments": [
+      "NVDA"
+    ]
+  },
+  "ensemble_msft": {
+    "venue": "alpaca",
+    "instruments": [
+      "MSFT"
+    ]
+  },
+  "belief_driven_de30": {
+    "venue": "oanda",
+    "instruments": [
+      "DE30_EUR"
+    ]
+  },
+  "belief_driven_jp225": {
+    "venue": "oanda",
+    "instruments": [
+      "JP225_USD"
+    ]
+  },
+  "belief_driven_us10y": {
+    "venue": "oanda",
+    "instruments": [
+      "USB10Y_USD"
+    ]
+  },
+  "belief_driven_uk10y": {
+    "venue": "oanda",
+    "instruments": [
+      "UK10YB_GBP"
+    ]
+  },
+  "belief_driven_xcu": {
+    "venue": "oanda",
+    "instruments": [
+      "XCU_USD"
+    ]
+  },
+  "belief_driven_wheat": {
+    "venue": "oanda",
+    "instruments": [
+      "WHEAT_USD"
+    ]
+  },
+  "belief_driven_sol": {
+    "venue": "binance",
+    "instruments": [
+      "SOLUSDT"
+    ]
+  },
+  "belief_driven_ada": {
+    "venue": "binance",
+    "instruments": [
+      "ADAUSDT"
+    ]
+  },
+  "belief_driven_xrp": {
+    "venue": "binance",
+    "instruments": [
+      "XRPUSDT"
+    ]
+  },
+  "belief_driven_dot": {
+    "venue": "binance",
+    "instruments": [
+      "DOTUSDT"
+    ]
+  },
+  "belief_driven_avax": {
+    "venue": "binance",
+    "instruments": [
+      "AVAXUSDT"
+    ]
+  },
+  "belief_driven_link": {
+    "venue": "binance",
+    "instruments": [
+      "LINKUSDT"
+    ]
+  },
+  "belief_driven_jpy_momentum": {
+    "venue": "oanda",
+    "instruments": [
+      "USD_JPY"
+    ]
+  },
+  "belief_driven_jpy_meanrevert": {
+    "venue": "oanda",
+    "instruments": [
+      "USD_JPY"
+    ]
+  },
+  "belief_driven_jpy_breakout": {
+    "venue": "oanda",
+    "instruments": [
+      "USD_JPY"
+    ]
+  },
+  "belief_driven_jpy_ta": {
+    "venue": "oanda",
+    "instruments": [
+      "USD_JPY"
+    ]
+  },
+  "belief_driven_gbp_ta": {
+    "venue": "oanda",
+    "instruments": [
+      "GBP_USD"
+    ]
+  },
+  "belief_driven_eur_ta": {
+    "venue": "oanda",
+    "instruments": [
+      "EUR_USD"
+    ]
+  },
+  "belief_driven_btc_ta": {
+    "venue": "binance",
+    "instruments": [
+      "BTCUSDT"
+    ]
+  },
+  "belief_driven_eth_ta": {
+    "venue": "binance",
+    "instruments": [
+      "ETHUSDT"
+    ]
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "room_id": "stretch_management_office",
+  "name": "Management Office",
+  "category": "admin",
+  "purpose": "Manages the day-to-day operations of Stretch.",
+  "concierge_blurb": "Our management office oversees all activities.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": -2.5,
+    "footprint_m": [
+      8,
+      6
+    ],
+    "height_m": 1.5
+  },
+  "render": {
+    "primary_prop": "reception",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Management",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_155"
+}

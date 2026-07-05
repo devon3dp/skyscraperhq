@@ -1,0 +1,56 @@
+{
+  "floor_id": "floor_58",
+  "floor_number": 58,
+  "floor_name": "Music Conservatory",
+  "department": "recreation_and_accommodation_v1",
+  "zone": "ZONE D \u00b7 COMMERCE WING",
+  "archetype": "recreation_and_accommodation_v1",
+  "staff_lead": "TBD",
+  "tour_blurb": "rehearsal rooms + recital hall + sound studio + listening pods",
+  "visitor_open": false,
+  "advisory_only": true,
+  "execution_mode": "PREVIEW_ONLY",
+  "skeleton": true,
+  "skeleton_source": "floor_manifest.json",
+  "skeleton_generated_ts": "2026-06-17",
+  "live_signals": {
+    "theme": null,
+    "categories": null,
+    "palette": null,
+    "tagline": null
+  },
+  "gate_posture": {
+    "advisory_only": true,
+    "execution_allowed": false,
+    "live_payments_enabled": false
+  },
+  "team_roster": [
+    {
+      "id": "f058.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "spawned_id": "ed5ee0e686",
+      "spawned_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F058",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f058.operator.01",
+      "spawned_id": "233aa5d734"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F058",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f058.operator.02",
+      "spawned_id": "81ee0b4b41"
+    }
+  ],
+  "floor_manager": "f058.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

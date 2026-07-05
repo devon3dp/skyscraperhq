@@ -1,0 +1,24 @@
+{
+  "ok": true,
+  "kind": "qsb_native_cockpit_api_contract",
+  "phase": "QSB_NATIVE_COCKPIT_STANDALONE_SKYSCRAPER_PLATFORM_V2",
+  "generated_ts": "2026-06-09T15:10:00+00:00",
+  "endpoint": "/api/native_cockpit/state",
+  "method": "GET",
+  "returns": [
+    "floors",
+    "verified_workforce",
+    "lifts",
+    "openclaw",
+    "commerce_wing",
+    "etsy",
+    "print_on_demand",
+    "trading",
+    "penthouse",
+    "hardware",
+    "safety_locks",
+    "browser_dashboard_fallback_url"
+  ],
+  "no_secrets_in_response": true,
+  "credentials_status_field_is_always_masked": true
+}

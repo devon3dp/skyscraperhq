@@ -1,0 +1,31 @@
+{
+  "ok": true,
+  "kind": "qsb_dashboard_render_health",
+  "generated_ts": "2026-06-30T13:46:34.878005+00:00",
+  "phase": "QSB_DASHBOARD_3D_TOTAL_REVAMP_WORKERS_OPENCLAW_V1",
+  "renderers_loaded": [
+    "qsb_tower_2d.js (SVG primary)",
+    "qsb_scene.js (Babylon fallback + OpenClaw mesh)",
+    "qsb_skyscraper_v3.js (V3 overlay)",
+    "qsb_skyscraper_v2.js (V2 OpenClaw avatar + HUD)",
+    "qsb_rebuild_workers.js (in-slab interior)",
+    "qsb_workforce_ops_panel.js (right-rail tasks panel)",
+    "qsb_3d_app.js (V1 3D revamp entry)",
+    "qsb_3d_floors.js (V1 3D revamp floor activity)",
+    "qsb_3d_workers.js (V1 3D revamp left-rail interior)",
+    "qsb_3d_openclaw.js (V1 3D revamp OpenClaw card)",
+    "qsb_3d_telemetry.js (V1 3D revamp truth panel)"
+  ],
+  "css_files_loaded": [
+    "cockpit.css",
+    "qsb_3d_dashboard.css (V1 revamp)"
+  ],
+  "no_random_motion_policy": true,
+  "no_fake_packets_policy": true,
+  "real_data_only": true,
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

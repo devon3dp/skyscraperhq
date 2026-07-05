@@ -1,0 +1,34 @@
+{
+  "room_id": "publications_display",
+  "name": "Publications Display Room",
+  "category": "display",
+  "purpose": "Showcases latest academic press publications.",
+  "concierge_blurb": "Explore the latest in peer-reviewed research and literature.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 5.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      8,
+      6
+    ],
+    "height_m": 1.2
+  },
+  "render": {
+    "primary_prop": "display",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Publications",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_100"
+}

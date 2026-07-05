@@ -1,0 +1,34 @@
+{
+  "room_id": "patch_review_board",
+  "name": "Patch Review Board",
+  "category": "audit",
+  "purpose": "A place to review and discuss patches before they are applied.",
+  "concierge_blurb": "Large whiteboards covered in code snippets, diagrams, and notes.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": 0.5,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 2.3
+  },
+  "render": {
+    "primary_prop": "whiteboard",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Review Board",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": null,
+    "refresh_seconds": 600
+  },
+  "floor": "floor_5"
+}

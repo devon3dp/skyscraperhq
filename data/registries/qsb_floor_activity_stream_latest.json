@@ -1,0 +1,347 @@
+{
+  "ok": true,
+  "kind": "qsb_floor_activity_stream_latest",
+  "ts": "2026-06-09T21:49:56Z",
+  "headline": "Tower steady. PnL $1620, Bank 1296 QBC, 1 friend edges, 0 child edges, 2 certified. \u00b7 safety locks closed \u00b7 TTS ready",
+  "floors_tracked": 55,
+  "events_this_tick": 55,
+  "per_floor": {
+    "F01": {
+      "text": "F01 Quiet Room pushed packet on lift.",
+      "room": "Quiet Room",
+      "template": "GenericFloorInterior",
+      "category": "evt"
+    },
+    "F02": {
+      "text": "F02 Operations Desk completed routine task.",
+      "room": "Operations Desk",
+      "template": "GenericFloorInterior",
+      "category": "evt"
+    },
+    "F03": {
+      "text": "F03 Main Hall completed routine task.",
+      "room": "Main Hall",
+      "template": "GenericFloorInterior",
+      "category": "evt"
+    },
+    "F04": {
+      "text": "F04 Main Hall completed routine task.",
+      "room": "Main Hall",
+      "template": "GenericFloorInterior",
+      "category": "evt"
+    },
+    "F05": {
+      "text": "F05 Main Hall updated status wall.",
+      "room": "Main Hall",
+      "template": "GenericFloorInterior",
+      "category": "evt"
+    },
+    "F06": {
+      "text": "F06 Studio drafted listing (NOT published).",
+      "room": "Studio",
+      "template": "BankingCommerceInterior",
+      "category": "evt"
+    },
+    "F07": {
+      "text": "F07 Main Hall completed routine task.",
+      "room": "Main Hall",
+      "template": "GenericFloorInterior",
+      "category": "evt"
+    },
+    "F08": {
+      "text": "F08 OpenClaw Audit Lane pushed replay buffer batch.",
+      "room": "OpenClaw Audit Lane",
+      "template": "MLRLClassroomInterior",
+      "category": "evt"
+    },
+    "F09": {
+      "text": "F09 Quiet Room pushed packet on lift.",
+      "room": "Quiet Room",
+      "template": "GenericFloorInterior",
+      "category": "evt"
+    },
+    "F10": {
+      "text": "F10 Operations Desk completed routine task.",
+      "room": "Operations Desk",
+      "template": "GenericFloorInterior",
+      "category": "evt"
+    },
+    "F11": {
+      "text": "F11 Main Hall updated status wall.",
+      "room": "Main Hall",
+      "template": "GenericFloorInterior",
+      "category": "evt"
+    },
+    "F12": {
+      "text": "F12 Worker Pods updated status wall.",
+      "room": "Worker Pods",
+      "template": "GenericFloorInterior",
+      "category": "evt"
+    },
+    "F13": {
+      "text": "F13 Operations Desk completed routine task.",
+      "room": "Operations Desk",
+      "template": "GenericFloorInterior",
+      "category": "evt"
+    },
+    "F14": {
+      "text": "F14 Clerk Pods ran clerk pod cycle.",
+      "room": "Clerk Pods",
+      "template": "BankingCommerceInterior",
+      "category": "evt"
+    },
+    "F15": {
+      "text": "F15 Operations Desk completed routine task.",
+      "room": "Operations Desk",
+      "template": "GenericFloorInterior",
+      "category": "evt"
+    },
+    "F16": {
+      "text": "F16 Status Wall pushed packet on lift.",
+      "room": "Status Wall",
+      "template": "GenericFloorInterior",
+      "category": "evt"
+    },
+    "F17": {
+      "text": "F17 Quiet Room completed routine task.",
+      "room": "Quiet Room",
+      "template": "GenericFloorInterior",
+      "category": "evt"
+    },
+    "F18": {
+      "text": "F18 Status Wall completed routine task.",
+      "room": "Status Wall",
+      "template": "GenericFloorInterior",
+      "category": "evt"
+    },
+    "F19": {
+      "text": "F19 Quiet Room completed routine task.",
+      "room": "Quiet Room",
+      "template": "GenericFloorInterior",
+      "category": "evt"
+    },
+    "F20": {
+      "text": "F20 Main Hall updated status wall.",
+      "room": "Main Hall",
+      "template": "GenericFloorInterior",
+      "category": "evt"
+    },
+    "F21": {
+      "text": "F21 Main Hall pushed packet on lift.",
+      "room": "Main Hall",
+      "template": "GenericFloorInterior",
+      "category": "evt"
+    },
+    "F22": {
+      "text": "F22 Audit Desk pushed packet on lift.",
+      "room": "Audit Desk",
+      "template": "GenericFloorInterior",
+      "category": "evt"
+    },
+    "F23": {
+      "text": "F23 Token Telemetry Wall completed DQN lesson loop.",
+      "room": "Token Telemetry Wall",
+      "template": "MLRLClassroomInterior",
+      "category": "evt"
+    },
+    "F24": {
+      "text": "F24 Quiet Room updated status wall.",
+      "room": "Quiet Room",
+      "template": "GenericFloorInterior",
+      "category": "evt"
+    },
+    "F25": {
+      "text": "F25 Quiet Room updated status wall.",
+      "room": "Quiet Room",
+      "template": "GenericFloorInterior",
+      "category": "evt"
+    },
+    "F26": {
+      "text": "F26 Quiet Room updated status wall.",
+      "room": "Quiet Room",
+      "template": "GenericFloorInterior",
+      "category": "evt"
+    },
+    "F27": {
+      "text": "F27 Quiet Room updated status wall.",
+      "room": "Quiet Room",
+      "template": "GenericFloorInterior",
+      "category": "evt"
+    },
+    "F28": {
+      "text": "F28 Secret Vault pinged watcher pods.",
+      "room": "Secret Vault",
+      "template": "SecurityGuardianInterior",
+      "category": "warn"
+    },
+    "F29": {
+      "text": "F29 Main Hall completed routine task.",
+      "room": "Main Hall",
+      "template": "GenericFloorInterior",
+      "category": "evt"
+    },
+    "F30": {
+      "text": "F30 Alert Board pinged watcher pods.",
+      "room": "Alert Board",
+      "template": "SecurityGuardianInterior",
+      "category": "warn"
+    },
+    "F31": {
+      "text": "F31 Safety Lock Wall drafted listing (NOT published).",
+      "room": "Safety Lock Wall",
+      "template": "BankingCommerceInterior",
+      "category": "evt"
+    },
+    "F32": {
+      "text": "F32 Worker Pods completed routine task.",
+      "room": "Worker Pods",
+      "template": "GenericFloorInterior",
+      "category": "evt"
+    },
+    "F33": {
+      "text": "F33 Worker Pods completed routine task.",
+      "room": "Worker Pods",
+      "template": "GenericFloorInterior",
+      "category": "evt"
+    },
+    "F34": {
+      "text": "F34 Worker Pods updated status wall.",
+      "room": "Worker Pods",
+      "template": "GenericFloorInterior",
+      "category": "evt"
+    },
+    "F35": {
+      "text": "F35 RAM Monitor refreshed disk metric.",
+      "room": "RAM Monitor",
+      "template": "HardwareObservatoryInterior",
+      "category": "evt"
+    },
+    "F36": {
+      "text": "F36 Quiet Room completed routine task.",
+      "room": "Quiet Room",
+      "template": "GenericFloorInterior",
+      "category": "evt"
+    },
+    "F37": {
+      "text": "F37 OpenClaw Inspection Lane updated curriculum step.",
+      "room": "OpenClaw Inspection Lane",
+      "template": "MLRLClassroomInterior",
+      "category": "evt"
+    },
+    "F38": {
+      "text": "F38 Risk Review Desk completed routine task.",
+      "room": "Risk Review Desk",
+      "template": "GenericFloorInterior",
+      "category": "evt"
+    },
+    "F39": {
+      "text": "F39 Worker Pods pushed packet on lift.",
+      "room": "Worker Pods",
+      "template": "GenericFloorInterior",
+      "category": "evt"
+    },
+    "F40": {
+      "text": "F40 Quiet Room completed routine task.",
+      "room": "Quiet Room",
+      "template": "GenericFloorInterior",
+      "category": "evt"
+    },
+    "F41": {
+      "text": "F41 Ledger Board validated risk envelope.",
+      "room": "Ledger Board",
+      "template": "TradingFloorInterior",
+      "category": "trade"
+    },
+    "F42": {
+      "text": "F42 Safety Lock Wall validated risk envelope.",
+      "room": "Safety Lock Wall",
+      "template": "TradingFloorInterior",
+      "category": "trade"
+    },
+    "F43": {
+      "text": "F43 Ledger Board updated spread.",
+      "room": "Ledger Board",
+      "template": "TradingFloorInterior",
+      "category": "trade"
+    },
+    "F44": {
+      "text": "F44 OpenClaw Audit Lane ticked PAPER quote.",
+      "room": "OpenClaw Audit Lane",
+      "template": "TradingFloorInterior",
+      "category": "trade"
+    },
+    "F45": {
+      "text": "F45 Worker Onboarding updated status wall.",
+      "room": "Worker Onboarding",
+      "template": "GenericFloorInterior",
+      "category": "evt"
+    },
+    "F46": {
+      "text": "F46 OpenClaw Inspection Lane drafted listing (NOT published).",
+      "room": "OpenClaw Inspection Lane",
+      "template": "BankingCommerceInterior",
+      "category": "evt"
+    },
+    "F47": {
+      "text": "F47 Quiet Room updated status wall.",
+      "room": "Quiet Room",
+      "template": "GenericFloorInterior",
+      "category": "evt"
+    },
+    "F48": {
+      "text": "F48 Operations Desk pushed packet on lift.",
+      "room": "Operations Desk",
+      "template": "GenericFloorInterior",
+      "category": "evt"
+    },
+    "F49": {
+      "text": "F49 Quiet Room completed routine task.",
+      "room": "Quiet Room",
+      "template": "GenericFloorInterior",
+      "category": "evt"
+    },
+    "F50": {
+      "text": "F50 OpenClaw Inspection Lane ran researcher pod cycle.",
+      "room": "OpenClaw Inspection Lane",
+      "template": "MLRLClassroomInterior",
+      "category": "evt"
+    },
+    "F51": {
+      "text": "F51 Main Hall completed routine task.",
+      "room": "Main Hall",
+      "template": "GenericFloorInterior",
+      "category": "evt"
+    },
+    "F52": {
+      "text": "F52 Main Hall pushed packet on lift.",
+      "room": "Main Hall",
+      "template": "GenericFloorInterior",
+      "category": "evt"
+    },
+    "F53": {
+      "text": "F53 OpenClaw Inspection Lane pushed packet on lift.",
+      "room": "OpenClaw Inspection Lane",
+      "template": "GenericFloorInterior",
+      "category": "evt"
+    },
+    "F54": {
+      "text": "F54 Worker Pods pushed packet on lift.",
+      "room": "Worker Pods",
+      "template": "GenericFloorInterior",
+      "category": "evt"
+    },
+    "F55": {
+      "text": "F55 Registry Wall stamped new safety envelope.",
+      "room": "Registry Wall",
+      "template": "KernelPenthouseInterior",
+      "category": "evt"
+    }
+  },
+  "safety_envelope": {
+    "live_trading_enabled": false,
+    "live_payments_enabled": false,
+    "openclaw_real_tool_execution_enabled": false,
+    "autonomous_dispatch_enabled": false,
+    "external_api_calls_enabled": false
+  }
+}

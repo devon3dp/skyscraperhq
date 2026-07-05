@@ -1,0 +1,75 @@
+{
+  "ok": true,
+  "kind": "qsb_provider_consultation_authorization",
+  "phase": "F47_WREN_EXTERNAL_CONSULTATION_V1",
+  "generated_ts": "2026-06-10T17:36:09Z",
+  "authorized_by": "Ross \u2014 2026-06-10 CLAUDE.md V1.5 edit",
+  "authorization_source": "CLAUDE.md (lines after V1.5 corrective implementation features)",
+  "scope": "advisory consultation only \u2014 Wren-initiated, synchronous, single round-trip",
+  "gates_flipped_true_for_consultation_only": {
+    "direct_provider_access": true,
+    "model_inference_enabled": true
+  },
+  "gates_still_locked_false": {
+    "provider_execution_enabled": false,
+    "worker_execution_enabled": false,
+    "autonomous_workers_enabled": false,
+    "live_dispatch_enabled": false,
+    "openclaw_real_tool_execution_enabled": false,
+    "real_money_live_trading_enabled": false,
+    "web_access_autonomous_enabled": false
+  },
+  "providers_authorized": [
+    "openai",
+    "deepseek"
+  ],
+  "hard_caps_usd": {
+    "daily_budget_usd": 1.0,
+    "per_call_cap_usd": 0.05,
+    "reset_basis": "UTC day",
+    "drift_fix_2026_06_14": "lowered daily_budget_usd from 5.0 to 1.0 to match CLAUDE.md 2026-06-10 amendment which pins \"daily budget cap: \\$1.00 USD per UTC day\". Code-vs-contract drift caught in forensic audit; CLAUDE.md is authoritative."
+  },
+  "operational_rules": {
+    "mode": "synchronous_single_round_trip",
+    "streaming": false,
+    "tool_use": false,
+    "multi_turn_agent": false,
+    "wren_initiated_only": true,
+    "autonomous_loop_calls": "FORBIDDEN",
+    "audit_every_call": true,
+    "audit_destination": "data/registries/qsb_tower_activity_tail.jsonl",
+    "audit_event_kind": "provider_call"
+  },
+  "tool_paths": {
+    "primary": "tools/qsb_consult_external.py",
+    "dispatch_task": "tools/qsb_wren_dispatch.py consult_external"
+  },
+  "key_storage": {
+    "openai": "floors/floor_28_security_department/vault/.env.openai",
+    "deepseek": "floors/floor_28_security_department/vault/.env.deepseek"
+  },
+  "authorized_use_cases": [
+    "adversarial second-opinion on Wren's outputs",
+    "topic-trigger expansion for the kernel dialogue adapter",
+    "strategy refinement reading F44 PnL",
+    "consultation when kernel no_topic_matched fires"
+  ],
+  "explicitly_not_authorized_here": [
+    "routing user-facing kernel chat through external providers",
+    "agents / multi-step tool-use against any provider",
+    "using provider responses to flip any other execution gate",
+    "training or fine-tuning calls",
+    "image generation calls",
+    "anything resembling autonomous worker\u2192provider behavior"
+  ],
+  "advisory_only": true,
+  "active_local_only": false,
+  "consultation_channel_is_external": true,
+  "all_other_system_gates_still_locked": true,
+  "hard_caps_usd_v17_raise": {
+    "ts": "2026-06-10T22:35:46Z",
+    "from_usd": 1.0,
+    "to_usd": 5.0,
+    "authorized_by": "Ross \u2014 2026-06-10 chat: 'spend upto 5 dollars'"
+  }
+}

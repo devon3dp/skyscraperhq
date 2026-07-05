@@ -1,0 +1,28 @@
+{
+  "security_precheck_id": "penthouse_security_precheck",
+  "status": "precheck_ready",
+  "required_floors": [
+    "floor_28",
+    "floor_29",
+    "floor_30",
+    "floor_31",
+    "floor_32",
+    "floor_33",
+    "floor_34",
+    "floor_35"
+  ],
+  "security_gate": "enforcing_routing_only",
+  "execution_enabled": false,
+  "notice": "Security gate records readiness only. It does not enforce kernel permissions yet.",
+  "enforcement_scope": [
+    "lift_routing",
+    "worker_movement",
+    "floor_comms_broadcast",
+    "manager_approval_actions",
+    "practice_order_actions",
+    "openclaw_practice_proposal_routing",
+    "credential_screens"
+  ],
+  "v15_note": "Promoted by V1.5 correction loop. Enforcement covers routing/movement only. Execution gates remain locked elsewhere.",
+  "v15_promotion_ts": "2026-06-30T09:44:26.798110+00:00"
+}

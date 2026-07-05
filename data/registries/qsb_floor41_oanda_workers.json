@@ -1,0 +1,153 @@
+{
+  "ok": true,
+  "kind": "qsb_floor41_oanda_workers",
+  "phase": "QSB_FLOOR_41_OANDA_FULL_TRADING_FLOOR_REBUILD_V1",
+  "generated_ts": "2026-06-30T13:46:36.080187+00:00",
+  "floor": 41,
+  "worker_count": 12,
+  "workers": [
+    {
+      "worker_id": "f41_floor_manager",
+      "role": "OANDA Floor Manager",
+      "room": "Strategy Desk",
+      "station": "Strategy Desk \u00b7 station #12",
+      "current_task": "coordinate floor + approve trades",
+      "state": "idle_at_station",
+      "last_update_ts": "2026-06-30T13:46:36.080187+00:00",
+      "stable": true,
+      "source": "qsb_floor41_oanda.py"
+    },
+    {
+      "worker_id": "f41_market_scout",
+      "role": "FX Market Scout",
+      "room": "Market Feed Desk",
+      "station": "Market Feed Desk \u00b7 station #07",
+      "current_task": "watch live practice quotes",
+      "state": "idle_at_station",
+      "last_update_ts": "2026-06-30T13:46:36.080187+00:00",
+      "stable": true,
+      "source": "qsb_floor41_oanda.py"
+    },
+    {
+      "worker_id": "f41_spread_watcher",
+      "role": "Spread Watcher",
+      "room": "Spread Watch Station",
+      "station": "Spread Watch Station \u00b7 station #02",
+      "current_task": "compare bid/ask spread vs threshold",
+      "state": "idle_at_station",
+      "last_update_ts": "2026-06-30T13:46:36.080187+00:00",
+      "stable": true,
+      "source": "qsb_floor41_oanda.py"
+    },
+    {
+      "worker_id": "f41_risk_sentinel",
+      "role": "Risk Sentinel",
+      "room": "Risk / Guardian Station",
+      "station": "Risk / Guardian Station \u00b7 station #03",
+      "current_task": "block trades over risk budget",
+      "state": "idle_at_station",
+      "last_update_ts": "2026-06-30T13:46:36.080187+00:00",
+      "stable": true,
+      "source": "qsb_floor41_oanda.py"
+    },
+    {
+      "worker_id": "f41_paper_strategy_analyst",
+      "role": "Paper Strategy Analyst",
+      "room": "Strategy Desk",
+      "station": "Strategy Desk \u00b7 station #08",
+      "current_task": "rank candidate strategies",
+      "state": "idle_at_station",
+      "last_update_ts": "2026-06-30T13:46:36.080187+00:00",
+      "stable": true,
+      "source": "qsb_floor41_oanda.py"
+    },
+    {
+      "worker_id": "f41_order_entry_clerk",
+      "role": "Order Entry Clerk",
+      "room": "Order Entry Desk",
+      "station": "Order Entry Desk \u00b7 station #08",
+      "current_task": "format and submit practice/paper orders",
+      "state": "idle_at_station",
+      "last_update_ts": "2026-06-30T13:46:36.080187+00:00",
+      "stable": true,
+      "source": "qsb_floor41_oanda.py"
+    },
+    {
+      "worker_id": "f41_close_trade_clerk",
+      "role": "Close Trade Clerk",
+      "room": "Close Trade Desk",
+      "station": "Close Trade Desk \u00b7 station #04",
+      "current_task": "format and submit practice/paper closes",
+      "state": "idle_at_station",
+      "last_update_ts": "2026-06-30T13:46:36.080187+00:00",
+      "stable": true,
+      "source": "qsb_floor41_oanda.py"
+    },
+    {
+      "worker_id": "f41_pnl_accountant",
+      "role": "PnL Accountant",
+      "room": "PnL Accounting Desk",
+      "station": "PnL Accounting Desk \u00b7 station #03",
+      "current_task": "compute realized + unrealized PnL",
+      "state": "idle_at_station",
+      "last_update_ts": "2026-06-30T13:46:36.080187+00:00",
+      "stable": true,
+      "source": "qsb_floor41_oanda.py"
+    },
+    {
+      "worker_id": "f41_trade_ledger_clerk",
+      "role": "Trade Ledger Clerk",
+      "room": "Audit Dispatch",
+      "station": "Audit Dispatch \u00b7 station #06",
+      "current_task": "append every trade event to ledger",
+      "state": "idle_at_station",
+      "last_update_ts": "2026-06-30T13:46:36.080187+00:00",
+      "stable": true,
+      "source": "qsb_floor41_oanda.py"
+    },
+    {
+      "worker_id": "f41_lessons_clerk",
+      "role": "Lessons Clerk",
+      "room": "Lessons Output Desk",
+      "station": "Lessons Output Desk \u00b7 station #04",
+      "current_task": "emit lessons from losing closed trades",
+      "state": "idle_at_station",
+      "last_update_ts": "2026-06-30T13:46:36.080187+00:00",
+      "stable": true,
+      "source": "qsb_floor41_oanda.py"
+    },
+    {
+      "worker_id": "f41_openclaw_oanda_inspector",
+      "role": "OpenClaw OANDA Inspector",
+      "room": "OpenClaw Inspection Post",
+      "station": "OpenClaw Inspection Post \u00b7 station #10",
+      "current_task": "supervise floor \u2014 read-only, no execution",
+      "state": "idle_at_station",
+      "last_update_ts": "2026-06-30T13:46:36.080187+00:00",
+      "stable": true,
+      "source": "qsb_floor41_oanda.py"
+    },
+    {
+      "worker_id": "f41_kernel_commentary_runner",
+      "role": "Kernel Commentary Runner",
+      "room": "Worker Thought Console",
+      "station": "Worker Thought Console \u00b7 station #10",
+      "current_task": "shape kernel chat answers for Floor 41",
+      "state": "idle_at_station",
+      "last_update_ts": "2026-06-30T13:46:36.080187+00:00",
+      "stable": true,
+      "source": "qsb_floor41_oanda.py"
+    }
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "oanda_practice_paper_trading_allowed": true,
+  "live_money_enabled": false,
+  "oanda_live_environment_allowed": false,
+  "real_production_trading_allowed": false,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "worker_execution_enabled": false,
+  "autonomous_dispatch_enabled": false
+}

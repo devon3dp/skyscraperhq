@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en" data-build="next3d">
+<head>
+<meta charset="utf-8">
+<title>QSB Tower · Next3D Cockpit</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="qsb-next3d-build" content="next3d.v1">
+<link rel="stylesheet" href="/static/next3d/next3d.css">
+</head>
+<body>
+
+<div id="next3d-build-badge" class="n3d-build-badge"
+     data-build-tag="next3d-v1">NEXT3D · V1 · greenfield</div>
+
+<header id="n3d-top">
+  <div class="n3d-top-title">QSB TOWER · NEXT3D COCKPIT</div>
+  <div class="n3d-top-meta">
+    <span id="n3dEngineMeta" class="n3d-pill">engine —</span>
+    <span id="n3dKernelMeta" class="n3d-pill">kernel —</span>
+    <span id="n3dLockMeta" class="n3d-pill ok">locks 0/13</span>
+    <span id="n3dWorkerMeta" class="n3d-pill">workers —</span>
+    <span id="n3dLiftMeta" class="n3d-pill">lifts —</span>
+    <span id="n3dOcMeta" class="n3d-pill">openclaw —</span>
+    <span id="n3dCadenceMeta" class="n3d-pill">cadence —</span>
+  </div>
+  <div class="n3d-top-actions">
+    <button id="n3dBtnFocus" class="n3d-btn" title="Focus selected floor">⌖ Focus</button>
+    <button id="n3dBtnReset" class="n3d-btn" title="Reset camera">↻ Reset</button>
+    <button id="n3dBtnLabels" class="n3d-btn" title="Toggle labels">🏷 Labels</button>
+    <button id="n3dBtnLegacy" class="n3d-btn n3d-btn-alt" title="Open legacy cockpit"
+            onclick="location.href='/?v=unified'">↺ Legacy</button>
+  </div>
+</header>
+
+<main id="n3d-stage">
+  <canvas id="n3dCanvas" tabindex="0"></canvas>
+  <div id="next3d-webgl-unavailable" class="n3d-error" hidden>
+    WebGL is not available in this browser. Enable hardware acceleration to use Next3D.
+  </div>
+  <div id="n3dHud" class="n3d-hud"></div>
+  <aside id="n3dInteriorPanel" class="n3d-interior" hidden></aside>
+  <aside id="n3dLiftPanel" class="n3d-lifts"></aside>
+  <aside id="n3dOpenClawPanel" class="n3d-openclaw"></aside>
+  <div id="n3dFloorRoster" class="n3d-floor-roster"></div>
+  <div id="n3dTip" class="n3d-tip" hidden></div>
+</main>
+
+<footer id="n3d-bottom">
+  <div class="n3d-bottom-left">
+    <span class="n3d-stat">PnL <b id="n3dPnl">—</b></span>
+    <span class="n3d-stat">Open trades <b id="n3dOpenTrades">—</b></span>
+    <span class="n3d-stat">Closed <b id="n3dClosed">—</b></span>
+  </div>
+  <div class="n3d-bottom-right">
+    <span class="n3d-stat">Real-money trading <b class="n3d-locked">OFF</b></span>
+    <span class="n3d-stat">OpenClaw exec <b class="n3d-locked">OFF</b></span>
+    <span class="n3d-stat">Autonomous dispatch <b class="n3d-locked">OFF</b></span>
+  </div>
+</footer>
+
+<script src="/static/vendor/babylon.js"></script>
+<script src="/static/next3d/next3d_telemetry.js"></script>
+<script src="/static/next3d/next3d_camera.js"></script>
+<script src="/static/next3d/next3d_tower.js"></script>
+<script src="/static/next3d/next3d_lifts.js"></script>
+<script src="/static/next3d/next3d_workers.js"></script>
+<script src="/static/next3d/next3d_openclaw.js"></script>
+<script src="/static/next3d/next3d_floors.js"></script>
+<script src="/static/next3d/next3d_interiors.js"></script>
+<script src="/static/next3d/next3d_hud.js"></script>
+<script src="/static/next3d/next3d_scene.js"></script>
+<script src="/static/next3d/next3d_app.js"></script>
+</body>
+</html>

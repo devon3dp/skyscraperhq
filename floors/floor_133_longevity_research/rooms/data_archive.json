@@ -1,0 +1,34 @@
+{
+  "room_id": "data_archive",
+  "name": "Data Archive Room",
+  "category": "archive_shelf",
+  "purpose": "Storing and analyzing longevity research data.",
+  "concierge_blurb": "Discover the vast database of research findings compiled over years.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "left_wall",
+    "offset_x": -8.0,
+    "offset_z": 3.0,
+    "footprint_m": [
+      2.5,
+      10.0
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "archive_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Data Archive",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_133"
+}

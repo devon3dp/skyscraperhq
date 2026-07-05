@@ -1,0 +1,47 @@
+{
+  "kind": "qsb_skyscraper_gfx_apply_log_v15",
+  "ts": "2026-06-10T20:02:32Z",
+  "applied_from_brief": "data/registries/qsb_skyscraper_gfx_upgrade_brief.json",
+  "godot_project": "/home/ross/qsb_godot_native_cockpit",
+  "files_modified": [
+    {
+      "path": "project.godot",
+      "change": "rendering_method gl_compatibility \u2192 forward_plus (Forward+ required for SDFGI/TAA/SSR/SSIL/volumetric_fog/DoF)"
+    },
+    {
+      "path": "scripts/TowerRenderer.gd",
+      "change": "_build_environment rewritten: ProceduralSkyMaterial, ACES tonemap, SSAO+SSIL+SSR+SDFGI, volumetric fog, glow+HDR threshold, color grade, viewport TAA+MSAA 4x, sun contact shadows + PSSM cascade tuning"
+    },
+    {
+      "path": "scripts/FloorInteriorRenderer.gd",
+      "change": "per-floor OmniLight3D accent lamp (palette-derived), amber embers above F47/F48/F55, reflection probes for F41-F44 trading floors, decorator-brief loader"
+    },
+    {
+      "path": "scripts/LiftRenderer.gd",
+      "change": "GPUParticles3D dust motes per lift shaft (200 motes, slow drift)"
+    },
+    {
+      "path": "scripts/TowerWorkerVisualizer.gd",
+      "change": "rim_enabled + rim + rim_tint on worker dot material"
+    },
+    {
+      "path": "scripts/CameraController.gd",
+      "change": "CameraAttributesPractical with far DoF blur (haze distant floors, focal floor sharp)"
+    }
+  ],
+  "renderer_required": "Forward+ (Vulkan on Linux/NVIDIA, DirectX 12 on Windows). gl_compatibility silently no-ops SDFGI/TAA/SSR/SSIL/DoF/volumetric_fog.",
+  "gpu_detected": "NVIDIA (device 2c05) \u2014 Forward+ compatible",
+  "smoke_test": {
+    "command": "godot-4 --headless --quit --path .",
+    "result_exit_code": 0,
+    "warnings": "none under Forward+"
+  },
+  "fallback_path": "Set rendering_method=gl_compatibility in project.godot AND V15_GFX_HEAVY=false in TowerRenderer.gd \u2014 keeps glow + SSAO + ACES + procedural sky + fog + contact shadows + MSAA + accent lamps + embers + dust + rim",
+  "decorator_attribution": {
+    "openai_gpt-4o-mini": "5 proposals \u2014 glow, volumetric fog (corrected), BakedLightmapGI (corrected to SDFGI), SSR, emission-glow",
+    "deepseek_chat": "5 proposals \u2014 SSAO, reflection probes, animated textures (deferred), SSR (dup), rim light",
+    "wren_synthesis": "verified Godot 4.6 API, picked + ordered, wrote the actual GD patches"
+  },
+  "perf_notes": "Forward+ + SDFGI + volumetric fog + SSR is the cinematic stack but expensive. Workers + lifts + floor accent lamps add ~50 dynamic lights \u2014 shadow_enabled disabled on accent lamps to keep perf.",
+  "advisory_only": true
+}

@@ -1,0 +1,64 @@
+{
+  "ok": true,
+  "kind": "qsb_ml_rl_research_lab_map",
+  "phase": "QSB_ML_RL_LAB_CLASSROOM_RESEARCH_WORKER_INTEGRATION_V1",
+  "generated_ts": "2026-06-09T16:49:28+00:00",
+  "connected_floors": [
+    {
+      "floor": 3,
+      "name": "Product Research Lab",
+      "ml_rl_use": "advisory niche/competitor scoring (sandbox)"
+    },
+    {
+      "floor": 37,
+      "name": "Strategy Labs",
+      "ml_rl_use": "scenario simulation + DQN backtests on paper data"
+    },
+    {
+      "floor": 38,
+      "name": "Sandbox Operations",
+      "ml_rl_use": "RL agent vs sandbox sim \u2014 read-only sandbox"
+    },
+    {
+      "floor": 41,
+      "name": "OANDA paper/practice",
+      "ml_rl_use": "research-only signal scoring; trade entry stays manual"
+    },
+    {
+      "floor": 42,
+      "name": "Binance testnet preview",
+      "ml_rl_use": "research-only; no order placement"
+    },
+    {
+      "floor": 43,
+      "name": "Stocks paper preview",
+      "ml_rl_use": "research-only signal scoring"
+    },
+    {
+      "floor": 44,
+      "name": "Accounts / PnL",
+      "ml_rl_use": "loss/lesson analytics over paper trades"
+    },
+    {
+      "floor": 30,
+      "name": "Guardian / Risk",
+      "ml_rl_use": "risk-constraint review of any RL reward design"
+    },
+    {
+      "floor": 31,
+      "name": "Audit / Ledger",
+      "ml_rl_use": "experiment audit trail + reproducibility"
+    }
+  ],
+  "no_live_market_execution": true,
+  "advisory_only": true,
+  "execution_allowed": false,
+  "active_local_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "live_payments_enabled": false,
+  "live_listings_publishing_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "worker_execution_enabled": false,
+  "secrets_in_logs": false
+}

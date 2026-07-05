@@ -1,0 +1,11 @@
+; QSB Godot Native Cockpit
+config_version=5
+
+[application]
+config/name="QSB Godot Native Cockpit"
+config/description="Standalone professional 3D skyscraper cockpit for QSB"
+run/main_scene="res://scenes/Main.tscn"
+
+[rendering]
+renderer/rendering_method="gl_compatibility"
+textures/canvas_textures/default_texture_filter=0

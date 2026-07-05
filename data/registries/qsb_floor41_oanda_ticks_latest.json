@@ -1,0 +1,97 @@
+{
+  "ok": true,
+  "kind": "qsb_floor41_oanda_ticks_latest",
+  "phase": "QSB_FLOOR_41_OANDA_FULL_TRADING_FLOOR_REBUILD_V1",
+  "generated_ts": "2026-06-30T13:46:36.650738+00:00",
+  "tick_count": 11,
+  "ticks": [
+    {
+      "instrument": "EUR_USD",
+      "bid": 1.13973,
+      "ask": 1.13982,
+      "spread_pips": 0.9,
+      "ts": "2026-06-30T13:46:33.233800431Z"
+    },
+    {
+      "instrument": "GBP_USD",
+      "bid": 1.322,
+      "ask": 1.32213,
+      "spread_pips": 1.3,
+      "ts": "2026-06-30T13:46:35.017527634Z"
+    },
+    {
+      "instrument": "USD_JPY",
+      "bid": 162.41,
+      "ask": 162.426,
+      "spread_pips": 1.6,
+      "ts": "2026-06-30T13:46:35.110547560Z"
+    },
+    {
+      "instrument": "AUD_USD",
+      "bid": 0.68906,
+      "ask": 0.6892,
+      "spread_pips": 1.4,
+      "ts": "2026-06-30T13:46:27.020962420Z"
+    },
+    {
+      "instrument": "USD_CAD",
+      "bid": 1.42232,
+      "ask": 1.42251,
+      "spread_pips": 1.9,
+      "ts": "2026-06-30T13:46:36.371848342Z"
+    },
+    {
+      "instrument": "EUR_GBP",
+      "bid": 0.86204,
+      "ask": 0.86216,
+      "spread_pips": 1.2,
+      "ts": "2026-06-30T13:46:36.269317315Z"
+    },
+    {
+      "instrument": "XAU_USD",
+      "bid": 4023.54,
+      "ask": 4024.1,
+      "spread_pips": 56.0,
+      "ts": "2026-06-30T13:46:36.570466365Z"
+    },
+    {
+      "instrument": "XAG_USD",
+      "bid": 59.032,
+      "ask": 59.066,
+      "spread_pips": 34.0,
+      "ts": "2026-06-30T13:46:36.525436892Z"
+    },
+    {
+      "instrument": "BCO_USD",
+      "bid": 74.92,
+      "ask": 74.95,
+      "spread_pips": 3.0,
+      "ts": "2026-06-30T13:46:36.074312866Z"
+    },
+    {
+      "instrument": "WTICO_USD",
+      "bid": 71.547,
+      "ask": 71.577,
+      "spread_pips": 3.0,
+      "ts": "2026-06-30T13:46:35.217213927Z"
+    },
+    {
+      "instrument": "NATGAS_USD",
+      "bid": 3.206,
+      "ask": 3.212,
+      "spread_pips": 6.0,
+      "ts": "2026-06-30T13:46:32.902652360Z"
+    }
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "oanda_practice_paper_trading_allowed": true,
+  "live_money_enabled": false,
+  "oanda_live_environment_allowed": false,
+  "real_production_trading_allowed": false,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "worker_execution_enabled": false,
+  "autonomous_dispatch_enabled": false
+}

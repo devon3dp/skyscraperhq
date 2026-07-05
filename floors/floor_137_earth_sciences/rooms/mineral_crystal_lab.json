@@ -1,0 +1,34 @@
+{
+  "room_id": "mineral_crystal_lab",
+  "name": "Mineral Crystal Lab",
+  "category": "lab",
+  "purpose": "A laboratory for studying mineral crystals.",
+  "concierge_blurb": "Microscopes and equipment for crystal analysis.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_right",
+    "offset_x": 6.5,
+    "offset_z": -8.0,
+    "footprint_m": [
+      10,
+      4
+    ],
+    "height_m": 2.2
+  },
+  "render": {
+    "primary_prop": "desk",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Crystals",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/mineral_crystals.jsonl",
+    "display": "big_number",
+    "refresh_seconds": 120
+  },
+  "floor": "floor_137"
+}

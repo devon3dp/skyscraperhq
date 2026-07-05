@@ -1,0 +1,34 @@
+{
+  "room_id": "presentation_gallery",
+  "name": "Presentation Gallery",
+  "category": "display",
+  "purpose": "A showcase for completed projects and presentations.",
+  "concierge_blurb": "Experience the final products of our creative team in the Presentation Gallery.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -4.0,
+    "offset_z": -12.0,
+    "footprint_m": [
+      20,
+      15
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "display",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Presentation",
+    "glow": true
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": null,
+    "refresh_seconds": null
+  },
+  "floor": "floor_88"
+}

@@ -1,0 +1,22 @@
+{
+  "version": "1.1",
+  "floor_id": "floor_21",
+  "department": "Adapter Systems Department",
+  "role": "neutral_adapter_socket_layer",
+  "kernel_required": false,
+  "models_required": false,
+  "execution_enabled": false,
+  "hardwired_adapters": false,
+  "providers_are_external": true,
+  "receives_from": [
+    "floor_24",
+    "floor_05",
+    "floor_35"
+  ],
+  "hands_off_to": [
+    "floor_23",
+    "floor_27",
+    "floor_35"
+  ],
+  "notice": "Floor 21 registers adapter sockets and future bridge paths. It does not execute adapters or providers."
+}

@@ -1,0 +1,34 @@
+{
+  "room_id": "synthetic_research_hub",
+  "name": "Research Hub",
+  "category": "lab",
+  "purpose": "Conducting research on synthetic organisms.",
+  "concierge_blurb": "Enter the heart of our research, where cutting-edge science meets innovation.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "center",
+    "offset_x": 0.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      15,
+      15
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "bench",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Research Hub",
+    "glow": true
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/synthetic_research.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 60
+  },
+  "floor": "floor_132"
+}

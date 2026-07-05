@@ -1,0 +1,51 @@
+[
+  {
+    "id": "building_admin",
+    "floor": "floor_30",
+    "name": "Building Admin",
+    "permissions": [
+      "view_all",
+      "run_diagnostics",
+      "run_monitoring",
+      "view_infrastructure",
+      "view_penthouse_readiness"
+    ],
+    "execution_enabled": false
+  },
+  {
+    "id": "tower_operator",
+    "floor": "floor_30",
+    "name": "Tower Operator",
+    "permissions": [
+      "view_dashboard",
+      "view_lifts",
+      "view_packets",
+      "view_floor_status"
+    ],
+    "execution_enabled": false
+  },
+  {
+    "id": "future_kernel",
+    "floor": "floor_30",
+    "name": "Future QSB Kernel 4.5",
+    "permissions": [
+      "discover_registries",
+      "read_lift_network",
+      "read_floor_map",
+      "write_kernel_events"
+    ],
+    "activation_required": true,
+    "currently_active": false,
+    "execution_enabled": false
+  },
+  {
+    "id": "external_provider",
+    "floor": "floor_30",
+    "name": "External Provider Tenant",
+    "permissions": [
+      "receive_provider_packet_only"
+    ],
+    "currently_active": false,
+    "execution_enabled": false
+  }
+]

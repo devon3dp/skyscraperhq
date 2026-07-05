@@ -1,0 +1,26 @@
+[
+  {
+    "id": "maintenance_database_check",
+    "name": "Database File Check",
+    "status": "registered_not_executable",
+    "execution_enabled": false
+  },
+  {
+    "id": "maintenance_log_rotation_ready",
+    "name": "Log Rotation Readiness",
+    "status": "registered_not_executable",
+    "execution_enabled": false
+  },
+  {
+    "id": "maintenance_backup_ready",
+    "name": "Backup Readiness",
+    "status": "registered_not_executable",
+    "execution_enabled": false
+  },
+  {
+    "id": "maintenance_runtime_cleanup_ready",
+    "name": "Runtime Cleanup Readiness",
+    "status": "registered_not_executable",
+    "execution_enabled": false
+  }
+]

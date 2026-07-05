@@ -1,0 +1,34 @@
+{
+  "room_id": "quilltree_workshop",
+  "name": "Packaging Workshop",
+  "category": "workshop",
+  "purpose": "Handles the packing and labeling of goods.",
+  "concierge_blurb": "Where packages are prepared for delivery.",
+  "current_state": "already_exists",
+  "visitor_open": false,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -6.0,
+    "offset_z": 4.0,
+    "footprint_m": [
+      7,
+      5
+    ],
+    "height_m": 1.8
+  },
+  "render": {
+    "primary_prop": "workbench",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Packaging",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": null,
+    "refresh_seconds": 0
+  },
+  "floor": "floor_156"
+}

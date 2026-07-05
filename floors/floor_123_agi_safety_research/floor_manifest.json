@@ -1,0 +1,42 @@
+{
+  "ok": true,
+  "floor_number": 123,
+  "floor_name": "AGI Safety Research",
+  "floor_kind": "designed_by_f66_architects_v1",
+  "description": "alignment + interpretability",
+  "designed_by": "F66 Architects' Office",
+  "designed_ts": "2026-06-11T09:13:04.497262Z",
+  "role_inventory": [
+    "Lab Director",
+    "Alignment Researcher",
+    "Interpretability Researcher",
+    "Red Team Lead",
+    "Theory Researcher",
+    "Postdoc"
+  ],
+  "advisory_only": true,
+  "interior_brief": {
+    "archetype": "research_lab",
+    "palette": [
+      "#1c1830",
+      "#3c3060",
+      "#a080ff"
+    ],
+    "furniture": [
+      "desks",
+      "meeting area",
+      "common space",
+      "storage"
+    ],
+    "lighting": "task + ambient",
+    "mood": "curious",
+    "designed_by": "F66 Architects + F17 Graphics + Fitters team",
+    "fitted_at": "2026-06-11T14:39:45.620109Z",
+    "godot_scene_brief": "render an generic floor with neutral grey + accent per floor theme palette, professional mood, key furniture: desks, meeting area, common space",
+    "signature": "Workbench grid, sample fridges, mass spectrometer",
+    "diversified_ts": "2026-06-11T17:57:45Z",
+    "diversified_by": "qsb_archetype_diversifier_v1"
+  },
+  "fitted_out": true,
+  "fit_out_ts": "2026-06-11T14:39:45.620109Z"
+}

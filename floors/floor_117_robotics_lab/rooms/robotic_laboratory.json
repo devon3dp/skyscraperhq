@@ -1,0 +1,34 @@
+{
+  "room_id": "robotic_laboratory",
+  "name": "Robotics Lab",
+  "category": "lab",
+  "purpose": "Conduct research and development in robotics.",
+  "concierge_blurb": "Explore the cutting-edge of robotic technology here.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": -2.0,
+    "footprint_m": [
+      15,
+      6
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "chamber",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Robotics Lab",
+    "glow": false
+  },
+  "interactive": {
+    "type": "tail",
+    "source_path": null,
+    "display": null,
+    "refresh_seconds": null
+  },
+  "floor": "floor_117"
+}

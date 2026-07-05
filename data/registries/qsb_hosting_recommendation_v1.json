@@ -1,0 +1,29 @@
+{
+  "ok": true,
+  "kind": "qsb_hosting_recommendation_v1",
+  "generated_ts": "2026-06-11T12:47:14.593754Z",
+  "budget_gbp_per_month": 50,
+  "verdict": "use free hosting (Netlify or Cloudflare Pages); spend the budget on traffic + tools",
+  "tier_0_chosen": {
+    "hosting": "Netlify Free OR Cloudflare Pages Free",
+    "monthly_cost_gbp": 0,
+    "custom_domain_supported": true,
+    "limits": "100GB/mo bandwidth (Netlify) or unlimited (Cloudflare Pages)",
+    "enough_for": "easily 1000+ visitors/day across all 15 shops"
+  },
+  "budget_allocation_recommended": {
+    "hosting": 0,
+    "paid_ads_to_one_proof_shop": 35,
+    "buttondown_newsletter_when_subs_>_50": 7,
+    "domain_renewals_avg_per_month": 3,
+    "buffer_for_tools_email_etc": 5,
+    "total": 50
+  },
+  "when_to_upgrade_to_paid_hosting": [
+    "sustained >100GB/mo traffic across the 15 shops",
+    "need image CDN for product photography (Netlify Pro feature)",
+    "need staging environments + deploy previews (Pro feature)",
+    "expect to add backend functions beyond Stripe Checkout"
+  ],
+  "advisory_only": true
+}

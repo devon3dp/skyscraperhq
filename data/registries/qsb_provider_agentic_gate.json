@@ -1,0 +1,26 @@
+{
+  "enabled": true,
+  "authorized_by": "ross_chat_2026-06-14",
+  "ts_authorized": "2026-06-14T20:25:00Z",
+  "providers": [
+    "openai",
+    "deepseek",
+    "ollama"
+  ],
+  "daily_budget_usd": 10.0,
+  "per_session_cap_usd": 0.25,
+  "per_turn_cap_usd": 0.05,
+  "max_turns_per_session": 8,
+  "tools_whitelist": [
+    "qsb_read_registry",
+    "qsb_read_floor_card",
+    "qsb_grep_repo",
+    "qsb_propose_patch",
+    "qsb_stamp_f47_record"
+  ],
+  "kill_switch_path": "data/registries/qsb_provider_agentic_gate.json",
+  "claude_md_section_ts": "2026-06-14",
+  "caps": {
+    "max_turns_per_session": 16
+  }
+}

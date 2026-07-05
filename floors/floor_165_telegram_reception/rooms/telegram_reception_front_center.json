@@ -1,0 +1,34 @@
+{
+  "room_id": "telegram_reception_front_center",
+  "name": "Telegram Desk",
+  "category": "reception",
+  "purpose": "Handles incoming and outgoing Telegram messages.",
+  "concierge_blurb": "The center of all external communication here at the top floor.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      3.0,
+      2.0
+    ],
+    "height_m": 1.5
+  },
+  "render": {
+    "primary_prop": "desk",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Telegram Desk",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/incoming_messages.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_165"
+}

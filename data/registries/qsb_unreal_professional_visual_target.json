@@ -1,0 +1,38 @@
+{
+  "primary_target": "Unreal Engine 5",
+  "godot_role": "prototype + fallback (Vulkan Forward+, bloom, currently has the helix tower)",
+  "firefox_role": "legacy monitoring page only (data viewing, not 3D experience)",
+  "must_have_features": [
+    "futuristic 3D skyscraper (helix or twisted form)",
+    "surrounding cinematic city + skybox",
+    "cinematic lighting (Lumen)",
+    "animated lift cars (helix-following) over 169 floors",
+    "animated worker population (8168 workers as of today's fire drill)",
+    "real HUD with tabs, search, floor nav, voice status",
+    "floor interiors that you can ENTER and walk",
+    "voice-command activated windows",
+    "model/provider floors (Claude, GPT, DeepSeek)",
+    "trading/research/recreation/accommodation floor types",
+    "live telemetry bridge from QSB registries"
+  ],
+  "hardware_audit": {
+    "gpu": "NVIDIA GeForce RTX 5070 Ti, 16 GB VRAM",
+    "free_disk_gb": 157,
+    "unreal_installed": false,
+    "godot_installed": true,
+    "godot_version": "4.7.stable.mono.official",
+    "blender_installed": false
+  },
+  "_meta": {
+    "ts": "2026-06-21T15:07:34Z",
+    "phase": "QSB_UNREAL_PROFESSIONAL_SKYSCRAPER_HUD_DASHBOARD_DIRECTION_V2",
+    "signed_off_by": [
+      "claude_helm",
+      "wren_fast_qwen2.5:7b",
+      "wren_smart_qwen2.5:32b",
+      "deepseek_advisor",
+      "ross_boss_override"
+    ],
+    "produced_by": "tools/qsb_unreal_emit_artifacts.py"
+  }
+}

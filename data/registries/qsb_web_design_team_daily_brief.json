@@ -1,0 +1,21 @@
+{
+  "ok": true,
+  "kind": "qsb_web_design_team_daily_brief_2026_06_11",
+  "generated_ts": "2026-06-11T11:25:28.837695Z",
+  "priorities_today": [
+    "Mobile audit: every shop must render correctly on iPhone + Android (60%+ of traffic)",
+    "Buy-button conversion: each shop pod tests button colour, copy, position on their 10 SKUs",
+    "Hero imagery: replace placeholder letter circles with actual product photos (suggest: use vendor product images legally)",
+    "Brand consistency: each pod aligns with Design Director on tone + colour palette by EOD",
+    "Speed: every page < 100KB total, < 1s first paint"
+  ],
+  "this_week": [
+    "A/B test framework on master landing (3 variants)",
+    "Custom 404 + thank-you pages per shop",
+    "About + Contact pages in master + shop subdirectories",
+    "Mobile menu pattern (hamburger or bottom-tab)",
+    "Footer link consistency across all 16 surfaces"
+  ],
+  "reports_to": "Wren via Design Director",
+  "weekly_review": "every Friday 16:00 BST"
+}

@@ -1,0 +1,34 @@
+{
+  "room_id": "historical_risk_data_library",
+  "name": "Historical Risk Data Library",
+  "category": "library",
+  "purpose": "A library containing historical data for risk analysis.",
+  "concierge_blurb": "Shelves lined with books and binders on past risks.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "right_wall",
+    "offset_x": 6.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      4,
+      12
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "library_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Historical Risk",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": null,
+    "refresh_seconds": 600
+  },
+  "floor": "floor_12"
+}

@@ -1,0 +1,31 @@
+{
+  "room_id": "archive_room_26",
+  "name": "Archive Room",
+  "category": "library",
+  "purpose": "Housing historical and important documents.",
+  "concierge_blurb": "Discover the archives that hold our financial history.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_right",
+    "offset_x": 6.5,
+    "offset_z": -4.0,
+    "footprint_m": [
+      8,
+      7
+    ],
+    "height_m": 1.2
+  },
+  "render": {
+    "primary_prop": "archive_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Archive Room",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_26"
+}

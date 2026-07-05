@@ -1,0 +1,87 @@
+{
+  "floor_id": "floor_114",
+  "floor_number": 114,
+  "floor_name": "Mailroom & Reception",
+  "department": "Mailroom & Reception",
+  "zone": "operations",
+  "archetype": "comms_centre",
+  "staff_lead": "Mailroom Lead",
+  "tour_blurb": "F114 is the Mailroom \u2014 every sealed packet between floors passes through here for routing. Slow work, accurate work.",
+  "visitor_open": true,
+  "advisory_only": true,
+  "kernel_required": false,
+  "kernel_installed": false,
+  "worker_execution_enabled": false,
+  "live_dispatch_enabled": false,
+  "lift_access": "high_rise",
+  "role_inventory": [
+    "Mailroom Lead",
+    "Mail Sorter",
+    "Receptionist",
+    "Receptionist",
+    "Courier",
+    "Package Steward"
+  ],
+  "endpoints": [],
+  "live_signals": {
+    "recent_lift_packets_total": 636,
+    "recent_lift_packets_touching_f114": 0,
+    "packets_source": "data/logs/qsb_lift_movements.jsonl (filter on source_floor==114 or target_floor==114)",
+    "packets_window_utc": "2026-06-09T09:38:36Z .. 2026-06-10T23:02:39Z",
+    "dashboard_worker_status": "no_workers_assigned (per qsb_dashboard_live_telemetry.json)",
+    "advisory_only": true,
+    "note": "F114 is the design-time mailroom for sealed inter-floor packets. The current movement log is dominated by the F37\u2013F41 low-rise trading loop; no packets have routed through F114 in the captured window. Treat the zero count as 'mailroom idle, not mailroom broken'."
+  },
+  "evidence_paths": [
+    "floors/floor_114_mailroom_and_reception/floor_manifest.json",
+    "data/registries/floors.json",
+    "data/registries/qsb_dashboard_live_telemetry.json",
+    "data/registries/lifts.json",
+    "data/logs/qsb_lift_movements.jsonl"
+  ],
+  "routes_through": {
+    "sealed_packet_carriers": "lifts (see data/registries/lifts.json)",
+    "lobby_reception_for_visitors": "floor_0",
+    "email_operations": "floor_164"
+  },
+  "built_at": "2026-06-14T17:40:00Z",
+  "built_by": "skyscraper_floor_card_push",
+  "lessons_learned_for_next_agent": "F114 is the inter-floor MAILROOM (sealed packets) and is distinct from Floor 0 Reception (visitor lobby) and Floor 164 Email Operations (outbound email). qsb_open_day_tour.json does NOT cover F114, so the tour_blurb here is original; if the tour is later expanded, source-of-truth should move there and this card should reference it. The lift_movements log currently shows zero F114-touching packets because the recorded window only captured the F37\u2013F41 trading loop \u2014 do NOT misread that as a broken mailroom; it is an idle one. Surface the zero AND the window so the next agent sees the qualifier.",
+  "team_roster": [
+    {
+      "id": "f114.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "spawned_id": "5e44301718",
+      "spawned_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F114",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f114.operator.01",
+      "spawned_id": "a30fef59f2"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F114",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f114.operator.02",
+      "spawned_id": "2bcc60ab76"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F114",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f114.operator.03",
+      "spawned_id": "183974eb91"
+    }
+  ],
+  "floor_manager": "f114.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

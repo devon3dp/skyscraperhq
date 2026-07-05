@@ -1,0 +1,42 @@
+[
+  {
+    "id": "routing_intake_worker",
+    "name": "Routing Intake Worker",
+    "floor_id": "floor_24",
+    "role": "sealed_packet_intake",
+    "status": "simulation_ready",
+    "model_bound": false
+  },
+  {
+    "id": "provider_selection_worker",
+    "name": "Provider Selection Worker",
+    "floor_id": "floor_24",
+    "role": "provider_selection_simulation",
+    "status": "simulation_ready",
+    "model_bound": false
+  },
+  {
+    "id": "fallback_planning_worker",
+    "name": "Fallback Planning Worker",
+    "floor_id": "floor_24",
+    "role": "fallback_route_planning",
+    "status": "simulation_ready",
+    "model_bound": false
+  },
+  {
+    "id": "model_lift_handoff_worker",
+    "name": "Model Lift Handoff Worker",
+    "floor_id": "floor_24",
+    "role": "model_lift_handoff",
+    "status": "simulation_ready",
+    "model_bound": false
+  },
+  {
+    "id": "route_audit_worker",
+    "name": "Route Audit Worker",
+    "floor_id": "floor_24",
+    "role": "route_decision_audit",
+    "status": "simulation_ready",
+    "model_bound": false
+  }
+]

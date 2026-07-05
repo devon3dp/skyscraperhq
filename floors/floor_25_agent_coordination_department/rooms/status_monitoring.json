@@ -1,0 +1,34 @@
+{
+  "room_id": "status_monitoring",
+  "name": "Status Monitoring Console",
+  "category": "operations",
+  "purpose": "Monitors the status of ongoing tasks.",
+  "concierge_blurb": "A console with multiple screens displays real-time task statuses.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 4.5,
+    "offset_z": 0.0,
+    "footprint_m": [
+      12,
+      7
+    ],
+    "height_m": 2.2
+  },
+  "render": {
+    "primary_prop": "display",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Status Console",
+    "glow": true
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/status.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 60
+  },
+  "floor": "floor_25"
+}

@@ -1,0 +1,27 @@
+{
+  "version": "1.1",
+  "floor_id": "floor_22",
+  "department": "Integration Services Department",
+  "role": "cross_floor_service_integration_layer",
+  "kernel_required": false,
+  "models_required": false,
+  "execution_enabled": false,
+  "hardwired_providers": false,
+  "providers_are_external": true,
+  "principle": "Floor 22 connects building services structurally. It does not execute providers, adapters, tools, or models.",
+  "receives_from": [
+    "floor_05",
+    "floor_21",
+    "floor_24",
+    "floor_27",
+    "floor_23"
+  ],
+  "hands_off_to": [
+    "floor_21",
+    "floor_24",
+    "floor_27",
+    "floor_23",
+    "floor_35"
+  ],
+  "notice": "Integration records are coordination records only. No external execution is enabled."
+}

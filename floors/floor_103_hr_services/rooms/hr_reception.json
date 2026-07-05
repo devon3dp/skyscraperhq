@@ -1,0 +1,34 @@
+{
+  "room_id": "hr_reception",
+  "name": "HR Reception",
+  "category": "reception",
+  "purpose": "Serves as the main point of contact for HR services.",
+  "concierge_blurb": "Welcome to our Human Resources Reception. Here, we can assist with all your employment needs.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "reception",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "HR Reception",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 0
+  },
+  "floor": "floor_103"
+}

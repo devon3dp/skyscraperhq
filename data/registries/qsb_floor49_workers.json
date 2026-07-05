@@ -1,0 +1,177 @@
+{
+  "ok": true,
+  "kind": "qsb_floor49_workers",
+  "generated_ts": "2026-07-05T06:46:31+00:00",
+  "policy": "Studio worker roster. Conceptual workers. Compensation engine pays in QBC on project complete.",
+  "worker_count": 10,
+  "by_role": {
+    "graphics_designer": 1,
+    "principal_designer": 1,
+    "frontend_developer": 2,
+    "backend_developer": 1,
+    "copywriter": 2,
+    "project_manager": 1,
+    "qa_reviewer": 1,
+    "client_success_lead": 1
+  },
+  "by_level": {
+    "journeyman": 5,
+    "principal": 1,
+    "apprentice": 2,
+    "lead": 2
+  },
+  "curriculum_lesson_count": 7,
+  "curriculum": [
+    {
+      "id": "ws_01_html_css_fundamentals",
+      "title": "HTML & CSS fundamentals",
+      "audience": "frontend_developer",
+      "summary": "Semantic HTML, modern CSS (grid, flex, custom props), accessibility basics."
+    },
+    {
+      "id": "ws_02_design_systems",
+      "title": "Design systems & brand consistency",
+      "audience": "graphics_designer",
+      "summary": "Tokens (colour, type, spacing), component thinking, brand kits."
+    },
+    {
+      "id": "ws_03_copy_that_converts",
+      "title": "Copy that converts",
+      "audience": "copywriter",
+      "summary": "Headline frameworks, social proof placement, calls to action."
+    },
+    {
+      "id": "ws_04_python_backend_basics",
+      "title": "Python backend basics",
+      "audience": "backend_developer",
+      "summary": "HTTP servers, JSON, form handling, env-var configuration."
+    },
+    {
+      "id": "ws_05_pm_scoping",
+      "title": "Project scoping & client comms",
+      "audience": "project_manager",
+      "summary": "Brief \u2192 scope \u2192 estimate \u2192 milestone gates \u2192 delivery."
+    },
+    {
+      "id": "ws_06_qa_review_checklist",
+      "title": "QA review checklist",
+      "audience": "qa_reviewer",
+      "summary": "Accessibility, copy proofing, link integrity, mobile probe."
+    },
+    {
+      "id": "ws_07_client_success_followup",
+      "title": "Client success & follow-up",
+      "audience": "client_success_lead",
+      "summary": "Day-7 check-in, day-30 health, renewal conversation."
+    }
+  ],
+  "workers": [
+    {
+      "worker_id": "worker_designer_01",
+      "role": "graphics_designer",
+      "level": "journeyman",
+      "name": "Ines Halloran",
+      "certifications": [
+        "ws_02_design_systems"
+      ],
+      "hire_ts": 1780641991.3863592,
+      "notes": []
+    },
+    {
+      "worker_id": "worker_designer_02",
+      "role": "principal_designer",
+      "level": "principal",
+      "name": "Wren Adekunle",
+      "certifications": [
+        "ws_02_design_systems",
+        "ws_05_pm_scoping"
+      ],
+      "hire_ts": 1772865991.3863616,
+      "notes": []
+    },
+    {
+      "worker_id": "worker_frontend_01",
+      "role": "frontend_developer",
+      "level": "journeyman",
+      "name": "Theo Marchetti",
+      "certifications": [
+        "ws_01_html_css_fundamentals"
+      ],
+      "hire_ts": 1780814791.3863626,
+      "notes": []
+    },
+    {
+      "worker_id": "worker_frontend_02",
+      "role": "frontend_developer",
+      "level": "apprentice",
+      "name": "Ade Nwosu",
+      "certifications": [],
+      "hire_ts": 1782715591.3863635,
+      "notes": []
+    },
+    {
+      "worker_id": "worker_backend_01",
+      "role": "backend_developer",
+      "level": "lead",
+      "name": "Lior Kahane",
+      "certifications": [
+        "ws_04_python_backend_basics"
+      ],
+      "hire_ts": 1778049991.386364,
+      "notes": []
+    },
+    {
+      "worker_id": "worker_copywriter_01",
+      "role": "copywriter",
+      "level": "journeyman",
+      "name": "Mira Quint",
+      "certifications": [
+        "ws_03_copy_that_converts"
+      ],
+      "hire_ts": 1781333191.3863645,
+      "notes": []
+    },
+    {
+      "worker_id": "worker_copywriter_02",
+      "role": "copywriter",
+      "level": "apprentice",
+      "name": "Sami Routledge",
+      "certifications": [],
+      "hire_ts": 1782888391.386365,
+      "notes": []
+    },
+    {
+      "worker_id": "worker_pm_01",
+      "role": "project_manager",
+      "level": "lead",
+      "name": "Devon Aalst",
+      "certifications": [
+        "ws_05_pm_scoping"
+      ],
+      "hire_ts": 1775457991.3863652,
+      "notes": []
+    },
+    {
+      "worker_id": "worker_qa_01",
+      "role": "qa_reviewer",
+      "level": "journeyman",
+      "name": "Robin Caldecott",
+      "certifications": [
+        "ws_06_qa_review_checklist"
+      ],
+      "hire_ts": 1781678791.3863657,
+      "notes": []
+    },
+    {
+      "worker_id": "worker_csl_01",
+      "role": "client_success_lead",
+      "level": "journeyman",
+      "name": "Imani Brevard",
+      "certifications": [
+        "ws_07_client_success_followup"
+      ],
+      "hire_ts": 1779345991.3863661,
+      "notes": []
+    }
+  ]
+}

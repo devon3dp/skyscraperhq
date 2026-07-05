@@ -1,0 +1,42 @@
+{
+  "ok": true,
+  "floor_number": 106,
+  "floor_name": "Data Centre",
+  "floor_kind": "designed_by_f66_architects_v1",
+  "description": "servers + storage + cooling",
+  "designed_by": "F66 Architects' Office",
+  "designed_ts": "2026-06-11T09:13:04.497262Z",
+  "role_inventory": [
+    "DC Manager",
+    "Sysadmin",
+    "Network Engineer",
+    "Cooling Technician",
+    "Power Engineer",
+    "Security Watch"
+  ],
+  "advisory_only": true,
+  "interior_brief": {
+    "archetype": "data_centre",
+    "palette": [
+      "#0c1830",
+      "#1c3a60",
+      "#5fa8ff"
+    ],
+    "furniture": [
+      "desks",
+      "meeting area",
+      "common space",
+      "storage"
+    ],
+    "lighting": "task + ambient",
+    "mood": "humming",
+    "designed_by": "F66 Architects + F17 Graphics + Fitters team",
+    "fitted_at": "2026-06-11T14:39:45.620109Z",
+    "godot_scene_brief": "render an generic floor with neutral grey + accent per floor theme palette, professional mood, key furniture: desks, meeting area, common space",
+    "signature": "Server racks in rows, blue LED grid, raised floor",
+    "diversified_ts": "2026-06-11T17:57:45Z",
+    "diversified_by": "qsb_archetype_diversifier_v1"
+  },
+  "fitted_out": true,
+  "fit_out_ts": "2026-06-11T14:39:45.620109Z"
+}

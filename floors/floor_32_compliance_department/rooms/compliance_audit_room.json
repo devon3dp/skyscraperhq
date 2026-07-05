@@ -1,0 +1,34 @@
+{
+  "room_id": "compliance_audit_room",
+  "name": "Audit Room",
+  "category": "audit",
+  "purpose": "For internal audits and document review.",
+  "concierge_blurb": "A room with desks for detailed analysis of compliance documents.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 8.0,
+    "offset_z": -4.0,
+    "footprint_m": [
+      6,
+      9
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "desk",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "AUDIT ROOM",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 0
+  },
+  "floor": "floor_32"
+}

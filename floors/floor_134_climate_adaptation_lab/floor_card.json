@@ -1,0 +1,72 @@
+{
+  "floor_id": "floor_134",
+  "floor_number": 134,
+  "floor_name": "Climate Adaptation Lab",
+  "department": "designed_by_f66_architects_v1",
+  "zone": "ZONE E \u00b7 MID-RISE",
+  "archetype": "designed_by_f66_architects_v1",
+  "staff_lead": "F66 Architects' Office",
+  "tour_blurb": "engineering + policy",
+  "visitor_open": false,
+  "advisory_only": true,
+  "execution_mode": "PREVIEW_ONLY",
+  "skeleton": true,
+  "skeleton_source": "floor_manifest.json",
+  "skeleton_generated_ts": "2026-06-17",
+  "live_signals": {
+    "theme": null,
+    "categories": null,
+    "palette": null,
+    "tagline": null
+  },
+  "gate_posture": {
+    "advisory_only": true,
+    "execution_allowed": false,
+    "live_payments_enabled": false
+  },
+  "team_roster": [
+    {
+      "id": "f134.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "spawned_id": "8fa7a63a60",
+      "spawned_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F134",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f134.operator.01",
+      "spawned_id": "2b5f01bb55"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F134",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f134.operator.02",
+      "spawned_id": "f7e7fc2b3c"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F134",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f134.operator.03",
+      "spawned_id": "b96a230ec2"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F134",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f134.operator.04",
+      "spawned_id": "880db078f5"
+    }
+  ],
+  "floor_manager": "f134.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

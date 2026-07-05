@@ -1,0 +1,351 @@
+/*
+ * QSB Visible Dashboard Rebuild — Phase
+ * QSB_DASHBOARD_VISIBLE_REALITY_REBUILD_V1
+ *
+ * Adds visible artefacts the operator can see in the browser
+ * regardless of the underlying SVG/Babylon stack:
+ *   - VISIBLE-COCKPIT-V1 corner badge (proves the new build is live)
+ *   - Left-edge tall lift column (9 cells, large enough to read)
+ *   - OpenClaw orb anchored to the tower
+ *   - Cleaner header treatment (no duplicate version strings)
+ *   - Floor 42 Binance interior styling
+ */
+
+/* ── Build badge (proof the new build is live) ──────────────────── */
+.qsb-build-badge{
+  position:fixed; top:6px; left:50%; transform:translateX(-50%);
+  z-index:60;
+  padding:3px 9px; border-radius:14px;
+  background:linear-gradient(90deg,#22ffae 0%,#5ab0ff 100%);
+  color:#02141c; font: 10.4px/1 Inter, "Segoe UI", system-ui, sans-serif;
+  font-weight:800; letter-spacing:0.10em; text-transform:uppercase;
+  border:1px solid rgba(34,255,174,0.55);
+  box-shadow:0 0 14px rgba(34,255,174,0.65);
+  pointer-events:none;
+}
+
+/* ── Unified header treatment ───────────────────────────────────── */
+#hdr .hdr-title{
+  font-weight:700; color:#a0e8ff;
+  letter-spacing:0.05em;
+}
+#hdr .hdr-sub{
+  color:#9fb6d4; font-size:10.4px;
+}
+#hdr .hdr-sub #hdrBackend{
+  color:#ffd886;
+}
+
+/* ── Always-on left lift column ─────────────────────────────────── */
+.qsb-lift-column{
+  position:absolute; left:14px; bottom:14px;
+  width:78px;
+  z-index:33;
+  display:flex; flex-direction:column;
+  gap:3px; padding:5px;
+  background:rgba(8,16,28,0.92);
+  border:1px solid rgba(110,200,255,0.55);
+  border-radius:8px;
+  backdrop-filter:blur(8px);
+  box-shadow:0 0 18px rgba(60,120,200,0.55);
+  pointer-events:auto;
+}
+.qsb-lift-column-hdr{
+  text-align:center; color:#9fdcff;
+  font: 10.4px/1.3 Inter, "Segoe UI", system-ui, sans-serif;
+  font-weight:800; letter-spacing:0.06em;
+  border-bottom:1px solid rgba(110,200,255,0.35);
+  padding-bottom:3px; margin-bottom:2px;
+}
+.qsb-lift-cell{
+  display:grid; grid-template-columns:14px 1fr; gap:4px;
+  align-items:center;
+  padding:3px 4px; border-radius:4px;
+  background:rgba(20,40,70,0.6);
+  border-left:3px solid rgba(110,170,230,0.6);
+  font: 9.6px/1.15 Inter, "Segoe UI", system-ui, sans-serif;
+  color:#dfeefb;
+  cursor:default;
+}
+.qsb-lift-cell .ico{
+  width:10px; height:14px; border-radius:2px;
+  background:rgba(80,140,210,0.65);
+  border:1px solid rgba(150,210,255,0.6);
+}
+.qsb-lift-cell.moving{ border-left-color:#22ffae; }
+.qsb-lift-cell.moving .ico{ background:#22ffae; }
+.qsb-lift-cell.idle{ border-left-color:#7dc1ff; }
+.qsb-lift-cell.stale{ border-left-color:#ffb44a; }
+.qsb-lift-cell.stale .ico{ background:#ffb44a; }
+.qsb-lift-cell-name{ font-weight:700; color:#dfeefb; }
+.qsb-lift-cell-meta{ color:#9fb6d4; font-size:8.8px; }
+.qsb-lift-cell-status{ font-weight:700; font-size:8.6px; letter-spacing:0.05em; text-transform:uppercase; }
+.qsb-lift-cell.moving .qsb-lift-cell-status{ color:#22ffae; }
+.qsb-lift-cell.idle   .qsb-lift-cell-status{ color:#9fdcff; }
+.qsb-lift-cell.stale  .qsb-lift-cell-status{ color:#ffb44a; }
+
+/* Type colors */
+.qsb-lift-cell[data-type="main"] .qsb-lift-cell-name      { color:#a0e8ff; }
+.qsb-lift-cell[data-type="executive"] .qsb-lift-cell-name { color:#ffd47e; }
+.qsb-lift-cell[data-type="service"] .qsb-lift-cell-name   { color:#aaffc5; }
+.qsb-lift-cell[data-type="memory"] .qsb-lift-cell-name    { color:#d8b4ff; }
+.qsb-lift-cell[data-type="model"] .qsb-lift-cell-name     { color:#ffb6d6; }
+.qsb-lift-cell[data-type="security"] .qsb-lift-cell-name  { color:#ff9090; }
+.qsb-lift-cell[data-type="stairwell"] .qsb-lift-cell-name { color:#cad7e8; }
+
+/* ── OpenClaw orb anchored to the tower ─────────────────────────── */
+.qsb-openclaw-orb{
+  position:absolute;
+  width:32px; height:32px; border-radius:50%;
+  background:radial-gradient(circle at 35% 35%, #d8b4ff 0%, #6f3fff 65%, #2a0e6a 100%);
+  border:2px solid rgba(216,180,255,0.85);
+  box-shadow:0 0 24px rgba(170,80,255,0.85), inset 0 0 8px rgba(255,255,255,0.4);
+  z-index:35;
+  pointer-events:auto;
+  cursor:pointer;
+  transition: transform 0.5s ease, top 0.6s ease;
+}
+.qsb-openclaw-orb::after{
+  content:'';
+  position:absolute; inset:-6px; border-radius:50%;
+  border:1px dashed rgba(216,180,255,0.5);
+  animation: qsb-oc-spin 6s linear infinite;
+}
+@keyframes qsb-oc-spin{ from{transform:rotate(0)} to{transform:rotate(360deg)} }
+.qsb-openclaw-orb-label{
+  position:absolute; left:38px; top:6px; white-space:nowrap;
+  background:rgba(40,16,80,0.92); color:#e8d4ff;
+  padding:2px 6px; border-radius:4px;
+  border:1px solid rgba(216,180,255,0.5);
+  font: 10px/1.2 Inter, "Segoe UI", system-ui, sans-serif;
+  font-weight:600; letter-spacing:0.04em;
+}
+
+/* ── Selected floor indicator on tower ──────────────────────────── */
+.qsb-selected-floor-ring{
+  pointer-events:none;
+  filter:drop-shadow(0 0 6px rgba(255,217,128,0.9)) drop-shadow(0 0 12px rgba(255,217,128,0.45));
+}
+
+/* ── Floor 42 Binance interior ──────────────────────────────────── */
+.qsb-f42-binance{
+  position:absolute; top:46px; right:14px; bottom:14px;
+  width:680px; max-width:50vw; z-index:34;
+  padding:10px 12px;
+  background:rgba(8,16,28,0.92); color:#dfeefb;
+  border:1px solid rgba(252,213,53,0.55);
+  border-radius:8px;
+  backdrop-filter: blur(10px);
+  font: 11.5px/1.45 Inter, "Segoe UI", system-ui, sans-serif;
+  box-shadow: 0 0 18px rgba(200,150,30,0.55);
+  overflow:auto;
+}
+.qsb-f42-binance .f42-hdr{
+  display:grid; grid-template-columns:2fr 1fr 1fr;
+  gap:8px; margin-bottom:6px; align-items:center;
+}
+.qsb-f42-binance .f42-hdr-title{
+  color:#fcd535; font-weight:700; letter-spacing:0.03em;
+}
+.qsb-f42-binance .f42-hdr-mode{ color:#ffd886; font-size:10.6px; }
+.qsb-f42-binance .f42-hdr-locks{ text-align:right; color:#9fb6d4; font-size:10px; }
+.qsb-f42-binance .f42-grid{
+  display:grid; grid-template-columns:1fr 1fr; gap:8px;
+}
+.qsb-f42-binance .f42-card{
+  background:rgba(16,28,48,0.85); border:1px solid rgba(252,213,53,0.30);
+  border-radius:6px; padding:7px 9px;
+}
+.qsb-f42-binance .f42-card h5{
+  margin:0 0 5px; font-size:11px; color:#fcd535;
+  text-transform:uppercase; letter-spacing:0.04em;
+}
+.qsb-f42-binance .f42-room{
+  padding:3px 4px; border-bottom:1px solid rgba(40,60,90,0.4);
+  font-size:10.6px;
+}
+.qsb-f42-binance .f42-room b{ color:#a0e8ff; }
+.qsb-f42-binance .f42-room-workers{ display:flex; flex-wrap:wrap; gap:4px; margin-top:2px; }
+.qsb-f42-binance .f42-room-w{
+  background:rgba(20,40,70,0.7); color:#fce3a0;
+  padding:1px 5px; border-radius:3px; font-size:9.8px;
+  border:1px solid rgba(252,213,53,0.35);
+}
+.qsb-f42-binance .muted{ color:#9fb6d4; font-style:italic; padding:6px 0; }
+.qsb-f42-binance .qsb-no-config{
+  color:#ffb070; font-size:10px; padding:4px 0;
+}
+
+/* ── Penthouse panel ────────────────────────────────────────────── */
+.qsb-penthouse-panel{
+  position:absolute; top:46px; right:14px; bottom:14px;
+  width:760px; max-width:55vw; z-index:34;
+  padding:10px 12px;
+  background:rgba(8,16,28,0.92); color:#dfeefb;
+  border:1px solid rgba(216,180,255,0.55);
+  border-radius:8px;
+  backdrop-filter: blur(10px);
+  font: 11.5px/1.45 Inter, "Segoe UI", system-ui, sans-serif;
+  box-shadow: 0 0 18px rgba(170,80,255,0.55);
+  overflow:auto;
+}
+.ph-hdr{ margin-bottom:6px; }
+.ph-hdr-title{ color:#d8b4ff; font-weight:700; letter-spacing:0.04em; font-size:13px; }
+.ph-hdr-sub{ color:#bfe0ff; font-size:10.6px; margin-top:2px; }
+.ph-section{ margin-top:8px; }
+.ph-section h5{
+  margin:0 0 5px; font-size:11px; color:#d8b4ff;
+  text-transform:uppercase; letter-spacing:0.04em;
+}
+.ph-gauges{ display:grid; grid-template-columns:repeat(auto-fill,minmax(140px,1fr)); gap:5px; }
+.gauge{
+  padding:5px 7px; border-radius:5px;
+  background:rgba(16,28,48,0.85);
+  border:1px solid rgba(80,140,200,0.35);
+}
+.gauge-label{ color:#9fb6d4; font-size:10px; }
+.gauge-value{ color:#ffd886; font-weight:700; font-size:14px; }
+.gauge-unit{ color:#9fb6d4; font-size:10px; font-weight:400; }
+.gauge-ok{ border-left:3px solid #5bff9c; }
+.gauge-fail{ border-left:3px solid #ff5a78; }
+.gauge-stale{ border-left:3px solid #ffb44a; }
+.ph-zones{ display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:5px; }
+.ph-zone{
+  padding:5px 7px; border-radius:5px;
+  background:rgba(16,28,48,0.7); border:1px solid rgba(216,180,255,0.25);
+}
+.ph-zone-name{ color:#a0e8ff; font-weight:600; font-size:11px; }
+.ph-zone-resp{ color:#bfe0ff; font-size:10px; }
+.ph-repair{
+  padding:4px 6px; margin:3px 0; border-radius:4px;
+  background:rgba(16,28,48,0.7); border-left:3px solid #6ec1ff;
+  font-size:10.6px;
+}
+.ph-repair.sev-warn{ border-left-color:#ffd886; }
+.ph-repair.sev-info{ border-left-color:#6ec1ff; }
+.ph-repair-fix{ color:#9fb6d4; font-size:9.8px; margin-top:2px; font-family:monospace; }
+.ph-removed{ display:flex; flex-wrap:wrap; gap:3px; margin:3px 0; }
+.ph-removed-tag{
+  padding:1px 5px; border-radius:3px; font-size:9.6px;
+  background:rgba(40,40,40,0.5); color:#bcc; text-decoration:line-through;
+}
+.ph-tag-line{ color:#9fb6d4; font-size:9.8px; font-style:italic; margin-top:3px; }
+.ph-empty{ color:#9fb6d4; padding:14px; text-align:center; font-style:italic; }
+
+/* ── Floor 43 Stocks panel ──────────────────────────────────────── */
+.qsb-f43-stocks{
+  position:absolute; top:46px; right:14px; bottom:62px;
+  width:680px; max-width:50vw; z-index:34;
+  padding:10px 12px;
+  background:rgba(8,16,28,0.92); color:#dfeefb;
+  border:1px solid rgba(64,200,128,0.55);
+  border-radius:8px;
+  backdrop-filter: blur(10px);
+  font: 11.5px/1.45 Inter, "Segoe UI", system-ui, sans-serif;
+  box-shadow: 0 0 18px rgba(60,180,110,0.45);
+  overflow:auto;
+}
+.qsb-f43-stocks .f43-hdr{
+  display:grid; grid-template-columns:2fr 1fr 1fr; gap:8px;
+  margin-bottom:6px; align-items:center;
+}
+.qsb-f43-stocks .f43-hdr-title{ color:#5bff9c; font-weight:700; letter-spacing:0.03em; }
+.qsb-f43-stocks .f43-hdr-mode{ color:#a8ffc5; font-size:10.6px; }
+.qsb-f43-stocks .f43-hdr-locks{ text-align:right; color:#9fb6d4; font-size:10px; }
+.qsb-f43-stocks .f43-grid{ display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+.qsb-f43-stocks .f43-card{
+  background:rgba(16,28,48,0.85); border:1px solid rgba(64,200,128,0.30);
+  border-radius:6px; padding:7px 9px;
+}
+.qsb-f43-stocks .f43-card h5{
+  margin:0 0 5px; font-size:11px; color:#5bff9c;
+  text-transform:uppercase; letter-spacing:0.04em;
+}
+.qsb-f43-stocks .f43-room{ padding:3px 4px; border-bottom:1px solid rgba(40,60,90,0.4); font-size:10.6px; }
+.qsb-f43-stocks .f43-room b{ color:#a0e8ff; }
+.qsb-f43-stocks .f43-room-workers{ display:flex; flex-wrap:wrap; gap:4px; margin-top:2px; }
+.qsb-f43-stocks .f43-room-w{
+  background:rgba(20,40,70,0.7); color:#c0ffd5;
+  padding:1px 5px; border-radius:3px; font-size:9.8px;
+  border:1px solid rgba(64,200,128,0.35);
+}
+.qsb-f43-stocks .f43-tbl{ width:100%; border-collapse:collapse; font-size:10.6px; }
+.qsb-f43-stocks .f43-tbl th{ color:#8aa6c6; text-align:left; font-weight:600; padding:2px 4px; border-bottom:1px solid rgba(64,200,128,0.3); }
+.qsb-f43-stocks .f43-tbl td{ padding:2px 4px; border-bottom:1px solid rgba(40,60,90,0.4); }
+.qsb-f43-stocks .muted{ color:#9fb6d4; font-style:italic; padding:6px 0; }
+
+/* ── Intercom bus strip (bottom of stage when 41/42/43 selected) ── */
+.qsb-intercom-strip{
+  position:absolute; left:14px; right:14px; bottom:14px;
+  height:44px; padding:5px 9px;
+  background:rgba(8,16,28,0.92); color:#dfeefb;
+  border:1px solid rgba(120,200,255,0.45);
+  border-radius:7px;
+  backdrop-filter:blur(8px);
+  font: 10.4px/1.3 Inter, "Segoe UI", system-ui, sans-serif;
+  overflow:hidden;
+  z-index:33;
+  box-shadow: 0 0 14px rgba(40,80,140,0.45);
+}
+.ic-hdr{
+  color:#9fdcff; font-weight:700; letter-spacing:0.04em;
+  text-transform:uppercase; font-size:9.8px;
+  border-bottom:1px solid rgba(120,200,255,0.3);
+  padding-bottom:2px; margin-bottom:3px;
+}
+.ic-pkt{
+  display:inline-grid; grid-template-columns:18px 36px 90px 110px 1fr 50px; gap:8px;
+  align-items:center; padding:1px 0; width:100%;
+}
+.ic-pkt.send{ color:#a8d4ff; }
+.ic-pkt.recv{ color:#a8ffc5; }
+.ic-arrow{ font-weight:800; }
+.ic-other{ color:#ffd886; font-weight:600; }
+.ic-lift{ color:#bfe0ff; font-size:9.8px; }
+.ic-kind{ color:#dfeefb; }
+.ic-summary{ color:#9fb6d4; }
+.ic-ts{ color:#8aa6c6; text-align:right; font-family:monospace; }
+
+/* ── 3D V2 Skyscraper polish ─────────────────────────────────────── */
+/* Phase: QSB_3D_SKYSCRAPER_LIVE_REBUILD_V2                          */
+
+/* Force 3D canvas visible immediately, regardless of .use-3d class. */
+#qsbCanvas{
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  z-index: 2;
+}
+/* Keep SVG underneath at low opacity so my overlays still work. */
+#qsbTower2D{
+  opacity: 0.30 !important;
+  z-index: 1;
+}
+.stage-body.use-3d #qsbTower2D{
+  opacity: 0.18 !important;
+}
+
+/* Cinematic sky behind canvas */
+.stage-body{
+  background:
+    radial-gradient(ellipse at 50% 6%, rgba(160,220,255,0.20) 0%, rgba(8,18,38,0) 50%),
+    radial-gradient(ellipse at 50% 98%, rgba(60,120,200,0.30) 0%, rgba(4,10,20,0) 65%),
+    linear-gradient(180deg,#020618 0%, #000204 100%) !important;
+}
+
+/* LIVE 3D V2 badge */
+.qsb-3d-v2-badge{
+  position:fixed; top:30px; left:50%; transform:translateX(-50%);
+  z-index:61;
+  padding:3px 11px; border-radius:14px;
+  background:linear-gradient(90deg,#ff9a4a 0%,#ffd35b 100%);
+  color:#1a0a02; font: 10.4px/1 Inter, "Segoe UI", system-ui, sans-serif;
+  font-weight:800; letter-spacing:0.08em; text-transform:uppercase;
+  border:1px solid rgba(255,180,80,0.55);
+  box-shadow:0 0 14px rgba(255,180,80,0.65);
+  pointer-events:none;
+  font-feature-settings: 'tnum' on;
+}
+.qsb-3d-v2-badge.error{
+  background:linear-gradient(90deg,#ff5a78 0%,#ff8aa0 100%);
+  color:#fff; box-shadow:0 0 14px rgba(255,90,120,0.65);
+}

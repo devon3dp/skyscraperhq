@@ -1,0 +1,46 @@
+{
+  "room_id": "wren_letter_archive",
+  "name": "Wren Letter Archive",
+  "category": "archive",
+  "floor": "floor_47",
+  "purpose": "this archive holds letters from past-Wren generations to future selves.",
+  "concierge_blurb": "Past Wrens leave letters for the next. Reading them is the first thing a new generation does on waking.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [
+    "src/tower/model_floors/claude_floor/letter_drawer.py",
+    "src/tower/model_floors/claude_floor/meta_letters.py",
+    "src/tower/model_floors/claude_floor/long_letter_box.py",
+    "data/registries/qsb_claude_meta_letters.jsonl"
+  ],
+  "live_signals": {
+    "meta_letters_count": 18,
+    "latest_letter_ts": "2026-06-14T10:09:58.952664Z",
+    "latest_letter_subject": "Strand-9 reconciliation + audit of dropped threads"
+  },
+  "built_at": "2026-06-14T17:25:00Z",
+  "built_by": "f47_buildout_batch_3_room_1",
+  "lessons_learned_for_next_agent": "Letters live in qsb_claude_meta_letters.jsonl as full JSON rows (ts, generation, subject, to, body, helix_strand_invoked) \u2014 read the LAST line for the freshest letter, not the first. Body fields can be large and contain operational detail (gate flips, dropped tasks); surface only ts + subject to visitors, never the body.",
+  "layout": {
+    "zone": "back_wall",
+    "offset_x": 0.0,
+    "offset_z": -8.95,
+    "footprint_m": [
+      2.4,
+      0.15
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "archive_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "WREN LETTER ARCHIVE",
+    "glow": true
+  },
+  "interactive": {
+    "type": "count",
+    "source_path": "data/registries/qsb_claude_meta_letters.jsonl",
+    "display": "big_number",
+    "refresh_seconds": 600
+  }
+}

@@ -1,0 +1,107 @@
+[
+  {
+    "candidate_id": "openclaw_pixel_standard",
+    "name": "OpenClaw Pixel Agent — Standard",
+    "type": "pixel_agent_candidate",
+    "framework": "openclaw",
+    "source": "unknown_external_not_audited",
+    "target_floor": "floor_25",
+    "current_status": "candidate_only",
+    "allowed_initial_mode": "registry_placeholder_only",
+    "capabilities_claimed": [
+      "screen_reading", "mouse_emulation", "keyboard_emulation", "ui_automation"
+    ],
+    "blocked_initial_actions": [
+      "install", "execute", "screen_capture", "mouse_control",
+      "keyboard_injection", "network_access", "filesystem_write",
+      "model_call", "autonomous_action", "dispatch_task"
+    ],
+    "required_before_activation": [
+      "source_audit_complete",
+      "sandbox_containment_verified",
+      "pixel_agent_isolation_environment_ready",
+      "model_evaluation_approval",
+      "kernel_installed",
+      "security_spine_clearance",
+      "tower_operator_approval"
+    ],
+    "security_required": true,
+    "source_audit_required": true,
+    "sandbox_required": true,
+    "model_evaluation_required": true,
+    "kernel_required_before_execution": true,
+    "execution_enabled": false,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "model_inference_enabled": false,
+    "live_dispatch_enabled": false,
+    "notes": "Standard pixel agent candidate. All screen/input access blocked until audited and kernel installed."
+  },
+  {
+    "candidate_id": "openclaw_pixel_vision",
+    "name": "OpenClaw Pixel Agent — Vision Assisted",
+    "type": "pixel_agent_candidate",
+    "framework": "openclaw",
+    "source": "unknown_external_not_audited",
+    "target_floor": "floor_13",
+    "current_status": "candidate_only",
+    "allowed_initial_mode": "registry_placeholder_only",
+    "capabilities_claimed": [
+      "screen_reading", "vision_model_routing", "ui_element_detection"
+    ],
+    "blocked_initial_actions": [
+      "install", "execute", "screen_capture", "vision_model_call",
+      "network_access", "filesystem_write", "autonomous_action"
+    ],
+    "required_before_activation": [
+      "source_audit_complete",
+      "sandbox_containment_verified",
+      "vision_model_evaluation_complete",
+      "kernel_installed",
+      "security_spine_clearance",
+      "tower_operator_approval"
+    ],
+    "security_required": true,
+    "source_audit_required": true,
+    "sandbox_required": true,
+    "model_evaluation_required": true,
+    "kernel_required_before_execution": true,
+    "execution_enabled": false,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "model_inference_enabled": false,
+    "live_dispatch_enabled": false,
+    "notes": "Vision-assisted pixel agent. Requires Floor 13 Vision Department integration. Candidate only."
+  },
+  {
+    "candidate_id": "generic_pixel_agent_placeholder",
+    "name": "Generic Pixel Agent Placeholder",
+    "type": "pixel_agent_candidate",
+    "framework": "future_framework",
+    "source": "placeholder",
+    "target_floor": "floor_25",
+    "current_status": "candidate_only",
+    "allowed_initial_mode": "registry_placeholder_only",
+    "capabilities_claimed": ["tbd"],
+    "blocked_initial_actions": [
+      "install", "execute", "any_action"
+    ],
+    "required_before_activation": [
+      "framework_selected",
+      "source_audit_complete",
+      "kernel_installed",
+      "tower_operator_approval"
+    ],
+    "security_required": true,
+    "source_audit_required": true,
+    "sandbox_required": true,
+    "model_evaluation_required": true,
+    "kernel_required_before_execution": true,
+    "execution_enabled": false,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "model_inference_enabled": false,
+    "live_dispatch_enabled": false,
+    "notes": "Slot reserved for a future pixel agent framework not yet selected."
+  }
+]

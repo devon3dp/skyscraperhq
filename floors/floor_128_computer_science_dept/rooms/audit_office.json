@@ -1,0 +1,34 @@
+{
+  "room_id": "audit_office",
+  "name": "Audit Office",
+  "category": "admin",
+  "purpose": "An office for conducting audits of computer science operations.",
+  "concierge_blurb": "A desk with a monitor and files, surrounded by bookshelves.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.5,
+    "offset_z": -1.0,
+    "footprint_m": [
+      8,
+      6
+    ],
+    "height_m": 2.3
+  },
+  "render": {
+    "primary_prop": "desk",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Audit Office",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_128"
+}

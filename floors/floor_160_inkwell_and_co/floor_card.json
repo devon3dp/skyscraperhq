@@ -1,0 +1,70 @@
+{
+  "floor_id": "floor_160",
+  "floor_number": 160,
+  "floor_name": "Inkwell & Co",
+  "department": "public_dropship_storefront_v1",
+  "zone": "ZONE F \u00b7 CROWN",
+  "archetype": "public_dropship_storefront_v1",
+  "staff_lead": "F66 Architects' Office",
+  "tour_blurb": "Inkwell \u2014 words made beautiful.",
+  "visitor_open": false,
+  "advisory_only": true,
+  "execution_mode": "PREVIEW_ONLY",
+  "skeleton": true,
+  "skeleton_source": "floor_manifest.json",
+  "skeleton_generated_ts": "2026-06-17",
+  "live_signals": {
+    "theme": "stationery_and_calligraphy",
+    "categories": [
+      "notebooks",
+      "pens",
+      "journal_kits",
+      "calligraphy",
+      "desk_accessories"
+    ],
+    "palette": "ivory / midnight / gold",
+    "tagline": "Inkwell \u2014 words made beautiful."
+  },
+  "gate_posture": {
+    "advisory_only": true,
+    "execution_allowed": false,
+    "live_payments_enabled": false
+  },
+  "team_roster": [
+    {
+      "id": "f160.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "spawned_id": "eea0176851",
+      "spawned_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F160",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f160.operator.01",
+      "spawned_id": "65ee8e1992"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F160",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f160.operator.02",
+      "spawned_id": "94c8ddddd0"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F160",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f160.operator.03",
+      "spawned_id": "6816906d51"
+    }
+  ],
+  "floor_manager": "f160.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

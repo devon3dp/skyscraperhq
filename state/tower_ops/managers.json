@@ -1,0 +1,658 @@
+{
+  "registry": "qsb_tower_ops_management_chain_v1",
+  "phase": "QSB_TOWER_OPERATIONS_V1",
+  "ts": "2026-06-08T15:33:30.596332+00:00",
+  "managers": [
+    {
+      "manager_id": "fm_research_facility_3",
+      "display_name": "Research Floor Manager",
+      "manager_type": "floor_manager",
+      "assigned_scope": {
+        "floor_id": "floor_03",
+        "floor_number": 3,
+        "department": "Research Department",
+        "department_id": "research_facility",
+        "zone_id": "infrastructure_zone",
+        "zone_name": "Infrastructure Zone"
+      },
+      "reports_to": "Research Zone Manager",
+      "direct_reports": [],
+      "health": "healthy",
+      "latest_report_ts": "2026-06-08T15:33:30.596256+00:00",
+      "latest_report": "Floor live \u00b7 roster reporting \u00b7 execution locks closed."
+    },
+    {
+      "manager_id": "fm_media_14",
+      "display_name": "Media Floor Manager",
+      "manager_type": "floor_manager",
+      "assigned_scope": {
+        "floor_id": "floor_14",
+        "floor_number": 14,
+        "department": "Media Department",
+        "department_id": "media",
+        "zone_id": "infrastructure_zone",
+        "zone_name": "Infrastructure Zone"
+      },
+      "reports_to": "Media/Sound Zone Manager",
+      "direct_reports": [],
+      "health": "healthy",
+      "latest_report_ts": "2026-06-08T15:33:30.596261+00:00",
+      "latest_report": "Floor live \u00b7 roster reporting \u00b7 execution locks closed."
+    },
+    {
+      "manager_id": "fm_speech_audio_15",
+      "display_name": "Speech Floor Manager",
+      "manager_type": "floor_manager",
+      "assigned_scope": {
+        "floor_id": "floor_15",
+        "floor_number": 15,
+        "department": "Speech and Audio Department",
+        "department_id": "speech_audio",
+        "zone_id": "infrastructure_zone",
+        "zone_name": "Infrastructure Zone"
+      },
+      "reports_to": "Media/Sound Zone Manager",
+      "direct_reports": [],
+      "health": "healthy",
+      "latest_report_ts": "2026-06-08T15:33:30.596264+00:00",
+      "latest_report": "Floor live \u00b7 roster reporting \u00b7 execution locks closed."
+    },
+    {
+      "manager_id": "fm_airllm_advisory_23",
+      "display_name": "AIR LLM Floor Manager",
+      "manager_type": "floor_manager",
+      "assigned_scope": {
+        "floor_id": "floor_23",
+        "floor_number": 23,
+        "department": "AIR LLM Operations Department",
+        "department_id": "airllm_advisory",
+        "zone_id": "intelligence_zone",
+        "zone_name": "Intelligence Zone"
+      },
+      "reports_to": "Intelligence Zone Manager",
+      "direct_reports": [],
+      "health": "healthy",
+      "latest_report_ts": "2026-06-08T15:33:30.596266+00:00",
+      "latest_report": "Floor live \u00b7 roster reporting \u00b7 execution locks closed."
+    },
+    {
+      "manager_id": "fm_security_28",
+      "display_name": "Security Floor Manager",
+      "manager_type": "floor_manager",
+      "assigned_scope": {
+        "floor_id": "floor_28",
+        "floor_number": 28,
+        "department": "Security Department",
+        "department_id": "security",
+        "zone_id": "governance_zone",
+        "zone_name": "Governance Zone"
+      },
+      "reports_to": "Governance Zone Manager",
+      "direct_reports": [],
+      "health": "healthy",
+      "latest_report_ts": "2026-06-08T15:33:30.596269+00:00",
+      "latest_report": "Floor live \u00b7 roster reporting \u00b7 execution locks closed."
+    },
+    {
+      "manager_id": "fm_permissions_risk_30",
+      "display_name": "Risk Floor Manager",
+      "manager_type": "floor_manager",
+      "assigned_scope": {
+        "floor_id": "floor_30",
+        "floor_number": 30,
+        "department": "Permissions Department",
+        "department_id": "permissions_risk",
+        "zone_id": "governance_zone",
+        "zone_name": "Governance Zone"
+      },
+      "reports_to": "Governance Zone Manager",
+      "direct_reports": [],
+      "health": "healthy",
+      "latest_report_ts": "2026-06-08T15:33:30.596271+00:00",
+      "latest_report": "Floor live \u00b7 roster reporting \u00b7 execution locks closed."
+    },
+    {
+      "manager_id": "fm_audit_ledger_31",
+      "display_name": "Audit Floor Manager",
+      "manager_type": "floor_manager",
+      "assigned_scope": {
+        "floor_id": "floor_31",
+        "floor_number": 31,
+        "department": "Audit Department",
+        "department_id": "audit_ledger",
+        "zone_id": "governance_zone",
+        "zone_name": "Governance Zone"
+      },
+      "reports_to": "Governance Zone Manager",
+      "direct_reports": [],
+      "health": "healthy",
+      "latest_report_ts": "2026-06-08T15:33:30.596273+00:00",
+      "latest_report": "Floor live \u00b7 roster reporting \u00b7 execution locks closed."
+    },
+    {
+      "manager_id": "fm_maintenance_33",
+      "display_name": "Maintenance Floor Manager",
+      "manager_type": "floor_manager",
+      "assigned_scope": {
+        "floor_id": "floor_33",
+        "floor_number": 33,
+        "department": "Diagnostics Department",
+        "department_id": "maintenance",
+        "zone_id": "governance_zone",
+        "zone_name": "Governance Zone"
+      },
+      "reports_to": "Governance Zone Manager",
+      "direct_reports": [],
+      "health": "healthy",
+      "latest_report_ts": "2026-06-08T15:33:30.596275+00:00",
+      "latest_report": "Floor live \u00b7 roster reporting \u00b7 execution locks closed."
+    },
+    {
+      "manager_id": "fm_it_networking_35",
+      "display_name": "IT Networking Floor Manager",
+      "manager_type": "floor_manager",
+      "assigned_scope": {
+        "floor_id": "floor_35",
+        "floor_number": 35,
+        "department": "Infrastructure Services Department",
+        "department_id": "it_networking",
+        "zone_id": "governance_zone",
+        "zone_name": "Governance Zone"
+      },
+      "reports_to": "Governance Zone Manager",
+      "direct_reports": [],
+      "health": "healthy",
+      "latest_report_ts": "2026-06-08T15:33:30.596277+00:00",
+      "latest_report": "Floor live \u00b7 roster reporting \u00b7 execution locks closed."
+    },
+    {
+      "manager_id": "fm_strategy_simulation_37",
+      "display_name": "Strategy Floor Manager",
+      "manager_type": "floor_manager",
+      "assigned_scope": {
+        "floor_id": "floor_37",
+        "floor_number": 37,
+        "department": "Simulation Labs",
+        "department_id": "strategy_simulation",
+        "zone_id": "operations_zone",
+        "zone_name": "Operations Zone"
+      },
+      "reports_to": "Operations Zone Manager",
+      "direct_reports": [],
+      "health": "healthy",
+      "latest_report_ts": "2026-06-08T15:33:30.596279+00:00",
+      "latest_report": "Floor live \u00b7 roster reporting \u00b7 execution locks closed."
+    },
+    {
+      "manager_id": "fm_recruitment_agency_38",
+      "display_name": "Recruitment Floor Manager",
+      "manager_type": "floor_manager",
+      "assigned_scope": {
+        "floor_id": "floor_38",
+        "floor_number": 38,
+        "department": "Worker Recruitment Agency",
+        "department_id": "recruitment_agency",
+        "zone_id": "operations_zone",
+        "zone_name": "Operations Zone"
+      },
+      "reports_to": "Operations Zone Manager",
+      "direct_reports": [],
+      "health": "healthy",
+      "latest_report_ts": "2026-06-08T15:33:30.596281+00:00",
+      "latest_report": "Floor live \u00b7 roster reporting \u00b7 execution locks closed."
+    },
+    {
+      "manager_id": "fm_trading_fx_41",
+      "display_name": "OANDA Floor Manager",
+      "manager_type": "floor_manager",
+      "assigned_scope": {
+        "floor_id": "floor_41",
+        "floor_number": 41,
+        "department": "OANDA Trading Floor",
+        "department_id": "trading_fx",
+        "zone_id": "trading_zone",
+        "zone_name": "Trading Zone"
+      },
+      "reports_to": "Trading Zone Manager",
+      "direct_reports": [],
+      "health": "healthy",
+      "latest_report_ts": "2026-06-08T15:33:30.596283+00:00",
+      "latest_report": "Floor live \u00b7 roster reporting \u00b7 execution locks closed."
+    },
+    {
+      "manager_id": "fm_vacant_44",
+      "display_name": "Accounts Floor Manager",
+      "manager_type": "floor_manager",
+      "assigned_scope": {
+        "floor_id": "floor_44",
+        "floor_number": 44,
+        "department": "Future Systems / Vacant",
+        "department_id": "vacant",
+        "zone_id": "trading_zone",
+        "zone_name": "Trading Zone"
+      },
+      "reports_to": "Trading Zone Manager",
+      "direct_reports": [],
+      "health": "healthy",
+      "latest_report_ts": "2026-06-08T15:33:30.596285+00:00",
+      "latest_report": "Floor live \u00b7 roster reporting \u00b7 execution locks closed."
+    },
+    {
+      "manager_id": "fm_vacant_45",
+      "display_name": "Quantum Floor Manager",
+      "manager_type": "floor_manager",
+      "assigned_scope": {
+        "floor_id": "floor_45",
+        "floor_number": 45,
+        "department": "Future Systems / Vacant",
+        "department_id": "vacant",
+        "zone_id": "trading_zone",
+        "zone_name": "Trading Zone"
+      },
+      "reports_to": "Operations Zone Manager",
+      "direct_reports": [],
+      "health": "healthy",
+      "latest_report_ts": "2026-06-08T15:33:30.596287+00:00",
+      "latest_report": "Floor live \u00b7 roster reporting \u00b7 execution locks closed."
+    },
+    {
+      "manager_id": "fm_trading_crypto_42",
+      "display_name": "Binance Floor Manager",
+      "manager_type": "floor_manager",
+      "assigned_scope": {
+        "floor_id": "floor_42",
+        "floor_number": 42,
+        "department": "Binance Trading Floor",
+        "department_id": "trading_crypto",
+        "zone_id": "trading_zone",
+        "zone_name": "Trading Zone"
+      },
+      "reports_to": "Trading Zone Manager",
+      "direct_reports": [],
+      "health": "healthy",
+      "latest_report_ts": "2026-06-08T15:33:30.596289+00:00",
+      "latest_report": "Floor live \u00b7 roster reporting \u00b7 execution locks closed."
+    },
+    {
+      "manager_id": "fm_trading_equities_43",
+      "display_name": "Stocks Floor Manager",
+      "manager_type": "floor_manager",
+      "assigned_scope": {
+        "floor_id": "floor_43",
+        "floor_number": 43,
+        "department": "Stock Exchange Trading Floor",
+        "department_id": "trading_equities",
+        "zone_id": "trading_zone",
+        "zone_name": "Trading Zone"
+      },
+      "reports_to": "Trading Zone Manager",
+      "direct_reports": [],
+      "health": "healthy",
+      "latest_report_ts": "2026-06-08T15:33:30.596290+00:00",
+      "latest_report": "Floor live \u00b7 roster reporting \u00b7 execution locks closed."
+    },
+    {
+      "manager_id": "fm_tower_command_53",
+      "display_name": "Tower Command Floor Manager",
+      "manager_type": "floor_manager",
+      "assigned_scope": {
+        "floor_id": "floor_53",
+        "floor_number": 53,
+        "department": "Tower Command Department",
+        "department_id": "tower_command",
+        "zone_id": "executive_zone",
+        "zone_name": "Executive Zone"
+      },
+      "reports_to": "Penthouse Zone Manager",
+      "direct_reports": [],
+      "health": "healthy",
+      "latest_report_ts": "2026-06-08T15:33:30.596293+00:00",
+      "latest_report": "Floor live \u00b7 roster reporting \u00b7 execution locks closed."
+    },
+    {
+      "manager_id": "fm_penthouse_kernel_55",
+      "display_name": "Penthouse Floor Manager",
+      "manager_type": "floor_manager",
+      "assigned_scope": {
+        "floor_id": "penthouse",
+        "floor_number": 55,
+        "department": "Penthouse \u2014 QSB Kernel",
+        "department_id": "penthouse_kernel",
+        "zone_id": "penthouse_zone",
+        "zone_name": "Penthouse Kernel Zone"
+      },
+      "reports_to": "Penthouse Zone Manager",
+      "direct_reports": [],
+      "health": "healthy",
+      "latest_report_ts": "2026-06-08T15:33:30.596295+00:00",
+      "latest_report": "Floor live \u00b7 roster reporting \u00b7 execution locks closed."
+    },
+    {
+      "manager_id": "zm_trading_zone_manager",
+      "display_name": "Trading Zone Manager",
+      "manager_type": "zone_manager",
+      "assigned_scope": {
+        "floors": [
+          41,
+          42,
+          43,
+          44
+        ],
+        "zone_id": "trading"
+      },
+      "reports_to": "Tower Operations Manager",
+      "direct_reports": [
+        "fm_trading_fx_41",
+        "fm_trading_crypto_42",
+        "fm_trading_equities_43",
+        "fm_vacant_44"
+      ],
+      "health": "healthy",
+      "latest_report_ts": "2026-06-08T15:33:30.596301+00:00",
+      "latest_report": "Zone live \u00b7 floors reporting \u00b7 execution locks closed."
+    },
+    {
+      "manager_id": "zm_intelligence_zone_manager",
+      "display_name": "Intelligence Zone Manager",
+      "manager_type": "zone_manager",
+      "assigned_scope": {
+        "floors": [
+          23,
+          24,
+          25,
+          26,
+          27
+        ],
+        "zone_id": "intelligence"
+      },
+      "reports_to": "Tower Operations Manager",
+      "direct_reports": [
+        "fm_airllm_advisory_23"
+      ],
+      "health": "healthy",
+      "latest_report_ts": "2026-06-08T15:33:30.596305+00:00",
+      "latest_report": "Zone live \u00b7 floors reporting \u00b7 execution locks closed."
+    },
+    {
+      "manager_id": "zm_operations_zone_manager",
+      "display_name": "Operations Zone Manager",
+      "manager_type": "zone_manager",
+      "assigned_scope": {
+        "floors": [
+          37,
+          38,
+          39,
+          40,
+          45
+        ],
+        "zone_id": "operations"
+      },
+      "reports_to": "Tower Operations Manager",
+      "direct_reports": [
+        "fm_strategy_simulation_37",
+        "fm_recruitment_agency_38",
+        "fm_vacant_45"
+      ],
+      "health": "healthy",
+      "latest_report_ts": "2026-06-08T15:33:30.596310+00:00",
+      "latest_report": "Zone live \u00b7 floors reporting \u00b7 execution locks closed."
+    },
+    {
+      "manager_id": "zm_governance_zone_manager",
+      "display_name": "Governance Zone Manager",
+      "manager_type": "zone_manager",
+      "assigned_scope": {
+        "floors": [
+          28,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36
+        ],
+        "zone_id": "governance"
+      },
+      "reports_to": "Tower Operations Manager",
+      "direct_reports": [
+        "fm_security_28",
+        "fm_permissions_risk_30",
+        "fm_audit_ledger_31",
+        "fm_maintenance_33",
+        "fm_it_networking_35"
+      ],
+      "health": "healthy",
+      "latest_report_ts": "2026-06-08T15:33:30.596313+00:00",
+      "latest_report": "Zone live \u00b7 floors reporting \u00b7 execution locks closed."
+    },
+    {
+      "manager_id": "zm_penthouse_zone_manager",
+      "display_name": "Penthouse Zone Manager",
+      "manager_type": "zone_manager",
+      "assigned_scope": {
+        "floors": [
+          53,
+          55
+        ],
+        "zone_id": "penthouse"
+      },
+      "reports_to": "Tower Operations Manager",
+      "direct_reports": [
+        "fm_tower_command_53",
+        "fm_penthouse_kernel_55"
+      ],
+      "health": "healthy",
+      "latest_report_ts": "2026-06-08T15:33:30.596315+00:00",
+      "latest_report": "Zone live \u00b7 floors reporting \u00b7 execution locks closed."
+    },
+    {
+      "manager_id": "zm_research_zone_manager",
+      "display_name": "Research Zone Manager",
+      "manager_type": "zone_manager",
+      "assigned_scope": {
+        "floors": [
+          3,
+          4,
+          5
+        ],
+        "zone_id": "research"
+      },
+      "reports_to": "Tower Operations Manager",
+      "direct_reports": [
+        "fm_research_facility_3"
+      ],
+      "health": "healthy",
+      "latest_report_ts": "2026-06-08T15:33:30.596317+00:00",
+      "latest_report": "Zone live \u00b7 floors reporting \u00b7 execution locks closed."
+    },
+    {
+      "manager_id": "zm_media_sound_zone_manager",
+      "display_name": "Media/Sound Zone Manager",
+      "manager_type": "zone_manager",
+      "assigned_scope": {
+        "floors": [
+          14,
+          15
+        ],
+        "zone_id": "media/sound"
+      },
+      "reports_to": "Tower Operations Manager",
+      "direct_reports": [
+        "fm_media_14",
+        "fm_speech_audio_15"
+      ],
+      "health": "healthy",
+      "latest_report_ts": "2026-06-08T15:33:30.596319+00:00",
+      "latest_report": "Zone live \u00b7 floors reporting \u00b7 execution locks closed."
+    },
+    {
+      "manager_id": "tower_operations_manager",
+      "display_name": "Tower Operations Manager",
+      "manager_type": "tower_manager",
+      "assigned_scope": {
+        "tower": true,
+        "role": "Tower-wide operations coordination \u2014 reports to Kernel."
+      },
+      "reports_to": "QSB Kernel (active_local_only)",
+      "direct_reports": [],
+      "health": "healthy",
+      "latest_report_ts": "2026-06-08T15:33:30.596321+00:00",
+      "latest_report": "Tower-wide operations coordination \u2014 reports to Kernel."
+    },
+    {
+      "manager_id": "kernel_liaison_manager",
+      "display_name": "Kernel Liaison Manager",
+      "manager_type": "tower_manager",
+      "assigned_scope": {
+        "tower": true,
+        "role": "Direct reporting interface to QSB Kernel."
+      },
+      "reports_to": "QSB Kernel (active_local_only)",
+      "direct_reports": [],
+      "health": "healthy",
+      "latest_report_ts": "2026-06-08T15:33:30.596323+00:00",
+      "latest_report": "Direct reporting interface to QSB Kernel."
+    },
+    {
+      "manager_id": "chief_overseer",
+      "display_name": "Chief Overseer",
+      "manager_type": "tower_manager",
+      "assigned_scope": {
+        "tower": true,
+        "role": "Chief of all overseers."
+      },
+      "reports_to": "Tower Operations Manager",
+      "direct_reports": [],
+      "health": "healthy",
+      "latest_report_ts": "2026-06-08T15:33:30.596324+00:00",
+      "latest_report": "Chief of all overseers."
+    },
+    {
+      "manager_id": "chief_maintenance_officer",
+      "display_name": "Chief Maintenance Officer",
+      "manager_type": "tower_manager",
+      "assigned_scope": {
+        "tower": true,
+        "role": "Owns Diagnostics + Maintenance floor reporting."
+      },
+      "reports_to": "Tower Operations Manager",
+      "direct_reports": [],
+      "health": "healthy",
+      "latest_report_ts": "2026-06-08T15:33:30.596325+00:00",
+      "latest_report": "Owns Diagnostics + Maintenance floor reporting."
+    },
+    {
+      "manager_id": "chief_security_officer",
+      "display_name": "Chief Security Officer",
+      "manager_type": "tower_manager",
+      "assigned_scope": {
+        "tower": true,
+        "role": "Owns Security floor + lock matrix."
+      },
+      "reports_to": "Tower Operations Manager",
+      "direct_reports": [],
+      "health": "healthy",
+      "latest_report_ts": "2026-06-08T15:33:30.596326+00:00",
+      "latest_report": "Owns Security floor + lock matrix."
+    },
+    {
+      "manager_id": "chief_it_officer",
+      "display_name": "Chief IT / Networking Officer",
+      "manager_type": "tower_manager",
+      "assigned_scope": {
+        "tower": true,
+        "role": "Owns Infrastructure Services floor."
+      },
+      "reports_to": "Tower Operations Manager",
+      "direct_reports": [],
+      "health": "healthy",
+      "latest_report_ts": "2026-06-08T15:33:30.596327+00:00",
+      "latest_report": "Owns Infrastructure Services floor."
+    },
+    {
+      "manager_id": "chief_research_coord",
+      "display_name": "Chief Research Coordinator",
+      "manager_type": "tower_manager",
+      "assigned_scope": {
+        "tower": true,
+        "role": "Owns Research floor."
+      },
+      "reports_to": "Tower Operations Manager",
+      "direct_reports": [],
+      "health": "healthy",
+      "latest_report_ts": "2026-06-08T15:33:30.596328+00:00",
+      "latest_report": "Owns Research floor."
+    },
+    {
+      "manager_id": "chief_trading_telemetry",
+      "display_name": "Chief Trading Telemetry Officer",
+      "manager_type": "tower_manager",
+      "assigned_scope": {
+        "tower": true,
+        "role": "Owns OANDA/Binance/Stocks read-only telemetry."
+      },
+      "reports_to": "Tower Operations Manager",
+      "direct_reports": [],
+      "health": "healthy",
+      "latest_report_ts": "2026-06-08T15:33:30.596329+00:00",
+      "latest_report": "Owns OANDA/Binance/Stocks read-only telemetry."
+    },
+    {
+      "manager_id": "colonel_concierge",
+      "display_name": "Colonel Concierge",
+      "manager_type": "tower_manager",
+      "assigned_scope": {
+        "tower": true,
+        "role": "Penthouse concierge serving Ross."
+      },
+      "reports_to": "Tower Operations Manager",
+      "direct_reports": [],
+      "health": "healthy",
+      "latest_report_ts": "2026-06-08T15:33:30.596330+00:00",
+      "latest_report": "Penthouse concierge serving Ross."
+    },
+    {
+      "manager_id": "colonel_butler",
+      "display_name": "Colonel Butler",
+      "manager_type": "tower_manager",
+      "assigned_scope": {
+        "tower": true,
+        "role": "Penthouse butler \u2014 daily briefings."
+      },
+      "reports_to": "Tower Operations Manager",
+      "direct_reports": [],
+      "health": "healthy",
+      "latest_report_ts": "2026-06-08T15:33:30.596331+00:00",
+      "latest_report": "Penthouse butler \u2014 daily briefings."
+    }
+  ],
+  "live_trading_enabled": false,
+  "order_execution_enabled": false,
+  "practice_order_execution_enabled": false,
+  "binance_order_execution_enabled": false,
+  "binance_live_trading_enabled": false,
+  "stock_order_execution_enabled": false,
+  "stock_live_trading_enabled": false,
+  "stock_paper_order_execution_enabled": false,
+  "cross_market_execution_enabled": false,
+  "worker_execution_enabled": false,
+  "recruited_worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "external_provider_execution_enabled": false,
+  "openclaw_execution_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "live_dispatch_enabled": false,
+  "direct_provider_access": false,
+  "recruitment_openclaw_execution_enabled": false,
+  "recruited_worker_live_execution_enabled": false,
+  "recruited_worker_provider_access_enabled": false,
+  "recruited_worker_autonomous_dispatch_enabled": false,
+  "maintenance_auto_repair_enabled": false,
+  "web_access_autonomous_enabled": false,
+  "worker_real_registry_enabled": true,
+  "openclaw_readiness_enabled": true,
+  "security_enforcement_enabled": true,
+  "it_network_observability_enabled": true
+}

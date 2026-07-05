@@ -1,0 +1,34 @@
+{
+  "room_id": "security_control_room",
+  "name": "Security Control Room",
+  "category": "security",
+  "purpose": "A room for monitoring and securing the department's network infrastructure.",
+  "concierge_blurb": "Monitors showing live data, with a control console nearby.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 7.0,
+    "offset_z": -6.5,
+    "footprint_m": [
+      8,
+      4
+    ],
+    "height_m": 2.2
+  },
+  "render": {
+    "primary_prop": "server_rack",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Sec Control Room",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_128"
+}

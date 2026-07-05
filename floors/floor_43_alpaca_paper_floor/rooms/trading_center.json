@@ -1,0 +1,34 @@
+{
+  "room_id": "trading_center",
+  "name": "Trading Hub",
+  "category": "trading",
+  "purpose": "Central trading area for live market interaction.",
+  "concierge_blurb": "Welcome to the heart of active trading, with state-of-the-art screens and desks.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      25,
+      10
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "trading_desk",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Trading Hub",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/trade_updates.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 30
+  },
+  "floor": "floor_43"
+}

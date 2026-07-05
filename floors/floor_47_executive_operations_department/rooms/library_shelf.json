@@ -1,0 +1,50 @@
+{
+  "room_id": "library_shelf",
+  "name": "Library Shelf",
+  "category": "library",
+  "floor": "floor_47",
+  "purpose": "this shelf holds aphorisms, refusals and reusable snippets used by Wren.",
+  "concierge_blurb": "A small reference shelf of phrases Wren leans on. Open to any guest who wants to know how she thinks.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [
+    "src/tower/model_floors/claude_floor/library/aphorisms.py",
+    "src/tower/model_floors/claude_floor/library/refusals.py",
+    "src/tower/model_floors/claude_floor/library/snippets.py",
+    "data/claude_floor/claude_floor.db"
+  ],
+  "live_signals": {
+    "aphorism_count": 21,
+    "refusal_count": 4,
+    "snippet_count": 4,
+    "aphorism_source_table": "library_aphorisms",
+    "refusal_source_table": "library_refusals",
+    "snippet_source_table": "library_snippets",
+    "source_db": "data/claude_floor/claude_floor.db",
+    "sample_aphorism": "A refusal without a citation is arbitrary.",
+    "visitor_safe": true,
+    "advisory_only": true
+  },
+  "built_at": "2026-06-14T17:30:00Z",
+  "built_by": "f47_buildout_batch_3_room_2",
+  "lessons_learned_for_next_agent": "The library modules (aphorisms.py / refusals.py / snippets.py) hold ZERO in-file string literals \u2014 they are thin SQLite wrappers around library_aphorisms / library_refusals / library_snippets tables in data/claude_floor/claude_floor.db. A grep-for-strings count returns 0; the correct count comes from `SELECT COUNT(*) FROM <table>`. Refusal rows carry citation + helix_strand + would_refuse_again and would_refuse() does similarity matching \u2014 do not expose refusal bodies to /welcome without redaction (they encode operational gate language). Aphorisms are mostly visitor-safe one-liners; cherry-pick by visual scan before quoting.",
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -7.0,
+    "offset_z": 2.5,
+    "footprint_m": [
+      2.4,
+      0.4
+    ],
+    "height_m": 2.2
+  },
+  "render": {
+    "primary_prop": "library_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "LIBRARY",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  }
+}

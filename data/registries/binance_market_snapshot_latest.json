@@ -1,0 +1,232 @@
+{
+  "snapshot_ts": "2026-06-08T09:23:03.026194+00:00",
+  "floor": "floor_42",
+  "department": "Binance Trading Floor",
+  "phase": "BINANCE_FLOOR_42_TRADING_FLOOR_V1",
+  "environment": "testnet",
+  "base_url": "https://testnet.binance.vision",
+  "symbols": [
+    "BTCUSDT",
+    "ETHUSDT",
+    "BNBUSDT",
+    "SOLUSDT"
+  ],
+  "tickers": [],
+  "order_books": {
+    "BTCUSDT": {
+      "lastUpdateId": 2277421,
+      "bids": [
+        [
+          "63509.58000000",
+          "1.76451000"
+        ],
+        [
+          "63509.57000000",
+          "0.04020000"
+        ],
+        [
+          "63509.56000000",
+          "0.00064000"
+        ],
+        [
+          "63509.38000000",
+          "0.00072000"
+        ],
+        [
+          "63509.37000000",
+          "2.08068000"
+        ]
+      ],
+      "asks": [
+        [
+          "63509.59000000",
+          "11.10293000"
+        ],
+        [
+          "63509.60000000",
+          "0.00204000"
+        ],
+        [
+          "63509.61000000",
+          "0.00064000"
+        ],
+        [
+          "63509.99000000",
+          "0.00068000"
+        ],
+        [
+          "63510.00000000",
+          "0.07670000"
+        ]
+      ]
+    },
+    "ETHUSDT": {
+      "lastUpdateId": 1648800,
+      "bids": [
+        [
+          "1667.61000000",
+          "2.10590000"
+        ],
+        [
+          "1667.60000000",
+          "0.06160000"
+        ],
+        [
+          "1667.57000000",
+          "38.72220000"
+        ],
+        [
+          "1667.56000000",
+          "0.05040000"
+        ],
+        [
+          "1667.55000000",
+          "1.97360000"
+        ]
+      ],
+      "asks": [
+        [
+          "1667.62000000",
+          "61.39320000"
+        ],
+        [
+          "1667.63000000",
+          "0.02440000"
+        ],
+        [
+          "1667.64000000",
+          "0.10560000"
+        ],
+        [
+          "1667.65000000",
+          "0.03680000"
+        ],
+        [
+          "1667.66000000",
+          "0.02460000"
+        ]
+      ]
+    },
+    "BNBUSDT": {
+      "lastUpdateId": 1131357,
+      "bids": [
+        [
+          "599.90000000",
+          "14.55200000"
+        ],
+        [
+          "599.89000000",
+          "0.03600000"
+        ],
+        [
+          "599.88000000",
+          "0.07200000"
+        ],
+        [
+          "599.87000000",
+          "0.08800000"
+        ],
+        [
+          "599.86000000",
+          "0.03600000"
+        ]
+      ],
+      "asks": [
+        [
+          "599.91000000",
+          "53.95600000"
+        ],
+        [
+          "599.92000000",
+          "9.54800000"
+        ],
+        [
+          "599.93000000",
+          "28.34400000"
+        ],
+        [
+          "599.94000000",
+          "23.99200000"
+        ],
+        [
+          "599.95000000",
+          "19.32800000"
+        ]
+      ]
+    },
+    "SOLUSDT": {
+      "lastUpdateId": 451584,
+      "bids": [
+        [
+          "66.14000000",
+          "1313.61200000"
+        ],
+        [
+          "66.13000000",
+          "2065.59100000"
+        ],
+        [
+          "66.12000000",
+          "4068.48700000"
+        ],
+        [
+          "66.11000000",
+          "5216.88400000"
+        ],
+        [
+          "66.10000000",
+          "3597.57200000"
+        ]
+      ],
+      "asks": [
+        [
+          "66.15000000",
+          "2270.18000000"
+        ],
+        [
+          "66.16000000",
+          "1756.38000000"
+        ],
+        [
+          "66.17000000",
+          "6234.67900000"
+        ],
+        [
+          "66.18000000",
+          "6960.78700000"
+        ],
+        [
+          "66.19000000",
+          "7156.63600000"
+        ]
+      ]
+    }
+  },
+  "account_summary": null,
+  "credentials": {
+    "credentials_source": "environment_variables_only",
+    "api_key_present": false,
+    "api_secret_present": false,
+    "read_only_mode": true,
+    "env_file_path": "/vaults/nvme0/qsb_tower_v1/.env.binance",
+    "env_file_exists": false
+  },
+  "errors": [
+    "ticker_24h: HTTP Error 400: Bad Request"
+  ],
+  "live_trading_enabled": false,
+  "order_execution_enabled": false,
+  "practice_order_execution_enabled": false,
+  "binance_order_execution_enabled": false,
+  "binance_live_trading_enabled": false,
+  "worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "external_provider_execution_enabled": false,
+  "openclaw_execution_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "live_dispatch_enabled": false,
+  "direct_provider_access": false,
+  "paper_only": true,
+  "not_financial_advice": true
+}

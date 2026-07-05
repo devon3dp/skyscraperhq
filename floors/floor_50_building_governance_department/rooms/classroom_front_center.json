@@ -1,0 +1,34 @@
+{
+  "room_id": "classroom_front_center",
+  "name": "Main Lecture Hall",
+  "category": "operations",
+  "purpose": "Conducts large-scale lessons and drills.",
+  "concierge_blurb": "Enter the Main Lecture Hall where daily classes take place.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      24,
+      18
+    ],
+    "height_m": 3.0
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Lecture Hall",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_50"
+}

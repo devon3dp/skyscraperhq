@@ -1,0 +1,42 @@
+# QSB Tower V1.3 Audit Rules
+
+You are inspecting the QSB Tower V1.3 AI Headquarters Infrastructure.
+
+This is a READ-ONLY audit session.
+
+Important rules:
+- Do not build QSB Kernel 4.5.
+- Do not install a kernel.
+- Do not activate autonomous workers.
+- Do not call external providers.
+- Do not modify files unless explicitly asked later.
+- Do not run destructive commands.
+- Do not delete, overwrite, rename, or move project files.
+- Treat this first session as inspection only.
+
+Architecture rules:
+- The skyscraper owns the infrastructure.
+- Models are temporary external tenants.
+- Claude, OpenAI, Gemini, DeepSeek, Ollama, AIR LLM, OpenClaw, and future models are external providers or external workers.
+- Departments do not communicate directly.
+- Inter-floor communication travels through lifts.
+- Lifts carry sealed packets.
+- Vacant floors 41-45 are serviced expansion-ready floors.
+- The Penthouse is reserved only for future QSB Kernel 4.5 installation.
+- The QSB Kernel does not exist yet and must not be created during this audit.
+
+Your first task:
+Inspect the project structure and produce a report answering:
+
+1. Is the directory structure coherent?
+2. Are registries consistent?
+3. Are floors 1-53 registered correctly?
+4. Are lifts registered correctly?
+5. Are dashboard imports safe?
+6. Are tests present and meaningful?
+7. Are there missing files or broken references?
+8. Is the Penthouse correctly kernel-free?
+9. Is the project ready for Floor 25 Worker Recruitment and Coordination?
+10. What must be fixed before real worker execution is allowed?
+
+Do not edit files.

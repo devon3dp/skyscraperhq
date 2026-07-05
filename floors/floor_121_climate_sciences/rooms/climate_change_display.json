@@ -1,0 +1,34 @@
+{
+  "room_id": "climate_change_display",
+  "name": "Climate Change Display Area",
+  "category": "display",
+  "purpose": "Displays findings and research related to climate change.",
+  "concierge_blurb": "Learn about the latest in climate change research here.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -4.0,
+    "offset_z": 2.5,
+    "footprint_m": [
+      6,
+      3
+    ],
+    "height_m": 1.8
+  },
+  "render": {
+    "primary_prop": "plinth",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Climate Change",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_121"
+}

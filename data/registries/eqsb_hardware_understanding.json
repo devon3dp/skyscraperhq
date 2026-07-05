@@ -1,0 +1,35 @@
+{
+  "ok": true,
+  "kind": "eqsb_hardware_understanding",
+  "generated_ts": "2026-06-30T13:46:34.317301+00:00",
+  "summary": {
+    "cpu_model": "AMD Ryzen 9 7950X3D 16-Core Processor",
+    "cpu_cores": "16",
+    "cpu_threads": "16",
+    "gpu_models": [
+      "NVIDIA GeForce RTX 5070 Ti"
+    ],
+    "cuda_version": "13.2",
+    "cuda_available_python": false,
+    "mem_total_bytes": 66233671680,
+    "memory_pressure": "low",
+    "qsb_project_mb": 13565,
+    "qsb_data_logs_mb": 346,
+    "vaults_ai_present": true,
+    "vaults_ai_airllm_lab_present": true,
+    "hostname": "24.04ubuntu",
+    "kernel_release": "6.17.0-35-generic",
+    "python_version": "3.12.3",
+    "dashboard_pid_running": null,
+    "ollama_present": true,
+    "ollama_processes_count": 3,
+    "airllm_venv_present": true,
+    "listening_ports_count": 30
+  },
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

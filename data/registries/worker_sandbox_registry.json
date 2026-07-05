@@ -1,0 +1,99 @@
+{
+  "registry": "worker_sandbox_registry_v1",
+  "sandbox_workers_enabled": true,
+  "worker_execution_enabled": false,
+  "openclaw_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "workers": [
+    {
+      "id": "market_scout",
+      "name": "Market Scout",
+      "role": "Reads OANDA practice pricing and identifies quote status.",
+      "home_floor": "floor_41",
+      "sandbox_only": true
+    },
+    {
+      "id": "spread_watcher",
+      "name": "Spread Watcher",
+      "role": "Measures spreads, quote quality, and paper signal conditions.",
+      "home_floor": "floor_41",
+      "sandbox_only": true
+    },
+    {
+      "id": "risk_sentinel",
+      "name": "Risk Sentinel",
+      "role": "Verifies all execution locks remain closed.",
+      "home_floor": "floor_30",
+      "sandbox_only": true
+    },
+    {
+      "id": "paper_strategy_analyst",
+      "name": "Paper Strategy Analyst",
+      "role": "Converts market metrics into paper-only strategy observations.",
+      "home_floor": "floor_41",
+      "sandbox_only": true
+    },
+    {
+      "id": "kernel_commentary_runner",
+      "name": "Kernel Commentary Runner",
+      "role": "Routes paper-lab summaries to the local-only QSB Kernel speech layer.",
+      "home_floor": "penthouse",
+      "sandbox_only": true
+    },
+    {
+      "id": "ledger_clerk",
+      "name": "Ledger Clerk",
+      "role": "Writes paper signals and simulated P/L markers to the ledger.",
+      "home_floor": "floor_31",
+      "sandbox_only": true
+    },
+    {
+      "id": "equity_market_scout",
+      "name": "Equity Market Scout",
+      "role": "Reads US equities quotes and bars via the Floor 43 read-only gateway.",
+      "home_floor": "floor_43",
+      "team": "sandbox",
+      "sandbox_only": true
+    },
+    {
+      "id": "stock_spread_watcher",
+      "name": "Stock Spread Watcher",
+      "role": "Measures bid/ask spreads and market-status to gate paper signals.",
+      "home_floor": "floor_43",
+      "team": "sandbox",
+      "sandbox_only": true
+    },
+    {
+      "id": "equity_momentum_analyst",
+      "name": "Equity Momentum Analyst",
+      "role": "Computes momentum windows and volatility from recent stock bars.",
+      "home_floor": "floor_43",
+      "team": "sandbox",
+      "sandbox_only": true
+    },
+    {
+      "id": "cross_market_correlation_clerk",
+      "name": "Cross-Market Correlation Clerk",
+      "role": "Reads OANDA, Binance, and Stock registries and produces correlation pairs.",
+      "home_floor": "floor_37",
+      "team": "sandbox",
+      "sandbox_only": true
+    },
+    {
+      "id": "risk_on_off_observer",
+      "name": "Risk-On/Risk-Off Observer",
+      "role": "Aggregates cross-market biases into risk_on_watch / risk_off_watch labels.",
+      "home_floor": "floor_30",
+      "team": "sandbox",
+      "sandbox_only": true
+    },
+    {
+      "id": "stock_ledger_clerk",
+      "name": "Stock Ledger Clerk",
+      "role": "Persists paper stock observations into the audit ledger (no orders, ever).",
+      "home_floor": "floor_31",
+      "team": "sandbox",
+      "sandbox_only": true
+    }
+  ]
+}

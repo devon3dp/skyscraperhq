@@ -1,0 +1,38 @@
+{
+  "activation_gate_version": "1.0",
+  "policy_description": "Conditions that must ALL be satisfied before QSBKernelCore may be instantiated.",
+
+  "activation_allowed": false,
+  "direct_execution_allowed": false,
+
+  "required_gates": {
+    "kernel_installed_required": true,
+    "operator_approval_required": true,
+    "security_spine_clearance_required": true,
+    "path_rebase_required": true,
+    "rebased_kernel_unit_tests_required": true
+  },
+
+  "safety_invariants": {
+    "provider_execution_must_remain_false": true,
+    "model_inference_must_remain_false": true,
+    "worker_execution_must_remain_false": true,
+    "live_dispatch_must_remain_false": true,
+    "autonomous_workers_must_remain_false": true
+  },
+
+  "forbidden_paths": [
+    "penthouse/kernel.py",
+    "penthouse/qsb_kernel_4_5.py",
+    "src/tower/kernel.py",
+    "src/tower/qsb_kernel_4_5.py"
+  ],
+
+  "notes": [
+    "kernel_installed_required: The installation socket manifest must record kernel_installed=true before any kernel class may be instantiated.",
+    "operator_approval_required: A human operator must explicitly record approval in operator_kernel_approval.json.",
+    "security_spine_clearance_required: The tower security spine must sign off on the activation.",
+    "path_rebase_required: The rebased kernel must have zero old-vault path references.",
+    "rebased_kernel_unit_tests_required: A dedicated unit test suite over the rebased kernel sub-cores must pass before activation."
+  ]
+}

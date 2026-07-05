@@ -1,0 +1,31 @@
+{
+  "room_id": "relaxation_lounge",
+  "name": "Relaxation Lounge",
+  "category": "seating",
+  "purpose": "This room provides a comfortable space for staff to relax and recharge.",
+  "concierge_blurb": "Take a moment in the Relaxation Lounge before your next meeting.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 6.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      12,
+      8
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "chair_set",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Relax Lounge",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_51"
+}

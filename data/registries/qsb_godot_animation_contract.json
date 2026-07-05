@@ -1,0 +1,22 @@
+{
+  "ok": true,
+  "kind": "qsb_godot_animation_contract",
+  "phase": "QSB_GODOT_PROFESSIONAL_3D_DASHBOARD_UPGRADE_V1",
+  "generated_ts": "2026-06-09T15:45:19+00:00",
+  "rules": [
+    "no random animations \u2014 every motion bound to telemetry",
+    "idle systems must visibly idle (no animation, optional muted pulse)",
+    "stale systems must display stale_warning (orange tint)",
+    "lift cars lerp toward current_floor; trail brightens during motion",
+    "openclaw orb lerps Y toward current_floor; orbits at fixed angular velocity",
+    "event packets only spawn when intercom telemetry contains new packets",
+    "cadence pulse only triggers when eqsb_cadence.tick_count increments"
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "live_payments_enabled": false,
+  "live_listings_publishing_enabled": false
+}

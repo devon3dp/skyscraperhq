@@ -1,0 +1,234 @@
+{
+  "ok": true,
+  "ts": "2026-07-01T15:27:59.295017+00:00",
+  "phase": "QSB_TOWER_KERNEL_CHAT_AND_RECRUITMENT_AGENCY_V1",
+  "agency_name": "Worker Recruitment Agency",
+  "agency_floor": "floor_45",
+  "agency_floor_number": 45,
+  "candidate_count": 12,
+  "onboarding_queue_count": 12,
+  "training_assignment_count": 12,
+  "by_training_status": {
+    "screening": 12
+  },
+  "stages": [
+    "intake",
+    "screening",
+    "training_pod",
+    "assignment_board",
+    "dispatched"
+  ],
+  "routes": [
+    {
+      "from": "floor_45",
+      "to": "floor_25",
+      "name": "Agent Coordination",
+      "route_type": "worker_recruitment_sandbox",
+      "sandbox_only": true,
+      "execution_allowed": false,
+      "worker_execution_enabled": false
+    },
+    {
+      "from": "floor_45",
+      "to": "floor_38",
+      "name": "Sandbox Operations",
+      "route_type": "worker_recruitment_sandbox",
+      "sandbox_only": true,
+      "execution_allowed": false,
+      "worker_execution_enabled": false
+    },
+    {
+      "from": "floor_45",
+      "to": "floor_37",
+      "name": "Simulation / Strategy",
+      "route_type": "worker_recruitment_sandbox",
+      "sandbox_only": true,
+      "execution_allowed": false,
+      "worker_execution_enabled": false
+    },
+    {
+      "from": "floor_45",
+      "to": "floor_30",
+      "name": "Permissions / Risk",
+      "route_type": "worker_recruitment_sandbox",
+      "sandbox_only": true,
+      "execution_allowed": false,
+      "worker_execution_enabled": false
+    },
+    {
+      "from": "floor_45",
+      "to": "floor_31",
+      "name": "Audit / Ledger",
+      "route_type": "worker_recruitment_sandbox",
+      "sandbox_only": true,
+      "execution_allowed": false,
+      "worker_execution_enabled": false
+    },
+    {
+      "from": "floor_45",
+      "to": "floor_53",
+      "name": "Tower Command",
+      "route_type": "worker_recruitment_sandbox",
+      "sandbox_only": true,
+      "execution_allowed": false,
+      "worker_execution_enabled": false
+    },
+    {
+      "from": "floor_45",
+      "to": "penthouse",
+      "name": "Kernel Review",
+      "route_type": "worker_recruitment_sandbox",
+      "sandbox_only": true,
+      "execution_allowed": false,
+      "worker_execution_enabled": false
+    },
+    {
+      "from": "floor_45",
+      "to": "floor_41",
+      "name": "OANDA Trading Floor",
+      "route_type": "worker_recruitment_sandbox",
+      "sandbox_only": true,
+      "execution_allowed": false,
+      "worker_execution_enabled": false
+    },
+    {
+      "from": "floor_45",
+      "to": "floor_42",
+      "name": "Binance Trading Floor",
+      "route_type": "worker_recruitment_sandbox",
+      "sandbox_only": true,
+      "execution_allowed": false,
+      "worker_execution_enabled": false
+    },
+    {
+      "from": "floor_45",
+      "to": "floor_43",
+      "name": "Stock Exchange Floor",
+      "route_type": "worker_recruitment_sandbox",
+      "sandbox_only": true,
+      "execution_allowed": false,
+      "worker_execution_enabled": false
+    },
+    {
+      "from": "floor_45",
+      "to": "floor_23",
+      "name": "AirLLM Advisory",
+      "route_type": "worker_recruitment_sandbox",
+      "sandbox_only": true,
+      "execution_allowed": false,
+      "worker_execution_enabled": false
+    }
+  ],
+  "latest_events": [
+    {
+      "event": "advance",
+      "worker_id": "f45_correlation_mapper",
+      "display_name": "Correlation Mapper",
+      "from_stage": "intake",
+      "to_stage": "screening",
+      "target_floor": "floor_25",
+      "execution_allowed": false,
+      "sandbox_only": true,
+      "ts": "2026-06-08T18:42:17.570680+00:00"
+    },
+    {
+      "event": "advance",
+      "worker_id": "f45_volatility_watcher",
+      "display_name": "Volatility Watcher",
+      "from_stage": "intake",
+      "to_stage": "screening",
+      "target_floor": "floor_37",
+      "execution_allowed": false,
+      "sandbox_only": true,
+      "ts": "2026-06-08T18:42:17.570656+00:00"
+    },
+    {
+      "event": "advance",
+      "worker_id": "f45_strategy_backtester",
+      "display_name": "Strategy Backtester",
+      "from_stage": "intake",
+      "to_stage": "screening",
+      "target_floor": "floor_37",
+      "execution_allowed": false,
+      "sandbox_only": true,
+      "ts": "2026-06-08T18:42:17.570632+00:00"
+    },
+    {
+      "event": "advance",
+      "worker_id": "f45_openclaw_sandbox_observer",
+      "display_name": "OpenClaw Sandbox Observer",
+      "from_stage": "intake",
+      "to_stage": "screening",
+      "target_floor": "floor_38",
+      "execution_allowed": false,
+      "sandbox_only": true,
+      "ts": "2026-06-08T18:42:17.570608+00:00"
+    },
+    {
+      "event": "advance",
+      "worker_id": "f45_kernel_liaison",
+      "display_name": "Kernel Liaison",
+      "from_stage": "intake",
+      "to_stage": "screening",
+      "target_floor": "floor_53",
+      "execution_allowed": false,
+      "sandbox_only": true,
+      "ts": "2026-06-08T18:42:17.570583+00:00"
+    },
+    {
+      "event": "advance",
+      "worker_id": "f45_airllm_advisory_clerk",
+      "display_name": "AirLLM Advisory Clerk",
+      "from_stage": "intake",
+      "to_stage": "screening",
+      "target_floor": "floor_23",
+      "execution_allowed": false,
+      "sandbox_only": true,
+      "ts": "2026-06-08T18:42:17.570558+00:00"
+    },
+    {
+      "event": "advance",
+      "worker_id": "f45_ledger_runner",
+      "display_name": "Ledger Runner",
+      "from_stage": "intake",
+      "to_stage": "screening",
+      "target_floor": "floor_31",
+      "execution_allowed": false,
+      "sandbox_only": true,
+      "ts": "2026-06-08T18:42:17.570528+00:00"
+    },
+    {
+      "event": "advance",
+      "worker_id": "f45_risk_gatekeeper",
+      "display_name": "Risk Gatekeeper",
+      "from_stage": "intake",
+      "to_stage": "screening",
+      "target_floor": "floor_30",
+      "execution_allowed": false,
+      "sandbox_only": true,
+      "ts": "2026-06-08T18:42:17.570502+00:00"
+    }
+  ],
+  "locks": {
+    "live_trading_enabled": false,
+    "order_execution_enabled": false,
+    "practice_order_execution_enabled": false,
+    "stock_order_execution_enabled": false,
+    "stock_live_trading_enabled": false,
+    "stock_paper_order_execution_enabled": false,
+    "binance_order_execution_enabled": false,
+    "binance_live_trading_enabled": false,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "external_provider_execution_enabled": false,
+    "openclaw_execution_enabled": false,
+    "openclaw_real_tool_execution_enabled": false,
+    "autonomous_dispatch_enabled": false,
+    "live_dispatch_enabled": false,
+    "direct_provider_access": false
+  },
+  "execution_allowed": false,
+  "sandbox_only": true,
+  "advisory_or_paper_only": true,
+  "not_financial_advice": true
+}

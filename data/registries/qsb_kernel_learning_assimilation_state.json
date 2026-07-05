@@ -1,0 +1,198 @@
+{
+  "module": "kernel_learning_assimilation",
+  "purpose": "Assimilate evidence from the learning loop and upgrade ledger into a single structured tick record.",
+  "timestamp_utc": "2026-06-09T20:15:58.203606+00:00",
+  "assimilated_items": [
+    {
+      "kind": "upgrade_ledger_latest_phase",
+      "phase": "EQSB_SYSTEM_OBSERVATORY_HARDWARE_FLOOR_LIVE_TELEMETRY_REPAIR_V1",
+      "summary": "Hardware Systems Floor + Code Observatory + Hardware Observatory + Claude Upgrade Ledger + System Understanding Graph + Telemetry Repairs A-H.",
+      "files_created": 0,
+      "files_modified": 0,
+      "source": "data/registries/eqsb_claude_upgrade_ledger.json"
+    },
+    {
+      "kind": "last_claude_change",
+      "phase": "EQSB_SYSTEM_OBSERVATORY_HARDWARE_FLOOR_LIVE_TELEMETRY_REPAIR_V1",
+      "summary": "Hardware Systems Floor + Code Observatory + Hardware Observatory + Claude Upgrade Ledger + System Understanding Graph + Telemetry Repairs A-H.",
+      "source": "data/registries/eqsb_last_claude_change_summary.json"
+    },
+    {
+      "kind": "learning_smoke_v2_result",
+      "verdict": "PASS",
+      "passes": 16,
+      "failures": 0,
+      "log": "data/logs/qsb_kernel_learning_smoke_test_v2_20260609T195750Z.log",
+      "source": "data/registries/qsb_kernel_learning_smoke_test_v2_latest.json"
+    },
+    {
+      "kind": "thinking_upgrade_probe",
+      "timestamp_utc": "20260609T195750Z",
+      "purpose": "Probe whether the QSB Kernel now explains its cognition, upgrades, evidence sources, attention, learning, and remaining gaps.",
+      "log": "data/logs/qsb_kernel_thinking_upgrade_probe_20260609T195750Z.log",
+      "source": "data/registries/qsb_kernel_thinking_upgrade_probe_latest.json"
+    },
+    {
+      "kind": "code_observatory_summary",
+      "total_files": 1286,
+      "by_area_counts": {
+        "unknown": 148,
+        "dashboard": 1,
+        "tower_ops": 62,
+        "kernel_eqsb": 17,
+        "kernel_dialogue": 7,
+        "workers": 1,
+        "trading": 2,
+        "openclaw": 1,
+        "dashboard_backend": 5,
+        "workforce": 3,
+        "profit_command": 1,
+        "narrator": 1,
+        "scripts": 271,
+        "dashboard_frontend": 49,
+        "registries": 555,
+        "floors": 100,
+        "penthouse": 62
+      },
+      "source": "data/registries/eqsb_code_observatory.json"
+    },
+    {
+      "kind": "hardware_observatory_summary",
+      "cpu_summary": "AMD Ryzen 9 7950X3D 16-Core Processor",
+      "gpu_summary": "no_nvidia_gpu",
+      "memory_pressure": "low",
+      "source": "data/registries/eqsb_hardware_observatory.json"
+    }
+  ],
+  "assimilated_item_count": 6,
+  "phase_history_tail": [
+    {
+      "ts": "2026-06-09T19:23:20",
+      "phase": "QSB_DASHBOARD_TOTAL_REBUILD_3D_WORKERS_OPENCLAW_ONLINE_V1"
+    },
+    {
+      "ts": "2026-06-09T19:23:20",
+      "phase": "QSB_DASHBOARD_3D_TOTAL_REVAMP_WORKERS_OPENCLAW_V1"
+    },
+    {
+      "ts": "2026-06-09T19:23:20",
+      "phase": "QSB_DASHBOARD_3D_TOTAL_REVAMP_WORKERS_OPENCLAW_V1"
+    },
+    {
+      "ts": "2026-06-09T19:23:20",
+      "phase": "QSB_DASHBOARD_3D_TOTAL_REVAMP_WORKERS_OPENCLAW_V1"
+    },
+    {
+      "ts": "2026-06-09T19:23:20",
+      "phase": "QSB_RENDER_VISIBLE_WORKERS_AND_LIFTS_FIX_V1"
+    },
+    {
+      "ts": "2026-06-09T19:23:21",
+      "phase": "QSB_FLOOR_41_OANDA_FULL_TRADING_FLOOR_REBUILD_V1"
+    },
+    {
+      "ts": "2026-06-09T19:23:21",
+      "phase": "QSB_KERNEL_CHAT_PENTHOUSE_AND_3D_DASHBOARD_REALITY_FIX_V1"
+    },
+    {
+      "ts": "2026-06-09T19:23:21",
+      "phase": "QSB_FULL_SKYSCRAPER_OCCUPANCY_COMMERCE_WORKFORCE_EXPANSION_V1"
+    }
+  ],
+  "claude_changes_log_tail": [
+    {
+      "ts": "2026-06-09T19:15:03",
+      "phase": "capture_snapshot"
+    },
+    {
+      "ts": "2026-06-09T19:15:03",
+      "phase": "build_claude_upgrade_ledger"
+    },
+    {
+      "ts": "2026-06-09T19:20:52",
+      "phase": "build_claude_upgrade_ledger"
+    },
+    {
+      "ts": "2026-06-09T19:20:52",
+      "phase": "capture_snapshot"
+    },
+    {
+      "ts": "2026-06-09T19:20:52",
+      "phase": "build_claude_upgrade_ledger"
+    },
+    {
+      "ts": "2026-06-09T19:23:19",
+      "phase": "build_claude_upgrade_ledger"
+    },
+    {
+      "ts": "2026-06-09T19:23:19",
+      "phase": "capture_snapshot"
+    },
+    {
+      "ts": "2026-06-09T19:23:19",
+      "phase": "build_claude_upgrade_ledger"
+    }
+  ],
+  "kernel_learning_loop_meta": {
+    "generated_ts": "2026-06-09T19:23:19.723153+00:00",
+    "loop": [
+      "capture_prechange_snapshot",
+      "claude_performs_upgrade",
+      "capture_postchange_snapshot",
+      "compare_changes",
+      "update_code_observatory",
+      "update_hardware_observatory_if_relevant",
+      "update_system_understanding_graph",
+      "record_risks",
+      "record_lessons_learned",
+      "update_kernel_introspection",
+      "recommend_next_review"
+    ],
+    "learn_from": [
+      "files_changed",
+      "tests_passed_failed",
+      "dashboard_broken_fixed",
+      "endpoints_added",
+      "scripts_added",
+      "registries_changed",
+      "worker_counts_changed",
+      "performance_changed",
+      "hardware_pressure_changed",
+      "user_feedback"
+    ]
+  },
+  "source_file_list": [
+    "data/registries/eqsb_kernel_learning_loop.json",
+    "data/registries/eqsb_claude_upgrade_ledger.json",
+    "data/registries/eqsb_last_claude_change_summary.json",
+    "data/registries/eqsb_code_observatory.json",
+    "data/registries/eqsb_hardware_observatory.json",
+    "data/registries/qsb_kernel_learning_smoke_test_v2_latest.json",
+    "data/registries/qsb_kernel_thinking_upgrade_probe_latest.json",
+    "data/logs/eqsb_phase_history.jsonl",
+    "data/logs/eqsb_claude_changes.jsonl"
+  ],
+  "missing_sources": [],
+  "confidence": 0.9,
+  "warnings": [],
+  "safety": {
+    "advisory_only": true,
+    "execution_allowed": false,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "model_inference_enabled": false,
+    "live_dispatch_enabled": false,
+    "autonomous_workers_enabled": false,
+    "direct_provider_access": false,
+    "live_trading_enabled": false,
+    "real_order_execution_enabled": false,
+    "openclaw_execution_enabled": false,
+    "binance_order_execution_enabled": false,
+    "stock_order_execution_enabled": false,
+    "web_access_autonomous_enabled": false,
+    "maintenance_auto_repair_enabled": false,
+    "kernel_state": "active_local_only",
+    "kernel_source": "rebased_kernel",
+    "scope": "local_only_advisory_cognition"
+  }
+}

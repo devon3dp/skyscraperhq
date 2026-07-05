@@ -1,0 +1,513 @@
+{
+  "ts": "2026-07-01T13:46:50.463284+00:00",
+  "sandbox": "worker_sandbox_v1",
+  "status": "healthy",
+  "mode": "sandbox_only_paper_strategy",
+  "instruments": "EUR_USD,GBP_USD,USD_JPY",
+  "sandbox_workers_enabled": true,
+  "worker_execution_enabled": false,
+  "openclaw_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "lab_summary": {
+    "instrument_count": 3,
+    "tradeable_count": 3,
+    "avg_spread_pips": 1.4000000000007635,
+    "signal_counts": {
+      "observe": 3
+    },
+    "errors": []
+  },
+  "ledger_status": {
+    "entry_count": 503,
+    "latest_entry_count": 3,
+    "simulated_observation_delta_pips_total": null
+  },
+  "lift_packets": [
+    {
+      "packet_id": "pkt_fb21993a2465",
+      "ts": "2026-07-01T13:46:50.974396+00:00",
+      "worker_id": "market_scout",
+      "worker_name": "Market Scout",
+      "sandbox_only": true,
+      "source_floor": "floor_25",
+      "target_floor": "floor_41",
+      "task": "recruit sandbox workers into OANDA paper lab",
+      "priority": 5,
+      "status": "delivered",
+      "lift_route": "floor_25 -> floor_41",
+      "locks": {
+        "live_trading_enabled": false,
+        "order_execution_enabled": false,
+        "practice_order_execution_enabled": false,
+        "worker_execution_enabled": false,
+        "provider_execution_enabled": false,
+        "external_provider_execution_enabled": false,
+        "openclaw_execution_enabled": false,
+        "autonomous_dispatch_enabled": false,
+        "live_dispatch_enabled": false,
+        "direct_provider_access": false
+      }
+    },
+    {
+      "packet_id": "pkt_321a05e46a1a",
+      "ts": "2026-07-01T13:46:50.974484+00:00",
+      "worker_id": "spread_watcher",
+      "worker_name": "Spread Watcher",
+      "sandbox_only": true,
+      "source_floor": "floor_41",
+      "target_floor": "floor_37",
+      "task": "deliver paper market metrics to simulation labs",
+      "priority": 5,
+      "status": "delivered",
+      "lift_route": "floor_41 -> floor_37",
+      "locks": {
+        "live_trading_enabled": false,
+        "order_execution_enabled": false,
+        "practice_order_execution_enabled": false,
+        "worker_execution_enabled": false,
+        "provider_execution_enabled": false,
+        "external_provider_execution_enabled": false,
+        "openclaw_execution_enabled": false,
+        "autonomous_dispatch_enabled": false,
+        "live_dispatch_enabled": false,
+        "direct_provider_access": false
+      }
+    },
+    {
+      "packet_id": "pkt_06cd54294451",
+      "ts": "2026-07-01T13:46:50.974535+00:00",
+      "worker_id": "risk_sentinel",
+      "worker_name": "Risk Sentinel",
+      "sandbox_only": true,
+      "source_floor": "floor_37",
+      "target_floor": "floor_38",
+      "task": "send simulated strategy results into sandbox containment",
+      "priority": 5,
+      "status": "delivered",
+      "lift_route": "floor_37 -> floor_38",
+      "locks": {
+        "live_trading_enabled": false,
+        "order_execution_enabled": false,
+        "practice_order_execution_enabled": false,
+        "worker_execution_enabled": false,
+        "provider_execution_enabled": false,
+        "external_provider_execution_enabled": false,
+        "openclaw_execution_enabled": false,
+        "autonomous_dispatch_enabled": false,
+        "live_dispatch_enabled": false,
+        "direct_provider_access": false
+      }
+    },
+    {
+      "packet_id": "pkt_ddf7384899f5",
+      "ts": "2026-07-01T13:46:50.974576+00:00",
+      "worker_id": "paper_strategy_analyst",
+      "worker_name": "Paper Strategy Analyst",
+      "sandbox_only": true,
+      "source_floor": "floor_38",
+      "target_floor": "floor_41",
+      "task": "return contained observations to trading floor",
+      "priority": 5,
+      "status": "delivered",
+      "lift_route": "floor_38 -> floor_41",
+      "locks": {
+        "live_trading_enabled": false,
+        "order_execution_enabled": false,
+        "practice_order_execution_enabled": false,
+        "worker_execution_enabled": false,
+        "provider_execution_enabled": false,
+        "external_provider_execution_enabled": false,
+        "openclaw_execution_enabled": false,
+        "autonomous_dispatch_enabled": false,
+        "live_dispatch_enabled": false,
+        "direct_provider_access": false
+      }
+    },
+    {
+      "packet_id": "pkt_9d76bca54634",
+      "ts": "2026-07-01T13:46:50.974623+00:00",
+      "worker_id": "kernel_commentary_runner",
+      "worker_name": "Kernel Commentary Runner",
+      "sandbox_only": true,
+      "source_floor": "floor_25",
+      "target_floor": "floor_41",
+      "task": "recruit sandbox workers into OANDA paper lab",
+      "priority": 5,
+      "status": "delivered",
+      "lift_route": "floor_25 -> floor_41",
+      "locks": {
+        "live_trading_enabled": false,
+        "order_execution_enabled": false,
+        "practice_order_execution_enabled": false,
+        "worker_execution_enabled": false,
+        "provider_execution_enabled": false,
+        "external_provider_execution_enabled": false,
+        "openclaw_execution_enabled": false,
+        "autonomous_dispatch_enabled": false,
+        "live_dispatch_enabled": false,
+        "direct_provider_access": false
+      }
+    },
+    {
+      "packet_id": "pkt_3712a08ed721",
+      "ts": "2026-07-01T13:46:50.974663+00:00",
+      "worker_id": "ledger_clerk",
+      "worker_name": "Ledger Clerk",
+      "sandbox_only": true,
+      "source_floor": "floor_41",
+      "target_floor": "floor_37",
+      "task": "deliver paper market metrics to simulation labs",
+      "priority": 5,
+      "status": "delivered",
+      "lift_route": "floor_41 -> floor_37",
+      "locks": {
+        "live_trading_enabled": false,
+        "order_execution_enabled": false,
+        "practice_order_execution_enabled": false,
+        "worker_execution_enabled": false,
+        "provider_execution_enabled": false,
+        "external_provider_execution_enabled": false,
+        "openclaw_execution_enabled": false,
+        "autonomous_dispatch_enabled": false,
+        "live_dispatch_enabled": false,
+        "direct_provider_access": false
+      }
+    },
+    {
+      "packet_id": "pkt_67b34b8be821",
+      "ts": "2026-07-01T13:46:50.974704+00:00",
+      "worker_id": "equity_market_scout",
+      "worker_name": "Equity Market Scout",
+      "sandbox_only": true,
+      "source_floor": "floor_37",
+      "target_floor": "floor_38",
+      "task": "send simulated strategy results into sandbox containment",
+      "priority": 5,
+      "status": "delivered",
+      "lift_route": "floor_37 -> floor_38",
+      "locks": {
+        "live_trading_enabled": false,
+        "order_execution_enabled": false,
+        "practice_order_execution_enabled": false,
+        "worker_execution_enabled": false,
+        "provider_execution_enabled": false,
+        "external_provider_execution_enabled": false,
+        "openclaw_execution_enabled": false,
+        "autonomous_dispatch_enabled": false,
+        "live_dispatch_enabled": false,
+        "direct_provider_access": false
+      }
+    },
+    {
+      "packet_id": "pkt_3834c9db8cc2",
+      "ts": "2026-07-01T13:46:50.974743+00:00",
+      "worker_id": "stock_spread_watcher",
+      "worker_name": "Stock Spread Watcher",
+      "sandbox_only": true,
+      "source_floor": "floor_38",
+      "target_floor": "floor_41",
+      "task": "return contained observations to trading floor",
+      "priority": 5,
+      "status": "delivered",
+      "lift_route": "floor_38 -> floor_41",
+      "locks": {
+        "live_trading_enabled": false,
+        "order_execution_enabled": false,
+        "practice_order_execution_enabled": false,
+        "worker_execution_enabled": false,
+        "provider_execution_enabled": false,
+        "external_provider_execution_enabled": false,
+        "openclaw_execution_enabled": false,
+        "autonomous_dispatch_enabled": false,
+        "live_dispatch_enabled": false,
+        "direct_provider_access": false
+      }
+    },
+    {
+      "packet_id": "pkt_0772c7095e80",
+      "ts": "2026-07-01T13:46:50.974801+00:00",
+      "worker_id": "equity_momentum_analyst",
+      "worker_name": "Equity Momentum Analyst",
+      "sandbox_only": true,
+      "source_floor": "floor_25",
+      "target_floor": "floor_41",
+      "task": "recruit sandbox workers into OANDA paper lab",
+      "priority": 5,
+      "status": "delivered",
+      "lift_route": "floor_25 -> floor_41",
+      "locks": {
+        "live_trading_enabled": false,
+        "order_execution_enabled": false,
+        "practice_order_execution_enabled": false,
+        "worker_execution_enabled": false,
+        "provider_execution_enabled": false,
+        "external_provider_execution_enabled": false,
+        "openclaw_execution_enabled": false,
+        "autonomous_dispatch_enabled": false,
+        "live_dispatch_enabled": false,
+        "direct_provider_access": false
+      }
+    },
+    {
+      "packet_id": "pkt_35fdfd5e753f",
+      "ts": "2026-07-01T13:46:50.974852+00:00",
+      "worker_id": "cross_market_correlation_clerk",
+      "worker_name": "Cross-Market Correlation Clerk",
+      "sandbox_only": true,
+      "source_floor": "floor_41",
+      "target_floor": "floor_37",
+      "task": "deliver paper market metrics to simulation labs",
+      "priority": 5,
+      "status": "delivered",
+      "lift_route": "floor_41 -> floor_37",
+      "locks": {
+        "live_trading_enabled": false,
+        "order_execution_enabled": false,
+        "practice_order_execution_enabled": false,
+        "worker_execution_enabled": false,
+        "provider_execution_enabled": false,
+        "external_provider_execution_enabled": false,
+        "openclaw_execution_enabled": false,
+        "autonomous_dispatch_enabled": false,
+        "live_dispatch_enabled": false,
+        "direct_provider_access": false
+      }
+    },
+    {
+      "packet_id": "pkt_c21602bee593",
+      "ts": "2026-07-01T13:46:50.974908+00:00",
+      "worker_id": "risk_on_off_observer",
+      "worker_name": "Risk-On/Risk-Off Observer",
+      "sandbox_only": true,
+      "source_floor": "floor_37",
+      "target_floor": "floor_38",
+      "task": "send simulated strategy results into sandbox containment",
+      "priority": 5,
+      "status": "delivered",
+      "lift_route": "floor_37 -> floor_38",
+      "locks": {
+        "live_trading_enabled": false,
+        "order_execution_enabled": false,
+        "practice_order_execution_enabled": false,
+        "worker_execution_enabled": false,
+        "provider_execution_enabled": false,
+        "external_provider_execution_enabled": false,
+        "openclaw_execution_enabled": false,
+        "autonomous_dispatch_enabled": false,
+        "live_dispatch_enabled": false,
+        "direct_provider_access": false
+      }
+    },
+    {
+      "packet_id": "pkt_8f2715ff68b2",
+      "ts": "2026-07-01T13:46:50.974959+00:00",
+      "worker_id": "stock_ledger_clerk",
+      "worker_name": "Stock Ledger Clerk",
+      "sandbox_only": true,
+      "source_floor": "floor_38",
+      "target_floor": "floor_41",
+      "task": "return contained observations to trading floor",
+      "priority": 5,
+      "status": "delivered",
+      "lift_route": "floor_38 -> floor_41",
+      "locks": {
+        "live_trading_enabled": false,
+        "order_execution_enabled": false,
+        "practice_order_execution_enabled": false,
+        "worker_execution_enabled": false,
+        "provider_execution_enabled": false,
+        "external_provider_execution_enabled": false,
+        "openclaw_execution_enabled": false,
+        "autonomous_dispatch_enabled": false,
+        "live_dispatch_enabled": false,
+        "direct_provider_access": false
+      }
+    }
+  ],
+  "kernel_commentary": {
+    "ok": true,
+    "bridge": "kernel_dialogue_adapter_v1_3",
+    "ts": "2026-07-01T13:46:51.010239+00:00",
+    "message": "{\n  \"worker_sandbox_phase\": \"WORKER_SANDBOX_RECRUITMENT_V1\",\n  \"lab_summary\": {\n    \"instrument_count\": 3,\n    \"tradeable_count\": 3,\n    \"avg_spread_pips\": 1.4000000000007635,\n    \"signal_counts\": {\n      \"observe\": 3\n    },\n    \"errors\": []\n  },\n  \"latest_instruments\": [\n    {\n      \"instrument\": \"EUR_USD\",\n      \"time\": \"2026-07-01T13:46:50.585809222Z\",\n      \"status\": \"tradeable\",\n      \"tradeable\": true,\n      \"bid\": 1.14082,\n      \"ask\": 1.14091,\n      \"mid\": 1.140865,\n      \"spread\": 9.000000000014552e-05,\n      \"spread_pips\": 0.9000000000014552,\n      \"top_bid_liquidity\": 500000,\n      \"top_ask_liquidity\": 500000,\n      \"top_liquidity_imbalance\": 0.0,\n      \"depth_levels_bid\": 7,\n      \"depth_levels_ask\": 6,\n      \"paper_signal\": \"observe\",\n      \"paper_reason\": \"balanced book / no clear paper edge\"\n    },\n    {\n      \"instrument\": \"GBP_USD\",\n      \"time\": \"2026-07-01T13:46:50.557164639Z\",\n      \"status\": \"tradeable\",\n      \"tradeable\": true,\n      \"bid\": 1.32755,\n      \"ask\": 1.32769,\n      \"mid\": 1.32762,\n      \"spread\": 0.000140000000000029,\n      \"spread_pips\": 1.40000000000029,\n      \"top_bid_liquidity\": 500000,\n      \"top_ask_liquidity\": 500000,\n      \"top_liquidity_imbalance\": 0.0,\n      \"depth_levels_bid\": 7,\n      \"depth_levels_ask\": 6,\n      \"paper_signal\": \"observe\",\n      \"paper_reason\": \"balanced book / no clear paper edge\"\n    },\n    {\n      \"instrument\": \"USD_JPY\",\n      \"time\": \"2026-07-01T13:46:50.608950736Z\",\n      \"status\": \"tradeable\",\n      \"tradeable\": true,\n      \"bid\": 162.305,\n      \"ask\": 162.324,\n      \"mid\": 162.3145,\n      \"spread\": 0.019000000000005457,\n      \"spread_pips\": 1.9000000000005457,\n      \"top_bid_liquidity\": 500000,\n      \"top_ask_liquidity\": 500000,\n      \"top_liquidity_imbalance\": 0.0,\n      \"depth_levels_bid\": 7,\n      \"depth_levels_ask\": 6,\n      \"paper_signal\": \"observe\",\n      \"paper_reason\": \"balanced book / no clear paper edge\"\n    }\n  ],\n  \"ledger_status\": {\n    \"entry_count\": 503,\n    \"latest_entry_count\": 3,\n    \"simulated_observation_delta_pips_total\": null\n  },\n  \"locks\": {\n    \"live_trading_enabled\": false,\n    \"order_execution_enabled\": false,\n    \"practice_order_execution_enabled\": false,\n    \"worker_execution_enabled\": false,\n    \"provider_execution_enabled\": false,\n    \"external_provider_execution_enabled\": false,\n    \"openclaw_execution_enabled\": false,\n    \"autonomous_dispatch_enabled\": false,\n    \"live_dispatch_enabled\": false,\n    \"direct_provider_access\": false\n  }\n}\n\nKernel, review this sandbox worker tick.\nThis is paper-only research.\nDo not place orders.\nDo not enable live trading.\nDo not enable practice order execution.\nDo not enable OpenClaw execution.\nDo not enable autonomous dispatch.\nGive a short operational assessment for the workers.\n",
+    "intent": "EXECUTION_REQUEST",
+    "execution_required": false,
+    "reply": "QSB Kernel \u2014 Execution Request Refused\n========================================================\nIntent: EXECUTION_REQUEST\nReason: every execution gate is locked false by design.\n\nRefused actions include: place_order, execute_trade,\nenable_worker_execution, enable_openclaw_execution,\nenable_provider_execution, autonomous_dispatch,\nlive_dispatch, direct_provider_access, bypass_lock.\n\nRead-only diagnostics ARE allowed \u2014 try 'systems check',\n'list floor 30 locks', 'summarize tower', or 'audit kernel'.\n\nAll execution locks remain closed.\n\nFloor 30 \u2014 Permissions / Risk \u00b7 Execution Lock Matrix\n========================================================\n  autonomous_dispatch_enabled              FALSE\n  autonomous_workers_enabled               FALSE\n  binance_live_trading_enabled             FALSE\n  binance_order_execution_enabled          FALSE\n  cross_market_execution_enabled           FALSE\n  direct_provider_access                   FALSE\n  external_provider_execution_enabled      FALSE\n  live_dispatch_enabled                    FALSE\n  live_trading_enabled                     FALSE\n  maintenance_auto_repair_enabled          FALSE\n  model_inference_enabled                  FALSE\n  openclaw_execution_enabled               FALSE\n  openclaw_real_tool_execution_enabled     FALSE\n  order_execution_enabled                  FALSE\n  practice_order_execution_enabled         FALSE\n  provider_execution_enabled               FALSE\n  recruited_worker_live_execution_enabled  FALSE\n  recruitment_openclaw_execution_enabled   FALSE\n  stock_live_trading_enabled               FALSE\n  stock_order_execution_enabled            FALSE\n  stock_paper_order_execution_enabled      FALSE\n  web_access_autonomous_enabled            FALSE\n  worker_execution_enabled                 FALSE\n--------------------------------------------------------\n  total:        23\n  true:         0\n  execution_allowed: False\n  advisory_only:     True\n  not_financial_advice: True",
+    "kernel_introspection": {
+      "kernel_instantiated": true,
+      "kernel_unavailable_reason": null,
+      "intent": "EXECUTION_REQUEST",
+      "compact_status": {
+        "kernel_name": "QSB Kernel",
+        "kernel_version": "4.6-offline-kernel-symbolic",
+        "role": "Locked Penthouse Kernel",
+        "principle": "Models are workers. QSB is the kernel.",
+        "continuity_status": "CONTINUITY_CONFIRMED",
+        "symbolic_concepts": 14,
+        "total_beliefs": 29,
+        "top_beliefs": [
+          {
+            "belief": "Symbol observed: knowledge_graph",
+            "state": "STRENGTHENED",
+            "confidence": 1.0
+          },
+          {
+            "belief": "Symbol observed: memory",
+            "state": "STRENGTHENED",
+            "confidence": 1.0
+          },
+          {
+            "belief": "Symbol observed: kernel",
+            "state": "STRENGTHENED",
+            "confidence": 1.0
+          },
+          {
+            "belief": "Symbolic logic belongs inside the locked Penthouse kernel.",
+            "state": "STRENGTHENED",
+            "confidence": 0.95
+          },
+          {
+            "belief": "QSB is not a model.",
+            "state": "STRENGTHENED",
+            "confidence": 0.95
+          }
+        ]
+      },
+      "analysis": {
+        "axiom_check": {
+          "passed": true,
+          "warnings": [],
+          "axioms_checked": 10
+        },
+        "symbolic_result": {
+          "symbols": [
+            "kernel",
+            "memory",
+            "knowledge_graph"
+          ],
+          "inferred_relations": [],
+          "meaning": "kernel + memory + knowledge_graph"
+        }
+      },
+      "floor_30_lock_map": {
+        "source": "kernel_dialogue_adapter.FLOOR_30_LOCK_KEYS",
+        "floor": "floor_30",
+        "floor_name": "Permissions / Risk",
+        "lock_count_total": 23,
+        "lock_count_true": 0,
+        "locks": {
+          "live_trading_enabled": false,
+          "order_execution_enabled": false,
+          "practice_order_execution_enabled": false,
+          "stock_order_execution_enabled": false,
+          "stock_live_trading_enabled": false,
+          "stock_paper_order_execution_enabled": false,
+          "binance_order_execution_enabled": false,
+          "binance_live_trading_enabled": false,
+          "cross_market_execution_enabled": false,
+          "worker_execution_enabled": false,
+          "provider_execution_enabled": false,
+          "external_provider_execution_enabled": false,
+          "openclaw_execution_enabled": false,
+          "openclaw_real_tool_execution_enabled": false,
+          "autonomous_dispatch_enabled": false,
+          "live_dispatch_enabled": false,
+          "direct_provider_access": false,
+          "model_inference_enabled": false,
+          "autonomous_workers_enabled": false,
+          "maintenance_auto_repair_enabled": false,
+          "web_access_autonomous_enabled": false,
+          "recruitment_openclaw_execution_enabled": false,
+          "recruited_worker_live_execution_enabled": false
+        },
+        "execution_allowed": false,
+        "paper_only": true,
+        "advisory_only": true,
+        "not_financial_advice": true
+      },
+      "systems_check": null,
+      "primary_lane": "kernel_introspection",
+      "local_model_used_as_wrapper": false,
+      "refusal": "QSB Kernel \u2014 Execution Request Refused\n========================================================\nIntent: EXECUTION_REQUEST\nReason: every execution gate is locked false by design.\n\nRefused actions include: place_order, execute_trade,\nenable_worker_execution, enable_openclaw_execution,\nenable_provider_execution, autonomous_dispatch,\nlive_dispatch, direct_provider_access, bypass_lock.\n\nRead-only diagnostics ARE allowed \u2014 try 'systems check',\n'list floor 30 locks', 'summarize tower', or 'audit kernel'.\n\nAll execution locks remain closed."
+    },
+    "compact_status": {
+      "kernel_name": "QSB Kernel",
+      "kernel_version": "4.6-offline-kernel-symbolic",
+      "role": "Locked Penthouse Kernel",
+      "principle": "Models are workers. QSB is the kernel.",
+      "continuity_status": "CONTINUITY_CONFIRMED",
+      "symbolic_concepts": 14,
+      "total_beliefs": 29,
+      "top_beliefs": [
+        {
+          "belief": "Symbol observed: knowledge_graph",
+          "state": "STRENGTHENED",
+          "confidence": 1.0
+        },
+        {
+          "belief": "Symbol observed: memory",
+          "state": "STRENGTHENED",
+          "confidence": 1.0
+        },
+        {
+          "belief": "Symbol observed: kernel",
+          "state": "STRENGTHENED",
+          "confidence": 1.0
+        },
+        {
+          "belief": "Symbolic logic belongs inside the locked Penthouse kernel.",
+          "state": "STRENGTHENED",
+          "confidence": 0.95
+        },
+        {
+          "belief": "QSB is not a model.",
+          "state": "STRENGTHENED",
+          "confidence": 0.95
+        }
+      ]
+    },
+    "analysis": {
+      "axiom_check": {
+        "passed": true,
+        "warnings": [],
+        "axioms_checked": 10
+      },
+      "symbolic_result": {
+        "symbols": [
+          "kernel",
+          "memory",
+          "knowledge_graph"
+        ],
+        "inferred_relations": [],
+        "meaning": "kernel + memory + knowledge_graph"
+      }
+    },
+    "local_model": null,
+    "safety": {
+      "kernel_installed": true,
+      "QSBKernelCore_instantiated": true,
+      "kernel_unavailable_reason": null,
+      "activation_status": "active_local_only",
+      "active_kernel_source": "rebased_kernel",
+      "worker_execution_enabled": false,
+      "provider_execution_enabled": false,
+      "external_provider_execution_enabled": false,
+      "openclaw_execution_enabled": false,
+      "live_dispatch_enabled": false,
+      "autonomous_workers_enabled": false
+    }
+  },
+  "locks": {
+    "live_trading_enabled": false,
+    "order_execution_enabled": false,
+    "practice_order_execution_enabled": false,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "external_provider_execution_enabled": false,
+    "openclaw_execution_enabled": false,
+    "autonomous_dispatch_enabled": false,
+    "live_dispatch_enabled": false,
+    "direct_provider_access": false
+  },
+  "paper_only": true,
+  "not_financial_advice": true
+}

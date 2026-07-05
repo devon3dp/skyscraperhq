@@ -1,0 +1,15 @@
+{
+  "version": "1.1",
+  "floor_id": "floor_27",
+  "department": "Local Model Operations Department",
+  "models_required_for_tower_boot": false,
+  "execution_enabled": false,
+  "hardwired_models": false,
+  "provider": "ollama_optional",
+  "principle": "Local models are optional tenants. The tower owns the inventory, role catalog, and readiness records.",
+  "receives_from": [
+    "floor_24"
+  ],
+  "incoming_lift": "model_lift",
+  "does_not_execute_models_yet": true
+}

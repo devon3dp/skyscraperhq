@@ -1,0 +1,34 @@
+{
+  "room_id": "robotics_workshop",
+  "name": "Robotic Assembly",
+  "category": "workshop",
+  "purpose": "This space is for assembling and testing robots.",
+  "concierge_blurb": "See the assembly of next-gen robotics right here!",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -8.0,
+    "offset_z": 2.0,
+    "footprint_m": [
+      15,
+      6
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "bench",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Robotic Assembly",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": null,
+    "refresh_seconds": null
+  },
+  "floor": "floor_117"
+}

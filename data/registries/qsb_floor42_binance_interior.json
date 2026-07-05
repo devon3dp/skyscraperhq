@@ -1,0 +1,128 @@
+{
+  "ok": true,
+  "kind": "qsb_floor42_binance_interior",
+  "phase": "QSB_DASHBOARD_VISIBLE_REALITY_REBUILD_V1",
+  "generated_ts": "2026-06-30T13:46:36.712928+00:00",
+  "floor": 42,
+  "department": "Binance Trading Floor",
+  "rooms": [
+    {
+      "name": "Binance Testnet Feed Desk",
+      "responsibility": "stream testnet ticker + order book"
+    },
+    {
+      "name": "Strategy Desk",
+      "responsibility": "score testnet candidates, score against risk caps"
+    },
+    {
+      "name": "Order Preview Desk",
+      "responsibility": "format previewed orders (placement blocked)"
+    },
+    {
+      "name": "Risk Station",
+      "responsibility": "veto previews over caps; guard kill switch"
+    },
+    {
+      "name": "Ledger Dispatch",
+      "responsibility": "append every preview + audit to ledger"
+    },
+    {
+      "name": "OpenClaw Inspection Post",
+      "responsibility": "read-only supervisor checks"
+    }
+  ],
+  "workers": [
+    {
+      "worker_id": "f42_floor_manager",
+      "role": "Binance Floor Manager",
+      "room": "Strategy Desk",
+      "station": "Strategy Desk \u00b7 station #06",
+      "state": "idle_at_station",
+      "current_task": "monitor testnet feed (no placement)",
+      "stable": true,
+      "source": "qsb_floor42_binance.py"
+    },
+    {
+      "worker_id": "f42_testnet_scout",
+      "role": "Testnet Market Scout",
+      "room": "Binance Testnet Feed Desk",
+      "station": "Binance Testnet Feed Desk \u00b7 station #10",
+      "state": "idle_at_station",
+      "current_task": "monitor testnet feed (no placement)",
+      "stable": true,
+      "source": "qsb_floor42_binance.py"
+    },
+    {
+      "worker_id": "f42_orderbook_watcher",
+      "role": "Order Book Watcher",
+      "room": "Binance Testnet Feed Desk",
+      "station": "Binance Testnet Feed Desk \u00b7 station #02",
+      "state": "idle_at_station",
+      "current_task": "monitor testnet feed (no placement)",
+      "stable": true,
+      "source": "qsb_floor42_binance.py"
+    },
+    {
+      "worker_id": "f42_strategy_analyst",
+      "role": "Strategy Analyst",
+      "room": "Strategy Desk",
+      "station": "Strategy Desk \u00b7 station #05",
+      "state": "idle_at_station",
+      "current_task": "monitor testnet feed (no placement)",
+      "stable": true,
+      "source": "qsb_floor42_binance.py"
+    },
+    {
+      "worker_id": "f42_order_preview_clerk",
+      "role": "Order Preview Clerk",
+      "room": "Order Preview Desk",
+      "station": "Order Preview Desk \u00b7 station #01",
+      "state": "idle_at_station",
+      "current_task": "monitor testnet feed (no placement)",
+      "stable": true,
+      "source": "qsb_floor42_binance.py"
+    },
+    {
+      "worker_id": "f42_risk_sentinel",
+      "role": "Risk Sentinel",
+      "room": "Risk Station",
+      "station": "Risk Station \u00b7 station #10",
+      "state": "idle_at_station",
+      "current_task": "monitor testnet feed (no placement)",
+      "stable": true,
+      "source": "qsb_floor42_binance.py"
+    },
+    {
+      "worker_id": "f42_ledger_clerk",
+      "role": "Ledger Dispatch Clerk",
+      "room": "Ledger Dispatch",
+      "station": "Ledger Dispatch \u00b7 station #09",
+      "state": "idle_at_station",
+      "current_task": "monitor testnet feed (no placement)",
+      "stable": true,
+      "source": "qsb_floor42_binance.py"
+    },
+    {
+      "worker_id": "f42_openclaw_inspector",
+      "role": "OpenClaw Binance Inspector",
+      "room": "OpenClaw Inspection Post",
+      "station": "OpenClaw Inspection Post \u00b7 station #06",
+      "state": "idle_at_station",
+      "current_task": "monitor testnet feed (no placement)",
+      "stable": true,
+      "source": "qsb_floor42_binance.py"
+    }
+  ],
+  "policy": {
+    "mode": "testnet_preview_only",
+    "placement": "blocked_without_explicit_unlock",
+    "real_money_enabled": false
+  },
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "binance_real_order_execution_enabled": false,
+  "binance_testnet_placement_enabled": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

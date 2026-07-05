@@ -1,0 +1,48 @@
+{
+  "ok": true,
+  "phase": "QSB_OPENCLAW_PAPER_TRADE_WORKERS_3D_SKYSCRAPER_V2",
+  "kind": "qsb_paper_trading_policy",
+  "generated_ts": "2026-06-17T17:18:00.722779+00:00",
+  "max_open_trades": 20,
+  "default_stop_pct": 0.5,
+  "default_target_pct": 1.0,
+  "default_timeout_hours": 24,
+  "active_mode": "simulated_paper",
+  "gateway_status": "binance_testnet_not_configured_falling_back_to_simulated_paper",
+  "binance_testnet_creds_present": false,
+  "binance_env_var": "not_set",
+  "credentials_storage_policy": "API keys/secrets are never written to SQLite or any JSON registry.",
+  "max_trade_size_per_symbol": 10000,
+  "supported_symbols_binance_paper": [
+    "BTCUSDT",
+    "ETHUSDT",
+    "BNBUSDT",
+    "SOLUSDT"
+  ],
+  "supported_symbols_oanda_paper": [
+    "EUR_USD",
+    "GBP_USD",
+    "USD_JPY",
+    "AUD_USD"
+  ],
+  "supported_symbols_stocks_paper": [
+    "AAPL",
+    "MSFT",
+    "GOOG",
+    "NVDA"
+  ],
+  "stop_rule_description": "Closes the trade when mark price crosses stop_rule.",
+  "target_rule_description": "Closes the trade when mark price crosses target_rule.",
+  "timeout_description": "Closes the trade after default_timeout_hours.",
+  "learning_record_description": "Every closed trade writes a row to paper_trade_lessons with the exit_reason, realized_pnl, and a one-line lesson_text.",
+  "guardian_verdict_default": "ALLOW_ADVISORY",
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "paper_only": true,
+  "real_money_live_trading_enabled": false,
+  "live_trading_enabled": false,
+  "binance_live_trading_enabled": false,
+  "stock_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

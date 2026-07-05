@@ -1,0 +1,15 @@
+{
+  "ok": true,
+  "kind": "qsb_native_cockpit_status",
+  "phase": "QSB_NATIVE_COCKPIT_STANDALONE_SKYSCRAPER_PLATFORM_V2",
+  "generated_ts": "2026-06-09T15:10:00+00:00",
+  "engine": "PyQt5",
+  "engine_usable": true,
+  "last_launch_ts": "2026-06-09T15:15:53+00:00",
+  "last_launch_result": "launching",
+  "qt_window_can_open": "verified offscreen at audit time",
+  "execution_allowed": false,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "engine_python": "/usr/bin/python3"
+}

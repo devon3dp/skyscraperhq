@@ -1,0 +1,62 @@
+[
+  {
+    "blueprint_id": "advanced_systems_department",
+    "preferred_floor": "floor_41",
+    "department_name": "Advanced Systems Department",
+    "activation_requires": [
+      "floor_manifest_update",
+      "worker_slot_allocation",
+      "dashboard_visibility",
+      "lift_permission_check"
+    ],
+    "execution_enabled": false
+  },
+  {
+    "blueprint_id": "advanced_automation_department",
+    "preferred_floor": "floor_42",
+    "department_name": "Advanced Automation Department",
+    "activation_requires": [
+      "floor_manifest_update",
+      "worker_slot_allocation",
+      "dashboard_visibility",
+      "lift_permission_check"
+    ],
+    "execution_enabled": false
+  },
+  {
+    "blueprint_id": "advanced_memory_department",
+    "preferred_floor": "floor_43",
+    "department_name": "Advanced Memory Department",
+    "activation_requires": [
+      "floor_manifest_update",
+      "worker_slot_allocation",
+      "dashboard_visibility",
+      "lift_permission_check"
+    ],
+    "execution_enabled": false
+  },
+  {
+    "blueprint_id": "advanced_simulation_department",
+    "preferred_floor": "floor_44",
+    "department_name": "Advanced Simulation Department",
+    "activation_requires": [
+      "floor_manifest_update",
+      "worker_slot_allocation",
+      "dashboard_visibility",
+      "lift_permission_check"
+    ],
+    "execution_enabled": false
+  },
+  {
+    "blueprint_id": "executive_expansion_buffer",
+    "preferred_floor": "floor_45",
+    "department_name": "Executive Expansion Buffer",
+    "activation_requires": [
+      "floor_manifest_update",
+      "executive_lift_check",
+      "security_precheck",
+      "dashboard_visibility"
+    ],
+    "execution_enabled": false
+  }
+]

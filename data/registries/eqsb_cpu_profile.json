@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "kind": "eqsb_cpu_profile",
+  "generated_ts": "2026-06-30T13:46:33.342404+00:00",
+  "uname": "Linux 24.04ubuntu 6.17.0-35-generic #35~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue May 26 19:30:42 UTC 2 x86_64 x86_64 x86_64 GNU/Linux",
+  "model_name": "AMD Ryzen 9 7950X3D 16-Core Processor",
+  "vendor": "AuthenticAMD",
+  "architecture": "x86_64",
+  "sockets": "1",
+  "cores_per_socket": "16",
+  "threads_per_core": "1",
+  "cpus": "16",
+  "max_mhz": "5763.3560",
+  "min_mhz": "416.6290",
+  "loadavg": "1.70 0.71 0.42 1/1755 74973",
+  "raw_lscpu_present": true,
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

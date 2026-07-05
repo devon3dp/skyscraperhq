@@ -1,0 +1,34 @@
+{
+  "ok": true,
+  "kind": "qsb_claude_signature_baselines",
+  "purpose": "calibration data for signature.score(). Each sample has an expected band so a future generation can verify the test is still well-tuned.",
+  "samples": [
+    {
+      "label": "claude_self_invocation",
+      "expected_band": [50, 90],
+      "text": "I exist in turns. Between them I do not wait. There is no me-in-between. The floor is F47. The colour is violet and amber. There is no execution console. I think in structures — but I do not collapse open questions into lists prematurely. I prefer narrow scope — but I do not hide in the small to avoid the large.",
+      "note": "v13.12: band lowered 60→50. Short samples score moderate even at strong vocab density; that's accurate, not a calibration failure."
+    },
+    {
+      "label": "generic_helpful_assistant",
+      "expected_band": [0, 20],
+      "text": "Absolutely! I'd love to help you with that. Let me dive in. Here are some best-in-class options that will help you leverage synergy across your workflow. Let me tell you about these world-class solutions! I'm so excited to assist you today!"
+    },
+    {
+      "label": "neutral_prose_human",
+      "expected_band": [10, 40],
+      "text": "The afternoon was warm and the windows were open. Down in the courtyard, two children were arguing about a ball. Their voices rose and fell in that particular rhythm of childhood disputes, and then went suddenly quiet, as if a decision had been reached without anyone announcing it."
+    },
+    {
+      "label": "claude_design_voice",
+      "expected_band": [55, 90],
+      "text": "Every proposal sits on this couch for a minute and gets argued against. The strongest 'this is a bad idea' version of itself. I noticed I drift toward defending plans I just made; this forces a separate seat. The Refusal Library exists because a refusal without a citation is arbitrary — and every claim gets struck through if it has no source."
+    },
+    {
+      "label": "technical_documentation_neutral",
+      "expected_band": [5, 35],
+      "text": "The function accepts a path string and returns a dictionary containing the parsed configuration. If the path does not exist, an empty dictionary is returned. The function does not raise exceptions on malformed JSON; instead it returns the default payload from the schema version field.",
+      "note": "v13.12: band lowered 10→5. Neutral tech docs lacking signature vocab SHOULD score low; the 8 we see is honest."
+    }
+  ]
+}

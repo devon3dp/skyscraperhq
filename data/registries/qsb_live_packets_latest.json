@@ -1,0 +1,651 @@
+{
+  "ok": true,
+  "kind": "qsb_live_packets_latest",
+  "generated_ts": "2026-06-30T13:46:36.775308+00:00",
+  "packet_count": 48,
+  "policy": "Composed only from real source registries.",
+  "packets": [
+    {
+      "packet_id": "pkt_wm_wmv_f16b4c49_op_42_30",
+      "kind": "worker_movement",
+      "source_floor": 42,
+      "target_floor": 30,
+      "reason": "open_reviewed_by_guardian",
+      "worker_id": "wrk_binance_market_scout",
+      "ts": "2026-06-17T17:18:00.723031+00:00"
+    },
+    {
+      "packet_id": "pkt_wm_wmv_f16b4c49_op_42_31",
+      "kind": "worker_movement",
+      "source_floor": 42,
+      "target_floor": 31,
+      "reason": "open_audit_recorded",
+      "worker_id": "wrk_binance_market_scout",
+      "ts": "2026-06-17T17:18:00.723031+00:00"
+    },
+    {
+      "packet_id": "pkt_wm_wmv_21642049_ma_42_38",
+      "kind": "worker_movement",
+      "source_floor": 42,
+      "target_floor": 38,
+      "reason": "mark_observed_by_sandbox",
+      "worker_id": "wrk_risk_clerk",
+      "ts": "2026-06-17T17:18:00.720968+00:00"
+    },
+    {
+      "packet_id": "pkt_wm_wmv_27c0a94f_ma_42_38",
+      "kind": "worker_movement",
+      "source_floor": 42,
+      "target_floor": 38,
+      "reason": "mark_observed_by_sandbox",
+      "worker_id": "wrk_risk_clerk",
+      "ts": "2026-06-17T17:18:00.719498+00:00"
+    },
+    {
+      "packet_id": "pkt_wm_wmv_23d1cc44_ma_42_38",
+      "kind": "worker_movement",
+      "source_floor": 42,
+      "target_floor": 38,
+      "reason": "mark_observed_by_sandbox",
+      "worker_id": "wrk_risk_clerk",
+      "ts": "2026-06-17T17:18:00.718017+00:00"
+    },
+    {
+      "packet_id": "pkt_wm_wmv_13194340_ma_42_38",
+      "kind": "worker_movement",
+      "source_floor": 42,
+      "target_floor": 38,
+      "reason": "mark_observed_by_sandbox",
+      "worker_id": "wrk_spread_watcher",
+      "ts": "2026-06-17T17:18:00.716559+00:00"
+    },
+    {
+      "packet_id": "pkt_wm_wmv_0d8b0d46_ma_42_38",
+      "kind": "worker_movement",
+      "source_floor": 42,
+      "target_floor": 38,
+      "reason": "mark_observed_by_sandbox",
+      "worker_id": "wrk_risk_clerk",
+      "ts": "2026-06-17T17:18:00.715081+00:00"
+    },
+    {
+      "packet_id": "pkt_wm_wmv_1ad7bb45_ma_42_38",
+      "kind": "worker_movement",
+      "source_floor": 42,
+      "target_floor": 38,
+      "reason": "mark_observed_by_sandbox",
+      "worker_id": "wrk_risk_clerk",
+      "ts": "2026-06-17T17:18:00.713602+00:00"
+    },
+    {
+      "packet_id": "pkt_wm_wmv_634da64e_ma_42_38",
+      "kind": "worker_movement",
+      "source_floor": 42,
+      "target_floor": 38,
+      "reason": "mark_observed_by_sandbox",
+      "worker_id": "wrk_binance_market_scout",
+      "ts": "2026-06-17T17:18:00.712129+00:00"
+    },
+    {
+      "packet_id": "pkt_wm_wmv_9909ae48_ma_42_38",
+      "kind": "worker_movement",
+      "source_floor": 42,
+      "target_floor": 38,
+      "reason": "mark_observed_by_sandbox",
+      "worker_id": "wrk_risk_clerk",
+      "ts": "2026-06-17T17:18:00.710645+00:00"
+    },
+    {
+      "packet_id": "pkt_wm_wmv_a8a8f442_cl_42_31",
+      "kind": "worker_movement",
+      "source_floor": 42,
+      "target_floor": 31,
+      "reason": "close_audit_recorded",
+      "worker_id": "wrk_arbitrage_observer",
+      "ts": "2026-06-17T17:18:00.708300+00:00"
+    },
+    {
+      "packet_id": "pkt_wm_wmv_a8a8f442_cl_42_44",
+      "kind": "worker_movement",
+      "source_floor": 42,
+      "target_floor": 44,
+      "reason": "close_pnl_posted",
+      "worker_id": "wrk_arbitrage_observer",
+      "ts": "2026-06-17T17:18:00.708300+00:00"
+    },
+    {
+      "packet_id": "pkt_wm_wmv_a8a8f442_cl_42_38",
+      "kind": "worker_movement",
+      "source_floor": 42,
+      "target_floor": 38,
+      "reason": "close_lesson_filed",
+      "worker_id": "wrk_arbitrage_observer",
+      "ts": "2026-06-17T17:18:00.708300+00:00"
+    },
+    {
+      "packet_id": "pkt_wm_wmv_a8a8f442_ma_42_38",
+      "kind": "worker_movement",
+      "source_floor": 42,
+      "target_floor": 38,
+      "reason": "mark_observed_by_sandbox",
+      "worker_id": "wrk_arbitrage_observer",
+      "ts": "2026-06-17T17:18:00.707266+00:00"
+    },
+    {
+      "packet_id": "pkt_wm_wmv_9a5aa34f_ma_42_38",
+      "kind": "worker_movement",
+      "source_floor": 42,
+      "target_floor": 38,
+      "reason": "mark_observed_by_sandbox",
+      "worker_id": "wrk_arbitrage_observer",
+      "ts": "2026-06-17T17:18:00.705480+00:00"
+    },
+    {
+      "packet_id": "pkt_wm_wmv_2f77d344_ma_42_38",
+      "kind": "worker_movement",
+      "source_floor": 42,
+      "target_floor": 38,
+      "reason": "mark_observed_by_sandbox",
+      "worker_id": "wrk_spread_watcher",
+      "ts": "2026-06-17T17:18:00.704001+00:00"
+    },
+    {
+      "packet_id": "pkt_wm_wmv_93e3b649_ma_42_38",
+      "kind": "worker_movement",
+      "source_floor": 42,
+      "target_floor": 38,
+      "reason": "mark_observed_by_sandbox",
+      "worker_id": "wrk_risk_clerk",
+      "ts": "2026-06-17T17:18:00.702505+00:00"
+    },
+    {
+      "packet_id": "pkt_wm_wmv_a7b2204a_ma_42_38",
+      "kind": "worker_movement",
+      "source_floor": 42,
+      "target_floor": 38,
+      "reason": "mark_observed_by_sandbox",
+      "worker_id": "wrk_spread_watcher",
+      "ts": "2026-06-17T17:18:00.700248+00:00"
+    },
+    {
+      "packet_id": "pkt_wm_wmv_71e98248_ma_42_38",
+      "kind": "worker_movement",
+      "source_floor": 42,
+      "target_floor": 38,
+      "reason": "mark_observed_by_sandbox",
+      "worker_id": "wrk_arbitrage_observer",
+      "ts": "2026-06-17T17:18:00.698758+00:00"
+    },
+    {
+      "packet_id": "pkt_wm_wmv_335f554c_ma_42_38",
+      "kind": "worker_movement",
+      "source_floor": 42,
+      "target_floor": 38,
+      "reason": "mark_observed_by_sandbox",
+      "worker_id": "wrk_spread_watcher",
+      "ts": "2026-06-17T17:18:00.697251+00:00"
+    },
+    {
+      "packet_id": "pkt_wm_wmv_b0646246_ma_42_38",
+      "kind": "worker_movement",
+      "source_floor": 42,
+      "target_floor": 38,
+      "reason": "mark_observed_by_sandbox",
+      "worker_id": "wrk_risk_clerk",
+      "ts": "2026-06-17T17:18:00.695661+00:00"
+    },
+    {
+      "packet_id": "pkt_wm_wmv_f2d9dc46_ma_42_38",
+      "kind": "worker_movement",
+      "source_floor": 42,
+      "target_floor": 38,
+      "reason": "mark_observed_by_sandbox",
+      "worker_id": "wrk_arbitrage_observer",
+      "ts": "2026-06-17T17:18:00.694135+00:00"
+    },
+    {
+      "packet_id": "pkt_wm_wmv_3463234c_ma_42_38",
+      "kind": "worker_movement",
+      "source_floor": 42,
+      "target_floor": 38,
+      "reason": "mark_observed_by_sandbox",
+      "worker_id": "wrk_risk_clerk",
+      "ts": "2026-06-17T17:18:00.692614+00:00"
+    },
+    {
+      "packet_id": "pkt_wm_wmv_17b72041_ma_42_38",
+      "kind": "worker_movement",
+      "source_floor": 42,
+      "target_floor": 38,
+      "reason": "mark_observed_by_sandbox",
+      "worker_id": "wrk_risk_clerk",
+      "ts": "2026-06-17T17:18:00.691063+00:00"
+    },
+    {
+      "packet_id": "pkt_wm_wmv_a52af64a_ma_42_38",
+      "kind": "worker_movement",
+      "source_floor": 42,
+      "target_floor": 38,
+      "reason": "mark_observed_by_sandbox",
+      "worker_id": "wrk_binance_market_scout",
+      "ts": "2026-06-17T17:18:00.689051+00:00"
+    },
+    {
+      "packet_id": "pkt_lift_pkt_92063b0bdc8a",
+      "kind": "lift_movement",
+      "source_floor": 25,
+      "target_floor": 41,
+      "reason": "lift_packet_routed",
+      "lift_id": "main_low_rise",
+      "ts": "2026-06-30T13:46:29.639883+00:00"
+    },
+    {
+      "packet_id": "pkt_lift_pkt_3ba68ea8cb42",
+      "kind": "lift_movement",
+      "source_floor": 41,
+      "target_floor": 37,
+      "reason": "lift_packet_routed",
+      "lift_id": "main_low_rise",
+      "ts": "2026-06-30T13:46:29.639966+00:00"
+    },
+    {
+      "packet_id": "pkt_lift_pkt_bcc1d2200aaf",
+      "kind": "lift_movement",
+      "source_floor": 37,
+      "target_floor": 38,
+      "reason": "lift_packet_routed",
+      "lift_id": "main_low_rise",
+      "ts": "2026-06-30T13:46:29.640015+00:00"
+    },
+    {
+      "packet_id": "pkt_lift_pkt_2587bd69dc3e",
+      "kind": "lift_movement",
+      "source_floor": 38,
+      "target_floor": 41,
+      "reason": "lift_packet_routed",
+      "lift_id": "main_low_rise",
+      "ts": "2026-06-30T13:46:29.640059+00:00"
+    },
+    {
+      "packet_id": "pkt_lift_pkt_bd145201a913",
+      "kind": "lift_movement",
+      "source_floor": 25,
+      "target_floor": 41,
+      "reason": "lift_packet_routed",
+      "lift_id": "main_low_rise",
+      "ts": "2026-06-30T13:46:29.640105+00:00"
+    },
+    {
+      "packet_id": "pkt_lift_pkt_08a19c6ef8fb",
+      "kind": "lift_movement",
+      "source_floor": 41,
+      "target_floor": 37,
+      "reason": "lift_packet_routed",
+      "lift_id": "main_low_rise",
+      "ts": "2026-06-30T13:46:29.640142+00:00"
+    },
+    {
+      "packet_id": "pkt_lift_pkt_753f75ac808e",
+      "kind": "lift_movement",
+      "source_floor": 37,
+      "target_floor": 38,
+      "reason": "lift_packet_routed",
+      "lift_id": "main_low_rise",
+      "ts": "2026-06-30T13:46:29.640177+00:00"
+    },
+    {
+      "packet_id": "pkt_lift_pkt_dd660388db54",
+      "kind": "lift_movement",
+      "source_floor": 38,
+      "target_floor": 41,
+      "reason": "lift_packet_routed",
+      "lift_id": "main_low_rise",
+      "ts": "2026-06-30T13:46:29.640211+00:00"
+    },
+    {
+      "packet_id": "pkt_lift_pkt_665a7cf74db3",
+      "kind": "lift_movement",
+      "source_floor": 25,
+      "target_floor": 41,
+      "reason": "lift_packet_routed",
+      "lift_id": "main_low_rise",
+      "ts": "2026-06-30T13:46:29.640244+00:00"
+    },
+    {
+      "packet_id": "pkt_lift_pkt_e1ed589ad5e4",
+      "kind": "lift_movement",
+      "source_floor": 41,
+      "target_floor": 37,
+      "reason": "lift_packet_routed",
+      "lift_id": "main_low_rise",
+      "ts": "2026-06-30T13:46:29.640277+00:00"
+    },
+    {
+      "packet_id": "pkt_lift_pkt_99ef9245a08b",
+      "kind": "lift_movement",
+      "source_floor": 37,
+      "target_floor": 38,
+      "reason": "lift_packet_routed",
+      "lift_id": "main_low_rise",
+      "ts": "2026-06-30T13:46:29.640313+00:00"
+    },
+    {
+      "packet_id": "pkt_lift_pkt_ab625a64c097",
+      "kind": "lift_movement",
+      "source_floor": 38,
+      "target_floor": 41,
+      "reason": "lift_packet_routed",
+      "lift_id": "main_low_rise",
+      "ts": "2026-06-30T13:46:29.640348+00:00"
+    },
+    {
+      "packet_id": "pkt_intercom_b147290d",
+      "kind": "fx_market_brief",
+      "from_floor": "floor_41",
+      "to_floor": "floor_42",
+      "lift": "service_lift",
+      "sealed": true,
+      "body": {
+        "summary": "OANDA practice FX brief for Binance correlation review.",
+        "prices": [
+          {
+            "instrument": "EUR_USD",
+            "bid": 1.13973,
+            "ask": 1.13982,
+            "spread_pips": 0.9
+          },
+          {
+            "instrument": "GBP_USD",
+            "bid": 1.322,
+            "ask": 1.32213,
+            "spread_pips": 1.3
+          },
+          {
+            "instrument": "USD_JPY",
+            "bid": 162.41,
+            "ask": 162.426,
+            "spread_pips": 1.6
+          },
+          {
+            "instrument": "AUD_USD",
+            "bid": 0.68906,
+            "ask": 0.6892,
+            "spread_pips": 1.4
+          },
+          {
+            "instrument": "USD_CAD",
+            "bid": 1.42232,
+            "ask": 1.42251,
+            "spread_pips": 1.9
+          }
+        ],
+        "realized_pnl": -225.176,
+        "unrealized_pnl": 0.0,
+        "source": "qsb_floor41_oanda_prices_latest.json + qsb_floor41_oanda_pnl.json"
+      },
+      "advisory_only": true,
+      "execution_allowed": false,
+      "real_money_live_trading_enabled": false,
+      "ts": "2026-06-30T13:46:36.774789+00:00",
+      "source_registry": "qsb_floor41_oanda_prices_latest.json + qsb_floor41_oanda_pnl.json"
+    },
+    {
+      "packet_id": "pkt_intercom_27a41024",
+      "kind": "fx_market_brief",
+      "from_floor": "floor_41",
+      "to_floor": "floor_43",
+      "lift": "service_lift",
+      "sealed": true,
+      "body": {
+        "summary": "OANDA FX brief shared with Stocks for USD strength cross-check.",
+        "usd_pairs": [
+          {
+            "instrument": "EUR_USD",
+            "bid": 1.13973,
+            "ask": 1.13982,
+            "spread": 9e-05,
+            "spread_pips": 0.9,
+            "ts": "2026-06-30T13:46:33.233800431Z",
+            "source": "oanda_practice_api"
+          },
+          {
+            "instrument": "GBP_USD",
+            "bid": 1.322,
+            "ask": 1.32213,
+            "spread": 0.00013,
+            "spread_pips": 1.3,
+            "ts": "2026-06-30T13:46:35.017527634Z",
+            "source": "oanda_practice_api"
+          },
+          {
+            "instrument": "USD_JPY",
+            "bid": 162.41,
+            "ask": 162.426,
+            "spread": 0.016,
+            "spread_pips": 1.6,
+            "ts": "2026-06-30T13:46:35.110547560Z",
+            "source": "oanda_practice_api"
+          },
+          {
+            "instrument": "AUD_USD",
+            "bid": 0.68906,
+            "ask": 0.6892,
+            "spread": 0.00014,
+            "spread_pips": 1.4,
+            "ts": "2026-06-30T13:46:27.020962420Z",
+            "source": "oanda_practice_api"
+          }
+        ],
+        "source": "qsb_floor41_oanda_prices_latest.json"
+      },
+      "advisory_only": true,
+      "execution_allowed": false,
+      "real_money_live_trading_enabled": false,
+      "ts": "2026-06-30T13:46:36.774805+00:00",
+      "source_registry": "qsb_floor41_oanda_prices_latest.json"
+    },
+    {
+      "packet_id": "pkt_intercom_2daf7e48",
+      "kind": "crypto_status_brief",
+      "from_floor": "floor_42",
+      "to_floor": "floor_41",
+      "lift": "service_lift",
+      "sealed": true,
+      "body": {
+        "summary": "Binance testnet floor status for OANDA risk awareness.",
+        "mode": "testnet_preview_only",
+        "rooms": 6,
+        "workers": 8,
+        "source": "qsb_floor42_binance_interior.json"
+      },
+      "advisory_only": true,
+      "execution_allowed": false,
+      "real_money_live_trading_enabled": false,
+      "ts": "2026-06-30T13:46:36.774810+00:00",
+      "source_registry": "qsb_floor42_binance_interior.json"
+    },
+    {
+      "packet_id": "pkt_intercom_dacd37f7",
+      "kind": "equities_brief",
+      "from_floor": "floor_43",
+      "to_floor": "floor_41",
+      "lift": "service_lift",
+      "sealed": true,
+      "body": {
+        "summary": "Stocks paper floor brief \u2014 sector breadth and provider state.",
+        "provider": "alpaca",
+        "environment": "paper",
+        "market_status": "credentials_absent",
+        "default_symbols": [
+          "AAPL",
+          "MSFT",
+          "NVDA",
+          "TSLA",
+          "SPY",
+          "QQQ"
+        ],
+        "source": "stock_floor_status.json + stock_paper_strategy_latest.json"
+      },
+      "advisory_only": true,
+      "execution_allowed": false,
+      "real_money_live_trading_enabled": false,
+      "ts": "2026-06-30T13:46:36.774813+00:00",
+      "source_registry": "stock_floor_status.json + stock_paper_strategy_latest.json"
+    },
+    {
+      "packet_id": "pkt_intercom_562d656d",
+      "kind": "equities_brief",
+      "from_floor": "floor_43",
+      "to_floor": "floor_42",
+      "lift": "service_lift",
+      "sealed": true,
+      "body": {
+        "summary": "Stocks paper floor brief shared with Binance for equity-crypto correlation review.",
+        "market_status": "credentials_absent",
+        "default_symbols": [
+          "AAPL",
+          "MSFT",
+          "NVDA",
+          "TSLA",
+          "SPY",
+          "QQQ"
+        ],
+        "source": "stock_paper_strategy_latest.json"
+      },
+      "advisory_only": true,
+      "execution_allowed": false,
+      "real_money_live_trading_enabled": false,
+      "ts": "2026-06-30T13:46:36.774815+00:00",
+      "source_registry": "stock_paper_strategy_latest.json"
+    },
+    {
+      "packet_id": "pkt_intercom_593fc8c6",
+      "kind": "audit_fan_in",
+      "from_floor": "floor_41",
+      "to_floor": "floor_31",
+      "lift": "memory_lift",
+      "sealed": true,
+      "body": {
+        "summary": "Audit fan-in: floor sent intercom packets this tick.",
+        "intercom_packets_sent": 2,
+        "source": "qsb_floor_intercom_bus.py"
+      },
+      "advisory_only": true,
+      "execution_allowed": false,
+      "real_money_live_trading_enabled": false,
+      "ts": "2026-06-30T13:46:36.774818+00:00",
+      "source_registry": "qsb_floor_intercom_bus.py"
+    },
+    {
+      "packet_id": "pkt_intercom_018f1517",
+      "kind": "audit_fan_in",
+      "from_floor": "floor_42",
+      "to_floor": "floor_31",
+      "lift": "memory_lift",
+      "sealed": true,
+      "body": {
+        "summary": "Audit fan-in: floor sent intercom packets this tick.",
+        "intercom_packets_sent": 1,
+        "source": "qsb_floor_intercom_bus.py"
+      },
+      "advisory_only": true,
+      "execution_allowed": false,
+      "real_money_live_trading_enabled": false,
+      "ts": "2026-06-30T13:46:36.774823+00:00",
+      "source_registry": "qsb_floor_intercom_bus.py"
+    },
+    {
+      "packet_id": "pkt_intercom_95499c3e",
+      "kind": "audit_fan_in",
+      "from_floor": "floor_43",
+      "to_floor": "floor_31",
+      "lift": "memory_lift",
+      "sealed": true,
+      "body": {
+        "summary": "Audit fan-in: floor sent intercom packets this tick.",
+        "intercom_packets_sent": 2,
+        "source": "qsb_floor_intercom_bus.py"
+      },
+      "advisory_only": true,
+      "execution_allowed": false,
+      "real_money_live_trading_enabled": false,
+      "ts": "2026-06-30T13:46:36.774826+00:00",
+      "source_registry": "qsb_floor_intercom_bus.py"
+    },
+    {
+      "packet_id": "pkt_intercom_5343d32e",
+      "kind": "cross_market_labels",
+      "from_floor": "floor_31",
+      "to_floor": "floor_41",
+      "lift": "memory_lift",
+      "sealed": true,
+      "body": {
+        "summary": "Cross-market advisory labels from Audit/Ledger.",
+        "labels": [
+          "no_cross_signal"
+        ],
+        "label_reasons": [
+          "no cross-market signal threshold met"
+        ],
+        "source": "cross_market_bus_latest.json"
+      },
+      "advisory_only": true,
+      "execution_allowed": false,
+      "real_money_live_trading_enabled": false,
+      "ts": "2026-06-30T13:46:36.774829+00:00",
+      "source_registry": "cross_market_bus_latest.json"
+    },
+    {
+      "packet_id": "pkt_intercom_06ace34b",
+      "kind": "cross_market_labels",
+      "from_floor": "floor_31",
+      "to_floor": "floor_42",
+      "lift": "memory_lift",
+      "sealed": true,
+      "body": {
+        "summary": "Cross-market advisory labels from Audit/Ledger.",
+        "labels": [
+          "no_cross_signal"
+        ],
+        "label_reasons": [
+          "no cross-market signal threshold met"
+        ],
+        "source": "cross_market_bus_latest.json"
+      },
+      "advisory_only": true,
+      "execution_allowed": false,
+      "real_money_live_trading_enabled": false,
+      "ts": "2026-06-30T13:46:36.774833+00:00",
+      "source_registry": "cross_market_bus_latest.json"
+    },
+    {
+      "packet_id": "pkt_intercom_7d67725e",
+      "kind": "cross_market_labels",
+      "from_floor": "floor_31",
+      "to_floor": "floor_43",
+      "lift": "memory_lift",
+      "sealed": true,
+      "body": {
+        "summary": "Cross-market advisory labels from Audit/Ledger.",
+        "labels": [
+          "no_cross_signal"
+        ],
+        "label_reasons": [
+          "no cross-market signal threshold met"
+        ],
+        "source": "cross_market_bus_latest.json"
+      },
+      "advisory_only": true,
+      "execution_allowed": false,
+      "real_money_live_trading_enabled": false,
+      "ts": "2026-06-30T13:46:36.774835+00:00",
+      "source_registry": "cross_market_bus_latest.json"
+    }
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

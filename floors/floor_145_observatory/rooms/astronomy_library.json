@@ -1,0 +1,31 @@
+{
+  "room_id": "astronomy_library",
+  "name": "Astronomy Library",
+  "category": "library",
+  "purpose": "Houses a collection of astronomy books and journals.",
+  "concierge_blurb": "Visitors can explore the latest astronomical research.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -4.0,
+    "offset_z": -16.0,
+    "footprint_m": [
+      8,
+      12
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "library_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Library",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_145"
+}

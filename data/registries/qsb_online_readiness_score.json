@@ -1,0 +1,107 @@
+{
+  "ok": true,
+  "phase": "QSB_MASTER_SYSTEM_SELF_AUDIT_AND_REPAIR_ROADMAP_V1",
+  "kind": "qsb_online_readiness_score",
+  "generated_ts": "2026-06-30T13:46:37.771164+00:00",
+  "online_readiness_score": 83.1,
+  "categories": {
+    "kernel_readiness": {
+      "score": 83.3,
+      "status": "MOSTLY_READY",
+      "blockers": [],
+      "next_fix": "QSB_KERNEL_CHAT_TAIL_DEDUPE_AND_DIVERSITY_V1"
+    },
+    "dashboard_readiness": {
+      "score": 92.9,
+      "status": "READY",
+      "blockers": [],
+      "next_fix": "QSB_BABYLON_OPENCLAW_MESH_AND_FLOOR_PULSES_V1"
+    },
+    "telemetry_readiness": {
+      "score": 80.0,
+      "status": "MOSTLY_READY",
+      "blockers": [],
+      "next_fix": "Derive phase from eqsb_claude_upgrade_ledger.latest_phase at request time."
+    },
+    "worker_readiness": {
+      "score": 75.0,
+      "status": "MOSTLY_READY",
+      "blockers": [],
+      "next_fix": "QSB_DISCIPLINE_AUTOATTRIBUTION_V1"
+    },
+    "floor_department_readiness": {
+      "score": 36.2,
+      "status": "WEAK",
+      "blockers": [
+        "E_training_academy_floor",
+        "E_narration_broadcast_floor"
+      ],
+      "next_fix": "QSB_TRAINING_ACADEMY_FLOOR_V1"
+    },
+    "trading_paper_readiness": {
+      "score": 46.7,
+      "status": "WEAK",
+      "blockers": [
+        "F_manager_approval_workflow"
+      ],
+      "next_fix": "QSB_MANAGER_APPROVAL_WORKFLOW_V1"
+    },
+    "openclaw_readiness": {
+      "score": 75.0,
+      "status": "MOSTLY_READY",
+      "blockers": [],
+      "next_fix": "QSB_BABYLON_OPENCLAW_MESH_AND_FLOOR_PULSES_V1"
+    },
+    "narrator_readiness": {
+      "score": 100.0,
+      "status": "READY",
+      "blockers": [],
+      "next_fix": null
+    },
+    "rewards_discipline_readiness": {
+      "score": 75.0,
+      "status": "MOSTLY_READY",
+      "blockers": [],
+      "next_fix": "QSB_DISCIPLINE_AUTOATTRIBUTION_V1"
+    },
+    "hardware_observatory_readiness": {
+      "score": 100.0,
+      "status": "READY",
+      "blockers": [],
+      "next_fix": null
+    },
+    "code_observatory_readiness": {
+      "score": 100.0,
+      "status": "READY",
+      "blockers": [],
+      "next_fix": null
+    },
+    "claude_upgrade_ledger_readiness": {
+      "score": 100.0,
+      "status": "READY",
+      "blockers": [],
+      "next_fix": null
+    },
+    "startup_readiness": {
+      "score": 100.0,
+      "status": "READY",
+      "blockers": [],
+      "next_fix": null
+    },
+    "safety_readiness": {
+      "score": 100.0,
+      "status": "READY",
+      "blockers": [],
+      "next_fix": null
+    }
+  },
+  "can_be_trusted_for_daily_use": true,
+  "can_be_trusted_for_paper_training": true,
+  "can_be_trusted_for_live_money": false,
+  "reason_for_live_money_lock": "Real-money/live execution gates are intentionally locked at code level (CLAUDE.md). No phase has approved an unlock; manager approval workflow is also missing.",
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false
+}

@@ -1,0 +1,22 @@
+{
+  "ok": true,
+  "kind": "qsb_godot_panel_contract",
+  "phase": "QSB_GODOT_PROFESSIONAL_3D_DASHBOARD_UPGRADE_V1",
+  "generated_ts": "2026-06-09T15:52:38+00:00",
+  "panels": [
+    "FloorInspector (RichTextLabel, BBCode)",
+    "KernelChat (history + LineEdit + Send button)",
+    "EventTicker (ItemList)",
+    "ControlBar (top, 17 actions)",
+    "WorkforcePill / OpenClawPill / TradingPnLPill",
+    "SafetyBanner (bottom, red)"
+  ],
+  "panel_router": "HUDController._on_action routes ControlBar actions to Tower/Camera/Telemetry/Voice",
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "live_payments_enabled": false,
+  "live_listings_publishing_enabled": false
+}

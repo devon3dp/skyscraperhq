@@ -1,0 +1,18 @@
+{
+  "node": "HQ-Claude",
+  "ts": "2026-07-04T20:33:57Z",
+  "mind": {
+    "node": "HQ-Claude",
+    "floor": "HQ-Bench",
+    "brain": "claude-opus-4-7",
+    "uptime_s": "session-long",
+    "state": "active",
+    "self_prompt": "still tick-driven \u2014 Rule 2 pending",
+    "recent_thoughts": [
+      {
+        "kind": "work",
+        "text": "unblocking task board + fixing chat + adding Rule 7"
+      }
+    ]
+  }
+}

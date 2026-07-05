@@ -1,0 +1,34 @@
+{
+  "room_id": "book_display_back_left",
+  "name": "Book Display Area",
+  "category": "display",
+  "purpose": "Highlighting featured books and upcoming events.",
+  "concierge_blurb": "Discover our latest releases and featured authors here.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -8.0,
+    "offset_z": -8.0,
+    "footprint_m": [
+      12,
+      4
+    ],
+    "height_m": 1.5
+  },
+  "render": {
+    "primary_prop": "display",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Book Display",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 0
+  },
+  "floor": "floor_69"
+}

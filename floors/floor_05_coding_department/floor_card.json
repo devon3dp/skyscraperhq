@@ -1,0 +1,107 @@
+{
+  "floor_id": "floor_5",
+  "floor_number": 5,
+  "floor_name": "Coding Department",
+  "department": "F5 Coding",
+  "zone": "workshop",
+  "archetype": "dev_lab",
+  "staff_lead": "Coders Team (routes through F24)",
+  "tour_blurb": "On the fifth, you'll find the Coding Department \u2014 the workshop where the Tower writes and refines its own source. Patches are drafted here, reviewed by neighbouring floors, and only applied after sandbox checks come back green. It's quiet, focused work, and the kettle is always on.",
+  "visitor_open": true,
+  "advisory_only": true,
+  "live_signals": {
+    "code_proposals_total": 69,
+    "code_proposals_recent_7d": 69,
+    "code_proposals_source": "data/registries/qsb_code_proposals.jsonl",
+    "top_src_file_types": [
+      {
+        "ext": "py",
+        "count": 346
+      },
+      {
+        "ext": "pyc",
+        "count": 337
+      },
+      {
+        "ext": "js",
+        "count": 44
+      },
+      {
+        "ext": "html",
+        "count": 6
+      },
+      {
+        "ext": "css",
+        "count": 5
+      }
+    ],
+    "advisory_only": true,
+    "routes_through": "floor_24",
+    "execution_gates_locked": [
+      "worker_execution_enabled",
+      "provider_execution_enabled",
+      "live_dispatch_enabled",
+      "autonomous_workers_enabled"
+    ]
+  },
+  "evidence_paths": [
+    "floors/floor_05_coding_department/floor_manifest.json",
+    "data/registries/qsb_code_proposals.jsonl",
+    "data/registries/qsb_proposal_autoapply_gate.json",
+    "data/registries/qsb_proposal_sandbox_results.jsonl",
+    "data/registries/qsb_open_day_tour.json"
+  ],
+  "built_at": "2026-06-14T17:45:00Z",
+  "built_by": "skyscraper_floor_card_push",
+  "lessons_learned_for_next_agent": "F5 directory is floor_05_coding_department (zero-padded), not floor_5_coding_department \u2014 confirm exact dir name before writing. F5 never executes patches itself: proposals go through sandbox (qsb_proposal_sandbox.py) and require \u22653 unique-class sigs before the heartbeat applier touches files; F5 is the origin desk, F24 is the lift hop, F47 is the bench. Treat the proposals registry as advisory ledger only \u2014 'applied:true' here means the bench applied it, not that F5 ran code.",
+  "team_roster": [
+    {
+      "id": "f005.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "promoted_from": "sim_worker_floor_15",
+      "promoted_from_floor": "speech_and_audio_department",
+      "promotion_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "researcher",
+      "role": "researcher on F005",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f005.researcher.01",
+      "promoted_from": "sim_worker_floor_16",
+      "promoted_from_floor": "document_processing_department"
+    },
+    {
+      "category": "researcher",
+      "role": "researcher on F005",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f005.researcher.02",
+      "promoted_from": "sim_worker_floor_17",
+      "promoted_from_floor": "graphics_and_design_department"
+    },
+    {
+      "category": "researcher",
+      "role": "researcher on F005",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f005.researcher.03",
+      "promoted_from": "sim_worker_floor_18",
+      "promoted_from_floor": "automation_department"
+    },
+    {
+      "category": "researcher",
+      "role": "researcher on F005",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f005.researcher.04",
+      "promoted_from": "sim_worker_floor_19",
+      "promoted_from_floor": "workflow_management_department"
+    }
+  ],
+  "floor_manager": "f005.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

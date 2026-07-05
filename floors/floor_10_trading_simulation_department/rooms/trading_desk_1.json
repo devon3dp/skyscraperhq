@@ -1,0 +1,34 @@
+{
+  "room_id": "trading_desk_1",
+  "name": "Trading Desk 1",
+  "category": "trading",
+  "purpose": "This room is for traders to simulate market conditions.",
+  "concierge_blurb": "Welcome to the heart of our trading simulation.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 1.5
+  },
+  "render": {
+    "primary_prop": "trading_desk",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Trading Desk 1",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/trade_sim_data.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 60
+  },
+  "floor": "floor_10"
+}

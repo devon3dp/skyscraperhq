@@ -1,0 +1,8 @@
+{
+  "name": "read_recent_f47_records",
+  "description": "Read the last N rows of qsb_f47_team_records.jsonl. Returns a compact summary per row.",
+  "safety_class": "read",
+  "params": { "n": { "type": "integer", "default": 10 } },
+  "authored_by": "Claude for Wren training tier-4",
+  "authored_ts": "2026-06-17"
+}

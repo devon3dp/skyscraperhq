@@ -1,0 +1,23 @@
+{
+  "policy": "sandbox_performance_loop_v1",
+  "version": "1.0",
+  "mode": "paper_only_performance_tracking",
+  "default_instruments": ["EUR_USD", "GBP_USD", "USD_JPY"],
+  "default_ticks": 5,
+  "default_delay_seconds": 10,
+  "paper_trading_enabled": true,
+  "sandbox_workers_enabled": true,
+  "performance_scoring_enabled": true,
+  "kernel_commentary_enabled": true,
+  "live_trading_enabled": false,
+  "order_execution_enabled": false,
+  "practice_order_execution_enabled": false,
+  "worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "external_provider_execution_enabled": false,
+  "openclaw_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "live_dispatch_enabled": false,
+  "direct_provider_access": false,
+  "notes": "Runs repeated worker sandbox ticks and scores paper-only signal observations. No order endpoint is allowed."
+}

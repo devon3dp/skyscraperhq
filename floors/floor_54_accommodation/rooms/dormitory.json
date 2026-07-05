@@ -1,0 +1,34 @@
+{
+  "room_id": "dormitory",
+  "name": "Workforce Dormitory",
+  "category": "accommodation",
+  "purpose": "Offers shared living spaces for the workforce.",
+  "concierge_blurb": "Enjoy modern dormitories designed to foster camaraderie among colleagues.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": -1.5,
+    "footprint_m": [
+      20,
+      7
+    ],
+    "height_m": 0.4
+  },
+  "render": {
+    "primary_prop": "beds",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Dormitory",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_54"
+}

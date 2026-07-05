@@ -1,0 +1,13 @@
+{
+  "ok": true,
+  "kind": "qsb_netlify_sites_deployed",
+  "generated_ts": "2026-06-13T00:38:00Z",
+  "sites": {
+    "qsb-tower-shops":  "https://qsb-tower-shops.netlify.app",
+    "qsb-tower-studio": "https://qsb-tower-studio.netlify.app",
+    "qsb-tower-garden": "https://qsb-tower-garden.netlify.app"
+  },
+  "team_id": "6a2ab31af23a1410917df9cf",
+  "owner": "knechtelross@gmail.com",
+  "deployed_via": "tools/qsb_netlify_deploy.py + token in vault/.env.netlify"
+}

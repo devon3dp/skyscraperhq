@@ -1,0 +1,31 @@
+{
+  "room_id": "vendor_kitchen",
+  "name": "Vendor Kitchen",
+  "category": "kitchen",
+  "purpose": "A space where vendors can prepare and share meals.",
+  "concierge_blurb": "Relax in the kitchen with a cup of coffee or snack while working.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -7.0,
+    "offset_z": 3.5,
+    "footprint_m": [
+      8,
+      6
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "kitchen_line",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Vendor Kitchen",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_112"
+}

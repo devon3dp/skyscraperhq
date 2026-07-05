@@ -1,0 +1,34 @@
+{
+  "room_id": "data_analysis_station_3",
+  "name": "Data Analysis Station 3",
+  "category": "operations",
+  "purpose": "This room is for analyzing market data.",
+  "concierge_blurb": "Where numbers tell the story of markets.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 5.0,
+    "offset_z": -2.0,
+    "footprint_m": [
+      8,
+      4
+    ],
+    "height_m": 1.3
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Data Analysis 3",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/market_analysis.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 120
+  },
+  "floor": "floor_10"
+}

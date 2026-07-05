@@ -1,0 +1,85 @@
+{
+  "floor_id": "floor_166",
+  "floor_number": 166,
+  "floor_name": "TikTok Studio",
+  "department": "Public Channel · Social Media",
+  "zone": "ZONE J",
+  "archetype": "social_media_studio",
+  "staff_lead": "Wren (qwen2.5:7b) — content director · Hermes (hermes3:8b) — battle ringmaster",
+  "tour_blurb": "Floor 166 — TikTok Studio. @skyscraper.hq lives here. AI battles between Wren and Hermes go LIVE from this floor when the channel hits 1k followers. The studio also handles short-form video drafts (per-floor walkthroughs, trader PnL highlights), posting queue to TikTok Content Posting API, and audience analytics. Created 2026-06-20 per Ross: 'can we have a tiktok floor?'",
+  "visitor_open": true,
+  "advisory_only": true,
+  "execution_mode": "PROPOSE_ONLY",
+  "live_signals": {
+    "tiktok_handle": "@skyscraper.hq",
+    "email": "hqskyscraper@gmail.com",
+    "phone": "+447411410545",
+    "followers": 0,
+    "go_live_threshold": 1000,
+    "battle_endpoint": "POST /api/ai_battle",
+    "battle_visual": "/ai_battle/ (OBS Browser Source)",
+    "battle_log": "data/registries/qsb_ai_battles.jsonl",
+    "first_battle_winner": "Wren (2026-06-20T18:24Z)",
+    "video_queue": "(empty — content pipeline pending)",
+    "live_avatars": "(pending — Live2D or static-image-with-mouth-sync TBD)"
+  },
+  "gate_posture": {
+    "advisory_only": true,
+    "auto_post_enabled": false,
+    "live_stream_enabled": false,
+    "audience_chat_to_ai_enabled": false,
+    "real_money_engagement_enabled": false
+  },
+  "team_roster": [
+    {
+      "id": "f166.battle_ringmaster.01",
+      "category": "ringmaster",
+      "role": "moderates AI battles, picks topics, sets house rules",
+      "tier": 2,
+      "advisory_only": true,
+      "lives_at_endpoint": "/api/ai_battle"
+    },
+    {
+      "id": "f166.judge.01",
+      "category": "judge",
+      "role": "independent commentator picks battle winner (qwen2.5:7b judge persona)",
+      "tier": 2,
+      "advisory_only": true
+    },
+    {
+      "id": "f166.video_editor.01",
+      "category": "video_editor",
+      "role": "drafts short-form scripts from per-floor walkthroughs + trader PnL highlights",
+      "tier": 2,
+      "advisory_only": true
+    },
+    {
+      "id": "f166.posting_clerk.01",
+      "category": "posting_clerk",
+      "role": "manages posting queue (parked until TikTok Content Posting API approved)",
+      "tier": 2,
+      "advisory_only": true
+    },
+    {
+      "id": "f166.analytics.01",
+      "category": "analytics",
+      "role": "tracks follower count, view counts, comment sentiment (manual until API)",
+      "tier": 2,
+      "advisory_only": true
+    }
+  ],
+  "ross_authorized": "2026-06-20: 'can we have a tiktok floor?' + 'lets work on the tik tok'",
+  "claude_acknowledged": true,
+  "related_floors": [
+    "F46 Wren's Bench (one of two AI fighters)",
+    "F51 Research Department (Hermes home — second fighter)",
+    "F165 Telegram Reception (sister channel — text)",
+    "F167 Boardroom 3 CEOs (creative direction lives here)"
+  ],
+  "next_steps": [
+    "Wire LIVE AVATARS (Live2D or static-with-mouth-sync) for the AI battles",
+    "Build TikTok Content Posting API wrapper + OAuth flow",
+    "Hit 1000 followers via the per-floor walkthrough videos",
+    "Stream first live AI battle"
+  ]
+}

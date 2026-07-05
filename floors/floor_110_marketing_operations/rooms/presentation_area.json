@@ -1,0 +1,34 @@
+{
+  "room_id": "presentation_area",
+  "name": "Presentation Area",
+  "category": "workshop",
+  "purpose": "Prepare and present marketing campaigns.",
+  "concierge_blurb": "A professional space for presentations and briefings.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_right",
+    "offset_x": 4.0,
+    "offset_z": 2.0,
+    "footprint_m": [
+      8,
+      6
+    ],
+    "height_m": 1.8
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Presentation Area",
+    "glow": true
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 0
+  },
+  "floor": "floor_110"
+}

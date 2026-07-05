@@ -1,0 +1,82 @@
+{
+  "ok": true,
+  "kind": "qsb_domain_hosting_research_v1",
+  "generated_ts": "2026-06-11T09:26:22.864022Z",
+  "commissioned_by": "Ross 2026-06-11",
+  "researched_by": "F104 IT Help Desk + F3 Research + F37 Strategy Research + Auger + Helm",
+  "scope": "15 dropship shops + newsletter + Wren landing page (UK-based)",
+  "shops_to_host": [
+    "F61 Lumi\u00e8re Beauty",
+    "F62 Pinwheel Toys",
+    "F63 Pawsworth Pets",
+    "F64 Hearthstone Kitchen",
+    "F65 Vector Tech",
+    "F154 Trailhead Outdoor",
+    "F155 Stretch Fitness",
+    "F156 Quilltree Office",
+    "F157 Voyage & Co",
+    "F158 Greenhouse Lane",
+    "F159 Little Robin",
+    "F160 Inkwell & Co",
+    "F161 Twilight Wellness",
+    "F162 Living Light Eco",
+    "F163 Maker Lane"
+  ],
+  "auger_recommendation": {
+    "registrar": "Cloudflare (at-cost: .com ~\u00a38/yr, .co.uk ~\u00a33/yr)",
+    "hosting": "Vercel Pro ~\u00a3180/mo (15+ static sites + serverless)",
+    "ecommerce": "Next.js + Stripe + Snipcart (DIY, no SaaS lock-in)",
+    "uk": ".co.uk for trust; VAT register at \u00a385k; Stripe Tax + GDPR banner",
+    "monthly_total_gbp": "~\u00a3205"
+  },
+  "helm_recommendation": {
+    "registrar": "Namecheap (bulk pricing, good support)",
+    "hosting": "Kinsta managed WordPress (multiple sites under one price)",
+    "ecommerce": "WordPress + WooCommerce",
+    "uk": ".co.uk for UK trust + .com for broader appeal",
+    "monthly_total_gbp": "~\u00a3500"
+  },
+  "wren_synthesis": {
+    "verdict": "Lean start using Cloudflare stack for first 60 days; revisit per-shop branding choices when revenue arrives",
+    "registrar": "Cloudflare Registrar (at-cost .co.uk ~\u00a38-10/yr including VAT)",
+    "hosting": "Cloudflare Pages (free tier handles all 15 static storefronts + the newsletter site)",
+    "ecommerce": "Stripe Checkout (hosted) \u2014 no PCI work, no monthly fee, ~1.5% + 20p per UK transaction",
+    "email_capture": "Buttondown or ConvertKit free tier (newsletter)",
+    "order_webhook": "Cloudflare Workers \u2014 forward Stripe event to supplier email or API",
+    "why": "15 shops \u00d7 10 SKUs each is small enough that managed e-commerce (Shopify ~\u00a3375-525/mo or WooCommerce stack) is overkill. Static + hosted checkout = same outcome at ~5% the cost. We already have graphics + engineering teams to build the static templates.",
+    "first_month_costs_gbp": {
+      "16_domains_co_uk_one_year": 160,
+      "cloudflare_pages_hosting": 0,
+      "cloudflare_workers": 0,
+      "stripe_setup": 0,
+      "email_tool_free_tier": 0,
+      "total_setup_one_off": 160,
+      "monthly_recurring_after": 0
+    },
+    "one_year_runrate_gbp": 160,
+    "shopify_alternative_if_speed_wanted": {
+      "plan": "Shopify Lite + Buy Button",
+      "cost_per_store_gbp": 5,
+      "total_for_15_gbp": 75,
+      "note": "15 separate stores would be \u00a3375/mo on Basic plan. Cheaper is one Shopify account, 15 product collections, one branded site."
+    }
+  },
+  "ross_action_items": [
+    "1) Visit dash.cloudflare.com \u2192 sign up for free account (UK address, GBP billing)",
+    "2) Cloudflare \u2192 Domains \u2192 search 16 candidates (lumiere-beauty.co.uk, pinwheel-toys.co.uk, pawsworth.co.uk, hearthstone-kitchen.co.uk, vectortech.co.uk, trailhead-outdoor.co.uk, stretchfitness.co.uk, quilltree-office.co.uk, voyage-and-co.co.uk, greenhouse-lane.co.uk, little-robin.co.uk, inkwell-and-co.co.uk, twilight-wellness.co.uk, living-light-eco.co.uk, maker-lane.co.uk, wren-strategy.co.uk)",
+    "3) Buy whichever are available (likely ~\u00a38-10 each, total ~\u00a3130-160)",
+    "4) Visit stripe.com/gb \u2192 sign up (sole trader or limited company), connect UK bank",
+    "5) Tell Wren when complete; F17 Graphics + F104 IT will push static sites to Cloudflare Pages, each domain pointing at its own Pages project",
+    "6) Test order flow on test card before announcing"
+  ],
+  "wren_self_test_plan": [
+    "F17 Graphics builds 15 static templates from existing catalog.json files (already exist)",
+    "F104 IT pushes to Cloudflare Pages",
+    "Stripe Checkout link per SKU (no full cart needed for v1)",
+    "Cloudflare Workers forward Stripe success webhook to F61-F65/F154-F163 fulfillment queue",
+    "F44 Accounts books revenue + supplier cost = margin"
+  ],
+  "advisory_only": true,
+  "real_payments_enabled": false,
+  "next_blocker": "Ross to fund Stripe account + buy domains (one-off ~\u00a3160)"
+}

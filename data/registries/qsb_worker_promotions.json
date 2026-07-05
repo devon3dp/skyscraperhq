@@ -1,0 +1,69 @@
+{
+  "ok": true,
+  "phase": "QSB_LIVE_SKYSCRAPER_COMMAND_CENTER_REBUILD_V1",
+  "kind": "qsb_worker_promotions",
+  "generated_ts": "2026-06-30T13:46:32.752203+00:00",
+  "promotion_ladder": [
+    {
+      "rank": "Trainee",
+      "min_points": 0
+    },
+    {
+      "rank": "Junior Worker",
+      "min_points": 5
+    },
+    {
+      "rank": "Worker",
+      "min_points": 15
+    },
+    {
+      "rank": "Senior Worker",
+      "min_points": 30
+    },
+    {
+      "rank": "Floor Specialist",
+      "min_points": 50
+    },
+    {
+      "rank": "Floor Lead",
+      "min_points": 80
+    },
+    {
+      "rank": "Department Officer",
+      "min_points": 120
+    },
+    {
+      "rank": "Manager",
+      "min_points": 170
+    },
+    {
+      "rank": "Chief Officer",
+      "min_points": 240
+    },
+    {
+      "rank": "Penthouse Liaison",
+      "min_points": 320
+    }
+  ],
+  "by_rank_counts": {
+    "Trainee": 1186,
+    "Junior Worker": 4,
+    "Worker": 0,
+    "Senior Worker": 0,
+    "Floor Specialist": 0,
+    "Floor Lead": 0,
+    "Department Officer": 0,
+    "Manager": 0,
+    "Chief Officer": 0,
+    "Penthouse Liaison": 0
+  },
+  "total_eligible_now": 0,
+  "eligible_workers": [],
+  "policy_note": "Promotion eligibility requires reward_points >= next-rank threshold AND zero strikes. Strikes block promotion until redemption path completes.",
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

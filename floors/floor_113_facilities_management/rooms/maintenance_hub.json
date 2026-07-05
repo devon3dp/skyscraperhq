@@ -1,0 +1,34 @@
+{
+  "room_id": "maintenance_hub",
+  "name": "Maintenance Hub",
+  "category": "operations",
+  "purpose": "Central hub for maintenance and cleaning operations.",
+  "concierge_blurb": "Welcome to the Maintenance Hub where daily care of the building is managed.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.0,
+    "offset_z": -2.0,
+    "footprint_m": [
+      6,
+      4
+    ],
+    "height_m": 1.5
+  },
+  "render": {
+    "primary_prop": "workbench",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Maintenance Hub",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": null,
+    "refresh_seconds": 600
+  },
+  "floor": "floor_113"
+}

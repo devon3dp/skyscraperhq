@@ -1,0 +1,395 @@
+{
+  "ok": true,
+  "kind": "qsb_floor_occupancy_dashboard_state",
+  "phase": "QSB_FULL_SKYSCRAPER_OCCUPANCY_COMMERCE_WORKFORCE_EXPANSION_V1",
+  "generated_ts": "2026-06-30T13:46:36.986597+00:00",
+  "floor_total": 53,
+  "floors_with_secondary_department": 45,
+  "floors_preserved": 8,
+  "new_workers_employed": 1000,
+  "by_floor_summary": [
+    {
+      "floor": 1,
+      "department": "Order Fulfilment Hub",
+      "rooms": 5,
+      "team_size": 35,
+      "preserve_existing": false
+    },
+    {
+      "floor": 2,
+      "department": "Customer Memory Vault",
+      "rooms": 4,
+      "team_size": 18,
+      "preserve_existing": false
+    },
+    {
+      "floor": 3,
+      "department": "Product Research Lab",
+      "rooms": 5,
+      "team_size": 30,
+      "preserve_existing": false
+    },
+    {
+      "floor": 4,
+      "department": "Knowledge Library + Classroom Wing",
+      "rooms": 4,
+      "team_size": 20,
+      "preserve_existing": false
+    },
+    {
+      "floor": 5,
+      "department": "Code Observatory + Dev Squad",
+      "rooms": 4,
+      "team_size": 15,
+      "preserve_existing": false
+    },
+    {
+      "floor": 6,
+      "department": "Etsy Shop Floor",
+      "rooms": 11,
+      "team_size": 32,
+      "preserve_existing": false
+    },
+    {
+      "floor": 7,
+      "department": "Shopify Storefront Floor",
+      "rooms": 5,
+      "team_size": 22,
+      "preserve_existing": false
+    },
+    {
+      "floor": 8,
+      "department": "Trading + Commerce Classrooms",
+      "rooms": 9,
+      "team_size": 48,
+      "preserve_existing": false
+    },
+    {
+      "floor": 9,
+      "department": "Design Quality Review + Mistake Lab",
+      "rooms": 4,
+      "team_size": 22,
+      "preserve_existing": false
+    },
+    {
+      "floor": 10,
+      "department": "Strategy Lab + Sandbox Coupling",
+      "rooms": 4,
+      "team_size": 25,
+      "preserve_existing": false
+    },
+    {
+      "floor": 11,
+      "department": "Demand + Competitor Watch",
+      "rooms": 4,
+      "team_size": 24,
+      "preserve_existing": false
+    },
+    {
+      "floor": 12,
+      "department": "Commerce + Trading Risk Bench",
+      "rooms": 4,
+      "team_size": 20,
+      "preserve_existing": false
+    },
+    {
+      "floor": 13,
+      "department": "Product Image Studio + Mockup Wall",
+      "rooms": 4,
+      "team_size": 18,
+      "preserve_existing": false
+    },
+    {
+      "floor": 14,
+      "department": "Print-on-Demand Floor",
+      "rooms": 6,
+      "team_size": 28,
+      "preserve_existing": false
+    },
+    {
+      "floor": 15,
+      "department": "Voice Commerce Studio",
+      "rooms": 3,
+      "team_size": 12,
+      "preserve_existing": false
+    },
+    {
+      "floor": 16,
+      "department": "Listing Writer + SEO Lab",
+      "rooms": 5,
+      "team_size": 22,
+      "preserve_existing": false
+    },
+    {
+      "floor": 17,
+      "department": "Product Design Studio + Prompt-to-Product",
+      "rooms": 5,
+      "team_size": 30,
+      "preserve_existing": false
+    },
+    {
+      "floor": 18,
+      "department": "Marketing + Promotion Floor",
+      "rooms": 4,
+      "team_size": 22,
+      "preserve_existing": false
+    },
+    {
+      "floor": 19,
+      "department": "Customer Service Floor",
+      "rooms": 5,
+      "team_size": 28,
+      "preserve_existing": false
+    },
+    {
+      "floor": 20,
+      "department": "Platform Integration Bench",
+      "rooms": 5,
+      "team_size": 20,
+      "preserve_existing": false
+    },
+    {
+      "floor": 21,
+      "department": "Format / Schema Translation",
+      "rooms": 3,
+      "team_size": 12,
+      "preserve_existing": false
+    },
+    {
+      "floor": 22,
+      "department": "Lifts Department Operations",
+      "rooms": 3,
+      "team_size": 14,
+      "preserve_existing": false
+    },
+    {
+      "floor": 23,
+      "department": "AirLLM Chamber",
+      "rooms": 3,
+      "team_size": 10,
+      "preserve_existing": false
+    },
+    {
+      "floor": 24,
+      "department": "Lane Governance",
+      "rooms": 2,
+      "team_size": 10,
+      "preserve_existing": false
+    },
+    {
+      "floor": 25,
+      "department": "OpenClaw Coordination Office",
+      "rooms": 3,
+      "team_size": 12,
+      "preserve_existing": false
+    },
+    {
+      "floor": 26,
+      "department": "Commerce Accounting Floor",
+      "rooms": 5,
+      "team_size": 22,
+      "preserve_existing": false
+    },
+    {
+      "floor": 27,
+      "department": "Local Model Drafting Bench",
+      "rooms": 2,
+      "team_size": 8,
+      "preserve_existing": false
+    },
+    {
+      "floor": 28,
+      "department": "Security Operations Center",
+      "rooms": 4,
+      "team_size": 18,
+      "preserve_existing": false
+    },
+    {
+      "floor": 29,
+      "department": "Guardian Watch",
+      "rooms": 3,
+      "team_size": 12,
+      "preserve_existing": false
+    },
+    {
+      "floor": 30,
+      "department": "Permissions / Risk Department",
+      "rooms": 4,
+      "team_size": 18,
+      "preserve_existing": false
+    },
+    {
+      "floor": 31,
+      "department": "Audit / Ledger Department",
+      "rooms": 4,
+      "team_size": 20,
+      "preserve_existing": false
+    },
+    {
+      "floor": 32,
+      "department": "Platform Compliance Office",
+      "rooms": 5,
+      "team_size": 16,
+      "preserve_existing": false
+    },
+    {
+      "floor": 33,
+      "department": "Refund / Dispute Desk + Diagnostics",
+      "rooms": 4,
+      "team_size": 16,
+      "preserve_existing": false
+    },
+    {
+      "floor": 34,
+      "department": "Storefront Analytics Room",
+      "rooms": 4,
+      "team_size": 18,
+      "preserve_existing": false
+    },
+    {
+      "floor": 35,
+      "department": "Hardware Systems Floor",
+      "rooms": 3,
+      "team_size": 14,
+      "preserve_existing": false
+    },
+    {
+      "floor": 36,
+      "department": "Workforce Expansion Planning",
+      "rooms": 3,
+      "team_size": 18,
+      "preserve_existing": false
+    },
+    {
+      "floor": 37,
+      "department": "Strategy Labs",
+      "rooms": 3,
+      "team_size": 22,
+      "preserve_existing": false
+    },
+    {
+      "floor": 38,
+      "department": "Sandbox Ops Coupling",
+      "rooms": 3,
+      "team_size": 16,
+      "preserve_existing": false
+    },
+    {
+      "floor": 39,
+      "department": "Worker Recreation Floor",
+      "rooms": 5,
+      "team_size": 20,
+      "preserve_existing": false
+    },
+    {
+      "floor": 40,
+      "department": "Worker Rest / Dormitory Floor",
+      "rooms": 4,
+      "team_size": 25,
+      "preserve_existing": false
+    },
+    {
+      "floor": 41,
+      "department": "OANDA Practice Trading",
+      "rooms": 1,
+      "team_size": 0,
+      "preserve_existing": true
+    },
+    {
+      "floor": 42,
+      "department": "Binance Testnet Preview",
+      "rooms": 1,
+      "team_size": 0,
+      "preserve_existing": true
+    },
+    {
+      "floor": 43,
+      "department": "Stocks Paper Preview",
+      "rooms": 1,
+      "team_size": 0,
+      "preserve_existing": true
+    },
+    {
+      "floor": 44,
+      "department": "Trading + Commerce Accounting",
+      "rooms": 5,
+      "team_size": 24,
+      "preserve_existing": false
+    },
+    {
+      "floor": 45,
+      "department": "Worker Recruitment",
+      "rooms": 1,
+      "team_size": 0,
+      "preserve_existing": true
+    },
+    {
+      "floor": 46,
+      "department": "Executive Liaison + Concierge",
+      "rooms": 3,
+      "team_size": 16,
+      "preserve_existing": false
+    },
+    {
+      "floor": 47,
+      "department": "Executive Ops Department",
+      "rooms": 1,
+      "team_size": 0,
+      "preserve_existing": true
+    },
+    {
+      "floor": 48,
+      "department": "Strategic Plan Office",
+      "rooms": 3,
+      "team_size": 14,
+      "preserve_existing": false
+    },
+    {
+      "floor": 49,
+      "department": "Resource Mgmt Department",
+      "rooms": 1,
+      "team_size": 0,
+      "preserve_existing": true
+    },
+    {
+      "floor": 50,
+      "department": "Building Governance Council",
+      "rooms": 2,
+      "team_size": 12,
+      "preserve_existing": false
+    },
+    {
+      "floor": 51,
+      "department": "Executive Council Office",
+      "rooms": 1,
+      "team_size": 10,
+      "preserve_existing": false
+    },
+    {
+      "floor": 52,
+      "department": "Infrastructure Command",
+      "rooms": 1,
+      "team_size": 0,
+      "preserve_existing": true
+    },
+    {
+      "floor": 53,
+      "department": "Tower Command Department",
+      "rooms": 1,
+      "team_size": 0,
+      "preserve_existing": true
+    }
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "worker_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "live_payments_enabled": false,
+  "live_listings_publishing_enabled": false,
+  "external_api_calls_enabled": false,
+  "secrets_in_logs": false,
+  "manual_approval_required_for_commerce": true
+}

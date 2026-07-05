@@ -1,0 +1,14 @@
+{
+  "ts": "2026-06-30T18:46:43Z",
+  "status": "alive",
+  "reason": "",
+  "watchdog_started_at": "2026-06-30T17:44:11Z",
+  "last_heartbeat_payload": {
+    "daemon_pid": 151320,
+    "event_count": 704,
+    "last_event_ts": "2026-06-30T18:46:24.526470+00:00",
+    "uptime_started": "2026-06-30T17:44:11Z",
+    "tracked_workers": 15
+  },
+  "stall_count": 0
+}

@@ -1,0 +1,56 @@
+{
+  "ok": true,
+  "floor_number": 55,
+  "floor_name": "Cafeteria",
+  "floor_kind": "recreation_and_accommodation_v1",
+  "description": "main dining hall for 500, full kitchen, caf\u00e9 counter, juice bar",
+  "rooms": [
+    "main_dining_hall_500",
+    "open_kitchen_pass",
+    "salad_bar",
+    "grill_station",
+    "dessert_counter",
+    "barista_counter",
+    "beverage_fridges",
+    "outdoor_terrace"
+  ],
+  "open_hours": "24/7 (accommodation) or 06:00-23:00 (recreation)",
+  "created_ts": "2026-06-11T08:36:09.551273Z",
+  "manager": "F55_manager_TBD",
+  "capacity": {
+    "occupants_max": 500
+  },
+  "inter_floor_consumes": [
+    "F30_permissions (sealed packets)",
+    "F47_wren (announcements)",
+    "F49_resource (supplies)"
+  ],
+  "inter_floor_produces": [
+    "F47_wren (occupancy reports)",
+    "F44_accounts (consumption costs)"
+  ],
+  "advisory_only": true,
+  "interior_brief": {
+    "archetype": "ops_floor",
+    "palette": [
+      "#1a1e2a",
+      "#3a4050",
+      "#6a90c0"
+    ],
+    "furniture": [
+      "desks",
+      "meeting area",
+      "common space"
+    ],
+    "lighting": "task + ambient",
+    "mood": "professional",
+    "designed_by": "F66 Architects + Fitters team (sweep 2)",
+    "fitted_at": "2026-06-11T14:40:49.185810Z",
+    "godot_scene_brief": "render an generic floor with neutral grey + accent palette",
+    "signature": "Standard tower office layout \u2014 desks, meeting nook, kitchenette",
+    "diversified_ts": "2026-06-11T17:57:45Z",
+    "diversified_by": "qsb_archetype_diversifier_v1"
+  },
+  "fitted_out": true,
+  "fit_out_ts": "2026-06-11T14:40:49.185810Z"
+}

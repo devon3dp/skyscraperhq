@@ -1,0 +1,34 @@
+{
+  "room_id": "permissions_security",
+  "name": "Security Station",
+  "category": "security",
+  "purpose": "This room is for maintaining security measures.",
+  "concierge_blurb": "A modern station with monitors and control panels.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.0,
+    "offset_z": 8.0,
+    "footprint_m": [
+      6.0,
+      4.0
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "wall_panel",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Security Station",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_30"
+}

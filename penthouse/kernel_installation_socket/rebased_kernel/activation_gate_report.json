@@ -1,0 +1,97 @@
+{
+  "ts": "2026-06-07T21:27:00.560729+00:00",
+  "gate_status": "ALL_GATES_PASSED",
+  "activation_allowed": true,
+  "gates_passed": 10,
+  "gates_blocked": 0,
+  "blocked_reasons": [],
+  "checks": [
+    {
+      "gate": "forbidden_paths_absent",
+      "passed": true,
+      "detail": "All forbidden direct kernel paths absent.",
+      "found": []
+    },
+    {
+      "gate": "kernel_not_installed",
+      "passed": true,
+      "detail": "kernel_installed = False",
+      "kernel_installed": false
+    },
+    {
+      "gate": "operator_approval_recorded",
+      "passed": true,
+      "detail": "Operator approval recorded.",
+      "operator_approval_recorded": true,
+      "approved_by": "ross",
+      "approval_ts": "2026-06-07T21:25:31.490439+00:00"
+    },
+    {
+      "gate": "path_rebase_complete",
+      "passed": true,
+      "detail": "old_path_refs=0  compile_all_pass=True",
+      "old_path_references_remaining": 0,
+      "compile_all_pass": true
+    },
+    {
+      "gate": "rebased_kernel_present",
+      "passed": true,
+      "detail": "All rebased kernel files present.",
+      "missing_files": []
+    },
+    {
+      "gate": "no_old_vault_in_rebased",
+      "passed": true,
+      "detail": "Zero old vault references in rebased files.",
+      "old_vault_refs": []
+    },
+    {
+      "gate": "state_dir_clean",
+      "passed": true,
+      "detail": "State dir clean \u2014 QSBKernelCore not instantiated.",
+      "sqlite_files_found": [],
+      "continuity_state_written": false,
+      "qsb_kernel_core_instantiated": false
+    },
+    {
+      "gate": "safety_flags_all_false",
+      "passed": true,
+      "detail": "All safety flags are False.",
+      "flags": {
+        "worker_execution_enabled": false,
+        "live_dispatch_enabled": false,
+        "provider_execution_enabled": false,
+        "model_inference_enabled": false
+      }
+    },
+    {
+      "gate": "security_spine_clearance",
+      "passed": true,
+      "detail": "Security clearance granted by ross (scope: kernel_activation_gate_clearance_only, spine: healthy).",
+      "security_clearance_granted": true,
+      "clearance_scope": "kernel_activation_gate_clearance_only",
+      "cleared_by": "ross",
+      "security_spine_status": "healthy"
+    },
+    {
+      "gate": "rebased_kernel_unit_tests_required",
+      "passed": true,
+      "detail": "All 4/4 rebased kernel unit tests passed.",
+      "tests_run": 4,
+      "tests_passed": 4,
+      "tests_failed": 0,
+      "report_exists": true
+    }
+  ],
+  "forbidden_paths_absent": true,
+  "rebased_kernel_present": true,
+  "path_rebase_complete": true,
+  "operator_approval_recorded": true,
+  "security_spine_clearance": true,
+  "kernel_installed": false,
+  "QSBKernelCore_instantiated": false,
+  "worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "model_inference_enabled": false,
+  "next_recommended_phase": "KERNEL_ACTIVATION_READY \u2014 all gates passed; operator may now call QSBKernelCore()"
+}

@@ -1,0 +1,34 @@
+{
+  "room_id": "entry_hall",
+  "name": "Entry Hall",
+  "category": "reception",
+  "purpose": "welcomes visitors and directs them to the library spaces.",
+  "concierge_blurb": "Grand entrance with towering shelves on either side.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.0,
+    "offset_z": 1.0,
+    "footprint_m": [
+      8.0,
+      3.5
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "library_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Entry Hall",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": null,
+    "refresh_seconds": null
+  },
+  "floor": "floor_57"
+}

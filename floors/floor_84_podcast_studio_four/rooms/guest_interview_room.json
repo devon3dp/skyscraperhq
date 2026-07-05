@@ -1,0 +1,34 @@
+{
+  "room_id": "guest_interview_room",
+  "name": "Guest Interview Room",
+  "category": "operations",
+  "purpose": "This room is used for interviewing guests and conducting live interviews.",
+  "concierge_blurb": "Comfortable space for hosting special guests.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 8.0,
+    "offset_z": -4.0,
+    "footprint_m": [
+      6,
+      5
+    ],
+    "height_m": 1.2
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Guest Intv",
+    "glow": true
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/interview_sessions.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_84"
+}

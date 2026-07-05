@@ -1,0 +1,17 @@
+[Unit]
+Description=QSB Tower heartbeat — Floor 47 supervisor
+After=network-online.target tailscaled.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/qsb_tower_v1
+Environment=PATH=%h/qsb_tower_v1/.venv/bin:/usr/local/bin:/usr/bin:/bin
+ExecStart=%h/qsb_tower_v1/.venv/bin/python3 %h/qsb_tower_v1/tools/qsb_tower_heartbeat.py --interval 300
+Restart=always
+RestartSec=10
+StandardOutput=append:%h/qsb_tower_v1/logs/qsb_heartbeat.log
+StandardError=append:%h/qsb_tower_v1/logs/qsb_heartbeat.log
+
+[Install]
+WantedBy=default.target

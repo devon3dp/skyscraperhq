@@ -1,0 +1,22 @@
+simulation_labs:
+  version: 1.1
+  floor: floor_37
+  department: Simulation Labs
+  simulation_only: true
+  dry_run_only: true
+  execution_enabled: false
+  worker_execution_enabled: false
+  provider_execution_enabled: false
+  model_inference_enabled: false
+  autonomous_workers_enabled: false
+  live_dispatch_enabled: false
+  kernel_installed: false
+  kernel_logic_present: false
+
+safety:
+  no_real_packet_writes: true
+  no_model_calls: true
+  no_provider_calls: true
+  no_worker_execution: true
+  no_kernel_build: true
+  dry_run_reports_only: true

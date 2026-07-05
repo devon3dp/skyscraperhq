@@ -1,0 +1,34 @@
+{
+  "room_id": "computational_research_center",
+  "name": "Computational Research Center",
+  "category": "workshop",
+  "purpose": "This room is for computational linguistics research.",
+  "concierge_blurb": "Interactive screens display linguistic data models in real-time.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      12,
+      8
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Computational",
+    "glow": true
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/language_models.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_130"
+}

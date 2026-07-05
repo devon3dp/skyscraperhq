@@ -1,0 +1,591 @@
+{
+  "ok": true,
+  "phase": "QSB_DASHBOARD_3D_TOTAL_REVAMP_WORKERS_OPENCLAW_V1",
+  "kind": "qsb_dashboard_scene_state",
+  "generated_ts": "2026-06-30T13:46:34.877185+00:00",
+  "totals": {
+    "canonical_workers": 1190,
+    "operational_workers": 1130,
+    "training_workers": 108,
+    "candidate_workers": 12,
+    "lesson_workers": 0,
+    "suspended_workers": 0,
+    "stale_workers": 0,
+    "sim_seed_workers": 48
+  },
+  "active_count": 1190,
+  "moving_count": 4,
+  "rendered_default_count": 0,
+  "task_count": 653,
+  "by_floor_activity": {
+    "operations_department": {
+      "active": 1,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "memory_department": {
+      "active": 1,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "research_department": {
+      "active": 1,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "knowledge_department": {
+      "active": 1,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "coding_department": {
+      "active": 1,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "engineering_department": {
+      "active": 1,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "architecture_department": {
+      "active": 1,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "testing_department": {
+      "active": 1,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "quality_assurance_department": {
+      "active": 1,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "trading_simulation_department": {
+      "active": 1,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "market_intelligence_department": {
+      "active": 1,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "risk_analysis_department": {
+      "active": 1,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "vision_department": {
+      "active": 1,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "media_department": {
+      "active": 1,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "speech_and_audio_department": {
+      "active": 1,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "document_processing_department": {
+      "active": 1,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "graphics_and_design_department": {
+      "active": 1,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "automation_department": {
+      "active": 1,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "workflow_management_department": {
+      "active": 1,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "api_services_department": {
+      "active": 1,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "adapter_systems_department": {
+      "active": 1,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "integration_services_department": {
+      "active": 1,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "air_llm_operations_department": {
+      "active": 1,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "model_routing_department": {
+      "active": 1,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "agent_coordination_department": {
+      "active": 1,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "model_evaluation_department": {
+      "active": 1,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "local_model_operations_department": {
+      "active": 1,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "security_department": {
+      "active": 1,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "guardian_department": {
+      "active": 1,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "permissions_department": {
+      "active": 1,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "audit_department": {
+      "active": 1,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "compliance_department": {
+      "active": 1,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "diagnostics_department": {
+      "active": 1,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "monitoring_department": {
+      "active": 1,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "infrastructure_services_department": {
+      "active": 1,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "expansion_planning_department": {
+      "active": 1,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "simulation_labs": {
+      "active": 1,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "sandbox_operations": {
+      "active": 1,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "development_labs": {
+      "active": 1,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "prototype_systems": {
+      "active": 1,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "executive_support_department": {
+      "active": 1,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "executive_operations_department": {
+      "active": 1,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "strategic_planning_department": {
+      "active": 1,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "resource_management_department": {
+      "active": 1,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "building_governance_department": {
+      "active": 1,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "executive_council_department": {
+      "active": 1,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "infrastructure_command_department": {
+      "active": 1,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "tower_command_department": {
+      "active": 1,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "unassigned": {
+      "active": 34,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "floor_43": {
+      "active": 3,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "floor_41": {
+      "active": 7,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "floor_30": {
+      "active": 5,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "floor_31": {
+      "active": 4,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "penthouse": {
+      "active": 1,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "floor_25": {
+      "active": 3,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "floor_05": {
+      "active": 5,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "floor_24": {
+      "active": 5,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "floor_37": {
+      "active": 7,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "floor_27": {
+      "active": 3,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "floor_13": {
+      "active": 1,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "floor_12": {
+      "active": 1,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "floor_53": {
+      "active": 2,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "floor_45": {
+      "active": 12,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "floor_45_worker_recruitment_agency": {
+      "active": 84,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "floor_36_expansion_planning_department": {
+      "active": 150,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "floor_38_sandbox_operations": {
+      "active": 53,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "floor_47_executive_operations_department": {
+      "active": 90,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "floor_44_accounts_department": {
+      "active": 104,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "floor_30_permissions_department": {
+      "active": 70,
+      "moving": 0,
+      "training": 14,
+      "resting": 0,
+      "candidate": 0
+    },
+    "floor_49_resource_management_department": {
+      "active": 280,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "floor_52_infrastructure_command_department": {
+      "active": 180,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "floor_42_binance_trading_floor": {
+      "active": 2,
+      "moving": 2,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "floor_30_permissions_risk": {
+      "active": 2,
+      "moving": 1,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "floor_31_audit_ledger": {
+      "active": 3,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "floor_37_simulation_labs": {
+      "active": 2,
+      "moving": 1,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "floor_53_tower_command": {
+      "active": 13,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "floor_36_lift_operations": {
+      "active": 3,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "floor_29_guardian_department": {
+      "active": 1,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "floor_41_oanda_practice_trading": {
+      "active": 1,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    },
+    "floor_35_infrastructure_services_department": {
+      "active": 11,
+      "moving": 0,
+      "training": 0,
+      "resting": 0,
+      "candidate": 0
+    }
+  },
+  "openclaw_current_floor": 30,
+  "openclaw_advanced_by": "eqsb_cadence_state.tick_count",
+  "cadence_tick_count": 73,
+  "view_mode_default": "selected_floor_and_groups",
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

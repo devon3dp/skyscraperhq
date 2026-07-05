@@ -1,0 +1,31 @@
+{
+  "room_id": "lab_control_center",
+  "name": "Lab Control Center",
+  "category": "operations",
+  "purpose": "Central control and monitoring of lab operations.",
+  "concierge_blurb": "From here, we oversee the entire lab's operations.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.0,
+    "offset_z": -4.5,
+    "footprint_m": [
+      12,
+      9
+    ],
+    "height_m": 1.8
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Control Center",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_132"
+}

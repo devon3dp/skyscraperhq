@@ -1,0 +1,19 @@
+{
+  "version": "1.1",
+  "floor_id": "floor_36",
+  "department": "Expansion Planning Department",
+  "role": "vacant_floor_capacity_and_future_department_allocation_layer",
+  "kernel_required": false,
+  "models_required": false,
+  "execution_enabled": false,
+  "activation_execution_enabled": false,
+  "principle": "Vacant floors are fully serviced expansion-ready spaces, not unfinished areas.",
+  "managed_floors": [
+    "floor_41",
+    "floor_42",
+    "floor_43",
+    "floor_44",
+    "floor_45"
+  ],
+  "notice": "Floor 36 plans future occupancy. It does not activate departments automatically."
+}

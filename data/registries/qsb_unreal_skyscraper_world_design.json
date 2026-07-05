@@ -1,0 +1,26 @@
+{
+  "phase": "QSB_UNREAL_PROFESSIONAL_SKYSCRAPER_HUD_DASHBOARD_DIRECTION_V2",
+  "stage": 4,
+  "title": "3D Skyscraper World Design",
+  "floorCount": 169,
+  "source": "qsb_canonical_tower_structure_audit.json",
+  "lighting": "Lumen GI + Nanite per-floor geo",
+  "renderingNotes": "RTX 5070 Ti 16GB handles 169-floor Nanite mesh + dynamic Lumen GI at 60+fps",
+  "materialLanguage": "glass + metal + neon emissive",
+  "world": {
+    "tower": "169 floors, exterior shell, visible lift shafts, glass facade with neon department bands",
+    "city": "surrounding futuristic skyscrapers, varied heights, neon accents",
+    "plaza": "tower base, walkable, holographic logo",
+    "crown": "penthouse identity (kernel-reserved per CLAUDE.md), distinctive cap",
+    "skybox": "volumetric clouds + atmospheric scattering",
+    "lifts": "animated cars, click-focus routes",
+    "workers": "point/sprite reps at tower scale, density heatmap per floor",
+    "dataStreams": "particle flows between floors representing event bus traffic",
+    "floorLabels": "togglable HUD overlays per floor",
+    "highlights": "selected-floor glow + activity-rate glow per floor"
+  },
+  "signoff": "DeepSeek+OpenAI both pick (b) Lumen+Nanite. Claude confirms.",
+  "_meta": {
+    "ts": "2026-06-25T12:18:39Z"
+  }
+}

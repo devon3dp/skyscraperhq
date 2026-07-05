@@ -1,0 +1,38 @@
+{
+  "note": "Ross's platforms — shops, trading venues, tower dashes. Each renders as a clickable card on boardroom PLATFORMS tile.",
+  "updated_by": "hq_claude_2026-07-03",
+  "shops": [
+    {"slug":"greenline-seeds",     "name":"Greenline Seeds",     "cat":"garden",   "url":"https://skyscraperhq.uk/greenline-seeds/",     "netlify":"greenline-seeds"},
+    {"slug":"greenhouse-lane",     "name":"Greenhouse Lane",     "cat":"garden",   "url":"https://skyscraperhq.uk/greenhouse-lane/",     "netlify":"greenhouse-lane"},
+    {"slug":"hearthstone-kitchen", "name":"Hearthstone Kitchen", "cat":"home",     "url":"https://skyscraperhq.uk/hearthstone-kitchen/", "netlify":"hearthstone-kitchen"},
+    {"slug":"inkwell-and-co",      "name":"Inkwell & Co",        "cat":"office",   "url":"https://skyscraperhq.uk/inkwell-and-co/",      "netlify":"inkwell-and-co"},
+    {"slug":"little-robin",        "name":"Little Robin",        "cat":"kids",     "url":"https://skyscraperhq.uk/little-robin/",        "netlify":"little-robin"},
+    {"slug":"living-light-eco",    "name":"Living Light Eco",    "cat":"eco",      "url":"https://skyscraperhq.uk/living-light-eco/",    "netlify":"living-light-eco"},
+    {"slug":"lumiere-beauty",      "name":"Lumière Beauty",      "cat":"beauty",   "url":"https://skyscraperhq.uk/lumiere-beauty/",      "netlify":"lumiere-beauty"},
+    {"slug":"maker-lane",          "name":"Maker Lane",          "cat":"craft",    "url":"https://skyscraperhq.uk/maker-lane/",          "netlify":"maker-lane"},
+    {"slug":"pawsworth-pets",      "name":"Pawsworth Pets",      "cat":"pets",     "url":"https://skyscraperhq.uk/pawsworth-pets/",      "netlify":"pawsworth-pets"},
+    {"slug":"pinwheel-toys",       "name":"Pinwheel Toys",       "cat":"kids",     "url":"https://skyscraperhq.uk/pinwheel-toys/",       "netlify":"pinwheel-toys"},
+    {"slug":"quilltree-office",    "name":"Quilltree Office",    "cat":"office",   "url":"https://skyscraperhq.uk/quilltree-office/",    "netlify":"quilltree-office"},
+    {"slug":"stretch-fitness",     "name":"Stretch Fitness",     "cat":"fitness",  "url":"https://skyscraperhq.uk/stretch-fitness/",     "netlify":"stretch-fitness"},
+    {"slug":"trailhead-outdoor",   "name":"Trailhead Outdoor",   "cat":"outdoor",  "url":"https://skyscraperhq.uk/trailhead-outdoor/",   "netlify":"trailhead-outdoor"},
+    {"slug":"twilight-wellness",   "name":"Twilight Wellness",   "cat":"wellness", "url":"https://skyscraperhq.uk/twilight-wellness/",   "netlify":"twilight-wellness"},
+    {"slug":"vector-tech",         "name":"Vector Tech",         "cat":"tech",     "url":"https://skyscraperhq.uk/vector-tech/",         "netlify":"vector-tech"},
+    {"slug":"voyage-and-co",       "name":"Voyage & Co",         "cat":"travel",   "url":"https://skyscraperhq.uk/voyage-and-co/",       "netlify":"voyage-and-co"}
+  ],
+  "trading_venues": [
+    {"slug":"oanda_practice",  "name":"OANDA Practice", "cat":"forex+cfd", "url":"https://trade.oanda.com/", "mode":"paper"},
+    {"slug":"binance_testnet", "name":"Binance Testnet","cat":"crypto",    "url":"https://testnet.binance.vision/", "mode":"paper"},
+    {"slug":"alpaca_paper",    "name":"Alpaca Paper",   "cat":"stocks",    "url":"https://app.alpaca.markets/paper/dashboard/overview", "mode":"paper"}
+  ],
+  "tower_dashes": [
+    {"slug":"boardroom",  "name":"Boardroom Hub", "cat":"council",   "url":"http://192.168.0.20:8852/"},
+    {"slug":"wren_dash",  "name":"Wren Bench",    "cat":"wren",      "url":"http://192.168.0.20:8851/"},
+    {"slug":"hq_dash",    "name":"HQ Claude",     "cat":"hq",        "url":"http://192.168.0.20:8850/"},
+    {"slug":"studio",     "name":"Tower Studio",  "cat":"content",   "url":"http://192.168.0.20:8849/"},
+    {"slug":"lumen",      "name":"Lumen AI",      "cat":"content",   "url":"http://192.168.0.20:8848/"},
+    {"slug":"acer_dash",  "name":"Acer Node",     "cat":"tp",        "url":"http://192.168.0.10:9001/dash"},
+    {"slug":"tp_feed",    "name":"TP Live Feed",  "cat":"tp",        "url":"http://192.168.0.10:9100/feed"}
+  ],
+  "master_domain": {"name":"Skyscraper HQ", "url":"https://skyscraperhq.uk/", "status":"pending_dns"},
+  "netlify_team": "6a2ab31af23a1410917df9cf"
+}

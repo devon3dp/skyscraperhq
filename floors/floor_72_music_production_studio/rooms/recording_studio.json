@@ -1,0 +1,31 @@
+{
+  "room_id": "recording_studio",
+  "name": "Recording Studio",
+  "category": "workshop",
+  "purpose": "A soundproof space for recording vocals and instruments.",
+  "concierge_blurb": "Step into the quiet sanctuary of our recording studio, where magic happens.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.0,
+    "offset_z": 8.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "plinth",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Recording Plinth",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_72"
+}

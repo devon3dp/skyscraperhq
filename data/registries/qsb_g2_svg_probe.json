@@ -1,0 +1,117 @@
+{
+  "ok": true,
+  "phase": "QSB_NEXT_SAFE_IMPROVEMENTS_V1",
+  "kind": "qsb_g2_svg_probe",
+  "generated_ts": "2026-06-09T11:27:40.249595+00:00",
+  "passed": 21,
+  "total": 21,
+  "all_passed": true,
+  "checks": [
+    {
+      "check": "GET / returns 200",
+      "ok": true,
+      "evidence": "status=200 body_size=13056"
+    },
+    {
+      "check": "DOM id qsbTower2D",
+      "ok": true,
+      "evidence": "id=\"qsbTower2D\" present"
+    },
+    {
+      "check": "DOM id qsbCanvas",
+      "ok": true,
+      "evidence": "id=\"qsbCanvas\" present"
+    },
+    {
+      "check": "DOM id workerLabels",
+      "ok": true,
+      "evidence": "id=\"workerLabels\" present"
+    },
+    {
+      "check": "DOM id hudTip",
+      "ok": true,
+      "evidence": "id=\"hudTip\" present"
+    },
+    {
+      "check": "workerViewMode default == selected_floor_and_groups",
+      "ok": true,
+      "evidence": "selected=selected_floor_and_groups"
+    },
+    {
+      "check": "<script src=/static/qsb_tower_2d.js>",
+      "ok": true,
+      "evidence": "present"
+    },
+    {
+      "check": "<script src=/static/qsb_scene.js>",
+      "ok": true,
+      "evidence": "present"
+    },
+    {
+      "check": "<script src=/static/cockpit.js>",
+      "ok": true,
+      "evidence": "present"
+    },
+    {
+      "check": "<script src=/static/qsb_rebuild_workers.js>",
+      "ok": true,
+      "evidence": "present"
+    },
+    {
+      "check": "<script src=/static/qsb_workforce_ops_panel.js>",
+      "ok": true,
+      "evidence": "present"
+    },
+    {
+      "check": "<script src=/static/vendor/babylon.js>",
+      "ok": true,
+      "evidence": "present"
+    },
+    {
+      "check": "qsb_tower_2d.js fetch 200",
+      "ok": true,
+      "evidence": "status=200 size=39607"
+    },
+    {
+      "check": "tower_2d.js contains function refreshWorkers",
+      "ok": true,
+      "evidence": "found"
+    },
+    {
+      "check": "tower_2d.js contains function upsertWorker",
+      "ok": true,
+      "evidence": "found"
+    },
+    {
+      "check": "tower_2d.js contains function buildShafts",
+      "ok": true,
+      "evidence": "found"
+    },
+    {
+      "check": "QSB_TOWER_2D_INIT exported",
+      "ok": true,
+      "evidence": "found"
+    },
+    {
+      "check": "vendor/babylon.js > 100KB",
+      "ok": true,
+      "evidence": "status=200 size=8542582"
+    },
+    {
+      "check": "/api/unified responds 200",
+      "ok": true,
+      "evidence": "status=200"
+    },
+    {
+      "check": "/api/unified.workers[] non-empty",
+      "ok": true,
+      "evidence": "workers=64"
+    },
+    {
+      "check": "canonical_count > 100",
+      "ok": true,
+      "evidence": "canonical=1191"
+    }
+  ],
+  "note": "This probe does NOT use a headless browser. It is a deeper static + HTTP probe than the file-on-disk path. For pixel-level verification, run Playwright separately."
+}

@@ -1,0 +1,30 @@
+{
+  "status_ts": "2026-07-01T15:45:28.209758+00:00",
+  "floor": "floor_41",
+  "department": "OANDA Trading Floor",
+  "environment": "practice",
+  "base_url": "https://api-fxpractice.oanda.com",
+  "credentials": {
+    "token_present": true,
+    "account_id_present": true,
+    "account_id": "101-004-37307818-002",
+    "credentials_source": "environment_variables_only"
+  },
+  "account_read_enabled": true,
+  "pricing_read_enabled": true,
+  "paper_trading_enabled": true,
+  "local_model_commentary_enabled": true,
+  "live_trading_enabled": false,
+  "order_execution_enabled": false,
+  "practice_order_execution_enabled": false,
+  "worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "external_provider_execution_enabled": false,
+  "openclaw_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "live_dispatch_enabled": false,
+  "direct_provider_access": false,
+  "ready_for_account_read": true,
+  "ready_for_pricing_read": true,
+  "ready_for_order_execution": false
+}

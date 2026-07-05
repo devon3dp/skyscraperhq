@@ -1,0 +1,42 @@
+{
+  "ok": true,
+  "floor_number": 104,
+  "floor_name": "IT Help Desk",
+  "floor_kind": "designed_by_f66_architects_v1",
+  "description": "tier 1 + tier 2 support",
+  "designed_by": "F66 Architects' Office",
+  "designed_ts": "2026-06-11T09:13:04.497262Z",
+  "role_inventory": [
+    "Help Desk Manager",
+    "Senior Engineer",
+    "Tier 1 Tech",
+    "Tier 2 Tech",
+    "Tier 2 Tech",
+    "Network Specialist"
+  ],
+  "advisory_only": true,
+  "interior_brief": {
+    "archetype": "support_desk",
+    "palette": [
+      "#1e1c1a",
+      "#4a4038",
+      "#ffd359"
+    ],
+    "furniture": [
+      "desks",
+      "meeting area",
+      "common space",
+      "storage"
+    ],
+    "lighting": "task + ambient",
+    "mood": "ready",
+    "designed_by": "F66 Architects + F17 Graphics + Fitters team",
+    "fitted_at": "2026-06-11T14:39:45.620109Z",
+    "godot_scene_brief": "render an generic floor with neutral grey + accent per floor theme palette, professional mood, key furniture: desks, meeting area, common space",
+    "signature": "Tier-1 desk row, queue display, FAQ shelf, coffee station",
+    "diversified_ts": "2026-06-11T17:57:45Z",
+    "diversified_by": "qsb_archetype_diversifier_v1"
+  },
+  "fitted_out": true,
+  "fit_out_ts": "2026-06-11T14:39:45.620109Z"
+}

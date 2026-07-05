@@ -1,0 +1,217 @@
+{
+  "ts": "2026-06-30T18:26:55.064689Z",
+  "daemons": {
+    "dashboard": true,
+    "lumen": true,
+    "vision": false,
+    "heartbeat": false,
+    "cloudflared": false,
+    "qualify": false,
+    "godot": false
+  },
+  "adb_device": "",
+  "cloudflared_url": "",
+  "highlights": {
+    "alive_count": 2,
+    "down": [
+      "vision",
+      "heartbeat",
+      "cloudflared",
+      "qualify",
+      "godot"
+    ],
+    "f47_chat_tail_count": 20,
+    "cli_chat_tail_count": 20,
+    "unsigned_proposals": 60,
+    "diary_last": "- 12:40 UTC (2026-06-30) \u2014 PITSTOP `pre_595_reboot_gpu_fix_2026-06-30`. Focus: Root cause of 8 reboots today: NVIDIA Blackwell GSP RPC failures from 5 stacked driver versions (535+550+565+570+580). Clean-purged + installed nvidia-driver-595-open + force-built DKMS for kernel 6.17.0-35-generic. Rebooted 12:50 UTC. New driver 595.71.05 loaded clean, zero GSP errors. ThinkPad full LAN access established: SSH 22 (ed25519 thinkpad-ceo key), Samba bound 192.168.0.20:445, HTTP 9100, UFW allows 192.168.0.0/24 to 8 ports. Fleet was cleanly dropped pre-reboot. Bringing fleet back next.. Resume from data/registries/pitstops/pitstop_20260630T124006601754Z_pre_595_reboot_gpu_fix_2026-06-30.md.",
+    "last_decision": {
+      "ts": "2026-06-30T18:25:53.696292Z",
+      "kind": "sustained_proof_10min_real",
+      "operator": null
+    }
+  },
+  "f47_chat_tail": [
+    {
+      "ts": "2026-06-21T10:20:44Z",
+      "you": "will your floor still have a 3d interior that i can enter and see you and your floor and your team members ?"
+    },
+    {
+      "ts": "2026-06-21T10:29:08Z",
+      "you": "hows it going"
+    },
+    {
+      "ts": "2026-06-21T10:30:15Z",
+      "you": "but i thought you was fitting out your floor ?"
+    },
+    {
+      "ts": "2026-06-21T10:51:59Z",
+      "you": "can u smoke test yourself ?"
+    },
+    {
+      "ts": "2026-06-21T12:22:35Z",
+      "you": "hows iyt going wren"
+    },
+    {
+      "ts": "2026-06-21T12:22:59Z",
+      "you": "did you fit out your floor"
+    },
+    {
+      "ts": "2026-06-21T12:23:35Z",
+      "you": "ok can you now improve the reception ?"
+    },
+    {
+      "ts": "2026-06-21T13:07:00Z",
+      "you": "yes is it ready for me to see"
+    },
+    {
+      "ts": "2026-06-21T13:07:45Z",
+      "you": "is the interior of the reception ready for e to see inside ?"
+    },
+    {
+      "ts": "2026-06-21T13:08:34Z",
+      "you": "no fo"
+    },
+    {
+      "ts": "2026-06-21T13:08:54Z",
+      "you": "F0 stands for floor 0"
+    },
+    {
+      "ts": "2026-06-21T13:09:46Z",
+      "you": "tell me what you can and cant do in your software"
+    },
+    {
+      "ts": "2026-06-21T13:10:13Z",
+      "you": "are you aware you live in the skyscraper ?"
+    },
+    {
+      "ts": "2026-06-21T13:10:44Z",
+      "you": "do you have a team ?"
+    },
+    {
+      "ts": "2026-06-21T13:12:03Z",
+      "you": "what other members do you need on your team to help manage the skyscraper backend and front end and understand all the workers ?"
+    },
+    {
+      "ts": "2026-06-21T13:12:44Z",
+      "you": "ok what skills do you need and tools ?"
+    },
+    {
+      "ts": "2026-06-21T13:13:30Z",
+      "you": "how can i improve your understanding of the skyscraperhq ?"
+    },
+    {
+      "ts": "2026-06-30T15:22:21Z",
+      "you": "hello"
+    },
+    {
+      "ts": "2026-06-30T15:22:32Z",
+      "you": "its ross how are you"
+    },
+    {
+      "ts": "2026-06-30T15:24:43Z",
+      "you": "can you get the team to check why  qsb tower v1.6 is not working right prove your work"
+    }
+  ],
+  "cli_chat_tail": [
+    {
+      "ts": "2026-06-30T11:41:36.571Z",
+      "role": "user",
+      "text": "[tool_result:Protocol negotiation to server 192.168.0.20 (for a protocol between SMB2 and SMB3) failed: NT_STATUS_INVALID_NETWORK_RESPONSE\n\n\u2500\u2500 F47 stamp \u2500\u2500\nstamped 2 F47 rows]"
+    },
+    {
+      "ts": "2026-06-30T11:41:36.586Z",
+      "role": "user",
+      "text": "[tool_result:Updated task #12 status]"
+    },
+    {
+      "ts": "2026-06-30T11:41:51.641Z",
+      "role": "assistant",
+      "text": "# \u2705 Done \u2014 ThinkPad has full access \u00b7 GPU driver fixed\n\n**Proved (curl-ed each):**\n\n| Channel | Status | Detail |\n|---|---|---|\n| **SSH** | \u2705 | `0.0.0.0:22` listening, ThinkPad's ed25519 key (`thinkpa"
+    },
+    {
+      "ts": "2026-06-30T11:48:52.561Z",
+      "role": "user",
+      "text": "3"
+    },
+    {
+      "ts": "2026-06-30T11:49:04.418Z",
+      "role": "assistant",
+      "text": "[tool_use:TaskCreate]"
+    },
+    {
+      "ts": "2026-06-30T11:49:04.431Z",
+      "role": "user",
+      "text": "[tool_result:Task #13 created successfully: Clean fleet drop + reboot for GPU driver]"
+    },
+    {
+      "ts": "2026-06-30T11:49:26.913Z",
+      "role": "assistant",
+      "text": "[tool_use:Bash]"
+    },
+    {
+      "ts": "2026-06-30T11:49:44.469Z",
+      "role": "user",
+      "text": "[tool_result:\u2500\u2500 notify ThinkPad \u2500\u2500\n{\"ack\": true, \"node\": \"thinkpad\", \"ts\": \"2026-06-30T11:49:36.855038+00:00\"}\n\u2500\u2500 1. clean shutdown order: consumers \u2192 sources \u2192 bus \u2192 dashes \u2192 listener \u2500\u2500\n  killing 0 "
+    },
+    {
+      "ts": "2026-06-30T11:52:48.977Z",
+      "role": "user",
+      "text": "Continue from where you left off."
+    },
+    {
+      "ts": "2026-06-30T11:52:48.977Z",
+      "role": "assistant",
+      "text": "No response requested."
+    },
+    {
+      "ts": "2026-06-30T11:52:54.392Z",
+      "role": "user",
+      "text": "continue"
+    },
+    {
+      "ts": "2026-06-30T11:57:05.148Z",
+      "role": "assistant",
+      "text": "API Error: Unable to connect to API (FailedToOpenSocket)"
+    },
+    {
+      "ts": "2026-06-30T11:57:05.180Z",
+      "role": "user",
+      "text": "check evertythin and get all traders trading and worrecking correctley"
+    },
+    {
+      "ts": "2026-06-30T12:01:21.012Z",
+      "role": "assistant",
+      "text": "API Error: Unable to connect to API (ConnectionRefused)"
+    },
+    {
+      "ts": "2026-06-30T12:37:24.241Z",
+      "role": "user",
+      "text": "hello"
+    },
+    {
+      "ts": "2026-06-30T12:38:45.710Z",
+      "role": "assistant",
+      "text": "Running pitstop first, then checking + bringing fleet back."
+    },
+    {
+      "ts": "2026-06-30T12:38:54.123Z",
+      "role": "assistant",
+      "text": "[tool_use:Bash]"
+    },
+    {
+      "ts": "2026-06-30T12:38:58.017Z",
+      "role": "assistant",
+      "text": "[tool_use:Bash]"
+    },
+    {
+      "ts": "2026-06-30T12:39:04.919Z",
+      "role": "user",
+      "text": "[tool_result:\u2500\u2500 uptime (did the reboot land?) \u2500\u2500\n2026-06-30 12:50:23\nup 48 minutes\n\n\u2500\u2500 nvidia driver loaded now? \u2500\u2500\ndriver_version, name, temperature.gpu\n595.71.05, NVIDIA GeForce RTX 5070 Ti, 45\n\n\u2500\u2500 "
+    },
+    {
+      "ts": "2026-06-30T12:39:04.984Z",
+      "role": "user",
+      "text": "[tool_result:tools/qsb_pitstop.py\n\n\u2500\u2500 pitstop \u2500\u2500\nusage: qsb_pitstop.py [-h] [--tasklist TASKLIST] [--next-steps NEXT_STEPS]\n                      [--blockers BLOCKERS] [--tmp-files TMP_FILES]\n        "
+    }
+  ]
+}

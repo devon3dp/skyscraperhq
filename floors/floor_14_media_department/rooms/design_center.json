@@ -1,0 +1,34 @@
+{
+  "room_id": "design_center",
+  "name": "Design Center",
+  "category": "operations",
+  "purpose": "A space for designers to create and preview custom print designs.",
+  "concierge_blurb": "Explore the creative process behind our custom print projects.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 7.0,
+    "offset_z": -2.5,
+    "footprint_m": [
+      4.0,
+      3.0
+    ],
+    "height_m": 1.8
+  },
+  "render": {
+    "primary_prop": "plinth",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Design Hub",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": null,
+    "refresh_seconds": 600
+  },
+  "floor": "floor_14"
+}

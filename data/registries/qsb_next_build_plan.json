@@ -1,0 +1,36 @@
+{
+  "ok": true,
+  "phase": "QSB_MASTER_SYSTEM_SELF_AUDIT_AND_REPAIR_ROADMAP_V1",
+  "kind": "qsb_next_build_plan",
+  "generated_ts": "2026-06-30T13:46:37.770663+00:00",
+  "recommended_next_phase": "QSB_KERNEL_CHAT_TAIL_DEDUPE_AND_DIVERSITY_V1",
+  "rationale": "Kernel chat's structured blocks are excellent but the tail symbolic_reply is templated. Highest visible truthfulness gap; small, safe change.",
+  "ordered_phase_queue": [
+    "QSB_KERNEL_CHAT_TAIL_DEDUPE_AND_DIVERSITY_V1",
+    "QSB_BABYLON_OPENCLAW_MESH_AND_FLOOR_PULSES_V1",
+    "QSB_DISCIPLINE_AUTOATTRIBUTION_V1",
+    "QSB_PROMOTION_BOARD_V1",
+    "QSB_TRAINING_ACADEMY_FLOOR_V1",
+    "QSB_NARRATION_DEPARTMENT_V1",
+    "QSB_MANAGER_APPROVAL_WORKFLOW_V1",
+    "QSB_DISCIPLINE_AUTOATTRIBUTION_V1",
+    "QSB_PROMOTION_BOARD_V1",
+    "QSB_TRAINING_ACADEMY_FLOOR_V1",
+    "QSB_MANAGER_APPROVAL_WORKFLOW_V1",
+    "QSB_NARRATION_DEPARTMENT_V1",
+    "QSB_BABYLON_OPENCLAW_MESH_AND_FLOOR_PULSES_V1"
+  ],
+  "do_not_do_until_approved": [
+    "Major dashboard rebuild",
+    "Backend rewrite",
+    "Enable real-money trading",
+    "Enable real OpenClaw execution",
+    "Install drivers/packages",
+    "Change system services"
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false
+}

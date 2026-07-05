@@ -1,0 +1,37 @@
+{
+  "policy": "oanda_trading_floor_v1",
+  "version": "1.0",
+  "floor": "floor_41",
+  "department": "OANDA Trading Floor",
+  "environment": "practice",
+  "base_url_practice": "https://api-fxpractice.oanda.com",
+  "base_url_live": "https://api-fxtrade.oanda.com",
+  "selected_base_url": "https://api-fxpractice.oanda.com",
+  "credentials_source": "environment_variables_only",
+  "required_env": [
+    "OANDA_API_TOKEN",
+    "OANDA_ACCOUNT_ID"
+  ],
+  "default_instruments": [
+    "EUR_USD",
+    "GBP_USD",
+    "USD_JPY",
+    "XAU_USD"
+  ],
+  "account_read_enabled": true,
+  "pricing_read_enabled": true,
+  "paper_trading_enabled": true,
+  "local_model_commentary_enabled": true,
+  "live_trading_enabled": false,
+  "order_execution_enabled": false,
+  "practice_order_execution_enabled": false,
+  "worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "external_provider_execution_enabled": false,
+  "openclaw_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "live_dispatch_enabled": false,
+  "direct_provider_access": false,
+  "risk_mode": "observe_and_simulate_only",
+  "notes": "Floor 41 may read OANDA practice account/pricing data and generate local-only commentary. It must not place live or practice orders until a later explicit activation phase."
+}

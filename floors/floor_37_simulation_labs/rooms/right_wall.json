@@ -1,0 +1,34 @@
+{
+  "room_id": "right_wall",
+  "name": "Simulation Observation Room",
+  "category": "observation",
+  "purpose": "A place to observe ongoing simulations.",
+  "concierge_blurb": "Watch the simulations unfold from this vantage point.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "right_wall",
+    "offset_x": 8.0,
+    "offset_z": -7.5,
+    "footprint_m": [
+      6,
+      12
+    ],
+    "height_m": 2.4
+  },
+  "render": {
+    "primary_prop": "plinth",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Observation Plinth",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_37"
+}

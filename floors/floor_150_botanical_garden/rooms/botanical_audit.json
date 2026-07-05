@@ -1,0 +1,34 @@
+{
+  "room_id": "botanical_audit",
+  "name": "Botanical Audit Room",
+  "category": "audit",
+  "purpose": "To ensure the health and sustainability of our botanical garden.",
+  "concierge_blurb": "Learn about our ongoing efforts to maintain a thriving environment.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_right",
+    "offset_x": 6.0,
+    "offset_z": -4.0,
+    "footprint_m": [
+      12.0,
+      8.0
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "wall_panel",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Audit Room",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_150"
+}

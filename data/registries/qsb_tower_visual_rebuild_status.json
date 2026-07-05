@@ -1,0 +1,24 @@
+{
+  "ok": true, "kind": "qsb_tower_visual_rebuild_status", "ts": "2026-06-09T22:06:58Z",
+  "phase": "QSB_GODOT_3D_SKYSCRAPER_TOWER_REBUILD_DETAIL_ANIMATION_V1",
+  "scenes_added": [
+    "TowerRoot.tscn","TowerFloorUnit.tscn","TowerLiftShaft.tscn","TowerLiftCar.tscn",
+    "TowerWorkerBadge.tscn","TowerPacketFlow.tscn","TowerOpenClawMarker.tscn",
+    "TowerDepartmentBand.tscn","TowerFloorLabel.tscn","TowerSelectionRing.tscn"
+  ],
+  "scripts_added": [
+    "TowerLiftSystem.gd","TowerLiftCar.gd","TowerWorkerVisualizer.gd",
+    "TowerWorkerActivityAnimator.gd","TowerPacketFlow.gd","TowerOpenClawAnimator.gd",
+    "TowerDepartmentBands.gd","TowerFloorLabelManager.gd","TowerSelectionController.gd",
+    "TowerCameraController.gd","TowerFloorUnit.gd"
+  ],
+  "features": [
+    "9 lift cars with shafts + animated travel + arrival pulses + labels",
+    "Department color bands wrapping tower",
+    "Per-floor density badges + animated mini-workers on selected/adjacent floors",
+    "OpenClaw orbits tower + patrol/inspect mode + label",
+    "Packet flow: glowing parabolic arcs between floors, color-coded by category",
+    "Animated golden selection ring around selected floor",
+    "Floor labels with LOD modes (all/compact/off)"
+  ]
+}

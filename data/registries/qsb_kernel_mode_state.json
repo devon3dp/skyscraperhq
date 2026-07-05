@@ -1,0 +1,24 @@
+{
+  "ok": true,
+  "kind": "qsb_kernel_mode_state",
+  "current_mode": "RESEARCH",
+  "description": "F37 synthesis fires often; classroom active; cohort training muted unless dispatched.",
+  "gates": {
+    "auto_close": true,
+    "synthesis": true,
+    "cohort_train": false,
+    "kernel_introspect": true
+  },
+  "last_transition_ts": "2026-06-10T18:05:02Z",
+  "last_transition_by": "dispatch:f47.wren.wren_steward.01",
+  "history": [
+    {
+      "ts": "2026-06-10T18:05:02Z",
+      "from": "WAKE",
+      "to": "RESEARCH",
+      "by": "dispatch:f47.wren.wren_steward.01",
+      "reason": "operator-requested via dispatch"
+    }
+  ],
+  "advisory_only": true
+}

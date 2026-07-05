@@ -1,0 +1,20 @@
+{
+  "interface_id": "kernel_discovery_interface",
+  "status": "ready",
+  "kernel_installed": false,
+  "discoverable_resources": [
+    "registries",
+    "lift network",
+    "floor registry",
+    "worker registry",
+    "diagnostics department",
+    "monitoring department",
+    "infrastructure services department",
+    "adapter systems",
+    "integration services",
+    "AIR LLM sockets",
+    "local model inventory"
+  ],
+  "discovery_mode": "readiness_only",
+  "execution_enabled": false
+}

@@ -1,0 +1,41 @@
+{
+  "ok": true,
+  "kind": "qsb_f47_fitout_manifest",
+  "ts": "2026-06-10T21:47:36Z",
+  "team_size": 250,
+  "role_counts": {
+    "scribe": 8,
+    "auditor": 8,
+    "ledger_clerk": 6,
+    "strategy_researcher": 11,
+    "librarian": 6,
+    "curriculum_tutor": 5,
+    "floor_diplomat": 5,
+    "helix_watcher": 4,
+    "wren_steward": 2,
+    "kernel_petitioner": 50,
+    "kernel_topic_specialist": 40,
+    "kernel_translator": 40,
+    "kernel_critic": 45,
+    "kernel_proposer": 20
+  },
+  "files_written": {
+    "qsb_claude_long_letter_box.jsonl": 8,
+    "qsb_f47_audit_checks.jsonl": 8,
+    "qsb_f47_ledger_tags.jsonl": 6,
+    "qsb_claude_research_notes.jsonl": 11,
+    "qsb_claude_library_catalog.jsonl": 6,
+    "qsb_claude_curriculum_topics.jsonl": 5,
+    "qsb_f47_diplomacy_notes.jsonl": 5,
+    "qsb_claude_helix_touchstones.jsonl": 4,
+    "qsb_claude_steward_notes.jsonl": 2,
+    "qsb_claude_question_library.jsonl": 50,
+    "qsb_claude_topic_index.jsonl": 40,
+    "qsb_claude_bridge_phrases.jsonl": 40,
+    "qsb_claude_critique_lens.jsonl": 45,
+    "qsb_f47_fixtures.jsonl": 20
+  },
+  "lead": "wren",
+  "trigger": "ross_2026_06_10_fitout_and_decorate",
+  "advisory_only": true
+}

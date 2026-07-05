@@ -1,0 +1,34 @@
+{
+  "room_id": "seo_analysis_station",
+  "name": "SEO Analysis Station",
+  "category": "workshop",
+  "purpose": "Analyze and optimize website content for better search engine visibility.",
+  "concierge_blurb": "Interactive screens display keyword analytics and competitor insights.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -7.0,
+    "offset_z": 1.5,
+    "footprint_m": [
+      3.0,
+      2.0
+    ],
+    "height_m": 1.8
+  },
+  "render": {
+    "primary_prop": "desk",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "SEO Desk",
+    "glow": false
+  },
+  "interactive": {
+    "type": "scrolling_list",
+    "source_path": "data/registries/seo_analysis.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_16"
+}

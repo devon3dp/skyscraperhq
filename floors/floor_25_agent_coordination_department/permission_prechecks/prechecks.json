@@ -1,0 +1,37 @@
+[
+  {
+    "check_id": "no_kernel_installation",
+    "description": "Worker recruitment must not install or build QSB Kernel 4.5.",
+    "required": true,
+    "status": "pass",
+    "enforced_value": false
+  },
+  {
+    "check_id": "no_worker_execution",
+    "description": "Floor 25 may register candidates but must not execute workers.",
+    "required": true,
+    "status": "pass",
+    "enforced_value": false
+  },
+  {
+    "check_id": "providers_external_only",
+    "description": "External providers remain outside the building.",
+    "required": true,
+    "status": "pass",
+    "enforced_value": true
+  },
+  {
+    "check_id": "security_spine_required",
+    "description": "Future activation requires Security Spine approval.",
+    "required": true,
+    "status": "pass",
+    "enforced_value": true
+  },
+  {
+    "check_id": "manual_approval_required",
+    "description": "Future worker activation requires explicit operator approval.",
+    "required": true,
+    "status": "pass",
+    "enforced_value": true
+  }
+]

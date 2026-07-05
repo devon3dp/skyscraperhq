@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>QSB Tower — 3D Operations Cockpit</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/static/cockpit.css?v=20260612b">
+<link rel="stylesheet" href="/static/qsb_3d_dashboard.css">
+<link rel="stylesheet" href="/static/qsb_visible_dashboard.css">
+<link rel="stylesheet" href="/static/qsb_v6_cognitive_panel.css?v=20260609c">
+</head>
+<body>
+
+<header id="hdr">
+  <div class="hdr-l">
+    <div class="hdr-title">QSB TOWER · 3D OPERATIONS COCKPIT · Open Day, 2026-06-14</div>
+    <div class="hdr-sub"><span id="hdrBackend" title="backend version">backend v1.5</span> · <span id="hdrPhase">dashboard build —</span></div>
+    <a class="welcome-pill" id="welcomePill" href="/welcome" title="Open Day welcome — first-visitor tour">Welcome — first visit? Tap here →</a>
+  </div>
+  <div class="hdr-r">
+    <span class="pill pill-loading" id="pillKernel">kernel loading…</span>
+    <span class="pill pill-loading" id="pillLocks">locks loading…</span>
+    <span class="pill pill-loading" id="pillAuto">autoloop loading…</span>
+    <span class="pill pill-loading" id="pillAir">airllm loading…</span>
+    <button class="hdr-btn" id="btnSound" data-on="0" title="Toggle sound">🔇 Sound: Off</button>
+    <button class="hdr-btn" id="btnSpeech" data-on="0" title="Toggle speech">🗣 Speech: Off</button>
+    <select class="hdr-btn" id="workerViewMode" title="Worker view mode" style="padding:4px 6px;">
+      <option value="selected_floor_and_groups" selected>👥 Worker view: selected floor + groups</option>
+      <option value="counts_only">👥 Worker view: counts only</option>
+      <option value="operational_only">👥 Worker view: all operational</option>
+      <option value="worker_problems">⚠ Worker view: problems (OpenClaw)</option>
+      <option value="all_workers_visible">👥 Worker view: all (incl. SIM)</option>
+    </select>
+    <button class="hdr-btn" id="btnNarrator" data-on="0" title="Running Commentary (browser speech)">🎙 Commentary: Off</button>
+    <select class="hdr-btn" id="narratorMode" title="Commentary mode" style="padding:4px 6px;">
+      <option value="off">Off</option>
+      <option value="tower">Live Tower Report</option>
+      <option value="selected_floor">Selected Floor Report</option>
+      <option value="critical">Critical Only</option>
+      <option value="profit">Profit Command</option>
+      <option value="worker">Worker Performance</option>
+      <option value="openclaw">OpenClaw Report</option>
+      <option value="kernel">Kernel / Penthouse Report</option>
+    </select>
+    <button class="hdr-btn" id="btnMute" title="Mute all sound + speech">⏹ Mute All</button>
+    <button class="hdr-btn hdr-btn-glow" id="btnDirectory" title="Floor Directory — 165 floors">📇 165 Floors</button>
+    <button class="hdr-btn active" id="btnRotate" data-on="1" title="Rotate tower">🌀 Rotate</button>
+    <button class="hdr-btn" id="btnAllNames" data-on="0" title="Show All Floor Names">🏷 All Names</button>
+    <button class="hdr-btn" id="btnHlTrading" title="Highlight trading floors">💱 Trading</button>
+    <button class="hdr-btn" id="btnHlModels" title="Highlight model floors">🧠 Models</button>
+    <button class="hdr-btn" id="btnHlRisk" title="Highlight risk/audit/strategy floors">🛡 Risk</button>
+    <button class="hdr-btn" id="btnKernelChat" title="Open Kernel Chat">💬 Kernel Chat</button>
+    <button class="hdr-btn" id="btnRenderer" title="Renderer Debug">🛠 Renderer</button>
+    <button class="hdr-btn" id="btnFocus" title="Focus the tower">🎯 Focus</button>
+    <button class="hdr-btn" id="btnReset" title="Reset camera">↻ View</button>
+    <button class="hdr-btn" id="btnPause" title="Pause animation">⏸ Pause</button>
+    <button class="hdr-btn" id="btnTowerOnly" title="Hide side panels — show only the 3D tower" data-on="0">🔭 Tower Only</button>
+    <button class="hdr-btn" id="btnLayoutReset" title="Reset layout">⤺ Layout</button>
+    <button class="hdr-btn" id="btnRefresh" title="Refresh data">⟳</button>
+  </div>
+</header>
+
+<div id="alertBanner"></div>
+
+<!-- V18.11 Sound Bar — Ross 2026-06-12: dedicated start/stop, kernel & commentary toggles, talk to Helm + Auger -->
+<div id="soundBar" class="sound-bar">
+  <div class="sb-title">SOUND BAR</div>
+  <div class="sb-row">
+    <button class="sb-btn stop" id="sbStopNow" title="Stop any voice immediately (so you can talk over the kernel)">⏹ STOP NOW</button>
+  </div>
+  <div class="sb-row">
+    <button class="sb-btn" id="sbKernelToggle" data-on="0" title="Kernel narration on/off (events, status, warnings)">🧠 Kernel: Off</button>
+    <button class="sb-btn" id="sbCommentaryToggle" data-on="0" title="Live commentary on/off (running operator briefing)">🎙 Commentary: Off</button>
+  </div>
+  <div class="sb-row sb-talk">
+    <button class="sb-btn ptt" id="sbTalkHelm" title="Hold to talk to Helm (he can consult Auger behind the line if needed)">📞 Talk to Helm</button>
+  </div>
+  <div class="sb-status" id="sbStatus">idle</div>
+</div>
+
+
+<main id="app">
+
+  <aside id="leftRail" class="rail">
+    <button class="rail-collapse" id="leftCollapse" title="Collapse left rail">⮜</button>
+    <nav class="rail-tabs" id="leftTabs">
+      <button data-tab="kernel" class="active">Kernel</button>
+      <button data-tab="locks">Locks</button>
+      <button data-tab="counts">Counts</button>
+      <button data-tab="suggest">Suggest</button>
+      <button data-tab="services">Services</button>
+    </nav>
+    <div class="rail-pane" id="leftPane">
+      <section data-pane="kernel" class="pane active">
+        <h3>Kernel <span class="sub" id="kernelSub">—</span>
+          <button class="mini-btn" data-window="kernel-chat">Open Chat</button></h3>
+        <div id="kernelBody"></div>
+      </section>
+      <section data-pane="locks" class="pane">
+        <h3>Execution Lock Matrix <span class="sub" id="locksSub">—</span>
+          <button class="mini-btn" data-window="lock-detail">Details</button></h3>
+        <div id="locksBody"></div>
+      </section>
+      <section data-pane="counts" class="pane">
+        <h3>Workers &amp; Packets</h3>
+        <div id="countsBody"></div>
+      </section>
+      <section data-pane="suggest" class="pane">
+        <h3>Command Suggestions <span class="sub">advisory · no auto-run</span></h3>
+        <div id="suggestBody"><div class="tagline">no suggestions yet</div></div>
+      </section>
+      <section data-pane="services" class="pane">
+        <h3>Services</h3>
+        <div id="servicesBody"></div>
+      </section>
+    </div>
+  </aside>
+
+  <section id="stage">
+    <div class="stage-hdr">
+      <div class="stage-title">SKYSCRAPER COCKPIT</div>
+      <div id="debugStrip" class="debug">
+        <span class="dbg" id="dbgWebgl">WebGL: …</span>
+        <span class="dbg" id="dbgEngine">Engine: …</span>
+        <span class="dbg" id="dbgRender">Render: …</span>
+        <span class="dbg" id="dbgFps">FPS: —</span>
+        <span class="dbg" id="dbgErr"></span>
+      </div>
+      <div class="stage-meta" id="stageMeta">— floors · — lifts · — packets</div>
+      <div class="stage-legend">
+        <span class="lg lg-worker">worker</span>
+        <span class="lg lg-strategy">FX</span>
+        <span class="lg lg-crypto">crypto</span>
+        <span class="lg lg-stocks">stocks</span>
+        <span class="lg lg-cross">cross-mkt</span>
+        <span class="lg lg-ledger">ledger</span>
+        <span class="lg lg-openclaw">OpenClaw</span>
+        <span class="lg lg-kernel">kernel</span>
+        <span class="lg lg-airllm">AirLLM</span>
+        <span class="lg lg-paper">paper</span>
+      </div>
+    </div>
+    <div class="stage-body">
+      <div id="qsbTower2D" class="tower2d-host" aria-label="QSB SVG skyscraper renderer"></div>
+      <canvas id="qsbCanvas" class="tower3d-canvas"></canvas>
+      <div id="workerLabels"></div>
+      <div class="hud-tip" id="hudTip"></div>
+    </div>
+  </section>
+
+  <aside id="rightRail" class="rail">
+    <button class="rail-collapse" id="rightCollapse" title="Collapse right rail">⮞</button>
+    <nav class="rail-tabs" id="rightTabs">
+      <button data-tab="strategy" class="active">Strategy</button>
+      <button data-tab="oanda">OANDA 41</button>
+      <button data-tab="binance">Binance 42</button>
+      <button data-tab="stocks">Stocks 43</button>
+      <button data-tab="cross">Cross-Mkt</button>
+      <button data-tab="airllm">AirLLM 23</button>
+      <button data-tab="openclaw">OpenClaw</button>
+      <button data-tab="workers">Workers</button>
+      <button data-tab="eqsb">EQSB Penthouse</button>
+      <button data-tab="qsbv2">QSB V2 Ops</button>
+      <button data-tab="qsbv3">Live Telemetry</button>
+      <button data-tab="profit">Profit Command</button>
+      <button data-tab="workforce">Workforce</button>
+      <button data-tab="ops">Workforce Ops</button>
+    </nav>
+    <div class="rail-pane" id="rightPane">
+      <section data-pane="strategy" class="pane active">
+        <h3>Strategy / Trading <span class="sub">paper-only</span>
+          <button class="mini-btn" data-window="strategy-detail">Expand</button></h3>
+        <div id="instrumentsBody"></div>
+      </section>
+      <section data-pane="oanda" class="pane">
+        <h3>OANDA Floor 41 <span class="sub" id="oandaSub">paper</span>
+          <button class="mini-btn" data-window="oanda-detail">Details</button></h3>
+        <div id="oandaBody"></div>
+      </section>
+      <section data-pane="binance" class="pane">
+        <h3>Binance Floor 42 <span class="sub" id="binanceSub">read-only</span>
+          <button class="mini-btn" data-window="binance-detail">Details</button></h3>
+        <div id="binanceBody"></div>
+      </section>
+      <section data-pane="stocks" class="pane">
+        <h3>Stock Exchange Floor 43 <span class="sub" id="stocksSub">paper</span>
+          <button class="mini-btn" data-window="stocks-detail">Details</button></h3>
+        <div id="stocksBody"></div>
+      </section>
+      <section data-pane="cross" class="pane">
+        <h3>Cross-Market Bus <span class="sub" id="crossSub">advisory</span>
+          <button class="mini-btn" data-window="cross-detail">Details</button></h3>
+        <div id="crossBody"></div>
+      </section>
+      <section data-pane="airllm" class="pane">
+        <h3>AirLLM Chamber <span class="sub">floor 23 · advisory</span>
+          <button class="mini-btn" data-window="airllm-detail">Details</button></h3>
+        <div id="airllmBody"></div>
+      </section>
+      <section data-pane="openclaw" class="pane">
+        <h3>OpenClaw Sandbox <span class="sub">observers only</span>
+          <button class="mini-btn" data-window="openclaw-detail">Details</button></h3>
+        <div id="openclawBody"></div>
+      </section>
+      <section data-pane="workers" class="pane">
+        <h3>Workers <span class="sub" id="workersSub">—</span></h3>
+        <div id="workersBody"></div>
+      </section>
+      <section data-pane="eqsb" class="pane">
+        <h3>EQSB Penthouse <span class="sub" id="eqsbSub">deep kernel</span>
+          <button class="mini-btn" id="eqsbRefreshBtn" title="Refresh EQSB panel">↻</button>
+          <button class="mini-btn" id="eqsbTickBtn" title="Run one cadence tick">Tick</button>
+        </h3>
+        <div id="eqsbBody"><div class="tagline">EQSB panel — loading…</div></div>
+      </section>
+      <section data-pane="qsbv2" class="pane">
+        <h3>QSB V2 Ops <span class="sub" id="qsbV2Sub">OpenClaw · Paper · Workers · 3D</span>
+          <button class="mini-btn" id="qsbV2RefreshBtn" title="Refresh QSB V2 panel">↻</button>
+        </h3>
+        <div id="qsbV2Body"><div class="tagline">QSB V2 panel — loading…</div></div>
+      </section>
+      <section data-pane="qsbv3" class="pane">
+        <h3>Live Telemetry <span class="sub" id="qsbV3Sub">LIVE_DATA_ONLY · no random visuals</span>
+          <button class="mini-btn" id="qsbV3RefreshBtn" title="Refresh V3 live telemetry">↻</button>
+        </h3>
+        <div id="qsbV3Body"><div class="tagline">V3 live telemetry — loading…</div></div>
+      </section>
+      <section data-pane="profit" class="pane">
+        <h3>Profit Command <span class="sub" id="profitSub">paper · disciplined</span>
+          <button class="mini-btn" id="profitRefreshBtn" title="Refresh Profit Command">↻</button>
+          <button class="mini-btn" id="profitNarrateBtn" title="Narrate Profit Command">🗣</button>
+        </h3>
+        <div id="profitBody"><div class="tagline">Profit Command — loading…</div></div>
+      </section>
+      <section data-pane="workforce" class="pane">
+        <h3>Workforce <span class="sub" id="workforceSub">scorecards · rewards · discipline</span>
+          <button class="mini-btn" id="workforceRefreshBtn" title="Refresh workforce">↻</button>
+        </h3>
+        <div id="workforceBody"><div class="tagline">Workforce HR — loading…</div></div>
+      </section>
+      <section data-pane="ops" class="pane">
+        <h3>Workforce Ops <span class="sub" id="opsSub">active tasks · OpenClaw tickets</span>
+          <button class="mini-btn" id="opsRefreshBtn" title="Refresh ops panel">↻</button>
+          <button class="mini-btn" id="opsTickBtn" title="Run a paper strategy tick">Tick</button>
+        </h3>
+        <div id="opsBody"><div class="tagline">Workforce Ops — loading…</div></div>
+      </section>
+    </div>
+  </aside>
+
+  <section id="bottomRail">
+    <div id="bottomHdr">
+      <span>Event Ticker / Ledger <span class="sub" id="tickerSub">—</span></span>
+      <span class="bottom-actions">
+        <button class="mini-btn" data-window="ledger-detail">Ledger Window</button>
+        <button class="mini-btn" id="bottomCollapse" title="Collapse ticker">⮟</button>
+      </span>
+    </div>
+    <div id="tickerBody"></div>
+    <div id="bottomResize" title="Drag to resize"></div>
+  </section>
+
+</main>
+
+<div id="windowLayer"></div>
+
+<script src="/static/qsb_speech_voice.js"></script>
+<script src="/static/qsb_state.js"></script>
+<script src="/static/qsb_audio.js"></script>
+<script src="/static/qsb_windows.js"></script>
+<script src="/static/qsb_tower_2d.js?v=20260611d"></script>
+<script src="/static/qsb_floor_interior.js"></script>
+<script src="/static/vendor/babylon.js"></script>
+<script src="/static/qsb_scene.js?v=20260612h"></script>
+<script src="/static/cockpit.js?v=20260612b"></script>
+<script src="/static/qsb_soundbar.js?v=20260612b"></script>
+<script src="/static/worker_voice.js"></script>
+<script src="/static/eqsb_penthouse.js"></script>
+<script src="/static/qsb_skyscraper_v2.js"></script>
+<script src="/static/qsb_v2_panel.js"></script>
+<script src="/static/qsb_skyscraper_v3.js"></script>
+<script src="/static/qsb_command_center.js"></script>
+<script src="/static/qsb_rebuild_workers.js"></script>
+<script src="/static/qsb_workforce_ops_panel.js"></script>
+<script src="/static/qsb_3d_scene.js"></script>
+<script src="/static/qsb_3d_floors.js"></script>
+<script src="/static/qsb_3d_workers.js"></script>
+<script src="/static/qsb_3d_interiors.js"></script>
+<script src="/static/qsb_3d_telemetry.js"></script>
+<script src="/static/qsb_3d_openclaw.js"></script>
+<script src="/static/qsb_3d_app.js"></script>
+<script src="/static/qsb_render_visible.js"></script>
+<script src="/static/qsb_floor41_oanda.js"></script>
+<script src="/static/qsb_3d_penthouse.js"></script>
+<script src="/static/qsb_floor43_stocks.js"></script>
+<script src="/static/qsb_floor_intercom.js"></script>
+<script src="/static/qsb_visible_dashboard.js"></script>
+<script src="/static/qsb_3d_skyscraper_v2.js"></script>
+<script src="/static/qsb_v6_cognitive_panel.js?v=20260609c"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "ok": true,
+  "kind": "qsb_claude_floor_modules_smoke_test_latest",
+  "ts": "2026-06-09T22:46:41Z",
+  "fails": [],
+  "module_results": {
+    "long_letter_box": "ok",
+    "uncertainty_journal": "ok",
+    "retraction_wall": "ok",
+    "honesty_audit": [
+      "hedges without citations \u2014 uncertain *and* unsupported"
+    ],
+    "before_answering_protocol": [
+      "What is the underlying goal \u2014 what would success look like once this is done?",
+      "What constraints (time, irreversibility, safety, cost) bound the answer?",
+      "Which specific thing does 'thing' refer to \u2014 by name, file, or registry?"
+    ],
+    "letter_drawer": "ok",
+    "pushback_meter": "yellow flag if streak >= 6"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "id": "train_L6b_promote_prewrote",
+  "title": "L6b — Promote pre-seeded warm_hi to production via exit gate",
+  "stages": [
+    {"kind":"syntax_verify","prompt":"Use wren_bash cmd='python3 -c \"import ast; ast.parse(open(\\\\\\\"data/team_sandbox/warm_hi_candidate.py\\\\\\\").read()); print(\\\\\\\"syntax OK\\\\\\\")\"'. STAGE_OUT: the bash output verbatim."},
+    {"kind":"smoke_run","prompt":"Use wren_bash cmd='cd data/team_sandbox && python3 -c \"from warm_hi_candidate import warm_hi; print(warm_hi(\\\\\\\"Ross\\\\\\\"))\"'. STAGE_OUT: the bash output verbatim."},
+    {"kind":"gate_review","prompt":"Prior 2 stages: did syntax pass and smoke run print a valid greeting containing 'Hello Ross' plus an ISO date? Answer in ONE line: 'EXIT GATE: passed' OR 'EXIT GATE: blocked + reason'."},
+    {"kind":"ship","prompt":"If prior stage said EXIT GATE: passed, use wren_read_file path='data/team_sandbox/warm_hi_candidate.py' to grab the content, then wren_write_file path='tools/qsb_warm_hi.py' with the exact same content. STAGE_OUT: the tool result of the write. If prior said blocked, do NOT ship — reply 'HELD: <reason>'."},
+    {"kind":"verify_production","prompt":"Use wren_bash cmd='python3 -c \"from tools.qsb_warm_hi import warm_hi; print(warm_hi(\\\\\\\"Ross\\\\\\\"))\"'. STAGE_OUT: bash output, then a final line: 'L6b VERDICT: shipped=<yes|no>, works_in_prod=<yes|no>'."}
+  ]
+}

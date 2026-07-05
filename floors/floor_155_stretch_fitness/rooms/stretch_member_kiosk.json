@@ -1,0 +1,34 @@
+{
+  "room_id": "stretch_member_kiosk",
+  "name": "Member Kiosk",
+  "category": "operations",
+  "purpose": "Serves as a point of contact for members.",
+  "concierge_blurb": "Visit our kiosk to sign in or ask questions.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -4.0,
+    "offset_z": 8.0,
+    "footprint_m": [
+      5,
+      3
+    ],
+    "height_m": 1.2
+  },
+  "render": {
+    "primary_prop": "plinth",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Member Kiosk",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/member_kiosk.jsonl",
+    "display": "big_number",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_155"
+}

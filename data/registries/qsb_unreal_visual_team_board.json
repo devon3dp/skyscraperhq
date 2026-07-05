@@ -1,0 +1,72 @@
+{
+  "ts": "2026-06-28T15:30:00Z",
+  "delegation_for": "TIKTOK_REFERENCE_LEVEL_GRAPHICS_UPGRADE_V1",
+  "members": {
+    "claude": {
+      "role": "cinematic Unreal skyscraper lead, visual target board, tower generator, HUD contract, build loop report",
+      "files": [
+        "scripts/qsb_unreal_visible_cinematic_build_loop.sh",
+        "scripts/qsb_unreal_generate_professional_skyscraper.py",
+        "scripts/qsb_unreal_generate_futuristic_city.py",
+        "scripts/qsb_unreal_apply_cinematic_material_pass.py",
+        "scripts/qsb_unreal_apply_lighting_pass.py",
+        "data/logs/qsb_unreal_visual_reference_board.md",
+        "data/logs/qsb_unreal_from_blockout_to_cinematic_plan.md"
+      ],
+      "visible_result_expected": "actor count grows by ~200 per loop pass; lighting shifts to cinematic angle",
+      "status": "in_progress",
+      "blocker": "plugin lacks material/UMG/blueprint API; recipes written to /tmp for editor Python console"
+    },
+    "gpt_openai": {
+      "role": "HUD names + labels + floor descriptions + user-facing dashboard text + command menu wording",
+      "files": ["/tmp/gpt4o_*.txt"],
+      "visible_result_expected": "HUD copy ready when UMG widgets exist",
+      "status": "available",
+      "spend_today_usd": 0.0223,
+      "cap_today_usd": 1.0
+    },
+    "deepseek": {
+      "role": "code review + Unreal Python structure + performance review + data bridge review + build script repair",
+      "files": ["/tmp/team_deepseek.txt", "/tmp/deepseek_streets.txt"],
+      "status": "available",
+      "next_action": "review scripts/qsb_unreal_apply_visual_upgrade_pass.py + cinematic_material_pass.py"
+    },
+    "openclaw": {
+      "role": "visual quality inspection + tickets for grey blocks, missing materials, missing lights, missing HUD, missing movement",
+      "files": ["pending: data/registries/qsb_openclaw_visual_tickets.jsonl"],
+      "status": "queued"
+    },
+    "maintenance": {
+      "role": "Unreal project health + lighting rebuild + GPU/Vulkan status + disk/RAM pressure",
+      "files": [
+        "scripts/qsb_unreal_open_editor.sh",
+        "scripts/qsb_unreal_apply_lighting_pass.py"
+      ],
+      "status": "active",
+      "vram_state": "RTX 5070 Ti 16GB, ~10GB used by editor, ~5GB free"
+    },
+    "smoke_testers": {
+      "role": "screenshot + material + lighting + city + tower detail + HUD + floor count tests",
+      "files": [
+        "scripts/qsb_unreal_tiktok_reference_smoke_test.sh",
+        "scripts/qsb_unreal_material_lighting_smoke_test.sh",
+        "scripts/qsb_unreal_professional_skyscraper_smoke_test.sh",
+        "scripts/qsb_unreal_futuristic_city_smoke_test.sh",
+        "scripts/qsb_unreal_hud_target_smoke_test.sh",
+        "scripts/qsb_unreal_visible_cinematic_build_suite.sh"
+      ],
+      "status": "scaffolded"
+    }
+  },
+  "worker_teams": {
+    "city_team":          {"owns": "V9_City_Sky_* + Ant + Sign* + Window + AtmMarker"},
+    "tower_shell_team":   {"owns": "V8_Arch_Pillar + BandSign + RoofSpike + CentralSpire + Concourse + PlazaLamp"},
+    "materials_team":     {"owns": "/tmp/qsb_ue_material_pass.py + future plugin extension"},
+    "lighting_team":      {"owns": "/tmp/qsb_ue_lighting_pass.py + V2_Sun rotation + SkyAtmosphere recipe"},
+    "hud_team":           {"owns": "/Game/QSB/Widgets/WBP_QSB_* + tools/qsb_ue5_hud_writer.py"},
+    "lift_team":          {"owns": "VU_LiftShaft_1..8 + future animated cabs"},
+    "worker_visual_team": {"owns": "V2_Beacon_001..169"},
+    "floor_interior_team":{"owns": "future — needs Materials + UMG"},
+    "polish_team":        {"owns": "Sequencer camera flythrough + lighting rebuild + scoring"}
+  }
+}

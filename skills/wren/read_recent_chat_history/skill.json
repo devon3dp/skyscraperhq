@@ -1,0 +1,14 @@
+{
+  "name": "read_recent_chat_history",
+  "description": "Return the last N messages from the F47 chat history JSONL.",
+  "params": {
+    "type": "object",
+    "properties": {
+      "limit": {"type": "integer", "description": "how many recent turns (default 10, max 50)"}
+    },
+    "required": []
+  },
+  "safety_class": "read",
+  "entrypoint": "skill:run",
+  "tags": ["chat", "context"]
+}

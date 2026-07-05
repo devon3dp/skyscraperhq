@@ -1,0 +1,34 @@
+{
+  "room_id": "kernel_archive",
+  "name": "Kernel Archive Chamber",
+  "category": "archive",
+  "purpose": "Holds the symbolic local-only kernel artifact.",
+  "concierge_blurb": "Enter to view the kernel's past, protected for future reference.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      15,
+      7
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "archive_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Kernel Archive",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 0
+  },
+  "floor": "floor_153"
+}

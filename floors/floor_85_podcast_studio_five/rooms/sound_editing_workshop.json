@@ -1,0 +1,34 @@
+{
+  "room_id": "sound_editing_workshop",
+  "name": "Sound Editing Workshop",
+  "category": "workshop",
+  "purpose": "Edit and refine podcast audio.",
+  "concierge_blurb": "This is where the magic of sound happens.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -5.0,
+    "offset_z": -4.0,
+    "footprint_m": [
+      10,
+      8
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "workbench",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Sound Edit",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/sound_editing_status.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_85"
+}

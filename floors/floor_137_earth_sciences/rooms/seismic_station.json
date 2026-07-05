@@ -1,0 +1,34 @@
+{
+  "room_id": "seismic_station",
+  "name": "Seismic Station Room",
+  "category": "operations",
+  "purpose": "Monitors seismic activity around the globe.",
+  "concierge_blurb": "Real-time data on earthquakes and other seismic events.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 8.0,
+    "offset_z": -2.5,
+    "footprint_m": [
+      14,
+      6
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "monitor_wall",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Seismic",
+    "glow": true
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/seismic_events.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_137"
+}

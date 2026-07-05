@@ -1,0 +1,16 @@
+{
+  "ok": true,
+  "kind": "qsb_selected_floor_narration_policy",
+  "phase": "EQSB_SYSTEM_OBSERVATORY_HARDWARE_FLOOR_LIVE_TELEMETRY_REPAIR_V1",
+  "generated_ts": "2026-06-30T13:46:34.574821+00:00",
+  "default_floor": 30,
+  "policy": "If commentary mode is selected_floor and the user has not clicked a floor, default to OpenClaw current_floor. If OpenClaw current_floor is missing, default to Floor 53 Tower Command.",
+  "openclaw_current_floor": 30,
+  "openclaw_advanced_by": "eqsb_cadence_state.tick_count",
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

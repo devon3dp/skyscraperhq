@@ -1,0 +1,41 @@
+{
+  "ok": true,
+  "kind": "qsb_floor49_tower_studio_state",
+  "generated_ts": "2026-07-05T06:46:31+00:00",
+  "floor_id": "floor_49_tower_studio",
+  "floor_label": "Floor 49 \u2014 Tower Studio (Web Design + IT Services)",
+  "status": "active_local_only",
+  "flags": {
+    "preview_only": true,
+    "local_only": true,
+    "public_website_published": false,
+    "real_payments_enabled": false,
+    "live_listings_publishing_enabled": false,
+    "external_api_calls_enabled": false,
+    "autonomous_dispatch_enabled": false,
+    "customer_database_active": true,
+    "project_pipeline_active": true,
+    "qbc_invoicing_active": true
+  },
+  "company_name": "Tower Studio",
+  "tagline": "Websites, identity, and IT \u2014 designed inside the QSB Tower.",
+  "worker_roles": [
+    "principal_designer",
+    "graphics_designer",
+    "frontend_developer",
+    "backend_developer",
+    "copywriter",
+    "project_manager",
+    "qa_reviewer",
+    "client_success_lead"
+  ],
+  "service_lines": [
+    "landing_page_design",
+    "multi_page_marketing_site",
+    "ecommerce_starter",
+    "brand_identity_kit",
+    "wordpress_handoff",
+    "ongoing_maintenance"
+  ],
+  "policy": "Local-only studio. Real client onboarding requires a SEPARATE phase that flips public_website_published + real_payments_enabled. Until then, all 'orders' are advisory drafts."
+}

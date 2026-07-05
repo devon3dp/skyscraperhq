@@ -1,0 +1,75 @@
+{
+  "floor_id": "floor_07",
+  "floor_number": 7,
+  "floor_name": "Shopify Storefront Floor",
+  "department": "Shopify Storefront Floor",
+  "zone": "ZONE A",
+  "archetype": "commerce_wing_floor",
+  "staff_lead": "F7 crew",
+  "tour_blurb": "Shopify Storefront Floor \u2014 part of the QSB Tower commerce wing. Advisory only; no live orders or live payments flow through this floor without an explicit operator-confirmed unlock.",
+  "visitor_open": true,
+  "advisory_only": true,
+  "execution_mode": "PREVIEW_ONLY",
+  "live_payments_in_play": false,
+  "live_listings_publishing_enabled": false,
+  "live_signals": {
+    "mode": "PREVIEW_ONLY",
+    "advisory_only": true
+  },
+  "gate_posture": {
+    "live_payments_enabled": false,
+    "live_listings_publishing_enabled": false,
+    "execution_allowed": false,
+    "advisory_only": true
+  },
+  "team_roster": [
+    {
+      "id": "f007.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "promoted_from": "sim_worker_floor_25",
+      "promoted_from_floor": "agent_coordination_department",
+      "promotion_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F007",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f007.operator.01",
+      "promoted_from": "sim_worker_floor_26",
+      "promoted_from_floor": "model_evaluation_department"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F007",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f007.operator.02",
+      "promoted_from": "sim_worker_floor_27",
+      "promoted_from_floor": "local_model_operations_department"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F007",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f007.operator.03",
+      "promoted_from": "sim_worker_floor_28",
+      "promoted_from_floor": "security_department"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F007",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f007.operator.04",
+      "promoted_from": "sim_worker_floor_29",
+      "promoted_from_floor": "guardian_department"
+    }
+  ],
+  "floor_manager": "f007.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

@@ -1,0 +1,29 @@
+{
+  "ok": true,
+  "kind": "qsb_real_money_trading_readiness_v1",
+  "generated_ts": "2026-06-11T11:09:13.665230Z",
+  "verdict": "NOT READY",
+  "reasons": [
+    "CLAUDE.md gates are HARD LOCKED \u2014 only CLAUDE.md edit can flip them (by design)",
+    "Today's +\u00a3108 OANDA win is one trading session, not a proven edge",
+    "No multi-day Sharpe data yet",
+    "Max drawdown not measured under stress",
+    "Real-money kill switch not yet stress-tested"
+  ],
+  "minimum_requirements_to_consider_flipping": [
+    "7 paper trading days on same rule-set with positive net",
+    "Sharpe > 1 on those 7 days",
+    "Documented max drawdown + recovery time",
+    "CLAUDE.md clause specifying venue, caps, instruments allowed",
+    "Live API keys for chosen venue stored in vault",
+    "Kill switch end-to-end test passed",
+    "Start with per-trade \u00a310-\u00a350 maximum for first 30 days"
+  ],
+  "current_paper_stats": {
+    "oanda_practice_today_realized_gbp": 108.16,
+    "binance_testnet_today_net_usd": -0.04,
+    "lse_f60_unrealized_gbp": -0.3,
+    "alpaca_paper_queued_orders": 12
+  },
+  "advisory_only": true
+}

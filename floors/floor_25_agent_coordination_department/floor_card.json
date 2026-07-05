@@ -1,0 +1,85 @@
+{
+  "floor_id": "floor_25",
+  "floor_number": 25,
+  "floor_name": "Agent Coordination Department",
+  "department": "Worker Recruitment and Coordination Department",
+  "zone": "ZONE B",
+  "archetype": "ops_floor",
+  "staff_lead": "F25 Coordination Desk",
+  "tour_blurb": "Step out on the twenty-fifth and you're in Agent Coordination \u2014 the floor that decides which worker takes which job. Tasks arrive, get matched against available crews, and depart with a clear brief. Think of it as the Tower's dispatch desk, calm under load and meticulous with the ledger.",
+  "visitor_open": true,
+  "advisory_only": true,
+  "kernel_required": false,
+  "kernel_installed": false,
+  "worker_execution_enabled": false,
+  "live_dispatch_enabled": false,
+  "endpoints": [],
+  "live_signals": {
+    "dispatch_tool": "tools/qsb_f47_fleet_dispatch.py",
+    "f47_fleet_dispatch_ticks_today": 33,
+    "distinct_operatives_dispatched_today": 21,
+    "ticks_source": "data/registries/qsb_f47_team_records.jsonl (kind=fleet_dispatch, ts startswith 2026-06-14)",
+    "as_of_utc": "2026-06-14T17:05:29Z"
+  },
+  "evidence_paths": [
+    "floors/floor_25_agent_coordination_department/floor_manifest.json",
+    "data/registries/qsb_f47_team_records.jsonl",
+    "data/registries/qsb_open_day_tour.json",
+    "tools/qsb_f47_fleet_dispatch.py"
+  ],
+  "routes_through": {
+    "model_requests": "floor_24",
+    "local_model_inventory": "floor_27",
+    "external_provider_sockets": "floor_23",
+    "adapters": "floor_21",
+    "security": "floor_28_floor_32"
+  },
+  "built_at": "2026-06-14T17:10:00Z",
+  "built_by": "skyscraper_floor_card_push",
+  "lessons_learned_for_next_agent": "F25 is recruitment + coordination only. live_dispatch_enabled stays FALSE \u2014 the 'dispatch ticks' counted here are F47 internal-fleet ticks (workshop bench crews), NOT external worker execution. When you sample qsb_f47_team_records.jsonl, filter on kind='fleet_dispatch' and a UTC date prefix; the file mixes many kinds (mass_dispatch_run, heartbeat_tick, audit_crew_tick, etc.) and naive counts will overstate F25 activity.",
+  "team_roster": [
+    {
+      "id": "f025.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "spawned_id": "21b13f97ed",
+      "spawned_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F025",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f025.operator.01",
+      "spawned_id": "40080d642f"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F025",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f025.operator.02",
+      "spawned_id": "e4d7b339af"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F025",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f025.operator.03",
+      "spawned_id": "744fc3591a"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F025",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f025.operator.04",
+      "spawned_id": "84440fc8ee"
+    }
+  ],
+  "floor_manager": "f025.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

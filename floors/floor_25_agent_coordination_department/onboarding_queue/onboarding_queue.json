@@ -1,0 +1,35 @@
+[
+  {
+    "queue_id": "onboard_claude_code_readonly",
+    "candidate_id": "claude_code",
+    "requested_role": "external_codebase_inspector",
+    "status": "staged_read_only",
+    "priority": 0.9,
+    "execution_enabled": false,
+    "requires_security_spine": true,
+    "requires_manual_approval": true,
+    "notes": "Already tested as external read-only inspector."
+  },
+  {
+    "queue_id": "onboard_openclaw_placeholder",
+    "candidate_id": "openclaw",
+    "requested_role": "external_worker_framework_candidate",
+    "status": "placeholder_not_ready",
+    "priority": 0.4,
+    "execution_enabled": false,
+    "requires_security_spine": true,
+    "requires_manual_approval": true,
+    "notes": "Needs tool/source audit before any install."
+  },
+  {
+    "queue_id": "onboard_ollama_candidate_pool",
+    "candidate_id": "ollama_local_models",
+    "requested_role": "local_model_candidate_pool",
+    "status": "inventory_available_not_bound",
+    "priority": 0.75,
+    "execution_enabled": false,
+    "requires_security_spine": true,
+    "requires_manual_approval": true,
+    "notes": "Use Floor 27 model inventory only."
+  }
+]

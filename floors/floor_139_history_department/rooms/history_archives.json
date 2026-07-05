@@ -1,0 +1,34 @@
+{
+  "room_id": "history_archives",
+  "name": "Archival Records",
+  "category": "archive",
+  "purpose": "Housing historical documents and records.",
+  "concierge_blurb": "Explore ancient and modern records here.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": -8.0,
+    "footprint_m": [
+      15.0,
+      7.5
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "archive_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Archival Records",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_139"
+}

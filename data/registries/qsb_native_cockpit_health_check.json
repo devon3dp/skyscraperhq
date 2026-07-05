@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "kind": "qsb_native_cockpit_health_check",
+  "phase": "QSB_NATIVE_COCKPIT_FEATURE_PARITY_AND_INTERACTION_UPGRADE_V1",
+  "generated_ts": "2026-06-09T15:14:46+00:00",
+  "passed": 30,
+  "total": 30,
+  "score": 100.0,
+  "failed": [],
+  "engine_python": "/usr/bin/python3",
+  "execution_allowed": false,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

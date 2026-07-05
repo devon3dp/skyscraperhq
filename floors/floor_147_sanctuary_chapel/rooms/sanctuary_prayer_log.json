@@ -1,0 +1,34 @@
+{
+  "room_id": "sanctuary_prayer_log",
+  "name": "Prayer Log Archive",
+  "category": "archive",
+  "purpose": "To document and archive all prayers from the sanctuary.",
+  "concierge_blurb": "A room filled with scrolls and tablets recording prayers.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_right",
+    "offset_x": 8.0,
+    "offset_z": -2.0,
+    "footprint_m": [
+      10.0,
+      6.0
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "archive_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Prayer Log Archive",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_147"
+}

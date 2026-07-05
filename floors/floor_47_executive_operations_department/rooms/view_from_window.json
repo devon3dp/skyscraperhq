@@ -1,0 +1,50 @@
+{
+  "room_id": "view_from_window",
+  "name": "View From the Window",
+  "category": "vista",
+  "floor": "floor_47",
+  "purpose": "this installation is the F47 window-view shown to visitors and on dashboards.",
+  "concierge_blurb": "From this height the rooftop gardens of F58 are visible on a clear day. The view changes with the tower's weather.",
+  "current_state": "to_build",
+  "visitor_open": true,
+  "evidence_paths": [
+    "floors/floor_47_executive_operations_department/sketches/view_from_window.md",
+    "floors/floor_47_executive_operations_department/floor_manifest.json",
+    "data/registries/qsb_f47_floor_buildout_plan.json"
+  ],
+  "live_signals": {
+    "view_text": "This afternoon the clouds are low; F58's rooftop gardens hidden until they lift.",
+    "weather": "low cloud, soft light",
+    "time_of_day": "afternoon",
+    "time_of_day_source": "derived_from_local_clock_utc",
+    "visible_on_clear_day": [
+      "F58 rooftop gardens",
+      "F41 OANDA terrace railings",
+      "lift cables threading the south face",
+      "Penthouse glow at night"
+    ],
+    "advisory_only": true
+  },
+  "built_at": "2026-06-14T17:02:00Z",
+  "built_by": "f47_floor_buildout_batch_5_room_view_from_window",
+  "lessons_learned_for_next_agent": "time_of_day must be derived at READ time, not stamped once at build time \u2014 a vista room's whole point is that it changes. The cleanest contract is for the dashboard handler to recompute view_text + time_of_day from the local clock on every fetch, treating the JSON's live_signals as a SEED/template. weather has no API source (web_access_autonomous_enabled = false) so it must stay a poetic short-string, never a feed; if a real weather feed is ever wired, it goes through the consult tool and writes to a separate weather_feed.jsonl, not into this room file. evidence_paths intentionally lists NO host paths and NO src/ files \u2014 vista is pure narration, not code.",
+  "layout": {
+    "zone": "right_wall",
+    "offset_x": -0.05,
+    "offset_z": 5.0,
+    "footprint_m": [
+      3.6,
+      0.1
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "wall_panel",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "WINDOW",
+    "glow": true
+  },
+  "interactive": {
+    "type": "none"
+  }
+}

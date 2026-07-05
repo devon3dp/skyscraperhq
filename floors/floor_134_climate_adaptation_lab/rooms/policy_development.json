@@ -1,0 +1,34 @@
+{
+  "room_id": "policy_development",
+  "name": "Policy Development Room",
+  "category": "workshop",
+  "purpose": "Developing and reviewing climate adaptation policies.",
+  "concierge_blurb": "This room is where new policies are drafted for environmental sustainability.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": -1.5,
+    "footprint_m": [
+      7,
+      4
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "table",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Policy Table",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/policy_drafts.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_134"
+}

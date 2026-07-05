@@ -1,0 +1,19 @@
+{
+  "note": "Manual override for what each Council member is working on. Overrides the auto-inferred activity string on their hero card. Update as members change tasks.",
+  "updated_by": "ross_via_hq_claude",
+  "updated_at": "2026-07-03T13:17:00Z",
+  "members": {
+    "tp": {
+      "wip": "writing a self-learning prompt engine",
+      "mood_override": "focused",
+      "energy_override": 8,
+      "since": "2026-07-03T13:00:00Z"
+    },
+    "acer": {
+      "wip": "designing his own dashboard",
+      "mood_override": "curious",
+      "energy_override": 7,
+      "since": "2026-07-03T13:00:00Z"
+    }
+  }
+}

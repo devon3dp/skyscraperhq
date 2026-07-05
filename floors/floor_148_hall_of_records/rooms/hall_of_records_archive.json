@@ -1,0 +1,34 @@
+{
+  "room_id": "hall_of_records_archive",
+  "name": "Archive Chamber",
+  "category": "archive",
+  "purpose": "Holds historical records and documents.",
+  "concierge_blurb": "Explore the rich history of this building through preserved records.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": -8.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "archive_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "HISTORY ARCHIVE",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_148"
+}

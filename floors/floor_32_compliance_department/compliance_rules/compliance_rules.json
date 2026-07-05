@@ -1,0 +1,37 @@
+[
+  {
+    "id": "kernel_not_installed",
+    "floor": "floor_32",
+    "rule": "Kernel installed must remain false until official installation.",
+    "required_value": false,
+    "status": "active"
+  },
+  {
+    "id": "execution_disabled",
+    "floor": "floor_32",
+    "rule": "Execution must remain disabled in readiness layers.",
+    "required_value": false,
+    "status": "active"
+  },
+  {
+    "id": "providers_external",
+    "floor": "floor_32",
+    "rule": "External providers remain outside the building infrastructure.",
+    "required_value": true,
+    "status": "active"
+  },
+  {
+    "id": "building_runs_without_models",
+    "floor": "floor_32",
+    "rule": "Building must run without AI models connected.",
+    "required_value": true,
+    "status": "active"
+  },
+  {
+    "id": "penthouse_reserved_message",
+    "floor": "floor_32",
+    "rule": "Penthouse must display Reserved For Future QSB Kernel 4.5 Installation.",
+    "required_value": "Reserved For Future QSB Kernel 4.5 Installation",
+    "status": "active"
+  }
+]

@@ -1,0 +1,40 @@
+{
+  "room_id": "kettle_break_area",
+  "name": "Kettle & Break Area",
+  "category": "social",
+  "floor": "floor_47",
+  "purpose": "this area is for off-duty operatives.",
+  "concierge_blurb": "A kettle, two armchairs, the slow ticking of a clock. The building's reminder that the crew is allowed to rest.",
+  "current_state": "to_build",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {
+    "operational_status": "non-operational",
+    "visitor_open_hours": "always",
+    "current_kettle_state": "warm",
+    "seats": 2,
+    "advisory_only": true
+  },
+  "built_at": "2026-06-14T17:35:00Z",
+  "built_by": "f47_floor_buildout_batch_5",
+  "lessons_learned_for_next_agent": "The break area is the first deliberately non-operational room on F47 - it has no daemon, no jsonl tail, no endpoint. Its 'liveness' is a constant: kettle is always warm, doors are always open, seats are always two. Future agents should resist the urge to wire it to a sensor or timer. The whole point of the room is that it does not change. Pair it conceptually with night_mode_panel (which DOES change with the local clock) - the break area is the constant; the night-mode panel is the rhythm around it.",
+  "layout": {
+    "zone": "front_center",
+    "offset_x": -5.5,
+    "offset_z": 5.0,
+    "footprint_m": [
+      1.4,
+      1.0
+    ],
+    "height_m": 1.1
+  },
+  "render": {
+    "primary_prop": "kitchen_line",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "BREAK",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  }
+}

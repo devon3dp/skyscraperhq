@@ -1,0 +1,31 @@
+{
+  "room_id": "sales_ops_tech_hub",
+  "name": "Tech Hub",
+  "category": "workshop",
+  "purpose": "A space for integrating new technologies and tools.",
+  "concierge_blurb": "Stay ahead with the latest sales tech here.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -5.0,
+    "offset_z": 3.0,
+    "footprint_m": [
+      8,
+      6
+    ],
+    "height_m": 2.1
+  },
+  "render": {
+    "primary_prop": "server_rack",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Tech Hub",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_109"
+}

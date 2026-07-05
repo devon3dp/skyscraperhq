@@ -1,0 +1,55 @@
+{
+  "ok": true,
+  "floor_number": 54,
+  "floor_name": "Accommodation",
+  "floor_kind": "recreation_and_accommodation_v1",
+  "description": "workforce residential rooms, dormitories, suites for senior workers",
+  "rooms": [
+    "dormitory_wings_A_B_C",
+    "single_studios_for_leads",
+    "manager_suites",
+    "common_kitchenettes",
+    "laundry_room",
+    "quiet_zones",
+    "wellbeing_room"
+  ],
+  "open_hours": "24/7 (accommodation) or 06:00-23:00 (recreation)",
+  "created_ts": "2026-06-11T08:36:09.551273Z",
+  "manager": "F54_manager_TBD",
+  "capacity": {
+    "occupants_max": 300
+  },
+  "inter_floor_consumes": [
+    "F30_permissions (sealed packets)",
+    "F47_wren (announcements)",
+    "F49_resource (supplies)"
+  ],
+  "inter_floor_produces": [
+    "F47_wren (occupancy reports)",
+    "F44_accounts (consumption costs)"
+  ],
+  "advisory_only": true,
+  "interior_brief": {
+    "archetype": "comms_centre",
+    "palette": [
+      "#1a2840",
+      "#3a6090",
+      "#c780ff"
+    ],
+    "furniture": [
+      "desks",
+      "meeting area",
+      "common space"
+    ],
+    "lighting": "task + ambient",
+    "mood": "buzzing",
+    "designed_by": "F66 Architects + Fitters team (sweep 2)",
+    "fitted_at": "2026-06-11T14:40:49.185810Z",
+    "godot_scene_brief": "render an generic floor with neutral grey + accent palette",
+    "signature": "Mail sorting bays, console with inboxes, ticker tape",
+    "diversified_ts": "2026-06-11T17:57:45Z",
+    "diversified_by": "qsb_archetype_diversifier_v1"
+  },
+  "fitted_out": true,
+  "fit_out_ts": "2026-06-11T14:40:49.185810Z"
+}

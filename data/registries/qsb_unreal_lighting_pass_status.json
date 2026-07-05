@@ -1,0 +1,25 @@
+{
+  "ts": "2026-06-28T14:35:43Z",
+  "actions_via_tcp": [
+    {
+      "V2_Sun_rotate": {
+        "status": "error",
+        "error": "timed out"
+      }
+    },
+    {
+      "V2_SkyFill1_dim": {
+        "status": "error",
+        "error": "timed out"
+      }
+    },
+    {
+      "V2_SkyFill2_dim": {
+        "status": "error",
+        "error": "timed out"
+      }
+    }
+  ],
+  "recipe_path": "/tmp/qsb_ue_lighting_pass.py",
+  "note": "Run the UE Python recipe inside the editor for the heavy lifting (SkyAtmosphere + ExponentialHeightFog + Build Lighting). MCP does the cosmetic sun rotation + fill dimming."
+}

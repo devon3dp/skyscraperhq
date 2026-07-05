@@ -1,0 +1,34 @@
+{
+  "room_id": "security_station",
+  "name": "Security Station",
+  "category": "security",
+  "purpose": "The hub for monitoring and managing the tower's security systems.",
+  "concierge_blurb": "A large monitor wall and control panel for security operations.",
+  "current_state": "already_exists",
+  "visitor_open": false,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -6.0,
+    "offset_z": 4.0,
+    "footprint_m": [
+      8,
+      5
+    ],
+    "height_m": 1.2
+  },
+  "render": {
+    "primary_prop": "wall_panel",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Sec Station",
+    "glow": true
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/security_status.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_53"
+}

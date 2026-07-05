@@ -1,0 +1,34 @@
+{
+  "room_id": "keyword_monitoring_room",
+  "name": "Keyword Monitoring Room",
+  "category": "audit",
+  "purpose": "Monitor and track keyword performance over time.",
+  "concierge_blurb": "Real-time data on how keywords are performing online.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -7.0,
+    "offset_z": -4.5,
+    "footprint_m": [
+      3.0,
+      2.0
+    ],
+    "height_m": 1.8
+  },
+  "render": {
+    "primary_prop": "wall_panel",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Monitor Room",
+    "glow": false
+  },
+  "interactive": {
+    "type": "big_number",
+    "source_path": "data/registries/keyword_monitoring.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_16"
+}

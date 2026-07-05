@@ -1,0 +1,63 @@
+{
+  "policy": "stock_exchange_trading_floor_v1",
+  "version": "1.0",
+  "floor": "floor_43",
+  "department": "Stock Exchange Trading Floor",
+  "phase": "FLOOR_43_CONNECTED_STOCK_EXCHANGE_FLOOR_V1",
+  "provider_default": "alpaca",
+  "providers_supported": [
+    "alpaca",
+    "stub"
+  ],
+  "alpaca_env_default": "paper",
+  "alpaca_base_urls": {
+    "paper": "https://paper-api.alpaca.markets",
+    "live": "https://api.alpaca.markets",
+    "data": "https://data.alpaca.markets"
+  },
+  "credentials_source": "environment_variables_only",
+  "credentials_env_file": ".env.alpaca",
+  "required_env_for_private_read": [
+    "ALPACA_API_KEY",
+    "ALPACA_API_SECRET"
+  ],
+  "optional_env": [
+    "ALPACA_ENV",
+    "ALPACA_READ_ONLY",
+    "ALPACA_ORDER_EXECUTION_ENABLED"
+  ],
+  "default_symbols": [
+    "AAPL",
+    "MSFT",
+    "NVDA",
+    "TSLA",
+    "SPY",
+    "QQQ"
+  ],
+  "signal_modes": [
+    "observe",
+    "long_bias",
+    "short_bias",
+    "no_trade"
+  ],
+  "paper_trading_enabled": true,
+  "paper_signal_generation_enabled": true,
+  "public_market_data_read_enabled": true,
+  "private_account_read_enabled_if_credentials_present": true,
+  "stock_order_execution_enabled": false,
+  "stock_live_trading_enabled": false,
+  "stock_paper_order_execution_enabled": true,
+  "live_trading_enabled": false,
+  "order_execution_enabled": false,
+  "practice_order_execution_enabled": false,
+  "worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "external_provider_execution_enabled": false,
+  "openclaw_execution_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "live_dispatch_enabled": false,
+  "direct_provider_access": false,
+  "paper_only": true,
+  "not_financial_advice": true
+}

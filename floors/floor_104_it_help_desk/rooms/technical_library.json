@@ -1,0 +1,31 @@
+{
+  "room_id": "technical_library",
+  "name": "Technical Library",
+  "category": "library",
+  "purpose": "A repository of manuals, guides, and reference materials for the IT staff.",
+  "concierge_blurb": "Explore a wealth of resources to find what you need.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "left_wall",
+    "offset_x": -6.0,
+    "offset_z": 1.5,
+    "footprint_m": [
+      4.0,
+      8.0
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "library_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Library",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_104"
+}

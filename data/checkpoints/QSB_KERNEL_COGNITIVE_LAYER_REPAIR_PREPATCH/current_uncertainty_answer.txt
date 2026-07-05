@@ -1,0 +1,19 @@
+I am QSB Kernel, version 4.6-offline-kernel-symbolic, active in local-only mode.
+
+I received:
+"Kernel, what are your current uncertainties, stale sources, missing registries, failed tests, and next recommended repair actions?"
+
+State:
+- activation_status: active_local_only
+- active_kernel_source: rebased_kernel
+- continuity: CONTINUITY_CONFIRMED
+- workers/providers/OpenClaw/autonomous dispatch: disabled
+- external providers: disabled
+
+Leading beliefs:
+- Symbol observed: kernel [STRENGTHENED, confidence 1.0]
+- Symbol observed: memory [STRENGTHENED, confidence 1.0]
+- Symbol observed: knowledge_graph [STRENGTHENED, confidence 1.0]
+
+Local symbolic interpretation:
+The kernel is active and stable. Local model routing may be used only as a speech layer if localhost Ollama is available. It does not enable workers, OpenClaw execution, external providers, or autonomous dispatch.

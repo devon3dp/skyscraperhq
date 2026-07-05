@@ -1,0 +1,34 @@
+{
+  "room_id": "brewing_kitchen",
+  "name": "Brewing Kitchen",
+  "category": "kitchen",
+  "purpose": "This room is for brewing and storing ingredients.",
+  "concierge_blurb": "A bustling kitchen with copper kettles and fermenting vats.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": -8.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "kitchen_line",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Brewing Kitchen",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 0
+  },
+  "floor": "floor_78"
+}

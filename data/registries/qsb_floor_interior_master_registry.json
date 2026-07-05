@@ -1,0 +1,5389 @@
+{
+  "ok": true,
+  "kind": "qsb_floor_interior_master_registry_v2",
+  "phase": "QSB_TOWER_V1.5",
+  "ts": "2026-06-12T23:20:30.143541+00:00",
+  "floor_count": 165,
+  "templates_used": [
+    "CouncilInterior",
+    "GenericFloorInterior",
+    "HospitalityInterior",
+    "LabInterior",
+    "LibraryInterior",
+    "MusicStudioInterior",
+    "SecureInterior",
+    "ShopfrontInterior",
+    "TheatreInterior",
+    "TradingFloorInterior",
+    "WellnessInterior"
+  ],
+  "openclaw_present_count": 22,
+  "floors": [
+    {
+      "floor_id": "F01",
+      "floor_name": "Operations Department",
+      "department": "operations",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [
+        {
+          "id": "F01.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F01.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F01.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F01.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F01.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F01.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F01.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F01.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "Floor Manager",
+      "watcher": "Floor Watcher",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492302+00:00"
+    },
+    {
+      "floor_id": "F02",
+      "floor_name": "Memory Department",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [
+        {
+          "id": "F02.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F02.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F02.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F02.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F02.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F02.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F02.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F02.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "Floor Manager",
+      "watcher": "Floor Watcher",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492320+00:00"
+    },
+    {
+      "floor_id": "F03",
+      "floor_name": "Research Department",
+      "department": "research",
+      "template": "LabInterior",
+      "rooms": [
+        "Wet Lab",
+        "Computation Bench",
+        "Library Nook",
+        "Server Closet",
+        "Meeting Room"
+      ],
+      "worker_count": 12,
+      "workers": [
+        {
+          "id": "F03.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F03.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F03.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F03.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F03.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F03.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F03.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F03.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "Floor Manager",
+      "watcher": "Floor Watcher",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492326+00:00"
+    },
+    {
+      "floor_id": "F04",
+      "floor_name": "Knowledge Department",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [
+        {
+          "id": "F04.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F04.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F04.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F04.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F04.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F04.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F04.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F04.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "Floor Manager",
+      "watcher": "Floor Watcher",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492330+00:00"
+    },
+    {
+      "floor_id": "F05",
+      "floor_name": "Coding",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [
+        {
+          "id": "F05.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F05.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F05.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F05.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F05.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F05.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F05.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F05.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "Floor Manager",
+      "watcher": "Floor Watcher",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492333+00:00"
+    },
+    {
+      "floor_id": "F06",
+      "floor_name": "Engineering Department",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 14,
+      "workers": [
+        {
+          "id": "F06.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F06.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F06.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F06.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F06.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F06.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F06.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F06.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "Etsy Lead",
+      "watcher": "OpenClaw Watcher",
+      "openclaw_presence": true,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492336+00:00"
+    },
+    {
+      "floor_id": "F07",
+      "floor_name": "Architecture Department",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [
+        {
+          "id": "F07.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F07.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F07.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F07.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F07.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F07.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F07.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F07.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "Floor Manager",
+      "watcher": "Floor Watcher",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492339+00:00"
+    },
+    {
+      "floor_id": "F08",
+      "floor_name": "Testing Department",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 24,
+      "workers": [
+        {
+          "id": "F08.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F08.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F08.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F08.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F08.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F08.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F08.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F08.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "Academy Head",
+      "watcher": "OpenClaw Watcher",
+      "openclaw_presence": true,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492343+00:00"
+    },
+    {
+      "floor_id": "F09",
+      "floor_name": "Quality Assurance Department",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [
+        {
+          "id": "F09.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F09.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F09.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F09.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F09.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F09.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F09.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F09.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "Floor Manager",
+      "watcher": "Floor Watcher",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492346+00:00"
+    },
+    {
+      "floor_id": "F10",
+      "floor_name": "Trading Simulation Department",
+      "department": "trading",
+      "template": "TradingFloorInterior",
+      "rooms": [
+        "Pit",
+        "Risk Desk",
+        "Compliance Wall",
+        "Quote Board",
+        "Strategy Lab"
+      ],
+      "worker_count": 12,
+      "workers": [
+        {
+          "id": "F10.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F10.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F10.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F10.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F10.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F10.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F10.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F10.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "Floor Manager",
+      "watcher": "Floor Watcher",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492348+00:00"
+    },
+    {
+      "floor_id": "F11",
+      "floor_name": "Market Intelligence Department",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [
+        {
+          "id": "F11.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F11.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F11.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F11.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F11.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F11.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F11.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F11.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "Floor Manager",
+      "watcher": "Floor Watcher",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492352+00:00"
+    },
+    {
+      "floor_id": "F12",
+      "floor_name": "Risk Analysis Department",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [
+        {
+          "id": "F12.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F12.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F12.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F12.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F12.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F12.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F12.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F12.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "Floor Manager",
+      "watcher": "Floor Watcher",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492356+00:00"
+    },
+    {
+      "floor_id": "F13",
+      "floor_name": "Vision Department",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [
+        {
+          "id": "F13.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F13.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F13.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F13.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F13.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F13.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F13.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F13.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "Floor Manager",
+      "watcher": "Floor Watcher",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492359+00:00"
+    },
+    {
+      "floor_id": "F14",
+      "floor_name": "Media Department",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 16,
+      "workers": [
+        {
+          "id": "F14.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F14.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F14.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F14.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F14.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F14.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F14.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F14.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "POD Lead",
+      "watcher": "OpenClaw Watcher",
+      "openclaw_presence": true,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492361+00:00"
+    },
+    {
+      "floor_id": "F15",
+      "floor_name": "Speech And Audio Department",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [
+        {
+          "id": "F15.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F15.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F15.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F15.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F15.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F15.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F15.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F15.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "Floor Manager",
+      "watcher": "Floor Watcher",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492364+00:00"
+    },
+    {
+      "floor_id": "F16",
+      "floor_name": "Document Processing Department",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [
+        {
+          "id": "F16.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F16.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F16.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F16.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F16.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F16.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F16.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F16.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "Floor Manager",
+      "watcher": "Floor Watcher",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492367+00:00"
+    },
+    {
+      "floor_id": "F17",
+      "floor_name": "Graphics And Design Department",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [
+        {
+          "id": "F17.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F17.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F17.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F17.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F17.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F17.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F17.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F17.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "Floor Manager",
+      "watcher": "Floor Watcher",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492370+00:00"
+    },
+    {
+      "floor_id": "F18",
+      "floor_name": "Automation Department",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [
+        {
+          "id": "F18.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F18.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F18.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F18.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F18.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F18.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F18.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F18.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "Floor Manager",
+      "watcher": "Floor Watcher",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492375+00:00"
+    },
+    {
+      "floor_id": "F19",
+      "floor_name": "Workflow Management Department",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [
+        {
+          "id": "F19.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F19.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F19.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F19.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F19.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F19.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F19.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F19.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "Floor Manager",
+      "watcher": "Floor Watcher",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492378+00:00"
+    },
+    {
+      "floor_id": "F20",
+      "floor_name": "Api Services Department",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [
+        {
+          "id": "F20.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F20.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F20.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F20.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F20.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F20.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F20.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F20.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "Floor Manager",
+      "watcher": "Floor Watcher",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492380+00:00"
+    },
+    {
+      "floor_id": "F21",
+      "floor_name": "Adapter Systems Department",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [
+        {
+          "id": "F21.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F21.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F21.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F21.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F21.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F21.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F21.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F21.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "Floor Manager",
+      "watcher": "Floor Watcher",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492383+00:00"
+    },
+    {
+      "floor_id": "F22",
+      "floor_name": "Integration Services Department",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 24,
+      "workers": [
+        {
+          "id": "F22.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F22.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F22.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F22.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F22.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F22.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F22.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F22.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "Lifts Lead",
+      "watcher": "OpenClaw Watcher",
+      "openclaw_presence": true,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492386+00:00"
+    },
+    {
+      "floor_id": "F23",
+      "floor_name": "Air Llm Operations Department",
+      "department": "operations",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 14,
+      "workers": [
+        {
+          "id": "F23.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F23.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F23.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F23.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F23.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F23.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F23.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F23.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "Model Lane Steward",
+      "watcher": "OpenClaw Watcher",
+      "openclaw_presence": true,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492389+00:00"
+    },
+    {
+      "floor_id": "F24",
+      "floor_name": "Model Routing Department",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [
+        {
+          "id": "F24.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F24.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F24.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F24.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F24.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F24.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F24.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F24.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "Floor Manager",
+      "watcher": "Floor Watcher",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492392+00:00"
+    },
+    {
+      "floor_id": "F25",
+      "floor_name": "Agent Coordination Department",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 36,
+      "workers": [
+        {
+          "id": "F25.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F25.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F25.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F25.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F25.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F25.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F25.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F25.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "Floor Manager",
+      "watcher": "Floor Watcher",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492397+00:00"
+    },
+    {
+      "floor_id": "F26",
+      "floor_name": "Model Evaluation Department",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [
+        {
+          "id": "F26.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F26.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F26.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F26.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F26.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F26.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F26.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F26.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "Floor Manager",
+      "watcher": "Floor Watcher",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492400+00:00"
+    },
+    {
+      "floor_id": "F27",
+      "floor_name": "Local Model Operations Department",
+      "department": "operations",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [
+        {
+          "id": "F27.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F27.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F27.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F27.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F27.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F27.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F27.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F27.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "Floor Manager",
+      "watcher": "Floor Watcher",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492403+00:00"
+    },
+    {
+      "floor_id": "F28",
+      "floor_name": "Security",
+      "department": "security",
+      "template": "SecureInterior",
+      "rooms": [
+        "Lock Room",
+        "Watch Desk",
+        "Cage",
+        "Forensics Bay",
+        "Comms"
+      ],
+      "worker_count": 10,
+      "workers": [
+        {
+          "id": "F28.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F28.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F28.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F28.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F28.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F28.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F28.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F28.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "Vault Lead",
+      "watcher": "OpenClaw Watcher",
+      "openclaw_presence": true,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492407+00:00"
+    },
+    {
+      "floor_id": "F29",
+      "floor_name": "Guardian Department",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [
+        {
+          "id": "F29.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F29.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F29.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F29.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F29.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F29.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F29.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F29.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "Floor Manager",
+      "watcher": "Floor Watcher",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492410+00:00"
+    },
+    {
+      "floor_id": "F30",
+      "floor_name": "Permissions",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 16,
+      "workers": [
+        {
+          "id": "F30.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F30.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F30.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F30.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F30.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F30.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F30.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F30.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "Guardian Lead",
+      "watcher": "OpenClaw Watcher",
+      "openclaw_presence": true,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492413+00:00"
+    },
+    {
+      "floor_id": "F31",
+      "floor_name": "Audit Department",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 30,
+      "workers": [
+        {
+          "id": "F31.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F31.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F31.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F31.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F31.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F31.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F31.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F31.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "Audit Lead",
+      "watcher": "OpenClaw Watcher",
+      "openclaw_presence": true,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492415+00:00"
+    },
+    {
+      "floor_id": "F32",
+      "floor_name": "Compliance Department",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [
+        {
+          "id": "F32.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F32.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F32.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F32.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F32.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F32.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F32.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F32.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "Floor Manager",
+      "watcher": "Floor Watcher",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492419+00:00"
+    },
+    {
+      "floor_id": "F33",
+      "floor_name": "Diagnostics Department",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [
+        {
+          "id": "F33.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F33.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F33.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F33.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F33.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F33.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F33.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F33.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "Floor Manager",
+      "watcher": "Floor Watcher",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492422+00:00"
+    },
+    {
+      "floor_id": "F34",
+      "floor_name": "Monitoring",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [
+        {
+          "id": "F34.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F34.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F34.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F34.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F34.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F34.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F34.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F34.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "Floor Manager",
+      "watcher": "Floor Watcher",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492425+00:00"
+    },
+    {
+      "floor_id": "F35",
+      "floor_name": "Infrastructure Services Department",
+      "department": "operations",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 32,
+      "workers": [
+        {
+          "id": "F35.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F35.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F35.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F35.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F35.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F35.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F35.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F35.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "Hardware Lead",
+      "watcher": "OpenClaw Watcher",
+      "openclaw_presence": true,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492428+00:00"
+    },
+    {
+      "floor_id": "F36",
+      "floor_name": "Expansion Planning Department",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [
+        {
+          "id": "F36.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F36.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F36.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F36.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F36.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F36.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F36.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F36.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "Floor Manager",
+      "watcher": "Floor Watcher",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492431+00:00"
+    },
+    {
+      "floor_id": "F37",
+      "floor_name": "Simulation Labs",
+      "department": "research",
+      "template": "LabInterior",
+      "rooms": [
+        "Wet Lab",
+        "Computation Bench",
+        "Library Nook",
+        "Server Closet",
+        "Meeting Room"
+      ],
+      "worker_count": 100,
+      "workers": [
+        {
+          "id": "F37.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F37.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F37.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F37.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F37.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F37.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F37.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F37.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "Strategy Lead",
+      "watcher": "OpenClaw Watcher",
+      "openclaw_presence": true,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492433+00:00"
+    },
+    {
+      "floor_id": "F38",
+      "floor_name": "Sandbox Operations",
+      "department": "operations",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 30,
+      "workers": [
+        {
+          "id": "F38.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F38.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F38.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F38.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F38.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F38.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F38.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F38.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "Sandbox Lead",
+      "watcher": "OpenClaw Watcher",
+      "openclaw_presence": true,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492438+00:00"
+    },
+    {
+      "floor_id": "F39",
+      "floor_name": "Development Labs",
+      "department": "research",
+      "template": "LabInterior",
+      "rooms": [
+        "Wet Lab",
+        "Computation Bench",
+        "Library Nook",
+        "Server Closet",
+        "Meeting Room"
+      ],
+      "worker_count": 12,
+      "workers": [
+        {
+          "id": "F39.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F39.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F39.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F39.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F39.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F39.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F39.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F39.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "Floor Manager",
+      "watcher": "Floor Watcher",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492440+00:00"
+    },
+    {
+      "floor_id": "F40",
+      "floor_name": "Prototype Systems",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [
+        {
+          "id": "F40.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F40.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F40.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F40.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F40.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F40.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F40.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F40.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "Floor Manager",
+      "watcher": "Floor Watcher",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492443+00:00"
+    },
+    {
+      "floor_id": "F41",
+      "floor_name": "Oanda Trading Floor",
+      "department": "trading",
+      "template": "TradingFloorInterior",
+      "rooms": [
+        "Pit",
+        "Risk Desk",
+        "Compliance Wall",
+        "Quote Board",
+        "Strategy Lab"
+      ],
+      "worker_count": 48,
+      "workers": [
+        {
+          "id": "F41.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F41.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F41.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F41.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F41.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F41.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F41.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F41.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "Floor Lead \u00b7 OANDA",
+      "watcher": "OpenClaw Watcher",
+      "openclaw_presence": true,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492444+00:00"
+    },
+    {
+      "floor_id": "F42",
+      "floor_name": "Binance Trading Floor",
+      "department": "trading",
+      "template": "TradingFloorInterior",
+      "rooms": [
+        "Pit",
+        "Risk Desk",
+        "Compliance Wall",
+        "Quote Board",
+        "Strategy Lab"
+      ],
+      "worker_count": 32,
+      "workers": [
+        {
+          "id": "F42.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F42.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F42.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F42.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F42.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F42.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F42.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F42.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "Floor Lead \u00b7 Binance Testnet",
+      "watcher": "OpenClaw Watcher",
+      "openclaw_presence": true,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492446+00:00"
+    },
+    {
+      "floor_id": "F43",
+      "floor_name": "Stock Exchange Trading Floor",
+      "department": "trading",
+      "template": "TradingFloorInterior",
+      "rooms": [
+        "Pit",
+        "Risk Desk",
+        "Compliance Wall",
+        "Quote Board",
+        "Strategy Lab"
+      ],
+      "worker_count": 28,
+      "workers": [
+        {
+          "id": "F43.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F43.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F43.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F43.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F43.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F43.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F43.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F43.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "Floor Lead \u00b7 Stocks Paper",
+      "watcher": "OpenClaw Watcher",
+      "openclaw_presence": true,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492448+00:00"
+    },
+    {
+      "floor_id": "F44",
+      "floor_name": "Future Systems Vacant",
+      "department": "finance",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 22,
+      "workers": [
+        {
+          "id": "F44.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F44.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F44.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F44.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F44.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F44.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F44.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F44.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "PnL Lead",
+      "watcher": "OpenClaw Watcher",
+      "openclaw_presence": true,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492450+00:00"
+    },
+    {
+      "floor_id": "F44",
+      "floor_name": "Future Systems Vacant",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 22,
+      "workers": [
+        {
+          "id": "F44.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F44.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F44.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F44.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F44.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F44.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F44.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F44.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "PnL Lead",
+      "watcher": "OpenClaw Watcher",
+      "openclaw_presence": true,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492452+00:00"
+    },
+    {
+      "floor_id": "F45",
+      "floor_name": "Worker Recruitment Agency",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 24,
+      "workers": [
+        {
+          "id": "F45.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F45.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F45.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F45.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F45.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F45.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F45.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F45.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "Worker Recruitment Head",
+      "watcher": "OpenClaw Watcher",
+      "openclaw_presence": true,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492457+00:00"
+    },
+    {
+      "floor_id": "F46",
+      "floor_name": "Executive Support Department",
+      "department": "command",
+      "template": "CouncilInterior",
+      "rooms": [
+        "Council Chamber",
+        "Briefing Room",
+        "Maps Wall",
+        "Ops Pit",
+        "Secure Comms"
+      ],
+      "worker_count": 22,
+      "workers": [
+        {
+          "id": "F46.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F46.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F46.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F46.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F46.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F46.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F46.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F46.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "Commerce Lead",
+      "watcher": "OpenClaw Watcher",
+      "openclaw_presence": true,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492460+00:00"
+    },
+    {
+      "floor_id": "F47",
+      "floor_name": "Claude Embassy (Wren)",
+      "department": "command",
+      "template": "CouncilInterior",
+      "rooms": [
+        "Council Chamber",
+        "Briefing Room",
+        "Maps Wall",
+        "Ops Pit",
+        "Secure Comms"
+      ],
+      "worker_count": 25,
+      "workers": [
+        {
+          "id": "F47.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F47.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F47.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F47.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F47.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F47.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F47.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F47.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "Claude (advisory)",
+      "watcher": "Refusal Library Curator",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492464+00:00"
+    },
+    {
+      "floor_id": "F48",
+      "floor_name": "Strategic Planning Department",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 6,
+      "workers": [
+        {
+          "id": "F48.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F48.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F48.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F48.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F48.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F48.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F48.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F48.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "GPT Embassy Lead (scaffold)",
+      "watcher": "Cost Guard",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492467+00:00"
+    },
+    {
+      "floor_id": "F49",
+      "floor_name": "Resource Management Department",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 6,
+      "workers": [
+        {
+          "id": "F49.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F49.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F49.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F49.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F49.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F49.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F49.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F49.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "DeepSeek Embassy Lead (scaffold)",
+      "watcher": "Cost Guard",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492469+00:00"
+    },
+    {
+      "floor_id": "F50",
+      "floor_name": "Governance",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 48,
+      "workers": [
+        {
+          "id": "F50.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F50.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F50.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F50.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F50.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F50.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F50.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F50.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "Lab Director",
+      "watcher": "OpenClaw Watcher",
+      "openclaw_presence": true,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492472+00:00"
+    },
+    {
+      "floor_id": "F51",
+      "floor_name": "Executive Council Department",
+      "department": "command",
+      "template": "CouncilInterior",
+      "rooms": [
+        "Council Chamber",
+        "Briefing Room",
+        "Maps Wall",
+        "Ops Pit",
+        "Secure Comms"
+      ],
+      "worker_count": 24,
+      "workers": [
+        {
+          "id": "F51.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F51.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F51.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F51.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F51.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F51.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F51.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F51.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "Floor Manager",
+      "watcher": "Floor Watcher",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492475+00:00"
+    },
+    {
+      "floor_id": "F52",
+      "floor_name": "Infrastructure Command Department",
+      "department": "command",
+      "template": "CouncilInterior",
+      "rooms": [
+        "Council Chamber",
+        "Briefing Room",
+        "Maps Wall",
+        "Ops Pit",
+        "Secure Comms"
+      ],
+      "worker_count": 18,
+      "workers": [
+        {
+          "id": "F52.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F52.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F52.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F52.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F52.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F52.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F52.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F52.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "Floor Manager",
+      "watcher": "Floor Watcher",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492478+00:00"
+    },
+    {
+      "floor_id": "F53",
+      "floor_name": "Tower Command Department",
+      "department": "command",
+      "template": "CouncilInterior",
+      "rooms": [
+        "Council Chamber",
+        "Briefing Room",
+        "Maps Wall",
+        "Ops Pit",
+        "Secure Comms"
+      ],
+      "worker_count": 8,
+      "workers": [
+        {
+          "id": "F53.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F53.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F53.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F53.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F53.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F53.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F53.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F53.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "Tower Commander",
+      "watcher": "OpenClaw Watcher",
+      "openclaw_presence": true,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492480+00:00"
+    },
+    {
+      "floor_id": "F54",
+      "floor_name": "Accommodation",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [
+        {
+          "id": "F54.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F54.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F54.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F54.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F54.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F54.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F54.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F54.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "Floor Manager",
+      "watcher": "Floor Watcher",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492483+00:00"
+    },
+    {
+      "floor_id": "F55",
+      "floor_name": "Cafeteria",
+      "department": "hospitality",
+      "template": "HospitalityInterior",
+      "rooms": [
+        "Kitchen",
+        "Prep Line",
+        "Dining Floor",
+        "Bar",
+        "Cold Store"
+      ],
+      "worker_count": 8,
+      "workers": [
+        {
+          "id": "F55.W00",
+          "role": "worker"
+        },
+        {
+          "id": "F55.W01",
+          "role": "worker"
+        },
+        {
+          "id": "F55.W02",
+          "role": "worker"
+        },
+        {
+          "id": "F55.W03",
+          "role": "worker"
+        },
+        {
+          "id": "F55.W04",
+          "role": "worker"
+        },
+        {
+          "id": "F55.W05",
+          "role": "worker"
+        },
+        {
+          "id": "F55.W06",
+          "role": "worker"
+        },
+        {
+          "id": "F55.W07",
+          "role": "worker"
+        }
+      ],
+      "manager": "Kernel (advisory)",
+      "watcher": "OpenClaw Watcher",
+      "openclaw_presence": true,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492485+00:00"
+    },
+    {
+      "floor_id": "F56",
+      "floor_name": "Cinema",
+      "department": "entertainment",
+      "template": "TheatreInterior",
+      "rooms": [
+        "Auditorium",
+        "Stage",
+        "Projection Booth",
+        "Lobby",
+        "Green Room"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492488+00:00"
+    },
+    {
+      "floor_id": "F57",
+      "floor_name": "Grand Library",
+      "department": "library",
+      "template": "LibraryInterior",
+      "rooms": [
+        "Stacks",
+        "Reading Room",
+        "Catalog",
+        "Archive Vault",
+        "Reference Desk"
+      ],
+      "worker_count": 14,
+      "workers": [],
+      "manager": "Head Librarian",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492491+00:00"
+    },
+    {
+      "floor_id": "F58",
+      "floor_name": "Music Conservatory",
+      "department": "music",
+      "template": "MusicStudioInterior",
+      "rooms": [
+        "Studio A",
+        "Studio B",
+        "Vocal Booth",
+        "Mastering Suite",
+        "Recital Hall",
+        "Rehearsal Rooms",
+        "Listening Pods",
+        "Piano Hall",
+        "Instrument Library"
+      ],
+      "worker_count": 22,
+      "workers": [],
+      "manager": "Studio Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492494+00:00"
+    },
+    {
+      "floor_id": "F59",
+      "floor_name": "Shopping Centre",
+      "department": "commerce",
+      "template": "ShopfrontInterior",
+      "rooms": [
+        "Shop Floor",
+        "Stock Room",
+        "Till Counter",
+        "Display Window",
+        "Office"
+      ],
+      "worker_count": 18,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492495+00:00"
+    },
+    {
+      "floor_id": "F60",
+      "floor_name": "London Stock Exchange",
+      "department": "trading",
+      "template": "TradingFloorInterior",
+      "rooms": [
+        "Pit",
+        "Risk Desk",
+        "Compliance Wall",
+        "Quote Board",
+        "Strategy Lab"
+      ],
+      "worker_count": 28,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492497+00:00"
+    },
+    {
+      "floor_id": "F61",
+      "floor_name": "Lumi\u00e8re Beauty",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492503+00:00"
+    },
+    {
+      "floor_id": "F62",
+      "floor_name": "Pinwheel Toys",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492505+00:00"
+    },
+    {
+      "floor_id": "F63",
+      "floor_name": "Pawsworth",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492508+00:00"
+    },
+    {
+      "floor_id": "F64",
+      "floor_name": "Hearthstone Kitchen",
+      "department": "hospitality",
+      "template": "HospitalityInterior",
+      "rooms": [
+        "Kitchen",
+        "Prep Line",
+        "Dining Floor",
+        "Bar",
+        "Cold Store"
+      ],
+      "worker_count": 18,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492512+00:00"
+    },
+    {
+      "floor_id": "F65",
+      "floor_name": "Vector Tech",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492514+00:00"
+    },
+    {
+      "floor_id": "F66",
+      "floor_name": "Architects' Office",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492517+00:00"
+    },
+    {
+      "floor_id": "F67",
+      "floor_name": "Wellness Studio",
+      "department": "music",
+      "template": "MusicStudioInterior",
+      "rooms": [
+        "Studio A",
+        "Studio B",
+        "Vocal Booth",
+        "Mastering Suite",
+        "Recital Hall",
+        "Rehearsal Rooms",
+        "Listening Pods",
+        "Piano Hall",
+        "Instrument Library"
+      ],
+      "worker_count": 22,
+      "workers": [],
+      "manager": "Studio Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492524+00:00"
+    },
+    {
+      "floor_id": "F68",
+      "floor_name": "Pharmacy",
+      "department": "wellness",
+      "template": "WellnessInterior",
+      "rooms": [
+        "Treatment Room",
+        "Studio",
+        "Quiet Room",
+        "Reception",
+        "Showers"
+      ],
+      "worker_count": 14,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492526+00:00"
+    },
+    {
+      "floor_id": "F69",
+      "floor_name": "Independent Bookstore",
+      "department": "commerce",
+      "template": "ShopfrontInterior",
+      "rooms": [
+        "Shop Floor",
+        "Stock Room",
+        "Till Counter",
+        "Display Window",
+        "Office"
+      ],
+      "worker_count": 18,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492528+00:00"
+    },
+    {
+      "floor_id": "F70",
+      "floor_name": "Pottery Studio",
+      "department": "music",
+      "template": "MusicStudioInterior",
+      "rooms": [
+        "Studio A",
+        "Studio B",
+        "Vocal Booth",
+        "Mastering Suite",
+        "Recital Hall",
+        "Rehearsal Rooms",
+        "Listening Pods",
+        "Piano Hall",
+        "Instrument Library"
+      ],
+      "worker_count": 22,
+      "workers": [],
+      "manager": "Studio Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492530+00:00"
+    },
+    {
+      "floor_id": "F71",
+      "floor_name": "Art Gallery",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492532+00:00"
+    },
+    {
+      "floor_id": "F72",
+      "floor_name": "Music Production Studio",
+      "department": "music",
+      "template": "MusicStudioInterior",
+      "rooms": [
+        "Studio A",
+        "Studio B",
+        "Vocal Booth",
+        "Mastering Suite",
+        "Recital Hall",
+        "Rehearsal Rooms",
+        "Listening Pods",
+        "Piano Hall",
+        "Instrument Library"
+      ],
+      "worker_count": 22,
+      "workers": [],
+      "manager": "Studio Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492534+00:00"
+    },
+    {
+      "floor_id": "F73",
+      "floor_name": "Fashion Boutique",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492537+00:00"
+    },
+    {
+      "floor_id": "F74",
+      "floor_name": "Photography Studio",
+      "department": "music",
+      "template": "MusicStudioInterior",
+      "rooms": [
+        "Studio A",
+        "Studio B",
+        "Vocal Booth",
+        "Mastering Suite",
+        "Recital Hall",
+        "Rehearsal Rooms",
+        "Listening Pods",
+        "Piano Hall",
+        "Instrument Library"
+      ],
+      "worker_count": 22,
+      "workers": [],
+      "manager": "Studio Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492538+00:00"
+    },
+    {
+      "floor_id": "F75",
+      "floor_name": "Florist",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492541+00:00"
+    },
+    {
+      "floor_id": "F76",
+      "floor_name": "Bakery",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492545+00:00"
+    },
+    {
+      "floor_id": "F77",
+      "floor_name": "Coffee Roastery",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492549+00:00"
+    },
+    {
+      "floor_id": "F78",
+      "floor_name": "Brewery",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492551+00:00"
+    },
+    {
+      "floor_id": "F79",
+      "floor_name": "Distillery",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492555+00:00"
+    },
+    {
+      "floor_id": "F80",
+      "floor_name": "Restaurant District",
+      "department": "hospitality",
+      "template": "HospitalityInterior",
+      "rooms": [
+        "Kitchen",
+        "Prep Line",
+        "Dining Floor",
+        "Bar",
+        "Cold Store"
+      ],
+      "worker_count": 18,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492558+00:00"
+    },
+    {
+      "floor_id": "F81",
+      "floor_name": "Podcast Studio One",
+      "department": "music",
+      "template": "MusicStudioInterior",
+      "rooms": [
+        "Studio A",
+        "Studio B",
+        "Vocal Booth",
+        "Mastering Suite",
+        "Recital Hall",
+        "Rehearsal Rooms",
+        "Listening Pods",
+        "Piano Hall",
+        "Instrument Library"
+      ],
+      "worker_count": 22,
+      "workers": [],
+      "manager": "Studio Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492560+00:00"
+    },
+    {
+      "floor_id": "F82",
+      "floor_name": "Podcast Studio Two",
+      "department": "music",
+      "template": "MusicStudioInterior",
+      "rooms": [
+        "Studio A",
+        "Studio B",
+        "Vocal Booth",
+        "Mastering Suite",
+        "Recital Hall",
+        "Rehearsal Rooms",
+        "Listening Pods",
+        "Piano Hall",
+        "Instrument Library"
+      ],
+      "worker_count": 22,
+      "workers": [],
+      "manager": "Studio Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492562+00:00"
+    },
+    {
+      "floor_id": "F83",
+      "floor_name": "Podcast Studio Three",
+      "department": "music",
+      "template": "MusicStudioInterior",
+      "rooms": [
+        "Studio A",
+        "Studio B",
+        "Vocal Booth",
+        "Mastering Suite",
+        "Recital Hall",
+        "Rehearsal Rooms",
+        "Listening Pods",
+        "Piano Hall",
+        "Instrument Library"
+      ],
+      "worker_count": 22,
+      "workers": [],
+      "manager": "Studio Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492563+00:00"
+    },
+    {
+      "floor_id": "F84",
+      "floor_name": "Podcast Studio Four",
+      "department": "music",
+      "template": "MusicStudioInterior",
+      "rooms": [
+        "Studio A",
+        "Studio B",
+        "Vocal Booth",
+        "Mastering Suite",
+        "Recital Hall",
+        "Rehearsal Rooms",
+        "Listening Pods",
+        "Piano Hall",
+        "Instrument Library"
+      ],
+      "worker_count": 22,
+      "workers": [],
+      "manager": "Studio Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492565+00:00"
+    },
+    {
+      "floor_id": "F85",
+      "floor_name": "Podcast Studio Five",
+      "department": "music",
+      "template": "MusicStudioInterior",
+      "rooms": [
+        "Studio A",
+        "Studio B",
+        "Vocal Booth",
+        "Mastering Suite",
+        "Recital Hall",
+        "Rehearsal Rooms",
+        "Listening Pods",
+        "Piano Hall",
+        "Instrument Library"
+      ],
+      "worker_count": 22,
+      "workers": [],
+      "manager": "Studio Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492567+00:00"
+    },
+    {
+      "floor_id": "F86",
+      "floor_name": "Video Production",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492569+00:00"
+    },
+    {
+      "floor_id": "F87",
+      "floor_name": "Film Studio",
+      "department": "music",
+      "template": "MusicStudioInterior",
+      "rooms": [
+        "Studio A",
+        "Studio B",
+        "Vocal Booth",
+        "Mastering Suite",
+        "Recital Hall",
+        "Rehearsal Rooms",
+        "Listening Pods",
+        "Piano Hall",
+        "Instrument Library"
+      ],
+      "worker_count": 22,
+      "workers": [],
+      "manager": "Studio Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492573+00:00"
+    },
+    {
+      "floor_id": "F88",
+      "floor_name": "Animation Studio",
+      "department": "music",
+      "template": "MusicStudioInterior",
+      "rooms": [
+        "Studio A",
+        "Studio B",
+        "Vocal Booth",
+        "Mastering Suite",
+        "Recital Hall",
+        "Rehearsal Rooms",
+        "Listening Pods",
+        "Piano Hall",
+        "Instrument Library"
+      ],
+      "worker_count": 22,
+      "workers": [],
+      "manager": "Studio Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492574+00:00"
+    },
+    {
+      "floor_id": "F89",
+      "floor_name": "Documentary Unit",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492577+00:00"
+    },
+    {
+      "floor_id": "F90",
+      "floor_name": "Live Stream Studio",
+      "department": "music",
+      "template": "MusicStudioInterior",
+      "rooms": [
+        "Studio A",
+        "Studio B",
+        "Vocal Booth",
+        "Mastering Suite",
+        "Recital Hall",
+        "Rehearsal Rooms",
+        "Listening Pods",
+        "Piano Hall",
+        "Instrument Library"
+      ],
+      "worker_count": 22,
+      "workers": [],
+      "manager": "Studio Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492579+00:00"
+    },
+    {
+      "floor_id": "F91",
+      "floor_name": "Game Development One",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492582+00:00"
+    },
+    {
+      "floor_id": "F92",
+      "floor_name": "Game Development Two",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492584+00:00"
+    },
+    {
+      "floor_id": "F93",
+      "floor_name": "Game Development Three",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492587+00:00"
+    },
+    {
+      "floor_id": "F94",
+      "floor_name": "Game Development Four",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492589+00:00"
+    },
+    {
+      "floor_id": "F95",
+      "floor_name": "Game Development Five",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492591+00:00"
+    },
+    {
+      "floor_id": "F96",
+      "floor_name": "Writing Hall",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492594+00:00"
+    },
+    {
+      "floor_id": "F97",
+      "floor_name": "Translation Bureau",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492600+00:00"
+    },
+    {
+      "floor_id": "F98",
+      "floor_name": "Publishing House",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492603+00:00"
+    },
+    {
+      "floor_id": "F99",
+      "floor_name": "Newsroom",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492605+00:00"
+    },
+    {
+      "floor_id": "F100",
+      "floor_name": "Academic Press",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492612+00:00"
+    },
+    {
+      "floor_id": "F101",
+      "floor_name": "Legal Advisory",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492614+00:00"
+    },
+    {
+      "floor_id": "F102",
+      "floor_name": "Tax & Accounting",
+      "department": "finance",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492616+00:00"
+    },
+    {
+      "floor_id": "F103",
+      "floor_name": "HR Services",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492618+00:00"
+    },
+    {
+      "floor_id": "F104",
+      "floor_name": "IT Help Desk",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492621+00:00"
+    },
+    {
+      "floor_id": "F105",
+      "floor_name": "Cybersecurity",
+      "department": "security",
+      "template": "SecureInterior",
+      "rooms": [
+        "Lock Room",
+        "Watch Desk",
+        "Cage",
+        "Forensics Bay",
+        "Comms"
+      ],
+      "worker_count": 16,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492623+00:00"
+    },
+    {
+      "floor_id": "F106",
+      "floor_name": "Data Centre",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492626+00:00"
+    },
+    {
+      "floor_id": "F107",
+      "floor_name": "Cloud Platform Ops",
+      "department": "operations",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492630+00:00"
+    },
+    {
+      "floor_id": "F108",
+      "floor_name": "Customer Success",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492633+00:00"
+    },
+    {
+      "floor_id": "F109",
+      "floor_name": "Sales Operations",
+      "department": "operations",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492635+00:00"
+    },
+    {
+      "floor_id": "F110",
+      "floor_name": "Marketing Operations",
+      "department": "operations",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492638+00:00"
+    },
+    {
+      "floor_id": "F111",
+      "floor_name": "Logistics Hub",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492641+00:00"
+    },
+    {
+      "floor_id": "F112",
+      "floor_name": "Procurement",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492643+00:00"
+    },
+    {
+      "floor_id": "F113",
+      "floor_name": "Facilities Management",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492646+00:00"
+    },
+    {
+      "floor_id": "F114",
+      "floor_name": "Mailroom & Reception",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492648+00:00"
+    },
+    {
+      "floor_id": "F115",
+      "floor_name": "Quality Assurance Lab",
+      "department": "research",
+      "template": "LabInterior",
+      "rooms": [
+        "Wet Lab",
+        "Computation Bench",
+        "Library Nook",
+        "Server Closet",
+        "Meeting Room"
+      ],
+      "worker_count": 22,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492651+00:00"
+    },
+    {
+      "floor_id": "F116",
+      "floor_name": "Quantum Lab",
+      "department": "research",
+      "template": "LabInterior",
+      "rooms": [
+        "Wet Lab",
+        "Computation Bench",
+        "Library Nook",
+        "Server Closet",
+        "Meeting Room"
+      ],
+      "worker_count": 22,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492653+00:00"
+    },
+    {
+      "floor_id": "F117",
+      "floor_name": "Robotics Lab",
+      "department": "research",
+      "template": "LabInterior",
+      "rooms": [
+        "Wet Lab",
+        "Computation Bench",
+        "Library Nook",
+        "Server Closet",
+        "Meeting Room"
+      ],
+      "worker_count": 22,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492657+00:00"
+    },
+    {
+      "floor_id": "F118",
+      "floor_name": "Biotech Lab",
+      "department": "research",
+      "template": "LabInterior",
+      "rooms": [
+        "Wet Lab",
+        "Computation Bench",
+        "Library Nook",
+        "Server Closet",
+        "Meeting Room"
+      ],
+      "worker_count": 22,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492659+00:00"
+    },
+    {
+      "floor_id": "F119",
+      "floor_name": "Materials Science Lab",
+      "department": "research",
+      "template": "LabInterior",
+      "rooms": [
+        "Wet Lab",
+        "Computation Bench",
+        "Library Nook",
+        "Server Closet",
+        "Meeting Room"
+      ],
+      "worker_count": 22,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492662+00:00"
+    },
+    {
+      "floor_id": "F120",
+      "floor_name": "Energy Research",
+      "department": "research",
+      "template": "LabInterior",
+      "rooms": [
+        "Wet Lab",
+        "Computation Bench",
+        "Library Nook",
+        "Server Closet",
+        "Meeting Room"
+      ],
+      "worker_count": 22,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492665+00:00"
+    },
+    {
+      "floor_id": "F121",
+      "floor_name": "Climate Sciences",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492669+00:00"
+    },
+    {
+      "floor_id": "F122",
+      "floor_name": "Neuroscience Lab",
+      "department": "research",
+      "template": "LabInterior",
+      "rooms": [
+        "Wet Lab",
+        "Computation Bench",
+        "Library Nook",
+        "Server Closet",
+        "Meeting Room"
+      ],
+      "worker_count": 22,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492675+00:00"
+    },
+    {
+      "floor_id": "F123",
+      "floor_name": "AGI Safety Research",
+      "department": "research",
+      "template": "LabInterior",
+      "rooms": [
+        "Wet Lab",
+        "Computation Bench",
+        "Library Nook",
+        "Server Closet",
+        "Meeting Room"
+      ],
+      "worker_count": 22,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492680+00:00"
+    },
+    {
+      "floor_id": "F124",
+      "floor_name": "Cryptography Research",
+      "department": "research",
+      "template": "LabInterior",
+      "rooms": [
+        "Wet Lab",
+        "Computation Bench",
+        "Library Nook",
+        "Server Closet",
+        "Meeting Room"
+      ],
+      "worker_count": 22,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492683+00:00"
+    },
+    {
+      "floor_id": "F125",
+      "floor_name": "Mathematical Sciences",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492685+00:00"
+    },
+    {
+      "floor_id": "F126",
+      "floor_name": "Physics Department",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492688+00:00"
+    },
+    {
+      "floor_id": "F127",
+      "floor_name": "Chemistry Department",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492693+00:00"
+    },
+    {
+      "floor_id": "F128",
+      "floor_name": "Computer Science Dept",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492695+00:00"
+    },
+    {
+      "floor_id": "F129",
+      "floor_name": "Philosophy & Ethics",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492698+00:00"
+    },
+    {
+      "floor_id": "F130",
+      "floor_name": "Linguistics Department",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492700+00:00"
+    },
+    {
+      "floor_id": "F131",
+      "floor_name": "Space Tech Lab",
+      "department": "research",
+      "template": "LabInterior",
+      "rooms": [
+        "Wet Lab",
+        "Computation Bench",
+        "Library Nook",
+        "Server Closet",
+        "Meeting Room"
+      ],
+      "worker_count": 22,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492703+00:00"
+    },
+    {
+      "floor_id": "F132",
+      "floor_name": "Synthetic Biology Lab",
+      "department": "research",
+      "template": "LabInterior",
+      "rooms": [
+        "Wet Lab",
+        "Computation Bench",
+        "Library Nook",
+        "Server Closet",
+        "Meeting Room"
+      ],
+      "worker_count": 22,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492705+00:00"
+    },
+    {
+      "floor_id": "F133",
+      "floor_name": "Longevity Research",
+      "department": "research",
+      "template": "LabInterior",
+      "rooms": [
+        "Wet Lab",
+        "Computation Bench",
+        "Library Nook",
+        "Server Closet",
+        "Meeting Room"
+      ],
+      "worker_count": 22,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492707+00:00"
+    },
+    {
+      "floor_id": "F134",
+      "floor_name": "Climate Adaptation Lab",
+      "department": "research",
+      "template": "LabInterior",
+      "rooms": [
+        "Wet Lab",
+        "Computation Bench",
+        "Library Nook",
+        "Server Closet",
+        "Meeting Room"
+      ],
+      "worker_count": 22,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492710+00:00"
+    },
+    {
+      "floor_id": "F135",
+      "floor_name": "Marine Sciences",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492713+00:00"
+    },
+    {
+      "floor_id": "F136",
+      "floor_name": "Atmospheric Science",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492715+00:00"
+    },
+    {
+      "floor_id": "F137",
+      "floor_name": "Earth Sciences",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492720+00:00"
+    },
+    {
+      "floor_id": "F138",
+      "floor_name": "Anthropology Department",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492723+00:00"
+    },
+    {
+      "floor_id": "F139",
+      "floor_name": "History Department",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492725+00:00"
+    },
+    {
+      "floor_id": "F140",
+      "floor_name": "Economics Department",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492729+00:00"
+    },
+    {
+      "floor_id": "F141",
+      "floor_name": "Theater & Performance",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492732+00:00"
+    },
+    {
+      "floor_id": "F142",
+      "floor_name": "Cinema House",
+      "department": "entertainment",
+      "template": "TheatreInterior",
+      "rooms": [
+        "Auditorium",
+        "Stage",
+        "Projection Booth",
+        "Lobby",
+        "Green Room"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492734+00:00"
+    },
+    {
+      "floor_id": "F143",
+      "floor_name": "Concert Hall",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492736+00:00"
+    },
+    {
+      "floor_id": "F144",
+      "floor_name": "Museum",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492739+00:00"
+    },
+    {
+      "floor_id": "F145",
+      "floor_name": "Observatory",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492741+00:00"
+    },
+    {
+      "floor_id": "F146",
+      "floor_name": "Civic Hall",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492744+00:00"
+    },
+    {
+      "floor_id": "F147",
+      "floor_name": "Sanctuary Chapel",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492748+00:00"
+    },
+    {
+      "floor_id": "F148",
+      "floor_name": "Hall of Records",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492751+00:00"
+    },
+    {
+      "floor_id": "F149",
+      "floor_name": "University Annex",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492753+00:00"
+    },
+    {
+      "floor_id": "F150",
+      "floor_name": "Botanical Garden",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492756+00:00"
+    },
+    {
+      "floor_id": "F151",
+      "floor_name": "Astronomy Tower",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492758+00:00"
+    },
+    {
+      "floor_id": "F152",
+      "floor_name": "Communications Hub",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492763+00:00"
+    },
+    {
+      "floor_id": "F153",
+      "floor_name": "Penthouse",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": true,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492765+00:00"
+    },
+    {
+      "floor_id": "F154",
+      "floor_name": "Trailhead Outdoor",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492768+00:00"
+    },
+    {
+      "floor_id": "F155",
+      "floor_name": "Stretch Fitness",
+      "department": "wellness",
+      "template": "WellnessInterior",
+      "rooms": [
+        "Treatment Room",
+        "Studio",
+        "Quiet Room",
+        "Reception",
+        "Showers"
+      ],
+      "worker_count": 14,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492770+00:00"
+    },
+    {
+      "floor_id": "F156",
+      "floor_name": "Quilltree Office",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492774+00:00"
+    },
+    {
+      "floor_id": "F157",
+      "floor_name": "Voyage & Co",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492778+00:00"
+    },
+    {
+      "floor_id": "F158",
+      "floor_name": "Greenhouse Lane",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492781+00:00"
+    },
+    {
+      "floor_id": "F159",
+      "floor_name": "Little Robin",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492783+00:00"
+    },
+    {
+      "floor_id": "F160",
+      "floor_name": "Inkwell & Co",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492785+00:00"
+    },
+    {
+      "floor_id": "F161",
+      "floor_name": "Twilight Wellness",
+      "department": "wellness",
+      "template": "WellnessInterior",
+      "rooms": [
+        "Treatment Room",
+        "Studio",
+        "Quiet Room",
+        "Reception",
+        "Showers"
+      ],
+      "worker_count": 14,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492787+00:00"
+    },
+    {
+      "floor_id": "F162",
+      "floor_name": "Living Light Eco",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492790+00:00"
+    },
+    {
+      "floor_id": "F163",
+      "floor_name": "Maker Lane",
+      "department": "general",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492792+00:00"
+    },
+    {
+      "floor_id": "F164",
+      "floor_name": "Email Operations",
+      "department": "operations",
+      "template": "GenericFloorInterior",
+      "rooms": [
+        "Main Hall",
+        "Operations",
+        "Quiet Room",
+        "Lobby",
+        "Storage"
+      ],
+      "worker_count": 12,
+      "workers": [],
+      "manager": "Floor Manager",
+      "watcher": "OpenClaw Supervisor",
+      "openclaw_presence": false,
+      "safety_locks_visible": true,
+      "interior_status": "implemented",
+      "regenerated_ts": "2026-06-12T19:14:55.492795+00:00"
+    }
+  ],
+  "fixed_count": 10
+}

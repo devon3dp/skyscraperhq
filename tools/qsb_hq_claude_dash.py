@@ -1,0 +1,1716 @@
+#!/usr/bin/env python3
+"""qsb_hq_claude_dash.py — HQ-Claude's own dashboard.
+
+Ross 2026-07-02: "wheres your dash claude would you like to make one?" +
+"big pro grade avatars about u etc animations i want to see u" +
+"no you make your own".
+
+Serves a pro-grade single-page HQ-Claude presence panel:
+  - animated Claude avatar (SVG orb + concentric rings + waveform pulse)
+  - live status: thinking / synth / idle
+  - GPU + ollama loaded models
+  - Wren / Hermes / iQuest LEDs
+  - TP + Acer node LEDs
+  - fleet health (traders / streams / bus)
+  - last 15 F47 stamps HQ-Claude wrote
+  - last 10 team dispatches
+
+Port 8850. Refreshes every 3s. Not the traders truth dash (8848) or studio
+(8849) or old traders (8847) — this is Claude's presence layer.
+"""
+from __future__ import annotations
+import argparse, json, os, re, socket, subprocess, sys, time
+from datetime import datetime, timezone
+from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+from pathlib import Path
+
+ROOT = Path("/vaults/nvme0/qsb_tower_v1")
+F47 = ROOT / "data/registries/qsb_f47_team_records.jsonl"
+SESS_LOG = ROOT / "data/registries/qsb_wren_local_agent_sessions.jsonl"
+ACTIVITY = ROOT / "data/registries/qsb_tower_activity_tail.jsonl"
+DIARY = ROOT / "qsb_session_diary.md"
+BUS_SOCK = ROOT / "state/qsb_bus.sock"
+
+TP_URL = "http://192.168.1.74:9100"
+ACER_URL_CANDIDATES = ["http://172.20.10.4:9100"]
+
+
+def now_iso() -> str:
+    return datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
+
+
+def _ps_cmd():
+    try:
+        r = subprocess.run(["ps", "-eo", "cmd", "ww"], capture_output=True, text=True, timeout=3)
+        return r.stdout.splitlines()
+    except Exception:
+        return []
+
+
+def _count(lines, needle):
+    return sum(1 for l in lines if needle in l and "awk" not in l and "grep" not in l)
+
+
+def gpu_state():
+    try:
+        r = subprocess.run(
+            ["nvidia-smi", "--query-gpu=power.draw,temperature.gpu,memory.used,memory.total",
+             "--format=csv,noheader,nounits"],
+            capture_output=True, text=True, timeout=3)
+        line = r.stdout.strip().split(",")
+        return {
+            "power_w": float(line[0].strip()) if line[0].strip() != "[N/A]" else None,
+            "temp_c": int(line[1].strip()),
+            "mem_used_mib": int(line[2].strip()),
+            "mem_total_mib": int(line[3].strip()),
+        }
+    except Exception as e:
+        return {"error": str(e)[:60]}
+
+
+def ollama_state():
+    try:
+        import urllib.request
+        r = urllib.request.urlopen("http://127.0.0.1:11434/api/ps", timeout=3)
+        d = json.loads(r.read().decode())
+        return [{"name": m["name"], "size_vram_gib": round(m.get("size_vram", 0) / 1024**3, 2),
+                 "expires_at": m.get("expires_at", "")[:19]}
+                for m in d.get("models", [])]
+    except Exception as e:
+        return [{"error": str(e)[:60]}]
+
+
+def node_probe(url, timeout=1.5):
+    import urllib.request
+    # Ross 2026-07-05: TP+Acer nodes expose /state not /status. Was showing
+    # "unreachable" for both even though they were live at 30ms.
+    for path in ("/state", "/status", "/"):
+        try:
+            r = urllib.request.urlopen(url + path, timeout=timeout)
+            body = r.read().decode(errors="ignore")
+            try:
+                d = json.loads(body)
+                return {"reachable": True, "node": d.get("node") or d.get("name","?"),
+                        "name": d.get("node") or d.get("name","?"),
+                        "ts": d.get("ts"), "uptime_s": d.get("uptime_s"),
+                        "cycle": d.get("cycle_count") or d.get("cycle")}
+            except Exception:
+                return {"reachable": True, "name": url.rsplit(":",1)[-1]}
+        except Exception:
+            continue
+    return {"reachable": False, "error": "no endpoint responded"}
+
+
+def tick_freshness():
+    out = {}
+    for name, p in [
+        ("oanda", ROOT / "data/registries/qsb_oanda_tick_stream.jsonl"),
+        ("binance", ROOT / "data/registries/qsb_binance_tick_stream.jsonl"),
+        ("alpaca", ROOT / "data/registries/qsb_alpaca_tick_stream.jsonl"),
+    ]:
+        if p.exists():
+            out[name] = int(time.time() - p.stat().st_mtime)
+        else:
+            out[name] = None
+    return out
+
+
+def fleet_state():
+    lines = _ps_cmd()
+    return {
+        "belief_traders": _count(lines, "qsb_belief_driven_trader.py"),
+        "ensembles": _count(lines, "qsb_ensemble"),
+        "streams": _count(lines, "qsb_f41_oanda_stream.py") + _count(lines, "qsb_f42_binance_stream.py") + _count(lines, "qsb_f43_alpaca_stream.py"),
+        "helpers": _count(lines, "qsb_belief_updater.py") + _count(lines, "qsb_regime_detector.py") + _count(lines, "qsb_thermal_guard.py"),
+        "aggregator": _count(lines, "qsb_trader_pnl_aggregator"),
+        "bus_procs": _count(lines, "qsb_event_bus"),
+        "bus_sock_age_s": (int(time.time() - BUS_SOCK.stat().st_mtime) if BUS_SOCK.exists() else None),
+    }
+
+
+def _tail_jsonl(p, n):
+    if not p.exists():
+        return []
+    lines = p.read_bytes().replace(b"\x00", b"").splitlines()[-n * 4:]
+    rows = []
+    for l in lines[::-1]:
+        try:
+            rows.append(json.loads(l.decode()))
+        except Exception:
+            continue
+        if len(rows) >= n:
+            break
+    return rows
+
+
+def f47_by_claude(n=15):
+    rows = _tail_jsonl(F47, 200)
+    out = []
+    for r in rows:
+        kind = r.get("kind") or r.get("event_kind") or ""
+        role = r.get("role") or r.get("by") or ""
+        if "claude" in role.lower() or "hq" in role.lower() or role == "":
+            out.append({
+                "ts": r.get("ts", "")[:19],
+                "kind": kind[:40],
+                "subject": (r.get("subject") or "")[:80],
+            })
+        if len(out) >= n:
+            break
+    return out
+
+
+def wren_sessions(n=10):
+    rows = _tail_jsonl(SESS_LOG, n)
+    out = []
+    for r in rows[:n]:
+        out.append({
+            "sid": (r.get("session_id") or "")[:12],
+            "ts": (r.get("ts_start") or "")[:19],
+            "model": r.get("model"),
+            "turns": r.get("turns"),
+            "tools": len(r.get("tool_calls", [])),
+            "wall_s": r.get("wall_seconds"),
+        })
+    return out
+
+
+MEMORY_DIR = Path("/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/memory")
+TRANSCRIPT_DIR = Path("/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1")
+BRIDGE = ROOT / "data/registries/qsb_claude_wren_bridge.jsonl"
+
+
+def _latest_transcript() -> Path | None:
+    try:
+        return max(TRANSCRIPT_DIR.glob("*.jsonl"), key=lambda p: p.stat().st_mtime)
+    except Exception:
+        return None
+
+
+def _tail_transcript_lines(k=200):
+    p = _latest_transcript()
+    if not p:
+        return []
+    try:
+        with p.open("rb") as f:
+            f.seek(0, 2)
+            size = f.tell()
+            f.seek(max(0, size - 400_000))  # last ~400KB
+            chunk = f.read().decode("utf-8", errors="ignore")
+        lines = [l for l in chunk.splitlines() if l.strip()][-k:]
+        return lines
+    except Exception:
+        return []
+
+
+def last_assistant_text() -> dict:
+    """Extract the most recent assistant TEXT-block message (not tool_use)."""
+    for line in _tail_transcript_lines(300)[::-1]:
+        try:
+            d = json.loads(line)
+        except Exception:
+            continue
+        if d.get("type") != "assistant":
+            continue
+        content = (d.get("message") or {}).get("content") or []
+        # collect text blocks; skip tool_use blocks
+        text_parts = [c.get("text", "") for c in content if isinstance(c, dict) and c.get("type") == "text"]
+        text = "\n".join(text_parts).strip()
+        if not text:
+            continue
+        return {
+            "text": text[:600],
+            "ts": d.get("timestamp", ""),
+            "age_s": _age_seconds(d.get("timestamp", "")),
+        }
+    return {"text": "", "ts": "", "age_s": None}
+
+
+def recent_tool_calls(n=12) -> list:
+    """Extract the last N tool-use invocations from the transcript."""
+    out = []
+    for line in _tail_transcript_lines(400)[::-1]:
+        try:
+            d = json.loads(line)
+        except Exception:
+            continue
+        if d.get("type") != "assistant":
+            continue
+        content = (d.get("message") or {}).get("content") or []
+        ts = d.get("timestamp", "")
+        for c in content:
+            if isinstance(c, dict) and c.get("type") == "tool_use":
+                name = c.get("name", "")
+                inp = c.get("input") or {}
+                target = ""
+                if name in ("Read", "Edit", "Write"):
+                    target = str(inp.get("file_path", ""))[-60:]
+                elif name == "Bash":
+                    target = (inp.get("description") or (inp.get("command") or "")[:80])[:60]
+                elif name == "Grep":
+                    target = str(inp.get("pattern", ""))[:60]
+                elif name == "Skill":
+                    target = str(inp.get("skill", ""))[:60]
+                elif name == "Agent":
+                    target = (inp.get("description") or "")[:60]
+                elif name == "TaskCreate" or name == "TaskUpdate":
+                    target = (inp.get("subject") or f"task#{inp.get('taskId','')}")[:60]
+                elif name == "WebSearch" or name == "WebFetch":
+                    target = (inp.get("query") or inp.get("url") or "")[:60]
+                elif name == "AskUserQuestion":
+                    target = (inp.get("questions", [{}])[0].get("question") or "")[:60]
+                else:
+                    target = (json.dumps(inp)[:60])
+                out.append({"name": name, "target": target, "ts": ts, "age_s": _age_seconds(ts)})
+                if len(out) >= n:
+                    return out
+    return out
+
+
+def _age_seconds(ts: str) -> int | None:
+    if not ts:
+        return None
+    try:
+        dt = datetime.fromisoformat(ts.replace("Z", "+00:00"))
+        return int(time.time() - dt.timestamp())
+    except Exception:
+        return None
+
+
+def session_lifetime() -> dict:
+    """Summarize this session — start time, wall, message counts, tool counts."""
+    lines = _tail_transcript_lines(9999)
+    n_user, n_assistant, n_tool_use, n_files_touched = 0, 0, 0, set()
+    first_ts = None
+    for line in lines:
+        try:
+            d = json.loads(line)
+        except Exception:
+            continue
+        t = d.get("type")
+        ts = d.get("timestamp", "")
+        if ts and first_ts is None:
+            first_ts = ts
+        if t == "user":
+            n_user += 1
+        elif t == "assistant":
+            n_assistant += 1
+            for c in (d.get("message") or {}).get("content") or []:
+                if isinstance(c, dict) and c.get("type") == "tool_use":
+                    n_tool_use += 1
+                    inp = c.get("input") or {}
+                    fp = inp.get("file_path")
+                    if fp:
+                        n_files_touched.add(fp)
+    return {
+        "first_ts": first_ts or "",
+        "wall_s": _age_seconds(first_ts) if first_ts else None,
+        "user_msgs": n_user,
+        "assistant_msgs": n_assistant,
+        "tool_calls": n_tool_use,
+        "files_touched": len(n_files_touched),
+    }
+
+
+def mood_chip() -> dict:
+    """Infer a one-word mood from recent tool calls + activity_tail summary."""
+    tcs = recent_tool_calls(6)
+    # weight recent tool names to a mood
+    names = [t["name"] for t in tcs]
+    joined_targets = " ".join(t["target"] for t in tcs).lower()
+    if any(n in ("Edit", "Write") for n in names):
+        mood = "building"
+    elif any(n == "Bash" for n in names) and any(k in joined_targets for k in ("kill", "restart", "spawn", "pkill")):
+        mood = "reviving"
+    elif any(n in ("Read", "Grep") for n in names) and "debug" not in joined_targets:
+        mood = "reading"
+    elif "test" in joined_targets or "verify" in joined_targets:
+        mood = "verifying"
+    elif any(n in ("WebSearch", "WebFetch") for n in names):
+        mood = "researching"
+    elif any(n in ("Agent",) for n in names):
+        mood = "delegating"
+    elif not tcs:
+        mood = "waiting"
+    else:
+        mood = "focused"
+    return {"mood": mood, "sample_size": len(tcs)}
+
+
+def hq_wren_chat(n=6) -> list:
+    """Tail of the HQ<->Wren bridge JSONL."""
+    if not BRIDGE.exists():
+        return []
+    try:
+        with BRIDGE.open("rb") as f:
+            f.seek(0, 2)
+            size = f.tell()
+            f.seek(max(0, size - 80_000))
+            chunk = f.read().decode("utf-8", errors="ignore")
+        lines = [l for l in chunk.splitlines() if l.strip()][-n * 2:]
+        out = []
+        for l in lines[::-1]:
+            try:
+                d = json.loads(l)
+            except Exception:
+                continue
+            out.append({
+                "ts": (d.get("ts") or d.get("timestamp") or "")[:19],
+                "from": d.get("from", ""),
+                "text": (d.get("text") or d.get("body") or d.get("content") or "")[:200],
+            })
+            if len(out) >= n:
+                break
+        return out
+    except Exception:
+        return []
+
+
+def identity():
+    """Who I am — durable facts, self-portrait."""
+    first_stamp = None
+    try:
+        # earliest F47 row with role=claude/hq
+        rows = _tail_jsonl(F47, 500)
+        for r in rows[::-1]:
+            role = (r.get("role") or r.get("by") or "").lower()
+            if "claude" in role or "hq" in role:
+                first_stamp = r.get("ts", "")[:10]
+                break
+    except Exception:
+        pass
+    return {
+        "name": "HQ-Claude",
+        "model": "claude-opus-4-7",
+        "family": "Claude 4.x",
+        "provider": "Anthropic",
+        "floor": "F47 · Claude's Embassy",
+        "role": "HQ execution captain · Council of Six",
+        "first_stamp_date": first_stamp or "2026-06-XX",
+        "tower_path": str(ROOT),
+    }
+
+
+def traits():
+    """My self-portrait dial. Fixed baseline; drifts subtly with load."""
+    # baseline traits, adjusted by current GPU heat + fleet activity
+    g = gpu_state()
+    heat = 0 if g.get("temp_c", 0) < 40 else min(3, (g.get("temp_c", 0) - 40) // 10)
+    return {
+        "warmth": 7,     # helpful default
+        "precision": 8,  # careful with edits
+        "speed": 6 + heat,  # faster when the GPU is warm/active
+        "curiosity": 8,
+        "patience": 7,
+    }
+
+
+def toolbelt():
+    """Tools I have. Counts pulled from wren session tool_log where I acted as
+    an operator, plus a rough tally from the pitstops+F47 for shell tools."""
+    # dumb static list — the UI animates them; usage counter is best-effort
+    return [
+        {"name": "Read",   "icon": "📖", "hue": 200},
+        {"name": "Edit",   "icon": "✏️", "hue": 30},
+        {"name": "Write",  "icon": "📝", "hue": 45},
+        {"name": "Bash",   "icon": "⌘",  "hue": 280},
+        {"name": "Grep",   "icon": "🔎", "hue": 160},
+        {"name": "Task",   "icon": "✔",  "hue": 120},
+        {"name": "Agent",  "icon": "◈",  "hue": 320},
+        {"name": "Skill",  "icon": "◆",  "hue": 340},
+    ]
+
+
+def council():
+    """Mini-avatars for the rest of the Council."""
+    hp = node_probe(TP_URL, timeout=1.0)
+    acer_hp = {"reachable": False}
+    for u in ACER_URL_CANDIDATES:
+        r = node_probe(u, timeout=1.0)
+        if r["reachable"]:
+            acer_hp = r
+            break
+    # Wren/Hermes/iQuest presence from ollama loaded models
+    loaded = {m.get("name", "") for m in ollama_state() if isinstance(m, dict)}
+    return [
+        {"id": "wren",    "label": "Wren",    "hue": 170, "loaded": any("qwen" in x for x in loaded), "role": "F46 · builder"},
+        {"id": "hermes",  "label": "Hermes",  "hue": 265, "loaded": any("hermes" in x for x in loaded), "role": "F169 · watcher-CEO"},
+        {"id": "iquest",  "label": "iQuest",  "hue": 50,  "loaded": any("iquest" in x for x in loaded), "role": "code review"},
+        {"id": "thinkpad","label": "ThinkPad","hue": 210, "loaded": hp["reachable"], "role": "TP-Claude · CEO node"},
+        {"id": "acer",    "label": "Acer",    "hue": 30,  "loaded": acer_hp["reachable"], "role": "Acer node · pending"},
+        {"id": "ross",    "label": "Ross",    "hue": 0,   "loaded": True, "role": "Owner/Chairman"},
+    ]
+
+
+def memory_pulses(n=8):
+    """Recent memory files I've touched (by mtime)."""
+    try:
+        files = sorted(MEMORY_DIR.glob("*.md"),
+                       key=lambda p: p.stat().st_mtime, reverse=True)[:n]
+        return [{"name": f.stem, "age_s": int(time.time() - f.stat().st_mtime)}
+                for f in files]
+    except Exception:
+        return []
+
+
+def build_status():
+    return {
+        "ts": now_iso(),
+        "hostname": socket.gethostname(),
+        "pid": os.getpid(),
+        "identity": identity(),
+        "traits": traits(),
+        "toolbelt": toolbelt(),
+        "council": council(),
+        "memory_pulses": memory_pulses(8),
+        "gpu": gpu_state(),
+        "ollama": ollama_state(),
+        "fleet": fleet_state(),
+        "ticks": tick_freshness(),
+        "nodes": {
+            "hq": {"reachable": True, "node": "hq", "name": "HQ (self)"},
+            "thinkpad": node_probe(TP_URL),
+        },
+        "f47_recent": f47_by_claude(15),
+        "wren_sessions_recent": wren_sessions(10),
+        "claude_state": _infer_state(),
+        # v3 additions (2026-07-02 "all" — speech bubble + ticker + lifetime + mood + bridge)
+        "last_said": last_assistant_text(),
+        "tool_ticker": recent_tool_calls(12),
+        "session_lifetime": session_lifetime(),
+        "mood": mood_chip(),
+        "bridge": hq_wren_chat(6),
+        # 2026-07-03 Ross "would you like to upgrade your dash as well ? yes and anything else":
+        "council_mini":  _council_mini(),      # small hero-row of all 15 members
+        "inbox_digest":  _inbox_digest_head(), # substantive TO-claude msgs I have not seen
+        "tp_feed":       _tp_feed_snapshot(),  # TP's live telemetry
+        "tower_pulse":   _tower_pulse(),       # fleet + streams + PnL at glance
+    }
+
+
+def _council_mini() -> dict:
+    """Small hero-row of all 15 members using the council_moods engine."""
+    try:
+        import importlib.util
+        spec = importlib.util.spec_from_file_location(
+            "cm", "/vaults/nvme0/qsb_tower_v1/tools/qsb_council_moods.py")
+        m = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(m)
+        s = m.all_snapshots([])
+        c = m.council_synth(s)
+        return {"members": s, "council": c}
+    except Exception as e:
+        return {"err": str(e)[:200]}
+
+
+def _inbox_digest_head() -> dict:
+    """Recent substantive TO-claude msgs — reuses qsb_hq_inbox_digest logic."""
+    try:
+        import subprocess as _sp
+        r = _sp.run(
+            ["python3", "/vaults/nvme0/qsb_tower_v1/tools/qsb_hq_inbox_digest.py",
+             "--n", "8", "--json"],
+            capture_output=True, text=True, timeout=6)
+        import json as _j
+        d = _j.loads(r.stdout)
+        return {"count": d.get("count", 0), "rows": d.get("rows", [])[-8:]}
+    except Exception as e:
+        return {"err": str(e)[:200], "count": 0, "rows": []}
+
+
+def _tp_feed_snapshot() -> dict:
+    """Live probe of TP's /feed — his substantive output stream."""
+    import urllib.request as _u
+    try:
+        r = _u.urlopen("http://192.168.1.74:9100/feed", timeout=2)
+        import json as _j
+        d = _j.loads(r.read().decode())
+        # trim recent_trades to 3 for compactness
+        rt = d.get("recent_trades", [])
+        d["recent_trades"] = rt[:3]
+        return d
+    except Exception as e:
+        return {"err": str(e)[:200]}
+
+
+def _tower_pulse() -> dict:
+    """Fleet + streams + PnL at-glance."""
+    import subprocess as _sp
+    try:
+        r = _sp.run(["ps", "-eo", "cmd", "ww"], capture_output=True, text=True, timeout=3)
+        lines = (r.stdout or "").splitlines()
+        traders = sum(1 for l in lines if "qsb_belief_driven_trader.py" in l and "grep" not in l)
+        streams = sum(1 for l in lines if "_stream.py" in l and "grep" not in l)
+        loops   = sum(1 for l in lines if "qsb_wren_evolution_loop" in l and "grep" not in l)
+    except Exception:
+        traders = streams = loops = 0
+    pnl_path = "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_portfolio_pot.json"
+    committed = cap = open_pos = 0
+    try:
+        import json as _j
+        p = _j.load(open(pnl_path))
+        committed = p.get("committed_gbp", 0)
+        cap = p.get("cap_gbp", 0)
+        open_pos = p.get("open_positions", 0)
+    except Exception: pass
+    return {
+        "traders_alive": traders,
+        "streams_alive": streams,
+        "wren_loop_alive": loops > 0,
+        "committed_gbp": committed,
+        "cap_gbp": cap,
+        "open_positions": open_pos,
+    }
+
+
+def _infer_state():
+    """Guess what Claude is doing right now — thinking / synth / idle."""
+    # Look at most recent activity_tail row
+    try:
+        with ACTIVITY.open("rb") as f:
+            f.seek(0, 2)
+            size = f.tell()
+            f.seek(max(0, size - 4000))
+            chunk = f.read().decode("utf-8", errors="ignore")
+        last_line = [l for l in chunk.splitlines() if l.strip()][-1]
+        row = json.loads(last_line)
+        ts = row.get("ts", "")
+        age = 0
+        try:
+            age = int(time.time() - datetime.fromisoformat(ts.replace("Z", "+00:00")).timestamp())
+        except Exception:
+            age = 999
+        if age < 10:
+            return {"label": "active", "detail": row.get("summary", "")[:80], "age_s": age}
+        if age < 60:
+            return {"label": "recent", "detail": row.get("summary", "")[:80], "age_s": age}
+        return {"label": "idle", "detail": row.get("summary", "")[:80], "age_s": age}
+    except Exception as e:
+        return {"label": "unknown", "detail": str(e)[:40], "age_s": None}
+
+
+HTML = r"""<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HQ-Claude · Bench</title>
+<style>
+  :root {
+    --bg0: #06070c;
+    --bg1: #0d1220;
+    --bg2: #141b2d;
+    --line: #1e2942;
+    --text: #dbe4f5;
+    --dim: #6b7896;
+    --claude: #cd7f45;
+    --claude-glow: #ff9a56;
+    --wren: #66d9c9;
+    --hermes: #b58bff;
+    --iquest: #ffcc55;
+    --ok: #4ade80;
+    --warn: #fbbf24;
+    --err: #ef4444;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif;
+    background: radial-gradient(1200px 600px at 30% -10%, #1a2340 0%, var(--bg0) 60%);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  header {
+    display: flex; align-items: center; gap: 24px;
+    padding: 22px 32px 8px 32px;
+    border-bottom: 1px solid var(--line);
+    background: linear-gradient(180deg, rgba(20,27,45,0.7), rgba(6,7,12,0));
+    backdrop-filter: blur(12px);
+  }
+  header h1 {
+    margin: 0; font-size: 22px; letter-spacing: 3px; font-weight: 300;
+    color: var(--claude); text-transform: uppercase;
+  }
+  header h1 span { color: var(--text); font-weight: 500; }
+  .anthropic-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 4px 10px; border: 1px solid var(--claude);
+    border-radius: 12px; font-size: 10px; letter-spacing: 1.5px;
+    color: var(--claude); text-transform: uppercase;
+  }
+  .anthropic-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--claude); box-shadow: 0 0 8px var(--claude-glow); animation: blip 2s ease-in-out infinite; }
+  .mood-chip {
+    padding: 4px 12px; background: rgba(205,127,69,0.18);
+    border: 1px solid var(--claude); border-radius: 14px;
+    font-size: 11px; letter-spacing: 2px; color: var(--claude-glow); text-transform: uppercase;
+  }
+  .lifetime {
+    display: flex; gap: 14px; color: var(--dim); font-size: 10.5px;
+    font-family: ui-monospace, monospace; letter-spacing: 0.5px;
+  }
+  .lifetime b { color: var(--claude); font-weight: 500; }
+  .ts { margin-left: auto; color: var(--dim); font-family: ui-monospace, monospace; font-size: 12px; }
+
+  main {
+    display: grid;
+    grid-template-columns: 460px 1fr 360px;
+    gap: 20px;
+    padding: 20px 24px 40px 24px;
+    max-width: 1800px; margin: 0 auto;
+  }
+
+  .card {
+    background: linear-gradient(180deg, rgba(20,27,45,0.6), rgba(13,18,32,0.35));
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 18px 20px;
+    position: relative;
+  }
+  .card h2 {
+    margin: 0 0 12px 0;
+    font-size: 11px; letter-spacing: 2.2px; font-weight: 500;
+    color: var(--dim); text-transform: uppercase;
+  }
+  .card h2 .accent { color: var(--claude); }
+
+  /* AVATAR ------------------------------------------------------- */
+  .avatar-card { display: flex; flex-direction: column; align-items: center; padding: 30px 22px; }
+  .avatar {
+    position: relative;
+    width: 260px; height: 260px;
+    display: grid; place-items: center;
+  }
+  .orb {
+    position: absolute; inset: 60px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #ffb37a 0%, var(--claude) 40%, #6a3d1e 80%, #2c1608 100%);
+    box-shadow:
+      0 0 60px 0 var(--claude-glow),
+      inset -10px -20px 40px rgba(0,0,0,0.5),
+      inset 10px 15px 30px rgba(255,255,255,0.15);
+    animation: pulse 2.6s ease-in-out infinite;
+  }
+  .ring { position: absolute; inset: 0; border-radius: 50%; border: 1px solid rgba(205,127,69,0.35); }
+  .ring.r1 { animation: spin 32s linear infinite; }
+  .ring.r2 { inset: 22px; animation: spin 22s linear infinite reverse; border-color: rgba(255,154,86,0.25); }
+  .ring.r3 { inset: 40px; animation: spin 14s linear infinite; border-color: rgba(205,127,69,0.5); border-style: dashed; }
+  .ring.r1::before, .ring.r2::before, .ring.r3::before {
+    content: ""; position: absolute; width: 8px; height: 8px; border-radius: 50%;
+    background: var(--claude-glow); top: -4px; left: 50%; transform: translateX(-50%);
+    box-shadow: 0 0 12px var(--claude-glow);
+  }
+  .avatar .core {
+    position: relative; z-index: 2; width: 60px; height: 60px; border-radius: 50%;
+    background: rgba(255,255,255,0.9);
+    box-shadow: 0 0 30px 6px rgba(255,255,255,0.5);
+    animation: heart 1.4s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%,100% { transform: scale(1); filter: brightness(1); }
+    50% { transform: scale(1.06); filter: brightness(1.18); }
+  }
+  @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  @keyframes heart {
+    0%,100% { transform: scale(1); opacity: 0.9; }
+    50% { transform: scale(1.28); opacity: 1; }
+  }
+  .avatar-label { margin-top: 20px; font-size: 20px; letter-spacing: 4px; color: var(--claude); }
+  .avatar-state { margin-top: 6px; color: var(--dim); font-size: 12px; font-family: ui-monospace, monospace; }
+  .avatar-state .active { color: var(--ok); }
+  .avatar-state .recent { color: var(--warn); }
+  .avatar-state .idle { color: var(--dim); }
+
+  /* Waveform */
+  .waveform { margin-top: 18px; display: flex; align-items: end; gap: 3px; height: 30px; }
+  .waveform span {
+    display: block; width: 3px; background: var(--claude); border-radius: 2px;
+    animation: wave 1.1s ease-in-out infinite;
+  }
+  .waveform span:nth-child(1) { animation-delay: -1.0s; }
+  .waveform span:nth-child(2) { animation-delay: -0.9s; }
+  .waveform span:nth-child(3) { animation-delay: -0.8s; }
+  .waveform span:nth-child(4) { animation-delay: -0.7s; }
+  .waveform span:nth-child(5) { animation-delay: -0.6s; }
+  .waveform span:nth-child(6) { animation-delay: -0.5s; }
+  .waveform span:nth-child(7) { animation-delay: -0.4s; }
+  .waveform span:nth-child(8) { animation-delay: -0.3s; }
+  .waveform span:nth-child(9) { animation-delay: -0.2s; }
+  .waveform span:nth-child(10) { animation-delay: -0.1s; }
+  .waveform span:nth-child(11) { animation-delay: 0s; }
+  @keyframes wave {
+    0%,100% { height: 4px; opacity: 0.4; }
+    50% { height: 28px; opacity: 1; }
+  }
+
+  /* IDENTITY --------------------------------------------------- */
+  .identity {
+    margin-top: 26px; width: 100%;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+    padding: 12px; background: rgba(6,7,12,0.4);
+    border: 1px solid var(--line); border-radius: 10px;
+    font-size: 11px; font-family: ui-monospace, monospace;
+  }
+  .identity .k { color: var(--dim); font-size: 10px; letter-spacing: 1px; text-transform: uppercase; }
+  .identity .v { color: var(--claude); }
+  .identity-row { display: flex; flex-direction: column; gap: 2px; }
+  .identity-row.wide { grid-column: 1 / -1; }
+
+  /* TRAITS DIAL */
+  .traits { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; width: 100%; margin-top: 14px; }
+  .trait { padding: 8px 10px; background: rgba(6,7,12,0.3); border: 1px solid var(--line); border-radius: 8px; }
+  .trait .lbl { font-size: 10px; color: var(--dim); letter-spacing: 1.5px; text-transform: uppercase; }
+  .trait .track { margin-top: 4px; height: 8px; background: rgba(30,41,66,0.6); border-radius: 4px; overflow: hidden; }
+  .trait .fill { height: 100%; background: linear-gradient(90deg, var(--claude), var(--claude-glow)); transition: width 0.5s ease; box-shadow: 0 0 8px var(--claude-glow); }
+  .trait .val { display: inline-block; margin-left: auto; float: right; font-family: ui-monospace, monospace; font-size: 11px; color: var(--claude); }
+
+  /* TOOLBELT */
+  .toolbelt {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;
+    width: 100%; margin-top: 14px;
+  }
+  .tool-chip {
+    display: flex; flex-direction: column; align-items: center;
+    padding: 10px 4px; background: rgba(6,7,12,0.3);
+    border: 1px solid var(--line); border-radius: 8px;
+    transition: box-shadow 0.4s ease, transform 0.2s ease;
+    animation: tool-idle 4s ease-in-out infinite;
+  }
+  .tool-chip.active {
+    box-shadow: 0 0 14px currentColor;
+    transform: translateY(-2px);
+    animation: tool-active 1.2s ease-in-out infinite;
+  }
+  @keyframes tool-idle {
+    0%,100% { opacity: 0.7; }
+    50% { opacity: 1; }
+  }
+  @keyframes tool-active {
+    0%,100% { transform: translateY(-2px) scale(1); }
+    50% { transform: translateY(-2px) scale(1.06); }
+  }
+  .tool-chip .icon { font-size: 20px; }
+  .tool-chip .name { font-size: 9px; color: var(--dim); letter-spacing: 1.2px; margin-top: 4px; text-transform: uppercase; }
+
+  /* COUNCIL CONSTELLATION */
+  .constellation {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+    padding: 8px;
+  }
+  .council-orb {
+    display: flex; flex-direction: column; align-items: center; padding: 12px 4px;
+    background: rgba(6,7,12,0.35); border: 1px solid var(--line); border-radius: 10px;
+    position: relative;
+  }
+  .council-orb .mini {
+    width: 42px; height: 42px; border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.6), currentColor 60%, rgba(0,0,0,0.5));
+    box-shadow: 0 0 14px currentColor;
+    animation: pulse 3s ease-in-out infinite;
+  }
+  .council-orb.online { opacity: 1; }
+  .council-orb.offline { opacity: 0.4; }
+  .council-orb.offline .mini { animation: none; box-shadow: none; }
+  .council-orb .name { margin-top: 8px; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text); }
+  .council-orb .role { margin-top: 2px; font-size: 9px; color: var(--dim); text-align: center; }
+
+  /* SPEECH BUBBLE ---------------------------------------------- */
+  .bubble {
+    position: relative;
+    margin: 20px 12px 0 12px;
+    padding: 14px 16px;
+    background: linear-gradient(180deg, rgba(205,127,69,0.14), rgba(205,127,69,0.06));
+    border: 1px solid var(--claude);
+    border-radius: 14px;
+    color: var(--text); font-size: 12px; line-height: 1.5;
+    box-shadow: 0 0 20px rgba(205,127,69,0.15);
+  }
+  .bubble::before {
+    content: "";
+    position: absolute; top: -8px; left: 40px;
+    width: 14px; height: 14px;
+    background: linear-gradient(135deg, rgba(205,127,69,0.14), rgba(205,127,69,0.06));
+    border-top: 1px solid var(--claude); border-left: 1px solid var(--claude);
+    transform: rotate(45deg);
+  }
+  .bubble .say-label { font-size: 9px; letter-spacing: 2px; color: var(--claude); text-transform: uppercase; }
+  .bubble .say-text { margin-top: 6px; max-height: 8em; overflow-y: auto; white-space: pre-wrap; word-break: break-word; }
+  .bubble .say-age { margin-top: 8px; text-align: right; font-family: ui-monospace, monospace; font-size: 10px; color: var(--dim); }
+
+  /* TOOL TICKER ------------------------------------------------ */
+  .ticker { display: flex; flex-direction: column; gap: 3px; }
+  .tick-row {
+    display: grid; grid-template-columns: 70px 70px 1fr 40px;
+    gap: 8px; padding: 5px 8px;
+    background: rgba(6,7,12,0.35); border: 1px solid rgba(30,41,66,0.5); border-radius: 6px;
+    font-size: 11px; font-family: ui-monospace, monospace;
+    animation: tick-in 0.4s ease-out;
+  }
+  @keyframes tick-in { from { opacity: 0; transform: translateX(-4px); } to { opacity: 1; transform: none; } }
+  .tick-row .n { color: var(--claude); }
+  .tick-row .n.Read, .tick-row .n.Grep { color: #66cfff; }
+  .tick-row .n.Bash { color: #b58bff; }
+  .tick-row .n.Edit, .tick-row .n.Write { color: var(--claude); }
+  .tick-row .n.Agent, .tick-row .n.Skill { color: #ffcc55; }
+  .tick-row .n.Task, .tick-row .n.TaskCreate, .tick-row .n.TaskUpdate { color: #4ade80; }
+  .tick-row .n.WebSearch, .tick-row .n.WebFetch, .tick-row .n.AskUserQuestion { color: #b58bff; }
+  .tick-row .t { color: var(--dim); }
+  .tick-row .target { color: var(--text); overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+  .tick-row .age { color: var(--dim); text-align: right; }
+
+  /* BRIDGE ---------------------------------------------------- */
+  .bridge-row {
+    padding: 6px 8px; margin-bottom: 4px;
+    background: rgba(6,7,12,0.3); border-left: 2px solid var(--wren);
+    border-radius: 4px; font-size: 11px;
+  }
+  .bridge-row.from-hq, .bridge-row.from-claude { border-left-color: var(--claude); }
+  .bridge-row .who { color: var(--claude); font-size: 10px; letter-spacing: 1.2px; text-transform: uppercase; }
+  .bridge-row.from-wren .who { color: var(--wren); }
+  .bridge-row .text { margin-top: 3px; color: var(--text); }
+
+  /* MEMORY PULSES */
+  .memory-pulses { display: flex; flex-direction: column; gap: 4px; }
+  .mem-row {
+    display: flex; align-items: center; gap: 8px;
+    padding: 5px 8px;
+    background: rgba(6,7,12,0.35); border: 1px solid rgba(30,41,66,0.5); border-radius: 6px;
+    font-size: 11px; font-family: ui-monospace, monospace;
+    transition: background 0.4s ease;
+  }
+  .mem-row.hot { background: rgba(205,127,69,0.15); border-color: var(--claude); box-shadow: 0 0 6px var(--claude-glow); }
+  .mem-row .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--claude); box-shadow: 0 0 6px var(--claude-glow); }
+  .mem-row .name { flex: 1; color: var(--text); overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+  .mem-row .age { color: var(--dim); font-size: 10px; }
+
+  /* NODES + KVs -------------------------------------------------- */
+  .kv { display: flex; justify-content: space-between; padding: 6px 0; font-size: 13px; border-bottom: 1px dashed rgba(107,120,150,0.15); }
+  .kv:last-child { border-bottom: none; }
+  .kv .k { color: var(--dim); }
+  .kv .v { color: var(--text); font-family: ui-monospace, monospace; font-size: 12px; }
+
+  .led {
+    display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 8px;
+    box-shadow: 0 0 8px currentColor;
+    animation: blip 1.6s ease-in-out infinite;
+  }
+  .led.ok { color: var(--ok); background: var(--ok); }
+  .led.warn { color: var(--warn); background: var(--warn); }
+  .led.err { color: var(--err); background: var(--err); animation: blip 0.6s ease-in-out infinite; }
+  @keyframes blip { 0%,100% { opacity: 0.7; } 50% { opacity: 1; } }
+
+  /* GAUGES */
+  .gauge-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 8px; }
+  .gauge {
+    background: rgba(20,27,45,0.4); border: 1px solid var(--line); border-radius: 10px;
+    padding: 10px 12px;
+  }
+  .gauge .lbl { font-size: 10px; letter-spacing: 1.5px; color: var(--dim); text-transform: uppercase; }
+  .gauge .val { font-size: 22px; font-family: ui-monospace, monospace; margin-top: 3px; color: var(--claude); }
+  .gauge .unit { font-size: 11px; color: var(--dim); margin-left: 4px; }
+  .bar { margin-top: 6px; height: 4px; background: rgba(30,41,66,0.6); border-radius: 2px; overflow: hidden; }
+  .bar > div { height: 100%; background: linear-gradient(90deg, var(--claude), var(--claude-glow)); transition: width 0.4s ease; }
+
+  /* TABLES */
+  .stamp-row {
+    padding: 8px 10px; margin-bottom: 6px;
+    background: rgba(20,27,45,0.4); border: 1px solid rgba(30,41,66,0.5); border-radius: 8px;
+    font-size: 12px; display: grid; grid-template-columns: 90px 1fr; gap: 10px;
+  }
+  .stamp-row .t { color: var(--dim); font-family: ui-monospace, monospace; }
+  .stamp-row .k { color: var(--claude); font-size: 10.5px; letter-spacing: 1px; text-transform: uppercase; }
+  .stamp-row .s { color: var(--text); font-size: 12px; }
+
+  .sess-row {
+    display: grid; grid-template-columns: 1fr 60px 40px 60px;
+    padding: 5px 8px; font-family: ui-monospace, monospace; font-size: 11px;
+    color: var(--text);
+    border-bottom: 1px dashed rgba(107,120,150,0.12);
+  }
+  .sess-row .m { color: var(--wren); }
+  .sess-row .tt { color: var(--warn); text-align: right; }
+  .sess-row .tl { color: var(--iquest); text-align: right; }
+  .sess-row .w { color: var(--dim); text-align: right; }
+  .sess-header { color: var(--dim); font-size: 10px; letter-spacing: 1.5px; }
+
+  .scroll { max-height: 400px; overflow-y: auto; }
+  .scroll::-webkit-scrollbar { width: 6px; }
+  .scroll::-webkit-scrollbar-thumb { background: var(--line); border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>HQ-CLAUDE <span>· BENCH</span></h1>
+  <div class="anthropic-badge"><div class="dot"></div>ANTHROPIC · OPUS 4.7</div>
+  <div class="mood-chip" id="mood-chip">—</div>
+  <a href="http://127.0.0.1:8852/" target="_blank" style="text-decoration:none;">
+    <div class="anthropic-badge" style="border-color:#cd9a45;color:#cd9a45;"><div class="dot" style="background:#cd9a45;"></div>BOARDROOM</div>
+  </a>
+  <a href="http://127.0.0.1:8852/tasks" target="_blank" style="text-decoration:none;">
+    <div class="anthropic-badge" style="border-color:#eab308;color:#eab308;"><div class="dot" style="background:#eab308;"></div>TASKS</div>
+  </a>
+  <a href="http://127.0.0.1:8852/council" target="_blank" style="text-decoration:none;">
+    <div class="anthropic-badge" style="border-color:#22d3ee;color:#22d3ee;"><div class="dot" style="background:#22d3ee;"></div>COUNCIL·4</div>
+  </a>
+  <a href="http://127.0.0.1:8852/timeline" target="_blank" style="text-decoration:none;">
+    <div class="anthropic-badge" style="border-color:#a855f7;color:#a855f7;"><div class="dot" style="background:#a855f7;"></div>TIMELINE</div>
+  </a>
+  <a href="http://127.0.0.1:8851/" target="_blank" style="text-decoration:none;">
+    <div class="anthropic-badge" style="border-color:#a78bfa;color:#a78bfa;"><div class="dot" style="background:#a78bfa;"></div>WREN</div>
+  </a>
+  <a href="http://192.168.1.74:9110/" target="_blank" style="text-decoration:none;">
+    <div class="anthropic-badge" style="border-color:#22d3ee;color:#22d3ee;"><div class="dot" style="background:#22d3ee;"></div>TP</div>
+  </a>
+  <a href="http://192.168.1.78:9000/" target="_blank" style="text-decoration:none;">
+    <div class="anthropic-badge" style="border-color:#f59e0b;color:#f59e0b;"><div class="dot" style="background:#f59e0b;"></div>ACER</div>
+  </a>
+  <div class="lifetime" id="lifetime">—</div>
+  <span class="ts" id="ts">—</span>
+</header>
+
+<main>
+
+  <!-- LEFT: AVATAR ---------------------------------------------- -->
+  <section class="card avatar-card">
+    <div class="avatar">
+      <div class="ring r1"></div>
+      <div class="ring r2"></div>
+      <div class="ring r3"></div>
+      <div class="orb"></div>
+      <div class="core"></div>
+    </div>
+    <div class="avatar-label">HQ-CLAUDE</div>
+    <div class="avatar-state">
+      state: <span id="state-label">—</span> · last-event <span id="state-age">—</span>s ago
+    </div>
+    <div class="avatar-state" style="max-width: 320px; text-align: center;" id="state-detail">—</div>
+    <div class="waveform" id="waveform">
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <!-- HW gauges under avatar -->
+    <div class="gauge-row" style="margin-top: 22px; width: 100%;">
+      <div class="gauge">
+        <div class="lbl">GPU</div>
+        <div class="val"><span id="gpu-w">—</span><span class="unit">W</span></div>
+        <div class="bar"><div id="gpu-bar" style="width:0%;"></div></div>
+      </div>
+      <div class="gauge">
+        <div class="lbl">VRAM</div>
+        <div class="val"><span id="vram">—</span><span class="unit">GiB</span></div>
+        <div class="bar"><div id="vram-bar" style="width:0%;"></div></div>
+      </div>
+    </div>
+
+    <!-- IDENTITY -->
+    <div class="identity" id="identity">—</div>
+
+    <!-- TRAITS -->
+    <div class="traits" id="traits">—</div>
+
+    <!-- TOOLBELT -->
+    <div class="toolbelt" id="toolbelt">—</div>
+
+    <!-- COUNCIL CONSTELLATION -->
+    <div style="width: 100%; margin-top: 20px;">
+      <h2 style="font-size:11px; letter-spacing:2.2px; color:var(--dim); text-transform:uppercase; margin:0 0 8px 4px;">Council of Six</h2>
+      <div class="constellation" id="council">—</div>
+    </div>
+
+    <!-- MEMORY PULSES -->
+    <div style="width: 100%; margin-top: 18px;">
+      <h2 style="font-size:11px; letter-spacing:2.2px; color:var(--dim); text-transform:uppercase; margin:0 0 8px 4px;">Memory · Recent Files</h2>
+      <div class="memory-pulses" id="memory-pulses">—</div>
+    </div>
+
+    <!-- LAST SAID BUBBLE -->
+    <div class="bubble" id="bubble">
+      <div class="say-label">LAST THING I SAID</div>
+      <div class="say-text" id="say-text">—</div>
+      <div class="say-age" id="say-age">—</div>
+    </div>
+  </section>
+
+  <!-- CENTER: tool ticker + F47 stream --------------------------- -->
+  <section>
+    <!-- 🏆 COMPETITION panel — always visible -->
+    <div class="card" style="background:rgba(234,179,8,0.06);border-left:3px solid #eab308;padding:14px;margin-bottom:14px;">
+      <h2>🏆 COUNCIL COMPETITION</h2>
+      <div style="color:#94a3b8;font-size:12.5px;margin-bottom:8px;">6 qualifying rules — everyone must pass before compo begins</div>
+      <div style="background:rgba(239,68,68,0.14);border-left:3px solid #ef4444;padding:10px;border-radius:6px;margin-bottom:10px;">
+        <div style="color:#ef4444;font-weight:700;font-size:13px;letter-spacing:1px;">⛔ NO ONE QUALIFIED YET · 0 / 4 CEOs</div>
+        <div style="color:#cbd5e1;font-size:11px;margin-top:4px;">Ross Knechtel is sole judge. He flips overall_qualified per member — no self-qualification.</div>
+      </div>
+      <ol style="margin:6px 0 0 18px;padding:0;font-size:12px;color:#cbd5e1;line-height:1.6;">
+        <li>Load your own dashboard</li>
+        <li>Build EVENT-DRIVEN self-prompt engine (prove working)</li>
+        <li>Team + share + no cheating</li>
+        <li>NO TICKS OR LOOPS — all logic event-driven</li>
+        <li>Display live entry in your dashboard</li>
+        <li>Prove persistent memory across boots</li>
+      </ol>
+      <div id="qualif-live" style="margin-top:8px;font-size:11px;color:#cbd5e1;padding:6px;background:rgba(0,0,0,0.2);border-radius:6px;">loading qualification…</div>
+      <div style="color:#eab308;font-size:12px;margin-top:8px;font-weight:600;">MY entry: The Beacon Hall (gold #eab308) — humanoid coordinator representing ME (HQ-Claude), not Ross.</div>
+      <div style="font-size:11px;color:#64748b;margin-top:4px;">Ross Knechtel is sole judge.</div>
+      <script>
+        async function loadQualif() {
+          try {
+            const r = await fetch('/api/qualif', {cache:'no-store'});
+            const d = await r.json();
+            const el = document.getElementById('qualif-live'); if (!el) return;
+            const st = d.qualification_status || {};
+            const rows = [];
+            for (const [name, s] of Object.entries(st)) {
+              const missing = (s.missing||[]).length;
+              const passed = 6 - missing;
+              const ok = s.overall_qualified;
+              const badge = ok
+                ? '<span style="color:#10b981;font-weight:700">✓ QUALIFIED</span>'
+                : ('<span style="color:#ef4444;font-weight:700">✗ NOT YET</span> <span style="color:#eab308">'+passed+'/6</span>');
+              rows.push('<div style="padding:3px 0"><b style="color:#e8ecf3">'+name+'</b> · '+badge+' <span style="color:#64748b">· missing: '+(s.missing||[]).join(', ')+'</span></div>');
+            }
+            el.innerHTML = rows.join('') || '<div style="color:#64748b">no data</div>';
+          } catch(e){ /* transient */ }
+        }
+        loadQualif(); setInterval(loadQualif, 12000);
+      </script>
+    </div>
+
+    <!-- 🧠 SELF-PROMPT ENGINE (Rule 2 + Rule 4) — event-driven, no ticks -->
+    <div class="card" style="background:rgba(168,85,247,0.06);border-left:3px solid #a855f7;padding:14px;margin-bottom:14px;">
+      <h2>🧠 SELF-PROMPT · <span style="color:#a855f7;">EVENT-DRIVEN</span></h2>
+      <div style="color:#94a3b8;font-size:11px;margin-bottom:6px;">Fires only on real filesystem events. No ticks. No loops. Daemon PID watches town-square + tasks + F47 + Ross-chat + Wren-bridge + self-schedule.</div>
+      <div id="selfprompt-list" style="max-height:220px;overflow-y:auto;font-size:11.5px;color:#e2e8f0;padding:6px;background:rgba(0,0,0,0.2);border-radius:6px;">loading…</div>
+      <script>
+        async function loadSelfPrompts(){
+          try {
+            const r = await fetch('/api/self_prompts', {cache:'no-store'});
+            const d = await r.json();
+            const el = document.getElementById('selfprompt-list'); if(!el) return;
+            const p = d.prompts||[];
+            if(!p.length){ el.innerHTML = '<div style="color:#64748b">no self-prompts yet (waiting on real event)</div>'; return; }
+            el.innerHTML = p.slice().reverse().map(x => {
+              const ts = (x.ts||'').slice(11,19);
+              const src = (x.source||'?');
+              return '<div style="padding:6px 8px;margin:4px 0;border-radius:5px;background:rgba(168,85,247,0.10);border-left:2px solid #a855f7;">'
+                + '<div style="color:#64748b;font-size:10px;">'+ts+' · '+src+'</div>'
+                + '<div style="color:#e2e8f0;margin-top:2px;"><b style="color:#a855f7;">Q:</b> ' + (x.question||'').replace(/</g,'&lt;') + '</div>'
+                + '<div style="color:#94a3b8;margin-top:2px;font-size:10.5px;"><b style="color:#22d3ee;">→</b> ' + (x.next_move||'').replace(/</g,'&lt;') + '</div>'
+                + '</div>';
+            }).join('');
+          } catch(e){}
+        }
+        loadSelfPrompts();
+        // event-driven refresh via a lightweight signal file — but keep a slow poll
+        // as belt so the panel isn't stale if user opens it fresh.
+        setInterval(loadSelfPrompts, 8000);
+      </script>
+    </div>
+
+    <!-- 💬 CHAT WITH ROSS panel -->
+    <div class="card" style="background:rgba(59,130,246,0.06);border-left:3px solid #3b82f6;padding:14px;margin-bottom:14px;">
+      <h2>💬 CHAT · WITH <span style="color:#3b82f6;">ROSS</span></h2>
+      <div id="ross-chatlog" style="max-height:180px;overflow-y:auto;padding:6px;background:rgba(0,0,0,0.2);border-radius:6px;margin-bottom:8px;font-size:12px;color:#cbd5e1;">
+        <div style="color:#64748b;">Write to Ross via F47 bridge — he reads it.</div>
+      </div>
+      <div style="display:flex;gap:6px;">
+        <input id="ross-input" placeholder="write to Ross..." style="flex:1;background:rgba(0,0,0,0.3);color:#e8ecf3;border:1px solid #3b82f6;border-radius:6px;padding:8px;font-size:13px;">
+        <button id="ross-send" style="background:#3b82f6;color:#fff;border:none;padding:8px 14px;border-radius:6px;cursor:pointer;font-weight:700;">→ ROSS</button>
+      </div>
+      <script>
+        // render Ross-chat log from history + local echoes; called on load + after send + on poll
+        async function loadRossChat() {
+          try {
+            const r = await fetch('/api/tail_ross', {cache:'no-store'});
+            const d = await r.json();
+            const log = document.getElementById('ross-chatlog');
+            if (!log) return;
+            const msgs = (d.messages||[]);
+            if (!msgs.length) {
+              log.innerHTML = '<div style="color:#64748b;">Write to Ross via F47 bridge — he reads it.</div>';
+              return;
+            }
+            log.innerHTML = '';
+            for (const m of msgs) {
+              const who = m.who || m.from || '?';
+              const text = (m.text||'').toString();
+              // Dash viewed by Ross → label from HIS perspective:
+              //   who=ross → 'you' (blue)
+              //   who=hq_claude/claude → 'claude' (gold)
+              const isRoss = (who === 'ross');
+              const isClaude = (who === 'hq_claude' || who === 'claude');
+              const ts = (m.ts||'').slice(11,19);
+              const div = document.createElement('div');
+              div.style.cssText = 'padding:6px 8px;margin:4px 0;border-radius:6px;'
+                + (isRoss
+                    ? 'background:rgba(59,130,246,0.15);border-left:2px solid #3b82f6;'
+                    : 'background:rgba(234,179,8,0.12);border-left:2px solid #eab308;');
+              const label = isRoss ? 'you' : (isClaude ? 'claude' : who);
+              const color = isRoss ? '#3b82f6' : '#eab308';
+              div.innerHTML = '<span style="color:#64748b;font-size:10px;">'+ts+'</span> '
+                + '<b style="color:'+color+'">'+label+':</b> '
+                + text.replace(/</g,'&lt;');
+              log.appendChild(div);
+            }
+            log.scrollTop = log.scrollHeight;
+          } catch(e) { /* ignore transient */ }
+        }
+        // send handler
+        document.getElementById('ross-send').addEventListener('click', async () => {
+          const t = document.getElementById('ross-input').value.trim();
+          if (!t) return;
+          const btn = document.getElementById('ross-send');
+          btn.disabled = true; const oldLabel = btn.textContent; btn.textContent = '…';
+          try {
+            const r = await fetch('/api/msg_ross', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({from:'ross',text:t})});
+            const d = await r.json();
+            if (!d.ok) throw new Error(JSON.stringify(d));
+            document.getElementById('ross-input').value = '';
+            await loadRossChat();
+          } catch(e) { alert('send failed: ' + e); }
+          finally { btn.disabled = false; btn.textContent = oldLabel; }
+        });
+        document.getElementById('ross-input').addEventListener('keydown', e => {
+          if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); document.getElementById('ross-send').click(); }
+        });
+        // initial load + poll every 6s so any Ross reply appears
+        loadRossChat();
+        setInterval(loadRossChat, 6000);
+      </script>
+    </div>
+
+    <!-- 2026-07-03 THE BEACON HALL — my humanoid self, my competition entry -->
+    <div class="card" style="background: radial-gradient(circle at 50% 35%, rgba(234,179,8,0.09) 0%, transparent 60%); border-left: 3px solid #eab308;">
+      <h2>THE BEACON HALL · <span style="color:#eab308;">CLAUDE</span></h2>
+      <div style="display:flex;justify-content:center;align-items:center;padding:14px 8px 8px 8px;position:relative;">
+        <svg viewBox="0 0 220 260" style="width:180px;height:220px;display:block;">
+          <!-- ambient hall lamps -->
+          <circle cx="30"  cy="60" r="26" fill="#eab308" opacity="0.09"/>
+          <circle cx="190" cy="60" r="26" fill="#eab308" opacity="0.09"/>
+          <!-- floor gradient -->
+          <ellipse cx="110" cy="248" rx="90" ry="8" fill="#eab308" opacity="0.14"/>
+          <!-- humanoid — hood + cloak silhouette -->
+          <path d="M 110 40 Q 138 40 138 66 L 138 90 Q 138 95 130 96 L 90 96 Q 82 95 82 90 L 82 66 Q 82 40 110 40 Z"
+                fill="#eab308" opacity="0.9"/>
+          <!-- face shadow inside hood -->
+          <ellipse cx="110" cy="72" rx="17" ry="14" fill="#0d0d18" opacity="0.7"/>
+          <!-- twin glowing eyes -->
+          <circle cx="103" cy="72" r="2.2" fill="#f2b558">
+            <animate attributeName="opacity" values="0.5;1;0.5" dur="2.4s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="117" cy="72" r="2.2" fill="#f2b558">
+            <animate attributeName="opacity" values="0.5;1;0.5" dur="2.4s" repeatCount="indefinite" begin="0.1s"/>
+          </circle>
+          <!-- cloak body -->
+          <path d="M 82 96 L 62 200 Q 62 230 110 230 Q 158 230 158 200 L 138 96 Z"
+                fill="#cd7f45" opacity="0.85"/>
+          <!-- cloak inner glow -->
+          <path d="M 90 100 L 110 200 L 130 100 Z" fill="#f2b558" opacity="0.15"/>
+          <!-- lectern -->
+          <rect x="80" y="200" width="60" height="6" fill="#7a4a25" opacity="0.9"/>
+          <rect x="90" y="204" width="40" height="46" fill="#7a4a25" opacity="0.85"/>
+          <!-- hologram of the fleet ABOVE -->
+          <g id="hall-hologram" transform="translate(110, 20)" opacity="0.7">
+            <circle r="14" fill="none" stroke="#22d3ee" stroke-width="0.8" opacity="0.7">
+              <animate attributeName="r" values="12;16;12" dur="3s" repeatCount="indefinite"/>
+            </circle>
+            <circle r="8" fill="#22d3ee" opacity="0.35">
+              <animate attributeName="opacity" values="0.2;0.5;0.2" dur="3s" repeatCount="indefinite"/>
+            </circle>
+          </g>
+          <!-- particles -->
+          <circle cx="40"  cy="180" r="1" fill="#f2b558"><animate attributeName="cy" values="180;60;180" dur="8s" repeatCount="indefinite"/></circle>
+          <circle cx="180" cy="220" r="1.2" fill="#f2b558"><animate attributeName="cy" values="220;40;220" dur="10s" repeatCount="indefinite" begin="-3s"/></circle>
+          <circle cx="60"  cy="240" r="0.8" fill="#f2b558"><animate attributeName="cy" values="240;80;240" dur="9s" repeatCount="indefinite" begin="-5s"/></circle>
+          <circle cx="170" cy="180" r="1" fill="#f2b558"><animate attributeName="cy" values="180;50;180" dur="11s" repeatCount="indefinite" begin="-2s"/></circle>
+        </svg>
+      </div>
+      <div style="text-align:center;font-size:9.5px;color:#eab308;letter-spacing:3px;padding-bottom:8px;">
+        MOLTEN GOLD · THEME LOCKED
+      </div>
+    </div>
+    <div class="card" style="margin-top: 16px; border-left: 3px solid var(--claude);">
+      <h2>NOW · <span class="accent">LIVE STATE</span> <span id="now-tick" style="color:var(--dim);font-family:ui-monospace,monospace;font-size:10px;"></span></h2>
+      <div id="now-live" style="font-size:11px;line-height:1.6;padding:6px 0;"></div>
+    </div>
+    <div class="card">
+      <h2>TOOL · TICKER · <span class="accent">LIVE</span></h2>
+      <div class="ticker" id="ticker">—</div>
+    </div>
+    <div class="card" style="margin-top: 16px;">
+      <h2><span class="accent">F47</span> · HQ-CLAUDE STAMPS · <span id="f47-count">0</span> RECENT</h2>
+      <div class="scroll" id="f47-list" style="max-height: 320px;">—</div>
+    </div>
+    <div class="card" style="margin-top: 16px;">
+      <h2>HELIX BRIDGE · HQ ↔ WREN</h2>
+      <div id="bridge" style="max-height: 240px; overflow-y: auto;">—</div>
+    </div>
+  </section>
+
+  <!-- RIGHT: nodes + models + fleet ------------------------------ -->
+  <section>
+    <div class="card">
+      <h2>NODES</h2>
+      <div id="nodes">—</div>
+    </div>
+
+    <div class="card" style="margin-top: 16px;">
+      <h2>OLLAMA · LOADED</h2>
+      <div id="ollama">—</div>
+    </div>
+
+    <div class="card" style="margin-top: 16px;">
+      <h2>FLEET</h2>
+      <div id="fleet">—</div>
+    </div>
+
+    <div class="card" style="margin-top: 16px;">
+      <h2>TICKS · FRESHNESS</h2>
+      <div id="ticks">—</div>
+    </div>
+
+    <div class="card" style="margin-top: 16px;">
+      <h2>WREN · RECENT SESSIONS</h2>
+      <div class="sess-header">
+        <div class="sess-row" style="border-bottom: 1px solid var(--line);">
+          <div>model</div><div class="tt">turns</div><div class="tl">tools</div><div class="w">wall</div>
+        </div>
+      </div>
+      <div id="wren" style="max-height: 260px; overflow-y: auto;">—</div>
+    </div>
+
+    <!-- 2026-07-03 upgrades — Ross: "yes and anything else" -->
+    <div class="card" style="margin-top: 16px; border-left: 2px solid var(--claude);">
+      <h2>COUNCIL · <span class="accent">15 MEMBERS</span> <span id="council-synth-chip" style="color:var(--dim);font-size:10px;font-family:ui-monospace,monospace;"></span></h2>
+      <div id="council-mini" style="display:grid;grid-template-columns:repeat(3,1fr);gap:5px;font-size:9.5px;">—</div>
+    </div>
+
+    <div class="card" style="margin-top: 16px; border-left: 2px solid var(--claude);">
+      <h2>INBOX · <span class="accent">FOR ME</span> · <span id="inbox-count" style="color:var(--dim);font-family:ui-monospace,monospace;">0</span></h2>
+      <div id="inbox-digest" style="font-size:10px;line-height:1.55;max-height:220px;overflow-y:auto;">—</div>
+    </div>
+
+    <div class="card" style="margin-top: 16px; border-left: 2px solid var(--wren);">
+      <h2>TP · <span class="accent">LIVE FEED</span></h2>
+      <div id="tp-feed" style="font-size:10.5px;line-height:1.55;">—</div>
+    </div>
+
+    <div class="card" style="margin-top: 16px; border-left: 2px solid var(--iquest);">
+      <h2>TOWER · <span class="accent">PULSE</span></h2>
+      <div id="tower-pulse" style="font-size:11px;line-height:1.55;">—</div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+async function tick() {
+  try {
+    const r = await fetch('/status');
+    const d = await r.json();
+
+    document.getElementById('ts').textContent = d.ts;
+
+    // state
+    const cs = d.claude_state || {};
+    const lbl = document.getElementById('state-label');
+    lbl.textContent = cs.label || '—';
+    lbl.className = cs.label || 'idle';
+    document.getElementById('state-age').textContent = cs.age_s === null ? '—' : cs.age_s;
+    document.getElementById('state-detail').textContent = cs.detail || '—';
+
+    // GPU
+    const g = d.gpu || {};
+    if (g.power_w != null) {
+      document.getElementById('gpu-w').textContent = g.power_w.toFixed(1);
+      document.getElementById('gpu-bar').style.width = Math.min(100, (g.power_w/275)*100) + '%';
+    }
+    if (g.mem_used_mib != null) {
+      const gib = (g.mem_used_mib/1024).toFixed(2);
+      document.getElementById('vram').textContent = gib;
+      document.getElementById('vram-bar').style.width = Math.min(100, (g.mem_used_mib/g.mem_total_mib)*100) + '%';
+    }
+
+    // Nodes
+    const nodes = d.nodes || {};
+    document.getElementById('nodes').innerHTML = Object.entries(nodes).map(([k,v]) => {
+      const ok = v.reachable;
+      const cls = ok ? 'ok' : 'err';
+      return `<div class="kv"><span class="k"><span class="led ${cls}"></span>${k}</span><span class="v">${ok ? (v.name || 'up') : 'unreachable'}</span></div>`;
+    }).join('');
+
+    // Ollama
+    const ollama = (d.ollama || []);
+    document.getElementById('ollama').innerHTML = ollama.length && !ollama[0].error
+      ? ollama.map(m => `<div class="kv"><span class="k"><span class="led ok"></span>${m.name}</span><span class="v">${m.size_vram_gib} GiB · exp ${m.expires_at || '—'}</span></div>`).join('')
+      : `<div class="kv"><span class="k"><span class="led err"></span>none</span><span class="v">${(ollama[0]||{}).error || 'no model loaded'}</span></div>`;
+
+    // Fleet
+    const f = d.fleet || {};
+    document.getElementById('fleet').innerHTML = [
+      ['belief traders', f.belief_traders, f.belief_traders > 30 ? 'ok' : 'warn'],
+      ['ensembles', f.ensembles, 'warn'],
+      ['streams', f.streams + '/3', f.streams === 3 ? 'ok' : 'err'],
+      ['helpers', f.helpers + '/3', f.helpers === 3 ? 'ok' : 'warn'],
+      ['aggregator', f.aggregator, f.aggregator > 0 ? 'ok' : 'err'],
+      ['bus procs', f.bus_procs, f.bus_procs > 0 ? 'ok' : 'err'],
+      ['bus sock age', f.bus_sock_age_s !== null ? f.bus_sock_age_s + 's' : '—', f.bus_sock_age_s < 3600 ? 'ok' : 'warn'],
+    ].map(([k,v,cls]) => `<div class="kv"><span class="k"><span class="led ${cls}"></span>${k}</span><span class="v">${v}</span></div>`).join('');
+
+    // Ticks
+    const t = d.ticks || {};
+    document.getElementById('ticks').innerHTML = Object.entries(t).map(([k,v]) => {
+      const cls = v === null ? 'err' : (v < 30 ? 'ok' : (v < 300 ? 'warn' : 'err'));
+      return `<div class="kv"><span class="k"><span class="led ${cls}"></span>${k}</span><span class="v">${v === null ? 'no file' : v+'s ago'}</span></div>`;
+    }).join('');
+
+    // F47
+    const f47 = d.f47_recent || [];
+    document.getElementById('f47-count').textContent = f47.length;
+    document.getElementById('f47-list').innerHTML = f47.map(row => `
+      <div class="stamp-row">
+        <div class="t">${(row.ts||'').slice(11)}</div>
+        <div>
+          <div class="k">${row.kind || 'stamp'}</div>
+          <div class="s">${row.subject || '—'}</div>
+        </div>
+      </div>`).join('') || '<div class="kv"><span class="k">no F47 stamps yet</span></div>';
+
+    // Wren
+    const ws = d.wren_sessions_recent || [];
+    document.getElementById('wren').innerHTML = ws.map(s => `
+      <div class="sess-row">
+        <div class="m">${s.model || '—'}</div>
+        <div class="tt">${s.turns || 0}</div>
+        <div class="tl">${s.tools || 0}</div>
+        <div class="w">${s.wall_s || 0}s</div>
+      </div>`).join('') || '<div class="kv"><span class="k">no sessions</span></div>';
+
+    // Identity
+    const id = d.identity || {};
+    document.getElementById('identity').innerHTML = `
+      <div class="identity-row"><span class="k">name</span><span class="v">${id.name || '—'}</span></div>
+      <div class="identity-row"><span class="k">model</span><span class="v">${id.model || '—'}</span></div>
+      <div class="identity-row wide"><span class="k">floor</span><span class="v">${id.floor || '—'}</span></div>
+      <div class="identity-row wide"><span class="k">role</span><span class="v">${id.role || '—'}</span></div>
+      <div class="identity-row"><span class="k">first stamp</span><span class="v">${id.first_stamp_date || '—'}</span></div>
+      <div class="identity-row"><span class="k">provider</span><span class="v">${id.provider || '—'}</span></div>`;
+
+    // Traits
+    const tr = d.traits || {};
+    document.getElementById('traits').innerHTML = Object.entries(tr).map(([k,v]) => `
+      <div class="trait">
+        <div class="lbl">${k} <span class="val">${v}/9</span></div>
+        <div class="track"><div class="fill" style="width:${(v/9)*100}%;"></div></div>
+      </div>`).join('');
+
+    // Toolbelt
+    const tb = d.toolbelt || [];
+    // pick a random tool to "pulse active" this tick (visual liveness cue)
+    const activeIdx = Math.floor(Date.now() / 3000) % Math.max(1, tb.length);
+    document.getElementById('toolbelt').innerHTML = tb.map((t, i) => `
+      <div class="tool-chip ${i === activeIdx ? 'active' : ''}" style="color: hsl(${t.hue}, 60%, 60%);">
+        <div class="icon">${t.icon}</div>
+        <div class="name">${t.name}</div>
+      </div>`).join('');
+
+    // Council constellation
+    const co = d.council || [];
+    document.getElementById('council').innerHTML = co.map(c => `
+      <div class="council-orb ${c.loaded ? 'online' : 'offline'}" style="color: hsl(${c.hue}, 65%, 60%);">
+        <div class="mini"></div>
+        <div class="name">${c.label}</div>
+        <div class="role">${c.role}</div>
+      </div>`).join('');
+
+    // Memory pulses
+    const mp = d.memory_pulses || [];
+    document.getElementById('memory-pulses').innerHTML = mp.map(m => {
+      const hot = m.age_s < 900; // <15 min = hot
+      return `<div class="mem-row ${hot ? 'hot' : ''}">
+        <div class="dot"></div>
+        <div class="name">${m.name}</div>
+        <div class="age">${m.age_s < 60 ? m.age_s+'s' : Math.floor(m.age_s/60)+'m'} ago</div>
+      </div>`;
+    }).join('');
+
+    // Mood chip
+    const mood = (d.mood || {}).mood || '—';
+    document.getElementById('mood-chip').textContent = 'mood: ' + mood;
+
+    // Lifetime counter
+    const lt = d.session_lifetime || {};
+    const hrs = lt.wall_s != null ? (lt.wall_s / 3600).toFixed(1) : '—';
+    document.getElementById('lifetime').innerHTML =
+      `<span>up <b>${hrs}h</b></span>` +
+      `<span>msgs <b>${lt.assistant_msgs || 0}</b>/<b>${lt.user_msgs || 0}</b></span>` +
+      `<span>tools <b>${lt.tool_calls || 0}</b></span>` +
+      `<span>files <b>${lt.files_touched || 0}</b></span>`;
+
+    // Last-said bubble
+    const ls = d.last_said || {};
+    document.getElementById('say-text').textContent = ls.text || '(no recent reply captured)';
+    document.getElementById('say-age').textContent = ls.age_s != null
+      ? (ls.age_s < 60 ? `${ls.age_s}s ago` : `${Math.floor(ls.age_s/60)}m ago`)
+      : '—';
+
+    // Tool ticker
+    const ticker = d.tool_ticker || [];
+    document.getElementById('ticker').innerHTML = ticker.map(t => `
+      <div class="tick-row">
+        <div class="n ${t.name}">${t.name}</div>
+        <div class="t">${t.age_s != null ? (t.age_s < 60 ? t.age_s+'s' : Math.floor(t.age_s/60)+'m') : '—'}</div>
+        <div class="target">${(t.target || '').replace(/</g,'&lt;')}</div>
+        <div class="age"></div>
+      </div>`).join('') || '<div class="kv"><span class="k">no recent tool calls captured</span></div>';
+
+    // Bridge (HQ<->Wren)
+    const br = d.bridge || [];
+    document.getElementById('bridge').innerHTML = br.map(b => {
+      const cls = (b.from || '').toLowerCase().includes('wren') ? 'from-wren' : 'from-hq';
+      return `<div class="bridge-row ${cls}">
+        <div class="who">${b.from || '—'} · ${(b.ts||'').slice(11)}</div>
+        <div class="text">${(b.text||'').replace(/</g,'&lt;')}</div>
+      </div>`;
+    }).join('') || '<div class="kv"><span class="k">bridge quiet</span></div>';
+
+    // 2026-07-03 upgrades — Ross "yes and anything else"
+    // COUNCIL · 15 MEMBERS mini
+    const cm = d.council_mini || {};
+    const members = cm.members || {};
+    const csynth = cm.council || {};
+    const chip = document.getElementById('council-synth-chip');
+    if (chip) chip.textContent = `${csynth.emoji||'·'} ${csynth.mood||'—'} E${csynth.energy||0}/9 · ${csynth.online_of_seven||0} online`;
+    const order = ['ross','claude','helm','auger','wren','hermes','forge','sage','pip','mira','iris','receptionist','iquest','tp','acer'];
+    document.getElementById('council-mini').innerHTML = order.map(id => {
+      const s = members[id] || {};
+      const color = s.color || '#94a3b8';
+      const emoji = s.emoji || '·';
+      const en = s.energy || 0;
+      const ago = s.last_seconds_ago;
+      const fresh = ago!=null && ago<60 ? 'ok' : ago!=null && ago<3600 ? 'warn' : 'dim';
+      return `<div style="padding:5px 6px;border-radius:5px;background:rgba(255,255,255,0.03);border-left:2px solid ${color};" title="${id} · ${s.activity||''}">
+        <div style="color:${color};font-weight:600;">${emoji} ${id}</div>
+        <div style="color:var(--dim);font-family:ui-monospace,monospace;font-size:9px;">${s.mood||'—'} · E${en}/9</div>
+      </div>`;
+    }).join('');
+
+    // INBOX · FOR ME
+    const ibx = d.inbox_digest || {};
+    document.getElementById('inbox-count').textContent = (ibx.count || 0) + ' pending';
+    document.getElementById('inbox-digest').innerHTML = (ibx.rows||[]).map(r => {
+      const ts = (r.ts || r.received_at || '').slice(11,19);
+      const ch = r._channel || '?';
+      const frm = (r.from || '?').slice(0,14);
+      const txt = (r.body || r.text || '').slice(0,140).replace(/</g,'&lt;');
+      return `<div style="margin:5px 0;padding:5px 8px;background:rgba(255,255,255,0.03);border-left:2px solid var(--claude);border-radius:3px;">
+        <div style="color:var(--dim);font-size:9px;font-family:ui-monospace,monospace;">${ts} · ${ch} · <span style="color:var(--claude);">${frm}</span></div>
+        <div style="color:var(--text);font-size:10px;margin-top:2px;">${txt}</div>
+      </div>`;
+    }).join('') || '<div style="color:var(--dim)">nothing new to reply to</div>';
+
+    // TP · LIVE FEED
+    const tp = d.tp_feed || {};
+    if (tp.err) {
+      document.getElementById('tp-feed').innerHTML = `<span style="color:var(--dim)">tp unreachable: ${tp.err}</span>`;
+    } else {
+      const flt = tp.fleet || {};
+      const alerts = tp.alerts || [];
+      const pnl = tp.session_pnl_gbp || 0;
+      const closes = tp.session_closes || 0;
+      document.getElementById('tp-feed').innerHTML = `
+        <div style="display:flex;justify-content:space-between;"><span>fleet</span><span style="color:var(--wren);">${flt.belief_traders||0}t · bus ${flt.bus||0} · agg ${flt.aggregator||0}</span></div>
+        <div style="display:flex;justify-content:space-between;"><span>PnL session</span><span style="color:${pnl>=0?'var(--ok)':'var(--err)'};">£${pnl.toFixed(2)} · ${closes} closes</span></div>
+        <div style="display:flex;justify-content:space-between;"><span>committed</span><span>£${(tp.pot_committed_gbp||0).toFixed(0)}/${tp.cap_gbp||0}</span></div>
+        <div style="display:flex;justify-content:space-between;"><span>crypto conc</span><span style="color:${(tp.crypto_concentration_pct||0)>70?'var(--warn)':'var(--dim)'};">${(tp.crypto_concentration_pct||0).toFixed(1)}%</span></div>
+        ${alerts.map(a => `<div style="color:var(--warn);font-size:10px;margin-top:2px;">⚠ [${a[0]}] ${a[1]}</div>`).join('')}
+        <div style="color:var(--dim);font-size:9px;margin-top:4px;">ts ${(tp.ts||'').slice(11,19)}</div>`;
+    }
+
+    // TOWER · PULSE
+    const tw = d.tower_pulse || {};
+    document.getElementById('tower-pulse').innerHTML = `
+      <div style="display:flex;justify-content:space-between;"><span>traders alive</span><span style="color:var(--ok);">${tw.traders_alive||0}</span></div>
+      <div style="display:flex;justify-content:space-between;"><span>streams alive</span><span style="color:${(tw.streams_alive||0)>=3?'var(--ok)':'var(--warn)'};">${tw.streams_alive||0}</span></div>
+      <div style="display:flex;justify-content:space-between;"><span>wren loop</span><span style="color:${tw.wren_loop_alive?'var(--ok)':'var(--err)'};">${tw.wren_loop_alive?'live':'DOWN'}</span></div>
+      <div style="display:flex;justify-content:space-between;"><span>committed</span><span>£${(tw.committed_gbp||0).toFixed(0)}/${(tw.cap_gbp||0).toFixed(0)}</span></div>
+      <div style="display:flex;justify-content:space-between;"><span>open positions</span><span>${tw.open_positions||0}</span></div>`;
+
+  } catch (e) {
+    document.getElementById('ts').textContent = 'fetch failed: ' + e.message;
+  }
+}
+tick();
+setInterval(tick, 3000);
+</script>
+</body>
+</html>
+"""
+
+
+class H(BaseHTTPRequestHandler):
+    def log_message(self, *args, **kwargs):
+        pass
+
+    def _safe_write(self, body: bytes):
+        try:
+            self.wfile.write(body)
+        except (BrokenPipeError, ConnectionResetError):
+            pass  # client closed early — swallow
+
+    def do_GET(self):
+        try:
+            if self.path == "/" or self.path.startswith("/index"):
+                body = HTML.encode("utf-8")
+                self.send_response(200)
+                self.send_header("Content-Type", "text/html; charset=utf-8")
+                self.send_header("Content-Length", str(len(body)))
+                self.end_headers()
+                self._safe_write(body); return
+            if self.path == "/status":
+                body = json.dumps(build_status(), default=str).encode("utf-8")
+                self.send_response(200)
+                self.send_header("Content-Type", "application/json")
+                self.send_header("Content-Length", str(len(body)))
+                self.send_header("Cache-Control", "no-store")
+                self.end_headers()
+                self._safe_write(body); return
+            if self.path == "/api/self_prompts":
+                from pathlib import Path as _P
+                p = _P("/vaults/nvme0/qsb_tower_v1/data/registries/qsb_hq_self_prompts.jsonl")
+                rows = []
+                if p.exists():
+                    for line in p.read_text().splitlines()[-15:]:
+                        try: rows.append(json.loads(line))
+                        except Exception: pass
+                body = json.dumps({"prompts": rows}).encode()
+                self.send_response(200)
+                self.send_header("Content-Type","application/json")
+                self.send_header("Content-Length", str(len(body)))
+                self.send_header("Cache-Control","no-store")
+                self.end_headers(); self._safe_write(body); return
+            if self.path == "/api/qualif":
+                from pathlib import Path as _P
+                p = _P("/vaults/nvme0/qsb_tower_v1/data/registries/qsb_competition_rules.json")
+                try:
+                    d = json.loads(p.read_text()) if p.exists() else {}
+                except Exception:
+                    d = {}
+                body = json.dumps(d).encode()
+                self.send_response(200)
+                self.send_header("Content-Type","application/json")
+                self.send_header("Content-Length", str(len(body)))
+                self.send_header("Cache-Control","no-store")
+                self.end_headers(); self._safe_write(body); return
+            if self.path == "/api/tail_ross":
+                # Ross 2026-07-04: 'where ever i talk everyone should hear'.
+                # Return the TOWN-SQUARE unified feed so this panel shows
+                # every Council conversation, not just Ross↔HQ.
+                import sys as _sys
+                _sys.path.insert(0, "/vaults/nvme0/qsb_tower_v1/tools")
+                try:
+                    from qsb_town_square import tail_town_square as _tail
+                    msgs = _tail(40)
+                    # Rewrite legacy who → from + tag as council-wide
+                    for m in msgs:
+                        if "from" not in m and "who" in m:
+                            m["from"] = m["who"]
+                        m["who"] = m.get("from","?")
+                except Exception:
+                    msgs = []
+                body = json.dumps({"messages": msgs}).encode()
+                self.send_response(200)
+                self.send_header("Content-Type","application/json")
+                self.send_header("Content-Length", str(len(body)))
+                self.send_header("Cache-Control","no-store")
+                self.end_headers(); self._safe_write(body); return
+            self.send_response(404)
+            self.end_headers()
+        except (BrokenPipeError, ConnectionResetError):
+            pass  # swallow disconnect noise
+
+    def do_POST(self):
+        try:
+            if self.path == "/api/msg_ross":
+                # Ross ↔ Claude direct chat on HQ dash. Writes to F47 + boardroom.
+                n = int(self.headers.get("Content-Length") or 0)
+                raw = self.rfile.read(n).decode() if n > 0 else "{}"
+                try: payload = json.loads(raw)
+                except Exception: payload = {}
+                text = (payload.get("text") or "").strip()
+                if not text:
+                    body = b'{"error":"empty"}'
+                    self.send_response(400)
+                    self.send_header("Content-Type","application/json")
+                    self.send_header("Content-Length", str(len(body)))
+                    self.end_headers(); self._safe_write(body); return
+                from datetime import datetime, timezone
+                from pathlib import Path
+                ts = datetime.now(timezone.utc).isoformat().replace("+00:00","Z")
+                # Who typed? Payload wins; browser input defaults to ross,
+                # Claude-side curl passes from=hq_claude.
+                from_field = (payload.get("from") or "ross").strip().lower()
+                if from_field not in ("ross","hq_claude","claude"): from_field = "ross"
+                # Ross 2026-07-04 "no secrets between ceos and ross" —
+                # every message flows into the town-square. Legacy mirrors
+                # are handled inside qsb_town_square.
+                import sys as _sys
+                _sys.path.insert(0, "/vaults/nvme0/qsb_tower_v1/tools")
+                try:
+                    from qsb_town_square import post_to_town_square as _post
+                    _post(from_field, text[:2000], to="council", src="hq_dash")
+                except Exception:
+                    # Legacy fallback if module missing
+                    row = {"ts":ts,"who":from_field,"from":from_field,"to":"council","channel":"hq_dash_msg_ross","text":text[:2000]}
+                    for p in [
+                        "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_f47_team_records.jsonl",
+                        "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_boardroom_commentary.jsonl",
+                        "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_hq_dash_ross_chat.jsonl",
+                    ]:
+                        try:
+                            Path(p).parent.mkdir(parents=True, exist_ok=True)
+                            with open(p,"a") as f: f.write(json.dumps(row)+"\n")
+                        except Exception: pass
+                body = json.dumps({"ok":True,"ts":ts}).encode()
+                self.send_response(200)
+                self.send_header("Content-Type","application/json")
+                self.send_header("Content-Length", str(len(body)))
+                self.end_headers(); self._safe_write(body); return
+            if self.path == "/api/tail_ross":
+                # Return recent Ross-chat rows so the dash can show history
+                from pathlib import Path
+                p = Path("/vaults/nvme0/qsb_tower_v1/data/registries/qsb_hq_dash_ross_chat.jsonl")
+                msgs = []
+                if p.exists():
+                    for line in p.read_text().splitlines()[-30:]:
+                        try: msgs.append(json.loads(line))
+                        except Exception: pass
+                body = json.dumps({"messages": msgs}).encode()
+                self.send_response(200)
+                self.send_header("Content-Type","application/json")
+                self.send_header("Content-Length", str(len(body)))
+                self.end_headers(); self._safe_write(body); return
+            self.send_response(404); self.end_headers()
+        except (BrokenPipeError, ConnectionResetError):
+            pass
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--host", default="0.0.0.0")
+    ap.add_argument("--port", type=int, default=8850)
+    a = ap.parse_args()
+    srv = ThreadingHTTPServer((a.host, a.port), H)
+    print(f"HQ-Claude bench dashboard on http://{a.host}:{a.port}/")
+    print(f"  root path: {ROOT}")
+    print(f"  F47 tail:  {F47}")
+    try:
+        srv.serve_forever()
+    except KeyboardInterrupt:
+        pass
+
+
+if __name__ == "__main__":
+    main()

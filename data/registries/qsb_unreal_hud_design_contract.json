@@ -1,0 +1,86 @@
+{
+  "phase": "QSB_UNREAL_PROFESSIONAL_SKYSCRAPER_HUD_DASHBOARD_DIRECTION_V2",
+  "stage": 3,
+  "title": "HUD Design Contract",
+  "topBar": [
+    "title",
+    "mode",
+    "floorSearch",
+    "selectedFloor",
+    "voiceStatus",
+    "modelStatus",
+    "workerStatus",
+    "liftStatus",
+    "telemetryStatus",
+    "clock"
+  ],
+  "quickButtons": [
+    "dashboard",
+    "tower",
+    "floor",
+    "workers",
+    "ledgers",
+    "voice",
+    "models",
+    "settings"
+  ],
+  "leftRail": [
+    "towerOverview",
+    "floorDirectory",
+    "departments",
+    "workerGroups",
+    "modelFloors",
+    "tradingFloors",
+    "ledgers",
+    "smokeTests",
+    "maintenance",
+    "recreationAccommodation",
+    "settings"
+  ],
+  "centerViewport": [
+    "3D 169-floor skyscraper",
+    "futuristic city backdrop",
+    "selectedFloor glow",
+    "animated lifts",
+    "worker density heatmap",
+    "OpenClaw markers",
+    "data stream particles",
+    "camera orbit/zoom/focus",
+    "click-to-enter floor"
+  ],
+  "rightPanel": [
+    "selectedFloorDetails",
+    "floorActions",
+    "workersOnFloor",
+    "currentActivity",
+    "pnlLedger",
+    "modelProviderStatus",
+    "smokeTestStatus",
+    "openClawNotes",
+    "commandButtons"
+  ],
+  "bottomDock": [
+    "liveEvents",
+    "latestCommandResult",
+    "voiceTranscript",
+    "systemWarnings",
+    "workerReports",
+    "smokeTestResults",
+    "floorActivityStream"
+  ],
+  "floatingWindows": [
+    "pnl",
+    "ledger",
+    "workers",
+    "openClaw",
+    "kernel",
+    "smokeTest",
+    "voiceCommandResult",
+    "floorActivity"
+  ],
+  "signoff": "DeepSeek+Claude approve full surface; OpenAI suggested 5-button simplification (rejected \u2014 Ross spec requires 8)",
+  "_meta": {
+    "ts": "2026-06-25T12:18:39Z",
+    "source": "team consensus deepseek+claude"
+  }
+}

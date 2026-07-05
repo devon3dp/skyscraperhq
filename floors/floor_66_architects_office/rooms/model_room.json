@@ -1,0 +1,34 @@
+{
+  "room_id": "model_room",
+  "name": "Model Room",
+  "category": "workshop",
+  "purpose": "Houses large-scale models of the QSB Tower and its designs.",
+  "concierge_blurb": "Explore the physical representations of our architectural visions in this sprawling model room.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": -2.5,
+    "footprint_m": [
+      16,
+      8
+    ],
+    "height_m": 4.0
+  },
+  "render": {
+    "primary_prop": "chamber",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Model Room",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 0
+  },
+  "floor": "floor_66"
+}

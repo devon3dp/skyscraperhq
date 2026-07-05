@@ -1,0 +1,58 @@
+{
+  "floor_id": "floor_27",
+  "department": "Local Model Operations Department",
+  "version": "1.1",
+  "role": "optional_local_model_inventory_and_readiness",
+  "kernel_required": false,
+  "models_required": false,
+  "execution_enabled": false,
+  "hardwired_models": false,
+  "receives_from": [
+    "floor_24"
+  ],
+  "incoming_lift": "model_lift",
+  "notice": "Floor 27 inventories local models and recommends roles. It does not execute model calls yet.",
+  "terminal_routing_v1": {
+    "lift": "F27_terminal_routing",
+    "frontend": "tools/qsb_terminal.py",
+    "transcript_ledger": "data/registries/qsb_floor27_terminal_transcript.jsonl",
+    "persona": "data/registries/qsb_wren_persona.json",
+    "backends_supported": [
+      "openai/gpt-4o-mini",
+      "openai/gpt-4.1-mini",
+      "deepseek/deepseek-chat",
+      "local/ollama (future)"
+    ],
+    "budget_enforced_via": "qsb_provider_consultation_authorization",
+    "sealed_packets": true,
+    "every_message": "logged in transcript_ledger + activity tail",
+    "authorization_added_ts": "2026-06-11T09:00:42.968997Z",
+    "advisory_only": true
+  },
+  "updated_ts": "2026-06-11T09:00:42.968997Z",
+  "interior_brief": {
+    "archetype": "ops_hub",
+    "palette": [
+      "#102030",
+      "#3060a0",
+      "#80b2ff"
+    ],
+    "furniture": [
+      "desks",
+      "meeting area",
+      "common space",
+      "storage"
+    ],
+    "lighting": "task + ambient",
+    "mood": "command-and-control",
+    "designed_by": "F66 Architects + F17 Graphics + Fitters team",
+    "fitted_at": "2026-06-11T14:39:45.620109Z",
+    "godot_scene_brief": "render an generic floor with neutral grey + accent per floor theme palette, professional mood, key furniture: desks, meeting area, common space",
+    "signature": "Curved console arc, status walls, ops director's chair",
+    "diversified_ts": "2026-06-11T17:57:45Z",
+    "diversified_by": "qsb_archetype_diversifier_v1"
+  },
+  "fitted_out": true,
+  "fit_out_ts": "2026-06-11T14:39:45.620109Z",
+  "floor_name": "Local Model Operations Department"
+}

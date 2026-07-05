@@ -1,0 +1,34 @@
+{
+  "room_id": "distillery_kitchen",
+  "name": "Kitchen",
+  "category": "kitchen",
+  "purpose": "A kitchen for preparing and storing ingredients.",
+  "concierge_blurb": "Our chefs prepare dishes to complement our spirits.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_right",
+    "offset_x": 6.0,
+    "offset_z": 8.0,
+    "footprint_m": [
+      12.0,
+      8.0
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "kitchen_line",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "KITCHEN",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 0
+  },
+  "floor": "floor_79"
+}

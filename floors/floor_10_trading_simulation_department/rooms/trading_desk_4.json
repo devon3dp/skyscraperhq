@@ -1,0 +1,34 @@
+{
+  "room_id": "trading_desk_4",
+  "name": "Trading Desk 4",
+  "category": "trading",
+  "purpose": "This room is for traders to simulate market conditions.",
+  "concierge_blurb": "Experience the thrill of trading simulations here.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -5.0,
+    "offset_z": -2.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 1.5
+  },
+  "render": {
+    "primary_prop": "trading_desk",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Trading Desk 4",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/trade_sim_data.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 60
+  },
+  "floor": "floor_10"
+}

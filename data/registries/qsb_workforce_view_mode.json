@@ -1,0 +1,33 @@
+{
+  "ok": true,
+  "kind": "qsb_workforce_view_mode",
+  "phase": "QSB_WORKFORCE_OPERATIONS_REDESIGN_RECRUITMENT_TRAINING_LESSONS_V1",
+  "generated_ts": "2026-06-30T13:46:34.653475+00:00",
+  "default_mode": "counts_only",
+  "modes": {
+    "counts_only": {
+      "description": "Per-floor count badges only on the exterior.",
+      "exterior_individual_workers_visible": false,
+      "sim_visible_externally": false,
+      "interior_individual_workers_visible": true
+    },
+    "operational_only": {
+      "description": "Show operational workers externally; SIM hidden.",
+      "exterior_individual_workers_visible": true,
+      "sim_visible_externally": false,
+      "interior_individual_workers_visible": true
+    },
+    "all_workers_visible": {
+      "description": "Show all workers including SIM externally (legacy view).",
+      "exterior_individual_workers_visible": true,
+      "sim_visible_externally": true,
+      "interior_individual_workers_visible": true
+    }
+  },
+  "policy_note": "Default counts_only stops the spiral/band of label spam. The previous swarm came from rendering one SVG dot + label for each of the 64 legacy /api/unified.workers[] entries.",
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false
+}

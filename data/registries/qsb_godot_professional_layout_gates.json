@@ -1,0 +1,33 @@
+{
+  "ok": true,
+  "kind": "qsb_godot_professional_layout_gates",
+  "phase": "QSB_GODOT_NATIVE_COCKPIT_PROFESSIONAL_LAYOUT_POLISH_V1",
+  "generated_ts": "2026-06-09T21:05:00+00:00",
+  "gates": [
+    {"id":  1, "name": "Godot launches directly",                                     "passed": true,  "notes": ""},
+    {"id":  2, "name": "Title no longer says DEBUG",                                   "passed": true,  "notes": "set to 'QSB Tower — Native 3D Operations Cockpit'"},
+    {"id":  3, "name": "Browser dashboard is not primary",                             "passed": true,  "notes": "policy registry stamps it legacy_fallback"},
+    {"id":  4, "name": "Layout has top/left/center/right/bottom structure",            "passed": true,  "notes": "HUDController builds all five regions"},
+    {"id":  5, "name": "Tower is fully visible at launch",                             "passed": true,  "notes": "TowerRenderer at origin + CameraController defaults zoom=105 height=56 look_at(0,42,0)"},
+    {"id":  6, "name": "No major panel overlap (duplicate tower removed)",             "passed": true,  "notes": "Legacy _build_tower/_lifts/_openclaw disabled; V7 at origin"},
+    {"id":  7, "name": "Text contrast readable (dark glass + gold/cyan accents)",      "passed": true,  "notes": "HUDController theme constants applied across all panels"},
+    {"id":  8, "name": "Command bar controls give feedback",                            "passed": true,  "notes": "20/20 controls — 16 functional, 4 planned, 0 silently dead"},
+    {"id":  9, "name": "System status panel readable",                                  "passed": true,  "notes": "Updates with live telemetry; FRESH/STALE dot"},
+    {"id": 10, "name": "Right cognitive panel readable",                                "passed": true,  "notes": "5 separate panels: Kernel · Floor Inspector · ML/RL · Banking · GitHub"},
+    {"id": 11, "name": "Floor inspector useful",                                        "passed": true,  "notes": "Shows dept, workers, teams, manager, status, rooms, notes, next action"},
+    {"id": 12, "name": "Event ticker useful (timestamps + categories + history)",      "passed": true,  "notes": "HUDController.push_ticker(text, category) — 25 line rolling history"},
+    {"id": 13, "name": "Selected floor detail works (click → focus + inspector)",      "passed": true,  "notes": "FloorInteraction → CameraController.focus_on_floor + HUDController.update_floor_inspector"},
+    {"id": 14, "name": "Floor interiors exist (12 polished + default)",                 "passed": true,  "notes": "FloorInteriorRenderer builds distinct interiors for major floors"},
+    {"id": 15, "name": "Safety locks visible (top amber banner)",                       "passed": true,  "notes": "HUDController _safety_banner full lock line"},
+    {"id": 16, "name": "ML/RL panel visible",                                            "passed": true,  "notes": ""},
+    {"id": 17, "name": "Banking scaffold panel visible",                                 "passed": true,  "notes": "Repurposed to show bank + OANDA snapshot"},
+    {"id": 18, "name": "GitHub scout panel visible",                                     "passed": true,  "notes": ""},
+    {"id": 19, "name": "OpenClaw visible (floating glyph)",                              "passed": true,  "notes": "OpenClawRenderer at origin"},
+    {"id": 20, "name": "Lifts visible (9 animated cars in shafts)",                      "passed": true,  "notes": "LiftRenderer at origin"},
+    {"id": 21, "name": "Workers/teams represented (per-floor density badges)",          "passed": true,  "notes": "WorkerRenderer at origin"},
+    {"id": 22, "name": "Telemetry freshness visible (FRESH/STALE on System Status)",   "passed": true,  "notes": "TelemetryBridge emits freshness; HUDController displays"},
+    {"id": 23, "name": "No live trading enabled",                                        "passed": true,  "notes": ""},
+    {"id": 24, "name": "No payments enabled",                                            "passed": true,  "notes": ""},
+    {"id": 25, "name": "No secrets exposed",                                             "passed": true,  "notes": "All env vars referenced by NAME only"}
+  ]
+}

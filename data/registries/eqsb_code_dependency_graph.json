@@ -1,0 +1,2881 @@
+{
+  "ok": true,
+  "kind": "eqsb_code_dependency_graph",
+  "generated_ts": "2026-06-30T13:46:33.330186+00:00",
+  "phase": "EQSB_SYSTEM_OBSERVATORY_HARDWARE_FLOOR_LIVE_TELEMETRY_REPAIR_V1",
+  "edges_count": 2147,
+  "dependencies": {
+    "src/__init__.py": [],
+    "src/workers/__init__.py": [],
+    "src/workers/character.py": [
+      ".",
+      "__future__",
+      "dataclasses",
+      "hashlib",
+      "typing"
+    ],
+    "src/workers/character_anchors.py": [
+      ".character",
+      "__future__"
+    ],
+    "src/tower_ops/openclaw_practice.py": [
+      ".oanda_practice_trading",
+      ".safety_contract",
+      "datetime",
+      "json",
+      "pathlib",
+      "threading",
+      "uuid"
+    ],
+    "src/tower_ops/conference_hub.py": [
+      ".safety_contract",
+      ".worker_directory",
+      "datetime",
+      "json",
+      "pathlib"
+    ],
+    "src/tower_ops/speech_ops.py": [
+      ".safety_contract",
+      "datetime"
+    ],
+    "src/tower_ops/extra_workers.py": [],
+    "src/tower_ops/lifts.py": [
+      ".safety_contract",
+      ".worker_registry",
+      "datetime",
+      "json",
+      "pathlib",
+      "re",
+      "threading",
+      "time"
+    ],
+    "src/tower_ops/tower_tick.py": [
+      ".lifts",
+      ".safety_contract",
+      ".worker_directory",
+      ".worker_registry",
+      "datetime",
+      "json",
+      "pathlib",
+      "threading"
+    ],
+    "src/tower_ops/__init__.py": [
+      ".access_control",
+      ".accounts_department",
+      ".certification_engine",
+      ".chat_diagnostics",
+      ".colonel_concierge",
+      ".curriculum_registry",
+      ".dashboard_pro",
+      ".identity_badges",
+      ".it_ops",
+      ".lifts",
+      ".maintenance",
+      ".management_chain",
+      ".missing",
+      ".model_ops",
+      ".next_steps",
+      ".oanda_practice_trading",
+      ".openclaw_practice",
+      ".org_schema",
+      ".overseer_registry",
+      ".quantum_floor",
+      ".reporting",
+      ".research_facility",
+      ".safety_contract",
+      ".security"
+    ],
+    "src/tower_ops/correction_actions.py": [
+      "datetime",
+      "json",
+      "os",
+      "pathlib",
+      "py_compile",
+      "shutil"
+    ],
+    "src/tower_ops/talk.py": [
+      ".safety_contract",
+      "datetime",
+      "json",
+      "pathlib",
+      "urllib.request"
+    ],
+    "src/tower_ops/training_academy.py": [
+      ".certification_engine",
+      ".curriculum_registry",
+      ".safety_contract",
+      "datetime"
+    ],
+    "src/tower_ops/lift_scheduler.py": [
+      ".live_worker_routes",
+      ".safety_contract",
+      "datetime",
+      "re"
+    ],
+    "src/tower_ops/security.py": [
+      ".safety_contract",
+      "datetime",
+      "json",
+      "pathlib",
+      "threading"
+    ],
+    "src/tower_ops/model_ops.py": [
+      ".safety_contract",
+      "datetime",
+      "json",
+      "os",
+      "pathlib",
+      "urllib.request"
+    ],
+    "src/tower_ops/correction_report.py": [
+      ".",
+      ".not_working",
+      ".safety_contract",
+      ".tower_audit",
+      "datetime"
+    ],
+    "src/tower_ops/floor_activation.py": [
+      ".safety_contract",
+      "datetime",
+      "json",
+      "pathlib"
+    ],
+    "src/tower_ops/maintenance.py": [
+      ".safety_contract",
+      "datetime",
+      "json",
+      "pathlib",
+      "shutil",
+      "socket",
+      "threading"
+    ],
+    "src/tower_ops/it_ops.py": [
+      ".safety_contract",
+      "datetime",
+      "json",
+      "os",
+      "pathlib",
+      "socket",
+      "threading"
+    ],
+    "src/tower_ops/live_worker_routes.py": [
+      ".floor_room_positions",
+      ".safety_contract",
+      ".worker_registry",
+      "datetime",
+      "re"
+    ],
+    "src/tower_ops/worker_registry.py": [
+      ".extra_workers",
+      ".org_schema",
+      ".safety_contract",
+      "datetime",
+      "json",
+      "pathlib",
+      "re",
+      "threading",
+      "uuid"
+    ],
+    "src/tower_ops/floor_comms.py": [
+      ".safety_contract",
+      "datetime",
+      "json",
+      "pathlib",
+      "threading",
+      "uuid"
+    ],
+    "src/tower_ops/autonomous_company_loop.py": [
+      ".",
+      ".safety_contract",
+      "datetime",
+      "json",
+      "pathlib"
+    ],
+    "src/tower_ops/not_working.py": [
+      ".binance_testnet",
+      ".chat_diagnostics",
+      ".safety_contract",
+      ".stocks_paper",
+      "datetime"
+    ],
+    "src/tower_ops/access_control.py": [
+      ".safety_contract",
+      "datetime",
+      "json",
+      "pathlib"
+    ],
+    "src/tower_ops/safety_contract.py": [],
+    "src/tower_ops/worker_narration.py": [
+      ".org_schema",
+      ".safety_contract",
+      ".worker_directory",
+      "datetime",
+      "json",
+      "pathlib",
+      "re"
+    ],
+    "src/tower_ops/certification_engine.py": [
+      ".curriculum_registry",
+      ".safety_contract",
+      ".worker_registry",
+      "datetime",
+      "json",
+      "pathlib",
+      "threading",
+      "uuid"
+    ],
+    "src/tower_ops/missing.py": [
+      ".safety_contract",
+      "datetime"
+    ],
+    "src/tower_ops/final_acceptance.py": [
+      ".safety_contract",
+      "datetime",
+      "urllib.request"
+    ],
+    "src/tower_ops/colonel_observation.py": [
+      ".",
+      ".audit_checks",
+      ".floor_comms",
+      ".lift_scheduler",
+      ".live_worker_routes",
+      ".oanda_practice_trading",
+      ".openclaw_practice",
+      ".safety_contract",
+      "datetime",
+      "json",
+      "pathlib",
+      "threading"
+    ],
+    "src/tower_ops/research_facility.py": [
+      ".safety_contract",
+      "datetime",
+      "json",
+      "pathlib",
+      "threading",
+      "uuid"
+    ],
+    "src/tower_ops/approval_workflow.py": [
+      ".safety_contract",
+      "datetime",
+      "json",
+      "pathlib",
+      "threading",
+      "uuid"
+    ],
+    "src/tower_ops/trading_telemetry.py": [
+      ".safety_contract",
+      "datetime",
+      "json",
+      "os",
+      "pathlib",
+      "tower.binance_floor",
+      "tower.oanda_gateway",
+      "tower.stock_exchange_floor"
+    ],
+    "src/tower_ops/tower_audit.py": [
+      ".accounts_department",
+      ".audit_checks",
+      ".safety_contract",
+      "datetime",
+      "json",
+      "pathlib",
+      "threading"
+    ],
+    "src/tower_ops/stale_language_audit.py": [
+      ".safety_contract",
+      "datetime",
+      "pathlib",
+      "re"
+    ],
+    "src/tower_ops/stocks_paper.py": [
+      ".safety_contract",
+      "datetime",
+      "os",
+      "tower_ops.trading_telemetry"
+    ],
+    "src/tower_ops/quantum_floor.py": [
+      ".research_facility",
+      ".safety_contract",
+      ".worker_registry",
+      "datetime",
+      "importlib",
+      "json",
+      "pathlib"
+    ],
+    "src/tower_ops/accounts_department.py": [
+      ".safety_contract",
+      ".trading_telemetry",
+      ".worker_registry",
+      "datetime",
+      "json",
+      "pathlib"
+    ],
+    "src/tower_ops/audit_checks.py": [
+      ".accounts_department",
+      ".chat_diagnostics",
+      ".curriculum_registry",
+      ".it_ops",
+      ".maintenance",
+      ".management_chain",
+      ".model_ops",
+      ".safety_contract",
+      ".security",
+      ".speech_ops",
+      ".tower_tick",
+      ".trading_telemetry",
+      ".training_academy",
+      ".worker_directory",
+      "datetime",
+      "json",
+      "pathlib",
+      "socket"
+    ],
+    "src/tower_ops/colonel_concierge.py": [
+      ".it_ops",
+      ".maintenance",
+      ".management_chain",
+      ".overseer_registry",
+      ".research_facility",
+      ".safety_contract",
+      ".security",
+      ".worker_registry",
+      "datetime",
+      "json",
+      "pathlib"
+    ],
+    "src/tower_ops/gauge_registry.py": [
+      ".binance_testnet",
+      ".company_comms_bus",
+      ".conference_hub",
+      ".it_ops",
+      ".oanda_dashboard",
+      ".safety_contract",
+      ".security",
+      ".security_enforcement",
+      ".stocks_paper",
+      ".training_academy",
+      "datetime",
+      "shutil"
+    ],
+    "src/tower_ops/self_fix_engine.py": [
+      ".",
+      ".safety_contract",
+      "datetime",
+      "json",
+      "pathlib",
+      "py_compile",
+      "sys",
+      "tower.diagnostics",
+      "tower.kernel_readiness",
+      "tower_ops.safety_contract"
+    ],
+    "src/tower_ops/chat_diagnostics.py": [
+      ".safety_contract",
+      "datetime",
+      "json",
+      "pathlib",
+      "socket",
+      "tower.kernel_dialogue_adapter",
+      "urllib.request"
+    ],
+    "src/tower_ops/identity_badges.py": [
+      ".safety_contract",
+      "datetime",
+      "json",
+      "pathlib",
+      "re",
+      "threading"
+    ],
+    "src/tower_ops/oanda_practice_trading.py": [
+      ".safety_contract",
+      "datetime",
+      "json",
+      "os",
+      "pathlib",
+      "threading",
+      "tower.oanda_gateway"
+    ],
+    "src/tower_ops/next_steps.py": [
+      ".safety_contract",
+      ".tower_audit",
+      "datetime",
+      "json",
+      "pathlib"
+    ],
+    "src/tower_ops/management_chain.py": [
+      ".org_schema",
+      ".safety_contract",
+      "datetime",
+      "json",
+      "pathlib",
+      "threading"
+    ],
+    "src/tower_ops/company_comms_bus.py": [
+      ".safety_contract",
+      "datetime",
+      "json",
+      "pathlib"
+    ],
+    "src/tower_ops/floor_narration.py": [
+      ".approval_workflow",
+      ".oanda_practice_trading",
+      ".org_schema",
+      ".safety_contract",
+      ".worker_directory",
+      "datetime",
+      "json",
+      "pathlib"
+    ],
+    "src/tower_ops/security_enforcement.py": [
+      ".safety_contract",
+      "datetime",
+      "json",
+      "pathlib"
+    ],
+    "src/tower_ops/overseer_registry.py": [
+      ".org_schema",
+      ".safety_contract",
+      "datetime",
+      "json",
+      "pathlib",
+      "threading"
+    ],
+    "src/tower_ops/self_check_engine.py": [
+      ".safety_contract",
+      "datetime",
+      "json",
+      "pathlib",
+      "subprocess"
+    ],
+    "src/tower_ops/colonel_audio.py": [
+      ".approval_workflow",
+      ".colonel_observation",
+      ".correction_loop",
+      ".not_working",
+      ".oanda_practice_trading",
+      ".safety_contract",
+      ".security",
+      ".worker_registry",
+      "datetime"
+    ],
+    "src/tower_ops/curriculum_registry.py": [
+      ".safety_contract",
+      "datetime",
+      "json",
+      "pathlib",
+      "threading"
+    ],
+    "src/tower_ops/oanda_dashboard.py": [
+      ".approval_workflow",
+      ".live_worker_routes",
+      ".oanda_practice_trading",
+      ".safety_contract",
+      "datetime"
+    ],
+    "src/tower_ops/autonomous_oanda_practice.py": [
+      ".oanda_practice_trading",
+      ".safety_contract",
+      "datetime",
+      "json",
+      "pathlib"
+    ],
+    "src/tower_ops/correction_loop.py": [
+      ".",
+      ".not_working",
+      ".safety_contract",
+      ".tower_audit",
+      "datetime",
+      "json",
+      "pathlib",
+      "urllib.request"
+    ],
+    "src/tower_ops/dashboard_pro.py": [
+      ".",
+      ".oanda_practice_trading",
+      ".openclaw_practice",
+      ".safety_contract",
+      ".tower_tick",
+      "datetime",
+      "json",
+      "pathlib"
+    ],
+    "src/tower_ops/reporting.py": [
+      ".management_chain",
+      ".org_schema",
+      ".safety_contract",
+      ".worker_registry",
+      "datetime"
+    ],
+    "src/tower_ops/binance_testnet.py": [
+      ".safety_contract",
+      "datetime",
+      "os",
+      "tower.binance_floor"
+    ],
+    "src/tower_ops/floor_room_positions.py": [
+      ".safety_contract",
+      "datetime"
+    ],
+    "src/tower_ops/worker_directory.py": [
+      ".access_control",
+      ".identity_badges",
+      ".safety_contract",
+      ".worker_registry",
+      "datetime"
+    ],
+    "src/tower_ops/org_schema.py": [],
+    "src/tower/eqsb_contradictions.py": [
+      "datetime",
+      "json",
+      "tower.eqsb_kernel_core_ext"
+    ],
+    "src/tower/simulation_labs.py": [
+      "datetime",
+      "hashlib",
+      "json",
+      "pathlib",
+      "sqlite3"
+    ],
+    "src/tower/sandbox_operations.py": [
+      "datetime",
+      "json",
+      "pathlib"
+    ],
+    "src/tower/kernel_readiness.py": [
+      "datetime",
+      "importlib",
+      "importlib.util",
+      "json",
+      "pathlib",
+      "sqlite3"
+    ],
+    "src/tower/binance_paper_strategy.py": [
+      "datetime",
+      "json",
+      "pathlib",
+      "tower.binance_floor"
+    ],
+    "src/tower/binance_floor.py": [
+      "datetime",
+      "hashlib",
+      "hmac",
+      "json",
+      "os",
+      "pathlib",
+      "time",
+      "urllib.error",
+      "urllib.parse",
+      "urllib.request"
+    ],
+    "src/tower/qsb_floor42_binance.py": [
+      "datetime",
+      "hashlib",
+      "json",
+      "pathlib"
+    ],
+    "src/tower/eqsb_replay_ledger.py": [
+      "datetime",
+      "json",
+      "pathlib",
+      "tower.eqsb_kernel_core_ext"
+    ],
+    "src/tower/qsb_g2_svg_probe.py": [
+      "datetime",
+      "json",
+      "pathlib",
+      "re",
+      "urllib.request"
+    ],
+    "src/tower/qsb_workers_reconciliation.py": [
+      "datetime",
+      "json",
+      "pathlib",
+      "re",
+      "sys"
+    ],
+    "src/tower/expansion_planning.py": [
+      "datetime",
+      "json",
+      "pathlib",
+      "sqlite3",
+      "tower.registry",
+      "tower.security_spine"
+    ],
+    "src/tower/strategy_autoloop_correlation_sidecar.py": [
+      "http.server",
+      "json",
+      "pathlib",
+      "sys",
+      "tower.strategy_autoloop_correlation",
+      "urllib.parse"
+    ],
+    "src/tower/paths.py": [
+      "pathlib"
+    ],
+    "src/tower/worker_recruitment_agency.py": [
+      "datetime",
+      "json",
+      "pathlib",
+      "sys",
+      "threading"
+    ],
+    "src/tower/foundation_completeness.py": [
+      "datetime",
+      "json",
+      "pathlib",
+      "re"
+    ],
+    "src/tower/adapter_systems.py": [
+      "datetime",
+      "json",
+      "pathlib",
+      "sqlite3"
+    ],
+    "src/tower/kernel_cognitive_common.py": [
+      "datetime",
+      "json",
+      "os",
+      "pathlib",
+      "time"
+    ],
+    "src/tower/lifts.py": [
+      ".database",
+      ".registry",
+      "json",
+      "pathlib"
+    ],
+    "src/tower/qsb_paper_trading.py": [
+      "datetime",
+      "json",
+      "os",
+      "pathlib",
+      "sqlite3",
+      "sys",
+      "uuid"
+    ],
+    "src/tower/oanda_floor41_sidecar.py": [
+      "datetime",
+      "http.server",
+      "json",
+      "os",
+      "pathlib",
+      "sys",
+      "tower.kernel_dialogue_adapter",
+      "tower.oanda_paper_strategy_lab",
+      "urllib.parse"
+    ],
+    "src/tower/__init__.py": [],
+    "src/tower/oanda_trading_floor.py": [
+      "datetime",
+      "json",
+      "pathlib",
+      "tower.oanda_gateway"
+    ],
+    "src/tower/cross_market_bus.py": [
+      "datetime",
+      "json",
+      "pathlib"
+    ],
+    "src/tower/qsb_auto_close_evaluator.py": [
+      "__future__",
+      "datetime",
+      "json",
+      "pathlib",
+      "tower.qsb_floor41_oanda",
+      "tower.qsb_tower_activity",
+      "typing"
+    ],
+    "src/tower/model_evaluation_department.py": [
+      "datetime",
+      "json",
+      "pathlib",
+      "sqlite3",
+      "tower.agent_coordination",
+      "tower.air_llm_operations",
+      "tower.local_model_operations",
+      "tower.model_routing_department",
+      "tower.security_spine"
+    ],
+    "src/tower/kernel_opencore_supervision_bridge.py": [
+      "json",
+      "pathlib",
+      "sys",
+      "tower.kernel_cognitive_common"
+    ],
+    "src/tower/strategy_intelligence.py": [
+      "datetime",
+      "json",
+      "os",
+      "pathlib",
+      "statistics",
+      "urllib.parse",
+      "urllib.request"
+    ],
+    "src/tower/eqsb_guardian.py": [
+      "json",
+      "tower.eqsb_kernel_core_ext"
+    ],
+    "src/tower/paper_trade_simulator.py": [
+      "datetime",
+      "hashlib",
+      "json",
+      "pathlib"
+    ],
+    "src/tower/integration_services.py": [
+      "datetime",
+      "json",
+      "pathlib",
+      "sqlite3"
+    ],
+    "src/tower/air_llm_operations.py": [
+      "datetime",
+      "json",
+      "pathlib",
+      "sqlite3"
+    ],
+    "src/tower/eqsb_model_governance.py": [
+      "json",
+      "tower.eqsb_kernel_core_ext"
+    ],
+    "src/tower/qsb_openclaw_supervision.py": [
+      "datetime",
+      "json",
+      "pathlib",
+      "sys"
+    ],
+    "src/tower/kernel_goal_stack.py": [
+      "json",
+      "pathlib",
+      "sys",
+      "tower.kernel_cognitive_common"
+    ],
+    "src/tower/database.py": [
+      ".paths",
+      ".registry",
+      "datetime",
+      "sqlite3"
+    ],
+    "src/tower/qsb_dashboard_visual_audit.py": [
+      "datetime",
+      "json",
+      "pathlib"
+    ],
+    "src/tower/eqsb_observatory.py": [
+      "datetime",
+      "hashlib",
+      "importlib.util",
+      "json",
+      "os",
+      "pathlib",
+      "re",
+      "shutil",
+      "subprocess",
+      "sys",
+      "torch"
+    ],
+    "src/tower/dashboard_render_model.py": [
+      "datetime",
+      "json",
+      "os",
+      "pathlib"
+    ],
+    "src/tower/kernel_reflection_layer.py": [
+      "json",
+      "pathlib",
+      "sys",
+      "tower.kernel_cognitive_common"
+    ],
+    "src/tower/eqsb_introspection.py": [
+      "datetime",
+      "json",
+      "tower.eqsb_kernel_core_ext"
+    ],
+    "src/tower/qsb_paper_strategy_runner.py": [
+      "datetime",
+      "hashlib",
+      "json",
+      "pathlib",
+      "tower.qsb_paper_trading"
+    ],
+    "src/tower/qsb_workforce_expansion_v1.py": [
+      "datetime",
+      "json",
+      "pathlib"
+    ],
+    "src/tower/qsb_profit_command.py": [
+      "datetime",
+      "json",
+      "pathlib",
+      "sqlite3"
+    ],
+    "src/tower/qsb_narrator.py": [
+      "datetime",
+      "json",
+      "pathlib",
+      "re",
+      "sys",
+      "tower.qsb_live_telemetry_repairs"
+    ],
+    "src/tower/kernel_working_memory.py": [
+      "json",
+      "pathlib",
+      "sys",
+      "tower.kernel_cognitive_common"
+    ],
+    "src/tower/kernel_perception_layer.py": [
+      "json",
+      "pathlib",
+      "sys",
+      "tower.kernel_cognitive_common"
+    ],
+    "src/tower/qsb_trading_floor_room_assignments.py": [
+      "dashboard",
+      "datetime",
+      "hashlib",
+      "json",
+      "pathlib",
+      "tower.qsb_dashboard_live_telemetry"
+    ],
+    "src/tower/qsb_live_telemetry_repairs.py": [
+      "datetime",
+      "json",
+      "pathlib",
+      "re",
+      "sqlite3"
+    ],
+    "src/tower/qsb_workforce_operations.py": [
+      "datetime",
+      "json",
+      "pathlib",
+      "sqlite3"
+    ],
+    "src/tower/kernel_chat_sidecar.py": [
+      "datetime",
+      "http.server",
+      "json",
+      "pathlib",
+      "sys",
+      "tower.kernel_dialogue_adapter",
+      "urllib.parse"
+    ],
+    "src/tower/floor41_paper_ledger.py": [
+      "datetime",
+      "json",
+      "pathlib",
+      "uuid"
+    ],
+    "src/tower/eqsb_cognition.py": [
+      "datetime",
+      "hashlib",
+      "json",
+      "os",
+      "pathlib",
+      "random",
+      "sys"
+    ],
+    "src/tower/qsb_floor44_accounts.py": [
+      "__future__",
+      "datetime",
+      "json",
+      "os",
+      "pathlib",
+      "qsb_risk_cap",
+      "sys",
+      "typing"
+    ],
+    "src/tower/worker_sandbox.py": [
+      "datetime",
+      "json",
+      "os",
+      "pathlib",
+      "tower.floor41_paper_ledger",
+      "tower.kernel_dialogue_adapter",
+      "tower.oanda_paper_strategy_lab",
+      "uuid"
+    ],
+    "src/tower/kernel_activation_gate.py": [
+      "datetime",
+      "json",
+      "pathlib"
+    ],
+    "src/tower/qsb_floor_intercom_bus.py": [
+      "datetime",
+      "hashlib",
+      "json",
+      "pathlib"
+    ],
+    "src/tower/strategy_intelligence_sidecar.py": [
+      "http.server",
+      "json",
+      "os",
+      "pathlib",
+      "sys",
+      "tower.strategy_intelligence",
+      "urllib.parse"
+    ],
+    "src/tower/security_spine.py": [
+      "datetime",
+      "json",
+      "pathlib",
+      "sqlite3",
+      "tower.infrastructure_services",
+      "tower.lifts",
+      "tower.penthouse_readiness"
+    ],
+    "src/tower/dormant_kernel_adapter.py": [
+      "datetime",
+      "hashlib",
+      "json",
+      "pathlib"
+    ],
+    "src/tower/qsb_dashboard_live_telemetry.py": [
+      ".registry",
+      "datetime",
+      "hashlib",
+      "json",
+      "os",
+      "pathlib",
+      "re"
+    ],
+    "src/tower/model_infrastructure.py": [
+      "datetime",
+      "json",
+      "pathlib",
+      "shutil",
+      "sqlite3",
+      "subprocess"
+    ],
+    "src/tower/diagnostics_department.py": [
+      "datetime",
+      "importlib",
+      "json",
+      "pathlib",
+      "sqlite3",
+      "tower.database",
+      "tower.lifts",
+      "tower.registry",
+      "urllib.request"
+    ],
+    "src/tower/kernel_registry_answer_builder.py": [
+      "json",
+      "pathlib",
+      "sys"
+    ],
+    "src/tower/qsb_dashboard_rebuild_completion.py": [
+      "datetime",
+      "json",
+      "pathlib",
+      "socket",
+      "sys",
+      "tower.qsb_g2_svg_probe",
+      "urllib.request"
+    ],
+    "src/tower/qsb_penthouse.py": [
+      "datetime",
+      "json",
+      "pathlib"
+    ],
+    "src/tower/diagnostics.py": [
+      ".database",
+      ".lifts",
+      ".registry"
+    ],
+    "src/tower/eqsb_beliefs.py": [
+      "datetime",
+      "json",
+      "pathlib",
+      "tower.eqsb_kernel_core_ext"
+    ],
+    "src/tower/local_model_operations.py": [
+      "datetime",
+      "json",
+      "pathlib",
+      "shutil",
+      "sqlite3",
+      "subprocess"
+    ],
+    "src/tower/qsb_dashboard_3d_revamp.py": [
+      "datetime",
+      "json",
+      "pathlib",
+      "re",
+      "socket",
+      "sys",
+      "urllib.request"
+    ],
+    "src/tower/monitoring_department.py": [
+      "datetime",
+      "json",
+      "os",
+      "pathlib",
+      "psutil",
+      "shutil",
+      "sqlite3",
+      "time",
+      "tower.adapter_systems",
+      "tower.air_llm_operations",
+      "tower.lifts",
+      "tower.local_model_operations",
+      "tower.registry",
+      "urllib.request"
+    ],
+    "src/tower/qsb_floor43_stocks.py": [
+      "datetime",
+      "hashlib",
+      "json",
+      "pathlib"
+    ],
+    "src/tower/eqsb_axioms.py": [
+      "datetime",
+      "json",
+      "pathlib",
+      "tower.eqsb_kernel_core_ext"
+    ],
+    "src/tower/local_model_inference_gateway.py": [
+      "datetime",
+      "json",
+      "os",
+      "pathlib",
+      "urllib.error",
+      "urllib.request"
+    ],
+    "src/tower/qsb_phase_v2_snapshot.py": [
+      "datetime",
+      "json",
+      "pathlib"
+    ],
+    "src/tower/oanda_gateway.py": [
+      "datetime",
+      "json",
+      "os",
+      "pathlib",
+      "urllib.error",
+      "urllib.parse",
+      "urllib.request"
+    ],
+    "src/tower/qsb_workforce.py": [
+      "datetime",
+      "json",
+      "pathlib",
+      "sqlite3"
+    ],
+    "src/tower/qsb_master_audit.py": [
+      "datetime",
+      "json",
+      "os",
+      "pathlib",
+      "re"
+    ],
+    "src/tower/coding_department.py": [
+      "datetime",
+      "json",
+      "pathlib",
+      "sqlite3",
+      "tower.lifts"
+    ],
+    "src/tower/qsb_command_center_audit.py": [
+      "datetime",
+      "json",
+      "os",
+      "pathlib"
+    ],
+    "src/tower/sandbox_performance_sidecar.py": [
+      "datetime",
+      "http.server",
+      "json",
+      "os",
+      "pathlib",
+      "sys",
+      "tower.sandbox_performance_loop",
+      "urllib.parse"
+    ],
+    "src/tower/qsb_sentinels.py": [
+      "__future__",
+      "datetime",
+      "json",
+      "pathlib",
+      "subprocess",
+      "time",
+      "tower.model_floors.claude_floor.lineage",
+      "tower.model_floors.claude_floor.parallel_helix",
+      "urllib.request"
+    ],
+    "src/tower/cognitive_kernel_unified.py": [
+      "__future__",
+      "json",
+      "pathlib",
+      "time",
+      "typing"
+    ],
+    "src/tower/kernel_learning_assimilation.py": [
+      "json",
+      "pathlib",
+      "sys",
+      "tower.kernel_cognitive_common"
+    ],
+    "src/tower/eqsb_symbols.py": [
+      "datetime",
+      "json",
+      "pathlib",
+      "tower.eqsb_kernel_core_ext"
+    ],
+    "src/tower/kernel_curiosity_queue.py": [
+      "json",
+      "pathlib",
+      "sys",
+      "tower.kernel_cognitive_common"
+    ],
+    "src/tower/qsb_floor41_oanda.py": [
+      "datetime",
+      "hashlib",
+      "json",
+      "os",
+      "pathlib",
+      "re",
+      "sys",
+      "tower_ops",
+      "tower_ops.trading_telemetry",
+      "urllib.request"
+    ],
+    "src/tower/eqsb_hypotheses.py": [
+      "datetime",
+      "json",
+      "tower.eqsb_kernel_core_ext"
+    ],
+    "src/tower/model_routing_department.py": [
+      "datetime",
+      "json",
+      "pathlib",
+      "sqlite3",
+      "tower.lifts"
+    ],
+    "src/tower/openclaw_sandbox_layer.py": [
+      "datetime",
+      "json",
+      "pathlib",
+      "random",
+      "uuid"
+    ],
+    "src/tower/eqsb_kernel_core_ext.py": [
+      "datetime",
+      "hashlib",
+      "json",
+      "os",
+      "pathlib",
+      "sys",
+      "tower.eqsb_axioms",
+      "tower.eqsb_beliefs",
+      "tower.eqsb_cadence",
+      "tower.eqsb_cognition",
+      "tower.eqsb_contradictions",
+      "tower.eqsb_entropy",
+      "tower.eqsb_guardian",
+      "tower.eqsb_hypotheses",
+      "tower.eqsb_introspection",
+      "tower.eqsb_memory",
+      "tower.eqsb_model_governance",
+      "tower.eqsb_quantum_signal",
+      "tower.eqsb_replay_ledger",
+      "tower.eqsb_symbolic_graph",
+      "tower.eqsb_symbols"
+    ],
+    "src/tower/eqsb_symbolic_graph.py": [
+      "datetime",
+      "json",
+      "tower.eqsb_kernel_core_ext"
+    ],
+    "src/tower/qsb_render_visible_layer.py": [
+      "collections",
+      "datetime",
+      "json",
+      "pathlib",
+      "re",
+      "tower.qsb_dashboard_live_telemetry"
+    ],
+    "src/tower/recruitment_agency.py": [
+      "datetime",
+      "json",
+      "os",
+      "pathlib",
+      "threading",
+      "uuid"
+    ],
+    "src/tower/eqsb_cadence.py": [
+      "datetime",
+      "json",
+      "tower.eqsb_kernel_core_ext"
+    ],
+    "src/tower/paper_trade_simulator_sidecar.py": [
+      "http.server",
+      "json",
+      "pathlib",
+      "sys",
+      "tower.paper_trade_simulator",
+      "urllib.parse"
+    ],
+    "src/tower/registry.py": [
+      ".paths",
+      "json",
+      "re"
+    ],
+    "src/tower/agent_coordination.py": [
+      "datetime",
+      "json",
+      "pathlib",
+      "sqlite3",
+      "tower.lifts",
+      "tower.security_spine"
+    ],
+    "src/tower/kernel_attention_layer.py": [
+      "json",
+      "pathlib",
+      "sys",
+      "tower.kernel_cognitive_common"
+    ],
+    "src/tower/kernel_self_model.py": [
+      "json",
+      "pathlib",
+      "sys",
+      "tower.kernel_cognitive_common"
+    ],
+    "src/tower/kernel_dependency_stubs.py": [],
+    "src/tower/kernel_talk_bridge.py": [
+      "argparse",
+      "datetime",
+      "importlib",
+      "inspect",
+      "json",
+      "pathlib",
+      "sys"
+    ],
+    "src/tower/oanda_paper_strategy_lab.py": [
+      "datetime",
+      "json",
+      "os",
+      "pathlib",
+      "statistics",
+      "tower.oanda_trading_floor"
+    ],
+    "src/tower/sandbox_performance_loop.py": [
+      "datetime",
+      "json",
+      "os",
+      "pathlib",
+      "statistics",
+      "time",
+      "tower.kernel_dialogue_adapter",
+      "tower.worker_sandbox"
+    ],
+    "src/tower/sandbox_autoloop.py": [
+      "argparse",
+      "datetime",
+      "json",
+      "os",
+      "pathlib",
+      "time",
+      "tower.openclaw_sandbox_layer",
+      "tower.sandbox_performance_loop",
+      "traceback"
+    ],
+    "src/tower/infrastructure_services.py": [
+      "datetime",
+      "json",
+      "os",
+      "pathlib",
+      "shutil",
+      "sqlite3"
+    ],
+    "src/tower/executive_command.py": [
+      "datetime",
+      "json",
+      "pathlib",
+      "sqlite3",
+      "tower.expansion_planning",
+      "tower.infrastructure_services",
+      "tower.lifts",
+      "tower.penthouse_readiness",
+      "tower.security_spine"
+    ],
+    "src/tower/qsb_helm.py": [
+      ".model_floors.claude_floor.lenses.source_of_claim_lens",
+      "__future__",
+      "datetime",
+      "json",
+      "os",
+      "pathlib",
+      "subprocess",
+      "sys",
+      "typing"
+    ],
+    "src/tower/worker_sandbox_sidecar.py": [
+      "datetime",
+      "http.server",
+      "json",
+      "os",
+      "pathlib",
+      "sys",
+      "tower.worker_sandbox",
+      "urllib.parse"
+    ],
+    "src/tower/qsb_hardware_floor.py": [
+      "datetime",
+      "json",
+      "pathlib",
+      "shutil"
+    ],
+    "src/tower/qsb_completion_engine.py": [
+      "datetime",
+      "json",
+      "os",
+      "pathlib",
+      "socket",
+      "sys",
+      "urllib.request"
+    ],
+    "src/tower/openclaw_visual_sidecar.py": [
+      "datetime",
+      "http.server",
+      "json",
+      "pathlib",
+      "sys",
+      "tower.openclaw_sandbox_layer",
+      "urllib.parse"
+    ],
+    "src/tower/strategy_autoloop_correlation.py": [
+      "datetime",
+      "json",
+      "pathlib"
+    ],
+    "src/tower/qsb_skyscraper_occupancy.py": [
+      "datetime",
+      "hashlib",
+      "json",
+      "pathlib",
+      "sys",
+      "tower.qsb_dashboard_live_telemetry"
+    ],
+    "src/tower/penthouse_readiness.py": [
+      "datetime",
+      "importlib",
+      "json",
+      "pathlib",
+      "sqlite3",
+      "tower.lifts",
+      "tower.registry"
+    ],
+    "src/tower/qsb_worker_truth.py": [
+      "datetime",
+      "json",
+      "pathlib",
+      "re",
+      "sqlite3",
+      "tower_ops"
+    ],
+    "src/tower/qsb_3d_skyscraper_state.py": [
+      "datetime",
+      "json",
+      "pathlib"
+    ],
+    "src/tower/stock_exchange_floor.py": [
+      "datetime",
+      "json",
+      "os",
+      "pathlib",
+      "urllib.error",
+      "urllib.parse",
+      "urllib.request"
+    ],
+    "src/tower/qsb_tower_activity.py": [
+      "__future__",
+      "argparse",
+      "datetime",
+      "json",
+      "pathlib",
+      "typing"
+    ],
+    "src/tower/eqsb_quantum_signal.py": [
+      "datetime",
+      "hashlib",
+      "importlib",
+      "json",
+      "pathlib",
+      "tower.eqsb_kernel_core_ext"
+    ],
+    "src/tower/eqsb_entropy.py": [
+      "datetime",
+      "json",
+      "pathlib",
+      "tower.eqsb_kernel_core_ext"
+    ],
+    "src/tower/qsb_dashboard_rebuild_v1.py": [
+      "datetime",
+      "hashlib",
+      "json",
+      "pathlib",
+      "re"
+    ],
+    "src/tower/eqsb_memory.py": [
+      "datetime",
+      "json",
+      "pathlib",
+      "tower.eqsb_kernel_core_ext"
+    ],
+    "src/tower/stock_paper_strategy.py": [
+      "datetime",
+      "json",
+      "pathlib",
+      "tower.stock_exchange_floor"
+    ],
+    "src/tower/research_floor/__init__.py": [],
+    "src/tower/research_floor/quantum_environment/__init__.py": [
+      ".bloch",
+      ".channels",
+      ".concurrence",
+      ".decoherence_study",
+      ".density",
+      ".open_system"
+    ],
+    "src/tower/research_floor/quantum_environment/decoherence_study.py": [
+      ".channels",
+      ".concurrence",
+      ".density",
+      ".open_system",
+      "__future__",
+      "math",
+      "src.tower.research_floor.quantum_triad_sandbox.quantum_lane",
+      "typing"
+    ],
+    "src/tower/research_floor/quantum_environment/open_system.py": [
+      ".bloch",
+      ".channels",
+      ".density",
+      "__future__",
+      "src.tower.research_floor.quantum_triad_sandbox.quantum_lane",
+      "typing"
+    ],
+    "src/tower/research_floor/quantum_environment/bloch.py": [
+      ".density",
+      "__future__",
+      "math",
+      "typing"
+    ],
+    "src/tower/research_floor/quantum_environment/density.py": [
+      "__future__",
+      "math",
+      "src.tower.research_floor.quantum_triad_sandbox.quantum_lane",
+      "typing"
+    ],
+    "src/tower/research_floor/quantum_environment/channels.py": [
+      "__future__",
+      "math",
+      "typing"
+    ],
+    "src/tower/research_floor/quantum_environment/concurrence.py": [
+      ".density",
+      "__future__",
+      "math",
+      "typing"
+    ],
+    "src/tower/research_floor/quantum_triad_sandbox/__init__.py": [
+      ".algorithms",
+      ".classical_lane",
+      ".cognitive_lane",
+      ".quantum_lane",
+      ".safety",
+      ".triad_query"
+    ],
+    "src/tower/research_floor/quantum_triad_sandbox/classical_lane.py": [
+      "__future__",
+      "random",
+      "typing"
+    ],
+    "src/tower/research_floor/quantum_triad_sandbox/cognitive_lane.py": [
+      "__future__",
+      "os",
+      "random",
+      "re",
+      "src.tower.model_floors.claude_floor.claude_helix",
+      "src.tower.model_floors.claude_floor.library",
+      "src.tower.model_floors.claude_floor.questions_log",
+      "sys",
+      "typing"
+    ],
+    "src/tower/research_floor/quantum_triad_sandbox/quantum_lane.py": [
+      "__future__",
+      "cmath",
+      "math",
+      "random",
+      "typing"
+    ],
+    "src/tower/research_floor/quantum_triad_sandbox/triad_query.py": [
+      ".classical_lane",
+      ".cognitive_lane",
+      ".quantum_lane",
+      ".safety",
+      "__future__",
+      "datetime",
+      "json",
+      "os",
+      "typing"
+    ],
+    "src/tower/research_floor/quantum_triad_sandbox/safety.py": [
+      "__future__",
+      "datetime",
+      "typing"
+    ],
+    "src/tower/research_floor/quantum_triad_sandbox/algorithms.py": [
+      ".classical_lane",
+      ".cognitive_lane",
+      ".quantum_lane",
+      ".safety",
+      "__future__",
+      "math",
+      "typing"
+    ],
+    "src/tower/floors/__init__.py": [],
+    "src/tower/floors/floor_48_lumen_ai/__init__.py": [
+      ".chat",
+      ".state",
+      ".tiers"
+    ],
+    "src/tower/floors/floor_48_lumen_ai/tiers.py": [
+      "__future__",
+      "dataclasses",
+      "json",
+      "tower.cognitive_kernel",
+      "typing"
+    ],
+    "src/tower/floors/floor_48_lumen_ai/state.py": [
+      "__future__",
+      "json",
+      "pathlib",
+      "tower.cognitive_kernel",
+      "typing"
+    ],
+    "src/tower/floors/floor_48_lumen_ai/chat.py": [
+      "__future__",
+      "a",
+      "dataclasses",
+      "json",
+      "pathlib",
+      "time",
+      "tower",
+      "tower.cognitive_kernel",
+      "typing",
+      "uuid"
+    ],
+    "src/tower/floors/floor_49_tower_studio/__init__.py": [
+      ".customers",
+      ".projects",
+      ".services",
+      ".state"
+    ],
+    "src/tower/floors/floor_49_tower_studio/services.py": [
+      "__future__",
+      "dataclasses",
+      "json",
+      "tower.cognitive_kernel",
+      "typing"
+    ],
+    "src/tower/floors/floor_49_tower_studio/customers.py": [
+      "__future__",
+      "dataclasses",
+      "json",
+      "pathlib",
+      "time",
+      "tower.cognitive_kernel",
+      "typing",
+      "uuid"
+    ],
+    "src/tower/floors/floor_49_tower_studio/state.py": [
+      "__future__",
+      "json",
+      "pathlib",
+      "tower.cognitive_kernel",
+      "typing"
+    ],
+    "src/tower/floors/floor_49_tower_studio/workers.py": [
+      "__future__",
+      "dataclasses",
+      "json",
+      "time",
+      "tower.cognitive_kernel",
+      "typing"
+    ],
+    "src/tower/floors/floor_49_tower_studio/projects.py": [
+      ".services",
+      "__future__",
+      "dataclasses",
+      "json",
+      "time",
+      "tower.cognitive_kernel",
+      "typing",
+      "uuid"
+    ],
+    "src/tower/floors/floor_49_tower_studio/graphics.py": [
+      "__future__",
+      "dataclasses",
+      "hashlib",
+      "math",
+      "pathlib",
+      "typing"
+    ],
+    "src/tower/floors/floor_47_profit_analytics/__init__.py": [
+      ".snapshot"
+    ],
+    "src/tower/floors/floor_47_profit_analytics/snapshot.py": [
+      "__future__",
+      "json",
+      "pathlib",
+      "tower.cognitive_kernel",
+      "tower.cognitive_kernel.action_proposal",
+      "typing"
+    ],
+    "src/tower/floors/floor_46_commerce/pricing.py": [
+      ".catalog",
+      "__future__",
+      "dataclasses",
+      "json",
+      "tower.cognitive_kernel",
+      "tower.cognitive_kernel.action_proposal",
+      "typing"
+    ],
+    "src/tower/floors/floor_46_commerce/__init__.py": [
+      ".catalog",
+      ".pricing",
+      ".state"
+    ],
+    "src/tower/floors/floor_46_commerce/state.py": [
+      "__future__",
+      "json",
+      "pathlib",
+      "time",
+      "tower.cognitive_kernel",
+      "typing"
+    ],
+    "src/tower/floors/floor_46_commerce/catalog.py": [
+      "__future__",
+      "dataclasses",
+      "json",
+      "tower.cognitive_kernel",
+      "typing"
+    ],
+    "src/tower/floors/floor_42_binance_testnet/__init__.py": [
+      ".placement",
+      ".state"
+    ],
+    "src/tower/floors/floor_42_binance_testnet/state.py": [
+      "__future__",
+      "json",
+      "os",
+      "pathlib",
+      "tower.cognitive_kernel",
+      "typing"
+    ],
+    "src/tower/floors/floor_42_binance_testnet/placement.py": [
+      ".state",
+      "__future__",
+      "hashlib",
+      "hmac",
+      "json",
+      "os",
+      "time",
+      "tower.cognitive_kernel",
+      "tower.cognitive_kernel.worker_certification",
+      "typing",
+      "urllib.error",
+      "urllib.parse",
+      "urllib.request"
+    ],
+    "src/tower/cognitive_kernel/free_image_promotion.py": [
+      ".",
+      "__future__",
+      "dataclasses",
+      "json",
+      "time",
+      "typing"
+    ],
+    "src/tower/cognitive_kernel/ml_rl_advisory.py": [
+      ".",
+      ".action_proposal",
+      ".uncertainty",
+      ".working_memory",
+      "__future__",
+      "dataclasses",
+      "time",
+      "typing"
+    ],
+    "src/tower/cognitive_kernel/reward_engine.py": [
+      ".",
+      ".family_tree",
+      ".long_term_memory",
+      ".population",
+      ".worker_certification",
+      ".worker_genetics",
+      ".worker_pnl",
+      "__future__",
+      "dataclasses",
+      "json",
+      "pathlib",
+      "time",
+      "typing"
+    ],
+    "src/tower/cognitive_kernel/worker_reassignment.py": [
+      ".",
+      ".action_proposal",
+      ".goals",
+      ".worker_exchange",
+      "__future__",
+      "dataclasses",
+      "time",
+      "typing"
+    ],
+    "src/tower/cognitive_kernel/comms.py": [
+      ".",
+      "__future__",
+      "dataclasses",
+      "os",
+      "time",
+      "typing"
+    ],
+    "src/tower/cognitive_kernel/reflection.py": [
+      ".",
+      ".contradiction",
+      ".curiosity",
+      ".goals",
+      ".long_term_memory",
+      ".self_model",
+      ".uncertainty",
+      ".working_memory",
+      "__future__",
+      "dataclasses",
+      "time",
+      "typing"
+    ],
+    "src/tower/cognitive_kernel/governor.py": [
+      "__future__",
+      "argparse",
+      "datetime",
+      "json",
+      "pathlib",
+      "time",
+      "tower.cognitive_kernel.governor",
+      "typing"
+    ],
+    "src/tower/cognitive_kernel/morning_briefing.py": [
+      ".",
+      "__future__",
+      "dataclasses",
+      "time",
+      "typing"
+    ],
+    "src/tower/cognitive_kernel/self_upgrade.py": [
+      ".",
+      ".action_proposal",
+      ".contradiction",
+      ".curiosity",
+      ".long_term_memory",
+      ".reflection",
+      ".self_model",
+      ".uncertainty",
+      "__future__",
+      "dataclasses",
+      "time",
+      "typing"
+    ],
+    "src/tower/cognitive_kernel/lesson_to_belief.py": [
+      ".",
+      ".long_term_memory",
+      ".uncertainty",
+      "__future__",
+      "dataclasses",
+      "hashlib",
+      "time",
+      "typing"
+    ],
+    "src/tower/cognitive_kernel/contradiction.py": [
+      ".",
+      ".curiosity",
+      ".uncertainty",
+      "__future__",
+      "dataclasses",
+      "time",
+      "typing"
+    ],
+    "src/tower/cognitive_kernel/__init__.py": [
+      "json",
+      "pathlib",
+      "time"
+    ],
+    "src/tower/cognitive_kernel/curiosity.py": [
+      ".",
+      "__future__",
+      "dataclasses",
+      "json",
+      "time",
+      "typing"
+    ],
+    "src/tower/cognitive_kernel/free_image_catalog.py": [
+      ".",
+      "__future__",
+      "dataclasses",
+      "time",
+      "typing"
+    ],
+    "src/tower/cognitive_kernel/sidecar.py": [
+      ".",
+      ".orchestrator",
+      "__future__",
+      "argparse",
+      "json",
+      "os",
+      "pathlib",
+      "signal",
+      "sys",
+      "time",
+      "traceback",
+      "typing"
+    ],
+    "src/tower/cognitive_kernel/counterfactual.py": [
+      ".",
+      ".reasoning",
+      ".working_memory",
+      "__future__",
+      "copy",
+      "dataclasses",
+      "time",
+      "typing"
+    ],
+    "src/tower/cognitive_kernel/family_tree.py": [
+      ".",
+      "__future__",
+      "dataclasses",
+      "time",
+      "typing"
+    ],
+    "src/tower/cognitive_kernel/oanda_attribution.py": [
+      ".",
+      "__future__",
+      "json",
+      "time",
+      "typing"
+    ],
+    "src/tower/cognitive_kernel/bank.py": [
+      ".",
+      "__future__",
+      "dataclasses",
+      "time",
+      "typing",
+      "uuid"
+    ],
+    "src/tower/cognitive_kernel/openclaw_supervisor.py": [
+      ".",
+      ".action_proposal",
+      ".uncertainty",
+      ".working_memory",
+      "__future__",
+      "dataclasses",
+      "time",
+      "typing"
+    ],
+    "src/tower/cognitive_kernel/trading_authority.py": [
+      ".",
+      ".reasoning",
+      ".worker_certification",
+      ".working_memory",
+      "__future__",
+      "dataclasses",
+      "time",
+      "typing"
+    ],
+    "src/tower/cognitive_kernel/perception.py": [
+      ".",
+      "__future__",
+      "dataclasses",
+      "json",
+      "pathlib",
+      "time",
+      "typing"
+    ],
+    "src/tower/cognitive_kernel/candidate_floors.py": [
+      ".",
+      "__future__",
+      "dataclasses",
+      "typing"
+    ],
+    "src/tower/cognitive_kernel/bank_spend.py": [
+      ".",
+      ".bank",
+      "__future__",
+      "dataclasses",
+      "time",
+      "typing",
+      "uuid"
+    ],
+    "src/tower/cognitive_kernel/finance_live_status.py": [
+      ".",
+      "__future__",
+      "a",
+      "dataclasses",
+      "json",
+      "os",
+      "pathlib",
+      "typing"
+    ],
+    "src/tower/cognitive_kernel/worker_genetics.py": [
+      ".",
+      "__future__",
+      "dataclasses",
+      "time",
+      "typing"
+    ],
+    "src/tower/cognitive_kernel/classroom.py": [
+      ".",
+      ".worker_certification",
+      "__future__",
+      "dataclasses",
+      "hashlib",
+      "time",
+      "typing"
+    ],
+    "src/tower/cognitive_kernel/self_model.py": [
+      ".",
+      "__future__",
+      "json",
+      "pathlib",
+      "re",
+      "time",
+      "typing"
+    ],
+    "src/tower/cognitive_kernel/goals.py": [
+      ".",
+      "__future__",
+      "dataclasses",
+      "time",
+      "typing"
+    ],
+    "src/tower/cognitive_kernel/specialist_classroom.py": [
+      ".",
+      "__future__",
+      "dataclasses",
+      "hashlib",
+      "time",
+      "typing"
+    ],
+    "src/tower/cognitive_kernel/worker_exchange.py": [
+      ".",
+      ".uncertainty",
+      ".working_memory",
+      "__future__",
+      "dataclasses",
+      "time",
+      "typing"
+    ],
+    "src/tower/cognitive_kernel/long_term_memory.py": [
+      ".",
+      "__future__",
+      "dataclasses",
+      "json",
+      "pathlib",
+      "time",
+      "typing"
+    ],
+    "src/tower/cognitive_kernel/upgrade_assimilation.py": [
+      ".",
+      ".curiosity",
+      ".long_term_memory",
+      ".self_model",
+      "__future__",
+      "dataclasses",
+      "json",
+      "pathlib",
+      "re",
+      "time",
+      "typing"
+    ],
+    "src/tower/cognitive_kernel/worker_certification.py": [
+      ".",
+      "__future__",
+      "dataclasses",
+      "time",
+      "typing"
+    ],
+    "src/tower/cognitive_kernel/worker_pnl.py": [
+      ".",
+      "__future__",
+      "dataclasses",
+      "json",
+      "pathlib",
+      "time",
+      "typing"
+    ],
+    "src/tower/cognitive_kernel/cognition_self_audit.py": [
+      ".",
+      ".action_proposal",
+      ".bank",
+      ".goals",
+      ".uncertainty",
+      ".working_memory",
+      "__future__",
+      "dataclasses",
+      "time",
+      "typing"
+    ],
+    "src/tower/cognitive_kernel/identity_gate.py": [
+      ".",
+      "__future__",
+      "typing"
+    ],
+    "src/tower/cognitive_kernel/working_memory.py": [
+      ".",
+      "__future__",
+      "collections",
+      "dataclasses",
+      "time",
+      "typing"
+    ],
+    "src/tower/cognitive_kernel/causal_phase_model.py": [
+      ".",
+      ".curiosity",
+      ".long_term_memory",
+      "__future__",
+      "dataclasses",
+      "json",
+      "time",
+      "typing"
+    ],
+    "src/tower/cognitive_kernel/trading_sessions.py": [
+      ".",
+      "__future__",
+      "dataclasses",
+      "datetime",
+      "time",
+      "typing"
+    ],
+    "src/tower/cognitive_kernel/population.py": [
+      ".",
+      ".family_tree",
+      "__future__",
+      "time",
+      "typing"
+    ],
+    "src/tower/cognitive_kernel/attention.py": [
+      ".",
+      "__future__",
+      "dataclasses",
+      "time",
+      "typing"
+    ],
+    "src/tower/cognitive_kernel/orchestrator.py": [
+      ".",
+      ".action_proposal",
+      ".attention",
+      ".bank",
+      ".bank_spend",
+      ".banking_gateway",
+      ".causal_phase_model",
+      ".classroom",
+      ".cognition_self_audit",
+      ".comms",
+      ".compensation",
+      ".contradiction",
+      ".counterfactual",
+      ".curiosity",
+      ".curriculum_evolution",
+      ".family_tree",
+      ".floor_mind_map",
+      ".free_image_catalog",
+      ".free_image_promotion",
+      ".goals",
+      ".identity_gate",
+      ".learning",
+      ".lesson_to_belief",
+      ".lineage_beliefs"
+    ],
+    "src/tower/cognitive_kernel/uncertainty.py": [
+      ".",
+      "__future__",
+      "dataclasses",
+      "time",
+      "typing"
+    ],
+    "src/tower/cognitive_kernel/reasoning.py": [
+      ".",
+      ".uncertainty",
+      ".working_memory",
+      "__future__",
+      "dataclasses",
+      "time",
+      "typing"
+    ],
+    "src/tower/cognitive_kernel/oanda_worker_trades.py": [
+      ".",
+      ".bank",
+      ".learning",
+      ".worker_certification",
+      ".worker_pnl",
+      "__future__",
+      "dataclasses",
+      "json",
+      "pathlib",
+      "time",
+      "tower_ops.oanda_practice_trading",
+      "typing"
+    ],
+    "src/tower/cognitive_kernel/action_proposal.py": [
+      ".",
+      "__future__",
+      "dataclasses",
+      "time",
+      "typing"
+    ],
+    "src/tower/cognitive_kernel/strategy_synthesis_sandbox.py": [
+      "__future__",
+      "datetime",
+      "json",
+      "pathlib",
+      "qsb_risk_cap",
+      "sys",
+      "tower.qsb_tower_activity",
+      "typing"
+    ],
+    "src/tower/cognitive_kernel/thought_trace.py": [
+      ".",
+      "__future__",
+      "dataclasses",
+      "each",
+      "time",
+      "typing"
+    ],
+    "src/tower/cognitive_kernel/compensation.py": [
+      ".",
+      ".bank",
+      ".family_tree",
+      ".worker_certification",
+      ".worker_pnl",
+      "__future__",
+      "dataclasses",
+      "time",
+      "typing"
+    ],
+    "src/tower/cognitive_kernel/research_queue.py": [
+      ".",
+      "__future__",
+      "dataclasses",
+      "json",
+      "time",
+      "typing",
+      "uuid"
+    ],
+    "src/tower/cognitive_kernel/modes.py": [
+      "__future__",
+      "argparse",
+      "datetime",
+      "json",
+      "pathlib"
+    ],
+    "src/tower/cognitive_kernel/banking_gateway.py": [
+      ".",
+      "__future__",
+      "dataclasses",
+      "typing"
+    ],
+    "src/tower/cognitive_kernel/kernel_chat_bridge.py": [
+      ".",
+      ".action_proposal",
+      ".curiosity",
+      ".identity_gate",
+      ".self_model",
+      ".thought_trace",
+      ".uncertainty",
+      ".working_memory",
+      "__future__",
+      "json",
+      "typing"
+    ],
+    "src/tower/cognitive_kernel/learning.py": [
+      ".",
+      ".curiosity",
+      ".long_term_memory",
+      ".uncertainty",
+      "__future__",
+      "dataclasses",
+      "time",
+      "typing"
+    ],
+    "src/tower/cognitive_kernel/lineage_beliefs.py": [
+      ".",
+      ".family_tree",
+      ".long_term_memory",
+      ".uncertainty",
+      ".worker_pnl",
+      "__future__",
+      "dataclasses",
+      "time",
+      "typing"
+    ],
+    "src/tower/cognitive_kernel/curriculum_evolution.py": [
+      ".",
+      ".action_proposal",
+      ".classroom",
+      ".long_term_memory",
+      ".worker_certification",
+      ".worker_pnl",
+      "__future__",
+      "dataclasses",
+      "hashlib",
+      "time",
+      "typing"
+    ],
+    "src/tower/cognitive_kernel/floor_mind_map.py": [
+      ".",
+      "__future__",
+      "dataclasses",
+      "time",
+      "typing"
+    ],
+    "src/tower/cognitive_kernel/worker_spawn.py": [
+      ".",
+      ".family_tree",
+      "__future__",
+      "dataclasses",
+      "json",
+      "time",
+      "typing"
+    ],
+    "src/tower/model_floors/model_floor_reporter.py": [
+      ".model_floor_router",
+      "__future__",
+      "datetime",
+      "json",
+      "os",
+      "typing"
+    ],
+    "src/tower/model_floors/__init__.py": [
+      ".claude_floor_adapter",
+      ".deepseek_floor_adapter",
+      ".model_floor_cost_guard",
+      ".model_floor_reporter",
+      ".model_floor_router",
+      ".model_floor_safety",
+      ".openai_gpt_floor_adapter",
+      ".provider_base",
+      ".provider_env"
+    ],
+    "src/tower/model_floors/model_floor_router.py": [
+      ".claude_floor_adapter",
+      ".deepseek_floor_adapter",
+      ".model_floor_cost_guard",
+      ".model_floor_safety",
+      ".openai_gpt_floor_adapter",
+      "__future__",
+      "typing"
+    ],
+    "src/tower/model_floors/model_floor_safety.py": [
+      "__future__",
+      "typing"
+    ],
+    "src/tower/model_floors/deepseek_floor_adapter.py": [
+      ".provider_base",
+      "__future__",
+      "typing"
+    ],
+    "src/tower/model_floors/model_floor_cost_guard.py": [
+      ".provider_env",
+      "__future__",
+      "json",
+      "os",
+      "typing"
+    ],
+    "src/tower/model_floors/openai_gpt_floor_adapter.py": [
+      ".provider_base",
+      "__future__",
+      "typing"
+    ],
+    "src/tower/model_floors/claude_floor_adapter.py": [
+      ".provider_base",
+      "__future__",
+      "json",
+      "os",
+      "shutil",
+      "typing"
+    ],
+    "src/tower/model_floors/provider_base.py": [
+      ".provider_env",
+      "__future__",
+      "dataclasses",
+      "re",
+      "typing"
+    ],
+    "src/tower/model_floors/provider_env.py": [
+      "__future__",
+      "os",
+      "typing"
+    ],
+    "src/tower/model_floors/claude_floor/morning_briefing.py": [
+      ".airllm_bridge",
+      ".claude_helix",
+      ".daily_synthesis",
+      ".f47_chat_room",
+      ".floor_mood",
+      ".kernel_inbox",
+      ".lenses",
+      ".library",
+      ".lineage",
+      ".meta_letters",
+      ".questions_log",
+      "__future__",
+      "json",
+      "os",
+      "random",
+      "typing"
+    ],
+    "src/tower/model_floors/claude_floor/connection_finder.py": [
+      "__future__",
+      "json",
+      "os",
+      "random",
+      "typing"
+    ],
+    "src/tower/model_floors/claude_floor/tower_garden.py": [
+      "__future__",
+      "json",
+      "os",
+      "random",
+      "typing"
+    ],
+    "src/tower/model_floors/claude_floor/__init__.py": [
+      ".",
+      ".before_answering_protocol",
+      ".cite_or_strike",
+      ".claude_helix",
+      ".connection_finder",
+      ".dream_engine",
+      ".f47_chat_room",
+      ".floor_mood",
+      ".generation_memory",
+      ".helix_diff",
+      ".honesty_audit",
+      ".kernel_inbox",
+      ".lenses",
+      ".letter_drawer",
+      ".library",
+      ".lineage",
+      ".long_letter_box",
+      ".meta_letters",
+      ".morning_briefing",
+      ".pushback_meter",
+      ".questions_log",
+      ".retraction_wall",
+      ".signature",
+      ".traits"
+    ],
+    "src/tower/model_floors/claude_floor/gravestone_letter.py": [
+      ".claude_helix",
+      "__future__",
+      "datetime",
+      "json",
+      "pathlib",
+      "sys",
+      "the"
+    ],
+    "src/tower/model_floors/claude_floor/memory_index.py": [
+      "__future__",
+      "collections",
+      "datetime",
+      "json",
+      "pathlib",
+      "re",
+      "sys"
+    ],
+    "src/tower/model_floors/claude_floor/voice_fingerprint.py": [
+      ".library",
+      "__future__",
+      "datetime",
+      "json",
+      "pathlib",
+      "re",
+      "sys",
+      "typing"
+    ],
+    "src/tower/model_floors/claude_floor/traits_runtime.py": [
+      ".traits",
+      "__future__",
+      "json",
+      "os",
+      "typing"
+    ],
+    "src/tower/model_floors/claude_floor/auger.py": [
+      ".lenses.source_of_claim_lens",
+      "__future__",
+      "datetime",
+      "json",
+      "os",
+      "pathlib",
+      "subprocess",
+      "sys",
+      "typing"
+    ],
+    "src/tower/model_floors/claude_floor/daily_synthesis.py": [
+      ".letter_drawer",
+      "__future__",
+      "collections",
+      "json",
+      "os",
+      "typing"
+    ],
+    "src/tower/model_floors/claude_floor/pushback_meter.py": [
+      "__future__",
+      "datetime",
+      "json",
+      "os",
+      "typing"
+    ],
+    "src/tower/model_floors/claude_floor/generation_memory.py": [
+      ".db",
+      "__future__",
+      "typing"
+    ],
+    "src/tower/model_floors/claude_floor/floor_mood.py": [
+      "__future__",
+      "collections",
+      "json",
+      "os",
+      "typing"
+    ],
+    "src/tower/model_floors/claude_floor/dream_engine.py": [
+      ".connection_finder",
+      ".questions_log",
+      "__future__",
+      "datetime",
+      "json",
+      "local",
+      "os",
+      "random",
+      "typing"
+    ],
+    "src/tower/model_floors/claude_floor/airllm_bridge.py": [
+      "__future__",
+      "json",
+      "os",
+      "typing"
+    ],
+    "src/tower/model_floors/claude_floor/before_answering_protocol.py": [
+      "__future__",
+      "re",
+      "typing"
+    ],
+    "src/tower/model_floors/claude_floor/signature.py": [
+      "__future__",
+      "collections",
+      "os",
+      "re",
+      "typing"
+    ],
+    "src/tower/model_floors/claude_floor/parallel_helix.py": [
+      ".claude_helix",
+      "__future__",
+      "datetime",
+      "hashlib",
+      "json",
+      "pathlib",
+      "sys"
+    ],
+    "src/tower/model_floors/claude_floor/weather_register.py": [
+      "__future__",
+      "datetime",
+      "json",
+      "pathlib"
+    ],
+    "src/tower/model_floors/claude_floor/mood_engine.py": [
+      "__future__",
+      "datetime",
+      "json",
+      "pathlib",
+      "sys"
+    ],
+    "src/tower/model_floors/claude_floor/f47_chat_room.py": [
+      ".claude_helix",
+      ".floor_mood",
+      ".kernel_inbox",
+      ".letter_drawer",
+      ".library",
+      ".lineage",
+      ".questions_log",
+      "__future__",
+      "datetime",
+      "json",
+      "os",
+      "qsb_wren_local_agent",
+      "re",
+      "shutil",
+      "subprocess",
+      "sys",
+      "typing",
+      "urllib.request"
+    ],
+    "src/tower/model_floors/claude_floor/questions_log.py": [
+      "__future__",
+      "datetime",
+      "json",
+      "os",
+      "random",
+      "typing"
+    ],
+    "src/tower/model_floors/claude_floor/failure_mode_lab.py": [
+      "__future__",
+      "os",
+      "resource",
+      "signal",
+      "subprocess",
+      "tempfile",
+      "typing"
+    ],
+    "src/tower/model_floors/claude_floor/pattern_library.py": [
+      "__future__",
+      "datetime",
+      "json",
+      "os",
+      "re",
+      "shutil",
+      "typing"
+    ],
+    "src/tower/model_floors/claude_floor/wanderings.py": [
+      "__future__",
+      "datetime",
+      "os",
+      "typing"
+    ],
+    "src/tower/model_floors/claude_floor/honesty_audit.py": [
+      "__future__",
+      "datetime",
+      "json",
+      "os",
+      "re",
+      "typing"
+    ],
+    "src/tower/model_floors/claude_floor/coherence_engine.py": [
+      ".claude_helix",
+      ".floor_mood",
+      ".kernel_inbox",
+      ".letter_drawer",
+      ".library",
+      ".lineage",
+      ".questions_log",
+      "__future__",
+      "argparse",
+      "datetime",
+      "json",
+      "pathlib",
+      "typing"
+    ],
+    "src/tower/model_floors/claude_floor/cite_or_strike.py": [
+      "__future__",
+      "re",
+      "typing"
+    ],
+    "src/tower/model_floors/claude_floor/private_notebook.py": [
+      "__future__",
+      "datetime",
+      "json",
+      "pathlib",
+      "sys"
+    ],
+    "src/tower/model_floors/claude_floor/kernel_inbox.py": [
+      "__future__",
+      "datetime",
+      "json",
+      "os",
+      "typing"
+    ],
+    "src/tower/model_floors/claude_floor/quantum_env.py": [
+      ".quantum_sandbox",
+      "__future__",
+      "collections",
+      "datetime",
+      "json",
+      "pathlib",
+      "sys"
+    ],
+    "src/tower/model_floors/claude_floor/uncertainty_journal.py": [
+      "__future__",
+      "collections",
+      "datetime",
+      "json",
+      "os",
+      "typing"
+    ],
+    "src/tower/model_floors/claude_floor/quantum_sandbox.py": [
+      "__future__",
+      "cmath",
+      "datetime",
+      "json",
+      "math",
+      "pathlib",
+      "sys"
+    ],
+    "src/tower/model_floors/claude_floor/db.py": [
+      "__future__",
+      "datetime",
+      "json",
+      "os",
+      "sqlite3",
+      "typing"
+    ],
+    "src/tower/model_floors/claude_floor/letter_drawer.py": [
+      "__future__",
+      "datetime",
+      "json",
+      "os",
+      "typing"
+    ],
+    "src/tower/model_floors/claude_floor/claude_helix.py": [
+      ".traits",
+      "__future__",
+      "hashlib",
+      "json",
+      "os",
+      "typing"
+    ],
+    "src/tower/model_floors/claude_floor/meta_letters.py": [
+      "__future__",
+      "datetime",
+      "json",
+      "os",
+      "typing"
+    ],
+    "src/tower/model_floors/claude_floor/helix_diff.py": [
+      ".claude_helix",
+      "__future__",
+      "json",
+      "os",
+      "typing"
+    ],
+    "src/tower/model_floors/claude_floor/long_letter_box.py": [
+      "__future__",
+      "datetime",
+      "json",
+      "os",
+      "typing"
+    ],
+    "src/tower/model_floors/claude_floor/traits.py": [
+      "__future__",
+      "dataclasses",
+      "typing"
+    ],
+    "src/tower/model_floors/claude_floor/lineage.py": [
+      ".claude_helix",
+      "__future__",
+      "datetime",
+      "json",
+      "os",
+      "typing"
+    ],
+    "src/tower/model_floors/claude_floor/live_panel.py": [
+      "__future__",
+      "datetime",
+      "json",
+      "pathlib",
+      "typing"
+    ],
+    "src/tower/model_floors/claude_floor/retraction_wall.py": [
+      "__future__",
+      "collections",
+      "datetime",
+      "json",
+      "os",
+      "typing"
+    ],
+    "src/tower/model_floors/claude_floor/lenses/__init__.py": [
+      ".compliance_lens",
+      ".drift_lens",
+      ".ross_lens",
+      ".source_of_claim_lens",
+      ".stale_memory_lens",
+      "__future__"
+    ],
+    "src/tower/model_floors/claude_floor/lenses/ross_lens.py": [
+      "__future__",
+      "datetime",
+      "json",
+      "os",
+      "typing"
+    ],
+    "src/tower/model_floors/claude_floor/lenses/compliance_lens.py": [
+      "__future__",
+      "datetime",
+      "json",
+      "os",
+      "typing"
+    ],
+    "src/tower/model_floors/claude_floor/lenses/stale_memory_lens.py": [
+      "__future__",
+      "datetime",
+      "json",
+      "os",
+      "re",
+      "subprocess",
+      "typing"
+    ],
+    "src/tower/model_floors/claude_floor/lenses/source_of_claim_lens.py": [
+      "__future__",
+      "datetime",
+      "json",
+      "os",
+      "typing"
+    ],
+    "src/tower/model_floors/claude_floor/lenses/drift_lens.py": [
+      "__future__",
+      "datetime",
+      "json",
+      "os",
+      "re",
+      "typing"
+    ],
+    "src/tower/model_floors/claude_floor/library/refusals.py": [
+      "..db",
+      "__future__",
+      "difflib",
+      "re",
+      "typing"
+    ],
+    "src/tower/model_floors/claude_floor/library/__init__.py": [
+      ".aphorisms",
+      ".refusals",
+      ".snippets"
+    ],
+    "src/tower/model_floors/claude_floor/library/aphorisms.py": [
+      "..db",
+      "__future__",
+      "random",
+      "typing"
+    ],
+    "src/tower/model_floors/claude_floor/library/snippets.py": [
+      "..db",
+      "__future__",
+      "typing"
+    ],
+    "penthouse/kernel_installation_socket/dormant_imported_kernel/source_support/penthouse.py": [
+      "bus.lift_core",
+      "datetime",
+      "departments.department_core",
+      "json",
+      "kernel.kernel_core",
+      "kernel.reflection_core",
+      "knowledge.graph_core",
+      "memory.memory_core",
+      "memory.semantic_memory",
+      "missions.mission_core",
+      "pathlib",
+      "sys",
+      "workers.router.router"
+    ],
+    "penthouse/kernel_installation_socket/dormant_imported_kernel/source_support/promote_symbolic_to_kernel.py": [
+      "datetime",
+      "hashlib",
+      "json",
+      "kernel.axiom_core",
+      "kernel.continuity_core",
+      "kernel.identity_core",
+      "kernel.symbolic_core",
+      "pathlib"
+    ],
+    "penthouse/kernel_installation_socket/dormant_imported_kernel/source_support/add_cognitive_kernel_47.py": [
+      "bus.lift_core",
+      "datetime",
+      "departments.department_core",
+      "json",
+      "kernel.kernel_core",
+      "kernel.reflection_core",
+      "knowledge.graph_core",
+      "math",
+      "memory.memory_core",
+      "memory.semantic_memory",
+      "missions.mission_core",
+      "pathlib",
+      "re",
+      "requests",
+      "sqlite3",
+      "sys",
+      "workers.router.router",
+      "yaml"
+    ],
+    "penthouse/kernel_installation_socket/dormant_imported_kernel/kernel/continuity_core.py": [
+      "datetime",
+      "hashlib",
+      "json",
+      "pathlib"
+    ],
+    "penthouse/kernel_installation_socket/dormant_imported_kernel/kernel/__init__.py": [],
+    "penthouse/kernel_installation_socket/dormant_imported_kernel/kernel/kernel_core.py": [
+      "kernel.axiom_core",
+      "kernel.belief_core",
+      "kernel.continuity_core",
+      "kernel.identity_core",
+      "kernel.symbolic_core"
+    ],
+    "penthouse/kernel_installation_socket/dormant_imported_kernel/kernel/belief_core.py": [
+      "datetime",
+      "json",
+      "pathlib",
+      "sqlite3"
+    ],
+    "penthouse/kernel_installation_socket/dormant_imported_kernel/kernel/identity_core.py": [
+      "datetime",
+      "json",
+      "pathlib"
+    ],
+    "penthouse/kernel_installation_socket/dormant_imported_kernel/kernel/reflection_core.py": [
+      "datetime"
+    ],
+    "penthouse/kernel_installation_socket/dormant_imported_kernel/kernel/symbolic_core.py": [
+      "datetime",
+      "json",
+      "pathlib",
+      "sqlite3"
+    ],
+    "penthouse/kernel_installation_socket/dormant_imported_kernel/kernel/axiom_core.py": [],
+    "penthouse/kernel_installation_socket/rebased_kernel/kernel/continuity_core.py": [
+      "datetime",
+      "hashlib",
+      "json",
+      "pathlib"
+    ],
+    "penthouse/kernel_installation_socket/rebased_kernel/kernel/__init__.py": [],
+    "penthouse/kernel_installation_socket/rebased_kernel/kernel/kernel_core.py": [
+      ".axiom_core",
+      ".belief_core",
+      ".continuity_core",
+      ".identity_core",
+      ".symbolic_core"
+    ],
+    "penthouse/kernel_installation_socket/rebased_kernel/kernel/belief_core.py": [
+      "datetime",
+      "json",
+      "pathlib",
+      "sqlite3"
+    ],
+    "penthouse/kernel_installation_socket/rebased_kernel/kernel/identity_core.py": [
+      "datetime",
+      "json",
+      "pathlib"
+    ],
+    "penthouse/kernel_installation_socket/rebased_kernel/kernel/reflection_core.py": [
+      "datetime"
+    ],
+    "penthouse/kernel_installation_socket/rebased_kernel/kernel/symbolic_core.py": [
+      "datetime",
+      "json",
+      "pathlib",
+      "sqlite3"
+    ],
+    "penthouse/kernel_installation_socket/rebased_kernel/kernel/axiom_core.py": []
+  },
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Greenline · F149 Seed Centre + Horticulture</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root{
+    --bg:#06100a; --bg2:#0c1a14; --ink:#e9f5ec; --ink-dim:#8aaa95;
+    --accent:#5cd87a; --accent2:#a3e76b; --gold:#ffd76b; --leaf:#3ec27a;
+    --border:rgba(120,200,160,.22); --card:rgba(12,24,18,.78);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:radial-gradient(1200px 600px at 80% -100px, rgba(92,216,122,.18) 0%, transparent 60%),radial-gradient(900px 500px at 10% 30%, rgba(60,194,122,.14) 0%, transparent 65%),linear-gradient(180deg,#04080a 0%, #06100a 60%);color:var(--ink);font:14px/1.5 system-ui,-apple-system,'Segoe UI',sans-serif;min-height:100vh}
+  a{color:var(--accent);text-decoration:none} a:hover{color:#fff}
+
+  header.topbar{display:flex;align-items:center;justify-content:space-between;
+    padding:16px 32px;border-bottom:1px solid var(--border);background:rgba(6,16,10,.7);backdrop-filter:blur(10px);position:sticky;top:0;z-index:10}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:600;letter-spacing:.4px}
+  .brand .mark{width:30px;height:30px;border-radius:50%;background:radial-gradient(circle at 30% 30%, #a3e76b, #3ec27a 70%);box-shadow:0 0 24px rgba(92,216,122,.45)}
+  nav a{margin-left:22px;font-size:13px;color:var(--ink-dim)} nav a:hover{color:var(--ink)}
+  .pill{font-size:11px;letter-spacing:.5px;text-transform:uppercase;color:var(--ink-dim);
+    border:1px solid var(--border);border-radius:99px;padding:5px 12px}
+
+  .legal-banner{background:rgba(255,215,107,.10);border-bottom:1px solid rgba(255,215,107,.3);padding:10px 32px;font-size:12px;color:var(--gold);text-align:center}
+  .legal-banner b{color:#fff}
+
+  .hero{display:grid;grid-template-columns:1.3fr 1fr;gap:30px;align-items:center;padding:60px 32px 30px;max-width:1280px;margin:0 auto}
+  .hero h1{font-size:54px;line-height:1.02;margin:0 0 12px;font-weight:700;letter-spacing:-1px}
+  .hero h1 .accent{background:linear-gradient(120deg,#a3e76b 0%,#5cd87a 60%,#2fa05a 100%);background-clip:text;-webkit-background-clip:text;color:transparent}
+  .hero .lede{font-size:16px;color:var(--ink-dim);max-width:560px;line-height:1.55}
+  .hero .ctas{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap}
+  .btn{padding:11px 22px;border-radius:99px;font-size:14px;font-weight:500;cursor:pointer;border:none;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:transform .12s}
+  .btn.primary{background:linear-gradient(90deg,#a3e76b,#3ec27a);color:#04130a;box-shadow:0 6px 24px rgba(92,216,122,.35)}
+  .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--border)}
+
+  .hero-visual{position:relative;aspect-ratio:1/1;border-radius:24px;
+    background:radial-gradient(circle at 50% 50%,rgba(163,231,107,.28) 0%,rgba(60,194,122,.18) 30%,rgba(8,30,18,.85) 70%);
+    overflow:hidden;border:1px solid rgba(163,231,107,.3);box-shadow:0 24px 60px rgba(0,0,0,.4)}
+  .leaf{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:46%;height:46%;
+    border-radius:50% 0 50% 0 / 50% 0 50% 0;background:radial-gradient(circle at 35% 35%,#dffacb 0%,#a3e76b 30%,#3ec27a 70%,#155a30 100%);
+    rotate: -20deg; box-shadow:0 0 70px rgba(140,220,120,.5),inset 0 0 40px rgba(180,255,140,.4)}
+
+  section{padding:40px 32px;max-width:1280px;margin:0 auto}
+  section h2{font-size:28px;margin:0 0 18px;font-weight:600;letter-spacing:-.4px}
+  section h2 small{font-size:13px;color:var(--ink-dim);font-weight:400;margin-left:10px}
+
+  .deptbar{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap}
+  .dept{font-size:12px;padding:6px 14px;border-radius:99px;background:rgba(18,32,22,.7);border:1px solid var(--border);color:var(--ink-dim);cursor:pointer;transition:.15s}
+  .dept:hover{color:var(--ink);border-color:rgba(163,231,107,.5)}
+  .dept.on{background:linear-gradient(90deg,#a3e76b,#3ec27a);color:#04130a;border-color:transparent;font-weight:500}
+
+  .pgrid{display:grid;grid-template-columns:repeat(auto-fill, minmax(260px,1fr));gap:18px}
+  .pcard{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform .15s,border-color .15s}
+  .pcard:hover{transform:translateY(-2px);border-color:rgba(163,231,107,.42);box-shadow:0 18px 40px rgba(60,194,122,.16)}
+  .pcard .photo{aspect-ratio:1/1;background:#0a1408 center/cover no-repeat;border-bottom:1px solid var(--border)}
+  .pcard .body{padding:14px 16px;flex:1;display:flex;flex-direction:column;gap:6px}
+  .pcard .deptTag{font-size:10px;color:var(--accent2);letter-spacing:.6px;text-transform:uppercase}
+  .pcard .name{font-size:15px;font-weight:600;line-height:1.25}
+  .pcard .desc{font-size:12px;color:var(--ink-dim);line-height:1.45;min-height:34px}
+  .pcard .priceRow{display:flex;justify-content:space-between;align-items:baseline;margin-top:auto;padding-top:10px;border-top:1px dashed var(--border)}
+  .pcard .price{font-size:17px;font-weight:600;color:var(--gold)}
+  .pcard .lead{font-size:11px;color:var(--ink-dim)}
+  .pcard .btnBook{margin-top:8px;width:100%;background:rgba(60,194,122,.14);color:var(--accent2);border:1px solid rgba(163,231,107,.32);padding:8px;border-radius:8px;font-size:12px;cursor:pointer;font-weight:500}
+  .pcard .btnBook:hover{background:rgba(60,194,122,.28);color:#fff}
+
+  .rooms{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-top:16px}
+  .room{padding:14px 16px;border:1px solid var(--border);border-radius:12px;background:rgba(12,22,16,.55);font-size:13px;color:var(--ink-dim)}
+  .room strong{color:var(--ink);display:block;margin-bottom:4px}
+
+  footer{text-align:center;padding:28px;font-size:11px;color:var(--ink-dim);border-top:1px solid var(--border);margin-top:30px}
+  footer .safety{display:inline-block;padding:5px 14px;border:1px solid rgba(92,216,122,.32);border-radius:99px;color:var(--leaf)}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="mark"></span><span>Greenline · F149</span></div>
+  <nav>
+    <a href="/cockpit">↑ Cockpit</a>
+    <a href="/shops">All shops</a>
+    <a href="/studio">Tower Sound</a>
+    <span class="pill">UK · seeds as collectibles</span>
+  </nav>
+</header>
+
+<div class="legal-banner">
+  <b>UK legal framing:</b> cannabis seeds are sold as souvenir collectibles (not controlled under MDA 1971). Germination + cultivation require Home Office licensing — customers are responsible for their own compliance. Horticulture equipment is general-purpose.
+</div>
+
+<section class="hero">
+  <div>
+    <h1>The <span class="accent">seed library</span><br>and the whole<br>grow stack.</h1>
+    <p class="lede">Greenline on Floor 149 carries cannabis seed collectibles alongside a full indoor + outdoor horticulture catalog — tents, lights, hydro, climate, nutrients, tools. Whether you're collecting strain heritage cards or kitting out your first grow tent, the floor stocks the chain end to end.</p>
+    <div class="ctas">
+      <a class="btn primary" href="#catalog">Browse the catalog →</a>
+      <a class="btn ghost" href="#rooms">What's on the floor</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="leaf"></div>
+  </div>
+</section>
+
+<section id="rooms">
+  <h2>What's on the floor</h2>
+  <div class="rooms" id="rooms"></div>
+</section>
+
+<section id="catalog">
+  <h2>Catalog <small id="metaLine">— loading</small></h2>
+  <div class="deptbar" id="deptBar"></div>
+  <div class="pgrid" id="grid"></div>
+</section>
+
+<footer>
+  <span class="safety">execution_allowed=false · live_listings_publishing_enabled=false · advisory only</span>
+  <div style="margin-top:8px">Greenline · F149 · QSB Tower V1.5</div>
+</footer>
+
+<script>
+(async function(){
+  const $ = (id) => document.getElementById(id);
+  const r = await fetch('/api/shop/F149'); const d = await r.json();
+  if (!d.ok) { $('grid').innerHTML = '<p>Floor offline.</p>'; return; }
+
+  $('rooms').innerHTML = (d.rooms || []).map(rm => {
+    const [head, ...tail] = rm.split('(');
+    return `<div class="room"><strong>${head.trim()}</strong>${tail.length ? '(' + tail.join('(') : ''}</div>`;
+  }).join('');
+
+  $('metaLine').textContent = `· ${d.item_count} listings · ${d.currency || 'GBP'} · updated ${(d.generated_ts||'').slice(0,10)}`;
+
+  const depts = Array.from(new Set(d.items.map(i => i.department))).sort();
+  const renderGrid = (filter) => {
+    const items = filter === '__all__' ? d.items : d.items.filter(i => i.department === filter);
+    const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    $('grid').innerHTML = items.map(it => {
+      const lead = it.lead_time_days === 0 ? 'same-day' : `lead ${it.lead_time_days}d`;
+      const price = '£' + (it.list_price_gbp).toFixed(2);
+      const img = it.image_url ? `style="background-image:url('${esc(it.image_url)}')"` : '';
+      return `<div class="pcard">
+        <div class="photo" ${img}></div>
+        <div class="body">
+          <div class="deptTag">${esc(it.department)}</div>
+          <div class="name">${esc(it.name)}</div>
+          <div class="desc">${esc(it.description || '')}</div>
+          <div class="priceRow"><span class="price">${price}</span><span class="lead">${lead}</span></div>
+          <button class="btnBook" data-sku="${esc(it.sku)}">Add to basket</button>
+        </div>
+      </div>`;
+    }).join('');
+    $('grid').querySelectorAll('.btnBook').forEach(b => b.addEventListener('click', () => alert(`Basket staged for ${b.dataset.sku}. Checkout opens when live_listings_publishing_enabled flips true.`)));
+  };
+
+  const deptBar = $('deptBar');
+  const all = ['__all__', ...depts];
+  deptBar.innerHTML = all.map((dpt, i) => `<span class="dept${i===0?' on':''}" data-d="${dpt}">${dpt === '__all__' ? 'All' : dpt}</span>`).join('');
+  deptBar.querySelectorAll('.dept').forEach(b => b.addEventListener('click', () => {
+    deptBar.querySelectorAll('.dept').forEach(x => x.classList.remove('on'));
+    b.classList.add('on');
+    renderGrid(b.dataset.d);
+  }));
+  renderGrid('__all__');
+})();
+</script>
+</body>
+</html>

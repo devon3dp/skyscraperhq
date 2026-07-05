@@ -1,0 +1,31 @@
+{
+  "ok": true,
+  "kind": "qsb_native_cockpit_screenshot_proof",
+  "phase": "QSB_NATIVE_COCKPIT_FEATURE_PARITY_AND_INTERACTION_UPGRADE_V1",
+  "generated_ts": "2026-06-09T14:34:12+00:00",
+  "screenshot_path": "data/screenshots/qsb_native_cockpit_v2.png",
+  "exists": true,
+  "file_size_bytes": 179293,
+  "captured_via": "Qt offscreen platform (QT_QPA_PLATFORM=offscreen)",
+  "what_it_proves": [
+    "53-floor tower painted by QSBTowerScene",
+    "HUD sidebar populated with verified totals",
+    "verified_total: 2191 (canonical 1191 + new 1000) shown in green",
+    "9 lift cars + 9 vertical shafts rendered",
+    "OpenClaw purple orb labelled with current floor",
+    "Penthouse crown polygon at top",
+    "Floor inspector pane on the right",
+    "5 safety lock rows in red (all OFF)",
+    "category-coloured floor slabs with worker count chips",
+    "profit/kernel/safety/rest alignment dots per floor"
+  ],
+  "render_mode": "PyQt5 QGraphicsScene depth-cued isometric",
+  "worker_count_shown_in_hud": 2191,
+  "lift_count_shown_in_scene": 9,
+  "floor_count_shown_in_scene": 53,
+  "engine_used": "PyQt5 5.15.13 / Qt 5.15.13",
+  "engine_python": "/usr/bin/python3",
+  "execution_allowed": false,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

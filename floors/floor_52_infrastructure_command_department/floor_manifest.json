@@ -1,0 +1,41 @@
+{
+  "floor_id": "floor_52",
+  "department": "Infrastructure Command Department",
+  "version": "1.1",
+  "role": "building_wide_infrastructure_command_visibility",
+  "zone": "ZONE D",
+  "kernel_required": false,
+  "kernel_installed": false,
+  "models_required": false,
+  "execution_enabled": false,
+  "command_execution_enabled": false,
+  "hardwired_providers": false,
+  "providers_are_external": true,
+  "command_level": 7,
+  "notice": "Infrastructure Command Department registered as part of Executive Command Spine V1.1.",
+  "interior_brief": {
+    "archetype": "comms_centre",
+    "palette": [
+      "#1a2840",
+      "#3a6090",
+      "#c780ff"
+    ],
+    "furniture": [
+      "desks",
+      "meeting area",
+      "common space",
+      "storage"
+    ],
+    "lighting": "task + ambient",
+    "mood": "buzzing",
+    "designed_by": "F66 Architects + F17 Graphics + Fitters team",
+    "fitted_at": "2026-06-11T14:39:45.620109Z",
+    "godot_scene_brief": "render an generic floor with neutral grey + accent per floor theme palette, professional mood, key furniture: desks, meeting area, common space",
+    "signature": "Mail sorting bays, console with inboxes, ticker tape",
+    "diversified_ts": "2026-06-11T17:57:45Z",
+    "diversified_by": "qsb_archetype_diversifier_v1"
+  },
+  "fitted_out": true,
+  "fit_out_ts": "2026-06-11T14:39:45.620109Z",
+  "floor_name": "Infrastructure Command Department"
+}

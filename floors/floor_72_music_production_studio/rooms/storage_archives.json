@@ -1,0 +1,31 @@
+{
+  "room_id": "storage_archives",
+  "name": "Storage and Archives",
+  "category": "archive_shelf",
+  "purpose": "Store and archive all production materials.",
+  "concierge_blurb": "Our archives house the history of every track recorded here.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_right",
+    "offset_x": 8.0,
+    "offset_z": -4.0,
+    "footprint_m": [
+      6,
+      3
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "archive_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Archive Shelf",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_72"
+}

@@ -1,0 +1,34 @@
+{
+  "room_id": "mash_tun_room",
+  "name": "Mash Tun Room",
+  "category": "operations",
+  "purpose": "This room is for the mash tuns used in brewing.",
+  "concierge_blurb": "Large mashing vessels are lined up, ready to be filled and heated.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -8.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "kettle",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Mash Tun Room",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 0
+  },
+  "floor": "floor_78"
+}

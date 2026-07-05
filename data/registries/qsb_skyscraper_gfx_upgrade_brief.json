@@ -1,0 +1,365 @@
+{
+  "kind": "qsb_skyscraper_gfx_upgrade_brief",
+  "version": "v1",
+  "ts": "2026-06-10T19:53:43Z",
+  "decorators": [
+    "openai_gpt-4o-mini",
+    "deepseek_chat"
+  ],
+  "decorator_role": "decorator + fitter \u2014 propose, do not author",
+  "wren_role": "architect + synthesizer \u2014 accepted/corrected/rejected each proposal",
+  "godot_version": "4.6",
+  "scope": "graphics_only_no_architecture_change",
+  "raw_rounds": [
+    {
+      "round": 1,
+      "by": "openai",
+      "file": "data/registries/collaborative_design/gfx_round1_openai.md"
+    },
+    {
+      "round": 2,
+      "by": "deepseek",
+      "file": "data/registries/collaborative_design/gfx_round2_deepseek.md"
+    }
+  ],
+  "upgrade_count": 20,
+  "verdicts": {
+    "accepted": 17,
+    "accepted_with_correction": 3
+  },
+  "apply_recommended_order": [
+    "glow_bloom",
+    "ssao",
+    "ssil",
+    "sdfgi",
+    "tonemap_aces",
+    "volumetric_fog",
+    "procedural_sky",
+    "dof",
+    "vignette",
+    "rim_workers",
+    "gpu_dust_lift",
+    "gpu_embers_amber",
+    "reflection_probe_trading",
+    "ssr",
+    "per_floor_omnis",
+    "contact_shadows",
+    "orm_materials",
+    "decals_floor_numbers",
+    "lod_bias",
+    "anti_aliasing"
+  ],
+  "upgrades": [
+    {
+      "id": "glow_bloom",
+      "title": "Glow / Bloom",
+      "proposed_by": "openai",
+      "wren_verdict": "accepted_with_correction",
+      "correction": "OpenAI wrote Environment.bloom_*; in Godot 4.6 it's Environment.glow_*",
+      "godot_46_api": {
+        "Environment.glow_enabled": true,
+        "Environment.glow_intensity": 0.8,
+        "Environment.glow_strength": 1.2,
+        "Environment.glow_bloom": 0.1,
+        "Environment.glow_hdr_threshold": 1.0
+      },
+      "visual": "Bright emission surfaces (amber dais F47, F55 orb, F48 bubbles) bloom softly into the room",
+      "perf": "low_med",
+      "apply_at": "TowerRenderer._make_env"
+    },
+    {
+      "id": "ssao",
+      "title": "Screen-Space Ambient Occlusion",
+      "proposed_by": "deepseek",
+      "wren_verdict": "accepted",
+      "godot_46_api": {
+        "Environment.ssao_enabled": true,
+        "Environment.ssao_radius": 1.5,
+        "Environment.ssao_intensity": 1.5,
+        "Environment.ssao_power": 1.5
+      },
+      "visual": "Contact shadows in corners + under desks make interiors feel materially real",
+      "perf": "med",
+      "apply_at": "TowerRenderer._make_env"
+    },
+    {
+      "id": "ssil",
+      "title": "Screen-Space Indirect Lighting",
+      "proposed_by": "wren",
+      "wren_verdict": "accepted",
+      "godot_46_api": {
+        "Environment.ssil_enabled": true,
+        "Environment.ssil_radius": 5.0,
+        "Environment.ssil_intensity": 1.2
+      },
+      "visual": "Amber dais bounces warm light onto the violet lamp surround on F47",
+      "perf": "med",
+      "apply_at": "TowerRenderer._make_env"
+    },
+    {
+      "id": "sdfgi",
+      "title": "SDFGI dynamic global illumination",
+      "proposed_by": "wren_corrected_from_openai_bakedlightmap",
+      "wren_verdict": "accepted",
+      "correction": "OpenAI proposed BakedLightmapGI; in Godot 4.6 the class is LightmapGI (baked) OR SDFGI (dynamic). For a tall procedural tower, SDFGI is the right call \u2014 no bake step.",
+      "godot_46_api": {
+        "Environment.sdfgi_enabled": true,
+        "Environment.sdfgi_cascades": 4,
+        "Environment.sdfgi_min_cell_size": 0.4,
+        "Environment.sdfgi_use_occlusion": true
+      },
+      "visual": "Floors illuminate each other; lift lights spill into adjacent floors",
+      "perf": "high",
+      "apply_at": "TowerRenderer._make_env"
+    },
+    {
+      "id": "tonemap_aces",
+      "title": "ACES tonemap with exposure",
+      "proposed_by": "wren",
+      "wren_verdict": "accepted",
+      "godot_46_api": {
+        "Environment.tonemap_mode": "TONE_MAPPER_ACES",
+        "Environment.tonemap_exposure": 1.1,
+        "Environment.tonemap_white": 6.0
+      },
+      "visual": "More cinematic highlight rolloff than Filmic; emission preserves color into bright areas",
+      "perf": "low",
+      "apply_at": "TowerRenderer._make_env"
+    },
+    {
+      "id": "volumetric_fog",
+      "title": "Volumetric fog",
+      "proposed_by": "openai",
+      "wren_verdict": "accepted_with_correction",
+      "correction": "FogVolume is a Node3D placed in scene; the global toggle is on Environment.volumetric_fog_*",
+      "godot_46_api": {
+        "Environment.volumetric_fog_enabled": true,
+        "Environment.volumetric_fog_density": 0.005,
+        "Environment.volumetric_fog_albedo": "Color(0.6, 0.7, 0.9)",
+        "Environment.volumetric_fog_emission": "Color(0.05, 0.05, 0.10)",
+        "Environment.volumetric_fog_length": 64.0
+      },
+      "visual": "Light shafts from the directional sun + lift lamps; depth visible across the tower",
+      "perf": "med_high",
+      "apply_at": "TowerRenderer._make_env"
+    },
+    {
+      "id": "procedural_sky",
+      "title": "ProceduralSkyMaterial for distance fall-off",
+      "proposed_by": "wren",
+      "wren_verdict": "accepted",
+      "godot_46_api": {
+        "Environment.background_mode": "BG_SKY",
+        "Environment.sky": "Sky.new()",
+        "Sky.sky_material": "ProceduralSkyMaterial.new()",
+        "ProceduralSkyMaterial.sky_top_color": "Color(0.05, 0.06, 0.12)",
+        "ProceduralSkyMaterial.sky_horizon_color": "Color(0.22, 0.18, 0.30)",
+        "ProceduralSkyMaterial.ground_horizon_color": "Color(0.10, 0.08, 0.05)"
+      },
+      "visual": "Tower stands against a violet-to-night-sky gradient; horizon registers depth",
+      "perf": "low",
+      "apply_at": "TowerRenderer._make_env"
+    },
+    {
+      "id": "dof",
+      "title": "Depth of field (far blur)",
+      "proposed_by": "wren",
+      "wren_verdict": "accepted",
+      "godot_46_api": {
+        "Camera3D.attributes": "CameraAttributesPractical.new()",
+        "CameraAttributesPractical.dof_blur_far_enabled": true,
+        "CameraAttributesPractical.dof_blur_far_distance": 50.0,
+        "CameraAttributesPractical.dof_blur_far_transition": 20.0,
+        "CameraAttributesPractical.dof_blur_amount": 0.06
+      },
+      "visual": "Far floors haze slightly; current floor sharp \u2014 focal attention",
+      "perf": "low_med",
+      "apply_at": "CameraController._ready"
+    },
+    {
+      "id": "vignette",
+      "title": "Subtle vignette + color grade",
+      "proposed_by": "deepseek",
+      "wren_verdict": "accepted_with_correction",
+      "correction": "Vignette isn't a single property; use Environment.adjustment_enabled with a color correction texture or grade via brightness/saturation",
+      "godot_46_api": {
+        "Environment.adjustment_enabled": true,
+        "Environment.adjustment_brightness": 1.0,
+        "Environment.adjustment_contrast": 1.08,
+        "Environment.adjustment_saturation": 1.1
+      },
+      "visual": "Slightly richer color, edges feel a touch grounded",
+      "perf": "low",
+      "apply_at": "TowerRenderer._make_env"
+    },
+    {
+      "id": "rim_workers",
+      "title": "Rim light on worker spheres",
+      "proposed_by": "deepseek",
+      "wren_verdict": "accepted",
+      "godot_46_api": {
+        "StandardMaterial3D.rim_enabled": true,
+        "StandardMaterial3D.rim": 0.4,
+        "StandardMaterial3D.rim_tint": 0.7
+      },
+      "visual": "Workers glow softly at the edge \u2014 readable as little presences, not specks",
+      "perf": "low",
+      "apply_at": "TowerWorkerActivityAnimator"
+    },
+    {
+      "id": "gpu_dust_lift",
+      "title": "GPUParticles3D dust in lift shafts",
+      "proposed_by": "wren",
+      "wren_verdict": "accepted",
+      "godot_46_api": {
+        "GPUParticles3D.amount": 200,
+        "GPUParticles3D.lifetime": 8.0,
+        "GPUParticles3D.process_material": "ParticleProcessMaterial.new()",
+        "ParticleProcessMaterial.gravity": "Vector3(0, -0.05, 0)",
+        "ParticleProcessMaterial.scale_min": 0.02,
+        "ParticleProcessMaterial.scale_max": 0.05
+      },
+      "visual": "Dust motes drift slowly in lift shafts \u2014 gives sense of air + scale",
+      "perf": "low",
+      "apply_at": "LiftRenderer"
+    },
+    {
+      "id": "gpu_embers_amber",
+      "title": "GPUParticles3D embers above amber installations",
+      "proposed_by": "wren",
+      "wren_verdict": "accepted",
+      "godot_46_api": {
+        "GPUParticles3D.amount": 40,
+        "GPUParticles3D.lifetime": 4.0,
+        "ParticleProcessMaterial.gravity": "Vector3(0, 0.2, 0)",
+        "ParticleProcessMaterial.color": "Color(1.0, 0.7, 0.25)",
+        "ParticleProcessMaterial.scale_min": 0.01,
+        "ParticleProcessMaterial.scale_max": 0.03
+      },
+      "visual": "Slow rising amber sparks above F47 dais, F48 bubbles, F55 orb",
+      "perf": "low",
+      "apply_at": "FloorInteriorRenderer (F47/F48/F55 only)"
+    },
+    {
+      "id": "reflection_probe_trading",
+      "title": "Reflection probes on trading floors",
+      "proposed_by": "deepseek",
+      "wren_verdict": "accepted",
+      "godot_46_api": {
+        "ReflectionProbe.update_mode": "UPDATE_ONCE",
+        "ReflectionProbe.intensity": 0.6,
+        "ReflectionProbe.box_projection": true,
+        "ReflectionProbe.extents": "Vector3(8, 2, 8)"
+      },
+      "visual": "Monitor walls + ticker ribbons on F41-F44 reflect realistically off polished surfaces",
+      "perf": "med",
+      "apply_at": "FloorInteriorRenderer (F41-F44 only)"
+    },
+    {
+      "id": "ssr",
+      "title": "Screen-space reflections",
+      "proposed_by": "openai_and_deepseek",
+      "wren_verdict": "accepted",
+      "godot_46_api": {
+        "Environment.ssr_enabled": true,
+        "Environment.ssr_max_steps": 32,
+        "Environment.ssr_fade_in": 0.15,
+        "Environment.ssr_fade_out": 2.0
+      },
+      "visual": "Glossy floors of the lobby + classroom whiteboards reflect ambient light",
+      "perf": "med_high",
+      "apply_at": "TowerRenderer._make_env"
+    },
+    {
+      "id": "per_floor_omnis",
+      "title": "Per-floor OmniLight3D accent lamp",
+      "proposed_by": "wren",
+      "wren_verdict": "accepted",
+      "godot_46_api": {
+        "OmniLight3D.light_energy": 1.5,
+        "OmniLight3D.light_color": "Color from floor palette",
+        "OmniLight3D.omni_range": 6.0,
+        "OmniLight3D.shadow_enabled": false
+      },
+      "visual": "Each floor has its own colored lamp \u2014 readable at distance as the floor's identity",
+      "perf": "med (40+ lights)",
+      "apply_at": "FloorInteriorRenderer.build_for_floor",
+      "note": "Shadow-disabled saves perf; color comes from qsb_skyscraper_collaborative_design palette field"
+    },
+    {
+      "id": "contact_shadows",
+      "title": "Screen-space contact shadows on directional lights",
+      "proposed_by": "wren",
+      "wren_verdict": "accepted",
+      "godot_46_api": {
+        "DirectionalLight3D.shadow_enabled": true,
+        "DirectionalLight3D.directional_shadow_max_distance": 80.0,
+        "DirectionalLight3D.directional_shadow_split_1": 0.1,
+        "DirectionalLight3D.directional_shadow_blend_splits": true,
+        "Light3D.shadow_bias": 0.05
+      },
+      "visual": "Workers cast real shadows on floors \u2014 grounds them in space",
+      "perf": "med",
+      "apply_at": "TowerRenderer sun light"
+    },
+    {
+      "id": "orm_materials",
+      "title": "ORM-textured materials (replace flat albedo)",
+      "proposed_by": "wren",
+      "wren_verdict": "accepted",
+      "godot_46_api": {
+        "StandardMaterial3D.metallic": "from floor brief (steel=1, wood=0)",
+        "StandardMaterial3D.roughness": "from floor brief (polished=0.2, matte=0.9)",
+        "StandardMaterial3D.normal_enabled": "(when normal map available)"
+      },
+      "visual": "Floors stop looking like flat-shaded boxes \u2014 wood feels wooden, steel feels steel",
+      "perf": "low",
+      "apply_at": "FloorInteriorRenderer._add_box (extended signature)"
+    },
+    {
+      "id": "decals_floor_numbers",
+      "title": "Decals for floor numbers (replace TextMesh labels)",
+      "proposed_by": "deepseek",
+      "wren_verdict": "accepted",
+      "godot_46_api": {
+        "Decal.texture_albedo": "rendered floor-number sprite",
+        "Decal.size": "Vector3(1.2, 0.6, 0.2)",
+        "Decal.emission_energy": 0.6
+      },
+      "visual": "Floor numbers appear painted on the outer wall, not floating",
+      "perf": "low",
+      "apply_at": "TowerFloorLabelManager"
+    },
+    {
+      "id": "lod_bias",
+      "title": "Mesh LOD bias for distant floors",
+      "proposed_by": "wren",
+      "wren_verdict": "accepted",
+      "godot_46_api": {
+        "MeshInstance3D.lod_bias": 1.0,
+        "MeshInstance3D.visibility_range_begin": 0.0,
+        "MeshInstance3D.visibility_range_end": 120.0,
+        "MeshInstance3D.visibility_range_fade_mode": "VISIBILITY_RANGE_FADE_SELF"
+      },
+      "visual": "Tower stays crisp; distant floors fade out cleanly",
+      "perf": "perf_win",
+      "apply_at": "TowerRenderer per floor mesh"
+    },
+    {
+      "id": "anti_aliasing",
+      "title": "TAA + MSAA 4x",
+      "proposed_by": "wren",
+      "wren_verdict": "accepted",
+      "godot_46_api": {
+        "Viewport.use_taa": true,
+        "Viewport.msaa_3d": "Viewport.MSAA_4X",
+        "Viewport.screen_space_aa": "Viewport.SCREEN_SPACE_AA_FXAA"
+      },
+      "visual": "Edges of tower / lift cables / worker spheres stop crawling",
+      "perf": "med",
+      "apply_at": "Main viewport"
+    }
+  ],
+  "advisory_only": true,
+  "next_step": "These are decorator-proposed + Wren-verified GFX upgrades. To apply, edit /home/ross/qsb_godot_native_cockpit/scripts/TowerRenderer.gd + FloorInteriorRenderer.gd + LiftRenderer.gd with the API calls above. The Godot project owner (Ross) decides which subset to apply."
+}

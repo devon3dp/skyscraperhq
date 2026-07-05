@@ -1,0 +1,19 @@
+# Files snapshotted into baseline checkpoint
+Phase: QSB_NATIVE_COCKPIT_INTERACTIVE_OPERATIONS_AND_PACKAGE_V1
+
+drwxrwxr-x 2 ross ross   4096 Jun  9 16:14 .
+drwxrwxr-x 3 ross ross   4096 Jun  9 16:14 ..
+-rw-rw-r-- 1 ross ross   5417 Jun  9 16:14 completion_gates_v1.json
+-rw-rw-r-- 1 ross ross    647 Jun  9 16:14 completion_score_v1.json
+-rw-rw-r-- 1 ross ross    110 Jun  9 16:14 files_changed.txt
+-rw-rw-r-- 1 ross ross  43017 Jun  9 16:14 main.py.snapshot
+-rw-rw-r-- 1 ross ross    454 Jun  9 16:14 native_status.json
+-rw-rw-r-- 1 ross ross   1113 Jun  9 16:14 package_plan.md.snapshot
+-rwxrwxr-x 1 ross ross    637 Jun  9 16:14 qsb_native_cockpit_build.sh.snapshot
+-rwxrwxr-x 1 ross ross   6040 Jun  9 16:14 qsb_native_cockpit_health_check.sh.snapshot
+-rwxrwxr-x 1 ross ross   1926 Jun  9 16:14 qsb_native_cockpit_run.sh.snapshot
+-rw-rw-r-- 1 ross ross 300649 Jun  9 16:14 qsb_native_cockpit_v3_parity.png
+-rw-rw-r-- 1 ross ross   2136 Jun  9 16:14 README.md.snapshot
+-rw-rw-r-- 1 ross ross     14 Jun  9 16:14 requirements.txt.snapshot
+-rw-rw-r-- 1 ross ross   1288 Jun  9 16:14 screenshot_proof.json
+-rw-rw-r-- 1 ross ross   9786 Jun  9 16:14 telemetry_bridge.py.snapshot

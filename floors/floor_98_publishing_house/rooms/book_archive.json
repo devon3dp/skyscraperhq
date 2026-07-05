@@ -1,0 +1,34 @@
+{
+  "room_id": "book_archive",
+  "name": "Book Archive",
+  "category": "archive",
+  "purpose": "Houses the vast collection of books and magazines.",
+  "concierge_blurb": "Explore a trove of literary treasures, both old and new.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.5,
+    "offset_z": -7.5,
+    "footprint_m": [
+      20,
+      15
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "archive_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Book Archive",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": null
+  },
+  "floor": "floor_98"
+}

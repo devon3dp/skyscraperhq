@@ -1,0 +1,137 @@
+{
+  "ok": true,
+  "kind": "qsb_native_cockpit_completion_gates_v1",
+  "phase": "QSB_NATIVE_COCKPIT_FEATURE_PARITY_AND_INTERACTION_UPGRADE_V1",
+  "generated_ts": "2026-06-09T15:10:00+00:00",
+  "gates": [
+    {
+      "id": "G1",
+      "name": "Native app launches",
+      "passed": true,
+      "evidence": "./scripts/qsb_native_cockpit_run.sh exists, executable, uses /usr/bin/python3."
+    },
+    {
+      "id": "G2",
+      "name": "Headless instantiation works",
+      "passed": true,
+      "evidence": "QT_QPA_PLATFORM=offscreen test instantiates QSBNativeCockpit with 391 scene items."
+    },
+    {
+      "id": "G3",
+      "name": "Health check uses correct engine",
+      "passed": true,
+      "evidence": "Health check probes /usr/bin/python3, the same interpreter the run script uses. Health 28/30 (only the gates+score registries themselves were missing at the time of running)."
+    },
+    {
+      "id": "G4",
+      "name": "Screenshot proof exists",
+      "passed": true,
+      "evidence": "data/screenshots/qsb_native_cockpit_v2.png (179KB) and qsb_native_cockpit_v3_parity.png (300KB)."
+    },
+    {
+      "id": "G5",
+      "name": "53 floors render",
+      "passed": true,
+      "evidence": "scene.floor_items length = 53; verified by headless test."
+    },
+    {
+      "id": "G6",
+      "name": "2,191 worker total verified",
+      "passed": true,
+      "evidence": "telemetry_bridge.build_scene_snapshot().verified.verified_total_workers = 2191 = 1191 canonical + 1000 new V2."
+    },
+    {
+      "id": "G7",
+      "name": "9 lifts render",
+      "passed": true,
+      "evidence": "scene.lift_cars length = 9."
+    },
+    {
+      "id": "G8",
+      "name": "OpenClaw visible",
+      "passed": true,
+      "evidence": "scene.openclaw_item present + scene.openclaw_label shows 'OpenClaw F30'."
+    },
+    {
+      "id": "G9",
+      "name": "Floor selection works",
+      "passed": true,
+      "evidence": "Click on floor slab \u2192 on_floor_clicked(n) callback verified; keyboard PgUp/PgDn/Up/Down/Home/End nav implemented."
+    },
+    {
+      "id": "G10",
+      "name": "Worker selection works or limitation logged",
+      "passed": true,
+      "evidence": "Individual worker clicks are NOT implemented (per phase policy \u2014 2191 individual sprites would be label spam). Floor inspector shows team summary + room list. Limitation documented in qsb_native_missing_features_backlog.json."
+    },
+    {
+      "id": "G11",
+      "name": "Lift selection works",
+      "passed": true,
+      "evidence": "Click on lift car \u2192 on_lift_clicked(idx) \u2192 inspector.show_lift(L). Verified headlessly: 'Lift \u00b7 main_low_rise'."
+    },
+    {
+      "id": "G12",
+      "name": "Penthouse detail panel works",
+      "passed": true,
+      "evidence": "Floor 55/53 click \u2192 Penthouse gauges listed from snapshot.penthouse.gauges."
+    },
+    {
+      "id": "G13",
+      "name": "Floor 41 OANDA detail panel works",
+      "passed": true,
+      "evidence": "F41 click \u2192 'F41 \u00b7 OANDA Practice Trading' with realized/unrealized/total PnL + open/closed counts."
+    },
+    {
+      "id": "G14",
+      "name": "Floor 42 Binance detail panel works",
+      "passed": true,
+      "evidence": "F42 click \u2192 'F42 \u00b7 Binance Testnet Preview' with mode + rooms + workers + real-money OFF."
+    },
+    {
+      "id": "G15",
+      "name": "Security masked status works",
+      "passed": true,
+      "evidence": "F28 click \u2192 'F28 \u00b7 Security Operations Center' with masked credentials + all 4 lock-off lines."
+    },
+    {
+      "id": "G16",
+      "name": "Hardware panel works",
+      "passed": true,
+      "evidence": "F35 click \u2192 'F35 \u00b7 Hardware Systems Floor' with cpu, cores, memory, gpu, kernel."
+    },
+    {
+      "id": "G17",
+      "name": "Commerce Wing panel works",
+      "passed": true,
+      "evidence": "HUD COMMERCE WING section shows wing count, shops, Etsy workers, POD workers. F6/F14 click shows Etsy/POD inspectors."
+    },
+    {
+      "id": "G18",
+      "name": "Event ticker works",
+      "passed": true,
+      "evidence": "QSBEventTicker dock at bottom; refresh() populates with closed trades, openclaw tickets, cadence tick, lock confirmation. Verified 9 items in headless test."
+    },
+    {
+      "id": "G19",
+      "name": "Safety locks visible",
+      "passed": true,
+      "evidence": "HUD SAFETY LOCKS section shows 5 red OFF rows. Verified in screenshot."
+    },
+    {
+      "id": "G20",
+      "name": "Browser dashboard remains fallback",
+      "passed": true,
+      "evidence": "HUD '\u21ba Open browser fallback' button calls webbrowser.open('http://127.0.0.1:8765/?v=next3d&floor=55'). /?v=unified and /?v=next3d both still served by server."
+    }
+  ],
+  "passed_count": 20,
+  "total": 20,
+  "honest_notes": [
+    "Headless GUI tests can verify widget tree + callback wiring but not actual mouse/keyboard input \u2014 those require a live display. The screenshots prove the chrome renders; clicks were exercised via direct method calls in the test.",
+    "G3 score is 28/30 in the health check because the gates and score registries themselves are emitted by the orchestrator that runs after the health check. The check script lists them as required, which creates a chicken-and-egg situation that resolves on the next run."
+  ],
+  "execution_allowed": false,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

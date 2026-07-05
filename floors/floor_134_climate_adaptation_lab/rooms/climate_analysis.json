@@ -1,0 +1,34 @@
+{
+  "room_id": "climate_analysis",
+  "name": "Climate Analysis Lab",
+  "category": "lab",
+  "purpose": "Analyzing climate data and trends for policy development.",
+  "concierge_blurb": "Enter the Climate Analysis Lab to see advanced tools for environmental science.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -8.0,
+    "offset_z": 0.5,
+    "footprint_m": [
+      7,
+      4
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Climate Lab",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/climate_data.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_134"
+}

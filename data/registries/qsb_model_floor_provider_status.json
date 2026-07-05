@@ -1,0 +1,75 @@
+{
+  "ok": true,
+  "kind": "qsb_model_floor_provider_status",
+  "ts": "2026-06-09T22:40:25Z",
+  "providers": {
+    "claude": {
+      "provider_name": "Anthropic Claude",
+      "floor_id": "F47",
+      "enabled": true,
+      "env_key_present": false,
+      "external_calls_allowed": false,
+      "manual_test_mode": true,
+      "model_name": "local-claude-cli",
+      "masked_key": "(local floor \u2014 no api key required)",
+      "last_test": null,
+      "last_error_masked": null,
+      "notes": [
+        "Claude CLI detected at /usr/bin/claude."
+      ],
+      "cost_guard": {
+        "max_requests_per_session": 5,
+        "max_tokens_per_request": 1000,
+        "log_prompts": false,
+        "mask_secrets": true,
+        "external_calls_enabled_global": false
+      }
+    },
+    "gpt": {
+      "provider_name": "OpenAI GPT",
+      "floor_id": "F48",
+      "enabled": false,
+      "env_key_present": false,
+      "external_calls_allowed": false,
+      "manual_test_mode": true,
+      "model_name": null,
+      "masked_key": "(absent)",
+      "last_test": null,
+      "last_error_masked": null,
+      "notes": [],
+      "cost_guard": {
+        "max_requests_per_session": 5,
+        "max_tokens_per_request": 1000,
+        "log_prompts": false,
+        "mask_secrets": true,
+        "external_calls_enabled_global": false
+      }
+    },
+    "deepseek": {
+      "provider_name": "DeepSeek",
+      "floor_id": "F49",
+      "enabled": false,
+      "env_key_present": false,
+      "external_calls_allowed": false,
+      "manual_test_mode": true,
+      "model_name": null,
+      "masked_key": "(absent)",
+      "last_test": null,
+      "last_error_masked": null,
+      "notes": [],
+      "cost_guard": {
+        "max_requests_per_session": 5,
+        "max_tokens_per_request": 1000,
+        "log_prompts": false,
+        "mask_secrets": true,
+        "external_calls_enabled_global": false
+      }
+    },
+    "cost_guard_snapshot": {
+      "requests_this_session": {},
+      "max_requests_per_session": 5,
+      "max_tokens_per_request": 1000,
+      "external_calls_enabled_global": false
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "room_id": "archive",
+  "name": "Coffee Archive",
+  "category": "library",
+  "purpose": "A repository for historical and current coffee-related materials.",
+  "concierge_blurb": "Explore the rich history of coffee in our extensive archive.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": -1.5,
+    "footprint_m": [
+      8,
+      6
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "archive_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Archive",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_77"
+}

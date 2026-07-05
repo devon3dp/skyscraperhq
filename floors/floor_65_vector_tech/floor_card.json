@@ -1,0 +1,70 @@
+{
+  "floor_id": "floor_65",
+  "floor_number": 65,
+  "floor_name": "Vector Tech",
+  "department": "public_dropship_storefront_v1",
+  "zone": "ZONE D \u00b7 COMMERCE WING",
+  "archetype": "public_dropship_storefront_v1",
+  "staff_lead": "TBD",
+  "tour_blurb": "Vector \u2014 set your gear up.",
+  "visitor_open": false,
+  "advisory_only": true,
+  "execution_mode": "PREVIEW_ONLY",
+  "skeleton": true,
+  "skeleton_source": "floor_manifest.json",
+  "skeleton_generated_ts": "2026-06-17",
+  "live_signals": {
+    "theme": "tech_and_phone_accessories",
+    "categories": [
+      "cases",
+      "chargers",
+      "audio",
+      "desk",
+      "wearables"
+    ],
+    "palette": "graphite / electric blue / silver",
+    "tagline": "Vector \u2014 set your gear up."
+  },
+  "gate_posture": {
+    "advisory_only": true,
+    "execution_allowed": false,
+    "live_payments_enabled": false
+  },
+  "team_roster": [
+    {
+      "id": "f065.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "spawned_id": "12b1c338b6",
+      "spawned_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F065",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f065.operator.01",
+      "spawned_id": "9fc7d03170"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F065",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f065.operator.02",
+      "spawned_id": "a549b5ffc8"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F065",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f065.operator.03",
+      "spawned_id": "6ae67b7a04"
+    }
+  ],
+  "floor_manager": "f065.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

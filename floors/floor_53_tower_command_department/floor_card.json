@@ -1,0 +1,64 @@
+{
+  "floor_id": "floor_53",
+  "floor_number": 53,
+  "floor_name": "Tower Command Department",
+  "department": "Tower Command Department",
+  "zone": "ZONE C \u00b7 CRAFT + COMMERCE",
+  "archetype": "generic",
+  "staff_lead": "TBD",
+  "tour_blurb": "Tower Command Department \u2014 a floor in the QSB Tower. Skeleton card auto-generated; full fit-out pending.",
+  "visitor_open": false,
+  "advisory_only": true,
+  "execution_mode": "PREVIEW_ONLY",
+  "skeleton": true,
+  "skeleton_source": "floor_manifest.json",
+  "skeleton_generated_ts": "2026-06-17",
+  "live_signals": {
+    "theme": null,
+    "categories": null,
+    "palette": null,
+    "tagline": null
+  },
+  "gate_posture": {
+    "advisory_only": true,
+    "execution_allowed": false,
+    "live_payments_enabled": false
+  },
+  "team_roster": [
+    {
+      "id": "f053.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "spawned_id": "c7fc134c96",
+      "spawned_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F053",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f053.operator.01",
+      "spawned_id": "61e45d6a84"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F053",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f053.operator.02",
+      "spawned_id": "33435f55fa"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F053",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f053.operator.03",
+      "spawned_id": "035a1298e4"
+    }
+  ],
+  "floor_manager": "f053.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

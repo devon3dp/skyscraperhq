@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>QSB Tower · Shops</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root{
+    --bg:#070d1a; --bg2:#0c1428; --ink:#dfeaff; --ink-dim:#90a4cf;
+    --gold:#ffd76b; --teal:#5ce0ff; --purple:#b08aff; --orange:#ff9a4a;
+    --border:rgba(120,160,220,.22); --card:rgba(12,22,46,.72);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:radial-gradient(circle at 50% 0%, #1a2244 0%, #050913 70%);color:var(--ink);font:14px/1.45 system-ui,-apple-system,'Segoe UI',sans-serif;min-height:100vh}
+  a{color:var(--teal);text-decoration:none}
+  a:hover{color:#fff}
+
+  header.topbar{display:flex;align-items:center;justify-content:space-between;
+    padding:14px 28px;border-bottom:1px solid var(--border);background:rgba(8,16,32,.7);backdrop-filter:blur(8px);position:sticky;top:0;z-index:10}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:.3px}
+  .brand .dot{width:18px;height:18px;border-radius:50%;background:radial-gradient(circle at 30% 30%, #ffd76b, #ff9a4a 60%, #ff6e2c)}
+  .pill{font-size:11px;letter-spacing:.5px;text-transform:uppercase;color:var(--ink-dim);
+    border:1px solid var(--border);border-radius:99px;padding:4px 10px}
+  nav a{margin-left:18px;font-size:13px;color:var(--ink-dim)}
+  nav a:hover{color:var(--ink)}
+
+  .hero{padding:40px 28px 16px;max-width:1280px;margin:0 auto}
+  .hero h1{font-size:34px;line-height:1.1;margin:0 0 8px;font-weight:600;letter-spacing:-.5px}
+  .hero h1 span{background:linear-gradient(90deg,#ffd76b,#b08aff);background-clip:text;-webkit-background-clip:text;color:transparent}
+  .hero .lede{color:var(--ink-dim);max-width:680px;margin-top:6px}
+  .hero .stat-row{display:flex;gap:24px;margin-top:18px;flex-wrap:wrap}
+  .stat-row .stat{padding:10px 16px;border:1px solid var(--border);border-radius:10px;background:var(--card)}
+  .stat .v{font-size:22px;font-weight:600;color:var(--ink)}
+  .stat .k{font-size:11px;letter-spacing:.5px;text-transform:uppercase;color:var(--ink-dim);margin-top:2px}
+
+  main{padding:24px 28px 80px;max-width:1280px;margin:0 auto}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(280px,1fr));gap:18px}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px 18px;
+    transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease;cursor:pointer}
+  .card:hover{transform:translateY(-3px);border-color:rgba(180,180,255,.45);box-shadow:0 12px 32px rgba(80,120,255,.18)}
+  .card .floor-tag{display:inline-block;font-size:10px;letter-spacing:.6px;text-transform:uppercase;color:var(--gold);
+    border:1px solid rgba(255,215,107,.35);border-radius:99px;padding:2px 8px;margin-bottom:8px}
+  .card h3{margin:0 0 4px;font-size:18px;font-weight:600}
+  .card .sku{font-size:12px;color:var(--ink-dim);margin-top:6px}
+  .card .meta{display:flex;justify-content:space-between;margin-top:12px;padding-top:10px;border-top:1px dashed var(--border);font-size:11px;color:var(--ink-dim)}
+
+  .panel{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px 22px;margin-top:18px}
+  .panel h2{margin:0 0 12px;font-size:18px;font-weight:600}
+  .back{display:inline-block;color:var(--teal);font-size:13px;margin-bottom:10px;cursor:pointer}
+
+  /* product grid for detail view */
+  .pgrid{display:grid;grid-template-columns:repeat(auto-fill, minmax(240px,1fr));gap:18px;margin-top:14px}
+  .pcard{background:rgba(8,15,30,.55);border:1px solid var(--border);border-radius:12px;overflow:hidden;
+    display:flex;flex-direction:column;transition:transform .15s,border-color .15s}
+  .pcard:hover{transform:translateY(-2px);border-color:rgba(180,180,255,.4)}
+  .pcard .photo{aspect-ratio:1/1;background:#0a1428 center/cover no-repeat;border-bottom:1px solid var(--border);position:relative}
+  .pcard .photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 60%, rgba(8,12,28,.6) 100%);pointer-events:none}
+  .pcard .body{padding:12px 14px;flex:1;display:flex;flex-direction:column;gap:6px}
+  .pcard .name{font-size:14px;font-weight:600;line-height:1.25}
+  .pcard .desc{font-size:12px;color:var(--ink-dim);line-height:1.4;min-height:34px}
+  .pcard .priceRow{display:flex;justify-content:space-between;align-items:baseline;margin-top:auto;padding-top:8px;border-top:1px dashed var(--border)}
+  .pcard .price{font-size:16px;font-weight:600;color:var(--gold)}
+  .pcard .margin{font-size:11px;color:var(--ink-dim)}
+  .pcard .sku{font-size:10px;color:var(--ink-dim);letter-spacing:.4px;text-transform:uppercase}
+
+  footer{text-align:center;padding:24px;font-size:11px;color:var(--ink-dim)}
+  footer .safety{display:inline-block;padding:4px 12px;border:1px solid rgba(120,255,180,.3);border-radius:99px;color:#9fd6b9}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="dot"></span><span>QSB Tower · Storefronts</span></div>
+  <nav>
+    <a href="/cockpit">↑ Cockpit</a>
+    <a href="http://127.0.0.1:8848/" target="_blank">Lumen</a>
+    <a href="http://127.0.0.1:8849/" target="_blank">Studio</a>
+    <span class="pill">advisory · paper only</span>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1><span id="heroN">—</span> <span>storefronts</span> across the Tower.</h1>
+  <p class="lede">Beauty, toys, pets, kitchen, tech, outdoor, fitness, office, travel, plants, kids, books, wellness, eco, and maker goods — each shop's catalog lives on its own floor and is sourced from the canonical registry. Nothing is for sale yet; every price and margin is a planning model.</p>
+  <div class="stat-row" id="statRow"></div>
+</section>
+
+<main>
+  <div id="view-list">
+    <div class="grid" id="shopGrid"></div>
+  </div>
+  <div id="view-detail" style="display:none">
+    <span class="back" id="backLink">← back to all shops</span>
+    <div class="panel">
+      <h2 id="detailTitle">—</h2>
+      <div id="detailMeta" style="margin-bottom:12px;color:var(--ink-dim);font-size:12px"></div>
+      <div class="pgrid" id="detailGrid"></div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <span class="safety">execution_allowed=false · advisory_only · not financial advice</span>
+  <div style="margin-top:8px">QSB Tower V1.5 · Floor 47 Records · build 2026-06-12</div>
+</footer>
+
+<script>
+(async function(){
+  const $ = (id) => document.getElementById(id);
+  const r = await fetch('/api/shops'); const idx = await r.json();
+  const stats = [
+    {k:'storefronts', v: idx.shop_count},
+    {k:'total skus',  v: idx.total_skus},
+    {k:'currency',    v: 'GBP'},
+    {k:'generated',   v: (idx.generated_ts || '').slice(0,19) + 'Z'},
+  ];
+  $('statRow').innerHTML = stats.map(s => `<div class="stat"><div class="v">${s.v}</div><div class="k">${s.k}</div></div>`).join('');
+  const numWord = ['zero','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen','twenty'];
+  $('heroN').textContent = (idx.shop_count <= 20 ? numWord[idx.shop_count] : idx.shop_count).charAt(0).toUpperCase() + (idx.shop_count <= 20 ? numWord[idx.shop_count] : ''+idx.shop_count).slice(1);
+  const grid = $('shopGrid');
+  grid.innerHTML = idx.shops.map(s => `
+    <div class="card" data-floor="${s.floor}">
+      <span class="floor-tag">${s.floor} · ${s.currency || 'GBP'}</span>
+      <h3>${s.shop_name}</h3>
+      <div class="sku">${s.sku_count} skus${s.target_margin_pct ? ' · target margin ' + s.target_margin_pct + '%' : ''}</div>
+      <div class="meta"><span>${s.file_present ? '✓ live catalog' : '⚠ missing'}</span><span>${(s.generated_ts||'').slice(0,10)}</span></div>
+    </div>`).join('');
+  grid.querySelectorAll('.card').forEach(c => c.addEventListener('click', () => loadDetail(c.dataset.floor)));
+
+  async function loadDetail(tag){
+    const dr = await fetch('/api/shop/' + tag); const d = await dr.json();
+    if (!d.ok) { alert('Shop not found: ' + tag); return; }
+    $('view-list').style.display = 'none';
+    $('view-detail').style.display = '';
+    $('detailTitle').textContent = d.shop_name + ' · ' + d.floor;
+    $('detailMeta').textContent = `${d.item_count} items · ${d.currency || 'GBP'} · generated ${(d.generated_ts||'').slice(0,16)}`;
+    const fmt = (n) => (n == null ? '—' : '£' + Number(n).toFixed(2));
+    const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    $('detailGrid').innerHTML = d.items.map(it => {
+      const list = fmt(it.list_price_gbp || it.price_gbp || it.gbp);
+      const margin = it.gross_margin_pct ? it.gross_margin_pct.toFixed(0) + '% margin' : '';
+      const img = it.image_url ? `style="background-image:url('${esc(it.image_url)}')"` : '';
+      return `<div class="pcard">
+        <div class="photo" ${img}></div>
+        <div class="body">
+          <div class="sku">${esc(it.sku || '—')} · ${esc(it.category || '')}</div>
+          <div class="name">${esc(it.name || '—')}</div>
+          <div class="desc">${esc(it.description || '')}</div>
+          <div class="priceRow"><span class="price">${list}</span><span class="margin">${margin}</span></div>
+        </div>
+      </div>`;
+    }).join('');
+    history.pushState({tag}, '', '/shops#' + tag);
+  }
+  $('backLink').addEventListener('click', () => {
+    $('view-detail').style.display = 'none';
+    $('view-list').style.display = '';
+    history.pushState({}, '', '/shops');
+  });
+  if (location.hash) { const t = location.hash.slice(1); if (t) loadDetail(t); }
+})();
+</script>
+</body>
+</html>

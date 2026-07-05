@@ -1,0 +1,31 @@
+{
+  "ok": true,
+  "kind": "qsb_dashboard_identity_cleanup",
+  "phase": "QSB_DASHBOARD_VISIBLE_REALITY_REBUILD_V1",
+  "generated_ts": "2026-06-09T12:50:00+00:00",
+  "removed_branding_strings": [
+    "QSB Tower V1.3 (browser tab title)",
+    "QSB TOWER V1.3 — 3D COCKPIT V2 (header title)",
+    "QSB_TOWER_3D_COCKPIT_VISUAL_REFINEMENT_V2 (header sub)",
+    "QSB TOWER V1.4 — PRO OPERATIONS COCKPIT (proBanner pb-label)",
+    "QSB Tower V1.3 (render_test) (qsb_state.js fallback)"
+  ],
+  "unified_strings": {
+    "browser_tab_title": "QSB Tower — 3D Operations Cockpit",
+    "header_title": "QSB TOWER · 3D OPERATIONS COCKPIT",
+    "header_sub_left": "backend v1.5",
+    "header_sub_right_dynamic": "dashboard build · <phase lowercase>",
+    "pro_banner_label": "EXECUTION STATUS"
+  },
+  "files_changed": [
+    "src/dashboard/static/index.html",
+    "src/dashboard/static/cockpit.js",
+    "src/dashboard/static/qsb_state.js"
+  ],
+  "policy": "One visible title only. Backend version and dashboard build are clearly labelled in the subheader. No duplicate V1.3 / V1.4 anywhere on screen.",
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

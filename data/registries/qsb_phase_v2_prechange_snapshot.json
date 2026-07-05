@@ -1,0 +1,69 @@
+{
+  "phase": "QSB_OPENCLAW_PAPER_TRADE_WORKERS_3D_SKYSCRAPER_V2",
+  "kind": "qsb_phase_v2_prechange_snapshot",
+  "generated_ts": "2026-06-09T07:51:13.558262+00:00",
+  "worker_sources": {
+    "workers.json": 48,
+    "recruitment_workers.json": 23,
+    "agent_worker_slots.json": 6,
+    "coding_worker_slots.json": 5,
+    "model_routing_worker_slots.json": 5,
+    "model_worker_slots.json": 5,
+    "sandbox_extended_workers.json": 21,
+    "worker_sandbox_registry.json": 12,
+    "openclaw_candidate_registry.json": 4,
+    "openclaw_sandbox_registry.json": 4,
+    "external_worker_candidates.json": 5,
+    "worker_candidate_registry.json": 19,
+    "worker_onboarding_queue.json": 15
+  },
+  "worker_sources_total_reported": 172,
+  "eqsb_symbolic_graph_worker_nodes": 0,
+  "kernel_workers_summary": {
+    "rebased_kernel_status_total_beliefs": 18,
+    "rebased_kernel_symbol_count": 15
+  },
+  "openclaw_prechange": {
+    "openclaw_sandbox_enabled": true,
+    "openclaw_visualization_enabled": true,
+    "openclaw_execution_enabled": false,
+    "worker_count": 4,
+    "status": "healthy",
+    "ts": "2026-06-08T21:13:28.937155+00:00"
+  },
+  "binance_paper_prechange": {
+    "mode": "binance_paper_strategy_lab",
+    "environment": "testnet",
+    "default_symbols": [
+      "BTCUSDT",
+      "ETHUSDT",
+      "BNBUSDT",
+      "SOLUSDT"
+    ],
+    "signal_counts": {
+      "observe": 4,
+      "long_bias": 0,
+      "short_bias": 0,
+      "no_trade": 0
+    },
+    "ts": "2026-06-08T09:28:05.836515+00:00"
+  },
+  "oanda_paper_prechange": {
+    "mode": "practice_read_only_paper_simulation",
+    "ts": "2026-06-08T21:13:59.453916+00:00"
+  },
+  "floor41_ledger_prechange": {
+    "entry_count": 503,
+    "latest_entry_count": 3,
+    "updated_ts": "2026-06-08T21:13:59.456418+00:00"
+  },
+  "kernel_activation_prechange": {
+    "activation_status": "active_local_only",
+    "active_kernel_source": "rebased_kernel"
+  },
+  "active_local_only": true,
+  "advisory_only": true,
+  "execution_allowed": false,
+  "paper_only": true,
+  "real_money_live_trading_enabled": false
+}

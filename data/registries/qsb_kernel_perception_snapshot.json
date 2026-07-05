@@ -1,0 +1,335 @@
+{
+  "module": "kernel_perception_layer",
+  "purpose": "Perceive current kernel/tower state across registries and logs. Read-only summary; never proposes execution.",
+  "timestamp_utc": "2026-06-09T20:15:58.083332+00:00",
+  "categories": {
+    "core": {
+      "category": "core",
+      "present_fresh_count": 6,
+      "present_stale_count": 0,
+      "missing_count": 0,
+      "present_fresh": [
+        "qsb_kernel_learning_smoke_test_v2_latest.json",
+        "qsb_kernel_thinking_upgrade_probe_latest.json",
+        "eqsb_claude_upgrade_ledger.json",
+        "eqsb_kernel_learning_loop.json",
+        "eqsb_code_observatory.json",
+        "eqsb_hardware_observatory.json"
+      ],
+      "present_stale": [],
+      "missing": [],
+      "samples": {
+        "qsb_kernel_learning_smoke_test_v2_latest.json": {
+          "verdict": "PASS",
+          "timestamp_utc": "20260609T195750Z",
+          "passes": 16,
+          "failures": 0,
+          "warnings": 0
+        },
+        "qsb_kernel_thinking_upgrade_probe_latest.json": {
+          "timestamp_utc": "20260609T195750Z"
+        },
+        "eqsb_claude_upgrade_ledger.json": {
+          "generated_ts": "2026-06-09T19:23:19.791858+00:00",
+          "execution_allowed": false,
+          "advisory_only": true,
+          "active_local_only": true
+        },
+        "eqsb_kernel_learning_loop.json": {
+          "generated_ts": "2026-06-09T19:23:19.723153+00:00",
+          "execution_allowed": false,
+          "advisory_only": true,
+          "active_local_only": true
+        },
+        "eqsb_code_observatory.json": {
+          "generated_ts": "2026-06-09T19:23:19.484235+00:00",
+          "phase": "EQSB_SYSTEM_OBSERVATORY_HARDWARE_FLOOR_LIVE_TELEMETRY_REPAIR_V1",
+          "execution_allowed": false,
+          "advisory_only": true,
+          "active_local_only": true
+        },
+        "eqsb_hardware_observatory.json": {
+          "generated_ts": "2026-06-09T19:23:19.717013+00:00",
+          "phase": "EQSB_SYSTEM_OBSERVATORY_HARDWARE_FLOOR_LIVE_TELEMETRY_REPAIR_V1",
+          "execution_allowed": false,
+          "advisory_only": true,
+          "active_local_only": true
+        }
+      }
+    },
+    "godot": {
+      "category": "godot",
+      "present_fresh_count": 8,
+      "present_stale_count": 0,
+      "missing_count": 0,
+      "present_fresh": [
+        "qsb_cockpit_primary_engine_policy.json",
+        "qsb_godot_primary_cockpit_status.json",
+        "qsb_godot_primary_professional_score.json",
+        "qsb_godot_professional_layout_score.json",
+        "qsb_godot_live_telemetry_status.json",
+        "qsb_godot_project_status.json",
+        "qsb_godot_visual_score.json",
+        "qsb_3d_engine_status.json"
+      ],
+      "present_stale": [],
+      "missing": [],
+      "samples": {
+        "qsb_cockpit_primary_engine_policy.json": {
+          "generated_ts": "2026-06-09T20:32:00+00:00",
+          "phase": "QSB_GODOT_NATIVE_COCKPIT_PRIMARY_GRAPHICS_ENGINE_SWITCH_V1"
+        },
+        "qsb_godot_primary_cockpit_status.json": {
+          "version": "4.6.1 stable mono",
+          "generated_ts": "2026-06-09T20:32:00+00:00",
+          "phase": "QSB_GODOT_NATIVE_COCKPIT_PRIMARY_GRAPHICS_ENGINE_SWITCH_V1"
+        },
+        "qsb_godot_primary_professional_score.json": {
+          "verdict": "professional_cockpit_ready_pending_visual_launch_verification",
+          "generated_ts": "2026-06-09T20:32:00+00:00",
+          "phase": "QSB_GODOT_NATIVE_COCKPIT_PRIMARY_GRAPHICS_ENGINE_SWITCH_V1"
+        },
+        "qsb_godot_professional_layout_score.json": {
+          "verdict": "professional_layout_polish_applied_pending_visual_recheck",
+          "generated_ts": "2026-06-09T21:05:00+00:00",
+          "phase": "QSB_GODOT_NATIVE_COCKPIT_PROFESSIONAL_LAYOUT_POLISH_V1"
+        },
+        "qsb_godot_live_telemetry_status.json": {
+          "generated_ts": "2026-06-09T21:05:00+00:00",
+          "phase": "QSB_GODOT_NATIVE_COCKPIT_PROFESSIONAL_LAYOUT_POLISH_V1"
+        },
+        "qsb_godot_project_status.json": {
+          "generated_ts": "2026-06-09T15:31:15+00:00",
+          "phase": "QSB_GODOT_REAL_3D_ENGINE_BUILD_AFTER_INSTALLER_V1",
+          "execution_allowed": false,
+          "advisory_only": true,
+          "active_local_only": true
+        }
+      }
+    },
+    "ml_rl": {
+      "category": "ml_rl",
+      "present_fresh_count": 3,
+      "present_stale_count": 0,
+      "missing_count": 1,
+      "present_fresh": [
+        "qsb_ml_rl_lab_status.json",
+        "qsb_ml_rl_torch_status.json",
+        "qsb_ml_rl_package_install_status.json"
+      ],
+      "present_stale": [],
+      "missing": [
+        "qsb_ml_rl_runtime_mode.json"
+      ],
+      "samples": {
+        "qsb_ml_rl_lab_status.json": {
+          "generated_ts": "2026-06-09T16:50:52+00:00",
+          "phase": "QSB_ML_RL_LAB_CLASSROOM_RESEARCH_WORKER_INTEGRATION_V1",
+          "execution_allowed": false,
+          "advisory_only": true,
+          "active_local_only": true
+        },
+        "qsb_ml_rl_torch_status.json": {
+          "generated_ts": "2026-06-09T16:50:03+00:00",
+          "phase": "QSB_ML_RL_TORCH_LAB_INSTALL_AND_SMOKE_TEST_V1",
+          "execution_allowed": false,
+          "advisory_only": true
+        },
+        "qsb_ml_rl_package_install_status.json": {
+          "generated_ts": "2026-06-09T16:50:03+00:00",
+          "phase": "QSB_ML_RL_TORCH_LAB_INSTALL_AND_SMOKE_TEST_V1",
+          "execution_allowed": false,
+          "advisory_only": true
+        }
+      }
+    },
+    "banking": {
+      "category": "banking",
+      "present_fresh_count": 0,
+      "present_stale_count": 0,
+      "missing_count": 3,
+      "present_fresh": [],
+      "present_stale": [],
+      "missing": [
+        "qsb_banking_gateway_status.json",
+        "qsb_banking_gateway_kill_switches.json",
+        "qsb_banking_gateway_real_money_phase_requirements.json"
+      ],
+      "samples": {}
+    },
+    "github_scout": {
+      "category": "github_scout",
+      "present_fresh_count": 0,
+      "present_stale_count": 0,
+      "missing_count": 3,
+      "present_fresh": [],
+      "present_stale": [],
+      "missing": [
+        "qsb_github_upgrade_candidates.json",
+        "qsb_github_upgrade_import_plan.json",
+        "qsb_github_upgrade_risk_matrix.json"
+      ],
+      "samples": {}
+    },
+    "workers_floors": {
+      "category": "workers_floors",
+      "present_fresh_count": 4,
+      "present_stale_count": 0,
+      "missing_count": 0,
+      "present_fresh": [
+        "qsb_3d_skyscraper_state.json",
+        "recruitment_workers.json",
+        "worker_training_assignments.json",
+        "qsb_worker_skill_matrix.json"
+      ],
+      "present_stale": [],
+      "missing": [],
+      "samples": {
+        "qsb_3d_skyscraper_state.json": {
+          "generated_ts": "2026-06-09T20:15:01.199899+00:00",
+          "phase": "QSB_3D_SKYSCRAPER_LIVE_REBUILD_V2",
+          "execution_allowed": false,
+          "advisory_only": true,
+          "active_local_only": true
+        },
+        "recruitment_workers.json": {
+          "phase": "QSB_TOWER_PENTHOUSE_CHAT_SOUND_RECRUITMENT_V1",
+          "execution_allowed": false,
+          "advisory_only": true
+        },
+        "worker_training_assignments.json": {
+          "execution_allowed": false
+        },
+        "qsb_worker_skill_matrix.json": {
+          "generated_ts": "2026-06-09T16:49:28+00:00",
+          "phase": "QSB_ML_RL_LAB_CLASSROOM_RESEARCH_WORKER_INTEGRATION_V1",
+          "execution_allowed": false,
+          "advisory_only": true,
+          "active_local_only": true
+        }
+      }
+    },
+    "safety": {
+      "category": "safety",
+      "present_fresh_count": 0,
+      "present_stale_count": 3,
+      "missing_count": 1,
+      "present_fresh": [],
+      "present_stale": [
+        "security_spine_kernel_clearance_status.json",
+        "kernel_activation_gate_status.json",
+        "kernel_activation_report.json"
+      ],
+      "missing": [
+        "qsb_banking_gateway_kill_switches.json"
+      ],
+      "samples": {}
+    }
+  },
+  "fresh_sources": [
+    "qsb_kernel_learning_smoke_test_v2_latest.json",
+    "qsb_kernel_thinking_upgrade_probe_latest.json",
+    "eqsb_claude_upgrade_ledger.json",
+    "eqsb_kernel_learning_loop.json",
+    "eqsb_code_observatory.json",
+    "eqsb_hardware_observatory.json",
+    "qsb_cockpit_primary_engine_policy.json",
+    "qsb_godot_primary_cockpit_status.json",
+    "qsb_godot_primary_professional_score.json",
+    "qsb_godot_professional_layout_score.json",
+    "qsb_godot_live_telemetry_status.json",
+    "qsb_godot_project_status.json",
+    "qsb_godot_visual_score.json",
+    "qsb_3d_engine_status.json",
+    "qsb_ml_rl_lab_status.json",
+    "qsb_ml_rl_torch_status.json",
+    "qsb_ml_rl_package_install_status.json",
+    "qsb_3d_skyscraper_state.json",
+    "recruitment_workers.json",
+    "worker_training_assignments.json",
+    "qsb_worker_skill_matrix.json"
+  ],
+  "stale_sources": [
+    "security_spine_kernel_clearance_status.json",
+    "kernel_activation_gate_status.json",
+    "kernel_activation_report.json"
+  ],
+  "missing_sources": [
+    "qsb_ml_rl_runtime_mode.json",
+    "qsb_banking_gateway_status.json",
+    "qsb_banking_gateway_kill_switches.json",
+    "qsb_banking_gateway_real_money_phase_requirements.json",
+    "qsb_github_upgrade_candidates.json",
+    "qsb_github_upgrade_import_plan.json",
+    "qsb_github_upgrade_risk_matrix.json",
+    "qsb_banking_gateway_kill_switches.json"
+  ],
+  "source_file_list": [
+    "data/registries/qsb_kernel_learning_smoke_test_v2_latest.json",
+    "data/registries/qsb_kernel_thinking_upgrade_probe_latest.json",
+    "data/registries/eqsb_claude_upgrade_ledger.json",
+    "data/registries/eqsb_kernel_learning_loop.json",
+    "data/registries/eqsb_code_observatory.json",
+    "data/registries/eqsb_hardware_observatory.json",
+    "data/registries/qsb_cockpit_primary_engine_policy.json",
+    "data/registries/qsb_godot_primary_cockpit_status.json",
+    "data/registries/qsb_godot_primary_professional_score.json",
+    "data/registries/qsb_godot_professional_layout_score.json",
+    "data/registries/qsb_godot_live_telemetry_status.json",
+    "data/registries/qsb_godot_project_status.json",
+    "data/registries/qsb_godot_visual_score.json",
+    "data/registries/qsb_3d_engine_status.json",
+    "data/registries/qsb_ml_rl_lab_status.json",
+    "data/registries/qsb_ml_rl_runtime_mode.json",
+    "data/registries/qsb_ml_rl_torch_status.json",
+    "data/registries/qsb_ml_rl_package_install_status.json",
+    "data/registries/qsb_banking_gateway_status.json",
+    "data/registries/qsb_banking_gateway_kill_switches.json",
+    "data/registries/qsb_banking_gateway_real_money_phase_requirements.json",
+    "data/registries/qsb_github_upgrade_candidates.json",
+    "data/registries/qsb_github_upgrade_import_plan.json",
+    "data/registries/qsb_github_upgrade_risk_matrix.json",
+    "data/registries/qsb_3d_skyscraper_state.json",
+    "data/registries/recruitment_workers.json",
+    "data/registries/worker_training_assignments.json",
+    "data/registries/qsb_worker_skill_matrix.json",
+    "data/registries/qsb_banking_gateway_kill_switches.json",
+    "data/registries/security_spine_kernel_clearance_status.json",
+    "data/registries/kernel_activation_gate_status.json",
+    "data/registries/kernel_activation_report.json"
+  ],
+  "confidence": 0.656,
+  "warnings": [
+    "stale_source:security_spine_kernel_clearance_status.json",
+    "stale_source:kernel_activation_gate_status.json",
+    "stale_source:kernel_activation_report.json",
+    "missing_source:qsb_ml_rl_runtime_mode.json",
+    "missing_source:qsb_banking_gateway_status.json",
+    "missing_source:qsb_banking_gateway_kill_switches.json",
+    "missing_source:qsb_banking_gateway_real_money_phase_requirements.json",
+    "missing_source:qsb_github_upgrade_candidates.json",
+    "missing_source:qsb_github_upgrade_import_plan.json",
+    "missing_source:qsb_github_upgrade_risk_matrix.json",
+    "missing_source:qsb_banking_gateway_kill_switches.json"
+  ],
+  "safety": {
+    "advisory_only": true,
+    "execution_allowed": false,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "model_inference_enabled": false,
+    "live_dispatch_enabled": false,
+    "autonomous_workers_enabled": false,
+    "direct_provider_access": false,
+    "live_trading_enabled": false,
+    "real_order_execution_enabled": false,
+    "openclaw_execution_enabled": false,
+    "binance_order_execution_enabled": false,
+    "stock_order_execution_enabled": false,
+    "web_access_autonomous_enabled": false,
+    "maintenance_auto_repair_enabled": false,
+    "kernel_state": "active_local_only",
+    "kernel_source": "rebased_kernel",
+    "scope": "local_only_advisory_cognition"
+  }
+}

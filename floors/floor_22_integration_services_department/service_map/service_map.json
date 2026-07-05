@@ -1,0 +1,79 @@
+[
+  {
+    "id": "coding_to_adapter_to_routing",
+    "name": "Coding to Adapter to Routing",
+    "source_floor": "floor_05",
+    "via_floor": "floor_21",
+    "target_floor": "floor_24",
+    "service_path": [
+      "floor_05",
+      "service_lift",
+      "floor_21",
+      "service_lift",
+      "floor_24"
+    ],
+    "sealed_packets": true,
+    "execution_enabled": false,
+    "status": "integration_ready"
+  },
+  {
+    "id": "routing_to_local_models",
+    "name": "Routing to Local Model Operations",
+    "source_floor": "floor_24",
+    "via_floor": null,
+    "target_floor": "floor_27",
+    "service_path": [
+      "floor_24",
+      "model_lift",
+      "floor_27"
+    ],
+    "sealed_packets": true,
+    "execution_enabled": false,
+    "status": "integration_ready"
+  },
+  {
+    "id": "routing_to_external_provider_sockets",
+    "name": "Routing to External Provider Sockets",
+    "source_floor": "floor_24",
+    "via_floor": null,
+    "target_floor": "floor_23",
+    "service_path": [
+      "floor_24",
+      "model_lift",
+      "floor_23"
+    ],
+    "sealed_packets": true,
+    "execution_enabled": false,
+    "status": "integration_ready"
+  },
+  {
+    "id": "external_sockets_to_roof",
+    "name": "External Provider Socket to Roof Layer",
+    "source_floor": "floor_23",
+    "via_floor": null,
+    "target_floor": "roof",
+    "service_path": [
+      "floor_23",
+      "model_lift",
+      "roof"
+    ],
+    "sealed_packets": true,
+    "execution_enabled": false,
+    "status": "socket_ready_not_connected"
+  },
+  {
+    "id": "adapter_to_infrastructure_services",
+    "name": "Adapter to Infrastructure Services",
+    "source_floor": "floor_21",
+    "via_floor": null,
+    "target_floor": "floor_35",
+    "service_path": [
+      "floor_21",
+      "service_lift",
+      "floor_35"
+    ],
+    "sealed_packets": true,
+    "execution_enabled": false,
+    "status": "disabled_until_enabled_later"
+  }
+]

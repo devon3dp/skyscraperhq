@@ -1,0 +1,70 @@
+{
+  "floor_id": "floor_32",
+  "floor_number": 32,
+  "floor_name": "Platform Compliance Office",
+  "department": "Platform Compliance Office",
+  "zone": "ZONE C",
+  "archetype": "commerce_wing_floor",
+  "staff_lead": "F32 crew",
+  "tour_blurb": "Platform Compliance Office \u2014 part of the QSB Tower commerce wing. Advisory only; no live orders or live payments flow through this floor without an explicit operator-confirmed unlock.",
+  "visitor_open": true,
+  "advisory_only": true,
+  "execution_mode": "PREVIEW_ONLY",
+  "live_payments_in_play": false,
+  "live_listings_publishing_enabled": false,
+  "live_signals": {
+    "mode": "PREVIEW_ONLY",
+    "advisory_only": true
+  },
+  "gate_posture": {
+    "live_payments_enabled": false,
+    "live_listings_publishing_enabled": false,
+    "execution_allowed": false,
+    "advisory_only": true
+  },
+  "team_roster": [
+    {
+      "id": "f032.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "spawned_id": "bf76205210",
+      "spawned_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F032",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f032.operator.01",
+      "spawned_id": "f2330e1b6a"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F032",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f032.operator.02",
+      "spawned_id": "eb29790f14"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F032",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f032.operator.03",
+      "spawned_id": "8794742b00"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F032",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f032.operator.04",
+      "spawned_id": "08e480af10"
+    }
+  ],
+  "floor_manager": "f032.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

@@ -1,0 +1,31 @@
+{
+  "room_id": "theoretical_library",
+  "name": "Theoretical Library",
+  "category": "library",
+  "purpose": "A space for theoretical research and study.",
+  "concierge_blurb": "Visitors see stacks of books and journals.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "left_wall",
+    "offset_x": -8.0,
+    "offset_z": 2.0,
+    "footprint_m": [
+      3,
+      15
+    ],
+    "height_m": 1.4
+  },
+  "render": {
+    "primary_prop": "archive_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Theo Lib.",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_126"
+}

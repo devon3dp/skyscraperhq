@@ -1,0 +1,34 @@
+{
+  "room_id": "artist_studio",
+  "name": "Artist Studio",
+  "category": "workshop",
+  "purpose": "A space for artists to create and prepare their works.",
+  "concierge_blurb": "Meet the artist behind your favorite piece.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -8.0,
+    "offset_z": 2.0,
+    "footprint_m": [
+      10,
+      7
+    ],
+    "height_m": 0.4
+  },
+  "render": {
+    "primary_prop": "bench",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Studio",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_71"
+}

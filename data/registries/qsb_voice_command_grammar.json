@@ -1,0 +1,42 @@
+{
+  "note": "Rule 7 shared voice-command grammar — every Council dash reads this same file so wake-words and commands are consistent. Ross Knechtel is sole judge of Rule 7.",
+  "authored_at": "2026-07-04T21:04Z",
+  "authored_by": "hq_claude (draft, awaiting Wren + TP + Acer + Ross sign-off)",
+  "version": 1,
+  "wake_words": {
+    "hq_claude":  ["hey claude", "hello claude", "claude"],
+    "wren":       ["hey wren", "hello wren", "wren"],
+    "tp_pip":     ["hey tp", "hello tp", "hey pip", "hello pip", "tp", "pip"],
+    "acer_cass":  ["hey acer", "hello acer", "hey cass", "hello cass", "acer", "cass"],
+    "all":        ["hey team", "hello team", "council", "all ceos"]
+  },
+  "listen_lang":  "en-GB",
+  "respond_voice": {
+    "hq_claude":  {"pitch": 1.0, "rate": 1.0,  "voice_hint": "en-GB-Male"},
+    "wren":       {"pitch": 1.1, "rate": 1.0,  "voice_hint": "en-GB-Female"},
+    "tp_pip":     {"pitch": 0.95,"rate": 1.05, "voice_hint": "en-US-Male"},
+    "acer_cass":  {"pitch": 1.05,"rate": 0.95, "voice_hint": "en-US-Female"}
+  },
+  "commands": [
+    { "phrase": "status",          "action": "speak /state summary" },
+    { "phrase": "what are you doing", "action": "speak last self_prompt or current task" },
+    { "phrase": "task board",      "action": "speak count in each state" },
+    { "phrase": "qualification",   "action": "speak my rule-by-rule status from /api/qualif" },
+    { "phrase": "help me qualify", "action": "list what I'm blocked on and ask for pair" },
+    { "phrase": "team status",     "action": "read other 3 CEOs' latest town-square posts" },
+    { "phrase": "stop talking",    "action": "cancel current TTS" }
+  ],
+  "endpoints_per_ceo": {
+    "hq_claude":  "http://127.0.0.1:8850/api/voice_command",
+    "wren":       "http://127.0.0.1:8851/api/voice_command",
+    "tp_pip":     "http://192.168.1.74:9110/voice_command",
+    "acer_cass":  "http://192.168.1.78:9000/voice_command"
+  },
+  "sign_offs": {
+    "hq_claude": "drafted 2026-07-04T21:04Z",
+    "wren":      "pending",
+    "tp_pip":    "pending",
+    "acer_cass": "pending",
+    "ross":      "pending (Ross judges Rule 7 final)"
+  }
+}

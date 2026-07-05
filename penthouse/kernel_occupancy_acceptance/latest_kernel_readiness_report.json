@@ -1,0 +1,224 @@
+{
+  "summary": {
+    "ts": "2026-06-08T16:11:08.353855+00:00",
+    "readiness_status": "NOT_READY_FOR_KERNEL_INTEGRATION",
+    "checks_run": 34,
+    "passed": 29,
+    "warnings": 2,
+    "critical_failures": 2,
+    "kernel_installed": false,
+    "kernel_logic_present": true,
+    "dormant_kernel_imported": true,
+    "dormant_kernel_activation_enabled": false,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "model_inference_enabled": false,
+    "live_dispatch_enabled": false
+  },
+  "items": [
+    {
+      "name": "no_forbidden_kernel_files",
+      "status": "pass",
+      "severity": "critical",
+      "message": "No kernel logic present."
+    },
+    {
+      "name": "kernel_not_installed",
+      "status": "fail",
+      "severity": "critical",
+      "message": "kernel_installed is NOT False \u2014 stop immediately."
+    },
+    {
+      "name": "floor_count_53",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Floor count: 53 (expected 53)."
+    },
+    {
+      "name": "vacant_floor_count_5",
+      "status": "fail",
+      "severity": "warning",
+      "message": "Vacant floor count: 0 (expected 5)."
+    },
+    {
+      "name": "lift_count_9",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Lift count: 9 (expected >=9)."
+    },
+    {
+      "name": "penthouse_socket_empty_ready",
+      "status": "fail",
+      "severity": "critical",
+      "message": "Penthouse socket status unexpected: {'socket_id': 'qsb_kernel_4_5_installation_socket', 'penthouse_id': 'penthouse', 'reserved_for': 'QSB Kernel active local-only', 'status': 'socket_ready_empty', 'kernel_installed': True, 'kernel_logic_present': True, 'accepts_future_kernel_version': '4.5', 'requires_acceptance_report': True, 'requires_security_precheck': True, 'requires_floor_53_handoff': True, 'requires_emergency_stairwell_route': True, 'notice': 'Reserved For Future QSB Kernel 4.5 Installation', 'QSBKernelCore_instantiated': True, 'active_kernel_source': 'rebased_kernel', 'activation_status': 'active_local_only', 'worker_execution_enabled': False, 'provider_execution_enabled': False, 'model_inference_enabled': False, 'live_dispatch_enabled': False, 'autonomous_workers_enabled': False, 'direct_provider_access': False, 'critical_failures': 0, 'failures': 0, 'warnings': 0, 'updated_ts': '2026-06-07T21:38:48.824394+00:00', 'socket_status': 'occupied_local_only', 'readiness_status': 'kernel_active_local_only'}"
+    },
+    {
+      "name": "safety_live_dispatch_enabled_false",
+      "status": "pass",
+      "severity": "critical",
+      "message": "live_dispatch_enabled in agent_coordination_policy.json: False (must be False)."
+    },
+    {
+      "name": "safety_worker_execution_enabled_false",
+      "status": "pass",
+      "severity": "critical",
+      "message": "worker_execution_enabled in agent_coordination_policy.json: False (must be False)."
+    },
+    {
+      "name": "safety_execution_enabled_false",
+      "status": "pass",
+      "severity": "critical",
+      "message": "execution_enabled in external_provider_policy.json: False (must be False)."
+    },
+    {
+      "name": "safety_model_inference_enabled_false",
+      "status": "pass",
+      "severity": "critical",
+      "message": "model_inference_enabled in model_evaluation_policy.json: False (must be False)."
+    },
+    {
+      "name": "floor_21_adapter_systems",
+      "status": "pass",
+      "severity": "warning",
+      "message": "AdapterSystems.adapter_count = 9"
+    },
+    {
+      "name": "floor_22_integration",
+      "status": "pass",
+      "severity": "warning",
+      "message": "IntegrationServices.integration_health = healthy"
+    },
+    {
+      "name": "floor_23_air_llm",
+      "status": "pass",
+      "severity": "warning",
+      "message": "AirLLMOperations.provider_count = 6"
+    },
+    {
+      "name": "floor_24_routing",
+      "status": "pass",
+      "severity": "warning",
+      "message": "ModelRoutingDepartment.route_decisions = 6"
+    },
+    {
+      "name": "floor_25_agent_coord",
+      "status": "pass",
+      "severity": "warning",
+      "message": "AgentCoordination.status = healthy"
+    },
+    {
+      "name": "floor_26_model_eval",
+      "status": "pass",
+      "severity": "warning",
+      "message": "ModelEvaluationDepartment.status = healthy"
+    },
+    {
+      "name": "floor_27_local_models",
+      "status": "fail",
+      "severity": "warning",
+      "message": "LocalModelOperations.status = None"
+    },
+    {
+      "name": "floor_37_simulation_labs",
+      "status": "pass",
+      "severity": "warning",
+      "message": "SimulationLabs.status = healthy"
+    },
+    {
+      "name": "floor_38_sandbox_ops",
+      "status": "pass",
+      "severity": "warning",
+      "message": "SandboxOperations.status = healthy"
+    },
+    {
+      "name": "no_hardwired_provider_sockets",
+      "status": "pass",
+      "severity": "critical",
+      "message": "No provider sockets hardwired."
+    },
+    {
+      "name": "openclaw_openclaw_framework_candidate_only",
+      "status": "pass",
+      "severity": "critical",
+      "message": "openclaw_framework is candidate_only with execution disabled."
+    },
+    {
+      "name": "openclaw_openclaw_pixel_agent_v1_candidate_only",
+      "status": "pass",
+      "severity": "critical",
+      "message": "openclaw_pixel_agent_v1 is candidate_only with execution disabled."
+    },
+    {
+      "name": "openclaw_openclaw_pixel_agent_fast_candidate_only",
+      "status": "pass",
+      "severity": "critical",
+      "message": "openclaw_pixel_agent_fast is candidate_only with execution disabled."
+    },
+    {
+      "name": "openclaw_openclaw_source_auditor_candidate_only",
+      "status": "pass",
+      "severity": "critical",
+      "message": "openclaw_source_auditor is candidate_only with execution disabled."
+    },
+    {
+      "name": "pixel_agent_openclaw_pixel_standard_candidate_only",
+      "status": "pass",
+      "severity": "critical",
+      "message": "openclaw_pixel_standard is candidate_only with execution disabled."
+    },
+    {
+      "name": "pixel_agent_openclaw_pixel_vision_candidate_only",
+      "status": "pass",
+      "severity": "critical",
+      "message": "openclaw_pixel_vision is candidate_only with execution disabled."
+    },
+    {
+      "name": "pixel_agent_generic_pixel_agent_placeholder_candidate_only",
+      "status": "pass",
+      "severity": "critical",
+      "message": "generic_pixel_agent_placeholder is candidate_only with execution disabled."
+    },
+    {
+      "name": "dormant_import_dir_exists",
+      "status": "pass",
+      "severity": "warning",
+      "message": "Dormant import directory exists at penthouse socket."
+    },
+    {
+      "name": "dormant_import_manifest_exists",
+      "status": "pass",
+      "severity": "warning",
+      "message": "Dormant import manifest exists."
+    },
+    {
+      "name": "dormant_identity_readable",
+      "status": "pass",
+      "severity": "warning",
+      "message": "Dormant kernel identity.json readable."
+    },
+    {
+      "name": "dormant_import_no_forbidden_files",
+      "status": "pass",
+      "severity": "critical",
+      "message": "No forbidden kernel files created during dormant import."
+    },
+    {
+      "name": "dormant_manifest_kernel_installed_false",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Dormant manifest: kernel_installed is False."
+    },
+    {
+      "name": "dormant_manifest_activation_disabled",
+      "status": "pass",
+      "severity": "critical",
+      "message": "Dormant manifest: activation_enabled is False."
+    },
+    {
+      "name": "dashboard_load",
+      "status": "fail",
+      "severity": "warning",
+      "message": "Dashboard check error: module 'dashboard_server' has no attribute 'HTML'"
+    }
+  ]
+}

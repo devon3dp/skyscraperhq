@@ -1,0 +1,120 @@
+[
+  {
+    "candidate_id": "claude_code",
+    "name": "Claude Code",
+    "candidate_type": "external_code_tool",
+    "provider_family": "anthropic",
+    "location": "external_terminal_tool",
+    "installed_detected": "operator_confirmed",
+    "status": "candidate_registered_read_only",
+    "execution_enabled": false,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "autonomous_enabled": false,
+    "allowed_initial_mode": "read_only_audit",
+    "allowed_commands_initial": [
+      "pwd",
+      "ls",
+      "find",
+      "tree",
+      "cat",
+      "grep",
+      "sed"
+    ],
+    "blocked_initial_actions": [
+      "edit",
+      "write",
+      "create",
+      "delete",
+      "move",
+      "install",
+      "chmod",
+      "rm",
+      "run_tests",
+      "activate_workers",
+      "build_kernel"
+    ],
+    "notes": "Claude Code is currently an external inspector, not an internal worker."
+  },
+  {
+    "candidate_id": "openclaw",
+    "name": "OpenClaw",
+    "candidate_type": "external_worker_framework_candidate",
+    "provider_family": "unknown_external",
+    "location": "not_installed_not_connected",
+    "status": "candidate_placeholder",
+    "execution_enabled": false,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "autonomous_enabled": false,
+    "allowed_initial_mode": "registry_placeholder_only",
+    "allowed_commands_initial": [],
+    "blocked_initial_actions": [
+      "install",
+      "execute",
+      "dispatch",
+      "autonomous_action"
+    ],
+    "notes": "Placeholder only. Do not install or trust until audited."
+  },
+  {
+    "candidate_id": "ollama_local_models",
+    "name": "Ollama Local Models",
+    "candidate_type": "local_model_pool_candidate",
+    "provider_family": "local_models",
+    "location": "floor_27_local_model_operations",
+    "status": "candidate_pool_detected_not_bound",
+    "execution_enabled": false,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "autonomous_enabled": false,
+    "allowed_initial_mode": "inventory_only",
+    "allowed_commands_initial": [
+      "ollama list through Floor 27 only"
+    ],
+    "blocked_initial_actions": [
+      "inference_execution",
+      "model_binding",
+      "autonomous_dispatch"
+    ],
+    "notes": "Floor 27 may inventory local models. Floor 25 may stage them as candidates only."
+  },
+  {
+    "candidate_id": "future_llm_provider",
+    "name": "Future LLM Provider",
+    "candidate_type": "future_external_provider_candidate",
+    "provider_family": "future",
+    "location": "roof_air_llm_cloud_or_floor_23_socket",
+    "status": "future_candidate_placeholder",
+    "execution_enabled": false,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "autonomous_enabled": false,
+    "allowed_initial_mode": "registry_placeholder_only",
+    "allowed_commands_initial": [],
+    "blocked_initial_actions": [
+      "provider_call",
+      "api_key_use",
+      "remote_execution"
+    ],
+    "notes": "Future external engines must connect through building infrastructure, never directly."
+  },
+  {
+    "candidate_id": "human_operator",
+    "name": "Human Operator",
+    "candidate_type": "manual_approval_authority",
+    "provider_family": "operator",
+    "location": "ground_command_lobby_future",
+    "status": "approval_authority_registered",
+    "execution_enabled": false,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "autonomous_enabled": false,
+    "allowed_initial_mode": "manual_approval_only",
+    "allowed_commands_initial": [],
+    "blocked_initial_actions": [
+      "autonomous_worker_execution"
+    ],
+    "notes": "Manual approval authority for future recruitment decisions."
+  }
+]

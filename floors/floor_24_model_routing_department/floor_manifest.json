@@ -1,0 +1,48 @@
+{
+  "floor_id": "floor_24",
+  "department": "Model Routing Department",
+  "version": "1.1",
+  "role": "model_routing_exchange",
+  "kernel_required": false,
+  "models_required": false,
+  "execution_enabled": false,
+  "direct_provider_access": false,
+  "receives_from": [
+    "floor_05",
+    "ground",
+    "floor_13"
+  ],
+  "hands_off_to": [
+    "floor_27",
+    "floor_23",
+    "roof"
+  ],
+  "incoming_lift": "service_lift",
+  "outgoing_lift": "model_lift",
+  "notice": "Floor 24 decides routing paths only. It does not execute model/provider calls.",
+  "interior_brief": {
+    "archetype": "ops_floor",
+    "palette": [
+      "#1a1e2a",
+      "#3a4050",
+      "#6a90c0"
+    ],
+    "furniture": [
+      "desks",
+      "meeting area",
+      "common space",
+      "storage"
+    ],
+    "lighting": "task + ambient",
+    "mood": "professional",
+    "designed_by": "F66 Architects + F17 Graphics + Fitters team",
+    "fitted_at": "2026-06-11T14:39:45.620109Z",
+    "godot_scene_brief": "render an generic floor with neutral grey + accent per floor theme palette, professional mood, key furniture: desks, meeting area, common space",
+    "signature": "Standard tower office layout \u2014 desks, meeting nook, kitchenette",
+    "diversified_ts": "2026-06-11T17:57:45Z",
+    "diversified_by": "qsb_archetype_diversifier_v1"
+  },
+  "fitted_out": true,
+  "fit_out_ts": "2026-06-11T14:39:45.620109Z",
+  "floor_name": "Model Routing Department"
+}

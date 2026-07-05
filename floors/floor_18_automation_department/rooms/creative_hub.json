@@ -1,0 +1,31 @@
+{
+  "room_id": "creative_hub",
+  "name": "Creative Hub",
+  "category": "workshop",
+  "purpose": "A space for creative brainstorming and idea generation.",
+  "concierge_blurb": "Inspiration abounds in this vibrant workspace.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 8.0,
+    "offset_z": -3.5,
+    "footprint_m": [
+      14,
+      7
+    ],
+    "height_m": 2.1
+  },
+  "render": {
+    "primary_prop": "desk",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Creative",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_18"
+}

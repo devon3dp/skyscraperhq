@@ -1,0 +1,34 @@
+{
+  "room_id": "security_office",
+  "name": "Security Office",
+  "category": "security",
+  "purpose": "Overseeing the security and safety of the floor.",
+  "concierge_blurb": "Secure our Legal Advisory floor from all angles in this dedicated office.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_right",
+    "offset_x": 7.5,
+    "offset_z": -4.0,
+    "footprint_m": [
+      12.0,
+      8.0
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "wall_panel",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Security",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 0
+  },
+  "floor": "floor_101"
+}

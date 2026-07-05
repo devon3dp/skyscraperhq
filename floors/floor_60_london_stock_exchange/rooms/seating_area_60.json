@@ -1,0 +1,31 @@
+{
+  "room_id": "seating_area_60",
+  "name": "Trader's Rest Area",
+  "category": "seating",
+  "purpose": "Provides a quiet area for traders to take breaks and discuss market trends.",
+  "concierge_blurb": "Relax in this comfortable seating area designed for trader downtime.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.0,
+    "offset_z": -2.5,
+    "footprint_m": [
+      3.0,
+      4.5
+    ],
+    "height_m": 1.8
+  },
+  "render": {
+    "primary_prop": "chair_set",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Trader's Rest",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_60"
+}

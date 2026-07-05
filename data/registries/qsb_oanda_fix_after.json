@@ -1,0 +1,17 @@
+{
+  "ts": "2026-07-01T09:30:31.049027Z",
+  "kind": "oanda_fix_after",
+  "post_ship_opens_by_worker": {
+    "bnb": 16,
+    "jp225": 5,
+    "btc": 31
+  },
+  "post_ship_total_opens": 52,
+  "flat_regime_blocks": 0,
+  "trend_refuses_new_0_30sigma_gate": 0,
+  "bus_totals": {
+    "closes": 9,
+    "wins": 1,
+    "pnl_gbp": -0.1533
+  }
+}

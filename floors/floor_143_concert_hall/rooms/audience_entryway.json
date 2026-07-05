@@ -1,0 +1,34 @@
+{
+  "room_id": "audience_entryway",
+  "name": "Audience Entryway",
+  "category": "reception",
+  "purpose": "This area is for audience members to enter and exit the hall.",
+  "concierge_blurb": "Enter through our elegant entryway, where you can purchase tickets or explore our merchandise.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 8.0,
+    "offset_z": -4.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 3.0
+  },
+  "render": {
+    "primary_prop": "reception",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Entryway",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": null,
+    "refresh_seconds": 0
+  },
+  "floor": "floor_143"
+}

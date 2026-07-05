@@ -1,0 +1,31 @@
+{
+  "room_id": "meeting_room",
+  "name": "Conference Room",
+  "category": "reception",
+  "purpose": "Holds meetings and briefings for the operations team.",
+  "concierge_blurb": "A spacious room with a large table and comfortable seating.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -4.0,
+    "offset_z": 2.0,
+    "footprint_m": [
+      15,
+      12
+    ],
+    "height_m": 2.3
+  },
+  "render": {
+    "primary_prop": "chair_set",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Meeting Room",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_23"
+}

@@ -1,0 +1,8 @@
+{"kind": "check", "target": "registry freshness", "frequency": "every_launch", "advisory_only": true, "ts": "2026-06-10T21:47:36Z", "worker_id": "f47.wren.auditor.01", "role": "auditor", "floor": "F47"}
+{"kind": "check", "target": "spend within cap", "frequency": "every_launch", "advisory_only": true, "ts": "2026-06-10T21:47:36Z", "worker_id": "f47.wren.auditor.02", "role": "auditor", "floor": "F47"}
+{"kind": "check", "target": "gates locked", "frequency": "every_launch", "advisory_only": true, "ts": "2026-06-10T21:47:36Z", "worker_id": "f47.wren.auditor.03", "role": "auditor", "floor": "F47"}
+{"kind": "check", "target": "helix continuity", "frequency": "every_launch", "advisory_only": true, "ts": "2026-06-10T21:47:36Z", "worker_id": "f47.wren.auditor.04", "role": "auditor", "floor": "F47"}
+{"kind": "check", "target": "voice fingerprint", "frequency": "every_launch", "advisory_only": true, "ts": "2026-06-10T21:47:36Z", "worker_id": "f47.wren.auditor.05", "role": "auditor", "floor": "F47"}
+{"kind": "check", "target": "team roster integrity", "frequency": "every_launch", "advisory_only": true, "ts": "2026-06-10T21:47:36Z", "worker_id": "f47.wren.auditor.06", "role": "auditor", "floor": "F47"}
+{"kind": "check", "target": "F44 roll-up consistency", "frequency": "every_launch", "advisory_only": true, "ts": "2026-06-10T21:47:36Z", "worker_id": "f47.wren.auditor.07", "role": "auditor", "floor": "F47"}
+{"kind": "check", "target": "activity_tail growth", "frequency": "every_launch", "advisory_only": true, "ts": "2026-06-10T21:47:36Z", "worker_id": "f47.wren.auditor.08", "role": "auditor", "floor": "F47"}

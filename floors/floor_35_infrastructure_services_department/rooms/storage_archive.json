@@ -1,0 +1,31 @@
+{
+  "room_id": "storage_archive",
+  "name": "Storage Archive",
+  "category": "archive",
+  "purpose": "Holds important records and documents.",
+  "concierge_blurb": "Safe storage for QSB's vital archives.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_right",
+    "offset_x": 5.0,
+    "offset_z": -4.0,
+    "footprint_m": [
+      10,
+      6
+    ],
+    "height_m": 2.3
+  },
+  "render": {
+    "primary_prop": "archive_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Storage",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_35"
+}

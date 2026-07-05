@@ -1,0 +1,174 @@
+{
+  "ok": true,
+  "kind": "qsb_original_dashboard_feature_inventory",
+  "phase": "QSB_NATIVE_COCKPIT_FEATURE_PARITY_AND_INTERACTION_UPGRADE_V1",
+  "generated_ts": "2026-06-09T15:00:24+00:00",
+  "source_files": [
+    "src/dashboard/static/index.html (legacy)",
+    "src/dashboard/static/next3d/index.html",
+    "src/dashboard/server.py",
+    "src/dashboard/static/*.js, *.css"
+  ],
+  "features": [
+    {
+      "id": "kernel_status",
+      "name": "Kernel status pill"
+    },
+    {
+      "id": "execution_locks",
+      "name": "13-lock execution lock matrix"
+    },
+    {
+      "id": "kernel_chat",
+      "name": "Kernel chat console + history"
+    },
+    {
+      "id": "narrator",
+      "name": "Browser SpeechSynthesis narrator"
+    },
+    {
+      "id": "commentary_toggle",
+      "name": "Commentary mode select (off/tower/floor/critical/profit/worker/openclaw/kernel)"
+    },
+    {
+      "id": "sound_speech_toggles",
+      "name": "Sound + Speech + Mute buttons"
+    },
+    {
+      "id": "voice_selector",
+      "name": "Voice selector + Test button + voice meta pill"
+    },
+    {
+      "id": "floor_selector",
+      "name": "Click floor slab \u2192 selectedFloor"
+    },
+    {
+      "id": "floor_url_param",
+      "name": "URL ?floor=N parses on boot"
+    },
+    {
+      "id": "floor_inspector",
+      "name": "Right-side floor inspector (rooms + named workers)"
+    },
+    {
+      "id": "lift_strip",
+      "name": "Side-panel lift strip with 9 rows"
+    },
+    {
+      "id": "lift_column",
+      "name": "Always-on left lift column"
+    },
+    {
+      "id": "openclaw_panel",
+      "name": "OpenClaw side card with tickets"
+    },
+    {
+      "id": "openclaw_orb",
+      "name": "Orbital OpenClaw marker on tower"
+    },
+    {
+      "id": "event_ticker",
+      "name": "Bottom event ticker / ledger"
+    },
+    {
+      "id": "profit_command",
+      "name": "Profit Command tab (rewards / discipline)"
+    },
+    {
+      "id": "floor41_oanda_panel",
+      "name": "Floor 41 OANDA interior with PnL + trades + thoughts"
+    },
+    {
+      "id": "floor42_binance_panel",
+      "name": "Floor 42 Binance interior (rooms + workers)"
+    },
+    {
+      "id": "floor43_stocks_panel",
+      "name": "Floor 43 Stocks interior"
+    },
+    {
+      "id": "penthouse_panel",
+      "name": "Penthouse gauges + zones + repair board"
+    },
+    {
+      "id": "hardware_observatory",
+      "name": "Floor 35 hardware observatory in kernel chat + endpoints"
+    },
+    {
+      "id": "code_observatory",
+      "name": "Code observatory / Claude phase changes"
+    },
+    {
+      "id": "security_floor",
+      "name": "Security/Secrets vault audit endpoint"
+    },
+    {
+      "id": "commerce_wing",
+      "name": "Commerce Wing endpoints (Etsy, POD, shopping ops)"
+    },
+    {
+      "id": "etsy_panel",
+      "name": "Etsy floor draft pipeline"
+    },
+    {
+      "id": "training_academy",
+      "name": "Floor 8 classrooms"
+    },
+    {
+      "id": "recruitment_panel",
+      "name": "Floor 45 Recruitment Agency"
+    },
+    {
+      "id": "accounts_panel",
+      "name": "Floor 44 Accounts / PnL ledger"
+    },
+    {
+      "id": "guardian_panel",
+      "name": "Floor 30 Guardian / Risk lock map"
+    },
+    {
+      "id": "airllm_panel",
+      "name": "Floor 23 AirLLM chamber state"
+    },
+    {
+      "id": "model_lanes_panel",
+      "name": "Floor 24 model lane governance"
+    },
+    {
+      "id": "rest_recreation",
+      "name": "Rest/Recreation floors 39/40"
+    },
+    {
+      "id": "safety_lock_banner",
+      "name": "Pro-banner safety lock status"
+    },
+    {
+      "id": "next3d_skyscraper",
+      "name": "Babylon Next3D tower scene"
+    },
+    {
+      "id": "intercom_strip",
+      "name": "Inter-floor sealed-packet bus strip"
+    },
+    {
+      "id": "kernel_chat_diag",
+      "name": "Kernel chat diagnostics dialog"
+    },
+    {
+      "id": "fps_diag",
+      "name": "WebGL / renderer / FPS debug strip"
+    },
+    {
+      "id": "rotate_focus_buttons",
+      "name": "Rotate / Focus / Reset / Pause / Layout buttons"
+    },
+    {
+      "id": "stt_button",
+      "name": "Browser SpeechRecognition mic"
+    },
+    {
+      "id": "kernel_chat_audio",
+      "name": "Audio out for kernel chat replies"
+    }
+  ]
+}

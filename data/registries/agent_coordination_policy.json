@@ -1,0 +1,22 @@
+{
+  "version": "1.1",
+  "floor": "floor_25",
+  "department": "Worker Recruitment and Coordination Department",
+  "legacy_department_name": "Agent Coordination Department",
+  "role": "Recruit, inspect, classify, and stage candidate workers before future activation.",
+  "kernel_required": false,
+  "kernel_installed": false,
+  "kernel_logic_present": false,
+  "models_required": false,
+  "execution_enabled": false,
+  "worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "autonomous_workers_enabled": false,
+  "candidate_registration_enabled": true,
+  "live_dispatch_enabled": false,
+  "security_enforcement_required_before_activation": true,
+  "providers_are_external": true,
+  "models_are_temporary_tenants": true,
+  "principle": "Floor 25 recruits and coordinates candidate workers. It does not execute workers.",
+  "notice": "Claude Code, OpenClaw, Ollama, local models, and future agents may be registered as candidates only."
+}

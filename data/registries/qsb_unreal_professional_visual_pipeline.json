@@ -1,0 +1,46 @@
+{
+  "ts": "2026-06-28T15:10:00Z",
+  "layers": {
+    "A_blockout":     {"status": "done",    "owned_by": "city_team + tower_shell_team"},
+    "B_material":     {"status": "pending", "blocker": "plugin lacks material API; needs extension OR UE Python"},
+    "C_lighting":     {"status": "partial", "blocker": "rebuild lighting + remove duplicate dominant directional"},
+    "D_skyscraper_detail": {"status": "partial"},
+    "E_city_env":     {"status": "partial"},
+    "F_hud":          {"status": "pending", "owned_by": "hud_team"},
+    "G_interaction":  {"status": "pending"},
+    "H_living_system":{"status": "partial", "live_components": ["qsb_ue5_live_pulse.py 5s tick", "V_LivePulse ring", "V_VenueBar bars"]}
+  },
+  "materials_required": [
+    "M_QSB_DarkGlass", "M_QSB_MetalFrame",
+    "M_QSB_NeonCyan", "M_QSB_NeonViolet",
+    "M_QSB_GoldTrim", "M_QSB_EmissiveWindow",
+    "M_QSB_Hologram", "M_QSB_DataStream",
+    "M_QSB_FloorGlow", "M_QSB_SelectedFloor"
+  ],
+  "blueprints_required": [
+    "BP_QSB_SkyscraperTower", "BP_QSB_FloorSlice",
+    "BP_QSB_LiftSystem", "BP_QSB_LiftCar",
+    "BP_QSB_WorkerMarker", "BP_QSB_OpenClawInspector",
+    "BP_QSB_DataStream", "BP_QSB_CityTower",
+    "BP_QSB_HologramPanel", "BP_QSB_CommandWindow",
+    "BP_QSB_FloorEntryPortal"
+  ],
+  "cameras_required": [
+    "BP_QSB_CinematicCameraRig",
+    "BP_QSB_TowerOrbitCamera",
+    "BP_QSB_FloorFocusCamera"
+  ],
+  "maps_required": [
+    "QSB_Skyscraper_HQ_Main",
+    "QSB_City_Showcase",
+    "QSB_Tower_Interior_Test"
+  ],
+  "next_passes_order": [
+    "rebuild lighting",
+    "author 8 base materials via UE Python",
+    "extend MCP plugin with set_actor_material",
+    "assign materials by pattern",
+    "author UMG HUD",
+    "click-to-focus binding"
+  ]
+}

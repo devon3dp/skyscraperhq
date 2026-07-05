@@ -1,0 +1,34 @@
+{
+  "room_id": "wellness_studio_massage",
+  "name": "Massage Room",
+  "category": "workshop",
+  "purpose": "This room is for professional massage treatments.",
+  "concierge_blurb": "Relax and rejuvenate with a therapeutic massage.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -8.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      12,
+      10
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "bench",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Massage Room",
+    "glow": true
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_67"
+}

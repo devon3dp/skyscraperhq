@@ -1,0 +1,34 @@
+{
+  "room_id": "research_laboratory",
+  "name": "Research Lab",
+  "category": "lab",
+  "purpose": "Conducting experiments and research.",
+  "concierge_blurb": "State-of-the-art lab for AGI safety research.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -8.0,
+    "offset_z": 2.5,
+    "footprint_m": [
+      10,
+      7
+    ],
+    "height_m": 2.4
+  },
+  "render": {
+    "primary_prop": "lab_bench",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Research Lab",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_123"
+}

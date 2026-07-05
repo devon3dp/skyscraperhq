@@ -1,0 +1,34 @@
+{
+  "room_id": "keyword_research_center",
+  "name": "Keyword Research Center",
+  "category": "workshop",
+  "purpose": "Conduct in-depth keyword research to improve online content.",
+  "concierge_blurb": "Comprehensive tools for finding and analyzing keywords.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 7.0,
+    "offset_z": 1.5,
+    "footprint_m": [
+      3.0,
+      2.0
+    ],
+    "height_m": 1.8
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Keyword Dais",
+    "glow": false
+  },
+  "interactive": {
+    "type": "big_number",
+    "source_path": "data/registries/keyword_research.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_16"
+}

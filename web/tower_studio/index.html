@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tower Studio — Websites, identity, and IT, designed inside the QSB Tower.</title>
+<meta name="description" content="A web design and IT studio built inside QSB Tower V1. Landing pages, marketing sites, ecommerce starters, brand identity kits.">
+<link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="/">
+    <span class="logo-mark">⌬</span>
+    <span class="logo-text">Tower Studio</span>
+  </a>
+  <nav class="main-nav">
+    <a href="#services">Services</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#about">About</a>
+    <a href="#contact" class="cta-link">Contact</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero">
+  <div class="hero-content">
+    <h1>Sites that earn their keep.</h1>
+    <p class="hero-sub">Tower Studio is the in-house web &amp; IT studio of the QSB Tower. We design, write, build, and ship marketing sites, brand kits, and ecommerce starters for small businesses that don't have time to mess about.</p>
+    <div class="hero-cta">
+      <a class="btn primary" href="#contact">Start a project</a>
+      <a class="btn secondary" href="#portfolio">See our work</a>
+    </div>
+    <p class="hero-meta">Floor 49 · QSB Tower V1.5 · Local studio · Real workers · Live audit trail</p>
+  </div>
+  <div class="hero-art" aria-hidden="true">
+    <img src="/static/hero.svg" alt="">
+  </div>
+</section>
+
+<section id="services" class="section">
+  <div class="section-header">
+    <h2>What we ship</h2>
+    <p>Six packages. Honest scope, honest price. We pull from a real catalog — every quote on this site is generated from the same registry that runs the studio.</p>
+  </div>
+  <div id="services-grid" class="services-grid">
+    <p class="loading">Loading services…</p>
+  </div>
+</section>
+
+<section id="portfolio" class="section section-alt">
+  <div class="section-header">
+    <h2>Sample work</h2>
+    <p>Three sketch concepts, generated live by our studio's SVG pipeline. These are real outputs you can download.</p>
+  </div>
+  <div class="portfolio-grid">
+    <a class="portfolio-card" href="/portfolio/concept_bayreach.svg">
+      <img src="/portfolio/concept_bayreach.svg" alt="Bayreach Books concept">
+      <h3>Bayreach Books</h3>
+      <p>Warm, earth-tone landing concept for an independent publisher.</p>
+    </a>
+    <a class="portfolio-card" href="/portfolio/concept_nightowl.svg">
+      <img src="/portfolio/concept_nightowl.svg" alt="Night Owl Cafe concept">
+      <h3>Night Owl Cafe</h3>
+      <p>Hospitality-first single-page site with menu + hours.</p>
+    </a>
+    <a class="portfolio-card" href="/portfolio/concept_apexgear.svg">
+      <img src="/portfolio/concept_apexgear.svg" alt="Apex Gear concept">
+      <h3>Apex Gear</h3>
+      <p>Ecommerce starter for an outdoor-gear maker.</p>
+    </a>
+  </div>
+</section>
+
+<section id="pricing" class="section">
+  <div class="section-header">
+    <h2>Honest pricing</h2>
+    <p>Prices are advisory while the studio runs in local mode. Real billing requires the operator to flip <code>real_payments_enabled</code> in a separate session.</p>
+  </div>
+  <div id="pricing-grid" class="pricing-grid">
+    <p class="loading">Loading pricing…</p>
+  </div>
+</section>
+
+<section id="about" class="section section-alt">
+  <div class="section-header">
+    <h2>About Tower Studio</h2>
+    <p>
+      We're a studio that sits on Floor 49 of the QSB Tower — an AI skyscraper full of workers, classrooms, and a cognitive Kernel that watches everything. Our designers, copywriters, and engineers are workers on this floor, paid in the tower's internal QBC currency. Real-world clients can pay in real money once the operator flips the live-payments gate. Until then, every order on this site is logged as an advisory draft you can review in the dashboard.
+    </p>
+    <ul class="about-bullets">
+      <li>Live audit log of every client interaction</li>
+      <li>Internal economy: workers earn QBC for their billable hours</li>
+      <li>Mentor / apprentice family tree across the studio</li>
+      <li>Every quote produced by the same registry your designer reads</li>
+    </ul>
+  </div>
+</section>
+
+<section id="contact" class="section">
+  <div class="section-header">
+    <h2>Tell us about your project</h2>
+    <p>Drop your details and we'll log a new lead in the customer database. Tower Studio replies inside 1 business day.</p>
+  </div>
+  <form id="contact-form" class="contact-form" novalidate>
+    <div class="field">
+      <label for="cf-name">Name</label>
+      <input id="cf-name" name="name" required>
+    </div>
+    <div class="field">
+      <label for="cf-email">Email</label>
+      <input id="cf-email" name="email" type="email" required>
+    </div>
+    <div class="field">
+      <label for="cf-company">Company</label>
+      <input id="cf-company" name="company">
+    </div>
+    <div class="field">
+      <label for="cf-budget">Approx. budget (USD)</label>
+      <input id="cf-budget" name="budget" type="number" step="100">
+    </div>
+    <div class="field full">
+      <label for="cf-message">Tell us what you need</label>
+      <textarea id="cf-message" name="message" rows="5" required></textarea>
+    </div>
+    <button class="btn primary" type="submit">Send</button>
+    <p id="cf-result" class="form-result" role="status"></p>
+  </form>
+</section>
+</main>
+
+<footer class="footer">
+  <p>© Tower Studio · A studio inside QSB Tower V1.5 · Floor 49</p>
+  <p class="footer-note">All execution gates remain locked. <code>real_payments_enabled=False</code>, <code>live_listings_publishing_enabled=False</code>.</p>
+</footer>
+
+<script src="/static/site.js"></script>
+</body>
+</html>

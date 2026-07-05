@@ -1,0 +1,64 @@
+{
+  "floor_id": "floor_47",
+  "floor_number": 47,
+  "floor_name": "Claude Embassy (Wren)",
+  "department": "Executive Operations Department",
+  "zone": "ZONE C \u00b7 CRAFT + COMMERCE",
+  "archetype": "generic",
+  "staff_lead": "TBD",
+  "tour_blurb": "Claude Embassy (Wren) \u2014 a floor in the QSB Tower. Skeleton card auto-generated; full fit-out pending.",
+  "visitor_open": false,
+  "advisory_only": true,
+  "execution_mode": "PREVIEW_ONLY",
+  "skeleton": true,
+  "skeleton_source": "floor_manifest.json",
+  "skeleton_generated_ts": "2026-06-17",
+  "live_signals": {
+    "theme": null,
+    "categories": null,
+    "palette": null,
+    "tagline": null
+  },
+  "gate_posture": {
+    "advisory_only": true,
+    "execution_allowed": false,
+    "live_payments_enabled": false
+  },
+  "team_roster": [
+    {
+      "id": "f047.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "spawned_id": "1a5ef659a7",
+      "spawned_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F047",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f047.operator.01",
+      "spawned_id": "daa7fce919"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F047",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f047.operator.02",
+      "spawned_id": "c43089c080"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F047",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f047.operator.03",
+      "spawned_id": "1c06a0ff72"
+    }
+  ],
+  "floor_manager": "f047.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

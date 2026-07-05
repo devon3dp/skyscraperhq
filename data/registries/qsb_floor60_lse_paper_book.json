@@ -1,0 +1,35 @@
+{
+  "ok": true,
+  "kind": "qsb_floor60_lse_paper_book",
+  "cash_gbp": 99751.52335092422,
+  "positions": {
+    "VOD.L": {
+      "qty": 44,
+      "avg_px_gbp": 1.1295645152664184
+    },
+    "BP.L": {
+      "qty": 13,
+      "avg_px_gbp": 5.43186529463548
+    },
+    "HSBA.L": {
+      "qty": 3,
+      "avg_px_gbp": 13.300647244262697
+    },
+    "BARC.L": {
+      "qty": 11,
+      "avg_px_gbp": 4.502751349182129
+    },
+    "GSK.L": {
+      "qty": 2,
+      "avg_px_gbp": 19.3646775
+    },
+    "RIO.L": {
+      "qty": 0,
+      "avg_px_gbp": 0
+    }
+  },
+  "realized_pnl_gbp": 0.0,
+  "updated_ts": "2026-06-11T08:59:17.889047Z",
+  "advisory_only": true,
+  "real_money": false
+}

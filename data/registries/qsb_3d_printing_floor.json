@@ -1,0 +1,37 @@
+{
+  "ok": true,
+  "kind": "qsb_3d_printing_floor",
+  "phase": "QSB_FULL_SKYSCRAPER_OCCUPANCY_COMMERCE_WORKFORCE_EXPANSION_V1",
+  "generated_ts": "2026-06-30T13:46:36.982867+00:00",
+  "floor": 17,
+  "secondary_role": "3D Printing Product Pipeline (co-located on Design Studio floor)",
+  "rooms": [
+    "Product Concept Lab",
+    "CAD / Model Desk",
+    "STL Review Desk",
+    "Material/Cost Desk",
+    "Print Queue",
+    "Quality Control",
+    "Marketplace Listing Desk"
+  ],
+  "safe_mode": true,
+  "draft_only": true,
+  "manual_approval_required": true,
+  "platforms_supported": [
+    "local_3d_printer_queue_only",
+    "future_etsy_or_marketplace_listing"
+  ],
+  "no_real_orders_without_unlock": true,
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "worker_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "live_payments_enabled": false,
+  "live_listings_publishing_enabled": false,
+  "external_api_calls_enabled": false,
+  "secrets_in_logs": false,
+  "manual_approval_required_for_commerce": true
+}

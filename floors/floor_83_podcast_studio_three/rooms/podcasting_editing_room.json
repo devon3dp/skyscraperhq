@@ -1,0 +1,34 @@
+{
+  "room_id": "podcasting_editing_room",
+  "name": "Editing Room",
+  "category": "operations",
+  "purpose": "Edits and post-processes podcast recordings.",
+  "concierge_blurb": "Where the magic of editing happens.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -8.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      10,
+      6
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "workbench",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Editing Bench",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/podcast_editing.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_83"
+}

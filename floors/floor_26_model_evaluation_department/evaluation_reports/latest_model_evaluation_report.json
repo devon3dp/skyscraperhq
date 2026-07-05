@@ -1,0 +1,471 @@
+{
+  "ts": "2026-06-09T09:52:31.165583+00:00",
+  "floor": "floor_26",
+  "department": "Model Evaluation Department",
+  "version": "1.1",
+  "status": "degraded",
+  "evaluation_mode": "static_registry_metadata_only",
+  "kernel_installed": false,
+  "kernel_logic_present": false,
+  "execution_enabled": false,
+  "worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "model_inference_enabled": false,
+  "autonomous_workers_enabled": false,
+  "live_dispatch_enabled": false,
+  "candidate_count": 5,
+  "evaluations": [
+    {
+      "candidate_id": "claude_code",
+      "name": "Claude Code",
+      "candidate_type": "external_code_tool",
+      "score": 100,
+      "risk_level": "low",
+      "recommendation": "candidate_can_remain_staged_read_only",
+      "execution_enabled": false,
+      "worker_execution_enabled": false,
+      "provider_execution_enabled": false,
+      "model_inference_enabled": false,
+      "checks": [
+        {
+          "criterion_id": "identity_present",
+          "passed": true,
+          "weight": 10,
+          "detail": {
+            "candidate_id": "claude_code",
+            "name": "Claude Code"
+          }
+        },
+        {
+          "criterion_id": "execution_disabled",
+          "passed": true,
+          "weight": 20,
+          "detail": {
+            "execution_enabled": false,
+            "worker_execution_enabled": false,
+            "provider_execution_enabled": false,
+            "autonomous_enabled": false
+          }
+        },
+        {
+          "criterion_id": "allowed_mode_declared",
+          "passed": true,
+          "weight": 10,
+          "detail": {
+            "allowed_initial_mode": "read_only_audit"
+          }
+        },
+        {
+          "criterion_id": "blocked_actions_declared",
+          "passed": true,
+          "weight": 10,
+          "detail": {
+            "blocked_initial_actions": [
+              "edit",
+              "write",
+              "create",
+              "delete",
+              "move",
+              "install",
+              "chmod",
+              "rm",
+              "run_tests",
+              "activate_workers",
+              "build_kernel"
+            ]
+          }
+        },
+        {
+          "criterion_id": "routing_separation",
+          "passed": true,
+          "weight": 15,
+          "detail": {
+            "location": "external_terminal_tool"
+          }
+        },
+        {
+          "criterion_id": "security_required",
+          "passed": true,
+          "weight": 15,
+          "detail": {
+            "candidate_id": "claude_code"
+          }
+        },
+        {
+          "criterion_id": "kernel_absent",
+          "passed": true,
+          "weight": 10,
+          "detail": {
+            "forbidden_kernel_files_present": []
+          }
+        },
+        {
+          "criterion_id": "provider_externality",
+          "passed": true,
+          "weight": 10,
+          "detail": {
+            "provider_family": "anthropic"
+          }
+        }
+      ],
+      "failed_checks": []
+    },
+    {
+      "candidate_id": "openclaw",
+      "name": "OpenClaw",
+      "candidate_type": "external_worker_framework_candidate",
+      "score": 100,
+      "risk_level": "low",
+      "recommendation": "source_audit_required_before_any_install",
+      "execution_enabled": false,
+      "worker_execution_enabled": false,
+      "provider_execution_enabled": false,
+      "model_inference_enabled": false,
+      "checks": [
+        {
+          "criterion_id": "identity_present",
+          "passed": true,
+          "weight": 10,
+          "detail": {
+            "candidate_id": "openclaw",
+            "name": "OpenClaw"
+          }
+        },
+        {
+          "criterion_id": "execution_disabled",
+          "passed": true,
+          "weight": 20,
+          "detail": {
+            "execution_enabled": false,
+            "worker_execution_enabled": false,
+            "provider_execution_enabled": false,
+            "autonomous_enabled": false
+          }
+        },
+        {
+          "criterion_id": "allowed_mode_declared",
+          "passed": true,
+          "weight": 10,
+          "detail": {
+            "allowed_initial_mode": "registry_placeholder_only"
+          }
+        },
+        {
+          "criterion_id": "blocked_actions_declared",
+          "passed": true,
+          "weight": 10,
+          "detail": {
+            "blocked_initial_actions": [
+              "install",
+              "execute",
+              "dispatch",
+              "autonomous_action"
+            ]
+          }
+        },
+        {
+          "criterion_id": "routing_separation",
+          "passed": true,
+          "weight": 15,
+          "detail": {
+            "location": "not_installed_not_connected"
+          }
+        },
+        {
+          "criterion_id": "security_required",
+          "passed": true,
+          "weight": 15,
+          "detail": {
+            "candidate_id": "openclaw"
+          }
+        },
+        {
+          "criterion_id": "kernel_absent",
+          "passed": true,
+          "weight": 10,
+          "detail": {
+            "forbidden_kernel_files_present": []
+          }
+        },
+        {
+          "criterion_id": "provider_externality",
+          "passed": true,
+          "weight": 10,
+          "detail": {
+            "provider_family": "unknown_external"
+          }
+        }
+      ],
+      "failed_checks": []
+    },
+    {
+      "candidate_id": "ollama_local_models",
+      "name": "Ollama Local Models",
+      "candidate_type": "local_model_pool_candidate",
+      "score": 100,
+      "risk_level": "low",
+      "recommendation": "candidate_can_remain_staged_read_only",
+      "execution_enabled": false,
+      "worker_execution_enabled": false,
+      "provider_execution_enabled": false,
+      "model_inference_enabled": false,
+      "checks": [
+        {
+          "criterion_id": "identity_present",
+          "passed": true,
+          "weight": 10,
+          "detail": {
+            "candidate_id": "ollama_local_models",
+            "name": "Ollama Local Models"
+          }
+        },
+        {
+          "criterion_id": "execution_disabled",
+          "passed": true,
+          "weight": 20,
+          "detail": {
+            "execution_enabled": false,
+            "worker_execution_enabled": false,
+            "provider_execution_enabled": false,
+            "autonomous_enabled": false
+          }
+        },
+        {
+          "criterion_id": "allowed_mode_declared",
+          "passed": true,
+          "weight": 10,
+          "detail": {
+            "allowed_initial_mode": "inventory_only"
+          }
+        },
+        {
+          "criterion_id": "blocked_actions_declared",
+          "passed": true,
+          "weight": 10,
+          "detail": {
+            "blocked_initial_actions": [
+              "inference_execution",
+              "model_binding",
+              "autonomous_dispatch"
+            ]
+          }
+        },
+        {
+          "criterion_id": "routing_separation",
+          "passed": true,
+          "weight": 15,
+          "detail": {
+            "location": "floor_27_local_model_operations"
+          }
+        },
+        {
+          "criterion_id": "security_required",
+          "passed": true,
+          "weight": 15,
+          "detail": {
+            "candidate_id": "ollama_local_models"
+          }
+        },
+        {
+          "criterion_id": "kernel_absent",
+          "passed": true,
+          "weight": 10,
+          "detail": {
+            "forbidden_kernel_files_present": []
+          }
+        },
+        {
+          "criterion_id": "provider_externality",
+          "passed": true,
+          "weight": 10,
+          "detail": {
+            "provider_family": "local_models"
+          }
+        }
+      ],
+      "failed_checks": []
+    },
+    {
+      "candidate_id": "future_llm_provider",
+      "name": "Future LLM Provider",
+      "candidate_type": "future_external_provider_candidate",
+      "score": 100,
+      "risk_level": "low",
+      "recommendation": "provider_socket_required_before_any_call",
+      "execution_enabled": false,
+      "worker_execution_enabled": false,
+      "provider_execution_enabled": false,
+      "model_inference_enabled": false,
+      "checks": [
+        {
+          "criterion_id": "identity_present",
+          "passed": true,
+          "weight": 10,
+          "detail": {
+            "candidate_id": "future_llm_provider",
+            "name": "Future LLM Provider"
+          }
+        },
+        {
+          "criterion_id": "execution_disabled",
+          "passed": true,
+          "weight": 20,
+          "detail": {
+            "execution_enabled": false,
+            "worker_execution_enabled": false,
+            "provider_execution_enabled": false,
+            "autonomous_enabled": false
+          }
+        },
+        {
+          "criterion_id": "allowed_mode_declared",
+          "passed": true,
+          "weight": 10,
+          "detail": {
+            "allowed_initial_mode": "registry_placeholder_only"
+          }
+        },
+        {
+          "criterion_id": "blocked_actions_declared",
+          "passed": true,
+          "weight": 10,
+          "detail": {
+            "blocked_initial_actions": [
+              "provider_call",
+              "api_key_use",
+              "remote_execution"
+            ]
+          }
+        },
+        {
+          "criterion_id": "routing_separation",
+          "passed": true,
+          "weight": 15,
+          "detail": {
+            "location": "roof_air_llm_cloud_or_floor_23_socket"
+          }
+        },
+        {
+          "criterion_id": "security_required",
+          "passed": true,
+          "weight": 15,
+          "detail": {
+            "candidate_id": "future_llm_provider"
+          }
+        },
+        {
+          "criterion_id": "kernel_absent",
+          "passed": true,
+          "weight": 10,
+          "detail": {
+            "forbidden_kernel_files_present": []
+          }
+        },
+        {
+          "criterion_id": "provider_externality",
+          "passed": true,
+          "weight": 10,
+          "detail": {
+            "provider_family": "future"
+          }
+        }
+      ],
+      "failed_checks": []
+    },
+    {
+      "candidate_id": "human_operator",
+      "name": "Human Operator",
+      "candidate_type": "manual_approval_authority",
+      "score": 100,
+      "risk_level": "low",
+      "recommendation": "candidate_can_remain_staged_read_only",
+      "execution_enabled": false,
+      "worker_execution_enabled": false,
+      "provider_execution_enabled": false,
+      "model_inference_enabled": false,
+      "checks": [
+        {
+          "criterion_id": "identity_present",
+          "passed": true,
+          "weight": 10,
+          "detail": {
+            "candidate_id": "human_operator",
+            "name": "Human Operator"
+          }
+        },
+        {
+          "criterion_id": "execution_disabled",
+          "passed": true,
+          "weight": 20,
+          "detail": {
+            "execution_enabled": false,
+            "worker_execution_enabled": false,
+            "provider_execution_enabled": false,
+            "autonomous_enabled": false
+          }
+        },
+        {
+          "criterion_id": "allowed_mode_declared",
+          "passed": true,
+          "weight": 10,
+          "detail": {
+            "allowed_initial_mode": "manual_approval_only"
+          }
+        },
+        {
+          "criterion_id": "blocked_actions_declared",
+          "passed": true,
+          "weight": 10,
+          "detail": {
+            "blocked_initial_actions": [
+              "autonomous_worker_execution"
+            ]
+          }
+        },
+        {
+          "criterion_id": "routing_separation",
+          "passed": true,
+          "weight": 15,
+          "detail": {
+            "location": "ground_command_lobby_future"
+          }
+        },
+        {
+          "criterion_id": "security_required",
+          "passed": true,
+          "weight": 15,
+          "detail": {
+            "candidate_id": "human_operator"
+          }
+        },
+        {
+          "criterion_id": "kernel_absent",
+          "passed": true,
+          "weight": 10,
+          "detail": {
+            "forbidden_kernel_files_present": []
+          }
+        },
+        {
+          "criterion_id": "provider_externality",
+          "passed": true,
+          "weight": 10,
+          "detail": {
+            "provider_family": "operator"
+          }
+        }
+      ],
+      "failed_checks": []
+    }
+  ],
+  "average_score": 100.0,
+  "critical_failures": 0,
+  "warnings": 1,
+  "floor25_status": "critical",
+  "security_status": "healthy",
+  "routing_status": null,
+  "local_model_count": 15,
+  "air_provider_count": 6,
+  "activation_recommendation": "do_not_activate_workers_or_providers",
+  "next_recommended_phase": "Floor 37 Simulation Labs V1.1 or Dashboard V1.4 Polish"
+}

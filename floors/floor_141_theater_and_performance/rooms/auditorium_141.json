@@ -1,0 +1,34 @@
+{
+  "room_id": "auditorium_141",
+  "name": "Auditorium",
+  "category": "seating",
+  "purpose": "A space for audiences to watch performances.",
+  "concierge_blurb": "Enjoy the show in our dedicated auditorium.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 0.5,
+    "offset_z": -4.0,
+    "footprint_m": [
+      18,
+      23
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "seating",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Auditorium",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 0
+  },
+  "floor": "floor_141"
+}

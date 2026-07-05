@@ -1,0 +1,60 @@
+{
+  "room_id": "health_pulse_panel",
+  "name": "Health Pulse Panel",
+  "category": "audit",
+  "floor": "floor_47",
+  "purpose": "this panel surfaces the floor's heartbeat: open proposals, audit failures, last apply ts.",
+  "concierge_blurb": "At a glance the floor's health is shown in three numbers: open work, last check, last change. Green means the building is breathing.",
+  "current_state": "to_build",
+  "visitor_open": true,
+  "mutation_allowed": false,
+  "evidence_paths": [
+    "data/registries/qsb_code_proposals.jsonl",
+    "data/registries/qsb_f47_audit_checks.jsonl",
+    "data/registries/qsb_code_apply_audit.jsonl"
+  ],
+  "live_signals": {
+    "open_work": 0,
+    "last_audit_check_ts": "2026-06-10T21:47:36Z",
+    "last_apply_ts": "2026-06-14T16:43:40Z",
+    "traffic_light": "red",
+    "traffic_light_reason": "last_audit_check_ts is stale (>48h old) \u2014 open_work=0 and last_apply_ts is fresh, but the audit board has not pulsed since 2026-06-10.",
+    "thresholds": {
+      "recent_window_h": 24,
+      "stale_window_h": 48,
+      "green_max_open_work": 10,
+      "amber_max_open_work": 50
+    },
+    "source_field_notes": {
+      "open_work": "count of rows in qsb_code_proposals.jsonl where applied != true (filter on field per batch-1 lesson \u2014 line count alone would have read 69).",
+      "last_audit_check_ts": "tail ts from qsb_f47_audit_checks.jsonl",
+      "last_apply_ts": "tail ts from qsb_code_apply_audit.jsonl"
+    },
+    "computed_at": "2026-06-14T17:01:23Z",
+    "advisory_only": true
+  },
+  "built_at": "2026-06-14T17:01:23Z",
+  "built_by": "f47_floor_buildout_batch_5",
+  "layout": {
+    "zone": "left_wall",
+    "offset_x": 0.05,
+    "offset_z": -4.5,
+    "footprint_m": [
+      2.4,
+      0.1
+    ],
+    "height_m": 1.4
+  },
+  "render": {
+    "primary_prop": "wall_panel",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "HEALTH PULSE",
+    "glow": true
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/qsb_tower_health.json",
+    "display": "status_dot",
+    "refresh_seconds": 30
+  }
+}

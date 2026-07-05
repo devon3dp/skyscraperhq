@@ -1,0 +1,88 @@
+{
+  "ok": true,
+  "kind": "eqsb_phase_history",
+  "generated_ts": "2026-06-30T13:46:34.481190+00:00",
+  "phase_count": 6,
+  "phases": [
+    {
+      "phase_name": "EQSB_KERNEL_MAJOR_DEEP_SYMBOLIC_QUANTUM_CORE_V1",
+      "summary": "Built 16-layer EQSB Kernel architecture (axioms, Guardian, cadence, memory, beliefs, symbols, graph, entropy, quantum, hypotheses, contradictions, model governance, introspection, replay ledger, self-audit).",
+      "timestamp": "2026-06-09T09:35:27.882313+00:00",
+      "files_created": [],
+      "files_modified": [],
+      "files_deleted": [],
+      "endpoints_added": [],
+      "scripts_added": [],
+      "lessons_learned": [],
+      "rollback_point": null
+    },
+    {
+      "phase_name": "QSB_OPENCLAW_PAPER_TRADE_WORKERS_3D_SKYSCRAPER_V2",
+      "summary": "Activated OpenClaw supervision limb (visual+sandbox+trade-supervision+ticketing), built paper-trade lifecycle SQLite + open/close/PnL/learning, 19 V2 workers, V2 right-rail panel + HUD.",
+      "timestamp": "2026-06-09T09:35:27.882318+00:00",
+      "files_created": [],
+      "files_modified": [],
+      "files_deleted": [],
+      "endpoints_added": [],
+      "scripts_added": [],
+      "lessons_learned": [],
+      "rollback_point": null
+    },
+    {
+      "phase_name": "QSB_V2_FULL_SYSTEM_RECHECK_AND_DASHBOARD_REPAIR_V1",
+      "summary": "Reverted random #qsbTower2D background, defensive try/catch wrappers on V2 scripts, dashboard health-check + start scripts.",
+      "timestamp": "2026-06-09T09:35:27.882320+00:00",
+      "files_created": [],
+      "files_modified": [],
+      "files_deleted": [],
+      "endpoints_added": [],
+      "scripts_added": [],
+      "lessons_learned": [],
+      "rollback_point": null
+    },
+    {
+      "phase_name": "QSB_DASHBOARD_DATA_DRIVEN_SKYSCRAPER_REBUILD_V2",
+      "summary": "Eliminated random orbits + random lifts; deterministic anchored workers; LIVE_DATA_ONLY mode; /api/dashboard/live_telemetry; 16 V3 dashboard workers; V3 panel + 'no live data' badges.",
+      "timestamp": "2026-06-09T09:35:27.882322+00:00",
+      "files_created": [],
+      "files_modified": [],
+      "files_deleted": [],
+      "endpoints_added": [],
+      "scripts_added": [],
+      "lessons_learned": [],
+      "rollback_point": null
+    },
+    {
+      "phase_name": "QSB_LIVE_SKYSCRAPER_COMMAND_CENTER_REBUILD_V1",
+      "summary": "Profit Command + Workforce HR (scorecards/rewards/discipline/promotions) + Running Commentary narrator (/api/narrator/*) + Floor 44 placeholder + Command Center audit/decision.",
+      "timestamp": "2026-06-09T09:35:27.882323+00:00",
+      "files_created": [],
+      "files_modified": [],
+      "files_deleted": [],
+      "endpoints_added": [],
+      "scripts_added": [],
+      "lessons_learned": [],
+      "rollback_point": null
+    },
+    {
+      "phase_name": "EQSB_SYSTEM_OBSERVATORY_HARDWARE_FLOOR_LIVE_TELEMETRY_REPAIR_V1",
+      "summary": "Hardware Systems Floor + Code Observatory + Hardware Observatory + Claude Upgrade Ledger + System Understanding Graph + Telemetry Repairs A-H.",
+      "timestamp": "2026-06-09T09:35:27.882325+00:00",
+      "files_created": [],
+      "files_modified": [],
+      "files_deleted": [],
+      "endpoints_added": [],
+      "scripts_added": [],
+      "lessons_learned": [],
+      "rollback_point": null,
+      "before_snapshot_id": "prechange_20260609T093119Z",
+      "after_snapshot_id": null
+    }
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

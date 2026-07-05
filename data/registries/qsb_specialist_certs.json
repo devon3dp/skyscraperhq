@@ -1,0 +1,1002 @@
+{
+  "ok": true,
+  "kind": "qsb_specialist_certs_v1",
+  "generated_ts": "2026-06-12T22:39:56.436615+00:00",
+  "instruments": [
+    "EUR_USD",
+    "GBP_USD",
+    "USD_JPY"
+  ],
+  "strategies": [
+    "scalp",
+    "swing",
+    "breakout",
+    "mean_revert",
+    "news_event",
+    "arb"
+  ],
+  "candidates_scanned": 158,
+  "total_certifications_attempted": 2844,
+  "passes_by_tier": {
+    "Rookie": 1098,
+    "Bronze": 110,
+    "Silver": 1,
+    "Gold": 0,
+    "Master": 0
+  },
+  "passes_by_strategy": {
+    "scalp": 271,
+    "swing": 0,
+    "breakout": 193,
+    "mean_revert": 248,
+    "news_event": 190,
+    "arb": 307
+  },
+  "master_count": 0,
+  "masters_sample": [],
+  "certs_sample": [
+    {
+      "worker_id": "f02.themed.recall_scout.06",
+      "instrument": "EUR_USD",
+      "strategy": "scalp",
+      "highest_tier": "Rookie",
+      "privileges": {
+        "max_units": 200,
+        "max_open": 1,
+        "suspend_after_losses": 3,
+        "spread_warn_pips": 1.0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.06",
+      "instrument": "EUR_USD",
+      "strategy": "swing",
+      "highest_tier": null,
+      "privileges": {
+        "max_units": 0,
+        "max_open": 0,
+        "suspend_after_losses": 0,
+        "spread_warn_pips": 0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.06",
+      "instrument": "EUR_USD",
+      "strategy": "breakout",
+      "highest_tier": null,
+      "privileges": {
+        "max_units": 0,
+        "max_open": 0,
+        "suspend_after_losses": 0,
+        "spread_warn_pips": 0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.06",
+      "instrument": "EUR_USD",
+      "strategy": "mean_revert",
+      "highest_tier": "Rookie",
+      "privileges": {
+        "max_units": 200,
+        "max_open": 1,
+        "suspend_after_losses": 3,
+        "spread_warn_pips": 1.0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.06",
+      "instrument": "EUR_USD",
+      "strategy": "news_event",
+      "highest_tier": null,
+      "privileges": {
+        "max_units": 0,
+        "max_open": 0,
+        "suspend_after_losses": 0,
+        "spread_warn_pips": 0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.06",
+      "instrument": "EUR_USD",
+      "strategy": "arb",
+      "highest_tier": "Rookie",
+      "privileges": {
+        "max_units": 200,
+        "max_open": 1,
+        "suspend_after_losses": 3,
+        "spread_warn_pips": 1.0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.06",
+      "instrument": "GBP_USD",
+      "strategy": "scalp",
+      "highest_tier": "Bronze",
+      "privileges": {
+        "max_units": 500,
+        "max_open": 2,
+        "suspend_after_losses": 4,
+        "spread_warn_pips": 1.5
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.06",
+      "instrument": "GBP_USD",
+      "strategy": "swing",
+      "highest_tier": null,
+      "privileges": {
+        "max_units": 0,
+        "max_open": 0,
+        "suspend_after_losses": 0,
+        "spread_warn_pips": 0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.06",
+      "instrument": "GBP_USD",
+      "strategy": "breakout",
+      "highest_tier": "Rookie",
+      "privileges": {
+        "max_units": 200,
+        "max_open": 1,
+        "suspend_after_losses": 3,
+        "spread_warn_pips": 1.0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.06",
+      "instrument": "GBP_USD",
+      "strategy": "mean_revert",
+      "highest_tier": "Rookie",
+      "privileges": {
+        "max_units": 200,
+        "max_open": 1,
+        "suspend_after_losses": 3,
+        "spread_warn_pips": 1.0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.06",
+      "instrument": "GBP_USD",
+      "strategy": "news_event",
+      "highest_tier": "Rookie",
+      "privileges": {
+        "max_units": 200,
+        "max_open": 1,
+        "suspend_after_losses": 3,
+        "spread_warn_pips": 1.0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.06",
+      "instrument": "GBP_USD",
+      "strategy": "arb",
+      "highest_tier": "Rookie",
+      "privileges": {
+        "max_units": 200,
+        "max_open": 1,
+        "suspend_after_losses": 3,
+        "spread_warn_pips": 1.0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.06",
+      "instrument": "USD_JPY",
+      "strategy": "scalp",
+      "highest_tier": null,
+      "privileges": {
+        "max_units": 0,
+        "max_open": 0,
+        "suspend_after_losses": 0,
+        "spread_warn_pips": 0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.06",
+      "instrument": "USD_JPY",
+      "strategy": "swing",
+      "highest_tier": null,
+      "privileges": {
+        "max_units": 0,
+        "max_open": 0,
+        "suspend_after_losses": 0,
+        "spread_warn_pips": 0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.06",
+      "instrument": "USD_JPY",
+      "strategy": "breakout",
+      "highest_tier": null,
+      "privileges": {
+        "max_units": 0,
+        "max_open": 0,
+        "suspend_after_losses": 0,
+        "spread_warn_pips": 0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.06",
+      "instrument": "USD_JPY",
+      "strategy": "mean_revert",
+      "highest_tier": "Rookie",
+      "privileges": {
+        "max_units": 200,
+        "max_open": 1,
+        "suspend_after_losses": 3,
+        "spread_warn_pips": 1.0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.06",
+      "instrument": "USD_JPY",
+      "strategy": "news_event",
+      "highest_tier": null,
+      "privileges": {
+        "max_units": 0,
+        "max_open": 0,
+        "suspend_after_losses": 0,
+        "spread_warn_pips": 0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.06",
+      "instrument": "USD_JPY",
+      "strategy": "arb",
+      "highest_tier": "Rookie",
+      "privileges": {
+        "max_units": 200,
+        "max_open": 1,
+        "suspend_after_losses": 3,
+        "spread_warn_pips": 1.0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.16",
+      "instrument": "EUR_USD",
+      "strategy": "scalp",
+      "highest_tier": null,
+      "privileges": {
+        "max_units": 0,
+        "max_open": 0,
+        "suspend_after_losses": 0,
+        "spread_warn_pips": 0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.16",
+      "instrument": "EUR_USD",
+      "strategy": "swing",
+      "highest_tier": null,
+      "privileges": {
+        "max_units": 0,
+        "max_open": 0,
+        "suspend_after_losses": 0,
+        "spread_warn_pips": 0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.16",
+      "instrument": "EUR_USD",
+      "strategy": "breakout",
+      "highest_tier": "Rookie",
+      "privileges": {
+        "max_units": 200,
+        "max_open": 1,
+        "suspend_after_losses": 3,
+        "spread_warn_pips": 1.0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.16",
+      "instrument": "EUR_USD",
+      "strategy": "mean_revert",
+      "highest_tier": null,
+      "privileges": {
+        "max_units": 0,
+        "max_open": 0,
+        "suspend_after_losses": 0,
+        "spread_warn_pips": 0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.16",
+      "instrument": "EUR_USD",
+      "strategy": "news_event",
+      "highest_tier": null,
+      "privileges": {
+        "max_units": 0,
+        "max_open": 0,
+        "suspend_after_losses": 0,
+        "spread_warn_pips": 0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.16",
+      "instrument": "EUR_USD",
+      "strategy": "arb",
+      "highest_tier": "Rookie",
+      "privileges": {
+        "max_units": 200,
+        "max_open": 1,
+        "suspend_after_losses": 3,
+        "spread_warn_pips": 1.0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.16",
+      "instrument": "GBP_USD",
+      "strategy": "scalp",
+      "highest_tier": null,
+      "privileges": {
+        "max_units": 0,
+        "max_open": 0,
+        "suspend_after_losses": 0,
+        "spread_warn_pips": 0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.16",
+      "instrument": "GBP_USD",
+      "strategy": "swing",
+      "highest_tier": null,
+      "privileges": {
+        "max_units": 0,
+        "max_open": 0,
+        "suspend_after_losses": 0,
+        "spread_warn_pips": 0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.16",
+      "instrument": "GBP_USD",
+      "strategy": "breakout",
+      "highest_tier": "Rookie",
+      "privileges": {
+        "max_units": 200,
+        "max_open": 1,
+        "suspend_after_losses": 3,
+        "spread_warn_pips": 1.0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.16",
+      "instrument": "GBP_USD",
+      "strategy": "mean_revert",
+      "highest_tier": null,
+      "privileges": {
+        "max_units": 0,
+        "max_open": 0,
+        "suspend_after_losses": 0,
+        "spread_warn_pips": 0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.16",
+      "instrument": "GBP_USD",
+      "strategy": "news_event",
+      "highest_tier": null,
+      "privileges": {
+        "max_units": 0,
+        "max_open": 0,
+        "suspend_after_losses": 0,
+        "spread_warn_pips": 0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.16",
+      "instrument": "GBP_USD",
+      "strategy": "arb",
+      "highest_tier": "Bronze",
+      "privileges": {
+        "max_units": 500,
+        "max_open": 2,
+        "suspend_after_losses": 4,
+        "spread_warn_pips": 1.5
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.16",
+      "instrument": "USD_JPY",
+      "strategy": "scalp",
+      "highest_tier": null,
+      "privileges": {
+        "max_units": 0,
+        "max_open": 0,
+        "suspend_after_losses": 0,
+        "spread_warn_pips": 0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.16",
+      "instrument": "USD_JPY",
+      "strategy": "swing",
+      "highest_tier": null,
+      "privileges": {
+        "max_units": 0,
+        "max_open": 0,
+        "suspend_after_losses": 0,
+        "spread_warn_pips": 0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.16",
+      "instrument": "USD_JPY",
+      "strategy": "breakout",
+      "highest_tier": "Rookie",
+      "privileges": {
+        "max_units": 200,
+        "max_open": 1,
+        "suspend_after_losses": 3,
+        "spread_warn_pips": 1.0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.16",
+      "instrument": "USD_JPY",
+      "strategy": "mean_revert",
+      "highest_tier": null,
+      "privileges": {
+        "max_units": 0,
+        "max_open": 0,
+        "suspend_after_losses": 0,
+        "spread_warn_pips": 0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.16",
+      "instrument": "USD_JPY",
+      "strategy": "news_event",
+      "highest_tier": null,
+      "privileges": {
+        "max_units": 0,
+        "max_open": 0,
+        "suspend_after_losses": 0,
+        "spread_warn_pips": 0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.16",
+      "instrument": "USD_JPY",
+      "strategy": "arb",
+      "highest_tier": "Rookie",
+      "privileges": {
+        "max_units": 200,
+        "max_open": 1,
+        "suspend_after_losses": 3,
+        "spread_warn_pips": 1.0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.26",
+      "instrument": "EUR_USD",
+      "strategy": "scalp",
+      "highest_tier": null,
+      "privileges": {
+        "max_units": 0,
+        "max_open": 0,
+        "suspend_after_losses": 0,
+        "spread_warn_pips": 0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.26",
+      "instrument": "EUR_USD",
+      "strategy": "swing",
+      "highest_tier": null,
+      "privileges": {
+        "max_units": 0,
+        "max_open": 0,
+        "suspend_after_losses": 0,
+        "spread_warn_pips": 0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.26",
+      "instrument": "EUR_USD",
+      "strategy": "breakout",
+      "highest_tier": "Rookie",
+      "privileges": {
+        "max_units": 200,
+        "max_open": 1,
+        "suspend_after_losses": 3,
+        "spread_warn_pips": 1.0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.26",
+      "instrument": "EUR_USD",
+      "strategy": "mean_revert",
+      "highest_tier": "Rookie",
+      "privileges": {
+        "max_units": 200,
+        "max_open": 1,
+        "suspend_after_losses": 3,
+        "spread_warn_pips": 1.0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.26",
+      "instrument": "EUR_USD",
+      "strategy": "news_event",
+      "highest_tier": null,
+      "privileges": {
+        "max_units": 0,
+        "max_open": 0,
+        "suspend_after_losses": 0,
+        "spread_warn_pips": 0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.26",
+      "instrument": "EUR_USD",
+      "strategy": "arb",
+      "highest_tier": "Rookie",
+      "privileges": {
+        "max_units": 200,
+        "max_open": 1,
+        "suspend_after_losses": 3,
+        "spread_warn_pips": 1.0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.26",
+      "instrument": "GBP_USD",
+      "strategy": "scalp",
+      "highest_tier": null,
+      "privileges": {
+        "max_units": 0,
+        "max_open": 0,
+        "suspend_after_losses": 0,
+        "spread_warn_pips": 0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.26",
+      "instrument": "GBP_USD",
+      "strategy": "swing",
+      "highest_tier": null,
+      "privileges": {
+        "max_units": 0,
+        "max_open": 0,
+        "suspend_after_losses": 0,
+        "spread_warn_pips": 0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.26",
+      "instrument": "GBP_USD",
+      "strategy": "breakout",
+      "highest_tier": "Rookie",
+      "privileges": {
+        "max_units": 200,
+        "max_open": 1,
+        "suspend_after_losses": 3,
+        "spread_warn_pips": 1.0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.26",
+      "instrument": "GBP_USD",
+      "strategy": "mean_revert",
+      "highest_tier": null,
+      "privileges": {
+        "max_units": 0,
+        "max_open": 0,
+        "suspend_after_losses": 0,
+        "spread_warn_pips": 0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.26",
+      "instrument": "GBP_USD",
+      "strategy": "news_event",
+      "highest_tier": "Bronze",
+      "privileges": {
+        "max_units": 500,
+        "max_open": 2,
+        "suspend_after_losses": 4,
+        "spread_warn_pips": 1.5
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.26",
+      "instrument": "GBP_USD",
+      "strategy": "arb",
+      "highest_tier": "Rookie",
+      "privileges": {
+        "max_units": 200,
+        "max_open": 1,
+        "suspend_after_losses": 3,
+        "spread_warn_pips": 1.0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.26",
+      "instrument": "USD_JPY",
+      "strategy": "scalp",
+      "highest_tier": null,
+      "privileges": {
+        "max_units": 0,
+        "max_open": 0,
+        "suspend_after_losses": 0,
+        "spread_warn_pips": 0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.26",
+      "instrument": "USD_JPY",
+      "strategy": "swing",
+      "highest_tier": null,
+      "privileges": {
+        "max_units": 0,
+        "max_open": 0,
+        "suspend_after_losses": 0,
+        "spread_warn_pips": 0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.26",
+      "instrument": "USD_JPY",
+      "strategy": "breakout",
+      "highest_tier": null,
+      "privileges": {
+        "max_units": 0,
+        "max_open": 0,
+        "suspend_after_losses": 0,
+        "spread_warn_pips": 0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.26",
+      "instrument": "USD_JPY",
+      "strategy": "mean_revert",
+      "highest_tier": null,
+      "privileges": {
+        "max_units": 0,
+        "max_open": 0,
+        "suspend_after_losses": 0,
+        "spread_warn_pips": 0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.26",
+      "instrument": "USD_JPY",
+      "strategy": "news_event",
+      "highest_tier": null,
+      "privileges": {
+        "max_units": 0,
+        "max_open": 0,
+        "suspend_after_losses": 0,
+        "spread_warn_pips": 0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.26",
+      "instrument": "USD_JPY",
+      "strategy": "arb",
+      "highest_tier": "Bronze",
+      "privileges": {
+        "max_units": 500,
+        "max_open": 2,
+        "suspend_after_losses": 4,
+        "spread_warn_pips": 1.5
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.36",
+      "instrument": "EUR_USD",
+      "strategy": "scalp",
+      "highest_tier": null,
+      "privileges": {
+        "max_units": 0,
+        "max_open": 0,
+        "suspend_after_losses": 0,
+        "spread_warn_pips": 0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.36",
+      "instrument": "EUR_USD",
+      "strategy": "swing",
+      "highest_tier": null,
+      "privileges": {
+        "max_units": 0,
+        "max_open": 0,
+        "suspend_after_losses": 0,
+        "spread_warn_pips": 0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.36",
+      "instrument": "EUR_USD",
+      "strategy": "breakout",
+      "highest_tier": null,
+      "privileges": {
+        "max_units": 0,
+        "max_open": 0,
+        "suspend_after_losses": 0,
+        "spread_warn_pips": 0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.36",
+      "instrument": "EUR_USD",
+      "strategy": "mean_revert",
+      "highest_tier": null,
+      "privileges": {
+        "max_units": 0,
+        "max_open": 0,
+        "suspend_after_losses": 0,
+        "spread_warn_pips": 0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.36",
+      "instrument": "EUR_USD",
+      "strategy": "news_event",
+      "highest_tier": null,
+      "privileges": {
+        "max_units": 0,
+        "max_open": 0,
+        "suspend_after_losses": 0,
+        "spread_warn_pips": 0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.36",
+      "instrument": "EUR_USD",
+      "strategy": "arb",
+      "highest_tier": "Rookie",
+      "privileges": {
+        "max_units": 200,
+        "max_open": 1,
+        "suspend_after_losses": 3,
+        "spread_warn_pips": 1.0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.36",
+      "instrument": "GBP_USD",
+      "strategy": "scalp",
+      "highest_tier": null,
+      "privileges": {
+        "max_units": 0,
+        "max_open": 0,
+        "suspend_after_losses": 0,
+        "spread_warn_pips": 0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.36",
+      "instrument": "GBP_USD",
+      "strategy": "swing",
+      "highest_tier": null,
+      "privileges": {
+        "max_units": 0,
+        "max_open": 0,
+        "suspend_after_losses": 0,
+        "spread_warn_pips": 0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.36",
+      "instrument": "GBP_USD",
+      "strategy": "breakout",
+      "highest_tier": "Rookie",
+      "privileges": {
+        "max_units": 200,
+        "max_open": 1,
+        "suspend_after_losses": 3,
+        "spread_warn_pips": 1.0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.36",
+      "instrument": "GBP_USD",
+      "strategy": "mean_revert",
+      "highest_tier": null,
+      "privileges": {
+        "max_units": 0,
+        "max_open": 0,
+        "suspend_after_losses": 0,
+        "spread_warn_pips": 0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.36",
+      "instrument": "GBP_USD",
+      "strategy": "news_event",
+      "highest_tier": "Rookie",
+      "privileges": {
+        "max_units": 200,
+        "max_open": 1,
+        "suspend_after_losses": 3,
+        "spread_warn_pips": 1.0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.36",
+      "instrument": "GBP_USD",
+      "strategy": "arb",
+      "highest_tier": "Rookie",
+      "privileges": {
+        "max_units": 200,
+        "max_open": 1,
+        "suspend_after_losses": 3,
+        "spread_warn_pips": 1.0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.36",
+      "instrument": "USD_JPY",
+      "strategy": "scalp",
+      "highest_tier": null,
+      "privileges": {
+        "max_units": 0,
+        "max_open": 0,
+        "suspend_after_losses": 0,
+        "spread_warn_pips": 0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.36",
+      "instrument": "USD_JPY",
+      "strategy": "swing",
+      "highest_tier": null,
+      "privileges": {
+        "max_units": 0,
+        "max_open": 0,
+        "suspend_after_losses": 0,
+        "spread_warn_pips": 0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.36",
+      "instrument": "USD_JPY",
+      "strategy": "breakout",
+      "highest_tier": "Rookie",
+      "privileges": {
+        "max_units": 200,
+        "max_open": 1,
+        "suspend_after_losses": 3,
+        "spread_warn_pips": 1.0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.36",
+      "instrument": "USD_JPY",
+      "strategy": "mean_revert",
+      "highest_tier": null,
+      "privileges": {
+        "max_units": 0,
+        "max_open": 0,
+        "suspend_after_losses": 0,
+        "spread_warn_pips": 0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.36",
+      "instrument": "USD_JPY",
+      "strategy": "news_event",
+      "highest_tier": null,
+      "privileges": {
+        "max_units": 0,
+        "max_open": 0,
+        "suspend_after_losses": 0,
+        "spread_warn_pips": 0
+      }
+    },
+    {
+      "worker_id": "f02.themed.recall_scout.36",
+      "instrument": "USD_JPY",
+      "strategy": "arb",
+      "highest_tier": "Rookie",
+      "privileges": {
+        "max_units": 200,
+        "max_open": 1,
+        "suspend_after_losses": 3,
+        "spread_warn_pips": 1.0
+      }
+    },
+    {
+      "worker_id": "f03.themed.field_scout.01",
+      "instrument": "EUR_USD",
+      "strategy": "scalp",
+      "highest_tier": "Rookie",
+      "privileges": {
+        "max_units": 200,
+        "max_open": 1,
+        "suspend_after_losses": 3,
+        "spread_warn_pips": 1.0
+      }
+    },
+    {
+      "worker_id": "f03.themed.field_scout.01",
+      "instrument": "EUR_USD",
+      "strategy": "swing",
+      "highest_tier": null,
+      "privileges": {
+        "max_units": 0,
+        "max_open": 0,
+        "suspend_after_losses": 0,
+        "spread_warn_pips": 0
+      }
+    },
+    {
+      "worker_id": "f03.themed.field_scout.01",
+      "instrument": "EUR_USD",
+      "strategy": "breakout",
+      "highest_tier": "Rookie",
+      "privileges": {
+        "max_units": 200,
+        "max_open": 1,
+        "suspend_after_losses": 3,
+        "spread_warn_pips": 1.0
+      }
+    },
+    {
+      "worker_id": "f03.themed.field_scout.01",
+      "instrument": "EUR_USD",
+      "strategy": "mean_revert",
+      "highest_tier": "Rookie",
+      "privileges": {
+        "max_units": 200,
+        "max_open": 1,
+        "suspend_after_losses": 3,
+        "spread_warn_pips": 1.0
+      }
+    },
+    {
+      "worker_id": "f03.themed.field_scout.01",
+      "instrument": "EUR_USD",
+      "strategy": "news_event",
+      "highest_tier": null,
+      "privileges": {
+        "max_units": 0,
+        "max_open": 0,
+        "suspend_after_losses": 0,
+        "spread_warn_pips": 0
+      }
+    },
+    {
+      "worker_id": "f03.themed.field_scout.01",
+      "instrument": "EUR_USD",
+      "strategy": "arb",
+      "highest_tier": "Rookie",
+      "privileges": {
+        "max_units": 200,
+        "max_open": 1,
+        "suspend_after_losses": 3,
+        "spread_warn_pips": 1.0
+      }
+    },
+    {
+      "worker_id": "f03.themed.field_scout.01",
+      "instrument": "GBP_USD",
+      "strategy": "scalp",
+      "highest_tier": "Rookie",
+      "privileges": {
+        "max_units": 200,
+        "max_open": 1,
+        "suspend_after_losses": 3,
+        "spread_warn_pips": 1.0
+      }
+    },
+    {
+      "worker_id": "f03.themed.field_scout.01",
+      "instrument": "GBP_USD",
+      "strategy": "swing",
+      "highest_tier": null,
+      "privileges": {
+        "max_units": 0,
+        "max_open": 0,
+        "suspend_after_losses": 0,
+        "spread_warn_pips": 0
+      }
+    }
+  ],
+  "policy": "5-tier ladder \u00d7 6 strategies \u00d7 3 instruments. Deterministic by (worker_id, instrument, strategy, tier). Top tier reached unlocks tier privileges per TIER_PRIVILEGES in specialist_classroom.py.",
+  "real_money": false,
+  "advisory_only": true
+}

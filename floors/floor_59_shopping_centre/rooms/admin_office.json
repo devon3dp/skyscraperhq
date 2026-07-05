@@ -1,0 +1,34 @@
+{
+  "room_id": "admin_office",
+  "name": "Admin Office",
+  "category": "admin",
+  "purpose": "A space for managing the internal economy.",
+  "concierge_blurb": "The heart of administrative operations.",
+  "current_state": "already_exists",
+  "visitor_open": false,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_right",
+    "offset_x": 8.0,
+    "offset_z": -7.5,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 1.3
+  },
+  "render": {
+    "primary_prop": "desk",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "ADMIN OFFICE",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 0
+  },
+  "floor": "floor_59"
+}

@@ -1,0 +1,31 @@
+{
+  "room_id": "practice_trade_analysis",
+  "name": "Trade Analysis Room",
+  "category": "workshop",
+  "purpose": "Analyze and optimize trading strategies.",
+  "concierge_blurb": "Where traders review their trades and refine their strategies.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -3.0,
+    "offset_z": -5.0,
+    "footprint_m": [
+      4.0,
+      2.0
+    ],
+    "height_m": 1.5
+  },
+  "render": {
+    "primary_prop": "desk",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Trade Analysis",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_41"
+}

@@ -1,0 +1,34 @@
+{
+  "room_id": "satellite_reception",
+  "name": "Satellite Reception Room",
+  "category": "operations",
+  "purpose": "Receives and processes satellite data.",
+  "concierge_blurb": "The hub for receiving satellite imagery and climate data.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_right",
+    "offset_x": 6.0,
+    "offset_z": 4.0,
+    "footprint_m": [
+      5,
+      3
+    ],
+    "height_m": 1.8
+  },
+  "render": {
+    "primary_prop": "reception",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Satellite Reception",
+    "glow": false
+  },
+  "interactive": {
+    "type": "tail",
+    "source_path": "data/registries/satellite_reception.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_121"
+}

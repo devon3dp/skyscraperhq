@@ -1,0 +1,34 @@
+{
+  "room_id": "history_library",
+  "name": "History Library",
+  "category": "library",
+  "purpose": "A vast collection of books and resources for research.",
+  "concierge_blurb": "Browse through a wealth of historical knowledge.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_right",
+    "offset_x": 8.0,
+    "offset_z": -1.5,
+    "footprint_m": [
+      16.0,
+      9.0
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "library_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "History Library",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_139"
+}

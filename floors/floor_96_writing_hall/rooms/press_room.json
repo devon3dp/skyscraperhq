@@ -1,0 +1,34 @@
+{
+  "room_id": "press_room",
+  "name": "Press Room",
+  "category": "seating",
+  "purpose": "A dedicated space for media and press inquiries.",
+  "concierge_blurb": "A place to meet and interview the experts.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_right",
+    "offset_x": 8.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      12,
+      18
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "chair_set",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Press Chairs",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_96"
+}

@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "kind": "qsb_godot_build_plan",
+  "phase": "QSB_GODOT_REAL_3D_ENGINE_BUILD_AFTER_INSTALLER_V1",
+  "generated_ts": "2026-06-09T15:41:41+00:00",
+  "v1_status": "scaffolded + runtime-built tower + lifts + openclaw + HUD",
+  "v2_plan": [
+    "Replace Floor.tscn placeholder with proper PackedScene template",
+    "Add per-floor 3D interiors (Penthouse gauges room, OANDA trade desks, Binance order desks, Etsy listing studio)",
+    "WorkerRenderer: use MultiMeshInstance3D for proper instancing",
+    "TeamRenderer: class-coloured arc segments around selected floor halo",
+    "PenthouseRenderer: actual gauge meshes inside the penthouse box",
+    "FloorInteriorRenderer: in-world rooms with desks and props",
+    "Export to AppImage via PCK pack + Godot export template"
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "live_payments_enabled": false,
+  "live_listings_publishing_enabled": false
+}

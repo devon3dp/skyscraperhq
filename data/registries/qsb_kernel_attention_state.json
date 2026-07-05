@@ -1,0 +1,97 @@
+{
+  "module": "kernel_attention_layer",
+  "purpose": "Rank current priorities for the kernel based on real registry signals. Read-only; never proposes execution.",
+  "timestamp_utc": "2026-06-09T20:15:58.112437+00:00",
+  "priority_items": [
+    {
+      "issue": "godot_visual_polish_incomplete:layout",
+      "severity": "medium",
+      "evidence_source": "data/registries/qsb_godot_layout_score.json",
+      "recommended_action": "Complete Godot visual polish gates",
+      "safety_boundary": "all_execution_locks_remain_closed",
+      "priority_rank": 1
+    },
+    {
+      "issue": "godot_visual_polish_incomplete:professional",
+      "severity": "medium",
+      "evidence_source": "data/registries/qsb_godot_professional_score.json",
+      "recommended_action": "Complete Godot visual polish gates",
+      "safety_boundary": "all_execution_locks_remain_closed",
+      "priority_rank": 2
+    },
+    {
+      "issue": "banking_real_money_status_unknown",
+      "severity": "medium",
+      "evidence_source": "data/registries/qsb_banking_gateway_real_money_phase_requirements.json",
+      "recommended_action": "Populate real_money phase requirements registry",
+      "safety_boundary": "all_execution_locks_remain_closed",
+      "priority_rank": 3
+    },
+    {
+      "issue": "security_spine_kernel_clearance_not_cleared",
+      "severity": "medium",
+      "evidence_source": "data/registries/security_spine_kernel_clearance_status.json",
+      "recommended_action": "Re-run security spine clearance audit",
+      "safety_boundary": "all_execution_locks_remain_closed",
+      "priority_rank": 4
+    },
+    {
+      "issue": "ml_rl_cuda_unavailable",
+      "severity": "low",
+      "evidence_source": "data/registries/qsb_ml_rl_torch_status.json",
+      "recommended_action": "Run ML/RL lab in CPU mode; defer CUDA",
+      "safety_boundary": "all_execution_locks_remain_closed",
+      "priority_rank": 5
+    }
+  ],
+  "priority_count": 5,
+  "severity_counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 4,
+    "low": 1,
+    "info": 0
+  },
+  "source_file_list": [
+    "data/registries/qsb_kernel_perception_snapshot.json",
+    "data/registries/qsb_kernel_attention_state.json",
+    "data/registries/qsb_kernel_working_memory.json",
+    "data/registries/qsb_kernel_self_model.json",
+    "data/registries/qsb_kernel_reflection_state.json",
+    "data/registries/qsb_kernel_learning_assimilation_state.json",
+    "data/registries/qsb_kernel_goal_stack.json",
+    "data/registries/qsb_kernel_curiosity_queue.json",
+    "data/registries/qsb_kernel_opencore_supervision_state.json",
+    "data/registries/qsb_kernel_cognitive_tick_latest.json",
+    "data/registries/qsb_godot_professional_layout_score.json",
+    "data/registries/qsb_godot_primary_professional_score.json",
+    "data/registries/qsb_godot_live_telemetry_status.json",
+    "data/registries/qsb_ml_rl_torch_status.json",
+    "data/registries/qsb_banking_gateway_real_money_phase_requirements.json",
+    "data/registries/qsb_github_upgrade_import_plan.json",
+    "data/registries/security_spine_kernel_clearance_status.json",
+    "data/registries/qsb_3d_skyscraper_state.json"
+  ],
+  "confidence": 0.9,
+  "warnings": [],
+  "safety": {
+    "advisory_only": true,
+    "execution_allowed": false,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "model_inference_enabled": false,
+    "live_dispatch_enabled": false,
+    "autonomous_workers_enabled": false,
+    "direct_provider_access": false,
+    "live_trading_enabled": false,
+    "real_order_execution_enabled": false,
+    "openclaw_execution_enabled": false,
+    "binance_order_execution_enabled": false,
+    "stock_order_execution_enabled": false,
+    "web_access_autonomous_enabled": false,
+    "maintenance_auto_repair_enabled": false,
+    "kernel_state": "active_local_only",
+    "kernel_source": "rebased_kernel",
+    "scope": "local_only_advisory_cognition"
+  }
+}

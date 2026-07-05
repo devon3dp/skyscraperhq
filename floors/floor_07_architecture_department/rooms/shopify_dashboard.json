@@ -1,0 +1,36 @@
+{
+  "room_id": "shopify_dashboard",
+  "name": "Shopify Dashboard",
+  "category": "operations",
+  "purpose": "Monitor and manage Shopify storefronts.",
+  "concierge_blurb": "Interactive screens display live store metrics.",
+  "current_state": "already_exists",
+  "visitor_open": false,
+  "evidence_paths": [],
+  "live_signals": {
+    "orders": 0
+  },
+  "layout": {
+    "zone": "center",
+    "offset_x": 0.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Shopify Dashboard",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/orders.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 30
+  },
+  "floor": "floor_7"
+}

@@ -1,0 +1,31 @@
+{
+  "room_id": "script_editor_seat",
+  "name": "Script Editor's Seat",
+  "category": "workshop",
+  "purpose": "Where the video editors craft scripts.",
+  "concierge_blurb": "See where short-form videos are scripted.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -6.0,
+    "offset_z": 8.0,
+    "footprint_m": [
+      4,
+      3
+    ],
+    "height_m": 1.2
+  },
+  "render": {
+    "primary_prop": "chair_set",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "SCRIPT EDITOR",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_166"
+}

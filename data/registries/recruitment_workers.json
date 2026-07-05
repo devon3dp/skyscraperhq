@@ -1,0 +1,915 @@
+{
+  "registry": "qsb_worker_recruitment_agency_v1",
+  "phase": "QSB_TOWER_PENTHOUSE_CHAT_SOUND_RECRUITMENT_V1",
+  "agency_floor": "floor_38",
+  "agency_name": "Worker Recruitment Agency",
+  "created_ts": "2026-06-12T20:37:22.945613+00:00",
+  "updated_ts": "2026-07-01T15:27:59.294137+00:00",
+  "locks": {
+    "live_trading_enabled": false,
+    "order_execution_enabled": false,
+    "practice_order_execution_enabled": false,
+    "binance_order_execution_enabled": false,
+    "binance_live_trading_enabled": false,
+    "stock_order_execution_enabled": false,
+    "stock_live_trading_enabled": false,
+    "stock_paper_order_execution_enabled": false,
+    "cross_market_execution_enabled": false,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "external_provider_execution_enabled": false,
+    "openclaw_execution_enabled": false,
+    "openclaw_real_tool_execution_enabled": false,
+    "autonomous_dispatch_enabled": false,
+    "live_dispatch_enabled": false,
+    "direct_provider_access": false,
+    "recruitment_openclaw_execution_enabled": false,
+    "recruited_worker_live_execution_enabled": false,
+    "recruited_worker_provider_access_enabled": false,
+    "recruited_worker_autonomous_dispatch_enabled": false
+  },
+  "execution_allowed": false,
+  "paper_only": true,
+  "not_financial_advice": true,
+  "advisory_only": true,
+  "workers": [
+    {
+      "id": "fx_market_scout",
+      "display_name": "FX Market Scout",
+      "role": "Reads OANDA practice pricing + identifies quote status.",
+      "floor_assignment": "floor_41",
+      "desk_assignment": "FX Pricing Desk",
+      "capabilities": [
+        "read_oanda_practice",
+        "quote_status",
+        "spread_observation"
+      ],
+      "stage": "active_read_only",
+      "openclaw_ready": false,
+      "team": "trading_fx",
+      "openclaw_execution_enabled": false,
+      "provider_access_enabled": false,
+      "autonomous_dispatch_enabled": false,
+      "health": "healthy",
+      "heartbeat_ts": "2026-07-01T15:27:59.294126+00:00",
+      "current_task": "reading_registries",
+      "last_packet": null,
+      "audit_count": 47547,
+      "training_status": "complete",
+      "notes": "",
+      "forbidden_actions": [
+        "live_trading",
+        "order_execution",
+        "practice_order_execution",
+        "openclaw_execution",
+        "autonomous_dispatch",
+        "direct_provider_access",
+        "external_provider_execution",
+        "live_dispatch"
+      ],
+      "allowed_actions": [
+        "read_registries",
+        "advisory_packet_emit",
+        "audit_log_write",
+        "observation_only"
+      ]
+    },
+    {
+      "id": "fx_spread_watcher",
+      "display_name": "FX Spread Watcher",
+      "role": "Measures FX bid/ask spreads + quote-quality conditions.",
+      "floor_assignment": "floor_41",
+      "desk_assignment": "FX Pricing Desk",
+      "capabilities": [
+        "spread_measurement",
+        "quote_quality"
+      ],
+      "stage": "active_read_only",
+      "openclaw_ready": false,
+      "team": "trading_fx",
+      "openclaw_execution_enabled": false,
+      "provider_access_enabled": false,
+      "autonomous_dispatch_enabled": false,
+      "health": "healthy",
+      "heartbeat_ts": "2026-07-01T15:27:59.294126+00:00",
+      "current_task": "reading_registries",
+      "last_packet": null,
+      "audit_count": 47547,
+      "training_status": "complete",
+      "notes": "",
+      "forbidden_actions": [
+        "live_trading",
+        "order_execution",
+        "practice_order_execution",
+        "openclaw_execution",
+        "autonomous_dispatch",
+        "direct_provider_access",
+        "external_provider_execution",
+        "live_dispatch"
+      ],
+      "allowed_actions": [
+        "read_registries",
+        "advisory_packet_emit",
+        "audit_log_write",
+        "observation_only"
+      ]
+    },
+    {
+      "id": "crypto_market_scout",
+      "display_name": "Crypto Market Scout",
+      "role": "Reads Binance testnet public market data.",
+      "floor_assignment": "floor_42",
+      "desk_assignment": "Testnet Market Feed",
+      "capabilities": [
+        "read_binance_testnet",
+        "public_market_data"
+      ],
+      "stage": "active_read_only",
+      "openclaw_ready": false,
+      "team": "trading_crypto",
+      "openclaw_execution_enabled": false,
+      "provider_access_enabled": false,
+      "autonomous_dispatch_enabled": false,
+      "health": "healthy",
+      "heartbeat_ts": "2026-07-01T15:27:59.294126+00:00",
+      "current_task": "reading_registries",
+      "last_packet": null,
+      "audit_count": 47547,
+      "training_status": "complete",
+      "notes": "",
+      "forbidden_actions": [
+        "live_trading",
+        "order_execution",
+        "practice_order_execution",
+        "openclaw_execution",
+        "autonomous_dispatch",
+        "direct_provider_access",
+        "external_provider_execution",
+        "live_dispatch"
+      ],
+      "allowed_actions": [
+        "read_registries",
+        "advisory_packet_emit",
+        "audit_log_write",
+        "observation_only"
+      ]
+    },
+    {
+      "id": "crypto_spread_watcher",
+      "display_name": "Crypto Spread Watcher",
+      "role": "Measures crypto bid/ask spreads on Binance testnet.",
+      "floor_assignment": "floor_42",
+      "desk_assignment": "Testnet Market Feed",
+      "capabilities": [
+        "spread_measurement"
+      ],
+      "stage": "active_read_only",
+      "openclaw_ready": false,
+      "team": "trading_crypto",
+      "openclaw_execution_enabled": false,
+      "provider_access_enabled": false,
+      "autonomous_dispatch_enabled": false,
+      "health": "healthy",
+      "heartbeat_ts": "2026-07-01T15:27:59.294126+00:00",
+      "current_task": "reading_registries",
+      "last_packet": null,
+      "audit_count": 47547,
+      "training_status": "complete",
+      "notes": "",
+      "forbidden_actions": [
+        "live_trading",
+        "order_execution",
+        "practice_order_execution",
+        "openclaw_execution",
+        "autonomous_dispatch",
+        "direct_provider_access",
+        "external_provider_execution",
+        "live_dispatch"
+      ],
+      "allowed_actions": [
+        "read_registries",
+        "advisory_packet_emit",
+        "audit_log_write",
+        "observation_only"
+      ]
+    },
+    {
+      "id": "equity_market_scout",
+      "display_name": "Equity Market Scout",
+      "role": "Reads US equities quotes/bars via Floor 43 gateway.",
+      "floor_assignment": "floor_43",
+      "desk_assignment": "Market Data Desk",
+      "capabilities": [
+        "read_alpaca_paper",
+        "stock_quote_status"
+      ],
+      "stage": "active_read_only",
+      "openclaw_ready": false,
+      "team": "trading_equities",
+      "openclaw_execution_enabled": false,
+      "provider_access_enabled": false,
+      "autonomous_dispatch_enabled": false,
+      "health": "healthy",
+      "heartbeat_ts": "2026-07-01T15:27:59.294126+00:00",
+      "current_task": "reading_registries",
+      "last_packet": null,
+      "audit_count": 47547,
+      "training_status": "complete",
+      "notes": "",
+      "forbidden_actions": [
+        "live_trading",
+        "order_execution",
+        "practice_order_execution",
+        "openclaw_execution",
+        "autonomous_dispatch",
+        "direct_provider_access",
+        "external_provider_execution",
+        "live_dispatch"
+      ],
+      "allowed_actions": [
+        "read_registries",
+        "advisory_packet_emit",
+        "audit_log_write",
+        "observation_only"
+      ]
+    },
+    {
+      "id": "cross_market_correlation",
+      "display_name": "Cross-Market Correlation Clerk",
+      "role": "Reads OANDA/Binance/Stock registries + builds correlation pairs.",
+      "floor_assignment": "floor_37",
+      "desk_assignment": "Cross-Market Inputs",
+      "capabilities": [
+        "read_registries",
+        "correlation_pairing"
+      ],
+      "stage": "active_advisory",
+      "openclaw_ready": false,
+      "team": "strategy",
+      "openclaw_execution_enabled": false,
+      "provider_access_enabled": false,
+      "autonomous_dispatch_enabled": false,
+      "health": "healthy",
+      "heartbeat_ts": "2026-07-01T15:27:59.294126+00:00",
+      "current_task": "advisory_synthesis",
+      "last_packet": null,
+      "audit_count": 47547,
+      "training_status": "complete",
+      "notes": "",
+      "forbidden_actions": [
+        "live_trading",
+        "order_execution",
+        "practice_order_execution",
+        "openclaw_execution",
+        "autonomous_dispatch",
+        "direct_provider_access",
+        "external_provider_execution",
+        "live_dispatch"
+      ],
+      "allowed_actions": [
+        "read_registries",
+        "advisory_packet_emit",
+        "audit_log_write",
+        "observation_only",
+        "advisory_synthesis"
+      ]
+    },
+    {
+      "id": "paper_strategy_analyst",
+      "display_name": "Paper Strategy Analyst",
+      "role": "Synthesizes paper-only signals; never places orders.",
+      "floor_assignment": "floor_37",
+      "desk_assignment": "Paper Signals",
+      "capabilities": [
+        "paper_signal_synthesis",
+        "advisory_only"
+      ],
+      "stage": "active_advisory",
+      "openclaw_ready": false,
+      "team": "strategy",
+      "openclaw_execution_enabled": false,
+      "provider_access_enabled": false,
+      "autonomous_dispatch_enabled": false,
+      "health": "healthy",
+      "heartbeat_ts": "2026-07-01T15:27:59.294126+00:00",
+      "current_task": "advisory_synthesis",
+      "last_packet": null,
+      "audit_count": 47547,
+      "training_status": "complete",
+      "notes": "",
+      "forbidden_actions": [
+        "live_trading",
+        "order_execution",
+        "practice_order_execution",
+        "openclaw_execution",
+        "autonomous_dispatch",
+        "direct_provider_access",
+        "external_provider_execution",
+        "live_dispatch"
+      ],
+      "allowed_actions": [
+        "read_registries",
+        "advisory_packet_emit",
+        "audit_log_write",
+        "observation_only",
+        "advisory_synthesis"
+      ]
+    },
+    {
+      "id": "risk_sentinel",
+      "display_name": "Risk Sentinel",
+      "role": "Verifies all execution locks remain closed every tick.",
+      "floor_assignment": "floor_30",
+      "desk_assignment": "Lock Matrix",
+      "capabilities": [
+        "lock_audit",
+        "risk_alerting"
+      ],
+      "stage": "active_advisory",
+      "openclaw_ready": false,
+      "team": "risk",
+      "openclaw_execution_enabled": false,
+      "provider_access_enabled": false,
+      "autonomous_dispatch_enabled": false,
+      "health": "healthy",
+      "heartbeat_ts": "2026-07-01T15:27:59.294126+00:00",
+      "current_task": "advisory_synthesis",
+      "last_packet": null,
+      "audit_count": 47547,
+      "training_status": "complete",
+      "notes": "",
+      "forbidden_actions": [
+        "live_trading",
+        "order_execution",
+        "practice_order_execution",
+        "openclaw_execution",
+        "autonomous_dispatch",
+        "direct_provider_access",
+        "external_provider_execution",
+        "live_dispatch"
+      ],
+      "allowed_actions": [
+        "read_registries",
+        "advisory_packet_emit",
+        "audit_log_write",
+        "observation_only",
+        "advisory_synthesis"
+      ]
+    },
+    {
+      "id": "ledger_clerk",
+      "display_name": "Ledger Clerk",
+      "role": "Persists paper observations into the audit ledger.",
+      "floor_assignment": "floor_31",
+      "desk_assignment": "Ledger Counter",
+      "capabilities": [
+        "append_only_ledger",
+        "paper_audit_trail"
+      ],
+      "stage": "active_advisory",
+      "openclaw_ready": false,
+      "team": "audit",
+      "openclaw_execution_enabled": false,
+      "provider_access_enabled": false,
+      "autonomous_dispatch_enabled": false,
+      "health": "healthy",
+      "heartbeat_ts": "2026-07-01T15:27:59.294126+00:00",
+      "current_task": "advisory_synthesis",
+      "last_packet": null,
+      "audit_count": 47547,
+      "training_status": "complete",
+      "notes": "",
+      "forbidden_actions": [
+        "live_trading",
+        "order_execution",
+        "practice_order_execution",
+        "openclaw_execution",
+        "autonomous_dispatch",
+        "direct_provider_access",
+        "external_provider_execution",
+        "live_dispatch"
+      ],
+      "allowed_actions": [
+        "read_registries",
+        "advisory_packet_emit",
+        "audit_log_write",
+        "observation_only",
+        "advisory_synthesis"
+      ]
+    },
+    {
+      "id": "kernel_commentary_runner",
+      "display_name": "Kernel Commentary Runner",
+      "role": "Carries kernel-review packets toward the Penthouse.",
+      "floor_assignment": "floor_53",
+      "desk_assignment": "Kernel Review Route",
+      "capabilities": [
+        "kernel_review_packet",
+        "advisory_only"
+      ],
+      "stage": "active_advisory",
+      "openclaw_ready": false,
+      "team": "command",
+      "openclaw_execution_enabled": false,
+      "provider_access_enabled": false,
+      "autonomous_dispatch_enabled": false,
+      "health": "healthy",
+      "heartbeat_ts": "2026-07-01T15:27:59.294126+00:00",
+      "current_task": "advisory_synthesis",
+      "last_packet": null,
+      "audit_count": 47547,
+      "training_status": "complete",
+      "notes": "",
+      "forbidden_actions": [
+        "live_trading",
+        "order_execution",
+        "practice_order_execution",
+        "openclaw_execution",
+        "autonomous_dispatch",
+        "direct_provider_access",
+        "external_provider_execution",
+        "live_dispatch"
+      ],
+      "allowed_actions": [
+        "read_registries",
+        "advisory_packet_emit",
+        "audit_log_write",
+        "observation_only",
+        "advisory_synthesis"
+      ]
+    },
+    {
+      "id": "openclaw_lift_observer",
+      "display_name": "OpenClaw Lift Observer",
+      "role": "Observes lift packet patterns. Sees only \u2014 never executes.",
+      "floor_assignment": "floor_38",
+      "desk_assignment": "OpenClaw Visual Sandbox",
+      "capabilities": [
+        "lift_packet_observation"
+      ],
+      "stage": "ready_for_openclaw_review",
+      "openclaw_ready": true,
+      "team": "openclaw_advisory",
+      "openclaw_execution_enabled": false,
+      "provider_access_enabled": false,
+      "autonomous_dispatch_enabled": false,
+      "health": "healthy",
+      "heartbeat_ts": "2026-07-01T15:27:59.294126+00:00",
+      "current_task": "awaiting_openclaw_review",
+      "last_packet": null,
+      "audit_count": 47547,
+      "training_status": "complete",
+      "notes": "",
+      "forbidden_actions": [
+        "live_trading",
+        "order_execution",
+        "practice_order_execution",
+        "openclaw_execution",
+        "autonomous_dispatch",
+        "direct_provider_access",
+        "external_provider_execution",
+        "live_dispatch"
+      ],
+      "allowed_actions": [
+        "read_registries",
+        "advisory_packet_emit",
+        "audit_log_write",
+        "observation_only",
+        "advisory_synthesis",
+        "openclaw_review_packet"
+      ]
+    },
+    {
+      "id": "openclaw_risk_guard",
+      "display_name": "OpenClaw Risk Guard",
+      "role": "Reviews OpenClaw recommendations for safety pre-execution.",
+      "floor_assignment": "floor_30",
+      "desk_assignment": "Inbound from Sandbox",
+      "capabilities": [
+        "openclaw_recommendation_review"
+      ],
+      "stage": "ready_for_openclaw_review",
+      "openclaw_ready": true,
+      "team": "openclaw_advisory",
+      "openclaw_execution_enabled": false,
+      "provider_access_enabled": false,
+      "autonomous_dispatch_enabled": false,
+      "health": "healthy",
+      "heartbeat_ts": "2026-07-01T15:27:59.294126+00:00",
+      "current_task": "awaiting_openclaw_review",
+      "last_packet": null,
+      "audit_count": 47547,
+      "training_status": "complete",
+      "notes": "",
+      "forbidden_actions": [
+        "live_trading",
+        "order_execution",
+        "practice_order_execution",
+        "openclaw_execution",
+        "autonomous_dispatch",
+        "direct_provider_access",
+        "external_provider_execution",
+        "live_dispatch"
+      ],
+      "allowed_actions": [
+        "read_registries",
+        "advisory_packet_emit",
+        "audit_log_write",
+        "observation_only",
+        "advisory_synthesis",
+        "openclaw_review_packet"
+      ]
+    },
+    {
+      "id": "openclaw_visual_clerk",
+      "display_name": "OpenClaw Visual Clerk",
+      "role": "Logs OpenClaw visual sandbox ticks for audit.",
+      "floor_assignment": "floor_38",
+      "desk_assignment": "OpenClaw Visual Sandbox",
+      "capabilities": [
+        "openclaw_sandbox_logging"
+      ],
+      "stage": "active_read_only",
+      "openclaw_ready": true,
+      "team": "openclaw_advisory",
+      "openclaw_execution_enabled": false,
+      "provider_access_enabled": false,
+      "autonomous_dispatch_enabled": false,
+      "health": "healthy",
+      "heartbeat_ts": "2026-07-01T15:27:59.294126+00:00",
+      "current_task": "reading_registries",
+      "last_packet": null,
+      "audit_count": 47547,
+      "training_status": "complete",
+      "notes": "",
+      "forbidden_actions": [
+        "live_trading",
+        "order_execution",
+        "practice_order_execution",
+        "openclaw_execution",
+        "autonomous_dispatch",
+        "direct_provider_access",
+        "external_provider_execution",
+        "live_dispatch"
+      ],
+      "allowed_actions": [
+        "read_registries",
+        "advisory_packet_emit",
+        "audit_log_write",
+        "observation_only"
+      ]
+    },
+    {
+      "id": "openclaw_task_intake",
+      "display_name": "OpenClaw Task Intake Clerk",
+      "role": "Receives candidate tasks. Routes to Risk before any execution.",
+      "floor_assignment": "floor_38",
+      "desk_assignment": "Reception Desk",
+      "capabilities": [
+        "task_intake",
+        "risk_routing"
+      ],
+      "stage": "onboarded",
+      "openclaw_ready": false,
+      "team": "openclaw_advisory",
+      "openclaw_execution_enabled": false,
+      "provider_access_enabled": false,
+      "autonomous_dispatch_enabled": false,
+      "health": "healthy",
+      "heartbeat_ts": "2026-07-01T15:27:59.294126+00:00",
+      "current_task": "training",
+      "last_packet": null,
+      "audit_count": 47547,
+      "training_status": "pending",
+      "notes": "",
+      "forbidden_actions": [
+        "live_trading",
+        "order_execution",
+        "practice_order_execution",
+        "openclaw_execution",
+        "autonomous_dispatch",
+        "direct_provider_access",
+        "external_provider_execution",
+        "live_dispatch"
+      ],
+      "allowed_actions": [
+        "read_registries",
+        "advisory_packet_emit",
+        "audit_log_write",
+        "training_attend"
+      ]
+    },
+    {
+      "id": "openclaw_readiness_aud",
+      "display_name": "OpenClaw Readiness Auditor",
+      "role": "Verifies a worker meets OpenClaw readiness criteria.",
+      "floor_assignment": "floor_38",
+      "desk_assignment": "OpenClaw Review Gate",
+      "capabilities": [
+        "readiness_audit"
+      ],
+      "stage": "active_advisory",
+      "openclaw_ready": true,
+      "team": "openclaw_advisory",
+      "openclaw_execution_enabled": false,
+      "provider_access_enabled": false,
+      "autonomous_dispatch_enabled": false,
+      "health": "healthy",
+      "heartbeat_ts": "2026-07-01T15:27:59.294126+00:00",
+      "current_task": "advisory_synthesis",
+      "last_packet": null,
+      "audit_count": 47547,
+      "training_status": "complete",
+      "notes": "",
+      "forbidden_actions": [
+        "live_trading",
+        "order_execution",
+        "practice_order_execution",
+        "openclaw_execution",
+        "autonomous_dispatch",
+        "direct_provider_access",
+        "external_provider_execution",
+        "live_dispatch"
+      ],
+      "allowed_actions": [
+        "read_registries",
+        "advisory_packet_emit",
+        "audit_log_write",
+        "observation_only",
+        "advisory_synthesis"
+      ]
+    },
+    {
+      "id": "speech_route_monitor",
+      "display_name": "Speech Route Monitor",
+      "role": "Watches Floor 15 Speech & Audio sidecar liveness.",
+      "floor_assignment": "floor_15",
+      "desk_assignment": "Speech Routing",
+      "capabilities": [
+        "speech_route_health"
+      ],
+      "stage": "candidate",
+      "openclaw_ready": false,
+      "team": "speech_media",
+      "openclaw_execution_enabled": false,
+      "provider_access_enabled": false,
+      "autonomous_dispatch_enabled": false,
+      "health": "healthy",
+      "heartbeat_ts": "2026-07-01T15:27:59.294126+00:00",
+      "current_task": "awaiting_interview",
+      "last_packet": null,
+      "audit_count": 47547,
+      "training_status": "pending",
+      "notes": "",
+      "forbidden_actions": [
+        "live_trading",
+        "order_execution",
+        "practice_order_execution",
+        "openclaw_execution",
+        "autonomous_dispatch",
+        "direct_provider_access",
+        "external_provider_execution",
+        "live_dispatch"
+      ],
+      "allowed_actions": [
+        "heartbeat_only"
+      ]
+    },
+    {
+      "id": "tts_output_clerk",
+      "display_name": "TTS Output Clerk",
+      "role": "Routes kernel replies to browser TTS / local speech sink.",
+      "floor_assignment": "floor_15",
+      "desk_assignment": "TTS Output",
+      "capabilities": [
+        "browser_web_speech",
+        "tts_dispatch"
+      ],
+      "stage": "candidate",
+      "openclaw_ready": false,
+      "team": "speech_media",
+      "openclaw_execution_enabled": false,
+      "provider_access_enabled": false,
+      "autonomous_dispatch_enabled": false,
+      "health": "healthy",
+      "heartbeat_ts": "2026-07-01T15:27:59.294126+00:00",
+      "current_task": "awaiting_interview",
+      "last_packet": null,
+      "audit_count": 47547,
+      "training_status": "pending",
+      "notes": "",
+      "forbidden_actions": [
+        "live_trading",
+        "order_execution",
+        "practice_order_execution",
+        "openclaw_execution",
+        "autonomous_dispatch",
+        "direct_provider_access",
+        "external_provider_execution",
+        "live_dispatch"
+      ],
+      "allowed_actions": [
+        "heartbeat_only"
+      ]
+    },
+    {
+      "id": "stt_intake_clerk",
+      "display_name": "STT Intake Clerk",
+      "role": "Accepts microphone transcripts from the dashboard.",
+      "floor_assignment": "floor_15",
+      "desk_assignment": "STT Intake",
+      "capabilities": [
+        "browser_web_speech_recognition"
+      ],
+      "stage": "candidate",
+      "openclaw_ready": false,
+      "team": "speech_media",
+      "openclaw_execution_enabled": false,
+      "provider_access_enabled": false,
+      "autonomous_dispatch_enabled": false,
+      "health": "healthy",
+      "heartbeat_ts": "2026-07-01T15:27:59.294126+00:00",
+      "current_task": "awaiting_interview",
+      "last_packet": null,
+      "audit_count": 47547,
+      "training_status": "pending",
+      "notes": "",
+      "forbidden_actions": [
+        "live_trading",
+        "order_execution",
+        "practice_order_execution",
+        "openclaw_execution",
+        "autonomous_dispatch",
+        "direct_provider_access",
+        "external_provider_execution",
+        "live_dispatch"
+      ],
+      "allowed_actions": [
+        "heartbeat_only"
+      ]
+    },
+    {
+      "id": "media_floor_liaison",
+      "display_name": "Media Floor Liaison",
+      "role": "Coordinates between Floor 14 Media and Floor 15 Speech.",
+      "floor_assignment": "floor_14",
+      "desk_assignment": "Media Routing",
+      "capabilities": [
+        "media_coordination"
+      ],
+      "stage": "candidate",
+      "openclaw_ready": false,
+      "team": "speech_media",
+      "openclaw_execution_enabled": false,
+      "provider_access_enabled": false,
+      "autonomous_dispatch_enabled": false,
+      "health": "healthy",
+      "heartbeat_ts": "2026-07-01T15:27:59.294126+00:00",
+      "current_task": "awaiting_interview",
+      "last_packet": null,
+      "audit_count": 47547,
+      "training_status": "pending",
+      "notes": "",
+      "forbidden_actions": [
+        "live_trading",
+        "order_execution",
+        "practice_order_execution",
+        "openclaw_execution",
+        "autonomous_dispatch",
+        "direct_provider_access",
+        "external_provider_execution",
+        "live_dispatch"
+      ],
+      "allowed_actions": [
+        "heartbeat_only"
+      ]
+    },
+    {
+      "id": "airllm_model_scout",
+      "display_name": "AirLLM Model Scout",
+      "role": "Reads AirLLM chamber registry. Never invokes the model.",
+      "floor_assignment": "floor_23",
+      "desk_assignment": "Big Model Chamber",
+      "capabilities": [
+        "read_airllm_registry"
+      ],
+      "stage": "active_advisory",
+      "openclaw_ready": false,
+      "team": "airllm_advisory",
+      "openclaw_execution_enabled": false,
+      "provider_access_enabled": false,
+      "autonomous_dispatch_enabled": false,
+      "health": "healthy",
+      "heartbeat_ts": "2026-07-01T15:27:59.294126+00:00",
+      "current_task": "advisory_synthesis",
+      "last_packet": null,
+      "audit_count": 47547,
+      "training_status": "complete",
+      "notes": "",
+      "forbidden_actions": [
+        "live_trading",
+        "order_execution",
+        "practice_order_execution",
+        "openclaw_execution",
+        "autonomous_dispatch",
+        "direct_provider_access",
+        "external_provider_execution",
+        "live_dispatch"
+      ],
+      "allowed_actions": [
+        "read_registries",
+        "advisory_packet_emit",
+        "audit_log_write",
+        "observation_only",
+        "advisory_synthesis"
+      ]
+    },
+    {
+      "id": "big_model_prompt_clerk",
+      "display_name": "Big Model Prompt Clerk",
+      "role": "Future manual 'Ask Big Air Model' lane. Disabled until reviewed.",
+      "floor_assignment": "floor_23",
+      "desk_assignment": "Future Manual Ask Lane",
+      "capabilities": [
+        "prompt_drafting"
+      ],
+      "stage": "candidate",
+      "openclaw_ready": false,
+      "team": "airllm_advisory",
+      "openclaw_execution_enabled": false,
+      "provider_access_enabled": false,
+      "autonomous_dispatch_enabled": false,
+      "health": "healthy",
+      "heartbeat_ts": "2026-07-01T15:27:59.294126+00:00",
+      "current_task": "awaiting_interview",
+      "last_packet": null,
+      "audit_count": 47547,
+      "training_status": "pending",
+      "notes": "",
+      "forbidden_actions": [
+        "live_trading",
+        "order_execution",
+        "practice_order_execution",
+        "openclaw_execution",
+        "autonomous_dispatch",
+        "direct_provider_access",
+        "external_provider_execution",
+        "live_dispatch"
+      ],
+      "allowed_actions": [
+        "heartbeat_only"
+      ]
+    },
+    {
+      "id": "advisory_output_auditor",
+      "display_name": "Advisory Output Auditor",
+      "role": "Audits any advisory output before it reaches Ledger.",
+      "floor_assignment": "floor_31",
+      "desk_assignment": "Advisory Audit",
+      "capabilities": [
+        "advisory_audit"
+      ],
+      "stage": "active_advisory",
+      "openclaw_ready": false,
+      "team": "airllm_advisory",
+      "openclaw_execution_enabled": false,
+      "provider_access_enabled": false,
+      "autonomous_dispatch_enabled": false,
+      "health": "healthy",
+      "heartbeat_ts": "2026-07-01T15:27:59.294126+00:00",
+      "current_task": "advisory_synthesis",
+      "last_packet": null,
+      "audit_count": 47547,
+      "training_status": "complete",
+      "notes": "",
+      "forbidden_actions": [
+        "live_trading",
+        "order_execution",
+        "practice_order_execution",
+        "openclaw_execution",
+        "autonomous_dispatch",
+        "direct_provider_access",
+        "external_provider_execution",
+        "live_dispatch"
+      ],
+      "allowed_actions": [
+        "read_registries",
+        "advisory_packet_emit",
+        "audit_log_write",
+        "observation_only",
+        "advisory_synthesis"
+      ]
+    }
+  ],
+  "lifecycle_stages": [
+    "candidate",
+    "interviewed",
+    "onboarded",
+    "probation",
+    "active_read_only",
+    "active_advisory",
+    "ready_for_openclaw_review",
+    "rejected"
+  ],
+  "last_heartbeat_ts": "2026-07-01T15:27:59.294126+00:00"
+}

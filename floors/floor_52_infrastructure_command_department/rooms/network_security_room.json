@@ -1,0 +1,36 @@
+{
+  "room_id": "network_security_room",
+  "name": "Network Security Room",
+  "category": "security",
+  "purpose": "Contains systems for protecting QSB Tower's network from threats.",
+  "concierge_blurb": "Where the digital defenses are built and maintained.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {
+    "security_risk_level": 0
+  },
+  "layout": {
+    "zone": "right_wall",
+    "offset_x": 8.0,
+    "offset_z": -2.5,
+    "footprint_m": [
+      4,
+      16
+    ],
+    "height_m": 2.3
+  },
+  "render": {
+    "primary_prop": "wall_panel",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Network Security",
+    "glow": true
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/security_risk.jsonl",
+    "display": "big_number",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_52"
+}

@@ -1,0 +1,77 @@
+{
+  "floor_id": "floor_101",
+  "floor_number": 101,
+  "floor_name": "Legal Advisory",
+  "department": "designed_by_f66_architects_v1",
+  "zone": "ZONE E \u00b7 MID-RISE",
+  "archetype": "designed_by_f66_architects_v1",
+  "staff_lead": "F66 Architects' Office",
+  "tour_blurb": "corporate + IP + contract",
+  "visitor_open": false,
+  "advisory_only": true,
+  "execution_mode": "PREVIEW_ONLY",
+  "skeleton": true,
+  "skeleton_source": "floor_manifest.json",
+  "skeleton_generated_ts": "2026-06-17",
+  "live_signals": {
+    "theme": null,
+    "categories": null,
+    "palette": null,
+    "tagline": null
+  },
+  "gate_posture": {
+    "advisory_only": true,
+    "execution_allowed": false,
+    "live_payments_enabled": false
+  },
+  "team_roster": [
+    {
+      "id": "f101.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "promoted_from": "sim_worker_floor_49",
+      "promoted_from_floor": "resource_management_department",
+      "promotion_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F101",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f101.operator.01",
+      "promoted_from": "sim_worker_floor_50",
+      "promoted_from_floor": "building_governance_department"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F101",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f101.operator.02",
+      "promoted_from": "sim_worker_floor_51",
+      "promoted_from_floor": "executive_council_department"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F101",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f101.operator.03",
+      "promoted_from": "sim_worker_floor_52",
+      "promoted_from_floor": "infrastructure_command_department"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F101",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f101.operator.04",
+      "promoted_from": "sim_worker_floor_53",
+      "promoted_from_floor": "tower_command_department"
+    }
+  ],
+  "floor_manager": "f101.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

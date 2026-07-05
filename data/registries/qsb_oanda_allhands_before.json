@@ -1,0 +1,186 @@
+{
+  "ts": "2026-07-01T10:24:46.110733Z",
+  "kind": "oanda_allhands_before",
+  "baseline_claim_ross": "-\u00a3225 lifetime, 0 wins",
+  "actual_oanda_state": {
+    "workers_configured": 42,
+    "workers_with_trades": 21,
+    "total_trades": 367,
+    "trade_weighted_wr": 0.5584,
+    "trade_weighted_exp": 0.0004,
+    "session_bus_oanda_closes": 0,
+    "session_bus_oanda_wins": 0,
+    "session_bus_oanda_pnl_gbp": 0.0
+  },
+  "workers_active": [
+    {
+      "worker": "belief_driven_gbp",
+      "instr": "GBP_USD",
+      "n": 166,
+      "wr": 0.8517028007271978,
+      "exp": 2.9132028824436314e-06,
+      "ss": 9.582610685032408e-06
+    },
+    {
+      "worker": "belief_driven_eur",
+      "instr": "EUR_USD",
+      "n": 91,
+      "wr": 0.337239806748117,
+      "exp": -9.42229035368771e-09,
+      "ss": 1.182440411497804e-05
+    },
+    {
+      "worker": "belief_driven_jpy",
+      "instr": "USD_JPY",
+      "n": 84,
+      "wr": 0.33037760825203616,
+      "exp": 8.884291314458128e-08,
+      "ss": 0.001207219914377719
+    },
+    {
+      "worker": "belief_driven_jp225",
+      "instr": "JP225_USD",
+      "n": 3,
+      "wr": 0.41543749999999996,
+      "exp": -0.052083333333333336,
+      "ss": 3.9944302595401813
+    },
+    {
+      "worker": "belief_driven_de30",
+      "instr": "DE30_EUR",
+      "n": 2,
+      "wr": 0.1275,
+      "exp": 0.00048828125,
+      "ss": 0.6876340970400464
+    },
+    {
+      "worker": "belief_driven_wti",
+      "instr": "WTICO_USD",
+      "n": 2,
+      "wr": 0.27749999999999997,
+      "exp": 0.0003515625000000133,
+      "ss": 0.0070455712480606844
+    },
+    {
+      "worker": "belief_driven_nas",
+      "instr": "NAS100_USD",
+      "n": 2,
+      "wr": 0.15,
+      "exp": -0.05000000000006821,
+      "ss": 0.5337588168276433
+    },
+    {
+      "worker": "belief_driven_xcu",
+      "instr": "XCU_USD",
+      "n": 2,
+      "wr": 0.27749999999999997,
+      "exp": 0.000578124999999971,
+      "ss": 0.00048075644823879926
+    },
+    {
+      "worker": "belief_driven_bco",
+      "instr": "BCO_USD",
+      "n": 2,
+      "wr": 0.27749999999999997,
+      "exp": 0.018906250000001457,
+      "ss": 0.008344000593725535
+    },
+    {
+      "worker": "ensemble_gbpusd",
+      "instr": "GBP_USD",
+      "n": 2,
+      "wr": 0.15,
+      "exp": 0.0007421873022519493,
+      "ss": 8.895392899837558e-06
+    },
+    {
+      "worker": "belief_driven_natgas",
+      "instr": "NATGAS_USD",
+      "n": 1,
+      "wr": 0.15,
+      "exp": 0.012500000000000011,
+      "ss": 0.001914854215512759
+    },
+    {
+      "worker": "belief_driven_eurgbp",
+      "instr": "EUR_GBP",
+      "n": 1,
+      "wr": 0.15,
+      "exp": 0.0015625000000015626,
+      "ss": 1.3756616069109268e-05
+    },
+    {
+      "worker": "belief_driven_xag",
+      "instr": "XAG_USD",
+      "n": 1,
+      "wr": 0.0,
+      "exp": -0.0027343749999998723,
+      "ss": 0.002469092912458219
+    },
+    {
+      "worker": "belief_driven_aud",
+      "instr": "AUD_USD",
+      "n": 1,
+      "wr": 0.15,
+      "exp": 0.0001367187500000283,
+      "ss": 1.2699246906224687e-05
+    },
+    {
+      "worker": "belief_driven_wheat",
+      "instr": "WHEAT_USD",
+      "n": 1,
+      "wr": 0.15,
+      "exp": 0.34999999999998366,
+      "ss": 0.0018726837545201317
+    },
+    {
+      "worker": "belief_driven_xau_breakout",
+      "instr": "XAU_USD",
+      "n": 1,
+      "wr": 0.15,
+      "exp": 0.003124999999997158,
+      "ss": 0.07053207243960927
+    },
+    {
+      "worker": "belief_driven_spx",
+      "instr": "SPX500_USD",
+      "n": 1,
+      "wr": 0.15,
+      "exp": 0.007031249999997158,
+      "ss": 0.22193188619702903
+    },
+    {
+      "worker": "belief_driven_xau",
+      "instr": "XAU_USD",
+      "n": 1,
+      "wr": 0.0,
+      "exp": -0.032421875000032685,
+      "ss": 0.07053207243960927
+    },
+    {
+      "worker": "belief_driven_dow",
+      "instr": "US30_USD",
+      "n": 1,
+      "wr": 0.15,
+      "exp": 0.0068359375,
+      "ss": 0.824035952167029
+    },
+    {
+      "worker": "belief_driven_chf",
+      "instr": "USD_CHF",
+      "n": 1,
+      "wr": 0.15,
+      "exp": 0.0005078125000000742,
+      "ss": 1.1451771185534974e-05
+    },
+    {
+      "worker": "ensemble_eurusd",
+      "instr": "EUR_USD",
+      "n": 1,
+      "wr": 0.15,
+      "exp": 1.1929064763961658e-06,
+      "ss": 1.182440411497804e-05
+    }
+  ],
+  "us10y_paused": true
+}

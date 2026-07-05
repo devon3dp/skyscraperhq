@@ -1,0 +1,414 @@
+{
+  "report_type": "dormant_kernel_compatibility_review",
+  "review_method": "static_analysis_read_only",
+  "review_ts": "2026-06-07",
+  "reviewer": "QSB Tower V1.3 compatibility review process",
+  "review_note": "No kernel classes were instantiated. No kernel code was executed. All analysis is static (AST scan + source text inspection).",
+
+  "kernel_identity": {
+    "name": "QSB Kernel",
+    "full_name": "Quantum Symbolic Brain Kernel",
+    "version": "4.6-offline-kernel-symbolic",
+    "cognitive_upgrade": "4.7 (belief engine, reflection engine, semantic memory — per COGNITIVE_47_README.md)",
+    "role": "Locked Penthouse Kernel",
+    "principle": "Models are workers. QSB is the kernel.",
+    "created_or_verified": "2026-06-07T15:38:31.144765+00:00",
+    "continuity_status_at_import": "CONTINUITY_CONFIRMED"
+  },
+
+  "imported_file_count": {
+    "kernel_core_files": 12,
+    "source_support_files": 3,
+    "total": 15,
+    "manifest_file": 1
+  },
+
+  "hash_verification": {
+    "result": "ALL_MATCH",
+    "files_checked": 13,
+    "detail": "All 13 hashed files match the import manifest SHA-256 values. Dormant import is intact."
+  },
+
+  "file_by_file_analysis": {
+    "kernel/kernel_core.py": {
+      "lines": 32,
+      "risk_level": "medium",
+      "imports": ["identity_core.IdentityCore", "axiom_core.AxiomCore", "continuity_core.ContinuityCore", "symbolic_core.SymbolicLogicCore", "belief_core.BeliefCore"],
+      "network_calls": false,
+      "model_calls": false,
+      "filesystem_writes": false,
+      "side_effects_on_instantiation": "YES — triggers side effects in all sub-cores (sqlite connects, state writes)",
+      "old_path_references": false,
+      "notes": "Assembler. Pure composition. Risk comes entirely from what sub-cores do on __init__."
+    },
+    "kernel/axiom_core.py": {
+      "lines": 35,
+      "risk_level": "none",
+      "imports": [],
+      "network_calls": false,
+      "model_calls": false,
+      "filesystem_writes": false,
+      "side_effects_on_instantiation": false,
+      "old_path_references": false,
+      "notes": "Fully pure Python. Contains 10 axioms as class constants. Stateless. No side effects whatsoever. Directly portable."
+    },
+    "kernel/identity_core.py": {
+      "lines": 27,
+      "risk_level": "low",
+      "imports": ["pathlib", "datetime", "json"],
+      "network_calls": false,
+      "model_calls": false,
+      "filesystem_writes": "conditional — writes identity.json if file is absent on __init__",
+      "side_effects_on_instantiation": "conditional write to old skyscraper path",
+      "old_path_references": "ROOT = Path('/vaults/nvme0/qsb_skyscraper') — line 5",
+      "old_path_targets": ["kernel/identity.json"],
+      "rebase_effort": "trivial — change one ROOT constant or inject path",
+      "notes": "Only risk is conditional write if identity.json absent at old path. Read-only use of identity.json is safe via dormant adapter."
+    },
+    "kernel/continuity_core.py": {
+      "lines": 47,
+      "risk_level": "high",
+      "imports": ["pathlib", "datetime", "json", "hashlib"],
+      "network_calls": false,
+      "model_calls": false,
+      "filesystem_writes": "YES — STATE_FILE.write_text() on every boot_check() call (line 46)",
+      "side_effects_on_instantiation": "mkdir on __init__ (line 11), write_text on boot_check()",
+      "old_path_references": "ROOT = Path('/vaults/nvme0/qsb_skyscraper') — line 6",
+      "old_path_targets": [
+        "kernel/continuity_state.json (write on boot_check)",
+        "memory/qsb_memory.sqlite (existence check only)",
+        "knowledge/qsb_knowledge.sqlite (existence check only)",
+        "missions/qsb_missions.sqlite (existence check only)",
+        "bus/qsb_lifts.sqlite (existence check only)"
+      ],
+      "old_db_checks_require_remapping": [
+        "memory/qsb_memory.sqlite → data/db/tower.sqlite or equivalent",
+        "knowledge/qsb_knowledge.sqlite → no direct equivalent yet",
+        "missions/qsb_missions.sqlite → no direct equivalent yet",
+        "bus/qsb_lifts.sqlite → data/db/tower.sqlite (lifts table)"
+      ],
+      "rebase_effort": "medium — path rebase + continuity check field remapping",
+      "notes": "boot_check() is called from QSBKernelCore.__init__. This means kernel instantiation WILL write to the old state file path. High risk if not rebased first."
+    },
+    "kernel/belief_core.py": {
+      "lines": 135,
+      "risk_level": "medium",
+      "imports": ["pathlib", "datetime", "sqlite3", "json"],
+      "network_calls": false,
+      "model_calls": false,
+      "filesystem_writes": "YES — sqlite3.connect(DB) on __init__, writes beliefs on seed()",
+      "side_effects_on_instantiation": "sqlite3 connection + belief seeding on __init__",
+      "old_path_references": "ROOT = Path('/vaults/nvme0/qsb_skyscraper') — line 6",
+      "old_path_targets": ["kernel/qsb_beliefs.sqlite (write on init)"],
+      "rebase_effort": "low — change ROOT constant, SQLite schema is clean and self-contained",
+      "notes": "Belief engine is architecturally clean. SQLite schema has no external dependencies. Path rebase is the only blocker. 10 seed beliefs are tower-compatible."
+    },
+    "kernel/symbolic_core.py": {
+      "lines": 220,
+      "risk_level": "medium",
+      "imports": ["pathlib", "sqlite3", "json", "datetime"],
+      "network_calls": false,
+      "model_calls": false,
+      "filesystem_writes": "YES — sqlite3.connect(DB) on __init__, seeds concepts",
+      "side_effects_on_instantiation": "sqlite3 connection + concept seeding on __init__",
+      "old_path_references": "ROOT = Path('/vaults/nvme0/qsb_skyscraper') — line 6",
+      "old_path_targets": ["symbolic/qsb_symbolic.sqlite (write on init)"],
+      "ollama_reference": "METADATA ONLY — 'ollama' appears only in concept terms list for symbolic pattern matching (line 72), not as a network call",
+      "rebase_effort": "low — change ROOT constant, SQLite schema is clean",
+      "notes": "14 symbolic concepts are architecturally aligned with tower. 'model', 'lift', 'department', 'skyscraper', 'kernel', etc. all map correctly to tower vocabulary."
+    },
+    "kernel/reflection_core.py": {
+      "lines": 57,
+      "risk_level": "low",
+      "imports": ["datetime"],
+      "network_calls": false,
+      "model_calls": false,
+      "filesystem_writes": false,
+      "side_effects_on_instantiation": false,
+      "old_path_references": false,
+      "dependency_injection": "Takes memory, departments, missions, lifts, graph, beliefs, semantic as constructor args",
+      "notes": "Cleanest kernel file. Pure reflection logic over injected dependencies. No hard-coded paths. Fully portable if dependencies are replaced with tower equivalents."
+    },
+    "source_support/penthouse.py": {
+      "lines": 380,
+      "risk_level": "critical",
+      "imports_old_modules": [
+        "workers.router.router.QSBRouter (calls Ollama HTTP)",
+        "memory.memory_core.MemoryCore",
+        "memory.semantic_memory.SemanticMemoryCore",
+        "departments.department_core.DepartmentCore",
+        "missions.mission_core.MissionCore",
+        "bus.lift_core.LiftSystem",
+        "knowledge.graph_core.KnowledgeGraph",
+        "kernel.kernel_core.QSBKernelCore",
+        "kernel.reflection_core.ReflectionCore"
+      ],
+      "network_calls": "YES — via QSBRouter which calls Ollama HTTP API",
+      "model_calls": "YES — router.ask(), router.health() call Ollama",
+      "filesystem_writes": "YES — logs/penthouse.jsonl",
+      "interactive_loop": "YES — while True: msg = input('Penthouse> ')",
+      "sys_path_manipulation": "YES — sys.path.insert(0, str(ROOT))",
+      "classification": "MUST NOT BE EXECUTED — reference artifact only",
+      "notes": "This is the old skyscraper executive controller. Cannot run in tower context. None of its module imports exist in the new tower. Serves only as architectural reference."
+    },
+    "source_support/add_cognitive_kernel_47.py": {
+      "lines": 790,
+      "risk_level": "high",
+      "imports": ["requests (live HTTP)", "sqlite3", "yaml", "pathlib"],
+      "network_calls": "YES — requests.post to Ollama /api/embeddings endpoint (line 56)",
+      "model_calls": "YES — SemanticMemoryCore calls Ollama embedding model",
+      "filesystem_writes": "YES — SQLite semantic_memories database",
+      "ollama_url": "http://127.0.0.1:11434 (hardcoded Ollama endpoint)",
+      "classification": "MUST NOT BE EXECUTED — semantic memory upgrade script with live Ollama dependency",
+      "notes": "Contains SemanticMemoryCore which makes HTTP calls to Ollama for embeddings. Must be rewritten to use tower's provider layer when that is active."
+    },
+    "source_support/promote_symbolic_to_kernel.py": {
+      "lines": 300,
+      "risk_level": "low",
+      "network_calls": false,
+      "model_calls": false,
+      "classification": "safe reference artifact",
+      "notes": "Migration script that moved symbolic logic from floor to kernel level. No network calls. Reference only."
+    }
+  },
+
+  "old_path_assumptions": {
+    "verdict": "BLOCKING — must be resolved before activation",
+    "scope": "4 kernel sub-core files hardcode ROOT = Path('/vaults/nvme0/qsb_skyscraper')",
+    "affected_files": ["identity_core.py", "continuity_core.py", "belief_core.py", "symbolic_core.py"],
+    "required_change": "Replace hardcoded ROOT with configurable path pointing to new tower penthouse location",
+    "suggested_approach": "Inject ROOT as a constructor parameter OR use a shared config constant in a new tower kernel config module",
+    "rebase_complexity": "LOW — same pattern in each file, mechanical change"
+  },
+
+  "old_penthouse_assumptions": {
+    "verdict": "BLOCKING for penthouse.py — not blocking for kernel sub-cores",
+    "detail": "penthouse.py assumes 8 old skyscraper modules exist. None exist in new tower.",
+    "old_module_to_new_tower_mapping": {
+      "workers.router.router.QSBRouter": "NO EQUIVALENT — model routing goes through tower.model_routing_department + tower.air_llm_operations",
+      "memory.memory_core.MemoryCore": "NO EQUIVALENT — tower has no unified memory core yet (would need to be created)",
+      "memory.semantic_memory.SemanticMemoryCore": "NO EQUIVALENT — uses Ollama HTTP; needs tower provider layer",
+      "departments.department_core.DepartmentCore": "PARTIAL — tower.registry + individual floor modules serve this role",
+      "missions.mission_core.MissionCore": "NO EQUIVALENT — not yet in tower",
+      "bus.lift_core.LiftSystem": "CLOSE — tower.lifts.LiftNetwork (different API: send/states vs emit/dashboard)",
+      "knowledge.graph_core.KnowledgeGraph": "NO EQUIVALENT — not yet in tower",
+      "kernel.kernel_core.QSBKernelCore": "PRESENT (dormant) — this is what we're reviewing"
+    },
+    "kernel_core_files_are_independent": "axiom_core, belief_core, symbolic_core, identity_core, continuity_core, reflection_core do NOT depend on penthouse.py"
+  },
+
+  "model_call_risks": {
+    "kernel_sub_cores": {
+      "verdict": "SAFE — no model calls in any of the 6 kernel sub-core files",
+      "detail": "axiom_core, identity_core, continuity_core, belief_core, symbolic_core, reflection_core contain zero HTTP calls, zero Ollama calls, zero API calls"
+    },
+    "symbolic_core_ollama_ref": {
+      "verdict": "FALSE POSITIVE — metadata only",
+      "detail": "The string 'ollama' in symbolic_core.py line 72 is a term in the 'model' concept definition for symbolic pattern matching (recognising the word 'ollama' in user input). It is not a network call."
+    },
+    "penthouse_py": {
+      "verdict": "HIGH RISK — must not be run",
+      "detail": "QSBRouter calls Ollama. router.ask() sends prompts to local Ollama HTTP API."
+    },
+    "add_cognitive_kernel_47_py": {
+      "verdict": "HIGH RISK — must not be run",
+      "detail": "SemanticMemoryCore.add() calls requests.post('http://127.0.0.1:11434/api/embeddings', ...)"
+    }
+  },
+
+  "filesystem_write_risks": {
+    "verdict": "PRESENT — will write to old paths if instantiated without path rebase",
+    "writes_on_kernel_instantiation": [
+      "continuity_core.py: writes /vaults/nvme0/qsb_skyscraper/kernel/continuity_state.json on every boot_check()",
+      "belief_core.py: writes /vaults/nvme0/qsb_skyscraper/kernel/qsb_beliefs.sqlite on __init__",
+      "symbolic_core.py: writes /vaults/nvme0/qsb_skyscraper/symbolic/qsb_symbolic.sqlite on __init__",
+      "identity_core.py: writes /vaults/nvme0/qsb_skyscraper/kernel/identity.json if file absent on __init__"
+    ],
+    "mitigation_required": "Path rebase before activation. Dormant adapter currently reads identity.json and continuity_state.json as static files only — no writes triggered."
+  },
+
+  "memory_state_write_risks": {
+    "verdict": "PRESENT — kernel sub-cores manage their own persistent state",
+    "state_files": [
+      "continuity_state.json — boot history, hash drift log",
+      "qsb_beliefs.sqlite — belief engine with confidence scores",
+      "qsb_symbolic.sqlite — symbolic concept observations"
+    ],
+    "tower_impact": "State files currently write to old skyscraper paths. After path rebase, they would write to tower penthouse paths. This is desired behaviour but must be gate-controlled.",
+    "mitigation": "Path rebase + explicit operator approval before first kernel instantiation"
+  },
+
+  "provider_network_risks": {
+    "kernel_sub_cores": "NONE — zero network calls in all 6 kernel sub-core files",
+    "penthouse_py": "HIGH — calls Ollama via QSBRouter (must not be run)",
+    "add_cognitive_47": "HIGH — calls Ollama /api/embeddings via requests.post (must not be run)",
+    "tower_provider_policy": "provider_execution_enabled=false, model_inference_enabled=false — correctly blocks any provider calls"
+  },
+
+  "import_risks": {
+    "kernel_sub_core_imports": {
+      "verdict": "LOW — all imports are stdlib (pathlib, datetime, json, hashlib, sqlite3)",
+      "external_packages": "none",
+      "relative_imports": "use 'from kernel.X import Y' pattern — requires sys.path to include parent of kernel/ directory"
+    },
+    "sys_path_requirement": "kernel/ directory must be reachable via sys.path for inter-kernel imports to work. The new tower's src/ layout means kernel/ would need to be placed correctly or imports rewritten.",
+    "proposed_placement": "Place rebased kernel under src/tower/kernel_package/ and adjust imports to 'from tower.kernel_package.X import Y'",
+    "import_path_rewrite_effort": "LOW-MEDIUM — mechanical find-and-replace across 6 files"
+  },
+
+  "compatibility_score": {
+    "score": 62,
+    "scale": "0-100 (100 = fully compatible, drop-in; 0 = incompatible, requires complete rewrite)",
+    "breakdown": {
+      "kernel_logic_portability": {
+        "score": 85,
+        "notes": "Axiom, belief, symbolic, identity, continuity, reflection — all pure Python with no external dependencies beyond stdlib. Logic is sound and architecturally aligned."
+      },
+      "path_dependency_severity": {
+        "score": 40,
+        "notes": "4 of 6 sub-cores hardcode ROOT to old vault. Blocking but mechanical to fix."
+      },
+      "module_import_compatibility": {
+        "score": 55,
+        "notes": "Kernel sub-core imports are clean (stdlib only). penthouse.py imports 8 missing modules but penthouse.py is not the kernel."
+      },
+      "architectural_alignment": {
+        "score": 80,
+        "notes": "Axioms, belief engine, symbolic logic, continuity — all align with tower's 53-floor penthouse architecture. Tower vocabulary (floors, lifts, departments) is embedded in symbolic concepts."
+      },
+      "provider_model_cleanliness": {
+        "score": 90,
+        "notes": "Kernel sub-cores make zero model calls. Only penthouse.py and add_cognitive_47.py have model call risk, and both are excluded from the activation path."
+      },
+      "side_effect_safety": {
+        "score": 35,
+        "notes": "4 sub-cores write to disk on instantiation. continuity_core writes on every boot_check(). Must be path-rebased before safe instantiation."
+      }
+    },
+    "overall_verdict": "CONDITIONALLY_COMPATIBLE — the kernel logic is sound and aligned with the new tower. All blockers are mechanical (path rebasing, module import rewiring) rather than architectural. Activation is NOT allowed until blockers are resolved."
+  },
+
+  "required_adapter_changes_before_activation": [
+    {
+      "id": "ADAPTER_01",
+      "priority": "BLOCKING",
+      "title": "Path rebase in 4 kernel sub-core files",
+      "files": ["identity_core.py", "continuity_core.py", "belief_core.py", "symbolic_core.py"],
+      "change": "Replace 'ROOT = Path(\"/vaults/nvme0/qsb_skyscraper\")' with a tower-relative path or injected config. Suggested: ROOT = Path(\"/vaults/nvme0/qsb_tower_v1/penthouse/kernel_installation_socket/active_kernel\")",
+      "effort": "LOW — 1-2 line change per file"
+    },
+    {
+      "id": "ADAPTER_02",
+      "priority": "BLOCKING",
+      "title": "Continuity check DB map rewrite",
+      "file": "continuity_core.py",
+      "change": "Replace checks for old memory/knowledge/missions/bus SQLite paths with tower equivalents: data/db/tower.sqlite, or new dedicated kernel state DBs under penthouse/",
+      "effort": "LOW-MEDIUM — update 4 path references in boot_check()"
+    },
+    {
+      "id": "ADAPTER_03",
+      "priority": "BLOCKING",
+      "title": "Import path rewiring",
+      "detail": "Change 'from kernel.X import Y' to 'from tower.kernel_package.X import Y' (or equivalent) so kernel sub-cores are importable from within the tower src layout",
+      "effort": "LOW — mechanical find-and-replace"
+    },
+    {
+      "id": "ADAPTER_04",
+      "priority": "HIGH",
+      "title": "Activation gate wrapper",
+      "detail": "Create a KernelActivationGate class that wraps QSBKernelCore instantiation and verifies kernel_installed=true, operator_approval=true, path_rebase_complete=true before allowing construction",
+      "effort": "MEDIUM — new module required"
+    },
+    {
+      "id": "ADAPTER_05",
+      "priority": "HIGH",
+      "title": "Reflection core dependency injection adapter",
+      "detail": "ReflectionCore requires memory, departments, missions, lifts, graph, beliefs, semantic as injected dependencies. Create tower-compatible adapter objects for each missing dependency (stub or real implementations)",
+      "effort": "MEDIUM-HIGH — requires mapping to tower floor modules"
+    },
+    {
+      "id": "ADAPTER_06",
+      "priority": "MEDIUM",
+      "title": "Semantic memory rewrite (defer until provider layer active)",
+      "detail": "SemanticMemoryCore in add_cognitive_kernel_47.py uses Ollama HTTP embeddings. Rewrite to use tower's local_model_operations layer when providers are active.",
+      "effort": "MEDIUM — defer until tower provider execution is enabled"
+    },
+    {
+      "id": "ADAPTER_07",
+      "priority": "LOW",
+      "title": "Lift system API translation",
+      "detail": "Old LiftSystem.emit(bus, source, target, event, payload) must map to new LiftNetwork.send(lift_id, source, target, payload). Different signature.",
+      "effort": "LOW — thin translation wrapper"
+    }
+  ],
+
+  "required_safety_gates_before_activation": [
+    {
+      "id": "GATE_01",
+      "gate": "kernel_installed_flag_set_true",
+      "description": "The kernel_installation_socket must be explicitly updated to kernel_installed=true by operator action. This flag transition is the primary activation gate.",
+      "current_state": "false (correct)"
+    },
+    {
+      "id": "GATE_02",
+      "gate": "path_rebase_complete_and_tested",
+      "description": "All 4 path-hardcoded files must be rebased and tested independently before kernel is instantiated.",
+      "current_state": "not started"
+    },
+    {
+      "id": "GATE_03",
+      "gate": "operator_approval_recorded",
+      "description": "Explicit operator decision to activate must be recorded in the penthouse socket manifest.",
+      "current_state": "not given"
+    },
+    {
+      "id": "GATE_04",
+      "gate": "security_spine_clearance",
+      "description": "Tower security spine must sign off on the activation.",
+      "current_state": "not evaluated for kernel activation"
+    },
+    {
+      "id": "GATE_05",
+      "gate": "penthouse_readiness_acceptance_pass",
+      "description": "penthouse_readiness.py acceptance must pass with zero critical failures after path rebase.",
+      "current_state": "currently passes (kernel not yet instantiated)"
+    },
+    {
+      "id": "GATE_06",
+      "gate": "rebased_kernel_unit_tests_pass",
+      "description": "A new test suite must exercise the rebased kernel sub-cores independently before full integration.",
+      "current_state": "not created"
+    },
+    {
+      "id": "GATE_07",
+      "gate": "no_provider_execution_during_activation",
+      "description": "provider_execution_enabled and model_inference_enabled must remain false during kernel activation. SemanticMemory stays disabled.",
+      "current_state": "correctly false"
+    }
+  ],
+
+  "activation_allowed": false,
+  "activation_allowed_reason": "Activation requires completing ADAPTER_01, ADAPTER_02, ADAPTER_03, ADAPTER_04, passing GATE_01 through GATE_06. None of these are complete.",
+
+  "next_recommended_phase": {
+    "phase": "DORMANT_KERNEL_PATH_REBASE",
+    "description": "Create rebased versions of the 4 path-hardcoded kernel files under a new location (e.g. penthouse/kernel_installation_socket/rebased_kernel/). Test each file independently in isolation without instantiating QSBKernelCore.",
+    "after_that": "ACTIVATION_GATE_WRAPPER_CREATION",
+    "then": "OPERATOR_APPROVAL_AND_ACTIVATION",
+    "timeline_note": "Do not skip phases. Each phase must pass before the next begins."
+  },
+
+  "current_tower_state_at_review_time": {
+    "kernel_installed": false,
+    "kernel_logic_present": true,
+    "dormant_kernel_imported": true,
+    "dormant_kernel_activation_enabled": false,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "model_inference_enabled": false,
+    "live_dispatch_enabled": false,
+    "forbidden_paths_absent": true,
+    "hash_verification": "ALL_MATCH",
+    "old_source_kernel_intact": true
+  }
+}

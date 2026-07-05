@@ -1,0 +1,14 @@
+{
+  "godot_ok": true,
+  "godot_version": "4.6.1.stable.mono.official.14d19694e",
+  "panda3d_ok": true,
+  "panda3d_version": "1.10.16",
+  "godot_project": "/vaults/nvme0/qsb_tower_v1/native_cockpit/godot_qsb",
+  "panda3d_venv": "/vaults/nvme0/qsb_tower_v1/native_cockpit/.venv_3d",
+  "pyqt_cockpit_role": "fallback_admin_only",
+  "target_main_graphics_engine": "Godot",
+  "fallback_graphics_engine": "Panda3D",
+  "live_trading_enabled": false,
+  "commerce_publish_enabled": false,
+  "money_spend_enabled": false
+}

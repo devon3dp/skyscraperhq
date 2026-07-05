@@ -1,0 +1,171 @@
+{
+  "ok": true,
+  "phase": "QSB_LIVE_SKYSCRAPER_COMMAND_CENTER_REBUILD_V1",
+  "kind": "qsb_command_center_audit",
+  "generated_ts": "2026-06-30T13:46:32.826551+00:00",
+  "dashboard_visual_mode": "LIVE_DATA_ONLY",
+  "policy": "NO_RANDOM_LIVE_GRAPHICS",
+  "audit_answers": {
+    "1_what_is_data_driven": [
+      "/api/unified.packets (real packet feed)",
+      "/api/unified.workers / /api/qsb_v2/canonical_workers / /api/dashboard/live_telemetry.workers",
+      "/api/eqsb/penthouse_panel (EQSB kernel introspection)",
+      "/api/qsb_v2/openclaw_state (OpenClaw flags + tickets)",
+      "/api/qsb_v2/open_paper_trades + /api/qsb_v2/trade_learning (paper trades + lessons)",
+      "Floor slabs + lift shafts (geometry from render_model)",
+      "OpenClaw avatar (V2 overlay; route advances on cadence tick)"
+    ],
+    "2_what_is_fake_or_random": [
+      "(All removed/gated in V3) \u2014 penthouse halo breathing remains deterministic decorative only."
+    ],
+    "3_worker_orbit_source": "src/dashboard/static/qsb_scene.js lines ~640-653 (REMOVED in V3 \u2014 anchored to deterministic slab positions).",
+    "4_random_packet_source": "src/dashboard/static/qsb_tower_2d.js arcAmp jitter (REPLACED with deterministic stable hash).",
+    "5_worker_count_mismatch_reason": "Before V2 there was no canonical worker registry. Each subsystem (recruitment, sandbox, OpenClaw, model lanes, coding department, agent slots, onboarding queue, etc.) kept its own slate of workers. The dashboard read a few of these (notably workers.json + recruitment), while the Kernel read others (mostly its symbolic graph). The two counts diverged because no module deduplicated across the source registries, and several modules reported different totals depending on which subset they queried. V2 consolidates every source under qsb_canonical_workers.json and publishes one reconciliation count.",
+    "6_patched_or_fragile_files": [
+      "src/dashboard/static/cockpit.js \u2014 large legacy controller (2559 LOC). Healthy but dense.",
+      "src/dashboard/static/qsb_floor_interior.js \u2014 random per-floor animations are gated but the layout is JSON-dump heavy."
+    ],
+    "7_refactor_or_rebuild": "REFACTOR. The 3D scene + V2/V3 overlay is structurally healthy; adding cards/panels and a Narrator is preferred over a full rewrite.",
+    "8_fix_first": [
+      "Wire Profit Command panel + endpoint",
+      "Replace floor interior JSON dump with cards + 'no live data' fallback",
+      "Add Workforce HR panel (scorecards, rewards, discipline, promotions)",
+      "Add Running Commentary button (browser SpeechSynthesis)",
+      "Add resilient try/catch around every fetch in cockpit.js"
+    ]
+  },
+  "checks": [
+    {
+      "check": "canonical_workers_present",
+      "ok": true,
+      "note": "qsb_canonical_workers.json total=1190"
+    },
+    {
+      "check": "live_telemetry_block_present",
+      "ok": true,
+      "note": "qsb_dashboard_live_telemetry.json present"
+    },
+    {
+      "check": "openclaw_state_active",
+      "ok": true,
+      "note": "qsb_openclaw_state.status=active"
+    },
+    {
+      "check": "paper_trades_lifecycle_works",
+      "ok": true,
+      "note": "open_trades=20"
+    },
+    {
+      "check": "realized_pnl_recorded",
+      "ok": true,
+      "note": "realized_pnl=2672.9312"
+    },
+    {
+      "check": "eqsb_kernel_introspection_present",
+      "ok": true,
+      "note": "eqsb_kernel_introspection_latest.json present"
+    },
+    {
+      "check": "dashboard_visual_audit_present",
+      "ok": true,
+      "note": "qsb_dashboard_visual_audit.json present"
+    }
+  ],
+  "counts": {
+    "canonical_workers": 1190,
+    "active_workers": 1190,
+    "newly_employed": 49,
+    "open_paper_trades": 20,
+    "max_open_trades": 20,
+    "realized_pnl": 2672.9312,
+    "closed_trade_count": 8,
+    "lesson_count": 8,
+    "openclaw_status": "active",
+    "openclaw_tickets": 3,
+    "eqsb_self_audit_verdict": "OK",
+    "visual_audit_random_or_decorative": 9,
+    "visual_audit_rebuilt_in_v3": 2
+  },
+  "random_visual_status": {
+    "worker_orbit_3d_disabled": "src/dashboard/static/qsb_scene.js \u2014 V3 anchors workers to deterministic floor-slab positions (no Math.cos/Math.sin orbit). REMOVED.",
+    "worker_pulse_2d_gated": "src/dashboard/static/qsb_tower_2d.js \u2014 pulse fires only when in_transit OR recent_event. GATED.",
+    "lift_capsule_3d_gated": "src/dashboard/static/qsb_scene.js \u2014 capsules park unless real lift_movement record. GATED.",
+    "lift_capsule_2d_gated": "src/dashboard/static/qsb_tower_2d.js \u2014 same gating. GATED.",
+    "packet_arc_jitter_deterministic": "src/dashboard/static/qsb_tower_2d.js \u2014 arcAmp now a stable hash of (ts, src, dst). DETERMINISTIC."
+  },
+  "frontend_file_inventory": [
+    {
+      "file": "src/dashboard/static/index.html",
+      "size_bytes": 15798,
+      "exists": true
+    },
+    {
+      "file": "src/dashboard/static/cockpit.css",
+      "size_bytes": 55168,
+      "exists": true
+    },
+    {
+      "file": "src/dashboard/static/cockpit.js",
+      "size_bytes": 222339,
+      "exists": true
+    },
+    {
+      "file": "src/dashboard/static/qsb_state.js",
+      "size_bytes": 10227,
+      "exists": true
+    },
+    {
+      "file": "src/dashboard/static/qsb_tower_2d.js",
+      "size_bytes": 41529,
+      "exists": true
+    },
+    {
+      "file": "src/dashboard/static/qsb_scene.js",
+      "size_bytes": 49580,
+      "exists": true
+    },
+    {
+      "file": "src/dashboard/static/qsb_floor_interior.js",
+      "size_bytes": 70947,
+      "exists": true
+    },
+    {
+      "file": "src/dashboard/static/qsb_windows.js",
+      "size_bytes": 10166,
+      "exists": true
+    },
+    {
+      "file": "src/dashboard/static/qsb_skyscraper_v2.js",
+      "size_bytes": 14484,
+      "exists": true
+    },
+    {
+      "file": "src/dashboard/static/qsb_v2_panel.js",
+      "size_bytes": 8745,
+      "exists": true
+    },
+    {
+      "file": "src/dashboard/static/qsb_skyscraper_v3.js",
+      "size_bytes": 20494,
+      "exists": true
+    },
+    {
+      "file": "src/dashboard/static/eqsb_penthouse.js",
+      "size_bytes": 13466,
+      "exists": true
+    }
+  ],
+  "audit_questions": [
+    "What is real data-driven?",
+    "What is fake/random?",
+    "Where is the worker orbit/band generated?",
+    "Where are random packets generated?",
+    "Why do worker counts mismatch?",
+    "Which frontend files are too patched or fragile?",
+    "Should the dashboard be refactored or rebuilt?",
+    "What must be fixed first?"
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "real_money_live_trading_enabled": false
+}

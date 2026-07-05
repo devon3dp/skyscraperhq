@@ -1,0 +1,36 @@
+{
+  "purpose": "Export QSB live state \u2192 JSON consumed by UE5",
+  "export_target": "/vaults/nvme0/qsb_unreal_skyscraper/Saved/QSB/qsb_live_snapshot.json",
+  "exports": [
+    "canonical_floor_count",
+    "all_floor_metadata (name, archetype, manager, worker count, status)",
+    "workers (id, floor, role, model)",
+    "departments",
+    "ledgers",
+    "PnL summaries per floor",
+    "lifts (positions, phase, current floor)",
+    "smoke tests results",
+    "model floors (Claude/GPT/DeepSeek state)",
+    "voice state",
+    "maintenance status",
+    "recreation/accommodation occupancy",
+    "latest events (F47 tail)"
+  ],
+  "refresh_cadence": "30s push when Unreal subscribed; on-demand otherwise",
+  "tools": [
+    "scripts/qsb_unreal_export_live_snapshot.py",
+    "scripts/qsb_unreal_data_bridge_status.sh"
+  ],
+  "_meta": {
+    "ts": "2026-06-21T15:07:34Z",
+    "phase": "QSB_UNREAL_PROFESSIONAL_SKYSCRAPER_HUD_DASHBOARD_DIRECTION_V2",
+    "signed_off_by": [
+      "claude_helm",
+      "wren_fast_qwen2.5:7b",
+      "wren_smart_qwen2.5:32b",
+      "deepseek_advisor",
+      "ross_boss_override"
+    ],
+    "produced_by": "tools/qsb_unreal_emit_artifacts.py"
+  }
+}

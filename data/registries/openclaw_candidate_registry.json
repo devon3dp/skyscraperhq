@@ -1,0 +1,133 @@
+[
+  {
+    "candidate_id": "openclaw_framework",
+    "name": "OpenClaw Framework",
+    "type": "external_worker_framework",
+    "source": "unknown_external_not_audited",
+    "target_floor": "floor_25",
+    "current_status": "candidate_only",
+    "allowed_initial_mode": "registry_placeholder_only",
+    "blocked_initial_actions": [
+      "install", "execute", "dispatch", "network_access",
+      "filesystem_write", "model_call", "autonomous_action",
+      "activate_worker", "connect_provider"
+    ],
+    "required_before_activation": [
+      "source_audit_complete",
+      "sandbox_approval",
+      "model_evaluation_approval",
+      "kernel_installed",
+      "security_spine_clearance",
+      "tower_operator_approval"
+    ],
+    "security_required": true,
+    "source_audit_required": true,
+    "sandbox_required": true,
+    "model_evaluation_required": true,
+    "kernel_required_before_execution": true,
+    "execution_enabled": false,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "model_inference_enabled": false,
+    "live_dispatch_enabled": false,
+    "notes": "OpenClaw is an external framework candidate. Not installed, not connected, not audited. Placeholder only."
+  },
+  {
+    "candidate_id": "openclaw_pixel_agent_v1",
+    "name": "OpenClaw Pixel Agent v1",
+    "type": "external_pixel_agent_candidate",
+    "source": "unknown_external_not_audited",
+    "target_floor": "floor_25",
+    "current_status": "candidate_only",
+    "allowed_initial_mode": "registry_placeholder_only",
+    "blocked_initial_actions": [
+      "install", "execute", "dispatch", "screen_capture",
+      "mouse_control", "keyboard_injection", "network_access",
+      "filesystem_write", "model_call", "autonomous_action"
+    ],
+    "required_before_activation": [
+      "source_audit_complete",
+      "sandbox_approval",
+      "model_evaluation_approval",
+      "kernel_installed",
+      "security_spine_clearance",
+      "pixel_agent_isolation_verified",
+      "tower_operator_approval"
+    ],
+    "security_required": true,
+    "source_audit_required": true,
+    "sandbox_required": true,
+    "model_evaluation_required": true,
+    "kernel_required_before_execution": true,
+    "execution_enabled": false,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "model_inference_enabled": false,
+    "live_dispatch_enabled": false,
+    "notes": "OpenClaw pixel agent candidate. Screen and input control must be isolated and audited before any use."
+  },
+  {
+    "candidate_id": "openclaw_pixel_agent_fast",
+    "name": "OpenClaw Pixel Agent Fast",
+    "type": "external_pixel_agent_candidate",
+    "source": "unknown_external_not_audited",
+    "target_floor": "floor_25",
+    "current_status": "candidate_only",
+    "allowed_initial_mode": "registry_placeholder_only",
+    "blocked_initial_actions": [
+      "install", "execute", "dispatch", "screen_capture",
+      "mouse_control", "keyboard_injection", "network_access",
+      "filesystem_write", "model_call", "autonomous_action"
+    ],
+    "required_before_activation": [
+      "source_audit_complete",
+      "sandbox_approval",
+      "model_evaluation_approval",
+      "kernel_installed",
+      "security_spine_clearance",
+      "pixel_agent_isolation_verified",
+      "tower_operator_approval"
+    ],
+    "security_required": true,
+    "source_audit_required": true,
+    "sandbox_required": true,
+    "model_evaluation_required": true,
+    "kernel_required_before_execution": true,
+    "execution_enabled": false,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "model_inference_enabled": false,
+    "live_dispatch_enabled": false,
+    "notes": "Fast-inference pixel agent variant. Candidate only. Same restrictions as v1."
+  },
+  {
+    "candidate_id": "openclaw_source_auditor",
+    "name": "OpenClaw Source Auditor",
+    "type": "external_audit_tool_candidate",
+    "source": "unknown_external_not_audited",
+    "target_floor": "floor_38",
+    "current_status": "candidate_only",
+    "allowed_initial_mode": "sandbox_read_only_candidate",
+    "blocked_initial_actions": [
+      "install", "execute", "write_files", "network_access",
+      "model_call", "autonomous_action"
+    ],
+    "required_before_activation": [
+      "source_audit_complete",
+      "sandbox_containment_verified",
+      "kernel_installed",
+      "tower_operator_approval"
+    ],
+    "security_required": true,
+    "source_audit_required": true,
+    "sandbox_required": true,
+    "model_evaluation_required": false,
+    "kernel_required_before_execution": true,
+    "execution_enabled": false,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "model_inference_enabled": false,
+    "live_dispatch_enabled": false,
+    "notes": "Audit tool candidate for reading OpenClaw source. Contained in Floor 38 sandbox envelope. Candidate only."
+  }
+]

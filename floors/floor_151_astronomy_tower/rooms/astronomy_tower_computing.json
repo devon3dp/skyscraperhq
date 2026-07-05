@@ -1,0 +1,34 @@
+{
+  "room_id": "astronomy_tower_computing",
+  "name": "Computing Room",
+  "category": "operations",
+  "purpose": "Processes and analyzes astronomical data.",
+  "concierge_blurb": "Data is processed here for scientific analysis.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -3.5,
+    "offset_z": 0.0,
+    "footprint_m": [
+      6,
+      4
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "server_rack",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Computing",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/astronomy_data.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_151"
+}

@@ -1,0 +1,34 @@
+{
+  "room_id": "kitchen",
+  "name": "Kitchen",
+  "category": "kitchen",
+  "purpose": "A space for preparing refreshments.",
+  "concierge_blurb": "Freshly brewed coffee and snacks await your break.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 7.5,
+    "offset_z": 0.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 1.3
+  },
+  "render": {
+    "primary_prop": "kitchen_line",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "KITCHEN",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 0
+  },
+  "floor": "floor_59"
+}

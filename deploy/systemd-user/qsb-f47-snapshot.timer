@@ -1,0 +1,11 @@
+[Unit]
+Description=Run F47 snapshot once per day
+
+[Timer]
+OnBootSec=10min
+OnCalendar=daily
+Unit=qsb-f47-snapshot.service
+Persistent=true
+
+[Install]
+WantedBy=timers.target

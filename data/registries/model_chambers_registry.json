@@ -1,0 +1,49 @@
+{
+  "registry": "model_chambers_registry_v1",
+  "phase": "AIRLLM_BIG_MODEL_CHAMBER_REGISTRY_V1",
+  "registered_ts": "2026-06-08T10:30:00Z",
+  "description": "Index of installed Big Model Chambers external to the QSB Tower fast cockpit/kernel/AutoLoop system. Chambers are advisory only and must not be wired into execution paths.",
+  "advisory_only_default": true,
+  "execution_allowed_default": false,
+  "chambers": [
+    {
+      "chamber_id": "airllm_big_model_chamber_v1",
+      "chamber_name": "AirLLM Big Model Chamber",
+      "status": "installed_and_smoke_tested",
+      "path": "/vaults/ai/airllm_lab",
+      "venv_path": "/vaults/ai/airllm_lab/.venv",
+      "env_file": "/vaults/ai/airllm_env.sh",
+      "storage_mount": "/vaults/ai",
+      "backing_device": "/dev/nvme2n1p1",
+      "gpu_name": "NVIDIA GeForce RTX 5070 Ti",
+      "cuda_available": true,
+      "home_floor": "floor_23",
+      "home_department": "AIR LLM Operations Department",
+      "interaction_mode": "advisory_manual_only",
+      "advisory_only": true,
+      "execution_allowed": false,
+      "trading_allowed": false,
+      "autoloop_allowed": false,
+      "openclaw_execution_allowed": false,
+      "provider_execution_allowed": false,
+      "direct_provider_access": false,
+      "registry_file": "data/registries/airllm_big_model_chamber.json",
+      "storage_status_file": "data/registries/airllm_storage_status.json"
+    }
+  ],
+  "locks": {
+    "live_trading_enabled": false,
+    "order_execution_enabled": false,
+    "practice_order_execution_enabled": false,
+    "binance_order_execution_enabled": false,
+    "binance_live_trading_enabled": false,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "external_provider_execution_enabled": false,
+    "openclaw_execution_enabled": false,
+    "openclaw_real_tool_execution_enabled": false,
+    "autonomous_dispatch_enabled": false,
+    "live_dispatch_enabled": false,
+    "direct_provider_access": false
+  }
+}

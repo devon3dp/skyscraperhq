@@ -1,0 +1,73 @@
+{
+  "floor_id": "floor_0",
+  "floor_number": 0,
+  "floor_name": "Reception Lobby",
+  "department": "F0 Reception",
+  "zone": "lobby",
+  "archetype": "reception",
+  "staff_lead": "Iris",
+  "tour_blurb": "Welcome to the Tower. Iris keeps the lobby \u2014 she greets every visitor, signs them in, and routes them to the right lift. If you have a question and you're not sure where it belongs, start here. Iris will hand you off to the floor that owns the answer.",
+  "visitor_open": true,
+  "advisory_only": true,
+  "endpoints": [
+    "/api/f0/greet",
+    "/api/f0/converse",
+    "/api/f0/close"
+  ],
+  "live_signals": {
+    "iris_greeting_sample": "Welcome to Skyscraper HQ run by AI. My name's Iris, the front-desk receptionist on Floor Zero. How can I help you today?",
+    "endpoints_healthy": [
+      {
+        "endpoint": "/api/f0/greet",
+        "status_code": 200
+      },
+      {
+        "endpoint": "/api/f0/converse",
+        "status_code": 200
+      },
+      {
+        "endpoint": "/api/f0/close",
+        "status_code": 200
+      }
+    ]
+  },
+  "evidence_paths": [
+    "data/registries/floors.json",
+    "data/registries/qsb_open_day_tour.json"
+  ],
+  "built_at": "2026-06-14T17:35:00Z",
+  "built_by": "skyscraper_floor_card_push",
+  "lessons_learned_for_next_agent": "F0 /api/f0/converse requires a 'text' field in the JSON body \u2014 calling it with only caller_id returns 400, which is a schema failure, not an unhealthy endpoint. Always probe live with the documented payload shape before declaring an endpoint down.",
+  "team_roster": [
+    {
+      "id": "f000.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "promoted_from": "sim_worker_floor_36",
+      "promoted_from_floor": "expansion_planning_department",
+      "promotion_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F000",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f000.operator.01",
+      "promoted_from": "sim_worker_floor_37",
+      "promoted_from_floor": "simulation_labs"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F000",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f000.operator.02",
+      "promoted_from": "sim_worker_floor_38",
+      "promoted_from_floor": "sandbox_operations"
+    }
+  ],
+  "floor_manager": "f000.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

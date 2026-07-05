@@ -1,0 +1,34 @@
+{
+  "room_id": "etsy_kiosk",
+  "name": "Etsy Kiosk",
+  "category": "display",
+  "purpose": "To showcase and sell unique items from Etsy sellers.",
+  "concierge_blurb": "Explore curated selections of handcrafted goods and artisanal products.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      8,
+      4
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "display",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Etsy Kiosk",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": null,
+    "refresh_seconds": 600
+  },
+  "floor": "floor_6"
+}

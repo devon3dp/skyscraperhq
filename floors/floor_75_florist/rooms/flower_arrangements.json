@@ -1,0 +1,34 @@
+{
+  "room_id": "flower_arrangements",
+  "name": "Flower Arrangements Workshop",
+  "category": "workshop",
+  "purpose": "Creating custom floral arrangements for clients.",
+  "concierge_blurb": "Witness the art of flower arrangement in action.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -8.0,
+    "offset_z": 3.5,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 1.5
+  },
+  "render": {
+    "primary_prop": "garden_bed",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Flower Bed",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 0
+  },
+  "floor": "floor_75"
+}

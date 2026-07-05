@@ -1,0 +1,31 @@
+{
+  "room_id": "conference_room_26",
+  "name": "Conference Room",
+  "category": "operations",
+  "purpose": "Hosting meetings and presentations.",
+  "concierge_blurb": "Witness the collaborative spirit of our conference room.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.2,
+    "offset_z": -1.8,
+    "footprint_m": [
+      10,
+      6
+    ],
+    "height_m": 2.2
+  },
+  "render": {
+    "primary_prop": "chair_set",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Conference Room",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_26"
+}

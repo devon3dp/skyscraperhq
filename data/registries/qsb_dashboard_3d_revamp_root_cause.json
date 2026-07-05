@@ -1,0 +1,35 @@
+{
+  "ok": true,
+  "phase": "QSB_DASHBOARD_3D_TOTAL_REVAMP_WORKERS_OPENCLAW_V1",
+  "kind": "qsb_dashboard_3d_revamp_root_cause",
+  "generated_ts": "2026-06-30T13:46:34.869726+00:00",
+  "headline": "Visual continuity: the underlying SVG tower + lift capsules + starfield (qsb_tower_2d.js) and Babylon scene (qsb_scene.js) were V2-era and kept their look across phases. Add-on layers (V3 overlay, V2 badges) painted *on top* of them but didn't transform the visual hierarchy. The user perceives the tower as 'unchanged' because the primary slabs/labels stayed.",
+  "answers": {
+    "why_3d_didnt_visibly_upgrade": "qsb_tower_2d.js + qsb_scene.js are the primary renderers. Their 53-floor slab geometry, label style, and lift capsule loop are pre-V3. Overlays added badges + a tinted halo but didn't reshape the dominant visuals.",
+    "old_patched_files": [
+      "src/dashboard/static/qsb_tower_2d.js",
+      "src/dashboard/static/qsb_scene.js",
+      "src/dashboard/static/cockpit.js"
+    ],
+    "why_workers_still_hidden_or_repeated": "Default view = 'selected_floor_and_groups' renders 0 workers when no floor is clicked. When a floor IS clicked, qsb_rebuild_workers.js paints a 6-column grid of 2px dots \u2014 visually those dots look like uniform loops, not people. There is no in-stage panel that shows individual worker rows with role + task.",
+    "why_counts_only_perception": "Even after we changed the default mode, the visual FEEDBACK to the operator was still tiny dots inside the tower slab \u2014 perceived as 'counts' or 'dots' rather than an interior panel that shows workers as named rows with tasks.",
+    "why_totals_inconsistent": "Three reconciliations coexist: legacy /api/unified.workers (now 64), tower_ops directory (170), and V1 canonical (1,191). The header labels them but the visual prominence of '64 visible' confuses operators.",
+    "which_function_renders_workers": "src/dashboard/static/qsb_tower_2d.js::refreshWorkers + qsb_scene.js::refreshWorkers + qsb_rebuild_workers.js::paintInterior.",
+    "which_function_renders_floor_interiors": "qsb_floor_interior.js (SVG room SVG inside floor window) + cockpit.js::openFloorWindow + qsb_rebuild_workers.js (in-slab dots).",
+    "which_function_renders_openclaw": "qsb_skyscraper_v2.js (SVG avatar) + qsb_scene.js OpenClaw mesh (added last phase). No fixed-position cockpit card.",
+    "which_source_feeds_each_visual": {
+      "tower_2d_workers": "/api/unified.workers[]",
+      "tower_2d_packets": "/api/unified.packets[]",
+      "tower_2d_lifts": "qsb_tower_2d.js capsule constants",
+      "openclaw_avatar": "qsb_dashboard_live_telemetry.openclaw_route.current_floor",
+      "interior_room_workers": "/api/workforce/room_assignments",
+      "active_tasks": "/api/tasks/active"
+    }
+  },
+  "fix_applied_in_this_phase": "Built /static/qsb_3d_app.js + 6 sibling modules + qsb_3d_dashboard.css that overlay a CLEAR rebuilt cockpit: (a) per-floor activity badge bar on the left of the SVG with (class \u00b7 task \u00b7 ticket counts), (b) full-width selected floor interior PANEL on the left rail showing real workers as named rows with role/room/task, (c) OpenClaw supervisor card pinned bottom-right showing route + tickets, (d) telemetry truth overlay top-left explaining 'X canonical \u00b7 Y rendered \u00b7 Z active \u00b7 W moving \u00b7 V training' with reasons. Visual transformation is additive (we did NOT rip out the SVG/Babylon renderer; backups exist if rollback is needed).",
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

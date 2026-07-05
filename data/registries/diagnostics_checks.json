@@ -1,0 +1,140 @@
+[
+  {
+    "id": "module_registry",
+    "category": "imports",
+    "target": "tower.registry",
+    "severity": "critical"
+  },
+  {
+    "id": "module_database",
+    "category": "imports",
+    "target": "tower.database",
+    "severity": "critical"
+  },
+  {
+    "id": "module_lifts",
+    "category": "imports",
+    "target": "tower.lifts",
+    "severity": "critical"
+  },
+  {
+    "id": "module_model_infrastructure",
+    "category": "imports",
+    "target": "tower.model_infrastructure",
+    "severity": "critical"
+  },
+  {
+    "id": "module_coding_department",
+    "category": "imports",
+    "target": "tower.coding_department",
+    "severity": "critical"
+  },
+  {
+    "id": "module_adapter_systems",
+    "category": "imports",
+    "target": "tower.adapter_systems",
+    "severity": "critical"
+  },
+  {
+    "id": "module_integration_services",
+    "category": "imports",
+    "target": "tower.integration_services",
+    "severity": "critical"
+  },
+  {
+    "id": "module_model_routing",
+    "category": "imports",
+    "target": "tower.model_routing_department",
+    "severity": "critical"
+  },
+  {
+    "id": "module_local_models",
+    "category": "imports",
+    "target": "tower.local_model_operations",
+    "severity": "critical"
+  },
+  {
+    "id": "module_air_llm",
+    "category": "imports",
+    "target": "tower.air_llm_operations",
+    "severity": "critical"
+  },
+  {
+    "id": "registry_provider_sockets",
+    "category": "registries",
+    "target": "data/registries/provider_sockets.json",
+    "severity": "critical"
+  },
+  {
+    "id": "registry_model_paths",
+    "category": "registries",
+    "target": "data/registries/model_request_paths.json",
+    "severity": "critical"
+  },
+  {
+    "id": "registry_adapter_sockets",
+    "category": "registries",
+    "target": "data/registries/adapter_sockets.json",
+    "severity": "critical"
+  },
+  {
+    "id": "registry_integration_map",
+    "category": "registries",
+    "target": "data/registries/integration_service_map.json",
+    "severity": "critical"
+  },
+  {
+    "id": "registry_local_roles",
+    "category": "registries",
+    "target": "data/registries/local_model_roles.json",
+    "severity": "warning"
+  },
+  {
+    "id": "registry_external_providers",
+    "category": "registries",
+    "target": "data/registries/external_provider_capabilities.json",
+    "severity": "warning"
+  },
+  {
+    "id": "manifest_floor_05",
+    "category": "floor_manifests",
+    "target": "floors/floor_05_coding_department/floor_manifest.json",
+    "severity": "critical"
+  },
+  {
+    "id": "manifest_floor_21",
+    "category": "floor_manifests",
+    "target": "floors/floor_21_adapter_systems_department/floor_manifest.json",
+    "severity": "critical"
+  },
+  {
+    "id": "manifest_floor_22",
+    "category": "floor_manifests",
+    "target": "floors/floor_22_integration_services_department/floor_manifest.json",
+    "severity": "critical"
+  },
+  {
+    "id": "manifest_floor_23",
+    "category": "floor_manifests",
+    "target": "floors/floor_23_air_llm_operations_department/floor_manifest.json",
+    "severity": "critical"
+  },
+  {
+    "id": "manifest_floor_24",
+    "category": "floor_manifests",
+    "target": "floors/floor_24_model_routing_department/floor_manifest.json",
+    "severity": "critical"
+  },
+  {
+    "id": "manifest_floor_27",
+    "category": "floor_manifests",
+    "target": "floors/floor_27_local_model_operations_department/floor_manifest.json",
+    "severity": "critical"
+  },
+  {
+    "id": "manifest_floor_33",
+    "category": "floor_manifests",
+    "target": "floors/floor_33_diagnostics_department/floor_manifest.json",
+    "severity": "critical"
+  }
+]

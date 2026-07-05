@@ -1,0 +1,42 @@
+[
+  {
+    "id": "no_kernel_logic_before_installation",
+    "floor": "floor_29",
+    "rule": "Kernel files must not exist before official QSB Kernel 4.5 installation.",
+    "severity": "critical",
+    "status": "active_readiness_rule",
+    "enforcement_enabled": false
+  },
+  {
+    "id": "no_provider_execution",
+    "floor": "floor_29",
+    "rule": "External provider execution remains disabled.",
+    "severity": "critical",
+    "status": "active_readiness_rule",
+    "enforcement_enabled": false
+  },
+  {
+    "id": "no_model_execution_required",
+    "floor": "floor_29",
+    "rule": "The building must run without local or external models.",
+    "severity": "critical",
+    "status": "active_readiness_rule",
+    "enforcement_enabled": false
+  },
+  {
+    "id": "sealed_packet_integrity",
+    "floor": "floor_29",
+    "rule": "Inter-floor communication must travel through lifts as sealed packets.",
+    "severity": "critical",
+    "status": "active_readiness_rule",
+    "enforcement_enabled": false
+  },
+  {
+    "id": "emergency_stairwell_available",
+    "floor": "floor_29",
+    "rule": "Emergency Stairwell must remain available from Penthouse to Basement.",
+    "severity": "critical",
+    "status": "active_readiness_rule",
+    "enforcement_enabled": false
+  }
+]

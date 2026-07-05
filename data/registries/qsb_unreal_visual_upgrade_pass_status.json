@@ -1,0 +1,18 @@
+{
+  "ts": "2026-06-28T14:32:17Z",
+  "canonical_floor_count": 169,
+  "layers": {
+    "L1_SkyTowers": 0,
+    "L2_LiftShafts": 0,
+    "L3_Crown": 0,
+    "L4_PlazaColumns": 0,
+    "L5_SkyLights": 0
+  },
+  "total_added_attempts": 0,
+  "tower_top_z_cm": 5055.0,
+  "notes": [
+    "All names stable (VU_*) \u2014 re-running this pass adds only what failed before",
+    "Materials not applied (plugin limit). Run UE Python to assign Materials when assets exist",
+    "Lighting rebuild still required: Build > Build Lighting Only inside the editor"
+  ]
+}

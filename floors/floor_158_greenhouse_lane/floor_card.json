@@ -1,0 +1,70 @@
+{
+  "floor_id": "floor_158",
+  "floor_number": 158,
+  "floor_name": "Greenhouse Lane",
+  "department": "public_dropship_storefront_v1",
+  "zone": "ZONE F \u00b7 CROWN",
+  "archetype": "public_dropship_storefront_v1",
+  "staff_lead": "F66 Architects' Office",
+  "tour_blurb": "Greenhouse Lane \u2014 grow on.",
+  "visitor_open": false,
+  "advisory_only": true,
+  "execution_mode": "PREVIEW_ONLY",
+  "skeleton": true,
+  "skeleton_source": "floor_manifest.json",
+  "skeleton_generated_ts": "2026-06-17",
+  "live_signals": {
+    "theme": "garden_and_plant",
+    "categories": [
+      "planters",
+      "tools",
+      "seeds",
+      "hydroponic",
+      "accessories"
+    ],
+    "palette": "terracotta / leaf / cream",
+    "tagline": "Greenhouse Lane \u2014 grow on."
+  },
+  "gate_posture": {
+    "advisory_only": true,
+    "execution_allowed": false,
+    "live_payments_enabled": false
+  },
+  "team_roster": [
+    {
+      "id": "f158.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "spawned_id": "4e5a9ae0df",
+      "spawned_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F158",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f158.operator.01",
+      "spawned_id": "7c49dd4c1c"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F158",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f158.operator.02",
+      "spawned_id": "6285cfc37a"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F158",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f158.operator.03",
+      "spawned_id": "499be0e13e"
+    }
+  ],
+  "floor_manager": "f158.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

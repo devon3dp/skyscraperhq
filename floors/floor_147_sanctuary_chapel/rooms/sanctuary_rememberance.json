@@ -1,0 +1,34 @@
+{
+  "room_id": "sanctuary_rememberance",
+  "name": "Memorial Garden",
+  "category": "garden_bed",
+  "purpose": "A tranquil garden dedicated to those remembered in the sanctuary.",
+  "concierge_blurb": "A serene outdoor area with benches and a small memorial statue.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      12.0,
+      8.0
+    ],
+    "height_m": 0.5
+  },
+  "render": {
+    "primary_prop": "garden_bed",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Memorial Garden",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_147"
+}

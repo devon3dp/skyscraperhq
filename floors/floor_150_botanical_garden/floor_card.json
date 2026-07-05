@@ -1,0 +1,72 @@
+{
+  "floor_id": "floor_150",
+  "floor_number": 150,
+  "floor_name": "Botanical Garden",
+  "department": "designed_by_f66_architects_v1",
+  "zone": "ZONE F \u00b7 CROWN",
+  "archetype": "designed_by_f66_architects_v1",
+  "staff_lead": "F66 Architects' Office",
+  "tour_blurb": "plants + greenhouse + grounds",
+  "visitor_open": false,
+  "advisory_only": true,
+  "execution_mode": "PREVIEW_ONLY",
+  "skeleton": true,
+  "skeleton_source": "floor_manifest.json",
+  "skeleton_generated_ts": "2026-06-17",
+  "live_signals": {
+    "theme": null,
+    "categories": null,
+    "palette": null,
+    "tagline": null
+  },
+  "gate_posture": {
+    "advisory_only": true,
+    "execution_allowed": false,
+    "live_payments_enabled": false
+  },
+  "team_roster": [
+    {
+      "id": "f150.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "spawned_id": "b6847ceab9",
+      "spawned_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F150",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f150.operator.01",
+      "spawned_id": "143ce6d6ef"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F150",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f150.operator.02",
+      "spawned_id": "43e021786c"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F150",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f150.operator.03",
+      "spawned_id": "e719719e60"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F150",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f150.operator.04",
+      "spawned_id": "cdc578e3ad"
+    }
+  ],
+  "floor_manager": "f150.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

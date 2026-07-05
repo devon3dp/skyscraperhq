@@ -1,0 +1,34 @@
+{
+  "room_id": "conference_seminar",
+  "name": "Seminar Room",
+  "category": "seating",
+  "purpose": "Hosts seminars and conferences.",
+  "concierge_blurb": "Attend a marine science seminar or conference.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "right_wall",
+    "offset_x": 7.0,
+    "offset_z": -3.5,
+    "footprint_m": [
+      8.0,
+      6.0
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "chair_set",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Seminar Room",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_135"
+}

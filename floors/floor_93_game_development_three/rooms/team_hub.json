@@ -1,0 +1,31 @@
+{
+  "room_id": "team_hub",
+  "name": "Team Hub",
+  "category": "reception",
+  "purpose": "This hub is for team meetings and casual discussions.",
+  "concierge_blurb": "Drop by to meet the developers working on your favorite games!",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "center",
+    "offset_x": 0.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      12,
+      8
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "seating",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Team Hub",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_93"
+}

@@ -1,0 +1,39 @@
+{
+  "ok": true,
+  "kind": "qsb_godot_professional_visual_style_guide",
+  "phase": "QSB_GODOT_PROFESSIONAL_COCKPIT_VISUAL_UPGRADE_AFTER_FIRST_LAUNCH_V1",
+  "generated_ts": "2026-06-09T16:25:51+00:00",
+  "runtime_constraint": "gl_compatibility renderer (software fallback) \u2014 no PBR/SSAO/glow in V1",
+  "palette": {
+    "background": "#020308",
+    "panel_bg": "rgba(2,6,18,0.92)",
+    "accent_cyan": "#7dd8ff",
+    "accent_amber": "#ffd886",
+    "accent_lime": "#5bff9c",
+    "accent_purple": "#d8b4ff",
+    "accent_pink": "#ff8aa0 (locked OFF)",
+    "title_font_size_px": 13,
+    "panel_font_size_px": 11
+  },
+  "layout": {
+    "top_command_bar_height_px": 44,
+    "right_inspector_width_px": 400,
+    "right_inspector_offset_top_px": 50,
+    "bottom_safety_banner_color": "#ff8aa0",
+    "hud_top_left_offset": "(18,18)"
+  },
+  "rules": [
+    "title bar above the 3D scene \u2014 single line, single title",
+    "right inspector docked top-right with floor inspector + kernel chat + event ticker",
+    "no large empty placeholder labels",
+    "every button does something or is explicitly disabled",
+    "telemetry pulls fall back gracefully (static fallback marked _source=fallback)"
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "live_payments_enabled": false,
+  "live_listings_publishing_enabled": false
+}

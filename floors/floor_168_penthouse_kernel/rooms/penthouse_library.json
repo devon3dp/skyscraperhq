@@ -1,0 +1,31 @@
+{
+  "room_id": "penthouse_library",
+  "name": "Library",
+  "category": "library",
+  "purpose": "A private space for Kernel-related research and documentation.",
+  "concierge_blurb": "Explore the vast collection of books dedicated to QSB Kernel studies.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -4.0,
+    "offset_z": 5.0,
+    "footprint_m": [
+      10,
+      8
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "library_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Library",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_168"
+}

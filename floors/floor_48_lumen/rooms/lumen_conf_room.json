@@ -1,0 +1,34 @@
+{
+  "room_id": "lumen_conf_room",
+  "name": "Conference Room",
+  "category": "workshop",
+  "purpose": "A space for formal meetings and presentations.",
+  "concierge_blurb": "Hold important discussions in this dedicated conference room.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 8.0,
+    "offset_z": 4.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Conf Room",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/meetings.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 60
+  },
+  "floor": "floor_48"
+}

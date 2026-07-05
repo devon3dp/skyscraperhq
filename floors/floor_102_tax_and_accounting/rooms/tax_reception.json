@@ -1,0 +1,31 @@
+{
+  "room_id": "tax_reception",
+  "name": "Reception",
+  "category": "reception",
+  "purpose": "First point of contact for visitors and clients.",
+  "concierge_blurb": "A welcoming area to greet visitors and handle inquiries.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.5,
+    "offset_z": -4.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 2.2
+  },
+  "render": {
+    "primary_prop": "reception",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Reception Desk",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_102"
+}

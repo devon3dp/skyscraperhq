@@ -1,0 +1,34 @@
+{
+  "room_id": "risk_modeling_room",
+  "name": "Risk Modeling Room",
+  "category": "trading",
+  "purpose": "A room where models are created and tested for risk assessment.",
+  "concierge_blurb": "Rows of monitors displaying complex financial data.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "left_wall",
+    "offset_x": -6.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      4,
+      12
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "trading_desk",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Risk Models",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": null,
+    "refresh_seconds": 600
+  },
+  "floor": "floor_12"
+}

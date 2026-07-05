@@ -1,0 +1,11 @@
+[Unit]
+Description=Run QSB team sync every 30 min (Wren+Hermes rhythm)
+
+[Timer]
+OnBootSec=5min
+OnUnitActiveSec=30min
+Unit=qsb-team-sync.service
+Persistent=true
+
+[Install]
+WantedBy=timers.target

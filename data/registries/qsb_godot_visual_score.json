@@ -1,0 +1,27 @@
+{
+  "ok": true,
+  "kind": "qsb_godot_visual_score",
+  "phase": "QSB_GODOT_REAL_3D_ENGINE_BUILD_AFTER_INSTALLER_V1",
+  "generated_ts": "2026-06-09T15:41:41+00:00",
+  "passed": 27,
+  "total": 27,
+  "visual_score": 100.0,
+  "failed_gates": [],
+  "automated_visual_check_score": 100.0,
+  "automated_visual_check_pass": "32/32",
+  "engine_target": "Godot 4.6.1.stable.mono.official.14d19694e",
+  "engine_fallback": "Panda3D 1.10.16",
+  "pyqt_role": "fallback_admin_only",
+  "honest_caveats": [
+    "Godot scenes for Tower/Floor/Worker/Lift/OpenClaw/HUD/Penthouse/CommerceWing are minimal scaffolds \u2014 the actual tower is BUILT AT RUNTIME by TowerRenderer.gd / LiftRenderer.gd / etc instantiating real 3D meshes. This is the standard Godot pattern (script-driven scene composition).",
+    "Headless parse succeeded but does NOT prove the window opens \u2014 that requires a real display. The user must run ./scripts/qsb_godot_run.sh to confirm pixels.",
+    "Floor interior detail (Penthouse rooms, OANDA trade desks, Binance order desks) is rendered via the HUDController RichTextLabel selected-floor panel in V1. Per-room 3D interiors are scaffolded \u2014 to be filled in V2."
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "live_payments_enabled": false,
+  "live_listings_publishing_enabled": false
+}

@@ -1,0 +1,44 @@
+{
+  "room_id": "morning_briefing_podium",
+  "name": "Morning Briefing Podium",
+  "category": "ceremony",
+  "floor": "floor_47",
+  "purpose": "this room is where Wren stands each morning and tells the fleet what the day is for.",
+  "concierge_blurb": "Each morning Wren stands here and tells the fleet what the day is for. Guests are welcome to listen.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [
+    "src/tower/model_floors/claude_floor/morning_briefing.py",
+    "data/registries/qsb_open_day_morning_briefing.md"
+  ],
+  "live_signals": {
+    "generator_path": "src/tower/model_floors/claude_floor/morning_briefing.py",
+    "last_briefing_path": "data/registries/qsb_open_day_morning_briefing.md",
+    "last_briefing_ts": "2026-06-14T17:10:00Z",
+    "last_briefing_excerpt": "# Open Day \u2014 Morning Briefing\n\n## 1. Status at a glance\n{N} of 7 surfaces green; cloudflared dark; sentinels armed; heartbeat PID {HEARTBEAT_PID}; F47 bench gate enabled; F41 kill-switch armed.\n\n## 2."
+  },
+  "built_at": "2026-06-14T17:10:00Z",
+  "built_by": "f47_floor_buildout_batch_4",
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": 3.0,
+    "footprint_m": [
+      4.0,
+      3.0
+    ],
+    "height_m": 0.4
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "MORNING BRIEFING DAIS",
+    "glow": false
+  },
+  "interactive": {
+    "type": "tail",
+    "source_path": "data/registries/qsb_session_diary.md",
+    "display": "scrolling_list",
+    "refresh_seconds": 60
+  }
+}

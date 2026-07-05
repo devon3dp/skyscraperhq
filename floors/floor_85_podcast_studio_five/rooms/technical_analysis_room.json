@@ -1,0 +1,34 @@
+{
+  "room_id": "technical_analysis_room",
+  "name": "Technical Analysis Room",
+  "category": "operations",
+  "purpose": "Analyzes technical data for podcast episodes.",
+  "concierge_blurb": "Where data meets storytelling.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 5.0,
+    "offset_z": -4.0,
+    "footprint_m": [
+      8,
+      6
+    ],
+    "height_m": 1.5
+  },
+  "render": {
+    "primary_prop": "desk",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Tech Analysis",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/data_analysis.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_85"
+}

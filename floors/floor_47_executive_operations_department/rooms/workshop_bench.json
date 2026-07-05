@@ -1,0 +1,46 @@
+{
+  "room_id": "workshop_bench",
+  "name": "Workshop Bench",
+  "category": "workshop",
+  "floor": "floor_47",
+  "purpose": "this room is for Wren's F47 crew to draft and stage code proposals before sandbox.",
+  "concierge_blurb": "The Workshop Bench is where Wren's crew turn ideas into patch proposals. Every change passes through here before it can be signed or applied.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [
+    "data/registries/qsb_code_proposals.jsonl",
+    "tools/qsb_proposal_sandbox.py",
+    "CLAUDE.md#2026-06-13"
+  ],
+  "live_signals": {
+    "current_open_proposals": 0,
+    "total_proposals_logged": 69,
+    "proposals_source": "data/registries/qsb_code_proposals.jsonl",
+    "last_proposal_id": "audit-2026-06-14T16:43:40.537179Z-shop_catalog_gaps-653029",
+    "last_proposal_ts": "2026-06-14T16:43:40.537194Z"
+  },
+  "built_at": "2026-06-14T17:10:00Z",
+  "built_by": "f47_floor_buildout_batch_1",
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -3.0,
+    "offset_z": -8.0,
+    "footprint_m": [
+      4.0,
+      1.2
+    ],
+    "height_m": 0.9
+  },
+  "render": {
+    "primary_prop": "bench",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "WORKSHOP BENCH",
+    "glow": false
+  },
+  "interactive": {
+    "type": "tail",
+    "source_path": "data/registries/qsb_code_proposals.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 120
+  }
+}

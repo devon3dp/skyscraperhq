@@ -1,0 +1,31 @@
+{
+  "room_id": "secure_archives",
+  "name": "Secure Archives",
+  "category": "audit",
+  "purpose": "This room houses confidential documents and records.",
+  "concierge_blurb": "Enter the Secure Archives for sensitive document storage.",
+  "current_state": "already_exists",
+  "visitor_open": false,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_wall",
+    "offset_x": 0.0,
+    "offset_z": -6.0,
+    "footprint_m": [
+      12,
+      8
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "archive_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Archives",
+    "glow": true
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_51"
+}

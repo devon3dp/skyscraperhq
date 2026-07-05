@@ -1,0 +1,34 @@
+{
+  "room_id": "front_left",
+  "name": "Simulation Training Room",
+  "category": "training",
+  "purpose": "Educational space for training simulations.",
+  "concierge_blurb": "Learn the skills needed to run simulations.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -3.0,
+    "offset_z": 4.5,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 2.2
+  },
+  "render": {
+    "primary_prop": "display",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Training Display",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_37"
+}

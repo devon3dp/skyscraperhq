@@ -1,0 +1,89 @@
+{
+  "schema_version": "eqsb_v1.0",
+  "generated_ts": "2026-06-09T08:56:44.943204+00:00",
+  "kind": "eqsb_existing_capabilities_map",
+  "active_local_only": true,
+  "advisory_only": true,
+  "execution_allowed": false,
+  "paper_only": true,
+  "not_financial_advice": true,
+  "worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "external_provider_execution_enabled": false,
+  "openclaw_execution_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "live_dispatch_enabled": false,
+  "direct_provider_access": false,
+  "live_trading_enabled": false,
+  "order_execution_enabled": false,
+  "practice_order_execution_enabled": false,
+  "stock_order_execution_enabled": false,
+  "stock_live_trading_enabled": false,
+  "stock_paper_order_execution_enabled": false,
+  "binance_order_execution_enabled": false,
+  "binance_live_trading_enabled": false,
+  "capabilities": {
+    "symbolic_logic": {
+      "present": true,
+      "modules": [
+        "penthouse/kernel_installation_socket/rebased_kernel/kernel/symbolic_core.py",
+        "penthouse/kernel_installation_socket/rebased_kernel/kernel/axiom_core.py"
+      ],
+      "concept_count_seed": 14,
+      "supports_observe_and_analyze": true
+    },
+    "belief_database": {
+      "present": true,
+      "db_path": "penthouse/kernel_installation_socket/rebased_kernel/state/beliefs.sqlite",
+      "states_supported": [
+        "PROVISIONAL",
+        "ACTIVE",
+        "STRENGTHENED",
+        "DEPRECATED",
+        "RETIRED"
+      ],
+      "supports_evidence_count": true,
+      "supports_seed_beliefs": true
+    },
+    "memory_continuity": {
+      "present": true,
+      "module": "penthouse/kernel_installation_socket/rebased_kernel/kernel/continuity_core.py",
+      "v1_5_flat_summary_fix": true,
+      "drift_detection": true,
+      "history_count_field": true
+    },
+    "kernel_introspection_via_chat": {
+      "primary_lane": "kernel_introspection",
+      "wrapper_lane": "local_ollama_paraphrase",
+      "intent_classifier": true,
+      "negation_aware": true,
+      "structured_lock_map": true,
+      "structured_systems_check": true
+    },
+    "entropy_logic": {
+      "present_before_this_phase": false,
+      "added_by": "src/tower/eqsb_cognition.compute_entropy (this phase)"
+    },
+    "quantum_logic": {
+      "present_before_this_phase": false,
+      "added_by": "src/tower/eqsb_cognition.compute_quantum_signal (simulated_quantum_entropy mode only)",
+      "real_quantum_connected": false,
+      "qiskit_connected": false
+    },
+    "floor_worker_symbolic_meaning": {
+      "before_this_phase": "Floors and workers existed in registries but had no symbolic graph form.",
+      "added_by": "src/tower/eqsb_cognition.build_symbolic_graph (this phase)"
+    },
+    "safety_policy": {
+      "present": true,
+      "files": [
+        "CLAUDE.md (architecture rules)",
+        "src/tower/recruitment_agency.py LOCKED_FALSE",
+        "src/tower/worker_recruitment_agency.py LOCKED_FALSE",
+        "src/dashboard/server.py kernel_chat_proxy_post"
+      ],
+      "execution_locks_false_count": true
+    }
+  }
+}

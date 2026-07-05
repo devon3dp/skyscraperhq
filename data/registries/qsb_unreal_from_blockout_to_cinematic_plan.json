@@ -1,0 +1,37 @@
+{
+  "ts": "2026-06-28T15:19:00Z",
+  "passes": {
+    "1_blockout_cleanup": {
+      "status": "in_progress",
+      "actions": ["keep layout", "purge dupes", "fix scale", "fix camera default", "fix dominant directional"]
+    },
+    "2_material": {
+      "status": "blocked",
+      "blocker": "MCP plugin lacks material API",
+      "path_a": "extend plugin with create_material_instance + set_actor_material",
+      "path_b": "UE Python via -ExecutePythonScript",
+      "materials": ["M_QSB_DarkGlass","M_QSB_BlackMetal","M_QSB_BrushedSteel","M_QSB_NeonCyan","M_QSB_NeonViolet","M_QSB_GoldTrim","M_QSB_EmissiveWindows","M_QSB_HologramBlue","M_QSB_DataStream","M_QSB_SelectedFloorGlow","M_QSB_LiftShaftGlass"]
+    },
+    "3_architecture_detail": {
+      "status": "partial",
+      "done": ["ribs (V2_WStrip 48)","bands (V2_Band 12)","lift shafts (VU_LiftShaft 8)","crown (V2_PenthouseSpike + V2_CrownRing 8 + VU_CrownDeck + VU_CrownTip 8)","trading signs (V2_Flag_OANDA/Binance/Alpaca)"],
+      "pending": ["command deck","model/accommodation signs","exterior bevels"]
+    },
+    "4_city_detail": {
+      "status": "partial",
+      "done": ["24 surrounding skyscrapers (VU_SkyTower)","roads (V6_Road)","ring road (V6_RingSeg 16)","plaza (V5_Plaza 16)","perimeter lamps (V5_LampA + V6_Lamp)","animated sky beacons (V5_SkyB rotated by live pulse)"],
+      "pending": ["50+ skyline variety","signs","SkyAtmosphere"]
+    },
+    "5_motion": {
+      "status": "partial",
+      "live": ["qsb_ue5_live_pulse.py 5s tick","V_LivePulse ring grows with open positions","V_VenueBar bars scale with committed £","V5_SkyB beacons rotate"],
+      "pending": ["lift cab animation","data stream particles","OpenClaw patrol marker","sequencer camera flythrough"]
+    },
+    "6_hud": {"status": "planned", "ref": "data/registries/qsb_unreal_professional_hud_target.json"},
+    "7_interior": {"status": "pending", "blocker": "needs Materials + UMG"},
+    "8_polish": {
+      "status": "scaffolded",
+      "tools": ["scripts/qsb_unreal_visible_cinematic_build_loop.sh","scripts/qsb_unreal_visual_quality_score.sh","Build > Build Lighting Only in editor"]
+    }
+  }
+}

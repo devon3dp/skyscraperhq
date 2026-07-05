@@ -1,0 +1,197 @@
+{
+  "ts": "2026-06-08T10:42:07.306275+00:00",
+  "phase": "FLOOR_43_CONNECTED_STOCK_EXCHANGE_FLOOR_V1",
+  "bus": "QSB Cross-Market Bus V1",
+  "per_market_status": {
+    "oanda": {
+      "status": "ready",
+      "latest_ts": "2026-06-08T10:42:07.099811+00:00",
+      "error": null,
+      "age_sec": 0.209402
+    },
+    "binance": {
+      "status": "offline",
+      "latest_ts": "2026-06-08T09:28:05.836515+00:00",
+      "error": null,
+      "age_sec": 4441.472702
+    },
+    "stocks": {
+      "status": "error",
+      "latest_ts": "2026-06-08T10:41:52.355668+00:00",
+      "error": "credentials_absent_for_alpaca_data"
+    }
+  },
+  "fx_observations": [],
+  "crypto_observations": [
+    {
+      "symbol": "BTCUSDT",
+      "market": "crypto",
+      "paper_signal": "observe",
+      "direction": "flat_observation",
+      "pct_change_24h": null,
+      "spread_pct": 1.5769388466328045e-05,
+      "momentum_10": 0.392600387455212,
+      "execution_allowed": false,
+      "paper_only": true
+    },
+    {
+      "symbol": "ETHUSDT",
+      "market": "crypto",
+      "paper_signal": "observe",
+      "direction": "flat_observation",
+      "pct_change_24h": null,
+      "spread_pct": 0.0006010410030166792,
+      "momentum_10": -0.14464136743109018,
+      "execution_allowed": false,
+      "paper_only": true
+    },
+    {
+      "symbol": "BNBUSDT",
+      "market": "crypto",
+      "paper_signal": "observe",
+      "direction": "flat_observation",
+      "pct_change_24h": null,
+      "spread_pct": 0.001668112364047325,
+      "momentum_10": 0.7647958583362864,
+      "execution_allowed": false,
+      "paper_only": true
+    },
+    {
+      "symbol": "SOLUSDT",
+      "market": "crypto",
+      "paper_signal": "observe",
+      "direction": "flat_observation",
+      "pct_change_24h": null,
+      "spread_pct": 0.015130882130435943,
+      "momentum_10": 0.5782985846903207,
+      "execution_allowed": false,
+      "paper_only": true
+    }
+  ],
+  "stock_observations": [
+    {
+      "symbol": "AAPL",
+      "market": "equity",
+      "paper_signal": "observe",
+      "direction": "flat_observation",
+      "spread_pct": null,
+      "momentum_10": null,
+      "volatility_pct": null,
+      "market_status": "credentials_absent",
+      "stale": false,
+      "execution_allowed": false,
+      "paper_only": true
+    },
+    {
+      "symbol": "MSFT",
+      "market": "equity",
+      "paper_signal": "observe",
+      "direction": "flat_observation",
+      "spread_pct": null,
+      "momentum_10": null,
+      "volatility_pct": null,
+      "market_status": "credentials_absent",
+      "stale": false,
+      "execution_allowed": false,
+      "paper_only": true
+    },
+    {
+      "symbol": "NVDA",
+      "market": "equity",
+      "paper_signal": "observe",
+      "direction": "flat_observation",
+      "spread_pct": null,
+      "momentum_10": null,
+      "volatility_pct": null,
+      "market_status": "credentials_absent",
+      "stale": false,
+      "execution_allowed": false,
+      "paper_only": true
+    },
+    {
+      "symbol": "TSLA",
+      "market": "equity",
+      "paper_signal": "observe",
+      "direction": "flat_observation",
+      "spread_pct": null,
+      "momentum_10": null,
+      "volatility_pct": null,
+      "market_status": "credentials_absent",
+      "stale": false,
+      "execution_allowed": false,
+      "paper_only": true
+    },
+    {
+      "symbol": "SPY",
+      "market": "equity",
+      "paper_signal": "observe",
+      "direction": "flat_observation",
+      "spread_pct": null,
+      "momentum_10": null,
+      "volatility_pct": null,
+      "market_status": "credentials_absent",
+      "stale": false,
+      "execution_allowed": false,
+      "paper_only": true
+    },
+    {
+      "symbol": "QQQ",
+      "market": "equity",
+      "paper_signal": "observe",
+      "direction": "flat_observation",
+      "spread_pct": null,
+      "momentum_10": null,
+      "volatility_pct": null,
+      "market_status": "credentials_absent",
+      "stale": false,
+      "execution_allowed": false,
+      "paper_only": true
+    }
+  ],
+  "cross_market_labels": [
+    "no_cross_signal"
+  ],
+  "label_reasons": [
+    "no cross-market signal threshold met"
+  ],
+  "packet_count": 0,
+  "openclaw_context": {
+    "ts": "2026-06-08T10:41:36.427588+00:00",
+    "execution_enabled": false,
+    "recommendation_count": 3
+  },
+  "strategy_context": {
+    "intel_ts": "2026-06-08T00:25:35.298003+00:00",
+    "correlation_ts": "2026-06-08T00:29:31.007581+00:00"
+  },
+  "worker_context": {
+    "latest_tick_ts": "2026-06-08T10:41:35.060099+00:00",
+    "lift_packet_count": 12
+  },
+  "sandbox_performance_ts": "2026-06-08T10:41:36.427121+00:00",
+  "oanda_ledger_entry_count": 503,
+  "advisory_only": true,
+  "paper_only": true,
+  "not_financial_advice": true,
+  "execution_allowed": false,
+  "order_created": false,
+  "paper_order_created": false,
+  "live_order_created": false,
+  "cross_market_execution_enabled": false,
+  "stock_order_execution_enabled": false,
+  "stock_live_trading_enabled": false,
+  "stock_paper_order_execution_enabled": false,
+  "binance_order_execution_enabled": false,
+  "binance_live_trading_enabled": false,
+  "live_trading_enabled": false,
+  "order_execution_enabled": false,
+  "practice_order_execution_enabled": false,
+  "worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "external_provider_execution_enabled": false,
+  "openclaw_execution_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "live_dispatch_enabled": false,
+  "direct_provider_access": false
+}

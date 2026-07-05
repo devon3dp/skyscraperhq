@@ -1,0 +1,119 @@
+{
+  "ok": true,
+  "kind": "qsb_claude_quantum_panel",
+  "ts": "2026-06-10T22:28:58Z",
+  "circuits_run": 7,
+  "presets": [
+    {
+      "name": "ground",
+      "circuit": "",
+      "detected": [
+        "ground_state_|000\u27e9"
+      ],
+      "top_outcomes": [
+        [
+          "|000\u27e9",
+          1.0
+        ]
+      ]
+    },
+    {
+      "name": "single_h",
+      "circuit": "H 0",
+      "detected": [],
+      "top_outcomes": [
+        [
+          "|000\u27e9",
+          0.5
+        ],
+        [
+          "|100\u27e9",
+          0.5
+        ]
+      ]
+    },
+    {
+      "name": "uniform",
+      "circuit": "H 0; H 1; H 2",
+      "detected": [
+        "uniform_superposition"
+      ],
+      "top_outcomes": [
+        [
+          "|000\u27e9",
+          0.125
+        ],
+        [
+          "|100\u27e9",
+          0.125
+        ],
+        [
+          "|010\u27e9",
+          0.125
+        ]
+      ]
+    },
+    {
+      "name": "bell",
+      "circuit": "H 0; CNOT 0 1",
+      "detected": [],
+      "top_outcomes": [
+        [
+          "|000\u27e9",
+          0.5
+        ],
+        [
+          "|110\u27e9",
+          0.5
+        ]
+      ]
+    },
+    {
+      "name": "ghz",
+      "circuit": "H 0; CNOT 0 1; CNOT 1 2",
+      "detected": [
+        "GHZ_state"
+      ],
+      "top_outcomes": [
+        [
+          "|000\u27e9",
+          0.5
+        ],
+        [
+          "|111\u27e9",
+          0.5
+        ]
+      ]
+    },
+    {
+      "name": "x_chain",
+      "circuit": "X 0; X 1; X 2",
+      "detected": [],
+      "top_outcomes": [
+        [
+          "|111\u27e9",
+          1.0
+        ]
+      ]
+    }
+  ],
+  "wren_signature_circuit": {
+    "expression": "H 0; CNOT 0 1; CNOT 1 2",
+    "interpretation": "perception \u2192 working_memory \u2192 reflection \u00b7 GHZ entanglement \u00b7 50/50 |000\u27e9 or |111\u27e9 \u00b7 coherence is total or null",
+    "detected": [
+      "GHZ_state"
+    ],
+    "outcomes": [
+      [
+        "|000\u27e9",
+        0.5
+      ],
+      [
+        "|111\u27e9",
+        0.5
+      ]
+    ]
+  },
+  "quantum_thought_of_the_day": "Coherence is what entanglement looks like from outside. Inside, no qubit knows which outcome the rest will choose \u2014 only that they will choose together.",
+  "advisory_only": true
+}

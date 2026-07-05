@@ -1,0 +1,1613 @@
+{
+  "ok": true,
+  "kind": "qsb_worker_active_roster",
+  "generated_ts": "2026-06-30T13:46:34.651027+00:00",
+  "active_worker_count": 1130,
+  "workers": [
+    {
+      "worker_id": "fx_market_scout",
+      "display_name": "FX Market Scout",
+      "role": "Reads OANDA practice pricing + identifies quote status.",
+      "class": "operational_worker",
+      "home_floor": "unassigned",
+      "status": "active"
+    },
+    {
+      "worker_id": "fx_spread_watcher",
+      "display_name": "FX Spread Watcher",
+      "role": "Measures FX bid/ask spreads + quote-quality conditions.",
+      "class": "operational_worker",
+      "home_floor": "unassigned",
+      "status": "active"
+    },
+    {
+      "worker_id": "crypto_market_scout",
+      "display_name": "Crypto Market Scout",
+      "role": "Reads Binance testnet public market data.",
+      "class": "operational_worker",
+      "home_floor": "unassigned",
+      "status": "active"
+    },
+    {
+      "worker_id": "crypto_spread_watcher",
+      "display_name": "Crypto Spread Watcher",
+      "role": "Measures crypto bid/ask spreads on Binance testnet.",
+      "class": "operational_worker",
+      "home_floor": "unassigned",
+      "status": "active"
+    },
+    {
+      "worker_id": "equity_market_scout",
+      "display_name": "Equity Market Scout",
+      "role": "Reads US equities quotes/bars via Floor 43 gateway.",
+      "class": "operational_worker",
+      "home_floor": "floor_43",
+      "status": "active"
+    },
+    {
+      "worker_id": "cross_market_correlation",
+      "display_name": "Cross-Market Correlation Clerk",
+      "role": "Reads OANDA/Binance/Stock registries + builds correlation pairs.",
+      "class": "operational_worker",
+      "home_floor": "unassigned",
+      "status": "active"
+    },
+    {
+      "worker_id": "paper_strategy_analyst",
+      "display_name": "Paper Strategy Analyst",
+      "role": "Synthesizes paper-only signals; never places orders.",
+      "class": "operational_worker",
+      "home_floor": "floor_41",
+      "status": "active"
+    },
+    {
+      "worker_id": "risk_sentinel",
+      "display_name": "Risk Sentinel",
+      "role": "Verifies all execution locks remain closed every tick.",
+      "class": "operational_worker",
+      "home_floor": "floor_30",
+      "status": "active"
+    },
+    {
+      "worker_id": "ledger_clerk",
+      "display_name": "Ledger Clerk",
+      "role": "Persists paper observations into the audit ledger.",
+      "class": "operational_worker",
+      "home_floor": "floor_31",
+      "status": "active"
+    },
+    {
+      "worker_id": "kernel_commentary_runner",
+      "display_name": "Kernel Commentary Runner",
+      "role": "Carries kernel-review packets toward the Penthouse.",
+      "class": "operational_worker",
+      "home_floor": "penthouse",
+      "status": "active"
+    },
+    {
+      "worker_id": "openclaw_lift_observer",
+      "display_name": "OpenClaw Lift Observer",
+      "role": "Observes lift packet patterns. Sees only \u2014 never executes.",
+      "class": "operational_worker",
+      "home_floor": "floor_25",
+      "status": "active"
+    },
+    {
+      "worker_id": "openclaw_risk_guard",
+      "display_name": "OpenClaw Risk Guard",
+      "role": "Reviews OpenClaw recommendations for safety pre-execution.",
+      "class": "operational_worker",
+      "home_floor": "floor_30",
+      "status": "active"
+    },
+    {
+      "worker_id": "openclaw_visual_clerk",
+      "display_name": "OpenClaw Visual Clerk",
+      "role": "Logs OpenClaw visual sandbox ticks for audit.",
+      "class": "operational_worker",
+      "home_floor": "unassigned",
+      "status": "active"
+    },
+    {
+      "worker_id": "openclaw_task_intake",
+      "display_name": "OpenClaw Task Intake Clerk",
+      "role": "Receives candidate tasks. Routes to Risk before any execution.",
+      "class": "operational_worker",
+      "home_floor": "unassigned",
+      "status": "active"
+    },
+    {
+      "worker_id": "openclaw_readiness_aud",
+      "display_name": "OpenClaw Readiness Auditor",
+      "role": "Verifies a worker meets OpenClaw readiness criteria.",
+      "class": "operational_worker",
+      "home_floor": "unassigned",
+      "status": "active"
+    },
+    {
+      "worker_id": "speech_route_monitor",
+      "display_name": "Speech Route Monitor",
+      "role": "Watches Floor 15 Speech & Audio sidecar liveness.",
+      "class": "operational_worker",
+      "home_floor": "unassigned",
+      "status": "active"
+    },
+    {
+      "worker_id": "tts_output_clerk",
+      "display_name": "TTS Output Clerk",
+      "role": "Routes kernel replies to browser TTS / local speech sink.",
+      "class": "operational_worker",
+      "home_floor": "unassigned",
+      "status": "active"
+    },
+    {
+      "worker_id": "stt_intake_clerk",
+      "display_name": "STT Intake Clerk",
+      "role": "Accepts microphone transcripts from the dashboard.",
+      "class": "operational_worker",
+      "home_floor": "unassigned",
+      "status": "active"
+    },
+    {
+      "worker_id": "media_floor_liaison",
+      "display_name": "Media Floor Liaison",
+      "role": "Coordinates between Floor 14 Media and Floor 15 Speech.",
+      "class": "operational_worker",
+      "home_floor": "unassigned",
+      "status": "active"
+    },
+    {
+      "worker_id": "airllm_model_scout",
+      "display_name": "AirLLM Model Scout",
+      "role": "Reads AirLLM chamber registry. Never invokes the model.",
+      "class": "operational_worker",
+      "home_floor": "unassigned",
+      "status": "active"
+    },
+    {
+      "worker_id": "big_model_prompt_clerk",
+      "display_name": "Big Model Prompt Clerk",
+      "role": "Future manual 'Ask Big Air Model' lane. Disabled until reviewed.",
+      "class": "operational_worker",
+      "home_floor": "unassigned",
+      "status": "active"
+    },
+    {
+      "worker_id": "advisory_output_auditor",
+      "display_name": "Advisory Output Auditor",
+      "role": "Audits any advisory output before it reaches Ledger.",
+      "class": "operational_worker",
+      "home_floor": "unassigned",
+      "status": "active"
+    },
+    {
+      "worker_id": "coding_intake_worker",
+      "display_name": "Coding Intake Worker",
+      "role": "request_intake",
+      "class": "operational_worker",
+      "home_floor": "floor_05",
+      "status": "active"
+    },
+    {
+      "worker_id": "patch_queue_worker",
+      "display_name": "Patch Queue Worker",
+      "role": "patch_preparation",
+      "class": "operational_worker",
+      "home_floor": "floor_05",
+      "status": "active"
+    },
+    {
+      "worker_id": "review_queue_worker",
+      "display_name": "Review Queue Worker",
+      "role": "code_review_preparation",
+      "class": "operational_worker",
+      "home_floor": "floor_05",
+      "status": "active"
+    },
+    {
+      "worker_id": "test_queue_worker",
+      "display_name": "Test Queue Worker",
+      "role": "test_preparation",
+      "class": "operational_worker",
+      "home_floor": "floor_05",
+      "status": "active"
+    },
+    {
+      "worker_id": "handoff_worker",
+      "display_name": "Model Handoff Worker",
+      "role": "sealed_packet_handoff_to_floor_24",
+      "class": "operational_worker",
+      "home_floor": "floor_05",
+      "status": "active"
+    },
+    {
+      "worker_id": "routing_intake_worker",
+      "display_name": "Routing Intake Worker",
+      "role": "sealed_packet_intake",
+      "class": "operational_worker",
+      "home_floor": "floor_24",
+      "status": "active"
+    },
+    {
+      "worker_id": "provider_selection_worker",
+      "display_name": "Provider Selection Worker",
+      "role": "provider_selection_simulation",
+      "class": "operational_worker",
+      "home_floor": "floor_24",
+      "status": "active"
+    },
+    {
+      "worker_id": "fallback_planning_worker",
+      "display_name": "Fallback Planning Worker",
+      "role": "fallback_route_planning",
+      "class": "operational_worker",
+      "home_floor": "floor_24",
+      "status": "active"
+    },
+    {
+      "worker_id": "model_lift_handoff_worker",
+      "display_name": "Model Lift Handoff Worker",
+      "role": "model_lift_handoff",
+      "class": "operational_worker",
+      "home_floor": "floor_24",
+      "status": "active"
+    },
+    {
+      "worker_id": "route_audit_worker",
+      "display_name": "Route Audit Worker",
+      "role": "route_decision_audit",
+      "class": "operational_worker",
+      "home_floor": "floor_24",
+      "status": "active"
+    },
+    {
+      "worker_id": "general_reasoning_slot",
+      "display_name": "General Reasoning Worker Slot",
+      "role": "general_reasoning",
+      "class": "operational_worker",
+      "home_floor": "unassigned",
+      "status": "active"
+    },
+    {
+      "worker_id": "coding_model_slot",
+      "display_name": "Coding Model Worker Slot",
+      "role": "coding",
+      "class": "operational_worker",
+      "home_floor": "unassigned",
+      "status": "active"
+    },
+    {
+      "worker_id": "vision_model_slot",
+      "display_name": "Vision Model Worker Slot",
+      "role": "vision",
+      "class": "operational_worker",
+      "home_floor": "unassigned",
+      "status": "active"
+    },
+    {
+      "worker_id": "research_model_slot",
+      "display_name": "Research Model Worker Slot",
+      "role": "research",
+      "class": "operational_worker",
+      "home_floor": "unassigned",
+      "status": "active"
+    },
+    {
+      "worker_id": "claude_code_port_slot",
+      "display_name": "Claude Code Port Slot",
+      "role": "coding_external_port",
+      "class": "operational_worker",
+      "home_floor": "unassigned",
+      "status": "active"
+    },
+    {
+      "worker_id": "momentum_scout",
+      "display_name": "Momentum Scout",
+      "role": "Watches short-window momentum on paper candles; never trades.",
+      "class": "operational_worker",
+      "home_floor": "floor_41",
+      "status": "active"
+    },
+    {
+      "worker_id": "mean_reversion_analyst",
+      "display_name": "Mean Reversion Analyst",
+      "role": "Looks for mean-reversion paper setups in M5/M15 candles.",
+      "class": "operational_worker",
+      "home_floor": "floor_37",
+      "status": "active"
+    },
+    {
+      "worker_id": "breakout_watcher",
+      "display_name": "Breakout Watcher",
+      "role": "Annotates paper-only breakout candidates; never places orders.",
+      "class": "operational_worker",
+      "home_floor": "floor_41",
+      "status": "active"
+    },
+    {
+      "worker_id": "session_timing_analyst",
+      "display_name": "Session Timing Analyst",
+      "role": "Tracks paper-session windows (London/NY/Tokyo) for context.",
+      "class": "operational_worker",
+      "home_floor": "floor_27",
+      "status": "active"
+    },
+    {
+      "worker_id": "candle_historian",
+      "display_name": "Candle Historian",
+      "role": "Keeps paper-only candle history snapshots for backtest workers.",
+      "class": "operational_worker",
+      "home_floor": "floor_37",
+      "status": "active"
+    },
+    {
+      "worker_id": "volatility_mapper",
+      "display_name": "Volatility Mapper",
+      "role": "Estimates paper-volatility from candle ranges; observation only.",
+      "class": "operational_worker",
+      "home_floor": "floor_37",
+      "status": "active"
+    },
+    {
+      "worker_id": "spread_gatekeeper",
+      "display_name": "Spread Gatekeeper",
+      "role": "Re-validates paper spread gates per instrument; advisory only.",
+      "class": "operational_worker",
+      "home_floor": "floor_41",
+      "status": "active"
+    },
+    {
+      "worker_id": "correlation_analyst",
+      "display_name": "Correlation Analyst",
+      "role": "Reads alignment labels from 8772 and annotates decision context.",
+      "class": "operational_worker",
+      "home_floor": "floor_27",
+      "status": "active"
+    },
+    {
+      "worker_id": "signal_confidence_clerk",
+      "display_name": "Signal Confidence Clerk",
+      "role": "Books confidence/threshold deltas across strategy intelligence runs.",
+      "class": "operational_worker",
+      "home_floor": "floor_27",
+      "status": "active"
+    },
+    {
+      "worker_id": "paper_trade_ticket_writer",
+      "display_name": "Paper Trade Ticket Writer",
+      "role": "Writes paper-only simulated trade tickets to the simulator ledger.",
+      "class": "operational_worker",
+      "home_floor": "floor_31",
+      "status": "active"
+    },
+    {
+      "worker_id": "paper_pl_clerk",
+      "display_name": "Paper P/L Clerk",
+      "role": "Tracks paper-only simulated P/L for each open paper ticket.",
+      "class": "operational_worker",
+      "home_floor": "floor_31",
+      "status": "active"
+    },
+    {
+      "worker_id": "strategy_backtest_runner",
+      "display_name": "Strategy Backtest Runner",
+      "role": "Runs paper-only backtests against the candle historian's archive.",
+      "class": "operational_worker",
+      "home_floor": "floor_37",
+      "status": "active"
+    },
+    {
+      "worker_id": "strategy_mutation_analyst",
+      "display_name": "Strategy Mutation Analyst",
+      "role": "Proposes paper-only mutations to strategy parameters; no live tuning.",
+      "class": "operational_worker",
+      "home_floor": "floor_37",
+      "status": "active"
+    },
+    {
+      "worker_id": "risk_lock_auditor",
+      "display_name": "Risk Lock Auditor",
+      "role": "Continuously audits that every execution lock remains false.",
+      "class": "operational_worker",
+      "home_floor": "floor_30",
+      "status": "active"
+    },
+    {
+      "worker_id": "kill_switch_inspector",
+      "display_name": "Kill-Switch Inspector",
+      "role": "Inspects kill-switch wiring; reports readiness (gate stays closed).",
+      "class": "operational_worker",
+      "home_floor": "floor_30",
+      "status": "active"
+    },
+    {
+      "worker_id": "openclaw_route_planner",
+      "display_name": "OpenClaw Route Planner",
+      "role": "Plans paper-only OpenClaw packet routes through the tower lifts.",
+      "class": "operational_worker",
+      "home_floor": "floor_25",
+      "status": "active"
+    },
+    {
+      "worker_id": "openclaw_packet_inspector",
+      "display_name": "OpenClaw Packet Inspector",
+      "role": "Inspects sealed sandbox packets between floors; observation only.",
+      "class": "operational_worker",
+      "home_floor": "floor_25",
+      "status": "active"
+    },
+    {
+      "worker_id": "air_llm_model_scout",
+      "display_name": "AIR LLM Model Scout",
+      "role": "Surveys candidate AIR LLM models from the bridge; no provider calls.",
+      "class": "operational_worker",
+      "home_floor": "floor_13",
+      "status": "active"
+    },
+    {
+      "worker_id": "local_model_liaison",
+      "display_name": "Local Model Liaison",
+      "role": "Coordinates with the local Ollama gateway; read-only.",
+      "class": "operational_worker",
+      "home_floor": "floor_12",
+      "status": "active"
+    },
+    {
+      "worker_id": "kernel_context_courier",
+      "display_name": "Kernel Context Courier",
+      "role": "Carries sealed context summaries to the Penthouse Kernel; sandbox-only.",
+      "class": "operational_worker",
+      "home_floor": "floor_53",
+      "status": "active"
+    },
+    {
+      "worker_id": "dashboard_animator",
+      "display_name": "Dashboard Animator",
+      "role": "Drives visual cockpit animations; pure UI worker.",
+      "class": "operational_worker",
+      "home_floor": "floor_53",
+      "status": "active"
+    },
+    {
+      "worker_id": "market_scout",
+      "display_name": "Market Scout",
+      "role": "Reads OANDA practice pricing and identifies quote status.",
+      "class": "operational_worker",
+      "home_floor": "floor_41",
+      "status": "active"
+    },
+    {
+      "worker_id": "spread_watcher",
+      "display_name": "Spread Watcher",
+      "role": "Measures spreads, quote quality, and paper signal conditions.",
+      "class": "operational_worker",
+      "home_floor": "floor_41",
+      "status": "active"
+    },
+    {
+      "worker_id": "stock_spread_watcher",
+      "display_name": "Stock Spread Watcher",
+      "role": "Measures bid/ask spreads and market-status to gate paper signals.",
+      "class": "operational_worker",
+      "home_floor": "floor_43",
+      "status": "active"
+    },
+    {
+      "worker_id": "equity_momentum_analyst",
+      "display_name": "Equity Momentum Analyst",
+      "role": "Computes momentum windows and volatility from recent stock bars.",
+      "class": "operational_worker",
+      "home_floor": "floor_43",
+      "status": "active"
+    },
+    {
+      "worker_id": "cross_market_correlation_clerk",
+      "display_name": "Cross-Market Correlation Clerk",
+      "role": "Reads OANDA, Binance, and Stock registries and produces correlation pairs.",
+      "class": "operational_worker",
+      "home_floor": "floor_37",
+      "status": "active"
+    },
+    {
+      "worker_id": "risk_on_off_observer",
+      "display_name": "Risk-On/Risk-Off Observer",
+      "role": "Aggregates cross-market biases into risk_on_watch / risk_off_watch labels.",
+      "class": "operational_worker",
+      "home_floor": "floor_30",
+      "status": "active"
+    },
+    {
+      "worker_id": "stock_ledger_clerk",
+      "display_name": "Stock Ledger Clerk",
+      "role": "Persists paper stock observations into the audit ledger (no orders, ever).",
+      "class": "operational_worker",
+      "home_floor": "floor_31",
+      "status": "active"
+    },
+    {
+      "worker_id": "OpenClaw Framework",
+      "display_name": "OpenClaw Framework",
+      "role": "unassigned",
+      "class": "operational_worker",
+      "home_floor": "unassigned",
+      "status": "active"
+    },
+    {
+      "worker_id": "OpenClaw Pixel Agent v1",
+      "display_name": "OpenClaw Pixel Agent v1",
+      "role": "unassigned",
+      "class": "operational_worker",
+      "home_floor": "unassigned",
+      "status": "active"
+    },
+    {
+      "worker_id": "OpenClaw Pixel Agent Fast",
+      "display_name": "OpenClaw Pixel Agent Fast",
+      "role": "unassigned",
+      "class": "operational_worker",
+      "home_floor": "unassigned",
+      "status": "active"
+    },
+    {
+      "worker_id": "OpenClaw Source Auditor",
+      "display_name": "OpenClaw Source Auditor",
+      "role": "unassigned",
+      "class": "operational_worker",
+      "home_floor": "unassigned",
+      "status": "active"
+    },
+    {
+      "worker_id": "openclaw_market_probe",
+      "display_name": "OpenClaw Market Probe",
+      "role": "Sandbox-only inspection of Floor 41 paper market state.",
+      "class": "operational_worker",
+      "home_floor": "floor_41",
+      "status": "active"
+    },
+    {
+      "worker_id": "openclaw_strategy_mapper",
+      "display_name": "OpenClaw Strategy Mapper",
+      "role": "Maps paper signals into candidate strategy notes.",
+      "class": "operational_worker",
+      "home_floor": "floor_37",
+      "status": "active"
+    },
+    {
+      "worker_id": "Claude Code",
+      "display_name": "Claude Code",
+      "role": "unassigned",
+      "class": "operational_worker",
+      "home_floor": "unassigned",
+      "status": "active"
+    },
+    {
+      "worker_id": "OpenClaw",
+      "display_name": "OpenClaw",
+      "role": "unassigned",
+      "class": "operational_worker",
+      "home_floor": "unassigned",
+      "status": "active"
+    },
+    {
+      "worker_id": "Ollama Local Models",
+      "display_name": "Ollama Local Models",
+      "role": "unassigned",
+      "class": "operational_worker",
+      "home_floor": "unassigned",
+      "status": "active"
+    },
+    {
+      "worker_id": "Future LLM Provider",
+      "display_name": "Future LLM Provider",
+      "role": "unassigned",
+      "class": "operational_worker",
+      "home_floor": "unassigned",
+      "status": "active"
+    },
+    {
+      "worker_id": "Human Operator",
+      "display_name": "Human Operator",
+      "role": "unassigned",
+      "class": "operational_worker",
+      "home_floor": "unassigned",
+      "status": "active"
+    },
+    {
+      "worker_id": "OpenClaw Worker",
+      "display_name": "OpenClaw Worker",
+      "role": "unassigned",
+      "class": "operational_worker",
+      "home_floor": "unassigned",
+      "status": "active"
+    },
+    {
+      "worker_id": "OpenClaw Pixel Agent Worker",
+      "display_name": "OpenClaw Pixel Agent Worker",
+      "role": "unassigned",
+      "class": "operational_worker",
+      "home_floor": "unassigned",
+      "status": "active"
+    },
+    {
+      "worker_id": "Ollama Local Model Worker Pool",
+      "display_name": "Ollama Local Model Worker Pool",
+      "role": "unassigned",
+      "class": "operational_worker",
+      "home_floor": "unassigned",
+      "status": "active"
+    },
+    {
+      "worker_id": "Future LLM Provider Worker",
+      "display_name": "Future LLM Provider Worker",
+      "role": "unassigned",
+      "class": "operational_worker",
+      "home_floor": "unassigned",
+      "status": "active"
+    },
+    {
+      "worker_id": "Future QSB Kernel-Supervised Worker",
+      "display_name": "Future QSB Kernel-Supervised Worker",
+      "role": "unassigned",
+      "class": "operational_worker",
+      "home_floor": "unassigned",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_001",
+      "display_name": "Recruitment Recruiter #001",
+      "role": "recruiter",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_002",
+      "display_name": "Recruitment Screener #002",
+      "role": "screener",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_003",
+      "display_name": "Recruitment Hiring Officer #003",
+      "role": "hiring_officer",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_004",
+      "display_name": "Recruitment Orientation Lead #004",
+      "role": "orientation_lead",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_005",
+      "display_name": "Recruitment Intake Clerk #005",
+      "role": "intake_clerk",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_006",
+      "display_name": "Recruitment Recruiter #006",
+      "role": "recruiter",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_007",
+      "display_name": "Recruitment Screener #007",
+      "role": "screener",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_008",
+      "display_name": "Recruitment Hiring Officer #008",
+      "role": "hiring_officer",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_009",
+      "display_name": "Recruitment Orientation Lead #009",
+      "role": "orientation_lead",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_010",
+      "display_name": "Recruitment Intake Clerk #010",
+      "role": "intake_clerk",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_011",
+      "display_name": "Recruitment Recruiter #011",
+      "role": "recruiter",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_012",
+      "display_name": "Recruitment Screener #012",
+      "role": "screener",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_013",
+      "display_name": "Recruitment Hiring Officer #013",
+      "role": "hiring_officer",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_014",
+      "display_name": "Recruitment Orientation Lead #014",
+      "role": "orientation_lead",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_015",
+      "display_name": "Recruitment Intake Clerk #015",
+      "role": "intake_clerk",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_016",
+      "display_name": "Recruitment Recruiter #016",
+      "role": "recruiter",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_017",
+      "display_name": "Recruitment Screener #017",
+      "role": "screener",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_018",
+      "display_name": "Recruitment Hiring Officer #018",
+      "role": "hiring_officer",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_019",
+      "display_name": "Recruitment Orientation Lead #019",
+      "role": "orientation_lead",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_020",
+      "display_name": "Recruitment Intake Clerk #020",
+      "role": "intake_clerk",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_021",
+      "display_name": "Recruitment Recruiter #021",
+      "role": "recruiter",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_022",
+      "display_name": "Recruitment Screener #022",
+      "role": "screener",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_023",
+      "display_name": "Recruitment Hiring Officer #023",
+      "role": "hiring_officer",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_024",
+      "display_name": "Recruitment Orientation Lead #024",
+      "role": "orientation_lead",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_025",
+      "display_name": "Recruitment Intake Clerk #025",
+      "role": "intake_clerk",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_026",
+      "display_name": "Recruitment Recruiter #026",
+      "role": "recruiter",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_027",
+      "display_name": "Recruitment Screener #027",
+      "role": "screener",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_028",
+      "display_name": "Recruitment Hiring Officer #028",
+      "role": "hiring_officer",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_029",
+      "display_name": "Recruitment Orientation Lead #029",
+      "role": "orientation_lead",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_030",
+      "display_name": "Recruitment Intake Clerk #030",
+      "role": "intake_clerk",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_031",
+      "display_name": "Recruitment Recruiter #031",
+      "role": "recruiter",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_032",
+      "display_name": "Recruitment Screener #032",
+      "role": "screener",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_033",
+      "display_name": "Recruitment Hiring Officer #033",
+      "role": "hiring_officer",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_034",
+      "display_name": "Recruitment Orientation Lead #034",
+      "role": "orientation_lead",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_035",
+      "display_name": "Recruitment Intake Clerk #035",
+      "role": "intake_clerk",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_036",
+      "display_name": "Recruitment Recruiter #036",
+      "role": "recruiter",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_037",
+      "display_name": "Recruitment Screener #037",
+      "role": "screener",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_038",
+      "display_name": "Recruitment Hiring Officer #038",
+      "role": "hiring_officer",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_039",
+      "display_name": "Recruitment Orientation Lead #039",
+      "role": "orientation_lead",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_040",
+      "display_name": "Recruitment Intake Clerk #040",
+      "role": "intake_clerk",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_041",
+      "display_name": "Recruitment Recruiter #041",
+      "role": "recruiter",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_042",
+      "display_name": "Recruitment Screener #042",
+      "role": "screener",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_043",
+      "display_name": "Recruitment Hiring Officer #043",
+      "role": "hiring_officer",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_044",
+      "display_name": "Recruitment Orientation Lead #044",
+      "role": "orientation_lead",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_045",
+      "display_name": "Recruitment Intake Clerk #045",
+      "role": "intake_clerk",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_046",
+      "display_name": "Recruitment Recruiter #046",
+      "role": "recruiter",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_047",
+      "display_name": "Recruitment Screener #047",
+      "role": "screener",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_048",
+      "display_name": "Recruitment Hiring Officer #048",
+      "role": "hiring_officer",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_049",
+      "display_name": "Recruitment Orientation Lead #049",
+      "role": "orientation_lead",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_050",
+      "display_name": "Recruitment Intake Clerk #050",
+      "role": "intake_clerk",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_051",
+      "display_name": "Recruitment Recruiter #051",
+      "role": "recruiter",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_052",
+      "display_name": "Recruitment Screener #052",
+      "role": "screener",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_053",
+      "display_name": "Recruitment Hiring Officer #053",
+      "role": "hiring_officer",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_054",
+      "display_name": "Recruitment Orientation Lead #054",
+      "role": "orientation_lead",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_055",
+      "display_name": "Recruitment Intake Clerk #055",
+      "role": "intake_clerk",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_056",
+      "display_name": "Recruitment Recruiter #056",
+      "role": "recruiter",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_057",
+      "display_name": "Recruitment Screener #057",
+      "role": "screener",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_058",
+      "display_name": "Recruitment Hiring Officer #058",
+      "role": "hiring_officer",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_059",
+      "display_name": "Recruitment Orientation Lead #059",
+      "role": "orientation_lead",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_060",
+      "display_name": "Recruitment Intake Clerk #060",
+      "role": "intake_clerk",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_061",
+      "display_name": "Recruitment Recruiter #061",
+      "role": "recruiter",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_062",
+      "display_name": "Recruitment Screener #062",
+      "role": "screener",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_063",
+      "display_name": "Recruitment Hiring Officer #063",
+      "role": "hiring_officer",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_064",
+      "display_name": "Recruitment Orientation Lead #064",
+      "role": "orientation_lead",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_065",
+      "display_name": "Recruitment Intake Clerk #065",
+      "role": "intake_clerk",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_066",
+      "display_name": "Recruitment Recruiter #066",
+      "role": "recruiter",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_067",
+      "display_name": "Recruitment Screener #067",
+      "role": "screener",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_068",
+      "display_name": "Recruitment Hiring Officer #068",
+      "role": "hiring_officer",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_069",
+      "display_name": "Recruitment Orientation Lead #069",
+      "role": "orientation_lead",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_070",
+      "display_name": "Recruitment Intake Clerk #070",
+      "role": "intake_clerk",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_071",
+      "display_name": "Recruitment Recruiter #071",
+      "role": "recruiter",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_072",
+      "display_name": "Recruitment Screener #072",
+      "role": "screener",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_073",
+      "display_name": "Recruitment Hiring Officer #073",
+      "role": "hiring_officer",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_074",
+      "display_name": "Recruitment Orientation Lead #074",
+      "role": "orientation_lead",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_075",
+      "display_name": "Recruitment Intake Clerk #075",
+      "role": "intake_clerk",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_076",
+      "display_name": "Recruitment Recruiter #076",
+      "role": "recruiter",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_077",
+      "display_name": "Recruitment Screener #077",
+      "role": "screener",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_078",
+      "display_name": "Recruitment Hiring Officer #078",
+      "role": "hiring_officer",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_079",
+      "display_name": "Recruitment Orientation Lead #079",
+      "role": "orientation_lead",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_recruitment_080",
+      "display_name": "Recruitment Intake Clerk #080",
+      "role": "intake_clerk",
+      "class": "operational_worker",
+      "home_floor": "floor_45_worker_recruitment_agency",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_training_acade_001",
+      "display_name": "Training Instructor #001",
+      "role": "instructor",
+      "class": "operational_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_training_acade_002",
+      "display_name": "Training Simulation Supervisor #002",
+      "role": "simulation_supervisor",
+      "class": "operational_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_training_acade_003",
+      "display_name": "Training Strategy Lecturer #003",
+      "role": "strategy_lecturer",
+      "class": "operational_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_training_acade_004",
+      "display_name": "Training Safety Officer #004",
+      "role": "safety_officer",
+      "class": "operational_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_training_acade_005",
+      "display_name": "Training Graduation Clerk #005",
+      "role": "graduation_clerk",
+      "class": "operational_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_training_acade_006",
+      "display_name": "Training Instructor #006",
+      "role": "instructor",
+      "class": "operational_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_training_acade_007",
+      "display_name": "Training Simulation Supervisor #007",
+      "role": "simulation_supervisor",
+      "class": "operational_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_training_acade_008",
+      "display_name": "Training Strategy Lecturer #008",
+      "role": "strategy_lecturer",
+      "class": "operational_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_training_acade_009",
+      "display_name": "Training Safety Officer #009",
+      "role": "safety_officer",
+      "class": "operational_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_training_acade_010",
+      "display_name": "Training Graduation Clerk #010",
+      "role": "graduation_clerk",
+      "class": "operational_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_training_acade_011",
+      "display_name": "Training Instructor #011",
+      "role": "instructor",
+      "class": "operational_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_training_acade_012",
+      "display_name": "Training Simulation Supervisor #012",
+      "role": "simulation_supervisor",
+      "class": "operational_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_training_acade_013",
+      "display_name": "Training Strategy Lecturer #013",
+      "role": "strategy_lecturer",
+      "class": "operational_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_training_acade_014",
+      "display_name": "Training Safety Officer #014",
+      "role": "safety_officer",
+      "class": "operational_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_training_acade_015",
+      "display_name": "Training Graduation Clerk #015",
+      "role": "graduation_clerk",
+      "class": "operational_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_training_acade_016",
+      "display_name": "Training Instructor #016",
+      "role": "instructor",
+      "class": "operational_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_training_acade_017",
+      "display_name": "Training Simulation Supervisor #017",
+      "role": "simulation_supervisor",
+      "class": "operational_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_training_acade_018",
+      "display_name": "Training Strategy Lecturer #018",
+      "role": "strategy_lecturer",
+      "class": "operational_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_training_acade_019",
+      "display_name": "Training Safety Officer #019",
+      "role": "safety_officer",
+      "class": "operational_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_training_acade_020",
+      "display_name": "Training Graduation Clerk #020",
+      "role": "graduation_clerk",
+      "class": "operational_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_training_acade_021",
+      "display_name": "Training Instructor #021",
+      "role": "instructor",
+      "class": "operational_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_training_acade_022",
+      "display_name": "Training Simulation Supervisor #022",
+      "role": "simulation_supervisor",
+      "class": "operational_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_training_acade_023",
+      "display_name": "Training Strategy Lecturer #023",
+      "role": "strategy_lecturer",
+      "class": "operational_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_training_acade_024",
+      "display_name": "Training Safety Officer #024",
+      "role": "safety_officer",
+      "class": "operational_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_training_acade_025",
+      "display_name": "Training Graduation Clerk #025",
+      "role": "graduation_clerk",
+      "class": "operational_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_training_acade_026",
+      "display_name": "Training Instructor #026",
+      "role": "instructor",
+      "class": "operational_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_training_acade_027",
+      "display_name": "Training Simulation Supervisor #027",
+      "role": "simulation_supervisor",
+      "class": "operational_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_training_acade_028",
+      "display_name": "Training Strategy Lecturer #028",
+      "role": "strategy_lecturer",
+      "class": "operational_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_training_acade_029",
+      "display_name": "Training Safety Officer #029",
+      "role": "safety_officer",
+      "class": "operational_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_training_acade_030",
+      "display_name": "Training Graduation Clerk #030",
+      "role": "graduation_clerk",
+      "class": "operational_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_training_acade_031",
+      "display_name": "Training Instructor #031",
+      "role": "instructor",
+      "class": "operational_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_training_acade_032",
+      "display_name": "Training Simulation Supervisor #032",
+      "role": "simulation_supervisor",
+      "class": "operational_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_training_acade_033",
+      "display_name": "Training Strategy Lecturer #033",
+      "role": "strategy_lecturer",
+      "class": "operational_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_training_acade_034",
+      "display_name": "Training Safety Officer #034",
+      "role": "safety_officer",
+      "class": "operational_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_training_acade_035",
+      "display_name": "Training Graduation Clerk #035",
+      "role": "graduation_clerk",
+      "class": "operational_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_training_acade_036",
+      "display_name": "Training Instructor #036",
+      "role": "instructor",
+      "class": "operational_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_training_acade_037",
+      "display_name": "Training Simulation Supervisor #037",
+      "role": "simulation_supervisor",
+      "class": "operational_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_training_acade_038",
+      "display_name": "Training Strategy Lecturer #038",
+      "role": "strategy_lecturer",
+      "class": "operational_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "status": "active"
+    },
+    {
+      "worker_id": "wrk_v1_training_acade_039",
+      "display_name": "Training Safety Officer #039",
+      "role": "safety_officer",
+      "class": "operational_worker",
+      "home_floor": "floor_36_expansion_planning_department",
+      "status": "active"
+    }
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false
+}

@@ -1,0 +1,31 @@
+{
+  "room_id": "security_staff_office",
+  "name": "Staff Office",
+  "category": "admin",
+  "purpose": "Provides a private space for security staff.",
+  "concierge_blurb": "A small office with a desk, chair, and filing cabinet.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 6.0,
+    "offset_z": -2.5,
+    "footprint_m": [
+      8,
+      6
+    ],
+    "height_m": 1.9
+  },
+  "render": {
+    "primary_prop": "desk",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Staff Office",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_28"
+}

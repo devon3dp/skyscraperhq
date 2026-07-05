@@ -1,0 +1,33 @@
+{
+  "record_id": "f47_floor_card_f57_grand_library",
+  "ts_utc": "2026-06-14T17:45:00Z",
+  "floor": "floor_57",
+  "batch": "skyscraper_wide_floor_cards",
+  "item_id": "floor_card_f57",
+  "builder": "skyscraper_floor_card_push (claude opus 4.7)",
+  "authorization": "CLAUDE.md 2026-06-13 workshop bench amendment + Ross 2026-06-14 skyscraper-wide floor cards window",
+  "items_built": ["floor_57_grand_library/floor_card.json"],
+  "artifacts_written": [
+    "floors/floor_57_grand_library/floor_card.json"
+  ],
+  "live_signals_computed": {
+    "memory_files_count": 38,
+    "past_wren_letters_count": 18,
+    "tour_blurb_source": "data/registries/qsb_open_day_tour.json (floors[] where number==57)",
+    "endpoints": 0
+  },
+  "verification": {
+    "json_parse": "pass",
+    "schema_matches_f0_reception_card": true,
+    "acceptance_test_met": "live_signals catalogue reference files (memory dir count, past-Wren letters count); tour_blurb sourced from open_day_tour.json",
+    "constraints_respected": {
+      "no_claude_md_edit": true,
+      "no_vault_edit": true,
+      "no_env_edit": true,
+      "no_gate_edit": true,
+      "visitor_safe_concierge_blurb": true
+    }
+  },
+  "lessons_appended_to": "data/registries/qsb_f47_agent_lessons.jsonl",
+  "advisory_only": true
+}

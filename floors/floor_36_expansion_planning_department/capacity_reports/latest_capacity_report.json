@@ -1,0 +1,37 @@
+{
+  "ts": "2026-06-08T08:26:19.556592+00:00",
+  "floor": "floor_36",
+  "department": "Expansion Planning Department",
+  "version": "1.1",
+  "managed_vacant_floors": 5,
+  "ready_vacant_floors": 5,
+  "future_department_blueprints": 5,
+  "activation_execution_enabled": false,
+  "suggested_allocations": [
+    {
+      "floor_id": "floor_41",
+      "suggested_future_use": "Advanced Systems Department",
+      "activation_status": "ready_not_activated"
+    },
+    {
+      "floor_id": "floor_42",
+      "suggested_future_use": "Advanced Automation Department",
+      "activation_status": "ready_not_activated"
+    },
+    {
+      "floor_id": "floor_43",
+      "suggested_future_use": "Advanced Memory Department",
+      "activation_status": "ready_not_activated"
+    },
+    {
+      "floor_id": "floor_44",
+      "suggested_future_use": "Advanced Simulation Department",
+      "activation_status": "ready_not_activated"
+    },
+    {
+      "floor_id": "floor_45",
+      "suggested_future_use": "Executive Expansion Buffer",
+      "activation_status": "ready_not_activated"
+    }
+  ]
+}

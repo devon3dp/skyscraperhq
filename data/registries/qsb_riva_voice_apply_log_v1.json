@@ -1,0 +1,50 @@
+{
+  "kind": "qsb_riva_voice_integration_v1",
+  "ts": "2026-06-10T20:16:04Z",
+  "goal": "NVIDIA Riva neural TTS for Wren's voice; browser SpeechSynthesis remains as fallback",
+  "files_added": [
+    "tools/qsb_riva_voice.py",
+    "data/registries/qsb_riva_install_guide.md"
+  ],
+  "files_modified": [
+    {
+      "path": "src/dashboard/server.py",
+      "change": "new POST /api/voice/wren endpoint, returns audio/wav or 503 fallback"
+    },
+    {
+      "path": "src/dashboard/static/cockpit.js",
+      "change": "F47 voice picker: Riva first, browser fallback; speakAsWren() routes via voice prefix (riva: / browser:)"
+    }
+  ],
+  "team_audit": {
+    "kernel_critic.07": "openai \u2014 flagged: import safety, audio format, default voice, 503 fallback bug, threading. Suggested status indicator.",
+    "kernel_critic.08": "deepseek \u2014 flagged: WAV header (critical), 503 fallback (critical), default voice, blocking gRPC. Suggested speed param.",
+    "wren_response": "WAV wrapping done via stdlib wave module; 503 fallback done via if (!resp.ok); ThreadingHTTPServer = thread-per-request so blocking concern null; speed param deferred (Riva basic API doesn't accept rate \u2014 would need SSML)"
+  },
+  "smoke_tests": [
+    {
+      "endpoint": "/api/voice/wren",
+      "case": "no riva installed",
+      "expected": 503,
+      "got": 503,
+      "pass": true
+    },
+    {
+      "endpoint": "/api/voice/wren",
+      "case": "empty text",
+      "expected": 400,
+      "got": 400,
+      "pass": true
+    },
+    {
+      "endpoint": "/api/f47_chat",
+      "case": "regression \u2014 chat still works",
+      "expected": 200,
+      "got": 200,
+      "pass": true
+    }
+  ],
+  "gate_changes": "NONE \u2014 TTS is not model inference; no execution gate flipped",
+  "next_manual_step_for_ross": "Follow data/registries/qsb_riva_install_guide.md (sections 1-5) to bring Riva up. After that, the cockpit auto-switches to Riva.",
+  "advisory_only": true
+}

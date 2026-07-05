@@ -1,0 +1,31 @@
+{
+  "room_id": "communications_hub_cafe",
+  "name": "Cafeteria",
+  "category": "seating",
+  "purpose": "This room provides a space for staff to relax and meet.",
+  "concierge_blurb": "Take a break in our communal space.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.0,
+    "offset_z": -2.0,
+    "footprint_m": [
+      8,
+      6
+    ],
+    "height_m": 1.5
+  },
+  "render": {
+    "primary_prop": "chair_set",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Caf\u00e9",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_152"
+}

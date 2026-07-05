@@ -1,0 +1,128 @@
+{
+  "ok": true,
+  "phase": "QSB_DASHBOARD_3D_TOTAL_REVAMP_WORKERS_OPENCLAW_V1",
+  "kind": "qsb_dashboard_3d_revamp_acceptance_gates",
+  "generated_ts": "2026-06-30T13:46:34.880333+00:00",
+  "iteration": 1,
+  "gates": [
+    {
+      "gate_id": "G1",
+      "name": "Dashboard loads",
+      "passed": false,
+      "evidence": "html=0 unified=0 telem=0",
+      "repair_if_failed": ""
+    },
+    {
+      "gate_id": "G2",
+      "name": "New renderer files (V1 revamp) loaded in HTML",
+      "passed": false,
+      "evidence": "found 0 of 6",
+      "repair_if_failed": ""
+    },
+    {
+      "gate_id": "G3",
+      "name": "qsb_3d_dashboard.css linked",
+      "passed": false,
+      "evidence": "MISSING",
+      "repair_if_failed": ""
+    },
+    {
+      "gate_id": "G4",
+      "name": "Floors clickable + selectedFloor tracked",
+      "passed": true,
+      "evidence": "handleScenePick + selectedFloor present",
+      "repair_if_failed": ""
+    },
+    {
+      "gate_id": "G5",
+      "name": "qsb_worker_room_assignments populated",
+      "passed": true,
+      "evidence": "by_floor_room keys=8",
+      "repair_if_failed": ""
+    },
+    {
+      "gate_id": "G6",
+      "name": "qsb_3d_workers renders named worker rows",
+      "passed": true,
+      "evidence": "renderSelectedFloorInterior + named rows present",
+      "repair_if_failed": ""
+    },
+    {
+      "gate_id": "G7",
+      "name": "Class/state/task fields rendered in interior",
+      "passed": true,
+      "evidence": "fields present",
+      "repair_if_failed": ""
+    },
+    {
+      "gate_id": "G8",
+      "name": "No random worker orbits per policy",
+      "passed": true,
+      "evidence": "no_random_orbits=True",
+      "repair_if_failed": ""
+    },
+    {
+      "gate_id": "G9",
+      "name": "Default view = selected_floor_and_groups",
+      "passed": true,
+      "evidence": "default=selected_floor_and_groups",
+      "repair_if_failed": ""
+    },
+    {
+      "gate_id": "G10",
+      "name": "SIM separated",
+      "passed": true,
+      "evidence": "should_be_hidden_externally=True",
+      "repair_if_failed": ""
+    },
+    {
+      "gate_id": "G11",
+      "name": "OpenClaw route deterministic + has current_floor",
+      "passed": true,
+      "evidence": "current=30 is_random=False",
+      "repair_if_failed": ""
+    },
+    {
+      "gate_id": "G12",
+      "name": "Packets source-backed or idle",
+      "passed": true,
+      "evidence": "packet_count=37",
+      "repair_if_failed": ""
+    },
+    {
+      "gate_id": "G13",
+      "name": "Lift movements source-backed or idle",
+      "passed": true,
+      "evidence": "lift_count=12",
+      "repair_if_failed": ""
+    },
+    {
+      "gate_id": "G14",
+      "name": "Narrator history present",
+      "passed": true,
+      "evidence": "ok=True",
+      "repair_if_failed": ""
+    },
+    {
+      "gate_id": "G15",
+      "name": "Kernel chat 3D revamp / rebuild topic wired",
+      "passed": true,
+      "evidence": "topic present",
+      "repair_if_failed": ""
+    },
+    {
+      "gate_id": "G16",
+      "name": "Safety locks remain closed",
+      "passed": true,
+      "evidence": "real_money=False guardian=OK",
+      "repair_if_failed": ""
+    }
+  ],
+  "passed_count": 13,
+  "failed_count": 3,
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

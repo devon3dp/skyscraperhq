@@ -1,0 +1,34 @@
+{
+  "room_id": "accounts_workstation",
+  "name": "Workstations",
+  "category": "admin",
+  "purpose": "A collection of workspaces for accounts staff.",
+  "concierge_blurb": "Modern desks and chairs line the walls, ready for hard work.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": -4.0,
+    "footprint_m": [
+      12,
+      8
+    ],
+    "height_m": 1.5
+  },
+  "render": {
+    "primary_prop": "desk",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Workstations",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_44"
+}

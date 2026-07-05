@@ -1,0 +1,18 @@
+{
+  "ok": true,
+  "kind": "qsb_godot_audio_stack_status",
+  "ts": "2026-06-09T21:07:08Z",
+  "sound_available": true,
+  "tts_available":   true,
+  "default_sink":    "bluez_output.87_51_C0_DF_C5_60.1",
+  "tools": {
+    "pactl":        true,
+    "pipewire":     true,
+    "speaker_test": true,
+    "spd_say":      true,
+    "espeak_ng":    true,
+    "espeak":       false,
+    "pyttsx3":      false
+  },
+  "policy": "Local-only. No cloud voice. No external provider. No microphone capture in this scaffold."
+}

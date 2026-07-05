@@ -1,0 +1,31 @@
+{
+  "room_id": "security_room_26",
+  "name": "Security Room",
+  "category": "security",
+  "purpose": "Monitoring and securing the floor.",
+  "concierge_blurb": "Step into our dedicated security room for a peek behind the scenes.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "right_wall",
+    "offset_x": 7.0,
+    "offset_z": -1.5,
+    "footprint_m": [
+      3,
+      4
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "wall_panel",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Security",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_26"
+}

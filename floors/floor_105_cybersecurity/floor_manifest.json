@@ -1,0 +1,42 @@
+{
+  "ok": true,
+  "floor_number": 105,
+  "floor_name": "Cybersecurity",
+  "floor_kind": "designed_by_f66_architects_v1",
+  "description": "defensive + offensive + audit",
+  "designed_by": "F66 Architects' Office",
+  "designed_ts": "2026-06-11T09:13:04.497262Z",
+  "role_inventory": [
+    "CISO",
+    "SOC Analyst",
+    "Penetration Tester",
+    "Incident Responder",
+    "Security Engineer",
+    "Compliance Officer"
+  ],
+  "advisory_only": true,
+  "interior_brief": {
+    "archetype": "security_ops",
+    "palette": [
+      "#2a1010",
+      "#7a2020",
+      "#ff5555"
+    ],
+    "furniture": [
+      "desks",
+      "meeting area",
+      "common space",
+      "storage"
+    ],
+    "lighting": "task + ambient",
+    "mood": "vigilant",
+    "designed_by": "F66 Architects + F17 Graphics + Fitters team",
+    "fitted_at": "2026-06-11T14:39:45.620109Z",
+    "godot_scene_brief": "render an generic floor with neutral grey + accent per floor theme palette, professional mood, key furniture: desks, meeting area, common space",
+    "signature": "Wall of monitors, intrusion log feed, sealed cage",
+    "diversified_ts": "2026-06-11T17:57:45Z",
+    "diversified_by": "qsb_archetype_diversifier_v1"
+  },
+  "fitted_out": true,
+  "fit_out_ts": "2026-06-11T14:39:45.620109Z"
+}

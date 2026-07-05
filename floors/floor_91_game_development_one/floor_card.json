@@ -1,0 +1,72 @@
+{
+  "floor_id": "floor_91",
+  "floor_number": 91,
+  "floor_name": "Game Development One",
+  "department": "designed_by_f66_architects_v1",
+  "zone": "ZONE D \u00b7 COMMERCE WING",
+  "archetype": "designed_by_f66_architects_v1",
+  "staff_lead": "F66 Architects' Office",
+  "tour_blurb": "mobile games",
+  "visitor_open": false,
+  "advisory_only": true,
+  "execution_mode": "PREVIEW_ONLY",
+  "skeleton": true,
+  "skeleton_source": "floor_manifest.json",
+  "skeleton_generated_ts": "2026-06-17",
+  "live_signals": {
+    "theme": null,
+    "categories": null,
+    "palette": null,
+    "tagline": null
+  },
+  "gate_posture": {
+    "advisory_only": true,
+    "execution_allowed": false,
+    "live_payments_enabled": false
+  },
+  "team_roster": [
+    {
+      "id": "f091.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "spawned_id": "bfd962faa2",
+      "spawned_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F091",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f091.operator.01",
+      "spawned_id": "559c7ad22f"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F091",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f091.operator.02",
+      "spawned_id": "5890157d18"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F091",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f091.operator.03",
+      "spawned_id": "42dd50cdc5"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F091",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f091.operator.04",
+      "spawned_id": "bea84618be"
+    }
+  ],
+  "floor_manager": "f091.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

@@ -1,0 +1,32 @@
+{
+  "ts": "2026-06-28T15:15:00Z",
+  "implementation_path": "UE Python (PythonScriptPlugin) authors UMG widgets at /Game/QSB/Widgets/",
+  "widgets": [
+    "WBP_QSB_TopBar",
+    "WBP_QSB_LeftRail",
+    "WBP_QSB_RightPanel",
+    "WBP_QSB_BottomDock",
+    "WBP_QSB_WorkerWindow",
+    "WBP_QSB_LiftWindow",
+    "WBP_QSB_LedgerWindow",
+    "WBP_QSB_PnLWindow",
+    "WBP_QSB_ModelResponseWindow",
+    "WBP_QSB_SmokeTestWindow",
+    "WBP_QSB_FloorActivityWindow",
+    "WBP_QSB_BuildProgressWindow"
+  ],
+  "data_bindings": {
+    "selected_floor": "floors/floor_<NN>_*/floor_card.json",
+    "active_workers": "data/registries/qsb_worker_roster_latest.json + ps -eo cmd",
+    "live_activity": "tail data/registries/qsb_session_diary.md",
+    "ledger_pnl": "data/registries/qsb_portfolio_pot.json + qsb_oanda_snapshot.json",
+    "model_status": "data/registries/team_memory_2026-06-27/<member>/curated_*.md",
+    "openclaw_notes": "data/registries/qsb_openclaw_inspection_tickets.jsonl"
+  },
+  "blueprints": [
+    "BP_QSB_HUDGameInstance",
+    "BP_QSB_ScreenOverlay"
+  ],
+  "writer_tool": "tools/qsb_ue5_hud_writer.py (1s tick → POST to UE Python listener)",
+  "blocker": "Need to add UE Python TCP listener inside the editor session OR extend MCP plugin with execute_python handler"
+}

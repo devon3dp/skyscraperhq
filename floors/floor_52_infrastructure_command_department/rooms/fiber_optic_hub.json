@@ -1,0 +1,31 @@
+{
+  "room_id": "fiber_optic_hub",
+  "name": "Fiber Optic Hub",
+  "category": "operations",
+  "purpose": "Houses critical fiber optic connections for QSB Tower.",
+  "concierge_blurb": "Secure and organized data transfer hub.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": -4.5,
+    "footprint_m": [
+      8,
+      12
+    ],
+    "height_m": 1.6
+  },
+  "render": {
+    "primary_prop": "server_rack",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Fiber Hub",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_52"
+}

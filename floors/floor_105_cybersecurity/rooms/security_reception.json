@@ -1,0 +1,34 @@
+{
+  "room_id": "security_reception",
+  "name": "Security Reception",
+  "category": "reception",
+  "purpose": "Serves as the first point of contact for visitors and staff.",
+  "concierge_blurb": "Provides information, security clearances, and access to the building.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": -7.0,
+    "footprint_m": [
+      6,
+      4
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "reception",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Sec Rcp",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 0
+  },
+  "floor": "floor_105"
+}

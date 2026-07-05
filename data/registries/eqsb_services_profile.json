@@ -1,0 +1,18 @@
+{
+  "ok": true,
+  "kind": "eqsb_services_profile",
+  "generated_ts": "2026-06-30T13:46:34.280469+00:00",
+  "dashboard_pid": null,
+  "ollama_processes": [
+    "2810 /usr/local/bin/ollama serve",
+    "8644 /usr/local/bin/ollama runner --ollama-engine --model /usr/share/ollama/.ollama/models/blobs/sha256-dec52a44569a2a25341c4e4d3fee25846eed4f6f0b936278e3a3c900bb99d37c --port 39421",
+    "21393 /usr/local/bin/ollama runner --model /usr/share/ollama/.ollama/models/blobs/sha256-c8985d236593f7a17da2a3da49588aa951a9b1e57ce97753364fbf59e63af84a --port 46281"
+  ],
+  "airllm_venv_present": true,
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

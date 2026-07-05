@@ -1,0 +1,63 @@
+{
+  "room_id": "proposals_desk",
+  "name": "Proposals Desk",
+  "category": "operations",
+  "floor": "floor_47",
+  "purpose": "this desk is the visitor-readable index of all open and recent code proposals.",
+  "concierge_blurb": "Every change being considered for the building is listed here. Guests can see what Wren's crew is thinking about.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [
+    "data/registries/qsb_code_proposals.jsonl",
+    "data/registries/qsb_code_apply_audit.jsonl"
+  ],
+  "live_signals": {
+    "last_10_proposal_ids": [
+      "audit-2026-06-14T12:37:10.878452Z-shop_catalog_gaps-719113",
+      "audit-2026-06-14T13:18:07.702160Z-shop_catalog_gaps-247808",
+      "audit-2026-06-14T13:43:21.825760Z-shop_catalog_gaps-539841",
+      "audit-2026-06-14T14:08:42.071892Z-shop_catalog_gaps-835282",
+      "audit-2026-06-14T14:33:21.524359Z-shop_catalog_gaps-1119462",
+      "audit-2026-06-14T14:58:42.195078Z-shop_catalog_gaps-1412428",
+      "audit-2026-06-14T15:24:02.420622Z-shop_catalog_gaps-1707717",
+      "audit-2026-06-14T15:52:54.605861Z-shop_catalog_gaps-70821",
+      "audit-2026-06-14T16:18:19.455727Z-shop_catalog_gaps-362624",
+      "audit-2026-06-14T16:43:40.537179Z-shop_catalog_gaps-653029"
+    ],
+    "open_count": 0,
+    "applied_count_today": 93,
+    "open_field_used": "applied (boolean) \u2014 open == not applied",
+    "proposals_source": "data/registries/qsb_code_proposals.jsonl",
+    "apply_audit_source": "data/registries/qsb_code_apply_audit.jsonl",
+    "today_utc": "2026-06-14",
+    "visitor_redactions": [
+      "reason",
+      "operator_notes",
+      "concrete_change"
+    ]
+  },
+  "built_at": "2026-06-14T17:25:30Z",
+  "built_by": "f47_floor_buildout_batch_3",
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -6.5,
+    "offset_z": -5.0,
+    "footprint_m": [
+      1.6,
+      0.8
+    ],
+    "height_m": 0.85
+  },
+  "render": {
+    "primary_prop": "desk",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "PROPOSALS",
+    "glow": false
+  },
+  "interactive": {
+    "type": "count",
+    "source_path": "data/registries/qsb_code_proposals.jsonl",
+    "display": "big_number",
+    "refresh_seconds": 120
+  }
+}

@@ -1,0 +1,2656 @@
+{
+  "ok": true,
+  "kind": "qsb_worker_room_assignments",
+  "generated_ts": "2026-06-30T13:46:36.963993+00:00",
+  "by_floor_room": {
+    "floor_45_worker_recruitment_agency": {
+      "Candidate Intake": [
+        "wrk_v1_recruitment_001",
+        "wrk_v1_recruitment_006",
+        "wrk_v1_recruitment_011",
+        "wrk_v1_recruitment_016",
+        "wrk_v1_recruitment_021",
+        "wrk_v1_recruitment_026",
+        "wrk_v1_recruitment_031",
+        "wrk_v1_recruitment_036",
+        "wrk_v1_recruitment_041",
+        "wrk_v1_recruitment_046",
+        "wrk_v1_recruitment_051",
+        "wrk_v1_recruitment_056",
+        "wrk_v1_recruitment_061",
+        "wrk_v1_recruitment_066",
+        "wrk_v1_recruitment_071",
+        "wrk_v1_recruitment_076"
+      ],
+      "Screening Desk": [
+        "wrk_v1_recruitment_002",
+        "wrk_v1_recruitment_007",
+        "wrk_v1_recruitment_012",
+        "wrk_v1_recruitment_017",
+        "wrk_v1_recruitment_022",
+        "wrk_v1_recruitment_027",
+        "wrk_v1_recruitment_032",
+        "wrk_v1_recruitment_037",
+        "wrk_v1_recruitment_042",
+        "wrk_v1_recruitment_047",
+        "wrk_v1_recruitment_052",
+        "wrk_v1_recruitment_057",
+        "wrk_v1_recruitment_062",
+        "wrk_v1_recruitment_067",
+        "wrk_v1_recruitment_072",
+        "wrk_v1_recruitment_077"
+      ],
+      "Hiring Desk": [
+        "wrk_v1_recruitment_003",
+        "wrk_v1_recruitment_008",
+        "wrk_v1_recruitment_013",
+        "wrk_v1_recruitment_018",
+        "wrk_v1_recruitment_023",
+        "wrk_v1_recruitment_028",
+        "wrk_v1_recruitment_033",
+        "wrk_v1_recruitment_038",
+        "wrk_v1_recruitment_043",
+        "wrk_v1_recruitment_048",
+        "wrk_v1_recruitment_053",
+        "wrk_v1_recruitment_058",
+        "wrk_v1_recruitment_063",
+        "wrk_v1_recruitment_068",
+        "wrk_v1_recruitment_073",
+        "wrk_v1_recruitment_078"
+      ],
+      "Assignment Board": [
+        "wrk_v1_recruitment_004",
+        "wrk_v1_recruitment_009",
+        "wrk_v1_recruitment_014",
+        "wrk_v1_recruitment_019",
+        "wrk_v1_recruitment_024",
+        "wrk_v1_recruitment_029",
+        "wrk_v1_recruitment_034",
+        "wrk_v1_recruitment_039",
+        "wrk_v1_recruitment_044",
+        "wrk_v1_recruitment_049",
+        "wrk_v1_recruitment_054",
+        "wrk_v1_recruitment_059",
+        "wrk_v1_recruitment_064",
+        "wrk_v1_recruitment_069",
+        "wrk_v1_recruitment_074",
+        "wrk_v1_recruitment_079"
+      ],
+      "New Worker Orientation": [
+        "wrk_v1_recruitment_005",
+        "wrk_v1_recruitment_010",
+        "wrk_v1_recruitment_015",
+        "wrk_v1_recruitment_020",
+        "wrk_v1_recruitment_025",
+        "wrk_v1_recruitment_030",
+        "wrk_v1_recruitment_035",
+        "wrk_v1_recruitment_040",
+        "wrk_v1_recruitment_045",
+        "wrk_v1_recruitment_050",
+        "wrk_v1_recruitment_055",
+        "wrk_v1_recruitment_060",
+        "wrk_v1_recruitment_065",
+        "wrk_v1_recruitment_070",
+        "wrk_v1_recruitment_075",
+        "wrk_v1_recruitment_080"
+      ]
+    },
+    "floor_36_expansion_planning_department": {
+      "Training Pods": [
+        "wrk_v1_training_acade_001",
+        "wrk_v1_training_acade_006",
+        "wrk_v1_training_acade_011",
+        "wrk_v1_training_acade_016",
+        "wrk_v1_training_acade_021",
+        "wrk_v1_training_acade_026",
+        "wrk_v1_training_acade_031",
+        "wrk_v1_training_acade_036",
+        "wrk_v1_training_acade_041",
+        "wrk_v1_training_acade_046",
+        "wrk_v1_training_acade_051",
+        "wrk_v1_training_acade_056",
+        "wrk_v1_training_acade_061",
+        "wrk_v1_training_acade_066",
+        "wrk_v1_training_acade_071",
+        "wrk_v1_training_acade_076",
+        "wrk_v1_training_acade_081",
+        "wrk_v1_training_acade_086",
+        "wrk_v1_training_acade_091",
+        "wrk_v1_training_acade_096",
+        "wrk_v1_training_acade_101",
+        "wrk_v1_training_acade_106",
+        "wrk_v1_training_acade_111",
+        "wrk_v1_training_acade_116",
+        "wrk_v1_training_acade_121",
+        "wrk_v1_training_acade_126",
+        "wrk_v1_training_acade_131",
+        "wrk_v1_training_acade_136",
+        "wrk_v1_training_acade_141",
+        "wrk_v1_training_acade_146"
+      ],
+      "Simulation Room": [
+        "wrk_v1_training_acade_002",
+        "wrk_v1_training_acade_007",
+        "wrk_v1_training_acade_012",
+        "wrk_v1_training_acade_017",
+        "wrk_v1_training_acade_022",
+        "wrk_v1_training_acade_027",
+        "wrk_v1_training_acade_032",
+        "wrk_v1_training_acade_037",
+        "wrk_v1_training_acade_042",
+        "wrk_v1_training_acade_047",
+        "wrk_v1_training_acade_052",
+        "wrk_v1_training_acade_057",
+        "wrk_v1_training_acade_062",
+        "wrk_v1_training_acade_067",
+        "wrk_v1_training_acade_072",
+        "wrk_v1_training_acade_077",
+        "wrk_v1_training_acade_082",
+        "wrk_v1_training_acade_087",
+        "wrk_v1_training_acade_092",
+        "wrk_v1_training_acade_097",
+        "wrk_v1_training_acade_102",
+        "wrk_v1_training_acade_107",
+        "wrk_v1_training_acade_112",
+        "wrk_v1_training_acade_117",
+        "wrk_v1_training_acade_122",
+        "wrk_v1_training_acade_127",
+        "wrk_v1_training_acade_132",
+        "wrk_v1_training_acade_137",
+        "wrk_v1_training_acade_142",
+        "wrk_v1_training_acade_147"
+      ],
+      "Strategy Classroom": [
+        "wrk_v1_training_acade_003",
+        "wrk_v1_training_acade_008",
+        "wrk_v1_training_acade_013",
+        "wrk_v1_training_acade_018",
+        "wrk_v1_training_acade_023",
+        "wrk_v1_training_acade_028",
+        "wrk_v1_training_acade_033",
+        "wrk_v1_training_acade_038",
+        "wrk_v1_training_acade_043",
+        "wrk_v1_training_acade_048",
+        "wrk_v1_training_acade_053",
+        "wrk_v1_training_acade_058",
+        "wrk_v1_training_acade_063",
+        "wrk_v1_training_acade_068",
+        "wrk_v1_training_acade_073",
+        "wrk_v1_training_acade_078",
+        "wrk_v1_training_acade_083",
+        "wrk_v1_training_acade_088",
+        "wrk_v1_training_acade_093",
+        "wrk_v1_training_acade_098",
+        "wrk_v1_training_acade_103",
+        "wrk_v1_training_acade_108",
+        "wrk_v1_training_acade_113",
+        "wrk_v1_training_acade_118",
+        "wrk_v1_training_acade_123",
+        "wrk_v1_training_acade_128",
+        "wrk_v1_training_acade_133",
+        "wrk_v1_training_acade_138",
+        "wrk_v1_training_acade_143",
+        "wrk_v1_training_acade_148"
+      ],
+      "Safety Rules Classroom": [
+        "wrk_v1_training_acade_004",
+        "wrk_v1_training_acade_009",
+        "wrk_v1_training_acade_014",
+        "wrk_v1_training_acade_019",
+        "wrk_v1_training_acade_024",
+        "wrk_v1_training_acade_029",
+        "wrk_v1_training_acade_034",
+        "wrk_v1_training_acade_039",
+        "wrk_v1_training_acade_044",
+        "wrk_v1_training_acade_049",
+        "wrk_v1_training_acade_054",
+        "wrk_v1_training_acade_059",
+        "wrk_v1_training_acade_064",
+        "wrk_v1_training_acade_069",
+        "wrk_v1_training_acade_074",
+        "wrk_v1_training_acade_079",
+        "wrk_v1_training_acade_084",
+        "wrk_v1_training_acade_089",
+        "wrk_v1_training_acade_094",
+        "wrk_v1_training_acade_099",
+        "wrk_v1_training_acade_104",
+        "wrk_v1_training_acade_109",
+        "wrk_v1_training_acade_114",
+        "wrk_v1_training_acade_119",
+        "wrk_v1_training_acade_124",
+        "wrk_v1_training_acade_129",
+        "wrk_v1_training_acade_134",
+        "wrk_v1_training_acade_139",
+        "wrk_v1_training_acade_144",
+        "wrk_v1_training_acade_149"
+      ],
+      "Graduation Desk": [
+        "wrk_v1_training_acade_005",
+        "wrk_v1_training_acade_010",
+        "wrk_v1_training_acade_015",
+        "wrk_v1_training_acade_020",
+        "wrk_v1_training_acade_025",
+        "wrk_v1_training_acade_030",
+        "wrk_v1_training_acade_035",
+        "wrk_v1_training_acade_040",
+        "wrk_v1_training_acade_045",
+        "wrk_v1_training_acade_050",
+        "wrk_v1_training_acade_055",
+        "wrk_v1_training_acade_060",
+        "wrk_v1_training_acade_065",
+        "wrk_v1_training_acade_070",
+        "wrk_v1_training_acade_075",
+        "wrk_v1_training_acade_080",
+        "wrk_v1_training_acade_085",
+        "wrk_v1_training_acade_090",
+        "wrk_v1_training_acade_095",
+        "wrk_v1_training_acade_100",
+        "wrk_v1_training_acade_105",
+        "wrk_v1_training_acade_110",
+        "wrk_v1_training_acade_115",
+        "wrk_v1_training_acade_120",
+        "wrk_v1_training_acade_125",
+        "wrk_v1_training_acade_130",
+        "wrk_v1_training_acade_135",
+        "wrk_v1_training_acade_140",
+        "wrk_v1_training_acade_145",
+        "wrk_v1_training_acade_150"
+      ]
+    },
+    "floor_38_sandbox_operations": {
+      "Mistake Review Desk": [
+        "wrk_v1_lessons_room_001",
+        "wrk_v1_lessons_room_006",
+        "wrk_v1_lessons_room_011",
+        "wrk_v1_lessons_room_016",
+        "wrk_v1_lessons_room_021",
+        "wrk_v1_lessons_room_026",
+        "wrk_v1_lessons_room_031",
+        "wrk_v1_lessons_room_036",
+        "wrk_v1_lessons_room_041",
+        "wrk_v1_lessons_room_046"
+      ],
+      "Lesson Library": [
+        "wrk_v1_lessons_room_002",
+        "wrk_v1_lessons_room_007",
+        "wrk_v1_lessons_room_012",
+        "wrk_v1_lessons_room_017",
+        "wrk_v1_lessons_room_022",
+        "wrk_v1_lessons_room_027",
+        "wrk_v1_lessons_room_032",
+        "wrk_v1_lessons_room_037",
+        "wrk_v1_lessons_room_042",
+        "wrk_v1_lessons_room_047"
+      ],
+      "Repeated Error Board": [
+        "wrk_v1_lessons_room_003",
+        "wrk_v1_lessons_room_008",
+        "wrk_v1_lessons_room_013",
+        "wrk_v1_lessons_room_018",
+        "wrk_v1_lessons_room_023",
+        "wrk_v1_lessons_room_028",
+        "wrk_v1_lessons_room_033",
+        "wrk_v1_lessons_room_038",
+        "wrk_v1_lessons_room_043",
+        "wrk_v1_lessons_room_048"
+      ],
+      "Redemption Desk": [
+        "wrk_v1_lessons_room_004",
+        "wrk_v1_lessons_room_009",
+        "wrk_v1_lessons_room_014",
+        "wrk_v1_lessons_room_019",
+        "wrk_v1_lessons_room_024",
+        "wrk_v1_lessons_room_029",
+        "wrk_v1_lessons_room_034",
+        "wrk_v1_lessons_room_039",
+        "wrk_v1_lessons_room_044",
+        "wrk_v1_lessons_room_049"
+      ],
+      "Cleared Worker Board": [
+        "wrk_v1_lessons_room_005",
+        "wrk_v1_lessons_room_010",
+        "wrk_v1_lessons_room_015",
+        "wrk_v1_lessons_room_020",
+        "wrk_v1_lessons_room_025",
+        "wrk_v1_lessons_room_030",
+        "wrk_v1_lessons_room_035",
+        "wrk_v1_lessons_room_040",
+        "wrk_v1_lessons_room_045",
+        "wrk_v1_lessons_room_050"
+      ]
+    },
+    "floor_47_executive_operations_department": {
+      "Task Dispatch Board": [
+        "wrk_v1_worker_operati_001",
+        "wrk_v1_worker_operati_006",
+        "wrk_v1_worker_operati_011",
+        "wrk_v1_worker_operati_016",
+        "wrk_v1_worker_operati_021",
+        "wrk_v1_worker_operati_026",
+        "wrk_v1_worker_operati_031",
+        "wrk_v1_worker_operati_036",
+        "wrk_v1_worker_operati_041",
+        "wrk_v1_worker_operati_046",
+        "wrk_v1_worker_operati_051",
+        "wrk_v1_worker_operati_056",
+        "wrk_v1_worker_operati_061",
+        "wrk_v1_worker_operati_066",
+        "wrk_v1_worker_operati_071",
+        "wrk_v1_worker_operati_076",
+        "wrk_v1_worker_operati_081",
+        "wrk_v1_worker_operati_086"
+      ],
+      "Movement Control": [
+        "wrk_v1_worker_operati_002",
+        "wrk_v1_worker_operati_007",
+        "wrk_v1_worker_operati_012",
+        "wrk_v1_worker_operati_017",
+        "wrk_v1_worker_operati_022",
+        "wrk_v1_worker_operati_027",
+        "wrk_v1_worker_operati_032",
+        "wrk_v1_worker_operati_037",
+        "wrk_v1_worker_operati_042",
+        "wrk_v1_worker_operati_047",
+        "wrk_v1_worker_operati_052",
+        "wrk_v1_worker_operati_057",
+        "wrk_v1_worker_operati_062",
+        "wrk_v1_worker_operati_067",
+        "wrk_v1_worker_operati_072",
+        "wrk_v1_worker_operati_077",
+        "wrk_v1_worker_operati_082",
+        "wrk_v1_worker_operati_087"
+      ],
+      "Floor Assignment Desk": [
+        "wrk_v1_worker_operati_003",
+        "wrk_v1_worker_operati_008",
+        "wrk_v1_worker_operati_013",
+        "wrk_v1_worker_operati_018",
+        "wrk_v1_worker_operati_023",
+        "wrk_v1_worker_operati_028",
+        "wrk_v1_worker_operati_033",
+        "wrk_v1_worker_operati_038",
+        "wrk_v1_worker_operati_043",
+        "wrk_v1_worker_operati_048",
+        "wrk_v1_worker_operati_053",
+        "wrk_v1_worker_operati_058",
+        "wrk_v1_worker_operati_063",
+        "wrk_v1_worker_operati_068",
+        "wrk_v1_worker_operati_073",
+        "wrk_v1_worker_operati_078",
+        "wrk_v1_worker_operati_083",
+        "wrk_v1_worker_operati_088"
+      ],
+      "Idle Worker Roster": [
+        "wrk_v1_worker_operati_004",
+        "wrk_v1_worker_operati_009",
+        "wrk_v1_worker_operati_014",
+        "wrk_v1_worker_operati_019",
+        "wrk_v1_worker_operati_024",
+        "wrk_v1_worker_operati_029",
+        "wrk_v1_worker_operati_034",
+        "wrk_v1_worker_operati_039",
+        "wrk_v1_worker_operati_044",
+        "wrk_v1_worker_operati_049",
+        "wrk_v1_worker_operati_054",
+        "wrk_v1_worker_operati_059",
+        "wrk_v1_worker_operati_064",
+        "wrk_v1_worker_operati_069",
+        "wrk_v1_worker_operati_074",
+        "wrk_v1_worker_operati_079",
+        "wrk_v1_worker_operati_084",
+        "wrk_v1_worker_operati_089"
+      ],
+      "Active Worker Roster": [
+        "wrk_v1_worker_operati_005",
+        "wrk_v1_worker_operati_010",
+        "wrk_v1_worker_operati_015",
+        "wrk_v1_worker_operati_020",
+        "wrk_v1_worker_operati_025",
+        "wrk_v1_worker_operati_030",
+        "wrk_v1_worker_operati_035",
+        "wrk_v1_worker_operati_040",
+        "wrk_v1_worker_operati_045",
+        "wrk_v1_worker_operati_050",
+        "wrk_v1_worker_operati_055",
+        "wrk_v1_worker_operati_060",
+        "wrk_v1_worker_operati_065",
+        "wrk_v1_worker_operati_070",
+        "wrk_v1_worker_operati_075",
+        "wrk_v1_worker_operati_080",
+        "wrk_v1_worker_operati_085",
+        "wrk_v1_worker_operati_090"
+      ]
+    },
+    "floor_44_accounts_department": {
+      "Worker of the Day": [
+        "wrk_v1_rewards_office_001",
+        "wrk_v1_rewards_office_006",
+        "wrk_v1_rewards_office_011",
+        "wrk_v1_rewards_office_016",
+        "wrk_v1_rewards_office_021",
+        "wrk_v1_rewards_office_026",
+        "wrk_v1_rewards_office_031",
+        "wrk_v1_rewards_office_036",
+        "wrk_v1_rewards_office_041",
+        "wrk_v1_rewards_office_046",
+        "wrk_v1_rewards_office_051",
+        "wrk_v1_rewards_office_056"
+      ],
+      "Worker of the Week": [
+        "wrk_v1_rewards_office_002",
+        "wrk_v1_rewards_office_007",
+        "wrk_v1_rewards_office_012",
+        "wrk_v1_rewards_office_017",
+        "wrk_v1_rewards_office_022",
+        "wrk_v1_rewards_office_027",
+        "wrk_v1_rewards_office_032",
+        "wrk_v1_rewards_office_037",
+        "wrk_v1_rewards_office_042",
+        "wrk_v1_rewards_office_047",
+        "wrk_v1_rewards_office_052",
+        "wrk_v1_rewards_office_057"
+      ],
+      "Worker of the Month": [
+        "wrk_v1_rewards_office_003",
+        "wrk_v1_rewards_office_008",
+        "wrk_v1_rewards_office_013",
+        "wrk_v1_rewards_office_018",
+        "wrk_v1_rewards_office_023",
+        "wrk_v1_rewards_office_028",
+        "wrk_v1_rewards_office_033",
+        "wrk_v1_rewards_office_038",
+        "wrk_v1_rewards_office_043",
+        "wrk_v1_rewards_office_048",
+        "wrk_v1_rewards_office_053",
+        "wrk_v1_rewards_office_058"
+      ],
+      "Medal Cabinet": [
+        "wrk_v1_rewards_office_004",
+        "wrk_v1_rewards_office_009",
+        "wrk_v1_rewards_office_014",
+        "wrk_v1_rewards_office_019",
+        "wrk_v1_rewards_office_024",
+        "wrk_v1_rewards_office_029",
+        "wrk_v1_rewards_office_034",
+        "wrk_v1_rewards_office_039",
+        "wrk_v1_rewards_office_044",
+        "wrk_v1_rewards_office_049",
+        "wrk_v1_rewards_office_054",
+        "wrk_v1_rewards_office_059"
+      ],
+      "Reward Point Ledger": [
+        "wrk_v1_rewards_office_005",
+        "wrk_v1_rewards_office_010",
+        "wrk_v1_rewards_office_015",
+        "wrk_v1_rewards_office_020",
+        "wrk_v1_rewards_office_025",
+        "wrk_v1_rewards_office_030",
+        "wrk_v1_rewards_office_035",
+        "wrk_v1_rewards_office_040",
+        "wrk_v1_rewards_office_045",
+        "wrk_v1_rewards_office_050",
+        "wrk_v1_rewards_office_055",
+        "wrk_v1_rewards_office_060"
+      ],
+      "Promotion Review Table": [
+        "wrk_v1_promotion_boar_001",
+        "wrk_v1_promotion_boar_005",
+        "wrk_v1_promotion_boar_009",
+        "wrk_v1_promotion_boar_013",
+        "wrk_v1_promotion_boar_017",
+        "wrk_v1_promotion_boar_021",
+        "wrk_v1_promotion_boar_025",
+        "wrk_v1_promotion_boar_029",
+        "wrk_v1_promotion_boar_033",
+        "wrk_v1_promotion_boar_037"
+      ],
+      "Eligible Workers Board": [
+        "wrk_v1_promotion_boar_002",
+        "wrk_v1_promotion_boar_006",
+        "wrk_v1_promotion_boar_010",
+        "wrk_v1_promotion_boar_014",
+        "wrk_v1_promotion_boar_018",
+        "wrk_v1_promotion_boar_022",
+        "wrk_v1_promotion_boar_026",
+        "wrk_v1_promotion_boar_030",
+        "wrk_v1_promotion_boar_034",
+        "wrk_v1_promotion_boar_038"
+      ],
+      "Pending Colonel Approval": [
+        "wrk_v1_promotion_boar_003",
+        "wrk_v1_promotion_boar_007",
+        "wrk_v1_promotion_boar_011",
+        "wrk_v1_promotion_boar_015",
+        "wrk_v1_promotion_boar_019",
+        "wrk_v1_promotion_boar_023",
+        "wrk_v1_promotion_boar_027",
+        "wrk_v1_promotion_boar_031",
+        "wrk_v1_promotion_boar_035",
+        "wrk_v1_promotion_boar_039"
+      ],
+      "Rank Ladder": [
+        "wrk_v1_promotion_boar_004",
+        "wrk_v1_promotion_boar_008",
+        "wrk_v1_promotion_boar_012",
+        "wrk_v1_promotion_boar_016",
+        "wrk_v1_promotion_boar_020",
+        "wrk_v1_promotion_boar_024",
+        "wrk_v1_promotion_boar_028",
+        "wrk_v1_promotion_boar_032",
+        "wrk_v1_promotion_boar_036",
+        "wrk_v1_promotion_boar_040"
+      ]
+    },
+    "floor_30_permissions_department": {
+      "Strike Desk": [
+        "wrk_v1_disciplinary_r_001",
+        "wrk_v1_disciplinary_r_006",
+        "wrk_v1_disciplinary_r_011",
+        "wrk_v1_disciplinary_r_016",
+        "wrk_v1_disciplinary_r_021",
+        "wrk_v1_disciplinary_r_026",
+        "wrk_v1_disciplinary_r_031",
+        "wrk_v1_disciplinary_r_036",
+        "wrk_v1_disciplinary_r_041",
+        "wrk_v1_disciplinary_r_046",
+        "wrk_v1_disciplinary_r_051",
+        "wrk_v1_disciplinary_r_056",
+        "wrk_v1_disciplinary_r_061",
+        "wrk_v1_disciplinary_r_066"
+      ],
+      "Guardian Block Review": [
+        "wrk_v1_disciplinary_r_002",
+        "wrk_v1_disciplinary_r_007",
+        "wrk_v1_disciplinary_r_012",
+        "wrk_v1_disciplinary_r_017",
+        "wrk_v1_disciplinary_r_022",
+        "wrk_v1_disciplinary_r_027",
+        "wrk_v1_disciplinary_r_032",
+        "wrk_v1_disciplinary_r_037",
+        "wrk_v1_disciplinary_r_042",
+        "wrk_v1_disciplinary_r_047",
+        "wrk_v1_disciplinary_r_052",
+        "wrk_v1_disciplinary_r_057",
+        "wrk_v1_disciplinary_r_062",
+        "wrk_v1_disciplinary_r_067"
+      ],
+      "Retraining Orders": [
+        "wrk_v1_disciplinary_r_003",
+        "wrk_v1_disciplinary_r_008",
+        "wrk_v1_disciplinary_r_013",
+        "wrk_v1_disciplinary_r_018",
+        "wrk_v1_disciplinary_r_023",
+        "wrk_v1_disciplinary_r_028",
+        "wrk_v1_disciplinary_r_033",
+        "wrk_v1_disciplinary_r_038",
+        "wrk_v1_disciplinary_r_043",
+        "wrk_v1_disciplinary_r_048",
+        "wrk_v1_disciplinary_r_053",
+        "wrk_v1_disciplinary_r_058",
+        "wrk_v1_disciplinary_r_063",
+        "wrk_v1_disciplinary_r_068"
+      ],
+      "Suspension Board": [
+        "wrk_v1_disciplinary_r_004",
+        "wrk_v1_disciplinary_r_009",
+        "wrk_v1_disciplinary_r_014",
+        "wrk_v1_disciplinary_r_019",
+        "wrk_v1_disciplinary_r_024",
+        "wrk_v1_disciplinary_r_029",
+        "wrk_v1_disciplinary_r_034",
+        "wrk_v1_disciplinary_r_039",
+        "wrk_v1_disciplinary_r_044",
+        "wrk_v1_disciplinary_r_049",
+        "wrk_v1_disciplinary_r_054",
+        "wrk_v1_disciplinary_r_059",
+        "wrk_v1_disciplinary_r_064",
+        "wrk_v1_disciplinary_r_069"
+      ],
+      "Redemption Path": [
+        "wrk_v1_disciplinary_r_005",
+        "wrk_v1_disciplinary_r_010",
+        "wrk_v1_disciplinary_r_015",
+        "wrk_v1_disciplinary_r_020",
+        "wrk_v1_disciplinary_r_025",
+        "wrk_v1_disciplinary_r_030",
+        "wrk_v1_disciplinary_r_035",
+        "wrk_v1_disciplinary_r_040",
+        "wrk_v1_disciplinary_r_045",
+        "wrk_v1_disciplinary_r_050",
+        "wrk_v1_disciplinary_r_055",
+        "wrk_v1_disciplinary_r_060",
+        "wrk_v1_disciplinary_r_065",
+        "wrk_v1_disciplinary_r_070"
+      ]
+    },
+    "floor_49_resource_management_department": {
+      "Rest Pods": [
+        "wrk_v1_rest_dormitory_001",
+        "wrk_v1_rest_dormitory_005",
+        "wrk_v1_rest_dormitory_009",
+        "wrk_v1_rest_dormitory_013",
+        "wrk_v1_rest_dormitory_017",
+        "wrk_v1_rest_dormitory_021",
+        "wrk_v1_rest_dormitory_025",
+        "wrk_v1_rest_dormitory_029",
+        "wrk_v1_rest_dormitory_033",
+        "wrk_v1_rest_dormitory_037",
+        "wrk_v1_rest_dormitory_041",
+        "wrk_v1_rest_dormitory_045",
+        "wrk_v1_rest_dormitory_049",
+        "wrk_v1_rest_dormitory_053",
+        "wrk_v1_rest_dormitory_057",
+        "wrk_v1_rest_dormitory_061",
+        "wrk_v1_rest_dormitory_065",
+        "wrk_v1_rest_dormitory_069",
+        "wrk_v1_rest_dormitory_073",
+        "wrk_v1_rest_dormitory_077",
+        "wrk_v1_rest_dormitory_081",
+        "wrk_v1_rest_dormitory_085",
+        "wrk_v1_rest_dormitory_089",
+        "wrk_v1_rest_dormitory_093",
+        "wrk_v1_rest_dormitory_097",
+        "wrk_v1_rest_dormitory_101",
+        "wrk_v1_rest_dormitory_105",
+        "wrk_v1_rest_dormitory_109",
+        "wrk_v1_rest_dormitory_113",
+        "wrk_v1_rest_dormitory_117",
+        "wrk_v1_rest_dormitory_121",
+        "wrk_v1_rest_dormitory_125",
+        "wrk_v1_rest_dormitory_129",
+        "wrk_v1_rest_dormitory_133",
+        "wrk_v1_rest_dormitory_137",
+        "wrk_v1_rest_dormitory_141",
+        "wrk_v1_rest_dormitory_145",
+        "wrk_v1_rest_dormitory_149",
+        "wrk_v1_rest_dormitory_153",
+        "wrk_v1_rest_dormitory_157",
+        "wrk_v1_rest_dormitory_161",
+        "wrk_v1_rest_dormitory_165",
+        "wrk_v1_rest_dormitory_169",
+        "wrk_v1_rest_dormitory_173",
+        "wrk_v1_rest_dormitory_177",
+        "wrk_v1_rest_dormitory_181",
+        "wrk_v1_rest_dormitory_185",
+        "wrk_v1_rest_dormitory_189",
+        "wrk_v1_rest_dormitory_193",
+        "wrk_v1_rest_dormitory_197",
+        "wrk_v1_rest_dormitory_201",
+        "wrk_v1_rest_dormitory_205",
+        "wrk_v1_rest_dormitory_209",
+        "wrk_v1_rest_dormitory_213",
+        "wrk_v1_rest_dormitory_217",
+        "wrk_v1_rest_dormitory_221",
+        "wrk_v1_rest_dormitory_225",
+        "wrk_v1_rest_dormitory_229",
+        "wrk_v1_rest_dormitory_233",
+        "wrk_v1_rest_dormitory_237",
+        "wrk_v1_rest_dormitory_241",
+        "wrk_v1_rest_dormitory_245",
+        "wrk_v1_rest_dormitory_249",
+        "wrk_v1_rest_dormitory_253",
+        "wrk_v1_rest_dormitory_257",
+        "wrk_v1_rest_dormitory_261",
+        "wrk_v1_rest_dormitory_265",
+        "wrk_v1_rest_dormitory_269",
+        "wrk_v1_rest_dormitory_273",
+        "wrk_v1_rest_dormitory_277"
+      ],
+      "Standby Lounge": [
+        "wrk_v1_rest_dormitory_002",
+        "wrk_v1_rest_dormitory_006",
+        "wrk_v1_rest_dormitory_010",
+        "wrk_v1_rest_dormitory_014",
+        "wrk_v1_rest_dormitory_018",
+        "wrk_v1_rest_dormitory_022",
+        "wrk_v1_rest_dormitory_026",
+        "wrk_v1_rest_dormitory_030",
+        "wrk_v1_rest_dormitory_034",
+        "wrk_v1_rest_dormitory_038",
+        "wrk_v1_rest_dormitory_042",
+        "wrk_v1_rest_dormitory_046",
+        "wrk_v1_rest_dormitory_050",
+        "wrk_v1_rest_dormitory_054",
+        "wrk_v1_rest_dormitory_058",
+        "wrk_v1_rest_dormitory_062",
+        "wrk_v1_rest_dormitory_066",
+        "wrk_v1_rest_dormitory_070",
+        "wrk_v1_rest_dormitory_074",
+        "wrk_v1_rest_dormitory_078",
+        "wrk_v1_rest_dormitory_082",
+        "wrk_v1_rest_dormitory_086",
+        "wrk_v1_rest_dormitory_090",
+        "wrk_v1_rest_dormitory_094",
+        "wrk_v1_rest_dormitory_098",
+        "wrk_v1_rest_dormitory_102",
+        "wrk_v1_rest_dormitory_106",
+        "wrk_v1_rest_dormitory_110",
+        "wrk_v1_rest_dormitory_114",
+        "wrk_v1_rest_dormitory_118",
+        "wrk_v1_rest_dormitory_122",
+        "wrk_v1_rest_dormitory_126",
+        "wrk_v1_rest_dormitory_130",
+        "wrk_v1_rest_dormitory_134",
+        "wrk_v1_rest_dormitory_138",
+        "wrk_v1_rest_dormitory_142",
+        "wrk_v1_rest_dormitory_146",
+        "wrk_v1_rest_dormitory_150",
+        "wrk_v1_rest_dormitory_154",
+        "wrk_v1_rest_dormitory_158",
+        "wrk_v1_rest_dormitory_162",
+        "wrk_v1_rest_dormitory_166",
+        "wrk_v1_rest_dormitory_170",
+        "wrk_v1_rest_dormitory_174",
+        "wrk_v1_rest_dormitory_178",
+        "wrk_v1_rest_dormitory_182",
+        "wrk_v1_rest_dormitory_186",
+        "wrk_v1_rest_dormitory_190",
+        "wrk_v1_rest_dormitory_194",
+        "wrk_v1_rest_dormitory_198",
+        "wrk_v1_rest_dormitory_202",
+        "wrk_v1_rest_dormitory_206",
+        "wrk_v1_rest_dormitory_210",
+        "wrk_v1_rest_dormitory_214",
+        "wrk_v1_rest_dormitory_218",
+        "wrk_v1_rest_dormitory_222",
+        "wrk_v1_rest_dormitory_226",
+        "wrk_v1_rest_dormitory_230",
+        "wrk_v1_rest_dormitory_234",
+        "wrk_v1_rest_dormitory_238",
+        "wrk_v1_rest_dormitory_242",
+        "wrk_v1_rest_dormitory_246",
+        "wrk_v1_rest_dormitory_250",
+        "wrk_v1_rest_dormitory_254",
+        "wrk_v1_rest_dormitory_258",
+        "wrk_v1_rest_dormitory_262",
+        "wrk_v1_rest_dormitory_266",
+        "wrk_v1_rest_dormitory_270",
+        "wrk_v1_rest_dormitory_274",
+        "wrk_v1_rest_dormitory_278"
+      ],
+      "Shift Change Desk": [
+        "wrk_v1_rest_dormitory_003",
+        "wrk_v1_rest_dormitory_007",
+        "wrk_v1_rest_dormitory_011",
+        "wrk_v1_rest_dormitory_015",
+        "wrk_v1_rest_dormitory_019",
+        "wrk_v1_rest_dormitory_023",
+        "wrk_v1_rest_dormitory_027",
+        "wrk_v1_rest_dormitory_031",
+        "wrk_v1_rest_dormitory_035",
+        "wrk_v1_rest_dormitory_039",
+        "wrk_v1_rest_dormitory_043",
+        "wrk_v1_rest_dormitory_047",
+        "wrk_v1_rest_dormitory_051",
+        "wrk_v1_rest_dormitory_055",
+        "wrk_v1_rest_dormitory_059",
+        "wrk_v1_rest_dormitory_063",
+        "wrk_v1_rest_dormitory_067",
+        "wrk_v1_rest_dormitory_071",
+        "wrk_v1_rest_dormitory_075",
+        "wrk_v1_rest_dormitory_079",
+        "wrk_v1_rest_dormitory_083",
+        "wrk_v1_rest_dormitory_087",
+        "wrk_v1_rest_dormitory_091",
+        "wrk_v1_rest_dormitory_095",
+        "wrk_v1_rest_dormitory_099",
+        "wrk_v1_rest_dormitory_103",
+        "wrk_v1_rest_dormitory_107",
+        "wrk_v1_rest_dormitory_111",
+        "wrk_v1_rest_dormitory_115",
+        "wrk_v1_rest_dormitory_119",
+        "wrk_v1_rest_dormitory_123",
+        "wrk_v1_rest_dormitory_127",
+        "wrk_v1_rest_dormitory_131",
+        "wrk_v1_rest_dormitory_135",
+        "wrk_v1_rest_dormitory_139",
+        "wrk_v1_rest_dormitory_143",
+        "wrk_v1_rest_dormitory_147",
+        "wrk_v1_rest_dormitory_151",
+        "wrk_v1_rest_dormitory_155",
+        "wrk_v1_rest_dormitory_159",
+        "wrk_v1_rest_dormitory_163",
+        "wrk_v1_rest_dormitory_167",
+        "wrk_v1_rest_dormitory_171",
+        "wrk_v1_rest_dormitory_175",
+        "wrk_v1_rest_dormitory_179",
+        "wrk_v1_rest_dormitory_183",
+        "wrk_v1_rest_dormitory_187",
+        "wrk_v1_rest_dormitory_191",
+        "wrk_v1_rest_dormitory_195",
+        "wrk_v1_rest_dormitory_199",
+        "wrk_v1_rest_dormitory_203",
+        "wrk_v1_rest_dormitory_207",
+        "wrk_v1_rest_dormitory_211",
+        "wrk_v1_rest_dormitory_215",
+        "wrk_v1_rest_dormitory_219",
+        "wrk_v1_rest_dormitory_223",
+        "wrk_v1_rest_dormitory_227",
+        "wrk_v1_rest_dormitory_231",
+        "wrk_v1_rest_dormitory_235",
+        "wrk_v1_rest_dormitory_239",
+        "wrk_v1_rest_dormitory_243",
+        "wrk_v1_rest_dormitory_247",
+        "wrk_v1_rest_dormitory_251",
+        "wrk_v1_rest_dormitory_255",
+        "wrk_v1_rest_dormitory_259",
+        "wrk_v1_rest_dormitory_263",
+        "wrk_v1_rest_dormitory_267",
+        "wrk_v1_rest_dormitory_271",
+        "wrk_v1_rest_dormitory_275",
+        "wrk_v1_rest_dormitory_279"
+      ],
+      "Offline Worker Bay": [
+        "wrk_v1_rest_dormitory_004",
+        "wrk_v1_rest_dormitory_008",
+        "wrk_v1_rest_dormitory_012",
+        "wrk_v1_rest_dormitory_016",
+        "wrk_v1_rest_dormitory_020",
+        "wrk_v1_rest_dormitory_024",
+        "wrk_v1_rest_dormitory_028",
+        "wrk_v1_rest_dormitory_032",
+        "wrk_v1_rest_dormitory_036",
+        "wrk_v1_rest_dormitory_040",
+        "wrk_v1_rest_dormitory_044",
+        "wrk_v1_rest_dormitory_048",
+        "wrk_v1_rest_dormitory_052",
+        "wrk_v1_rest_dormitory_056",
+        "wrk_v1_rest_dormitory_060",
+        "wrk_v1_rest_dormitory_064",
+        "wrk_v1_rest_dormitory_068",
+        "wrk_v1_rest_dormitory_072",
+        "wrk_v1_rest_dormitory_076",
+        "wrk_v1_rest_dormitory_080",
+        "wrk_v1_rest_dormitory_084",
+        "wrk_v1_rest_dormitory_088",
+        "wrk_v1_rest_dormitory_092",
+        "wrk_v1_rest_dormitory_096",
+        "wrk_v1_rest_dormitory_100",
+        "wrk_v1_rest_dormitory_104",
+        "wrk_v1_rest_dormitory_108",
+        "wrk_v1_rest_dormitory_112",
+        "wrk_v1_rest_dormitory_116",
+        "wrk_v1_rest_dormitory_120",
+        "wrk_v1_rest_dormitory_124",
+        "wrk_v1_rest_dormitory_128",
+        "wrk_v1_rest_dormitory_132",
+        "wrk_v1_rest_dormitory_136",
+        "wrk_v1_rest_dormitory_140",
+        "wrk_v1_rest_dormitory_144",
+        "wrk_v1_rest_dormitory_148",
+        "wrk_v1_rest_dormitory_152",
+        "wrk_v1_rest_dormitory_156",
+        "wrk_v1_rest_dormitory_160",
+        "wrk_v1_rest_dormitory_164",
+        "wrk_v1_rest_dormitory_168",
+        "wrk_v1_rest_dormitory_172",
+        "wrk_v1_rest_dormitory_176",
+        "wrk_v1_rest_dormitory_180",
+        "wrk_v1_rest_dormitory_184",
+        "wrk_v1_rest_dormitory_188",
+        "wrk_v1_rest_dormitory_192",
+        "wrk_v1_rest_dormitory_196",
+        "wrk_v1_rest_dormitory_200",
+        "wrk_v1_rest_dormitory_204",
+        "wrk_v1_rest_dormitory_208",
+        "wrk_v1_rest_dormitory_212",
+        "wrk_v1_rest_dormitory_216",
+        "wrk_v1_rest_dormitory_220",
+        "wrk_v1_rest_dormitory_224",
+        "wrk_v1_rest_dormitory_228",
+        "wrk_v1_rest_dormitory_232",
+        "wrk_v1_rest_dormitory_236",
+        "wrk_v1_rest_dormitory_240",
+        "wrk_v1_rest_dormitory_244",
+        "wrk_v1_rest_dormitory_248",
+        "wrk_v1_rest_dormitory_252",
+        "wrk_v1_rest_dormitory_256",
+        "wrk_v1_rest_dormitory_260",
+        "wrk_v1_rest_dormitory_264",
+        "wrk_v1_rest_dormitory_268",
+        "wrk_v1_rest_dormitory_272",
+        "wrk_v1_rest_dormitory_276",
+        "wrk_v1_rest_dormitory_280"
+      ]
+    },
+    "floor_52_infrastructure_command_department": {
+      "Floor Directory": [
+        "wrk_v1_floor_operatio_001",
+        "wrk_v1_floor_operatio_005",
+        "wrk_v1_floor_operatio_009",
+        "wrk_v1_floor_operatio_013",
+        "wrk_v1_floor_operatio_017",
+        "wrk_v1_floor_operatio_021",
+        "wrk_v1_floor_operatio_025",
+        "wrk_v1_floor_operatio_029",
+        "wrk_v1_floor_operatio_033",
+        "wrk_v1_floor_operatio_037",
+        "wrk_v1_floor_operatio_041",
+        "wrk_v1_floor_operatio_045",
+        "wrk_v1_floor_operatio_049",
+        "wrk_v1_floor_operatio_053",
+        "wrk_v1_floor_operatio_057",
+        "wrk_v1_floor_operatio_061",
+        "wrk_v1_floor_operatio_065",
+        "wrk_v1_floor_operatio_069",
+        "wrk_v1_floor_operatio_073",
+        "wrk_v1_floor_operatio_077",
+        "wrk_v1_floor_operatio_081",
+        "wrk_v1_floor_operatio_085",
+        "wrk_v1_floor_operatio_089",
+        "wrk_v1_floor_operatio_093",
+        "wrk_v1_floor_operatio_097",
+        "wrk_v1_floor_operatio_101",
+        "wrk_v1_floor_operatio_105",
+        "wrk_v1_floor_operatio_109",
+        "wrk_v1_floor_operatio_113",
+        "wrk_v1_floor_operatio_117",
+        "wrk_v1_floor_operatio_121",
+        "wrk_v1_floor_operatio_125",
+        "wrk_v1_floor_operatio_129",
+        "wrk_v1_floor_operatio_133",
+        "wrk_v1_floor_operatio_137",
+        "wrk_v1_floor_operatio_141",
+        "wrk_v1_floor_operatio_145",
+        "wrk_v1_floor_operatio_149",
+        "wrk_v1_floor_operatio_153",
+        "wrk_v1_floor_operatio_157",
+        "wrk_v1_floor_operatio_161",
+        "wrk_v1_floor_operatio_165",
+        "wrk_v1_floor_operatio_169",
+        "wrk_v1_floor_operatio_173",
+        "wrk_v1_floor_operatio_177"
+      ],
+      "Department Registry": [
+        "wrk_v1_floor_operatio_002",
+        "wrk_v1_floor_operatio_006",
+        "wrk_v1_floor_operatio_010",
+        "wrk_v1_floor_operatio_014",
+        "wrk_v1_floor_operatio_018",
+        "wrk_v1_floor_operatio_022",
+        "wrk_v1_floor_operatio_026",
+        "wrk_v1_floor_operatio_030",
+        "wrk_v1_floor_operatio_034",
+        "wrk_v1_floor_operatio_038",
+        "wrk_v1_floor_operatio_042",
+        "wrk_v1_floor_operatio_046",
+        "wrk_v1_floor_operatio_050",
+        "wrk_v1_floor_operatio_054",
+        "wrk_v1_floor_operatio_058",
+        "wrk_v1_floor_operatio_062",
+        "wrk_v1_floor_operatio_066",
+        "wrk_v1_floor_operatio_070",
+        "wrk_v1_floor_operatio_074",
+        "wrk_v1_floor_operatio_078",
+        "wrk_v1_floor_operatio_082",
+        "wrk_v1_floor_operatio_086",
+        "wrk_v1_floor_operatio_090",
+        "wrk_v1_floor_operatio_094",
+        "wrk_v1_floor_operatio_098",
+        "wrk_v1_floor_operatio_102",
+        "wrk_v1_floor_operatio_106",
+        "wrk_v1_floor_operatio_110",
+        "wrk_v1_floor_operatio_114",
+        "wrk_v1_floor_operatio_118",
+        "wrk_v1_floor_operatio_122",
+        "wrk_v1_floor_operatio_126",
+        "wrk_v1_floor_operatio_130",
+        "wrk_v1_floor_operatio_134",
+        "wrk_v1_floor_operatio_138",
+        "wrk_v1_floor_operatio_142",
+        "wrk_v1_floor_operatio_146",
+        "wrk_v1_floor_operatio_150",
+        "wrk_v1_floor_operatio_154",
+        "wrk_v1_floor_operatio_158",
+        "wrk_v1_floor_operatio_162",
+        "wrk_v1_floor_operatio_166",
+        "wrk_v1_floor_operatio_170",
+        "wrk_v1_floor_operatio_174",
+        "wrk_v1_floor_operatio_178"
+      ],
+      "Floor Health Board": [
+        "wrk_v1_floor_operatio_003",
+        "wrk_v1_floor_operatio_007",
+        "wrk_v1_floor_operatio_011",
+        "wrk_v1_floor_operatio_015",
+        "wrk_v1_floor_operatio_019",
+        "wrk_v1_floor_operatio_023",
+        "wrk_v1_floor_operatio_027",
+        "wrk_v1_floor_operatio_031",
+        "wrk_v1_floor_operatio_035",
+        "wrk_v1_floor_operatio_039",
+        "wrk_v1_floor_operatio_043",
+        "wrk_v1_floor_operatio_047",
+        "wrk_v1_floor_operatio_051",
+        "wrk_v1_floor_operatio_055",
+        "wrk_v1_floor_operatio_059",
+        "wrk_v1_floor_operatio_063",
+        "wrk_v1_floor_operatio_067",
+        "wrk_v1_floor_operatio_071",
+        "wrk_v1_floor_operatio_075",
+        "wrk_v1_floor_operatio_079",
+        "wrk_v1_floor_operatio_083",
+        "wrk_v1_floor_operatio_087",
+        "wrk_v1_floor_operatio_091",
+        "wrk_v1_floor_operatio_095",
+        "wrk_v1_floor_operatio_099",
+        "wrk_v1_floor_operatio_103",
+        "wrk_v1_floor_operatio_107",
+        "wrk_v1_floor_operatio_111",
+        "wrk_v1_floor_operatio_115",
+        "wrk_v1_floor_operatio_119",
+        "wrk_v1_floor_operatio_123",
+        "wrk_v1_floor_operatio_127",
+        "wrk_v1_floor_operatio_131",
+        "wrk_v1_floor_operatio_135",
+        "wrk_v1_floor_operatio_139",
+        "wrk_v1_floor_operatio_143",
+        "wrk_v1_floor_operatio_147",
+        "wrk_v1_floor_operatio_151",
+        "wrk_v1_floor_operatio_155",
+        "wrk_v1_floor_operatio_159",
+        "wrk_v1_floor_operatio_163",
+        "wrk_v1_floor_operatio_167",
+        "wrk_v1_floor_operatio_171",
+        "wrk_v1_floor_operatio_175",
+        "wrk_v1_floor_operatio_179"
+      ],
+      "Missing Room Board": [
+        "wrk_v1_floor_operatio_004",
+        "wrk_v1_floor_operatio_008",
+        "wrk_v1_floor_operatio_012",
+        "wrk_v1_floor_operatio_016",
+        "wrk_v1_floor_operatio_020",
+        "wrk_v1_floor_operatio_024",
+        "wrk_v1_floor_operatio_028",
+        "wrk_v1_floor_operatio_032",
+        "wrk_v1_floor_operatio_036",
+        "wrk_v1_floor_operatio_040",
+        "wrk_v1_floor_operatio_044",
+        "wrk_v1_floor_operatio_048",
+        "wrk_v1_floor_operatio_052",
+        "wrk_v1_floor_operatio_056",
+        "wrk_v1_floor_operatio_060",
+        "wrk_v1_floor_operatio_064",
+        "wrk_v1_floor_operatio_068",
+        "wrk_v1_floor_operatio_072",
+        "wrk_v1_floor_operatio_076",
+        "wrk_v1_floor_operatio_080",
+        "wrk_v1_floor_operatio_084",
+        "wrk_v1_floor_operatio_088",
+        "wrk_v1_floor_operatio_092",
+        "wrk_v1_floor_operatio_096",
+        "wrk_v1_floor_operatio_100",
+        "wrk_v1_floor_operatio_104",
+        "wrk_v1_floor_operatio_108",
+        "wrk_v1_floor_operatio_112",
+        "wrk_v1_floor_operatio_116",
+        "wrk_v1_floor_operatio_120",
+        "wrk_v1_floor_operatio_124",
+        "wrk_v1_floor_operatio_128",
+        "wrk_v1_floor_operatio_132",
+        "wrk_v1_floor_operatio_136",
+        "wrk_v1_floor_operatio_140",
+        "wrk_v1_floor_operatio_144",
+        "wrk_v1_floor_operatio_148",
+        "wrk_v1_floor_operatio_152",
+        "wrk_v1_floor_operatio_156",
+        "wrk_v1_floor_operatio_160",
+        "wrk_v1_floor_operatio_164",
+        "wrk_v1_floor_operatio_168",
+        "wrk_v1_floor_operatio_172",
+        "wrk_v1_floor_operatio_176",
+        "wrk_v1_floor_operatio_180"
+      ]
+    },
+    "floor_41_oanda_practice": {
+      "Audit Bench": [
+        "paper_strategy_analyst",
+        "market_scout"
+      ],
+      "Quote Desk": [
+        "momentum_scout",
+        "breakout_watcher",
+        "spread_watcher",
+        "wrk_trading_floor_visual_reporter"
+      ],
+      "Practice Order Desk": [
+        "spread_gatekeeper"
+      ],
+      "Risk Review Desk": [
+        "openclaw_market_probe"
+      ]
+    },
+    "floor_42_binance_trading": {
+      "Binance Testnet Feed Desk": [
+        "f42_testnet_scout",
+        "f42_orderbook_watcher"
+      ],
+      "Strategy Desk": [
+        "f42_floor_manager",
+        "f42_strategy_analyst"
+      ],
+      "Order Preview Desk": [
+        "f42_order_preview_clerk"
+      ],
+      "Risk Station": [
+        "f42_risk_sentinel"
+      ],
+      "Ledger Dispatch": [
+        "f42_ledger_clerk"
+      ],
+      "OpenClaw Inspection Post": [
+        "f42_openclaw_inspector"
+      ]
+    },
+    "floor_43_stock_exchange": {
+      "Stock Market Feed Desk": [
+        "f43_market_scout"
+      ],
+      "Sector Watch Desk": [
+        "f43_floor_manager",
+        "f43_sector_analyst"
+      ],
+      "Paper Order Desk": [
+        "f43_paper_order_clerk"
+      ],
+      "Risk Station": [
+        "f43_risk_sentinel"
+      ],
+      "Ledger Dispatch": [
+        "f43_ledger_clerk"
+      ],
+      "Compliance Desk": [
+        "f43_compliance_clerk"
+      ],
+      "OpenClaw Inspection Post": [
+        "f43_openclaw_inspector"
+      ]
+    },
+    "floor_01_order_fulfilment_hub": {
+      "Dispatch Desk": [
+        "wrk_v2_f01_ful_floor_manager_001",
+        "wrk_v2_f01_ful_ledger_clerk_013",
+        "wrk_v2_f01_ful_returns_clerk_021",
+        "wrk_v2_f01_ful_trainee_026",
+        "wrk_v2_f01_ful_trainee_027",
+        "wrk_v2_f01_ful_trainee_029"
+      ],
+      "Order Intake": [
+        "wrk_v2_f01_ful_intake_clerk_002",
+        "wrk_v2_f01_ful_intake_clerk_003",
+        "wrk_v2_f01_ful_intake_clerk_004",
+        "wrk_v2_f01_ful_intake_clerk_005",
+        "wrk_v2_f01_ful_dispatch_clerk_007",
+        "wrk_v2_f01_ful_dispatch_clerk_009",
+        "wrk_v2_f01_ful_dispatch_clerk_011",
+        "wrk_v2_f01_ful_qc_015",
+        "wrk_v2_f01_ful_qc_016",
+        "wrk_v2_f01_ful_returns_clerk_020",
+        "wrk_v2_f01_ful_trainee_024",
+        "wrk_v2_f01_ful_trainee_031",
+        "wrk_v2_f01_ful_trainee_032",
+        "wrk_v2_f01_ful_trainee_033"
+      ],
+      "Fulfilment Ledger": [
+        "wrk_v2_f01_ful_intake_clerk_006",
+        "wrk_v2_f01_ful_trainee_023"
+      ],
+      "Returns Desk": [
+        "wrk_v2_f01_ful_dispatch_clerk_008",
+        "wrk_v2_f01_ful_ledger_clerk_014",
+        "wrk_v2_f01_ful_qc_017",
+        "wrk_v2_f01_ful_returns_clerk_019",
+        "wrk_v2_f01_ful_trainee_030",
+        "wrk_v2_f01_ful_trainee_035"
+      ],
+      "Quality Check": [
+        "wrk_v2_f01_ful_dispatch_clerk_010",
+        "wrk_v2_f01_ful_ledger_clerk_012",
+        "wrk_v2_f01_ful_qc_018",
+        "wrk_v2_f01_ful_openclaw_insp_022",
+        "wrk_v2_f01_ful_trainee_025",
+        "wrk_v2_f01_ful_trainee_028",
+        "wrk_v2_f01_ful_trainee_034"
+      ]
+    },
+    "floor_02_customer_memory_vault": {
+      "Memory Retention Desk": [
+        "wrk_v2_f02_dept_floor_manager_001",
+        "wrk_v2_f02_dept_watcher_005",
+        "wrk_v2_f02_dept_seer_007",
+        "wrk_v2_f02_dept_trainee_017",
+        "wrk_v2_f02_dept_trainee_019",
+        "wrk_v2_f02_dept_trainee_020"
+      ],
+      "Loyalty Ledger": [
+        "wrk_v2_f02_dept_manager_002",
+        "wrk_v2_f02_dept_overseer_003",
+        "wrk_v2_f02_dept_watcher_004",
+        "wrk_v2_f02_dept_seer_006",
+        "wrk_v2_f02_dept_specialist_008",
+        "wrk_v2_f02_dept_specialist_011",
+        "wrk_v2_f02_dept_clerk_014",
+        "wrk_v2_f02_dept_clerk_015",
+        "wrk_v2_f02_dept_trainee_022"
+      ],
+      "Purchase History Archive": [
+        "wrk_v2_f02_dept_specialist_009",
+        "wrk_v2_f02_dept_specialist_010",
+        "wrk_v2_f02_dept_specialist_013",
+        "wrk_v2_f02_dept_openclaw_insp_016"
+      ],
+      "Customer Profiles Vault": [
+        "wrk_v2_f02_dept_specialist_012",
+        "wrk_v2_f02_dept_trainee_018",
+        "wrk_v2_f02_dept_trainee_021"
+      ]
+    },
+    "floor_03_product_research_lab": {
+      "Pricing Research Desk": [
+        "wrk_v2_f03_pr_lab_manager_001",
+        "wrk_v2_f03_pr_trend_watcher_002",
+        "wrk_v2_f03_pr_trend_watcher_004",
+        "wrk_v2_f03_pr_competitor_seer_007",
+        "wrk_v2_f03_pr_demand_seer_016",
+        "wrk_v2_f03_pr_trainee_021",
+        "wrk_v2_f03_pr_trainee_024"
+      ],
+      "Demand Signal Wall": [
+        "wrk_v2_f03_pr_trend_watcher_003",
+        "wrk_v2_f03_pr_competitor_seer_008",
+        "wrk_v2_f03_pr_niche_seer_014",
+        "wrk_v2_f03_pr_demand_seer_017",
+        "wrk_v2_f03_pr_openclaw_insp_019",
+        "wrk_v2_f03_pr_trainee_020",
+        "wrk_v2_f03_pr_trainee_023",
+        "wrk_v2_f03_pr_trainee_026"
+      ],
+      "Trend Watch Desk": [
+        "wrk_v2_f03_pr_trend_watcher_005",
+        "wrk_v2_f03_pr_competitor_seer_006",
+        "wrk_v2_f03_pr_pricing_analyst_012",
+        "wrk_v2_f03_pr_niche_seer_015",
+        "wrk_v2_f03_pr_trainee_030"
+      ],
+      "Niche Discovery Desk": [
+        "wrk_v2_f03_pr_competitor_seer_009",
+        "wrk_v2_f03_pr_pricing_analyst_010",
+        "wrk_v2_f03_pr_demand_seer_018",
+        "wrk_v2_f03_pr_trainee_022",
+        "wrk_v2_f03_pr_trainee_028",
+        "wrk_v2_f03_pr_trainee_029"
+      ],
+      "Competitor Research Desk": [
+        "wrk_v2_f03_pr_pricing_analyst_011",
+        "wrk_v2_f03_pr_niche_seer_013",
+        "wrk_v2_f03_pr_trainee_025",
+        "wrk_v2_f03_pr_trainee_027"
+      ]
+    },
+    "floor_04_knowledge_library_and_classroom_wing": {
+      "Curriculum Library": [
+        "wrk_v2_f04_dept_floor_manager_001",
+        "wrk_v2_f04_dept_overseer_003",
+        "wrk_v2_f04_dept_specialist_009",
+        "wrk_v2_f04_dept_specialist_010",
+        "wrk_v2_f04_dept_trainee_023",
+        "wrk_v2_f04_dept_trainee_024",
+        "wrk_v2_f04_dept_trainee_025"
+      ],
+      "Study Carrels": [
+        "wrk_v2_f04_dept_manager_002",
+        "wrk_v2_f04_dept_watcher_004",
+        "wrk_v2_f04_dept_seer_006",
+        "wrk_v2_f04_dept_specialist_013",
+        "wrk_v2_f04_dept_specialist_014",
+        "wrk_v2_f04_dept_specialist_015",
+        "wrk_v2_f04_dept_clerk_017",
+        "wrk_v2_f04_dept_trainee_019",
+        "wrk_v2_f04_dept_trainee_021",
+        "wrk_v2_f04_dept_trainee_022",
+        "wrk_v2_f04_dept_trainee_026"
+      ],
+      "Certification Records": [
+        "wrk_v2_f04_dept_watcher_005",
+        "wrk_v2_f04_dept_specialist_011",
+        "wrk_v2_f04_dept_trainee_020"
+      ],
+      "Teacher Office": [
+        "wrk_v2_f04_dept_seer_007",
+        "wrk_v2_f04_dept_specialist_008",
+        "wrk_v2_f04_dept_specialist_012",
+        "wrk_v2_f04_dept_clerk_016",
+        "wrk_v2_f04_dept_openclaw_insp_018"
+      ]
+    },
+    "floor_05_code_observatory_and_dev_squad": {
+      "Code Review Desk": [
+        "wrk_v2_f05_dept_floor_manager_001",
+        "wrk_v2_f05_dept_overseer_003",
+        "wrk_v2_f05_dept_watcher_005"
+      ],
+      "Phase History Wall": [
+        "wrk_v2_f05_dept_manager_002",
+        "wrk_v2_f05_dept_watcher_004",
+        "wrk_v2_f05_dept_specialist_010",
+        "wrk_v2_f05_dept_trainee_014"
+      ],
+      "Test Runner Bench": [
+        "wrk_v2_f05_dept_seer_006",
+        "wrk_v2_f05_dept_specialist_009",
+        "wrk_v2_f05_dept_clerk_012",
+        "wrk_v2_f05_dept_openclaw_insp_013",
+        "wrk_v2_f05_dept_trainee_015"
+      ],
+      "Refactor Queue": [
+        "wrk_v2_f05_dept_seer_007",
+        "wrk_v2_f05_dept_specialist_008",
+        "wrk_v2_f05_dept_clerk_011",
+        "wrk_v2_f05_dept_trainee_016"
+      ]
+    },
+    "floor_06_etsy_shop_floor": {
+      "Pricing Desk": [
+        "wrk_v2_f06_etsy_floor_manager_001",
+        "wrk_v2_f06_etsy_compliance_030"
+      ],
+      "SEO / Tags Desk": [
+        "wrk_v2_f06_etsy_dept_manager_002",
+        "wrk_v2_f06_etsy_product_seer_004",
+        "wrk_v2_f06_etsy_product_seer_005"
+      ],
+      "Product Research Desk": [
+        "wrk_v2_f06_etsy_product_seer_003",
+        "wrk_v2_f06_etsy_listing_writer_007",
+        "wrk_v2_f06_etsy_mockup_creator_018",
+        "wrk_v2_f06_etsy_trainee_032"
+      ],
+      "Listing Writer Desk": [
+        "wrk_v2_f06_etsy_listing_writer_006",
+        "wrk_v2_f06_etsy_seo_clerk_010",
+        "wrk_v2_f06_etsy_image_designer_013",
+        "wrk_v2_f06_etsy_customer_clerk_022",
+        "wrk_v2_f06_etsy_customer_clerk_024",
+        "wrk_v2_f06_etsy_order_watcher_025"
+      ],
+      "Etsy Shop Manager Office": [
+        "wrk_v2_f06_etsy_listing_writer_008",
+        "wrk_v2_f06_etsy_pricing_analyst_020"
+      ],
+      "Revenue Ledger": [
+        "wrk_v2_f06_etsy_listing_writer_009",
+        "wrk_v2_f06_etsy_seo_clerk_011",
+        "wrk_v2_f06_etsy_pricing_analyst_021",
+        "wrk_v2_f06_etsy_customer_clerk_023",
+        "wrk_v2_f06_etsy_revenue_acct_027"
+      ],
+      "Image Preview Wall": [
+        "wrk_v2_f06_etsy_seo_clerk_012",
+        "wrk_v2_f06_etsy_mockup_creator_017",
+        "wrk_v2_f06_etsy_order_watcher_026",
+        "wrk_v2_f06_etsy_compliance_029"
+      ],
+      "Customer Message Desk": [
+        "wrk_v2_f06_etsy_image_designer_014"
+      ],
+      "Order Monitor": [
+        "wrk_v2_f06_etsy_image_designer_015",
+        "wrk_v2_f06_etsy_image_designer_016"
+      ],
+      "Digital Product Studio": [
+        "wrk_v2_f06_etsy_mockup_creator_019",
+        "wrk_v2_f06_etsy_revenue_acct_028"
+      ],
+      "Compliance Review Desk": [
+        "wrk_v2_f06_etsy_openclaw_insp_031"
+      ]
+    },
+    "floor_07_shopify_storefront_floor": {
+      "Cart Logic Desk": [
+        "wrk_v2_f07_shop_floor_manager_001",
+        "wrk_v2_f07_shop_storefront_aud_008",
+        "wrk_v2_f07_shop_webhook_clerk_011",
+        "wrk_v2_f07_shop_trainee_016",
+        "wrk_v2_f07_shop_trainee_019"
+      ],
+      "Webhook Listener Desk": [
+        "wrk_v2_f07_shop_theme_designer_002",
+        "wrk_v2_f07_shop_theme_designer_004",
+        "wrk_v2_f07_shop_cart_engineer_005",
+        "wrk_v2_f07_shop_webhook_clerk_010",
+        "wrk_v2_f07_shop_openclaw_insp_014",
+        "wrk_v2_f07_shop_trainee_017",
+        "wrk_v2_f07_shop_trainee_018",
+        "wrk_v2_f07_shop_trainee_021"
+      ],
+      "Compliance Review": [
+        "wrk_v2_f07_shop_theme_designer_003",
+        "wrk_v2_f07_shop_cart_engineer_006",
+        "wrk_v2_f07_shop_cart_engineer_007",
+        "wrk_v2_f07_shop_compliance_012"
+      ],
+      "Storefront Audit": [
+        "wrk_v2_f07_shop_storefront_aud_009",
+        "wrk_v2_f07_shop_trainee_015"
+      ],
+      "Theme Studio": [
+        "wrk_v2_f07_shop_compliance_013",
+        "wrk_v2_f07_shop_trainee_020",
+        "wrk_v2_f07_shop_trainee_022"
+      ]
+    },
+    "floor_08_trading_and_commerce_classrooms": {
+      "Certification Board": [
+        "wrk_v2_f08_class_teacher_lead_001",
+        "wrk_v2_f08_class_pod_teacher_015",
+        "wrk_v2_f08_class_seo_teacher_021",
+        "wrk_v2_f08_class_certifier_031",
+        "wrk_v2_f08_class_student_033",
+        "wrk_v2_f08_class_student_036",
+        "wrk_v2_f08_class_student_042",
+        "wrk_v2_f08_class_student_047"
+      ],
+      "Print-on-Demand Classroom": [
+        "wrk_v2_f08_class_teacher_lead_002",
+        "wrk_v2_f08_class_prompt_teacher_024",
+        "wrk_v2_f08_class_student_037",
+        "wrk_v2_f08_class_student_043",
+        "wrk_v2_f08_class_student_048"
+      ],
+      "Trading Classroom": [
+        "wrk_v2_f08_class_trading_teacher_003",
+        "wrk_v2_f08_class_mentor_029",
+        "wrk_v2_f08_class_student_040",
+        "wrk_v2_f08_class_student_045"
+      ],
+      "Teacher Lounge": [
+        "wrk_v2_f08_class_trading_teacher_004",
+        "wrk_v2_f08_class_mentor_027",
+        "wrk_v2_f08_class_student_046"
+      ],
+      "Prompt Engineering Lab": [
+        "wrk_v2_f08_class_trading_teacher_005",
+        "wrk_v2_f08_class_trading_teacher_006",
+        "wrk_v2_f08_class_commerce_teacher_009",
+        "wrk_v2_f08_class_etsy_teacher_012",
+        "wrk_v2_f08_class_3dprint_teacher_019",
+        "wrk_v2_f08_class_mentor_028",
+        "wrk_v2_f08_class_student_041"
+      ],
+      "3D Printing Classroom": [
+        "wrk_v2_f08_class_commerce_teacher_007",
+        "wrk_v2_f08_class_commerce_teacher_010",
+        "wrk_v2_f08_class_etsy_teacher_011",
+        "wrk_v2_f08_class_3dprint_teacher_018",
+        "wrk_v2_f08_class_seo_teacher_020",
+        "wrk_v2_f08_class_student_032"
+      ],
+      "SEO / Listing Classroom": [
+        "wrk_v2_f08_class_commerce_teacher_008",
+        "wrk_v2_f08_class_seo_teacher_022",
+        "wrk_v2_f08_class_prompt_teacher_023",
+        "wrk_v2_f08_class_prompt_teacher_025",
+        "wrk_v2_f08_class_mentor_026",
+        "wrk_v2_f08_class_certifier_030",
+        "wrk_v2_f08_class_student_034",
+        "wrk_v2_f08_class_student_035",
+        "wrk_v2_f08_class_student_038"
+      ],
+      "Etsy Classroom": [
+        "wrk_v2_f08_class_etsy_teacher_013",
+        "wrk_v2_f08_class_pod_teacher_014",
+        "wrk_v2_f08_class_student_039"
+      ],
+      "Commerce Classroom": [
+        "wrk_v2_f08_class_pod_teacher_016",
+        "wrk_v2_f08_class_3dprint_teacher_017",
+        "wrk_v2_f08_class_student_044"
+      ]
+    },
+    "floor_09_design_quality_review_and_mistake_lab": {
+      "Lessons Room": [
+        "wrk_v2_f09_dept_floor_manager_001",
+        "wrk_v2_f09_dept_specialist_008",
+        "wrk_v2_f09_dept_trainee_021",
+        "wrk_v2_f09_dept_trainee_022",
+        "wrk_v2_f09_dept_trainee_023",
+        "wrk_v2_f09_dept_trainee_027",
+        "wrk_v2_f09_dept_trainee_029"
+      ],
+      "Mistake Review Room": [
+        "wrk_v2_f09_dept_manager_002",
+        "wrk_v2_f09_dept_watcher_005",
+        "wrk_v2_f09_dept_seer_006",
+        "wrk_v2_f09_dept_seer_007",
+        "wrk_v2_f09_dept_specialist_014",
+        "wrk_v2_f09_dept_specialist_015",
+        "wrk_v2_f09_dept_specialist_016"
+      ],
+      "QA Sign-off Desk": [
+        "wrk_v2_f09_dept_overseer_003",
+        "wrk_v2_f09_dept_specialist_009",
+        "wrk_v2_f09_dept_specialist_010",
+        "wrk_v2_f09_dept_specialist_012",
+        "wrk_v2_f09_dept_specialist_013",
+        "wrk_v2_f09_dept_specialist_017",
+        "wrk_v2_f09_dept_clerk_019",
+        "wrk_v2_f09_dept_trainee_026"
+      ],
+      "Design Quality Review Room": [
+        "wrk_v2_f09_dept_watcher_004",
+        "wrk_v2_f09_dept_specialist_011",
+        "wrk_v2_f09_dept_clerk_018",
+        "wrk_v2_f09_dept_openclaw_insp_020",
+        "wrk_v2_f09_dept_trainee_024",
+        "wrk_v2_f09_dept_trainee_025",
+        "wrk_v2_f09_dept_trainee_028",
+        "wrk_v2_f09_dept_trainee_030"
+      ]
+    },
+    "floor_10_strategy_lab_and_sandbox_coupling": {
+      "Counter-Strategy Bench": [
+        "wrk_v2_f10_dept_floor_manager_001",
+        "wrk_v2_f10_dept_manager_002",
+        "wrk_v2_f10_dept_specialist_011",
+        "wrk_v2_f10_dept_specialist_013",
+        "wrk_v2_f10_dept_specialist_016",
+        "wrk_v2_f10_dept_specialist_019",
+        "wrk_v2_f10_dept_clerk_022",
+        "wrk_v2_f10_dept_openclaw_insp_023",
+        "wrk_v2_f10_dept_trainee_034"
+      ],
+      "Walk-Forward Test Pit": [
+        "wrk_v2_f10_dept_overseer_003",
+        "wrk_v2_f10_dept_watcher_004",
+        "wrk_v2_f10_dept_seer_006",
+        "wrk_v2_f10_dept_trainee_024",
+        "wrk_v2_f10_dept_trainee_026",
+        "wrk_v2_f10_dept_trainee_027",
+        "wrk_v2_f10_dept_trainee_029",
+        "wrk_v2_f10_dept_trainee_031",
+        "wrk_v2_f10_dept_trainee_033",
+        "wrk_v2_f10_dept_trainee_036"
+      ],
+      "Simulation Result Wall": [
+        "wrk_v2_f10_dept_watcher_005",
+        "wrk_v2_f10_dept_specialist_010",
+        "wrk_v2_f10_dept_specialist_012",
+        "wrk_v2_f10_dept_specialist_015",
+        "wrk_v2_f10_dept_specialist_017",
+        "wrk_v2_f10_dept_specialist_018",
+        "wrk_v2_f10_dept_specialist_020",
+        "wrk_v2_f10_dept_trainee_025",
+        "wrk_v2_f10_dept_trainee_030"
+      ],
+      "Scenario Lab": [
+        "wrk_v2_f10_dept_seer_007",
+        "wrk_v2_f10_dept_specialist_008",
+        "wrk_v2_f10_dept_specialist_009",
+        "wrk_v2_f10_dept_specialist_014",
+        "wrk_v2_f10_dept_clerk_021",
+        "wrk_v2_f10_dept_trainee_028",
+        "wrk_v2_f10_dept_trainee_032",
+        "wrk_v2_f10_dept_trainee_035"
+      ]
+    },
+    "floor_11_demand_and_competitor_watch": {
+      "Competitor Watch Desk": [
+        "wrk_v2_f11_dept_floor_manager_001",
+        "wrk_v2_f11_dept_seer_007",
+        "wrk_v2_f11_dept_specialist_008",
+        "wrk_v2_f11_dept_specialist_013",
+        "wrk_v2_f11_dept_specialist_017",
+        "wrk_v2_f11_dept_clerk_020",
+        "wrk_v2_f11_dept_openclaw_insp_022",
+        "wrk_v2_f11_dept_trainee_023",
+        "wrk_v2_f11_dept_trainee_028",
+        "wrk_v2_f11_dept_trainee_029",
+        "wrk_v2_f11_dept_trainee_034"
+      ],
+      "Pricing Intel Desk": [
+        "wrk_v2_f11_dept_manager_002",
+        "wrk_v2_f11_dept_specialist_011",
+        "wrk_v2_f11_dept_specialist_012",
+        "wrk_v2_f11_dept_trainee_031"
+      ],
+      "Demand Watch Desk": [
+        "wrk_v2_f11_dept_overseer_003",
+        "wrk_v2_f11_dept_watcher_004",
+        "wrk_v2_f11_dept_specialist_009",
+        "wrk_v2_f11_dept_specialist_010",
+        "wrk_v2_f11_dept_specialist_014",
+        "wrk_v2_f11_dept_specialist_015",
+        "wrk_v2_f11_dept_specialist_019",
+        "wrk_v2_f11_dept_trainee_024",
+        "wrk_v2_f11_dept_trainee_030",
+        "wrk_v2_f11_dept_trainee_032",
+        "wrk_v2_f11_dept_trainee_033"
+      ],
+      "Trend Signal Wall": [
+        "wrk_v2_f11_dept_watcher_005",
+        "wrk_v2_f11_dept_seer_006",
+        "wrk_v2_f11_dept_specialist_016",
+        "wrk_v2_f11_dept_specialist_018",
+        "wrk_v2_f11_dept_clerk_021",
+        "wrk_v2_f11_dept_trainee_025",
+        "wrk_v2_f11_dept_trainee_026",
+        "wrk_v2_f11_dept_trainee_027"
+      ]
+    },
+    "floor_12_commerce_and_trading_risk_bench": {
+      "Risk Threshold Desk": [
+        "wrk_v2_f12_dept_floor_manager_001",
+        "wrk_v2_f12_dept_manager_002",
+        "wrk_v2_f12_dept_overseer_003",
+        "wrk_v2_f12_dept_watcher_004",
+        "wrk_v2_f12_dept_watcher_005",
+        "wrk_v2_f12_dept_seer_006",
+        "wrk_v2_f12_dept_seer_007",
+        "wrk_v2_f12_dept_specialist_010",
+        "wrk_v2_f12_dept_specialist_013",
+        "wrk_v2_f12_dept_clerk_016",
+        "wrk_v2_f12_dept_trainee_019",
+        "wrk_v2_f12_dept_trainee_022"
+      ],
+      "Kill-Switch Console": [
+        "wrk_v2_f12_dept_specialist_008",
+        "wrk_v2_f12_dept_specialist_011",
+        "wrk_v2_f12_dept_specialist_014",
+        "wrk_v2_f12_dept_openclaw_insp_018",
+        "wrk_v2_f12_dept_trainee_020",
+        "wrk_v2_f12_dept_trainee_023"
+      ],
+      "Commerce Risk Bench": [
+        "wrk_v2_f12_dept_specialist_009",
+        "wrk_v2_f12_dept_specialist_012",
+        "wrk_v2_f12_dept_specialist_015",
+        "wrk_v2_f12_dept_clerk_017",
+        "wrk_v2_f12_dept_trainee_021",
+        "wrk_v2_f12_dept_trainee_024",
+        "wrk_v2_f12_dept_trainee_025"
+      ],
+      "Trading Risk Bench": [
+        "wrk_v2_f12_dept_trainee_026"
+      ]
+    },
+    "floor_13_product_image_studio_and_mockup_wall": {
+      "Asset Library": [
+        "wrk_v2_f13_dept_floor_manager_001",
+        "wrk_v2_f13_dept_specialist_010",
+        "wrk_v2_f13_dept_trainee_018",
+        "wrk_v2_f13_dept_trainee_019"
+      ],
+      "Image Preview Wall": [
+        "wrk_v2_f13_dept_manager_002",
+        "wrk_v2_f13_dept_watcher_005",
+        "wrk_v2_f13_dept_specialist_008",
+        "wrk_v2_f13_dept_specialist_012",
+        "wrk_v2_f13_dept_clerk_014"
+      ],
+      "Mockup Studio": [
+        "wrk_v2_f13_dept_overseer_003",
+        "wrk_v2_f13_dept_specialist_009",
+        "wrk_v2_f13_dept_specialist_011",
+        "wrk_v2_f13_dept_trainee_017",
+        "wrk_v2_f13_dept_trainee_021",
+        "wrk_v2_f13_dept_trainee_022"
+      ],
+      "Product Photography Set": [
+        "wrk_v2_f13_dept_watcher_004",
+        "wrk_v2_f13_dept_seer_006",
+        "wrk_v2_f13_dept_seer_007",
+        "wrk_v2_f13_dept_specialist_013",
+        "wrk_v2_f13_dept_clerk_015",
+        "wrk_v2_f13_dept_openclaw_insp_016",
+        "wrk_v2_f13_dept_trainee_020"
+      ]
+    },
+    "floor_14_print_on_demand_floor": {
+      "Quality Check": [
+        "wrk_v2_f14_pod_floor_manager_001",
+        "wrk_v2_f14_pod_trainee_021",
+        "wrk_v2_f14_pod_trainee_028"
+      ],
+      "Fulfilment Monitor": [
+        "wrk_v2_f14_pod_design_intake_002",
+        "wrk_v2_f14_pod_design_intake_003",
+        "wrk_v2_f14_pod_printify_clerk_010",
+        "wrk_v2_f14_pod_fulfilment_mon_015",
+        "wrk_v2_f14_pod_ledger_clerk_019"
+      ],
+      "Order Ledger": [
+        "wrk_v2_f14_pod_mockup_creator_004",
+        "wrk_v2_f14_pod_mockup_creator_006",
+        "wrk_v2_f14_pod_printful_clerk_008",
+        "wrk_v2_f14_pod_printful_clerk_009",
+        "wrk_v2_f14_pod_qc_013",
+        "wrk_v2_f14_pod_trainee_022"
+      ],
+      "Design Intake": [
+        "wrk_v2_f14_pod_mockup_creator_005",
+        "wrk_v2_f14_pod_printify_clerk_011",
+        "wrk_v2_f14_pod_qc_012",
+        "wrk_v2_f14_pod_fulfilment_mon_017",
+        "wrk_v2_f14_pod_ledger_clerk_018",
+        "wrk_v2_f14_pod_trainee_023",
+        "wrk_v2_f14_pod_trainee_024",
+        "wrk_v2_f14_pod_trainee_025",
+        "wrk_v2_f14_pod_trainee_026"
+      ],
+      "Printful/Printify Integration Desk": [
+        "wrk_v2_f14_pod_mockup_creator_007",
+        "wrk_v2_f14_pod_qc_014",
+        "wrk_v2_f14_pod_openclaw_insp_020"
+      ],
+      "Product Mockup Desk": [
+        "wrk_v2_f14_pod_fulfilment_mon_016",
+        "wrk_v2_f14_pod_trainee_027"
+      ]
+    },
+    "floor_15_voice_commerce_studio": {
+      "Voice Narrator Desk": [
+        "wrk_v2_f15_dept_floor_manager_001",
+        "wrk_v2_f15_dept_seer_006",
+        "wrk_v2_f15_dept_clerk_008"
+      ],
+      "Customer Voice Drafts": [
+        "wrk_v2_f15_dept_manager_002"
+      ],
+      "Audio QA": [
+        "wrk_v2_f15_dept_overseer_003",
+        "wrk_v2_f15_dept_watcher_004",
+        "wrk_v2_f15_dept_watcher_005",
+        "wrk_v2_f15_dept_seer_007",
+        "wrk_v2_f15_dept_clerk_009",
+        "wrk_v2_f15_dept_openclaw_insp_010"
+      ]
+    },
+    "floor_16_listing_writer_and_seo_lab": {
+      "SEO Lab": [
+        "wrk_v2_f16_ls_lab_manager_001",
+        "wrk_v2_f16_ls_writer_004",
+        "wrk_v2_f16_ls_seo_clerk_007",
+        "wrk_v2_f16_ls_keyword_clerk_011",
+        "wrk_v2_f16_ls_trainee_022"
+      ],
+      "Listing Writer Desk": [
+        "wrk_v2_f16_ls_writer_002",
+        "wrk_v2_f16_ls_writer_003",
+        "wrk_v2_f16_ls_openclaw_insp_019"
+      ],
+      "Compliance Review": [
+        "wrk_v2_f16_ls_writer_005",
+        "wrk_v2_f16_ls_writer_006",
+        "wrk_v2_f16_ls_tag_optimizer_016",
+        "wrk_v2_f16_ls_compliance_017",
+        "wrk_v2_f16_ls_trainee_021"
+      ],
+      "Tag Optimizer": [
+        "wrk_v2_f16_ls_seo_clerk_008",
+        "wrk_v2_f16_ls_seo_clerk_009",
+        "wrk_v2_f16_ls_seo_clerk_010",
+        "wrk_v2_f16_ls_tag_optimizer_015",
+        "wrk_v2_f16_ls_compliance_018"
+      ],
+      "Keyword Vault": [
+        "wrk_v2_f16_ls_keyword_clerk_012",
+        "wrk_v2_f16_ls_keyword_clerk_013",
+        "wrk_v2_f16_ls_tag_optimizer_014",
+        "wrk_v2_f16_ls_trainee_020"
+      ]
+    },
+    "floor_17_product_design_studio_and_prompt_to_product": {
+      "Asset Vault": [
+        "wrk_v2_f17_ds_studio_manager_001",
+        "wrk_v2_f17_ds_designer_002",
+        "wrk_v2_f17_ds_designer_007",
+        "wrk_v2_f17_ds_prompt_engineer_009",
+        "wrk_v2_f17_ds_prompt_engineer_012",
+        "wrk_v2_f17_ds_style_keeper_016",
+        "wrk_v2_f17_ds_qa_018",
+        "wrk_v2_f17_ds_trainee_023",
+        "wrk_v2_f17_ds_trainee_025",
+        "wrk_v2_f17_ds_trainee_027"
+      ],
+      "Prompt Engineering Lab": [
+        "wrk_v2_f17_ds_designer_003",
+        "wrk_v2_f17_ds_asset_curator_014",
+        "wrk_v2_f17_ds_qa_019",
+        "wrk_v2_f17_ds_trainee_022",
+        "wrk_v2_f17_ds_trainee_030"
+      ],
+      "Design Studio": [
+        "wrk_v2_f17_ds_designer_004",
+        "wrk_v2_f17_ds_designer_006",
+        "wrk_v2_f17_ds_asset_curator_013",
+        "wrk_v2_f17_ds_trainee_029"
+      ],
+      "Style Guide Wall": [
+        "wrk_v2_f17_ds_designer_005",
+        "wrk_v2_f17_ds_prompt_engineer_010",
+        "wrk_v2_f17_ds_style_keeper_015",
+        "wrk_v2_f17_ds_qa_020",
+        "wrk_v2_f17_ds_trainee_024",
+        "wrk_v2_f17_ds_trainee_028"
+      ],
+      "Design Quality Review": [
+        "wrk_v2_f17_ds_prompt_engineer_008",
+        "wrk_v2_f17_ds_prompt_engineer_011",
+        "wrk_v2_f17_ds_qa_017",
+        "wrk_v2_f17_ds_openclaw_insp_021",
+        "wrk_v2_f17_ds_trainee_026"
+      ]
+    },
+    "floor_18_marketing_and_promotion_floor": {
+      "Promotion Compliance": [
+        "wrk_v2_f18_dept_floor_manager_001",
+        "wrk_v2_f18_dept_seer_006",
+        "wrk_v2_f18_dept_specialist_011",
+        "wrk_v2_f18_dept_clerk_018",
+        "wrk_v2_f18_dept_trainee_027"
+      ],
+      "Schedule Board": [
+        "wrk_v2_f18_dept_manager_002",
+        "wrk_v2_f18_dept_watcher_004",
+        "wrk_v2_f18_dept_specialist_013",
+        "wrk_v2_f18_dept_specialist_014",
+        "wrk_v2_f18_dept_specialist_015",
+        "wrk_v2_f18_dept_clerk_019",
+        "wrk_v2_f18_dept_openclaw_insp_020",
+        "wrk_v2_f18_dept_trainee_023"
+      ],
+      "Campaign Draft Desk": [
+        "wrk_v2_f18_dept_overseer_003",
+        "wrk_v2_f18_dept_specialist_008",
+        "wrk_v2_f18_dept_specialist_009",
+        "wrk_v2_f18_dept_specialist_012",
+        "wrk_v2_f18_dept_trainee_026",
+        "wrk_v2_f18_dept_trainee_029",
+        "wrk_v2_f18_dept_trainee_030"
+      ],
+      "Newsletter Studio": [
+        "wrk_v2_f18_dept_watcher_005",
+        "wrk_v2_f18_dept_seer_007",
+        "wrk_v2_f18_dept_specialist_010",
+        "wrk_v2_f18_dept_specialist_016",
+        "wrk_v2_f18_dept_specialist_017",
+        "wrk_v2_f18_dept_trainee_021",
+        "wrk_v2_f18_dept_trainee_022",
+        "wrk_v2_f18_dept_trainee_024",
+        "wrk_v2_f18_dept_trainee_025",
+        "wrk_v2_f18_dept_trainee_028"
+      ]
+    },
+    "floor_19_customer_service_floor": {
+      "Escalation Bench": [
+        "wrk_v2_f19_cs_floor_manager_001",
+        "wrk_v2_f19_cs_ticket_triager_002",
+        "wrk_v2_f19_cs_message_drafter_007",
+        "wrk_v2_f19_cs_trainee_020",
+        "wrk_v2_f19_cs_trainee_021",
+        "wrk_v2_f19_cs_trainee_022"
+      ],
+      "Refund Negotiation Desk": [
+        "wrk_v2_f19_cs_ticket_triager_003",
+        "wrk_v2_f19_cs_message_drafter_009",
+        "wrk_v2_f19_cs_sentiment_seer_017",
+        "wrk_v2_f19_cs_trainee_023",
+        "wrk_v2_f19_cs_trainee_024"
+      ],
+      "Customer Sentiment Wall": [
+        "wrk_v2_f19_cs_ticket_triager_004",
+        "wrk_v2_f19_cs_message_drafter_008",
+        "wrk_v2_f19_cs_openclaw_insp_018"
+      ],
+      "Ticket Triage": [
+        "wrk_v2_f19_cs_ticket_triager_005",
+        "wrk_v2_f19_cs_message_drafter_006",
+        "wrk_v2_f19_cs_message_drafter_010",
+        "wrk_v2_f19_cs_refund_clerk_011",
+        "wrk_v2_f19_cs_refund_clerk_012",
+        "wrk_v2_f19_cs_escalation_014",
+        "wrk_v2_f19_cs_escalation_015",
+        "wrk_v2_f19_cs_sentiment_seer_016",
+        "wrk_v2_f19_cs_trainee_027"
+      ],
+      "Message Draft Desk": [
+        "wrk_v2_f19_cs_refund_clerk_013",
+        "wrk_v2_f19_cs_trainee_019",
+        "wrk_v2_f19_cs_trainee_025",
+        "wrk_v2_f19_cs_trainee_026",
+        "wrk_v2_f19_cs_trainee_028"
+      ]
+    },
+    "floor_20_platform_integration_bench": {
+      "Webhook Sandbox": [
+        "wrk_v2_f20_dept_floor_manager_001",
+        "wrk_v2_f20_dept_specialist_014",
+        "wrk_v2_f20_dept_trainee_020",
+        "wrk_v2_f20_dept_trainee_021"
+      ],
+      "Etsy API Sandbox": [
+        "wrk_v2_f20_dept_manager_002",
+        "wrk_v2_f20_dept_watcher_005",
+        "wrk_v2_f20_dept_openclaw_insp_018",
+        "wrk_v2_f20_dept_trainee_022",
+        "wrk_v2_f20_dept_trainee_026"
+      ],
+      "Printful API Sandbox": [
+        "wrk_v2_f20_dept_overseer_003",
+        "wrk_v2_f20_dept_seer_007",
+        "wrk_v2_f20_dept_specialist_010",
+        "wrk_v2_f20_dept_specialist_012",
+        "wrk_v2_f20_dept_specialist_013",
+        "wrk_v2_f20_dept_specialist_015",
+        "wrk_v2_f20_dept_clerk_016",
+        "wrk_v2_f20_dept_clerk_017",
+        "wrk_v2_f20_dept_trainee_023",
+        "wrk_v2_f20_dept_trainee_024",
+        "wrk_v2_f20_dept_trainee_025"
+      ],
+      "Integration Health Wall": [
+        "wrk_v2_f20_dept_watcher_004",
+        "wrk_v2_f20_dept_seer_006",
+        "wrk_v2_f20_dept_specialist_011"
+      ],
+      "Shopify API Sandbox": [
+        "wrk_v2_f20_dept_specialist_008",
+        "wrk_v2_f20_dept_specialist_009",
+        "wrk_v2_f20_dept_trainee_019"
+      ]
+    },
+    "floor_21_format_schema_translation": {
+      "Validation Desk": [
+        "wrk_v2_f21_dept_floor_manager_001",
+        "wrk_v2_f21_dept_manager_002",
+        "wrk_v2_f21_dept_overseer_003"
+      ],
+      "Format Translator": [
+        "wrk_v2_f21_dept_watcher_004",
+        "wrk_v2_f21_dept_clerk_008",
+        "wrk_v2_f21_dept_openclaw_insp_010"
+      ],
+      "Schema Bench": [
+        "wrk_v2_f21_dept_watcher_005",
+        "wrk_v2_f21_dept_seer_006",
+        "wrk_v2_f21_dept_seer_007",
+        "wrk_v2_f21_dept_clerk_009"
+      ]
+    },
+    "floor_22_lifts_department_operations": {
+      "Lift Dispatch": [
+        "wrk_v2_f22_dept_floor_manager_001",
+        "wrk_v2_f22_dept_overseer_003",
+        "wrk_v2_f22_dept_clerk_010",
+        "wrk_v2_f22_dept_clerk_011",
+        "wrk_v2_f22_dept_openclaw_insp_012",
+        "wrk_v2_f22_dept_trainee_014"
+      ],
+      "Packet Router Bench": [
+        "wrk_v2_f22_dept_manager_002",
+        "wrk_v2_f22_dept_seer_006",
+        "wrk_v2_f22_dept_specialist_008",
+        "wrk_v2_f22_dept_specialist_009"
+      ],
+      "Lift Maintenance": [
+        "wrk_v2_f22_dept_watcher_004",
+        "wrk_v2_f22_dept_watcher_005",
+        "wrk_v2_f22_dept_seer_007",
+        "wrk_v2_f22_dept_trainee_013"
+      ]
+    },
+    "floor_23_airllm_chamber": {
+      "Model Chamber": [
+        "wrk_v2_f23_dept_floor_manager_001",
+        "wrk_v2_f23_dept_manager_002",
+        "wrk_v2_f23_dept_watcher_004",
+        "wrk_v2_f23_dept_seer_006",
+        "wrk_v2_f23_dept_seer_007"
+      ],
+      "Advisory Out": [
+        "wrk_v2_f23_dept_overseer_003"
+      ],
+      "Prompt Buffer": [
+        "wrk_v2_f23_dept_watcher_005",
+        "wrk_v2_f23_dept_clerk_008",
+        "wrk_v2_f23_dept_clerk_009",
+        "wrk_v2_f23_dept_openclaw_insp_010"
+      ]
+    },
+    "floor_24_lane_governance": {
+      "Lane Governance": [
+        "wrk_v2_f24_dept_floor_manager_001",
+        "wrk_v2_f24_dept_manager_002",
+        "wrk_v2_f24_dept_overseer_003"
+      ],
+      "Routing Console": [
+        "wrk_v2_f24_dept_watcher_004",
+        "wrk_v2_f24_dept_watcher_005",
+        "wrk_v2_f24_dept_seer_006",
+        "wrk_v2_f24_dept_seer_007",
+        "wrk_v2_f24_dept_clerk_008",
+        "wrk_v2_f24_dept_clerk_009",
+        "wrk_v2_f24_dept_openclaw_insp_010"
+      ]
+    },
+    "floor_25_openclaw_coordination_office": {
+      "Ticket Coordination": [
+        "wrk_v2_f25_dept_floor_manager_001",
+        "wrk_v2_f25_dept_seer_006",
+        "wrk_v2_f25_dept_clerk_008",
+        "wrk_v2_f25_dept_clerk_009",
+        "wrk_v2_f25_dept_openclaw_insp_010"
+      ],
+      "Finding Archive": [
+        "wrk_v2_f25_dept_manager_002",
+        "wrk_v2_f25_dept_overseer_003",
+        "wrk_v2_f25_dept_seer_007"
+      ],
+      "Inspection Dispatch": [
+        "wrk_v2_f25_dept_watcher_004",
+        "wrk_v2_f25_dept_watcher_005"
+      ]
+    },
+    "floor_26_commerce_accounting_floor": {
+      "Platform Fee Tracker": [
+        "wrk_v2_f26_dept_floor_manager_001",
+        "wrk_v2_f26_dept_watcher_004",
+        "wrk_v2_f26_dept_specialist_009",
+        "wrk_v2_f26_dept_specialist_010",
+        "wrk_v2_f26_dept_specialist_016",
+        "wrk_v2_f26_dept_trainee_023"
+      ],
+      "Sales Ledger": [
+        "wrk_v2_f26_dept_manager_002",
+        "wrk_v2_f26_dept_overseer_003",
+        "wrk_v2_f26_dept_seer_007",
+        "wrk_v2_f26_dept_specialist_008",
+        "wrk_v2_f26_dept_specialist_013",
+        "wrk_v2_f26_dept_openclaw_insp_020",
+        "wrk_v2_f26_dept_trainee_021",
+        "wrk_v2_f26_dept_trainee_026",
+        "wrk_v2_f26_dept_trainee_028"
+      ],
+      "Commerce PnL Desk": [
+        "wrk_v2_f26_dept_watcher_005",
+        "wrk_v2_f26_dept_specialist_011",
+        "wrk_v2_f26_dept_specialist_015",
+        "wrk_v2_f26_dept_clerk_018",
+        "wrk_v2_f26_dept_trainee_022",
+        "wrk_v2_f26_dept_trainee_025",
+        "wrk_v2_f26_dept_trainee_029"
+      ],
+      "Refund Accounting": [
+        "wrk_v2_f26_dept_seer_006",
+        "wrk_v2_f26_dept_specialist_012",
+        "wrk_v2_f26_dept_trainee_027"
+      ],
+      "Tax-Ready Export": [
+        "wrk_v2_f26_dept_specialist_014",
+        "wrk_v2_f26_dept_specialist_017",
+        "wrk_v2_f26_dept_clerk_019",
+        "wrk_v2_f26_dept_trainee_024",
+        "wrk_v2_f26_dept_trainee_030"
+      ]
+    },
+    "floor_27_local_model_drafting_bench": {
+      "Local Model Console": [
+        "wrk_v2_f27_dept_floor_manager_001",
+        "wrk_v2_f27_dept_manager_002",
+        "wrk_v2_f27_dept_watcher_004",
+        "wrk_v2_f27_dept_watcher_005",
+        "wrk_v2_f27_dept_seer_006",
+        "wrk_v2_f27_dept_seer_007",
+        "wrk_v2_f27_dept_clerk_008"
+      ],
+      "Drafting Bench": [
+        "wrk_v2_f27_dept_overseer_003",
+        "wrk_v2_f27_dept_clerk_009",
+        "wrk_v2_f27_dept_openclaw_insp_010"
+      ]
+    },
+    "floor_28_security_operations_center": {
+      "Incident Bench": [
+        "wrk_v2_f28_dept_floor_manager_001",
+        "wrk_v2_f28_dept_seer_006",
+        "wrk_v2_f28_dept_clerk_015",
+        "wrk_v2_f28_dept_trainee_020"
+      ],
+      "SecOps Console": [
+        "wrk_v2_f28_dept_manager_002",
+        "wrk_v2_f28_dept_watcher_005",
+        "wrk_v2_f28_dept_specialist_010",
+        "wrk_v2_f28_dept_clerk_014",
+        "wrk_v2_f28_dept_openclaw_insp_016",
+        "wrk_v2_f28_dept_trainee_017",
+        "wrk_v2_f28_dept_trainee_019",
+        "wrk_v2_f28_dept_trainee_021"
+      ],
+      "Vault Audit": [
+        "wrk_v2_f28_dept_overseer_003",
+        "wrk_v2_f28_dept_watcher_004",
+        "wrk_v2_f28_dept_seer_007",
+        "wrk_v2_f28_dept_specialist_008",
+        "wrk_v2_f28_dept_specialist_009",
+        "wrk_v2_f28_dept_specialist_013",
+        "wrk_v2_f28_dept_trainee_022"
+      ],
+      "Access Log Wall": [
+        "wrk_v2_f28_dept_specialist_011",
+        "wrk_v2_f28_dept_specialist_012",
+        "wrk_v2_f28_dept_trainee_018"
+      ]
+    },
+    "floor_29_guardian_watch": {
+      "Guardian Watch": [
+        "wrk_v2_f29_dept_floor_manager_001",
+        "wrk_v2_f29_dept_manager_002",
+        "wrk_v2_f29_dept_overseer_003",
+        "wrk_v2_f29_dept_seer_006"
+      ],
+      "Lock Map Console": [
+        "wrk_v2_f29_dept_watcher_004",
+        "wrk_v2_f29_dept_watcher_005",
+        "wrk_v2_f29_dept_clerk_008",
+        "wrk_v2_f29_dept_clerk_009"
+      ],
+      "Drift Alarm": [
+        "wrk_v2_f29_dept_seer_007",
+        "wrk_v2_f29_dept_openclaw_insp_010"
+      ]
+    },
+    "floor_30_permissions_risk_department": {
+      "Approval Workflow Bench": [
+        "wrk_v2_f30_dept_floor_manager_001",
+        "wrk_v2_f30_dept_manager_002",
+        "wrk_v2_f30_dept_overseer_003",
+        "wrk_v2_f30_dept_seer_006",
+        "wrk_v2_f30_dept_openclaw_insp_016",
+        "wrk_v2_f30_dept_trainee_018",
+        "wrk_v2_f30_dept_trainee_020"
+      ],
+      "Risk Review": [
+        "wrk_v2_f30_dept_watcher_004",
+        "wrk_v2_f30_dept_watcher_005",
+        "wrk_v2_f30_dept_specialist_009",
+        "wrk_v2_f30_dept_specialist_012",
+        "wrk_v2_f30_dept_specialist_013",
+        "wrk_v2_f30_dept_clerk_014",
+        "wrk_v2_f30_dept_trainee_021"
+      ],
+      "Lock Audit": [
+        "wrk_v2_f30_dept_seer_007",
+        "wrk_v2_f30_dept_specialist_010",
+        "wrk_v2_f30_dept_specialist_011",
+        "wrk_v2_f30_dept_clerk_015",
+        "wrk_v2_f30_dept_trainee_019",
+        "wrk_v2_f30_dept_trainee_022"
+      ],
+      "Permissions Desk": [
+        "wrk_v2_f30_dept_specialist_008",
+        "wrk_v2_f30_dept_trainee_017"
+      ]
+    },
+    "floor_31_audit_ledger_department": {
+      "Ledger Dispatch": [
+        "wrk_v2_f31_dept_floor_manager_001",
+        "wrk_v2_f31_dept_manager_002",
+        "wrk_v2_f31_dept_overseer_003",
+        "wrk_v2_f31_dept_specialist_013",
+        "wrk_v2_f31_dept_clerk_017",
+        "wrk_v2_f31_dept_openclaw_insp_018"
+      ],
+      "Compliance Bench": [
+        "wrk_v2_f31_dept_watcher_004",
+        "wrk_v2_f31_dept_specialist_008",
+        "wrk_v2_f31_dept_specialist_009",
+        "wrk_v2_f31_dept_specialist_010",
+        "wrk_v2_f31_dept_specialist_011",
+        "wrk_v2_f31_dept_trainee_020",
+        "wrk_v2_f31_dept_trainee_022",
+        "wrk_v2_f31_dept_trainee_023",
+        "wrk_v2_f31_dept_trainee_024"
+      ],
+      "Audit Trail Wall": [
+        "wrk_v2_f31_dept_watcher_005",
+        "wrk_v2_f31_dept_specialist_014",
+        "wrk_v2_f31_dept_specialist_015",
+        "wrk_v2_f31_dept_clerk_016",
+        "wrk_v2_f31_dept_trainee_025",
+        "wrk_v2_f31_dept_trainee_026"
+      ],
+      "Sealed-Packet Receiver": [
+        "wrk_v2_f31_dept_seer_006",
+        "wrk_v2_f31_dept_seer_007",
+        "wrk_v2_f31_dept_specialist_012",
+        "wrk_v2_f31_dept_trainee_019",
+        "wrk_v2_f31_dept_trainee_021"
+      ]
+    },
+    "floor_32_platform_compliance_office": {
+      "Compliance Audit": [
+        "wrk_v2_f32_dept_floor_manager_001",
+        "wrk_v2_f32_dept_watcher_004",
+        "wrk_v2_f32_dept_watcher_005",
+        "wrk_v2_f32_dept_specialist_010",
+        "wrk_v2_f32_dept_clerk_013",
+        "wrk_v2_f32_dept_trainee_015"
+      ],
+      "Shopify Compliance Desk": [
+        "wrk_v2_f32_dept_manager_002",
+        "wrk_v2_f32_dept_overseer_003",
+        "wrk_v2_f32_dept_seer_006",
+        "wrk_v2_f32_dept_specialist_011",
+        "wrk_v2_f32_dept_openclaw_insp_014"
+      ],
+      "Terms Tracking Wall": [
+        "wrk_v2_f32_dept_seer_007",
+        "wrk_v2_f32_dept_specialist_008",
+        "wrk_v2_f32_dept_trainee_016",
+        "wrk_v2_f32_dept_trainee_017"
+      ],
+      "Print Platforms Compliance Desk": [
+        "wrk_v2_f32_dept_specialist_009"
+      ],
+      "Etsy Compliance Desk": [
+        "wrk_v2_f32_dept_clerk_012",
+        "wrk_v2_f32_dept_trainee_018"
+      ]
+    },
+    "floor_33_refund_dispute_desk_and_diagnostics": {
+      "Diagnostics Console": [
+        "wrk_v2_f33_dept_floor_manager_001",
+        "wrk_v2_f33_dept_trainee_017"
+      ],
+      "Dispute Negotiation": [
+        "wrk_v2_f33_dept_manager_002",
+        "wrk_v2_f33_dept_overseer_003",
+        "wrk_v2_f33_dept_clerk_012",
+        "wrk_v2_f33_dept_trainee_015",
+        "wrk_v2_f33_dept_trainee_016"
+      ],
+      "Refund Intake": [
+        "wrk_v2_f33_dept_watcher_004",
+        "wrk_v2_f33_dept_watcher_005",
+        "wrk_v2_f33_dept_specialist_010",
+        "wrk_v2_f33_dept_openclaw_insp_014",
+        "wrk_v2_f33_dept_trainee_018"
+      ],
+      "Service Health Wall": [
+        "wrk_v2_f33_dept_seer_006",
+        "wrk_v2_f33_dept_seer_007",
+        "wrk_v2_f33_dept_specialist_008",
+        "wrk_v2_f33_dept_specialist_009",
+        "wrk_v2_f33_dept_specialist_011",
+        "wrk_v2_f33_dept_clerk_013"
+      ]
+    },
+    "floor_34_storefront_analytics_room": {
+      "Telemetry Console": [
+        "wrk_v2_f34_dept_floor_manager_001",
+        "wrk_v2_f34_dept_specialist_009",
+        "wrk_v2_f34_dept_clerk_015",
+        "wrk_v2_f34_dept_trainee_019",
+        "wrk_v2_f34_dept_trainee_022"
+      ],
+      "Alert Bench": [
+        "wrk_v2_f34_dept_manager_002",
+        "wrk_v2_f34_dept_watcher_004",
+        "wrk_v2_f34_dept_specialist_008",
+        "wrk_v2_f34_dept_specialist_010",
+        "wrk_v2_f34_dept_specialist_011",
+        "wrk_v2_f34_dept_specialist_013",
+        "wrk_v2_f34_dept_trainee_020"
+      ],
+      "Storefront Analytics": [
+        "wrk_v2_f34_dept_overseer_003",
+        "wrk_v2_f34_dept_watcher_005",
+        "wrk_v2_f34_dept_openclaw_insp_016",
+        "wrk_v2_f34_dept_trainee_018"
+      ],
+      "Conversion Funnel Wall": [
+        "wrk_v2_f34_dept_seer_006",
+        "wrk_v2_f34_dept_seer_007",
+        "wrk_v2_f34_dept_specialist_012",
+        "wrk_v2_f34_dept_clerk_014",
+        "wrk_v2_f34_dept_trainee_017",
+        "wrk_v2_f34_dept_trainee_021"
+      ]
+    },
+    "floor_35_hardware_systems_floor": {
+      "Service Monitor Bench": [
+        "wrk_v2_f35_dept_floor_manager_001",
+        "wrk_v2_f35_dept_watcher_004",
+        "wrk_v2_f35_dept_specialist_008",
+        "wrk_v2_f35_dept_openclaw_insp_012"
+      ],
+      "Hardware Observatory": [
+        "wrk_v2_f35_dept_manager_002",
+        "wrk_v2_f35_dept_overseer_003",
+        "wrk_v2_f35_dept_watcher_005",
+        "wrk_v2_f35_dept_seer_006",
+        "wrk_v2_f35_dept_seer_007",
+        "wrk_v2_f35_dept_specialist_009",
+        "wrk_v2_f35_dept_trainee_013",
+        "wrk_v2_f35_dept_trainee_014"
+      ],
+      "Resource Console": [
+        "wrk_v2_f35_dept_clerk_010",
+        "wrk_v2_f35_dept_clerk_011"
+      ]
+    },
+    "floor_36_workforce_expansion_planning": {
+      "Onboarding Track": [
+        "wrk_v2_f36_dept_floor_manager_001",
+        "wrk_v2_f36_dept_seer_007",
+        "wrk_v2_f36_dept_specialist_009",
+        "wrk_v2_f36_dept_trainee_017",
+        "wrk_v2_f36_dept_trainee_021",
+        "wrk_v2_f36_dept_trainee_022"
+      ],
+      "Department Growth Plan": [
+        "wrk_v2_f36_dept_manager_002",
+        "wrk_v2_f36_dept_overseer_003",
+        "wrk_v2_f36_dept_seer_006",
+        "wrk_v2_f36_dept_specialist_008",
+        "wrk_v2_f36_dept_specialist_011",
+        "wrk_v2_f36_dept_openclaw_insp_016",
+        "wrk_v2_f36_dept_trainee_018"
+      ],
+      "Expansion Desk": [
+        "wrk_v2_f36_dept_watcher_004",
+        "wrk_v2_f36_dept_watcher_005",
+        "wrk_v2_f36_dept_specialist_010",
+        "wrk_v2_f36_dept_specialist_012",
+        "wrk_v2_f36_dept_specialist_013",
+        "wrk_v2_f36_dept_clerk_014",
+        "wrk_v2_f36_dept_clerk_015",
+        "wrk_v2_f36_dept_trainee_019",
+        "wrk_v2_f36_dept_trainee_020"
+      ]
+    },
+    "floor_37_strategy_labs": {
+      "Backtest Bench": [
+        "wrk_v2_f37_dept_floor_manager_001",
+        "wrk_v2_f37_dept_overseer_003",
+        "wrk_v2_f37_dept_watcher_004",
+        "wrk_v2_f37_dept_seer_007",
+        "wrk_v2_f37_dept_specialist_008",
+        "wrk_v2_f37_dept_specialist_009",
+        "wrk_v2_f37_dept_specialist_011",
+        "wrk_v2_f37_dept_specialist_013",
+        "wrk_v2_f37_dept_specialist_016",
+        "wrk_v2_f37_dept_specialist_017",
+        "wrk_v2_f37_dept_openclaw_insp_020",
+        "wrk_v2_f37_dept_trainee_021",
+        "wrk_v2_f37_dept_trainee_022",
+        "wrk_v2_f37_dept_trainee_024",
+        "wrk_v2_f37_dept_trainee_026",
+        "wrk_v2_f37_dept_trainee_028",
+        "wrk_v2_f37_dept_trainee_030"
+      ],
+      "Strategy Scenario Lab": [
+        "wrk_v2_f37_dept_manager_002",
+        "wrk_v2_f37_dept_watcher_005",
+        "wrk_v2_f37_dept_specialist_015",
+        "wrk_v2_f37_dept_clerk_019",
+        "wrk_v2_f37_dept_trainee_025",
+        "wrk_v2_f37_dept_trainee_027",
+        "wrk_v2_f37_dept_trainee_029"
+      ],
+      "Walk-Forward Lab": [
+        "wrk_v2_f37_dept_seer_006",
+        "wrk_v2_f37_dept_specialist_010",
+        "wrk_v2_f37_dept_specialist_012",
+        "wrk_v2_f37_dept_specialist_014",
+        "wrk_v2_f37_dept_clerk_018",
+        "wrk_v2_f37_dept_trainee_023"
+      ]
+    },
+    "floor_38_sandbox_ops_coupling": {
+      "Sandbox Audit": [
+        "wrk_v2_f38_dept_floor_manager_001",
+        "wrk_v2_f38_dept_overseer_003",
+        "wrk_v2_f38_dept_watcher_005",
+        "wrk_v2_f38_dept_seer_006",
+        "wrk_v2_f38_dept_seer_007",
+        "wrk_v2_f38_dept_specialist_009",
+        "wrk_v2_f38_dept_clerk_012",
+        "wrk_v2_f38_dept_openclaw_insp_014"
+      ],
+      "Lift Packet Dispatch": [
+        "wrk_v2_f38_dept_manager_002",
+        "wrk_v2_f38_dept_trainee_015",
+        "wrk_v2_f38_dept_trainee_016",
+        "wrk_v2_f38_dept_trainee_017"
+      ],
+      "Sandbox Console": [
+        "wrk_v2_f38_dept_watcher_004",
+        "wrk_v2_f38_dept_specialist_008",
+        "wrk_v2_f38_dept_specialist_010",
+        "wrk_v2_f38_dept_specialist_011",
+        "wrk_v2_f38_dept_clerk_013",
+        "wrk_v2_f38_dept_trainee_018"
+      ]
+    },
+    "floor_39_worker_recreation_floor": {
+      "Game Room": [
+        "wrk_v2_f39_rec_floor_manager_001",
+        "wrk_v2_f39_rec_break_host_002",
+        "wrk_v2_f39_rec_break_host_003",
+        "wrk_v2_f39_rec_morale_keeper_005",
+        "wrk_v2_f39_rec_recovering_011",
+        "wrk_v2_f39_rec_recovering_015",
+        "wrk_v2_f39_rec_recovering_018"
+      ],
+      "Break Room": [
+        "wrk_v2_f39_rec_break_host_004",
+        "wrk_v2_f39_rec_recovering_012",
+        "wrk_v2_f39_rec_recovering_019"
+      ],
+      "Morale Board": [
+        "wrk_v2_f39_rec_morale_keeper_006",
+        "wrk_v2_f39_rec_recovering_009"
+      ],
+      "Wellness Monitor": [
+        "wrk_v2_f39_rec_wellness_mon_007",
+        "wrk_v2_f39_rec_wellness_mon_008",
+        "wrk_v2_f39_rec_recovering_010",
+        "wrk_v2_f39_rec_recovering_013",
+        "wrk_v2_f39_rec_recovering_016",
+        "wrk_v2_f39_rec_recovering_017"
+      ],
+      "Coffee Bar": [
+        "wrk_v2_f39_rec_recovering_014",
+        "wrk_v2_f39_rec_recovering_020"
+      ]
+    },
+    "floor_40_worker_rest_dormitory_floor": {
+      "Quiet Recovery Room": [
+        "wrk_v2_f40_rest_floor_manager_001",
+        "wrk_v2_f40_rest_standby_host_007",
+        "wrk_v2_f40_rest_standby_host_008",
+        "wrk_v2_f40_rest_resting_worker_014",
+        "wrk_v2_f40_rest_resting_worker_018",
+        "wrk_v2_f40_rest_resting_worker_020"
+      ],
+      "Sleep Pods": [
+        "wrk_v2_f40_rest_pod_attendant_002",
+        "wrk_v2_f40_rest_pod_attendant_004",
+        "wrk_v2_f40_rest_quiet_warden_009",
+        "wrk_v2_f40_rest_resting_worker_024",
+        "wrk_v2_f40_rest_resting_worker_025"
+      ],
+      "Shift Change Desk": [
+        "wrk_v2_f40_rest_pod_attendant_003",
+        "wrk_v2_f40_rest_shift_clerk_012",
+        "wrk_v2_f40_rest_resting_worker_016",
+        "wrk_v2_f40_rest_resting_worker_017",
+        "wrk_v2_f40_rest_resting_worker_019",
+        "wrk_v2_f40_rest_resting_worker_023"
+      ],
+      "Standby Lounge": [
+        "wrk_v2_f40_rest_pod_attendant_005",
+        "wrk_v2_f40_rest_standby_host_006",
+        "wrk_v2_f40_rest_quiet_warden_010",
+        "wrk_v2_f40_rest_shift_clerk_011",
+        "wrk_v2_f40_rest_shift_clerk_013",
+        "wrk_v2_f40_rest_resting_worker_015",
+        "wrk_v2_f40_rest_resting_worker_021",
+        "wrk_v2_f40_rest_resting_worker_022"
+      ]
+    },
+    "floor_44_trading_and_commerce_accounting": {
+      "Reward Accounting": [
+        "wrk_v2_f44_dept_floor_manager_001",
+        "wrk_v2_f44_dept_overseer_003",
+        "wrk_v2_f44_dept_specialist_009",
+        "wrk_v2_f44_dept_trainee_023",
+        "wrk_v2_f44_dept_trainee_034"
+      ],
+      "Loss Review": [
+        "wrk_v2_f44_dept_manager_002",
+        "wrk_v2_f44_dept_specialist_010",
+        "wrk_v2_f44_dept_specialist_011",
+        "wrk_v2_f44_dept_specialist_019",
+        "wrk_v2_f44_dept_openclaw_insp_022",
+        "wrk_v2_f44_dept_trainee_027",
+        "wrk_v2_f44_dept_trainee_028",
+        "wrk_v2_f44_dept_trainee_031",
+        "wrk_v2_f44_dept_trainee_032"
+      ],
+      "Trade Accounting Desk": [
+        "wrk_v2_f44_dept_watcher_004",
+        "wrk_v2_f44_dept_specialist_014",
+        "wrk_v2_f44_dept_specialist_017",
+        "wrk_v2_f44_dept_specialist_018",
+        "wrk_v2_f44_dept_trainee_033"
+      ],
+      "PnL Ledger": [
+        "wrk_v2_f44_dept_watcher_005",
+        "wrk_v2_f44_dept_seer_006",
+        "wrk_v2_f44_dept_specialist_012",
+        "wrk_v2_f44_dept_specialist_015",
+        "wrk_v2_f44_dept_clerk_020",
+        "wrk_v2_f44_dept_trainee_026",
+        "wrk_v2_f44_dept_trainee_029",
+        "wrk_v2_f44_dept_trainee_030"
+      ],
+      "Commerce Revenue Desk": [
+        "wrk_v2_f44_dept_seer_007",
+        "wrk_v2_f44_dept_specialist_008",
+        "wrk_v2_f44_dept_specialist_013",
+        "wrk_v2_f44_dept_specialist_016",
+        "wrk_v2_f44_dept_clerk_021",
+        "wrk_v2_f44_dept_trainee_024",
+        "wrk_v2_f44_dept_trainee_025"
+      ]
+    },
+    "floor_46_executive_liaison_and_concierge": {
+      "Executive Briefing Room": [
+        "wrk_v2_f46_dept_floor_manager_001",
+        "wrk_v2_f46_dept_overseer_003",
+        "wrk_v2_f46_dept_watcher_004",
+        "wrk_v2_f46_dept_specialist_008",
+        "wrk_v2_f46_dept_specialist_010",
+        "wrk_v2_f46_dept_trainee_016",
+        "wrk_v2_f46_dept_trainee_018"
+      ],
+      "Colonel Concierge": [
+        "wrk_v2_f46_dept_manager_002",
+        "wrk_v2_f46_dept_seer_007",
+        "wrk_v2_f46_dept_specialist_011",
+        "wrk_v2_f46_dept_clerk_013",
+        "wrk_v2_f46_dept_trainee_015",
+        "wrk_v2_f46_dept_trainee_017"
+      ],
+      "VIP Reception": [
+        "wrk_v2_f46_dept_watcher_005",
+        "wrk_v2_f46_dept_seer_006",
+        "wrk_v2_f46_dept_specialist_009",
+        "wrk_v2_f46_dept_clerk_012",
+        "wrk_v2_f46_dept_openclaw_insp_014"
+      ]
+    },
+    "floor_48_strategic_plan_office": {
+      "Plan Desk": [
+        "wrk_v2_f48_dept_floor_manager_001",
+        "wrk_v2_f48_dept_specialist_009",
+        "wrk_v2_f48_dept_clerk_010",
+        "wrk_v2_f48_dept_openclaw_insp_012"
+      ],
+      "Roadmap Wall": [
+        "wrk_v2_f48_dept_manager_002",
+        "wrk_v2_f48_dept_overseer_003",
+        "wrk_v2_f48_dept_watcher_005",
+        "wrk_v2_f48_dept_seer_006",
+        "wrk_v2_f48_dept_seer_007",
+        "wrk_v2_f48_dept_specialist_008",
+        "wrk_v2_f48_dept_trainee_013"
+      ],
+      "Quarterly Review": [
+        "wrk_v2_f48_dept_watcher_004",
+        "wrk_v2_f48_dept_clerk_011",
+        "wrk_v2_f48_dept_trainee_014"
+      ]
+    },
+    "floor_50_building_governance_council": {
+      "Governance Council": [
+        "wrk_v2_f50_dept_floor_manager_001",
+        "wrk_v2_f50_dept_overseer_003",
+        "wrk_v2_f50_dept_seer_006",
+        "wrk_v2_f50_dept_clerk_008",
+        "wrk_v2_f50_dept_clerk_009"
+      ],
+      "Rule Book Library": [
+        "wrk_v2_f50_dept_manager_002",
+        "wrk_v2_f50_dept_watcher_004",
+        "wrk_v2_f50_dept_watcher_005",
+        "wrk_v2_f50_dept_seer_007",
+        "wrk_v2_f50_dept_openclaw_insp_010"
+      ]
+    },
+    "floor_51_executive_council_office": {
+      "Council Chamber": [
+        "wrk_v2_f51_dept_floor_manager_001",
+        "wrk_v2_f51_dept_manager_002",
+        "wrk_v2_f51_dept_overseer_003",
+        "wrk_v2_f51_dept_watcher_004",
+        "wrk_v2_f51_dept_watcher_005",
+        "wrk_v2_f51_dept_seer_006",
+        "wrk_v2_f51_dept_seer_007",
+        "wrk_v2_f51_dept_clerk_008",
+        "wrk_v2_f51_dept_clerk_009",
+        "wrk_v2_f51_dept_openclaw_insp_010"
+      ]
+    }
+  },
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "trading_floors_appended": true,
+  "trading_floors_count": {
+    "41": 8,
+    "42": 2,
+    "43": 3
+  },
+  "floor_42_binance_appended": true,
+  "binance_real_order_execution_enabled": false,
+  "binance_testnet_placement_enabled": true,
+  "floor_43_stocks_appended": true,
+  "stocks_paper_preview_only": false,
+  "stocks_paper_order_placement_enabled": true,
+  "real_order_placement_enabled": false,
+  "v2_expansion_appended": true,
+  "worker_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "live_payments_enabled": false,
+  "live_listings_publishing_enabled": false,
+  "external_api_calls_enabled": false,
+  "secrets_in_logs": false,
+  "manual_approval_required_for_commerce": true
+}

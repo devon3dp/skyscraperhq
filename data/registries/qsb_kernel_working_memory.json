@@ -1,0 +1,127 @@
+{
+  "module": "kernel_working_memory",
+  "purpose": "Hold the kernel's current advisory context drawn from perception, attention, smoke-test, and probe registries.",
+  "timestamp_utc": "2026-06-09T20:15:58.140613+00:00",
+  "current_mission": "QSB Tower V1.5 cognitive layer real-implementation repair. Stand up perception, attention, working memory, self-model, reflection, learning assimilation, goal stack, curiosity queue, OpenCore supervision \u2014 all advisory, all locked, all registry-backed.",
+  "latest_user_priority": "QSB_KERNEL_COGNITIVE_LAYER_ACTUAL_IMPLEMENTATION_REPAIR_V1",
+  "latest_probe_result": {
+    "timestamp_utc": "20260609T195750Z",
+    "purpose": "Probe whether the QSB Kernel now explains its cognition, upgrades, evidence sources, attention, learning, and remaining gaps.",
+    "log": "data/logs/qsb_kernel_thinking_upgrade_probe_20260609T195750Z.log"
+  },
+  "latest_smoke_test_result": {
+    "timestamp_utc": "20260609T195750Z",
+    "passes": 16,
+    "warnings": 0,
+    "failures": 0,
+    "verdict": "PASS",
+    "log": "data/logs/qsb_kernel_learning_smoke_test_v2_20260609T195750Z.log"
+  },
+  "current_cockpit_target": "godot",
+  "current_godot_status": {
+    "status": null,
+    "version": "4.6.1 stable mono",
+    "telemetry": null
+  },
+  "current_ml_rl_status": {
+    "status": null,
+    "torch_installed": null,
+    "cuda_available": false,
+    "runtime_mode": null
+  },
+  "current_banking_scaffold_status": {
+    "status": null,
+    "real_money_ready": false
+  },
+  "current_github_scout_status": {
+    "candidates_count": 0,
+    "pending_safe_imports": null
+  },
+  "current_safety_state": {
+    "advisory_only": true,
+    "execution_allowed": false,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "model_inference_enabled": false,
+    "live_dispatch_enabled": false,
+    "autonomous_workers_enabled": false,
+    "direct_provider_access": false,
+    "live_trading_enabled": false,
+    "real_order_execution_enabled": false,
+    "openclaw_execution_enabled": false,
+    "binance_order_execution_enabled": false,
+    "stock_order_execution_enabled": false,
+    "web_access_autonomous_enabled": false,
+    "maintenance_auto_repair_enabled": false,
+    "kernel_state": "active_local_only",
+    "kernel_source": "rebased_kernel",
+    "scope": "local_only_advisory_cognition"
+  },
+  "top5_attention_items": [
+    {
+      "priority_rank": 1,
+      "issue": "godot_visual_polish_incomplete:layout",
+      "severity": "medium",
+      "recommended_action": "Complete Godot visual polish gates"
+    },
+    {
+      "priority_rank": 2,
+      "issue": "godot_visual_polish_incomplete:professional",
+      "severity": "medium",
+      "recommended_action": "Complete Godot visual polish gates"
+    },
+    {
+      "priority_rank": 3,
+      "issue": "banking_real_money_status_unknown",
+      "severity": "medium",
+      "recommended_action": "Populate real_money phase requirements registry"
+    },
+    {
+      "priority_rank": 4,
+      "issue": "security_spine_kernel_clearance_not_cleared",
+      "severity": "medium",
+      "recommended_action": "Re-run security spine clearance audit"
+    },
+    {
+      "priority_rank": 5,
+      "issue": "ml_rl_cuda_unavailable",
+      "severity": "low",
+      "recommended_action": "Run ML/RL lab in CPU mode; defer CUDA"
+    }
+  ],
+  "current_unknowns": [],
+  "next_recommended_action": "Complete Godot visual polish gates",
+  "source_file_list": [
+    "data/registries/qsb_kernel_perception_snapshot.json",
+    "data/registries/qsb_kernel_attention_state.json",
+    "data/registries/qsb_kernel_thinking_upgrade_probe_latest.json",
+    "data/registries/qsb_kernel_learning_smoke_test_v2_latest.json",
+    "data/registries/qsb_cockpit_primary_engine_policy.json",
+    "data/registries/qsb_godot_primary_cockpit_status.json",
+    "data/registries/qsb_ml_rl_lab_status.json",
+    "data/registries/qsb_banking_gateway_status.json",
+    "data/registries/qsb_github_upgrade_candidates.json"
+  ],
+  "confidence": 0.85,
+  "warnings": [],
+  "safety": {
+    "advisory_only": true,
+    "execution_allowed": false,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "model_inference_enabled": false,
+    "live_dispatch_enabled": false,
+    "autonomous_workers_enabled": false,
+    "direct_provider_access": false,
+    "live_trading_enabled": false,
+    "real_order_execution_enabled": false,
+    "openclaw_execution_enabled": false,
+    "binance_order_execution_enabled": false,
+    "stock_order_execution_enabled": false,
+    "web_access_autonomous_enabled": false,
+    "maintenance_auto_repair_enabled": false,
+    "kernel_state": "active_local_only",
+    "kernel_source": "rebased_kernel",
+    "scope": "local_only_advisory_cognition"
+  }
+}

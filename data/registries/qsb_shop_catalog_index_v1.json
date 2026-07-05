@@ -1,0 +1,1076 @@
+{
+  "ok": true,
+  "kind": "qsb_shop_catalog_index_v1",
+  "generated_ts": "2026-06-11T09:09:29.874813Z",
+  "shops": {
+    "F61": "Lumi\u00e8re Beauty",
+    "F62": "Pinwheel Toys",
+    "F63": "Pawsworth",
+    "F64": "Hearthstone Kitchen",
+    "F65": "Vector Tech",
+    "F154": "Trailhead Outdoor",
+    "F155": "Stretch Fitness",
+    "F156": "Quilltree Office",
+    "F157": "Voyage & Co",
+    "F158": "Greenhouse Lane",
+    "F159": "Little Robin",
+    "F160": "Inkwell & Co",
+    "F161": "Twilight Wellness",
+    "F162": "Living Light Eco",
+    "F163": "Maker Lane"
+  },
+  "total_skus": 150,
+  "items": [
+    {
+      "floor": 61,
+      "sku": "SKU-BTY-001",
+      "name": "Vitamin C Brightening Serum 30ml",
+      "list_price_gbp": 14.99,
+      "cost_gbp": 3.2
+    },
+    {
+      "floor": 61,
+      "sku": "SKU-BTY-002",
+      "name": "Jade Roller + Gua Sha Set",
+      "list_price_gbp": 12.99,
+      "cost_gbp": 2.8
+    },
+    {
+      "floor": 61,
+      "sku": "SKU-BTY-003",
+      "name": "Hyaluronic Acid Daily Moisturiser",
+      "list_price_gbp": 18.99,
+      "cost_gbp": 4.1
+    },
+    {
+      "floor": 61,
+      "sku": "SKU-BTY-004",
+      "name": "Magnetic Eyelashes Reusable",
+      "list_price_gbp": 11.99,
+      "cost_gbp": 1.9
+    },
+    {
+      "floor": 61,
+      "sku": "SKU-BTY-005",
+      "name": "Argan Oil Hair Treatment 100ml",
+      "list_price_gbp": 15.99,
+      "cost_gbp": 3.5
+    },
+    {
+      "floor": 61,
+      "sku": "SKU-BTY-006",
+      "name": "Volcanic Stone Face Roller",
+      "list_price_gbp": 13.49,
+      "cost_gbp": 2.4
+    },
+    {
+      "floor": 61,
+      "sku": "SKU-BTY-007",
+      "name": "Tea Tree Acne Patch Pack",
+      "list_price_gbp": 7.99,
+      "cost_gbp": 1.2
+    },
+    {
+      "floor": 61,
+      "sku": "SKU-BTY-008",
+      "name": "Retinol Night Cream 50ml",
+      "list_price_gbp": 17.99,
+      "cost_gbp": 3.9
+    },
+    {
+      "floor": 61,
+      "sku": "SKU-BTY-009",
+      "name": "Silk Pillowcase Pair",
+      "list_price_gbp": 22.99,
+      "cost_gbp": 4.8
+    },
+    {
+      "floor": 61,
+      "sku": "SKU-BTY-010",
+      "name": "LED Light Therapy Mask",
+      "list_price_gbp": 49.99,
+      "cost_gbp": 12.5
+    },
+    {
+      "floor": 62,
+      "sku": "SKU-TOY-001",
+      "name": "Wooden Activity Cube Toddler",
+      "list_price_gbp": 32.99,
+      "cost_gbp": 8.2
+    },
+    {
+      "floor": 62,
+      "sku": "SKU-TOY-002",
+      "name": "500-piece Animal Puzzle",
+      "list_price_gbp": 14.99,
+      "cost_gbp": 3.4
+    },
+    {
+      "floor": 62,
+      "sku": "SKU-TOY-003",
+      "name": "Plush Teddy Bear Classic",
+      "list_price_gbp": 18.99,
+      "cost_gbp": 4.1
+    },
+    {
+      "floor": 62,
+      "sku": "SKU-TOY-004",
+      "name": "Magnetic Building Tiles 60pc",
+      "list_price_gbp": 39.99,
+      "cost_gbp": 9.8
+    },
+    {
+      "floor": 62,
+      "sku": "SKU-TOY-005",
+      "name": "Outdoor Kite + String Reel",
+      "list_price_gbp": 11.99,
+      "cost_gbp": 2.6
+    },
+    {
+      "floor": 62,
+      "sku": "SKU-TOY-006",
+      "name": "Telescope Science Kit",
+      "list_price_gbp": 29.99,
+      "cost_gbp": 7.4
+    },
+    {
+      "floor": 62,
+      "sku": "SKU-TOY-007",
+      "name": "Wooden Train Set 80pc",
+      "list_price_gbp": 27.99,
+      "cost_gbp": 6.8
+    },
+    {
+      "floor": 62,
+      "sku": "SKU-TOY-008",
+      "name": "Board Game Family Fun",
+      "list_price_gbp": 22.99,
+      "cost_gbp": 5.2
+    },
+    {
+      "floor": 62,
+      "sku": "SKU-TOY-009",
+      "name": "Remote Control Car Stunt",
+      "list_price_gbp": 36.99,
+      "cost_gbp": 9.4
+    },
+    {
+      "floor": 62,
+      "sku": "SKU-TOY-010",
+      "name": "Slime DIY Kit Mega",
+      "list_price_gbp": 12.99,
+      "cost_gbp": 2.8
+    },
+    {
+      "floor": 63,
+      "sku": "SKU-PET-001",
+      "name": "Slow-feeder Bowl Dog",
+      "list_price_gbp": 14.99,
+      "cost_gbp": 3.2
+    },
+    {
+      "floor": 63,
+      "sku": "SKU-PET-002",
+      "name": "Catnip Mouse 4-pack",
+      "list_price_gbp": 7.99,
+      "cost_gbp": 1.2
+    },
+    {
+      "floor": 63,
+      "sku": "SKU-PET-003",
+      "name": "Memory Foam Dog Bed Medium",
+      "list_price_gbp": 59.99,
+      "cost_gbp": 14.5
+    },
+    {
+      "floor": 63,
+      "sku": "SKU-PET-004",
+      "name": "Self-cleaning Cat Brush",
+      "list_price_gbp": 12.99,
+      "cost_gbp": 2.8
+    },
+    {
+      "floor": 63,
+      "sku": "SKU-PET-005",
+      "name": "Reflective Dog Collar Set",
+      "list_price_gbp": 11.99,
+      "cost_gbp": 2.4
+    },
+    {
+      "floor": 63,
+      "sku": "SKU-PET-006",
+      "name": "Pet Carrier Backpack",
+      "list_price_gbp": 48.99,
+      "cost_gbp": 12.8
+    },
+    {
+      "floor": 63,
+      "sku": "SKU-PET-007",
+      "name": "Interactive Treat Puzzle",
+      "list_price_gbp": 17.99,
+      "cost_gbp": 4.2
+    },
+    {
+      "floor": 63,
+      "sku": "SKU-PET-008",
+      "name": "Pet Water Fountain 2L",
+      "list_price_gbp": 36.99,
+      "cost_gbp": 9.8
+    },
+    {
+      "floor": 63,
+      "sku": "SKU-PET-009",
+      "name": "Cooling Pet Mat Summer",
+      "list_price_gbp": 22.99,
+      "cost_gbp": 5.4
+    },
+    {
+      "floor": 63,
+      "sku": "SKU-PET-010",
+      "name": "LED Collar Charger Cable",
+      "list_price_gbp": 9.99,
+      "cost_gbp": 1.9
+    },
+    {
+      "floor": 64,
+      "sku": "SKU-KIT-001",
+      "name": "Electric Pepper Grinder USB",
+      "list_price_gbp": 19.99,
+      "cost_gbp": 4.8
+    },
+    {
+      "floor": 64,
+      "sku": "SKU-KIT-002",
+      "name": "Magnetic Knife Strip Beech",
+      "list_price_gbp": 24.99,
+      "cost_gbp": 6.2
+    },
+    {
+      "floor": 64,
+      "sku": "SKU-KIT-003",
+      "name": "Silicone Baking Mat Set 3",
+      "list_price_gbp": 12.99,
+      "cost_gbp": 2.8
+    },
+    {
+      "floor": 64,
+      "sku": "SKU-KIT-004",
+      "name": "Cold-brew Coffee Pitcher 1L",
+      "list_price_gbp": 22.99,
+      "cost_gbp": 5.4
+    },
+    {
+      "floor": 64,
+      "sku": "SKU-KIT-005",
+      "name": "Avocado Cuber Slicer Tool",
+      "list_price_gbp": 7.99,
+      "cost_gbp": 1.4
+    },
+    {
+      "floor": 64,
+      "sku": "SKU-KIT-006",
+      "name": "Smart Meat Thermometer Bluetooth",
+      "list_price_gbp": 36.99,
+      "cost_gbp": 9.8
+    },
+    {
+      "floor": 64,
+      "sku": "SKU-KIT-007",
+      "name": "Glass Storage Jars Set of 6",
+      "list_price_gbp": 19.99,
+      "cost_gbp": 4.4
+    },
+    {
+      "floor": 64,
+      "sku": "SKU-KIT-008",
+      "name": "Cocktail Smoker Kit",
+      "list_price_gbp": 32.99,
+      "cost_gbp": 7.8
+    },
+    {
+      "floor": 64,
+      "sku": "SKU-KIT-009",
+      "name": "Self-stirring Mug Travel",
+      "list_price_gbp": 14.99,
+      "cost_gbp": 3.4
+    },
+    {
+      "floor": 64,
+      "sku": "SKU-KIT-010",
+      "name": "Garlic Press Stainless Heavy",
+      "list_price_gbp": 9.99,
+      "cost_gbp": 2.2
+    },
+    {
+      "floor": 65,
+      "sku": "SKU-TEC-001",
+      "name": "Magnetic Phone Holder Car",
+      "list_price_gbp": 9.99,
+      "cost_gbp": 1.8
+    },
+    {
+      "floor": 65,
+      "sku": "SKU-TEC-002",
+      "name": "30W USB-C Wall Charger",
+      "list_price_gbp": 14.99,
+      "cost_gbp": 3.6
+    },
+    {
+      "floor": 65,
+      "sku": "SKU-TEC-003",
+      "name": "Wireless Earbuds Bluetooth 5.3",
+      "list_price_gbp": 28.99,
+      "cost_gbp": 6.8
+    },
+    {
+      "floor": 65,
+      "sku": "SKU-TEC-004",
+      "name": "Mechanical Switch Keypad 16-key",
+      "list_price_gbp": 42.99,
+      "cost_gbp": 11.4
+    },
+    {
+      "floor": 65,
+      "sku": "SKU-TEC-005",
+      "name": "Phone Case iPhone 15 Series",
+      "list_price_gbp": 12.99,
+      "cost_gbp": 2.2
+    },
+    {
+      "floor": 65,
+      "sku": "SKU-TEC-006",
+      "name": "Foldable Laptop Stand Aluminium",
+      "list_price_gbp": 27.99,
+      "cost_gbp": 7.4
+    },
+    {
+      "floor": 65,
+      "sku": "SKU-TEC-007",
+      "name": "Smartwatch Band Universal 20mm",
+      "list_price_gbp": 8.99,
+      "cost_gbp": 1.6
+    },
+    {
+      "floor": 65,
+      "sku": "SKU-TEC-008",
+      "name": "USB-C 4-port Hub HDMI",
+      "list_price_gbp": 24.99,
+      "cost_gbp": 5.8
+    },
+    {
+      "floor": 65,
+      "sku": "SKU-TEC-009",
+      "name": "Cable Organiser Magnetic 5-pack",
+      "list_price_gbp": 7.99,
+      "cost_gbp": 1.4
+    },
+    {
+      "floor": 65,
+      "sku": "SKU-TEC-010",
+      "name": "Webcam 1080p Privacy Slider",
+      "list_price_gbp": 32.99,
+      "cost_gbp": 8.2
+    },
+    {
+      "floor": 154,
+      "sku": "SKU-OUT-001",
+      "name": "Compact 2-Person Tent",
+      "list_price_gbp": 89.99,
+      "cost_gbp": 24.5
+    },
+    {
+      "floor": 154,
+      "sku": "SKU-OUT-002",
+      "name": "Titanium Backpacker Stove",
+      "list_price_gbp": 29.99,
+      "cost_gbp": 6.8
+    },
+    {
+      "floor": 154,
+      "sku": "SKU-OUT-003",
+      "name": "Mummy Sleeping Bag -5\u00b0C",
+      "list_price_gbp": 69.99,
+      "cost_gbp": 18.4
+    },
+    {
+      "floor": 154,
+      "sku": "SKU-OUT-004",
+      "name": "Hand-Crank Headlamp",
+      "list_price_gbp": 14.99,
+      "cost_gbp": 3.2
+    },
+    {
+      "floor": 154,
+      "sku": "SKU-OUT-005",
+      "name": "Trail Hydration Bladder 2L",
+      "list_price_gbp": 18.99,
+      "cost_gbp": 4.8
+    },
+    {
+      "floor": 154,
+      "sku": "SKU-OUT-006",
+      "name": "Foldable Trekking Poles",
+      "list_price_gbp": 32.99,
+      "cost_gbp": 7.4
+    },
+    {
+      "floor": 154,
+      "sku": "SKU-OUT-007",
+      "name": "Waterproof Dry Sacks 3-pack",
+      "list_price_gbp": 15.99,
+      "cost_gbp": 3.6
+    },
+    {
+      "floor": 154,
+      "sku": "SKU-OUT-008",
+      "name": "Insulated Camp Mug",
+      "list_price_gbp": 12.99,
+      "cost_gbp": 2.4
+    },
+    {
+      "floor": 154,
+      "sku": "SKU-OUT-009",
+      "name": "Solar Portable Power Bank",
+      "list_price_gbp": 39.99,
+      "cost_gbp": 9.8
+    },
+    {
+      "floor": 154,
+      "sku": "SKU-OUT-010",
+      "name": "Pocket First-Aid Kit",
+      "list_price_gbp": 16.99,
+      "cost_gbp": 3.4
+    },
+    {
+      "floor": 155,
+      "sku": "SKU-FIT-001",
+      "name": "Pro Yoga Mat 6mm",
+      "list_price_gbp": 24.99,
+      "cost_gbp": 5.4
+    },
+    {
+      "floor": 155,
+      "sku": "SKU-FIT-002",
+      "name": "Resistance Band Set 5-pc",
+      "list_price_gbp": 17.99,
+      "cost_gbp": 3.8
+    },
+    {
+      "floor": 155,
+      "sku": "SKU-FIT-003",
+      "name": "Foam Roller High-Density",
+      "list_price_gbp": 18.99,
+      "cost_gbp": 4.2
+    },
+    {
+      "floor": 155,
+      "sku": "SKU-FIT-004",
+      "name": "Yoga Blocks Cork Pair",
+      "list_price_gbp": 21.99,
+      "cost_gbp": 4.8
+    },
+    {
+      "floor": 155,
+      "sku": "SKU-FIT-005",
+      "name": "Pilates Ring Standard",
+      "list_price_gbp": 12.99,
+      "cost_gbp": 2.6
+    },
+    {
+      "floor": 155,
+      "sku": "SKU-FIT-006",
+      "name": "Massage Gun Mini",
+      "list_price_gbp": 49.99,
+      "cost_gbp": 12.4
+    },
+    {
+      "floor": 155,
+      "sku": "SKU-FIT-007",
+      "name": "Yoga Strap Cotton",
+      "list_price_gbp": 8.99,
+      "cost_gbp": 1.4
+    },
+    {
+      "floor": 155,
+      "sku": "SKU-FIT-008",
+      "name": "Acupressure Mat + Pillow",
+      "list_price_gbp": 32.99,
+      "cost_gbp": 7.8
+    },
+    {
+      "floor": 155,
+      "sku": "SKU-FIT-009",
+      "name": "Kettlebell Adjustable",
+      "list_price_gbp": 69.99,
+      "cost_gbp": 18.2
+    },
+    {
+      "floor": 155,
+      "sku": "SKU-FIT-010",
+      "name": "Jump Rope Speed",
+      "list_price_gbp": 11.99,
+      "cost_gbp": 2.2
+    },
+    {
+      "floor": 156,
+      "sku": "SKU-OFF-001",
+      "name": "Adjustable Monitor Stand",
+      "list_price_gbp": 28.99,
+      "cost_gbp": 6.8
+    },
+    {
+      "floor": 156,
+      "sku": "SKU-OFF-002",
+      "name": "Wrist-Rest Memory Foam",
+      "list_price_gbp": 11.99,
+      "cost_gbp": 2.4
+    },
+    {
+      "floor": 156,
+      "sku": "SKU-OFF-003",
+      "name": "Architect Desk Lamp LED",
+      "list_price_gbp": 39.99,
+      "cost_gbp": 9.4
+    },
+    {
+      "floor": 156,
+      "sku": "SKU-OFF-004",
+      "name": "Cable Tray Under-Desk",
+      "list_price_gbp": 18.99,
+      "cost_gbp": 4.2
+    },
+    {
+      "floor": 156,
+      "sku": "SKU-OFF-005",
+      "name": "Standing Desk Converter",
+      "list_price_gbp": 119.99,
+      "cost_gbp": 32.5
+    },
+    {
+      "floor": 156,
+      "sku": "SKU-OFF-006",
+      "name": "Pen + Pencil Pot Brass",
+      "list_price_gbp": 15.99,
+      "cost_gbp": 3.4
+    },
+    {
+      "floor": 156,
+      "sku": "SKU-OFF-007",
+      "name": "Footrest Tilting Ergo",
+      "list_price_gbp": 32.99,
+      "cost_gbp": 8.2
+    },
+    {
+      "floor": 156,
+      "sku": "SKU-OFF-008",
+      "name": "Webcam Cover Privacy",
+      "list_price_gbp": 4.99,
+      "cost_gbp": 0.8
+    },
+    {
+      "floor": 156,
+      "sku": "SKU-OFF-009",
+      "name": "Bamboo Drawer Organiser",
+      "list_price_gbp": 22.99,
+      "cost_gbp": 5.4
+    },
+    {
+      "floor": 156,
+      "sku": "SKU-OFF-010",
+      "name": "Blue-Light Glasses Slim",
+      "list_price_gbp": 17.99,
+      "cost_gbp": 3.8
+    },
+    {
+      "floor": 157,
+      "sku": "SKU-VOY-001",
+      "name": "Packing Cubes Set 7",
+      "list_price_gbp": 22.99,
+      "cost_gbp": 5.4
+    },
+    {
+      "floor": 157,
+      "sku": "SKU-VOY-002",
+      "name": "Universal Travel Adapter",
+      "list_price_gbp": 19.99,
+      "cost_gbp": 4.8
+    },
+    {
+      "floor": 157,
+      "sku": "SKU-VOY-003",
+      "name": "Memory Foam Neck Pillow",
+      "list_price_gbp": 15.99,
+      "cost_gbp": 3.6
+    },
+    {
+      "floor": 157,
+      "sku": "SKU-VOY-004",
+      "name": "RFID-Blocking Wallet",
+      "list_price_gbp": 14.99,
+      "cost_gbp": 3.4
+    },
+    {
+      "floor": 157,
+      "sku": "SKU-VOY-005",
+      "name": "Lightweight Daypack 20L",
+      "list_price_gbp": 28.99,
+      "cost_gbp": 7.4
+    },
+    {
+      "floor": 157,
+      "sku": "SKU-VOY-006",
+      "name": "Compression Socks Travel",
+      "list_price_gbp": 12.99,
+      "cost_gbp": 2.8
+    },
+    {
+      "floor": 157,
+      "sku": "SKU-VOY-007",
+      "name": "Toiletry Bag Hanging",
+      "list_price_gbp": 18.99,
+      "cost_gbp": 4.2
+    },
+    {
+      "floor": 157,
+      "sku": "SKU-VOY-008",
+      "name": "Luggage Scale Digital",
+      "list_price_gbp": 10.99,
+      "cost_gbp": 2.4
+    },
+    {
+      "floor": 157,
+      "sku": "SKU-VOY-009",
+      "name": "Sleep Mask Contoured",
+      "list_price_gbp": 9.99,
+      "cost_gbp": 2.2
+    },
+    {
+      "floor": 157,
+      "sku": "SKU-VOY-010",
+      "name": "Passport Holder Leather",
+      "list_price_gbp": 19.99,
+      "cost_gbp": 4.8
+    },
+    {
+      "floor": 158,
+      "sku": "SKU-GAR-001",
+      "name": "Terracotta Planters Set 5",
+      "list_price_gbp": 29.99,
+      "cost_gbp": 7.4
+    },
+    {
+      "floor": 158,
+      "sku": "SKU-GAR-002",
+      "name": "Stainless Garden Tool Set",
+      "list_price_gbp": 32.99,
+      "cost_gbp": 8.2
+    },
+    {
+      "floor": 158,
+      "sku": "SKU-GAR-003",
+      "name": "Heirloom Seed Starter Kit",
+      "list_price_gbp": 14.99,
+      "cost_gbp": 3.4
+    },
+    {
+      "floor": 158,
+      "sku": "SKU-GAR-004",
+      "name": "Hydroponic Hexbox Kit",
+      "list_price_gbp": 54.99,
+      "cost_gbp": 14.5
+    },
+    {
+      "floor": 158,
+      "sku": "SKU-GAR-005",
+      "name": "Pruning Shears Bypass",
+      "list_price_gbp": 18.99,
+      "cost_gbp": 4.2
+    },
+    {
+      "floor": 158,
+      "sku": "SKU-GAR-006",
+      "name": "Plant Mister Brass",
+      "list_price_gbp": 15.99,
+      "cost_gbp": 3.6
+    },
+    {
+      "floor": 158,
+      "sku": "SKU-GAR-007",
+      "name": "Garden Kneeler Pad",
+      "list_price_gbp": 11.99,
+      "cost_gbp": 2.4
+    },
+    {
+      "floor": 158,
+      "sku": "SKU-GAR-008",
+      "name": "Compost Bin Counter",
+      "list_price_gbp": 36.99,
+      "cost_gbp": 9.8
+    },
+    {
+      "floor": 158,
+      "sku": "SKU-GAR-009",
+      "name": "Grow Light Full-Spectrum",
+      "list_price_gbp": 46.99,
+      "cost_gbp": 12.4
+    },
+    {
+      "floor": 158,
+      "sku": "SKU-GAR-010",
+      "name": "Bird Feeder Window-Mount",
+      "list_price_gbp": 19.99,
+      "cost_gbp": 4.8
+    },
+    {
+      "floor": 159,
+      "sku": "SKU-BAB-001",
+      "name": "Organic Cotton Swaddle 3-pk",
+      "list_price_gbp": 24.99,
+      "cost_gbp": 6.4
+    },
+    {
+      "floor": 159,
+      "sku": "SKU-BAB-002",
+      "name": "Silicone Bib Spill-Catch",
+      "list_price_gbp": 10.99,
+      "cost_gbp": 2.2
+    },
+    {
+      "floor": 159,
+      "sku": "SKU-BAB-003",
+      "name": "Nursing Cover Soft",
+      "list_price_gbp": 19.99,
+      "cost_gbp": 4.8
+    },
+    {
+      "floor": 159,
+      "sku": "SKU-BAB-004",
+      "name": "White Noise Machine",
+      "list_price_gbp": 28.99,
+      "cost_gbp": 6.8
+    },
+    {
+      "floor": 159,
+      "sku": "SKU-BAB-005",
+      "name": "Baby Carrier Ergonomic",
+      "list_price_gbp": 54.99,
+      "cost_gbp": 14.5
+    },
+    {
+      "floor": 159,
+      "sku": "SKU-BAB-006",
+      "name": "Wooden Teething Ring",
+      "list_price_gbp": 9.99,
+      "cost_gbp": 2.4
+    },
+    {
+      "floor": 159,
+      "sku": "SKU-BAB-007",
+      "name": "Baby Memory Book",
+      "list_price_gbp": 22.99,
+      "cost_gbp": 5.4
+    },
+    {
+      "floor": 159,
+      "sku": "SKU-BAB-008",
+      "name": "Maternity Belly Band",
+      "list_price_gbp": 15.99,
+      "cost_gbp": 3.8
+    },
+    {
+      "floor": 159,
+      "sku": "SKU-BAB-009",
+      "name": "Diaper Caddy Organiser",
+      "list_price_gbp": 28.99,
+      "cost_gbp": 7.2
+    },
+    {
+      "floor": 159,
+      "sku": "SKU-BAB-010",
+      "name": "Soft Plush Lovey",
+      "list_price_gbp": 13.99,
+      "cost_gbp": 3.2
+    },
+    {
+      "floor": 160,
+      "sku": "SKU-INK-001",
+      "name": "Linen Hardcover Notebook A5",
+      "list_price_gbp": 18.99,
+      "cost_gbp": 4.4
+    },
+    {
+      "floor": 160,
+      "sku": "SKU-INK-002",
+      "name": "Fountain Pen Steel Nib",
+      "list_price_gbp": 28.99,
+      "cost_gbp": 6.8
+    },
+    {
+      "floor": 160,
+      "sku": "SKU-INK-003",
+      "name": "Calligraphy Starter Kit",
+      "list_price_gbp": 32.99,
+      "cost_gbp": 8.2
+    },
+    {
+      "floor": 160,
+      "sku": "SKU-INK-004",
+      "name": "Bullet Journal Dotted",
+      "list_price_gbp": 14.99,
+      "cost_gbp": 3.4
+    },
+    {
+      "floor": 160,
+      "sku": "SKU-INK-005",
+      "name": "Wax Seal Stamp Set",
+      "list_price_gbp": 22.99,
+      "cost_gbp": 5.4
+    },
+    {
+      "floor": 160,
+      "sku": "SKU-INK-006",
+      "name": "Refillable Ink Bottle 30ml",
+      "list_price_gbp": 9.99,
+      "cost_gbp": 2.2
+    },
+    {
+      "floor": 160,
+      "sku": "SKU-INK-007",
+      "name": "Leather Pen Case",
+      "list_price_gbp": 19.99,
+      "cost_gbp": 4.8
+    },
+    {
+      "floor": 160,
+      "sku": "SKU-INK-008",
+      "name": "Watercolour Travel Set",
+      "list_price_gbp": 26.99,
+      "cost_gbp": 6.4
+    },
+    {
+      "floor": 160,
+      "sku": "SKU-INK-009",
+      "name": "Letterpress Notecards 24",
+      "list_price_gbp": 16.99,
+      "cost_gbp": 3.8
+    },
+    {
+      "floor": 160,
+      "sku": "SKU-INK-010",
+      "name": "Sealing Wax Sticks Pack",
+      "list_price_gbp": 6.99,
+      "cost_gbp": 1.4
+    },
+    {
+      "floor": 161,
+      "sku": "SKU-TWL-001",
+      "name": "Silk Sleep Mask",
+      "list_price_gbp": 14.99,
+      "cost_gbp": 3.4
+    },
+    {
+      "floor": 161,
+      "sku": "SKU-TWL-002",
+      "name": "Aromatherapy Diffuser USB",
+      "list_price_gbp": 26.99,
+      "cost_gbp": 6.8
+    },
+    {
+      "floor": 161,
+      "sku": "SKU-TWL-003",
+      "name": "Weighted Blanket 7kg",
+      "list_price_gbp": 89.99,
+      "cost_gbp": 24.5
+    },
+    {
+      "floor": 161,
+      "sku": "SKU-TWL-004",
+      "name": "Sunrise Alarm Clock",
+      "list_price_gbp": 46.99,
+      "cost_gbp": 12.4
+    },
+    {
+      "floor": 161,
+      "sku": "SKU-TWL-005",
+      "name": "Essential Oils Set 6",
+      "list_price_gbp": 19.99,
+      "cost_gbp": 4.8
+    },
+    {
+      "floor": 161,
+      "sku": "SKU-TWL-006",
+      "name": "Pillow Spray Lavender",
+      "list_price_gbp": 9.99,
+      "cost_gbp": 2.2
+    },
+    {
+      "floor": 161,
+      "sku": "SKU-TWL-007",
+      "name": "Bedside Mood Lamp",
+      "list_price_gbp": 24.99,
+      "cost_gbp": 6.4
+    },
+    {
+      "floor": 161,
+      "sku": "SKU-TWL-008",
+      "name": "Ergonomic Pillow Memory",
+      "list_price_gbp": 32.99,
+      "cost_gbp": 8.4
+    },
+    {
+      "floor": 161,
+      "sku": "SKU-TWL-009",
+      "name": "Sound Machine Nature",
+      "list_price_gbp": 28.99,
+      "cost_gbp": 7.2
+    },
+    {
+      "floor": 161,
+      "sku": "SKU-TWL-010",
+      "name": "Sleep Tea Blend Tin",
+      "list_price_gbp": 15.99,
+      "cost_gbp": 3.8
+    },
+    {
+      "floor": 162,
+      "sku": "SKU-ECO-001",
+      "name": "Beeswax Wrap Set 5",
+      "list_price_gbp": 19.99,
+      "cost_gbp": 4.8
+    },
+    {
+      "floor": 162,
+      "sku": "SKU-ECO-002",
+      "name": "Bamboo Toothbrush 4-pk",
+      "list_price_gbp": 8.99,
+      "cost_gbp": 1.8
+    },
+    {
+      "floor": 162,
+      "sku": "SKU-ECO-003",
+      "name": "Stainless Water Bottle 750ml",
+      "list_price_gbp": 21.99,
+      "cost_gbp": 5.4
+    },
+    {
+      "floor": 162,
+      "sku": "SKU-ECO-004",
+      "name": "Reusable Produce Bags 9",
+      "list_price_gbp": 14.99,
+      "cost_gbp": 3.4
+    },
+    {
+      "floor": 162,
+      "sku": "SKU-ECO-005",
+      "name": "Compostable Bin Bags 50",
+      "list_price_gbp": 11.99,
+      "cost_gbp": 2.6
+    },
+    {
+      "floor": 162,
+      "sku": "SKU-ECO-006",
+      "name": "Shampoo Bar Bundle",
+      "list_price_gbp": 17.99,
+      "cost_gbp": 4.2
+    },
+    {
+      "floor": 162,
+      "sku": "SKU-ECO-007",
+      "name": "Stainless Lunchbox 3-tier",
+      "list_price_gbp": 32.99,
+      "cost_gbp": 8.4
+    },
+    {
+      "floor": 162,
+      "sku": "SKU-ECO-008",
+      "name": "Reusable Coffee Cup 350ml",
+      "list_price_gbp": 15.99,
+      "cost_gbp": 3.8
+    },
+    {
+      "floor": 162,
+      "sku": "SKU-ECO-009",
+      "name": "Soap Nuts Laundry 500g",
+      "list_price_gbp": 21.99,
+      "cost_gbp": 5.4
+    },
+    {
+      "floor": 162,
+      "sku": "SKU-ECO-010",
+      "name": "Refillable Cleaning Tablets",
+      "list_price_gbp": 12.99,
+      "cost_gbp": 2.8
+    },
+    {
+      "floor": 163,
+      "sku": "SKU-MAK-001",
+      "name": "Knitting Starter Kit",
+      "list_price_gbp": 26.99,
+      "cost_gbp": 6.4
+    },
+    {
+      "floor": 163,
+      "sku": "SKU-MAK-002",
+      "name": "Crochet Hook Set 16",
+      "list_price_gbp": 15.99,
+      "cost_gbp": 3.8
+    },
+    {
+      "floor": 163,
+      "sku": "SKU-MAK-003",
+      "name": "Watercolour Paint Set 36",
+      "list_price_gbp": 29.99,
+      "cost_gbp": 7.4
+    },
+    {
+      "floor": 163,
+      "sku": "SKU-MAK-004",
+      "name": "Model Aeroplane Kit",
+      "list_price_gbp": 22.99,
+      "cost_gbp": 5.4
+    },
+    {
+      "floor": 163,
+      "sku": "SKU-MAK-005",
+      "name": "Embroidery Hoop 6 Set",
+      "list_price_gbp": 11.99,
+      "cost_gbp": 2.8
+    },
+    {
+      "floor": 163,
+      "sku": "SKU-MAK-006",
+      "name": "Cross-Stitch Pattern Book",
+      "list_price_gbp": 9.99,
+      "cost_gbp": 2.2
+    },
+    {
+      "floor": 163,
+      "sku": "SKU-MAK-007",
+      "name": "Polymer Clay 30-Block",
+      "list_price_gbp": 28.99,
+      "cost_gbp": 6.8
+    },
+    {
+      "floor": 163,
+      "sku": "SKU-MAK-008",
+      "name": "Brush Pen Lettering Set",
+      "list_price_gbp": 18.99,
+      "cost_gbp": 4.4
+    },
+    {
+      "floor": 163,
+      "sku": "SKU-MAK-009",
+      "name": "Resin Casting Starter",
+      "list_price_gbp": 38.99,
+      "cost_gbp": 9.8
+    },
+    {
+      "floor": 163,
+      "sku": "SKU-MAK-010",
+      "name": "Project Storage Caddy",
+      "list_price_gbp": 21.99,
+      "cost_gbp": 5.2
+    }
+  ],
+  "updated_ts": "2026-06-11T09:20:31.650537Z"
+}

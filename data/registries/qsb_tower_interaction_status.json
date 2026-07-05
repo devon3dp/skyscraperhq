@@ -1,0 +1,11 @@
+{
+  "ok": true, "kind": "qsb_tower_interaction_status", "ts": "2026-06-09T22:06:58Z",
+  "click_floor_selects": true,
+  "click_floor_highlights": true,
+  "double_click_enters_interior": true,
+  "press_E_enters_interior": true,
+  "press_B_or_Esc_back_to_tower": true,
+  "click_lift_shows_status": "via lift_arrived signal pushing ticker",
+  "click_openclaw_opens_panel": "via right_tabs.select_tab(openclaw)",
+  "click_packet_logs_event": true
+}

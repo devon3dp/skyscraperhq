@@ -1,0 +1,65 @@
+{
+  "snapshot_ts": "2026-06-23T12:10:18Z",
+  "bus_pnl_totals": {
+    "closes": 17685,
+    "wins": 5719,
+    "wr_pct": 32.34,
+    "pnl_sum": 125.738
+  },
+  "by_venue": {
+    "binance": {
+      "closes": 17307,
+      "wr_pct": 31.48,
+      "pnl": -0.502
+    },
+    "oanda": {
+      "closes": 378,
+      "wr_pct": 71.43,
+      "pnl": 126.24
+    }
+  },
+  "top_10_by_volume": [
+    {
+      "trader": "ETH",
+      "wr": 0.264,
+      "n": 10406,
+      "pnl": -0.181,
+      "venue": "binance"
+    },
+    {
+      "trader": "BTC",
+      "wr": 0.382,
+      "n": 5409,
+      "pnl": -0.133,
+      "venue": "binance"
+    },
+    {
+      "trader": "BNB",
+      "wr": 0.426,
+      "n": 1492,
+      "pnl": -0.188,
+      "venue": "binance"
+    },
+    {
+      "trader": "GBP",
+      "wr": 0.74,
+      "n": 146,
+      "pnl": -0.724,
+      "venue": "oanda"
+    },
+    {
+      "trader": "EUR",
+      "wr": 0.65,
+      "n": 123,
+      "pnl": -1.8,
+      "venue": "oanda"
+    },
+    {
+      "trader": "JPY",
+      "wr": 0.752,
+      "n": 109,
+      "pnl": 128.764,
+      "venue": "oanda"
+    }
+  ]
+}

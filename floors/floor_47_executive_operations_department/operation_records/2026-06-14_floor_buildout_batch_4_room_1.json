@@ -1,0 +1,31 @@
+{
+  "record_id": "f47_floor_buildout_batch_4_room_1",
+  "ts_utc": "2026-06-14T17:35:00Z",
+  "floor": "floor_47",
+  "batch": "4_room_1_visitor_sign_in_book",
+  "builder": "f47_floor_buildout_batch_4_room_1 (claude opus 4.7)",
+  "authorization": "CLAUDE.md 2026-06-13 workshop bench amendment + Ross 2026-06-14 helm window",
+  "items_built": [
+    "visitor_sign_in_book"
+  ],
+  "artifacts_written": [
+    "floors/floor_47_executive_operations_department/rooms/visitor_sign_in_book.json",
+    "floors/floor_47_executive_operations_department/visitor_sign_in.jsonl"
+  ],
+  "verification": {
+    "room_json_present": true,
+    "jsonl_seeded_with_header": true,
+    "visitor_open": true,
+    "constraints_respected": {
+      "no_claude_md_edit": true,
+      "no_vault_edit": true,
+      "no_env_edit": true,
+      "no_gate_edit": true,
+      "visitor_safe_concierge_blurb": true,
+      "append_only_schema": true,
+      "no_pii_fields": true
+    }
+  },
+  "lessons_appended_to": "data/registries/qsb_f47_agent_lessons.jsonl",
+  "advisory_only": true
+}

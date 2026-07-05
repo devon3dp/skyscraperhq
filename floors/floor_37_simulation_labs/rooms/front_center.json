@@ -1,0 +1,34 @@
+{
+  "room_id": "front_center",
+  "name": "Simulation Data Lab",
+  "category": "lab",
+  "purpose": "Research and development of simulation technologies.",
+  "concierge_blurb": "Step into the lab where technology meets imagination.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.0,
+    "offset_z": 8.5,
+    "footprint_m": [
+      10,
+      6
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "chamber",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Tech Lab",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_37"
+}

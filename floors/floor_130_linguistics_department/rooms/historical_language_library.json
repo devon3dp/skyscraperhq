@@ -1,0 +1,31 @@
+{
+  "room_id": "historical_language_library",
+  "name": "Historical Language Library",
+  "category": "library",
+  "purpose": "This library houses historical language texts and artifacts.",
+  "concierge_blurb": "Explore the vast collection of ancient linguistic materials.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "left_wall",
+    "offset_x": -8.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "archive_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Historical Lib",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_130"
+}

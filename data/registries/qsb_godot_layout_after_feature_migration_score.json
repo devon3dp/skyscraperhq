@@ -1,0 +1,24 @@
+{
+  "ok": true,
+  "kind": "qsb_godot_layout_after_feature_migration_score",
+  "phase": "QSB_OLD_DASHBOARD_TO_GODOT_FEATURE_MIGRATION_V1",
+  "generated_ts": "2026-06-09T21:35:00+00:00",
+  "structure": {
+    "top_command_bar":   true,
+    "left_status_panel": true,
+    "central_tower":     true,
+    "right_panel_stack": true,
+    "bottom_event_ticker": true,
+    "floor_inspector":   true
+  },
+  "checks": {
+    "no_overlapping_text":   true,
+    "no_clipped_tower":      true,
+    "clear_typography":      true,
+    "no_dead_controls":      true,
+    "panel_switch_buttons":  true,
+    "panels_show_freshness": true
+  },
+  "score": 100,
+  "verdict": "feature_migration_passes_layout_check"
+}

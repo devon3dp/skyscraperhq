@@ -1,0 +1,31 @@
+{
+  "room_id": "staff_office",
+  "name": "Staff Office",
+  "category": "admin",
+  "purpose": "Provides a private space for administrative staff.",
+  "concierge_blurb": "A cozy office with a desk and filing cabinets.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_right",
+    "offset_x": 6.0,
+    "offset_z": -4.0,
+    "footprint_m": [
+      12,
+      8
+    ],
+    "height_m": 2.2
+  },
+  "render": {
+    "primary_prop": "desk",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Staff Office",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_23"
+}

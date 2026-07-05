@@ -1,0 +1,11 @@
+{
+  "ok": true,
+  "kind": "qsb_godot_event_ticker_repair_status",
+  "ts": "2026-06-09T21:07:08Z",
+  "owner": "HUDController._event_ticker",
+  "max_history": 28,
+  "fields_shown": ["timestamp","category","message"],
+  "categories": ["boot","safety","telemetry","trade","warn","floor","voice","evt"],
+  "position": "bottom dock, ends BEFORE right tab edge — no overlap with chat input",
+  "min_height_px": 140
+}

@@ -1,0 +1,72 @@
+{
+  "floor_id": "floor_82",
+  "floor_number": 82,
+  "floor_name": "Podcast Studio Two",
+  "department": "designed_by_f66_architects_v1",
+  "zone": "ZONE D \u00b7 COMMERCE WING",
+  "archetype": "designed_by_f66_architects_v1",
+  "staff_lead": "F66 Architects' Office",
+  "tour_blurb": "news + current affairs",
+  "visitor_open": false,
+  "advisory_only": true,
+  "execution_mode": "PREVIEW_ONLY",
+  "skeleton": true,
+  "skeleton_source": "floor_manifest.json",
+  "skeleton_generated_ts": "2026-06-17",
+  "live_signals": {
+    "theme": null,
+    "categories": null,
+    "palette": null,
+    "tagline": null
+  },
+  "gate_posture": {
+    "advisory_only": true,
+    "execution_allowed": false,
+    "live_payments_enabled": false
+  },
+  "team_roster": [
+    {
+      "id": "f082.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "spawned_id": "761b3fdb97",
+      "spawned_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F082",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f082.operator.01",
+      "spawned_id": "6d36ae3d6c"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F082",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f082.operator.02",
+      "spawned_id": "258c46ce1e"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F082",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f082.operator.03",
+      "spawned_id": "1b0e8a3493"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F082",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f082.operator.04",
+      "spawned_id": "049a1cd2a8"
+    }
+  ],
+  "floor_manager": "f082.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

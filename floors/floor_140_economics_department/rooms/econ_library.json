@@ -1,0 +1,34 @@
+{
+  "room_id": "econ_library",
+  "name": "Economic Literature Archive",
+  "category": "library",
+  "purpose": "Housing for the department's extensive collection of economic texts.",
+  "concierge_blurb": "Explore shelves stacked with classic and contemporary economics literature.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -8.0,
+    "offset_z": 5.0,
+    "footprint_m": [
+      12,
+      8
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "library_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Econ Lib",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 0
+  },
+  "floor": "floor_140"
+}

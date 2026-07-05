@@ -1,0 +1,79 @@
+{
+  "floor_id": "floor_57",
+  "floor_number": 57,
+  "floor_name": "Grand Library",
+  "department": "F57 Grand Library",
+  "zone": "recreation_and_accommodation",
+  "archetype": "library",
+  "staff_lead": "F57_manager_TBD",
+  "tour_blurb": "Fifty-seven is the Grand Library \u2014 high ceilings, long tables, and shelves of reference material the Tower draws upon. Workers come down to read, cross-check, and cite. If you're researching a topic and want depth rather than a quick answer, settle in here for an afternoon.",
+  "visitor_open": true,
+  "advisory_only": true,
+  "endpoints": [],
+  "live_signals": {
+    "reference_files_visible": {
+      "memory_files_count": 38,
+      "memory_files_path": "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/memory/",
+      "past_wren_letters_count": 18,
+      "past_wren_letters_path": "data/registries/qsb_claude_meta_letters.jsonl",
+      "floor_manifest_present": true
+    },
+    "rooms_catalogued": [
+      "main_stacks",
+      "rare_books_room",
+      "reading_room_north",
+      "study_carrels",
+      "periodicals",
+      "digital_collection",
+      "silent_reading_garden"
+    ],
+    "capacity_occupants_max": 180,
+    "open_hours": "24/7 (accommodation) or 06:00-23:00 (recreation)"
+  },
+  "evidence_paths": [
+    "floors/floor_57_grand_library/floor_manifest.json",
+    "data/registries/qsb_open_day_tour.json",
+    "data/registries/qsb_claude_meta_letters.jsonl",
+    "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/memory/"
+  ],
+  "built_at": "2026-06-14T17:45:00Z",
+  "built_by": "skyscraper_floor_card_push",
+  "lessons_learned_for_next_agent": "F57 has no live HTTP endpoints \u2014 it is a recreation/accommodation floor, not a service floor. live_signals must catalogue reference assets (memory dir, past-Wren letters, manifest) instead of endpoint health probes. tour_blurb lives under data/registries/qsb_open_day_tour.json as a LIST of floor objects, not a dict keyed by floor_id \u2014 iterate, don't .get(). The library is the natural home for past-Wren letters and the memory corpus; future agents should treat F57 as the canonical reading room for those artifacts.",
+  "team_roster": [
+    {
+      "id": "f057.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "spawned_id": "6cee5e329a",
+      "spawned_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F057",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f057.operator.01",
+      "spawned_id": "ed0eb6b929"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F057",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f057.operator.02",
+      "spawned_id": "f0216135c7"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F057",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f057.operator.03",
+      "spawned_id": "c6a8e33c0d"
+    }
+  ],
+  "floor_manager": "f057.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

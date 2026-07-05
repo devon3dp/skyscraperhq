@@ -1,0 +1,31 @@
+{
+  "room_id": "game_test_area",
+  "name": "Game Test Area",
+  "category": "testing",
+  "purpose": "This area is for testing game mechanics and gameplay.",
+  "concierge_blurb": "See the latest game builds in action here.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_right",
+    "offset_x": 7.5,
+    "offset_z": 2.0,
+    "footprint_m": [
+      10,
+      6
+    ],
+    "height_m": 1.8
+  },
+  "render": {
+    "primary_prop": "display",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Game Test",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_93"
+}

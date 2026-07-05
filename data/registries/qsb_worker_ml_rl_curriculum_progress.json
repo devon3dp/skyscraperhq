@@ -1,0 +1,25 @@
+{
+  "ok": true,
+  "kind": "qsb_worker_ml_rl_curriculum_progress",
+  "phase": "QSB_ML_RL_LAB_CLASSROOM_RESEARCH_WORKER_INTEGRATION_V1",
+  "generated_ts": "2026-06-09T16:49:28+00:00",
+  "tracked_workers": 0,
+  "note": "Worker progress entries will be appended as cohorts complete curriculum topics. This phase initializes the registry only.",
+  "schema": {
+    "worker_id": "string",
+    "topic_id": "string",
+    "status": "enum(pending,in_progress,complete,certified)",
+    "completed_ts": "iso8601",
+    "score": "0..100"
+  },
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "live_payments_enabled": false,
+  "live_listings_publishing_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "worker_execution_enabled": false,
+  "secrets_in_logs": false
+}

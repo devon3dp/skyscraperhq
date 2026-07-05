@@ -1,0 +1,12 @@
+{
+  "ok": true,
+  "floor_number": 46,
+  "floor_name": "Wren Bench",
+  "floor_kind": "ai_partner_bench",
+  "resident": "Wren (qwen2.5:7b on local GPU)",
+  "ross_authorized_ts": "2026-06-17",
+  "claude_acknowledged": true,
+  "team_roster": ["f46.wren.architect.01", "f46.wren.builder.01", "f46.wren.decorator.01"],
+  "advisor": "Sage (tools/qsb_wren_sage.py)",
+  "chat_endpoint_legacy": "/api/f47_chat (kept under that path; resident is on F46)"
+}

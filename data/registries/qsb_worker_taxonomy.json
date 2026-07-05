@@ -1,0 +1,90 @@
+{
+  "ok": true,
+  "phase": "QSB_WORKFORCE_OPERATIONS_REDESIGN_RECRUITMENT_TRAINING_LESSONS_V1",
+  "kind": "qsb_worker_taxonomy",
+  "generated_ts": "2026-06-30T13:46:34.646959+00:00",
+  "classes": [
+    {
+      "class": "operational_worker",
+      "description": "A real active worker assigned to a department/floor with a real task.",
+      "rules": [
+        "reports",
+        "has_assigned_floor",
+        "real_execution_enabled=false",
+        "appears_in_canonical_registry"
+      ]
+    },
+    {
+      "class": "training_worker",
+      "description": "A worker in Training Academy or simulation mode.",
+      "rules": [
+        "in_training_assignments",
+        "sim_worker_floor_* OR explicit training_in_progress",
+        "appears_in_canonical_registry OR worker_training_assignments"
+      ]
+    },
+    {
+      "class": "candidate_worker",
+      "description": "A worker inside Recruitment Agency, not active yet.",
+      "rules": [
+        "from worker_recruitment_agency_status.candidate_count",
+        "not yet assigned to operational floor"
+      ]
+    },
+    {
+      "class": "lesson_worker",
+      "description": "A worker reviewing mistakes/lessons.",
+      "rules": [
+        "in qsb_worker_discipline.on_warning_workers OR lessons queue"
+      ]
+    },
+    {
+      "class": "resting_worker",
+      "description": "A worker stationed in Rest/Dormitory; idle but available for shift change.",
+      "rules": [
+        "status='resting' OR home_floor='floor_49_resource_management_department'"
+      ]
+    },
+    {
+      "class": "suspended_worker",
+      "description": "A worker removed from active duty due to discipline.",
+      "rules": [
+        "strikes >= 3 OR explicit status=suspended"
+      ]
+    },
+    {
+      "class": "stale_worker",
+      "description": "A worker that exists in old registries but is not reporting.",
+      "rules": [
+        "status not in (active, reporting, training) OR reporting_enabled=false"
+      ]
+    },
+    {
+      "class": "visual_group",
+      "description": "An aggregate visual marker, not a worker.",
+      "rules": [
+        "never a worker_id; used only by the renderer for count badges"
+      ]
+    }
+  ],
+  "exterior_visible_classes": [
+    "operational_worker"
+  ],
+  "interior_visible_classes": [
+    "operational_worker",
+    "training_worker",
+    "candidate_worker",
+    "lesson_worker",
+    "suspended_worker"
+  ],
+  "hidden_by_default": [
+    "stale_worker",
+    "visual_group"
+  ],
+  "policy": "External tower view shows per-floor COUNT BADGES only \u2014 never individual labels for every worker. Individual worker rows are only rendered inside the floor inspector for the selected floor.",
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false
+}

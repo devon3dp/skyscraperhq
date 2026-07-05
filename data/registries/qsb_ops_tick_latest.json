@@ -1,0 +1,12 @@
+{
+  "ts": "2026-06-30T17:03:57Z",
+  "kind": "ops_tick_summary",
+  "findings_by_role": {
+    "registry_janitor": "10 stale",
+    "gate_audit_runner": "green",
+    "pnl_reconciler": "green",
+    "cockpit_health_keeper": "amber \u2014 restart needed",
+    "test_signal_recorder": "5 stale"
+  },
+  "advisory_only": true
+}

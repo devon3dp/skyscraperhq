@@ -1,0 +1,75 @@
+{
+  "floor_id": "floor_06",
+  "floor_number": 6,
+  "floor_name": "Etsy Shop Floor",
+  "department": "Etsy Shop Floor",
+  "zone": "ZONE A",
+  "archetype": "commerce_wing_floor",
+  "staff_lead": "F6 crew",
+  "tour_blurb": "Etsy Shop Floor \u2014 part of the QSB Tower commerce wing. Advisory only; no live orders or live payments flow through this floor without an explicit operator-confirmed unlock.",
+  "visitor_open": true,
+  "advisory_only": true,
+  "execution_mode": "PREVIEW_ONLY",
+  "live_payments_in_play": false,
+  "live_listings_publishing_enabled": false,
+  "live_signals": {
+    "mode": "PREVIEW_ONLY",
+    "advisory_only": true
+  },
+  "gate_posture": {
+    "live_payments_enabled": false,
+    "live_listings_publishing_enabled": false,
+    "execution_allowed": false,
+    "advisory_only": true
+  },
+  "team_roster": [
+    {
+      "id": "f006.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "promoted_from": "sim_worker_floor_20",
+      "promoted_from_floor": "api_services_department",
+      "promotion_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F006",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f006.operator.01",
+      "promoted_from": "sim_worker_floor_21",
+      "promoted_from_floor": "adapter_systems_department"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F006",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f006.operator.02",
+      "promoted_from": "sim_worker_floor_22",
+      "promoted_from_floor": "integration_services_department"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F006",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f006.operator.03",
+      "promoted_from": "sim_worker_floor_23",
+      "promoted_from_floor": "air_llm_operations_department"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F006",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f006.operator.04",
+      "promoted_from": "sim_worker_floor_24",
+      "promoted_from_floor": "model_routing_department"
+    }
+  ],
+  "floor_manager": "f006.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

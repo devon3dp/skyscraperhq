@@ -1,0 +1,74 @@
+[
+  {
+    "id": "executive_support_to_operations",
+    "source_floor": "floor_46",
+    "target_floor": "floor_47",
+    "lift": "executive_lift",
+    "sealed_packets": true,
+    "execution_enabled": false,
+    "status": "registered"
+  },
+  {
+    "id": "operations_to_strategy",
+    "source_floor": "floor_47",
+    "target_floor": "floor_48",
+    "lift": "executive_lift",
+    "sealed_packets": true,
+    "execution_enabled": false,
+    "status": "registered"
+  },
+  {
+    "id": "strategy_to_resource_management",
+    "source_floor": "floor_48",
+    "target_floor": "floor_49",
+    "lift": "executive_lift",
+    "sealed_packets": true,
+    "execution_enabled": false,
+    "status": "registered"
+  },
+  {
+    "id": "resource_to_governance",
+    "source_floor": "floor_49",
+    "target_floor": "floor_50",
+    "lift": "executive_lift",
+    "sealed_packets": true,
+    "execution_enabled": false,
+    "status": "registered"
+  },
+  {
+    "id": "governance_to_council",
+    "source_floor": "floor_50",
+    "target_floor": "floor_51",
+    "lift": "executive_lift",
+    "sealed_packets": true,
+    "execution_enabled": false,
+    "status": "registered"
+  },
+  {
+    "id": "council_to_infrastructure_command",
+    "source_floor": "floor_51",
+    "target_floor": "floor_52",
+    "lift": "executive_lift",
+    "sealed_packets": true,
+    "execution_enabled": false,
+    "status": "registered"
+  },
+  {
+    "id": "infrastructure_command_to_tower_command",
+    "source_floor": "floor_52",
+    "target_floor": "floor_53",
+    "lift": "executive_lift",
+    "sealed_packets": true,
+    "execution_enabled": false,
+    "status": "registered"
+  },
+  {
+    "id": "tower_command_to_penthouse_socket",
+    "source_floor": "floor_53",
+    "target_floor": "penthouse",
+    "lift": "executive_lift",
+    "sealed_packets": true,
+    "execution_enabled": false,
+    "status": "handoff_ready"
+  }
+]

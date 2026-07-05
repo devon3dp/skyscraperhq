@@ -1,0 +1,95 @@
+{
+  "ts": "2026-07-01T13:46:50.949629+00:00",
+  "floor": "floor_41",
+  "department": "OANDA Trading Floor",
+  "lab": "Paper Strategy Lab V1",
+  "mode": "practice_read_only_paper_simulation",
+  "account": {
+    "id": "101-004-37307818-002",
+    "currency": "GBP",
+    "NAV": "99150.3200",
+    "balance": "98372.3189",
+    "openTradeCount": 11,
+    "openPositionCount": 7,
+    "marginAvailable": "96285.5900"
+  },
+  "instruments": [
+    {
+      "instrument": "EUR_USD",
+      "time": "2026-07-01T13:46:50.585809222Z",
+      "status": "tradeable",
+      "tradeable": true,
+      "bid": 1.14082,
+      "ask": 1.14091,
+      "mid": 1.140865,
+      "spread": 9.000000000014552e-05,
+      "spread_pips": 0.9000000000014552,
+      "top_bid_liquidity": 500000,
+      "top_ask_liquidity": 500000,
+      "top_liquidity_imbalance": 0.0,
+      "depth_levels_bid": 7,
+      "depth_levels_ask": 6,
+      "paper_signal": "observe",
+      "paper_reason": "balanced book / no clear paper edge"
+    },
+    {
+      "instrument": "GBP_USD",
+      "time": "2026-07-01T13:46:50.557164639Z",
+      "status": "tradeable",
+      "tradeable": true,
+      "bid": 1.32755,
+      "ask": 1.32769,
+      "mid": 1.32762,
+      "spread": 0.000140000000000029,
+      "spread_pips": 1.40000000000029,
+      "top_bid_liquidity": 500000,
+      "top_ask_liquidity": 500000,
+      "top_liquidity_imbalance": 0.0,
+      "depth_levels_bid": 7,
+      "depth_levels_ask": 6,
+      "paper_signal": "observe",
+      "paper_reason": "balanced book / no clear paper edge"
+    },
+    {
+      "instrument": "USD_JPY",
+      "time": "2026-07-01T13:46:50.608950736Z",
+      "status": "tradeable",
+      "tradeable": true,
+      "bid": 162.305,
+      "ask": 162.324,
+      "mid": 162.3145,
+      "spread": 0.019000000000005457,
+      "spread_pips": 1.9000000000005457,
+      "top_bid_liquidity": 500000,
+      "top_ask_liquidity": 500000,
+      "top_liquidity_imbalance": 0.0,
+      "depth_levels_bid": 7,
+      "depth_levels_ask": 6,
+      "paper_signal": "observe",
+      "paper_reason": "balanced book / no clear paper edge"
+    }
+  ],
+  "summary": {
+    "instrument_count": 3,
+    "tradeable_count": 3,
+    "avg_spread_pips": 1.4000000000007635,
+    "signal_counts": {
+      "observe": 3
+    },
+    "errors": []
+  },
+  "locks": {
+    "live_trading_enabled": false,
+    "order_execution_enabled": false,
+    "practice_order_execution_enabled": false,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "external_provider_execution_enabled": false,
+    "openclaw_execution_enabled": false,
+    "autonomous_dispatch_enabled": false,
+    "live_dispatch_enabled": false,
+    "direct_provider_access": false
+  },
+  "paper_only": true,
+  "not_financial_advice": true
+}

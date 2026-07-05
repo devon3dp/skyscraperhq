@@ -1,0 +1,78 @@
+{
+  "ok": true,
+  "kind": "qsb_commerce_wing_masterplan",
+  "phase": "QSB_FULL_SKYSCRAPER_OCCUPANCY_COMMERCE_WORKFORCE_EXPANSION_V1",
+  "generated_ts": "2026-06-30T13:46:36.978479+00:00",
+  "wing_name": "Commerce Wing",
+  "departments": [
+    {
+      "floor": 6,
+      "name": "Etsy Shop Floor"
+    },
+    {
+      "floor": 7,
+      "name": "Shopify Storefront Floor"
+    },
+    {
+      "floor": 13,
+      "name": "Product Image Studio + Mockup Wall"
+    },
+    {
+      "floor": 14,
+      "name": "Print-on-Demand Floor"
+    },
+    {
+      "floor": 15,
+      "name": "Voice Commerce Studio"
+    },
+    {
+      "floor": 16,
+      "name": "Listing Writer + SEO Lab"
+    },
+    {
+      "floor": 17,
+      "name": "Product Design Studio + Prompt-to-Product"
+    },
+    {
+      "floor": 18,
+      "name": "Marketing + Promotion Floor"
+    },
+    {
+      "floor": 19,
+      "name": "Customer Service Floor"
+    },
+    {
+      "floor": 1,
+      "name": "Order Fulfilment Hub"
+    },
+    {
+      "floor": 26,
+      "name": "Commerce Accounting Floor"
+    },
+    {
+      "floor": 32,
+      "name": "Platform Compliance Office"
+    },
+    {
+      "floor": 33,
+      "name": "Refund / Dispute Desk"
+    },
+    {
+      "floor": 34,
+      "name": "Storefront Analytics Room"
+    }
+  ],
+  "manual_approval_gate": "no listing publishes / no payment / no spending without explicit user click",
+  "live_payments_enabled": false,
+  "live_listings_publishing_enabled": false,
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "worker_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "external_api_calls_enabled": false,
+  "secrets_in_logs": false,
+  "manual_approval_required_for_commerce": true
+}

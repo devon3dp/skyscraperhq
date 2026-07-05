@@ -1,0 +1,8 @@
+{
+  "ok": true, "kind": "qsb_tower_worker_visibility_status", "ts": "2026-06-09T22:06:58Z",
+  "tower_view": "density badges per floor (auto-color by count) + animated mini-workers on selected + 4 neighbor floors",
+  "selected_floor": "up to 32 individual role-colored mini-workers",
+  "neighbor_floors": "up to 8 mini-workers each, ±2 floors from selected",
+  "performance_cap": "~120 mini-dots in flight",
+  "roles_represented": ["manager","worker","watcher","seer","overseer","trainer","butler","concierge","clerk","analyst","OpenClaw"]
+}

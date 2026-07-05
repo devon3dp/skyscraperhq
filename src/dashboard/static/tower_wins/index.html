@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>QSB Tower Wins — Real Results, Real-Time</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root {
+    --bg: #050913;
+    --green: #44ad6a;
+    --amber: #f6c45a;
+    --red: #ff5050;
+    --blue: #88c0e0;
+    --text: #e0eef0;
+    --dim: #88a;
+    --panel: rgba(80, 220, 180, 0.08);
+    --frame: rgba(80,220,180,0.30);
+  }
+  html, body { margin:0; padding:0; min-height:100%; background: var(--bg);
+                font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+                color: var(--text); }
+  body { padding: 22px 28px 40px; }
+
+  header { display:flex; justify-content:space-between; align-items:center;
+            border-bottom: 1px solid var(--frame); padding-bottom: 14px;
+            margin-bottom: 22px; }
+  h1 { margin:0; font-size: 26px; letter-spacing: 0.04em;
+        color: #88f0d8; text-transform: uppercase; }
+  header .sub { font-size: 13px; color: var(--dim); }
+
+  .grid { display: grid; gap: 16px;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--frame);
+    border-radius: 6px;
+    padding: 18px 20px;
+    display: flex; flex-direction: column;
+  }
+  .card h2 { margin: 0 0 12px; font-size: 13px;
+              letter-spacing: 0.10em; text-transform: uppercase;
+              color: #88f0d8; opacity: 0.85; }
+  .card .big { font-size: 38px; font-weight: 700; line-height: 1;
+                color: var(--green); margin: 6px 0; }
+  .card .big.amber { color: var(--amber); }
+  .card .big.red { color: var(--red); }
+  .card .big.blue { color: var(--blue); }
+  .card .meta { font-size: 13px; color: var(--dim);
+                margin-top: 6px; line-height: 1.4; }
+
+  .row { display:flex; justify-content:space-between; padding: 6px 0;
+          border-bottom: 1px dashed rgba(255,255,255,0.06); font-size: 14px; }
+  .row:last-child { border-bottom: none; }
+  .row .k { color: var(--dim); }
+  .row .v { color: var(--text); font-weight: 600; }
+  .row.up .v { color: var(--green); }
+
+  .pill {
+    display: inline-block; padding: 3px 8px;
+    border-radius: 11px; font-size: 11px;
+    background: rgba(68, 173, 106, 0.20);
+    color: var(--green); border: 1px solid rgba(68, 173, 106, 0.50);
+  }
+  .pill.amber { background: rgba(246, 196, 90, 0.20);
+                 color: var(--amber); border-color: rgba(246, 196, 90, 0.50); }
+  .pill.red { background: rgba(255, 80, 80, 0.20);
+              color: var(--red); border-color: rgba(255, 80, 80, 0.50); }
+
+  footer { margin-top: 28px; padding-top: 14px;
+            border-top: 1px solid var(--frame);
+            color: var(--dim); font-size: 12px; }
+  footer a { color: var(--blue); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>🏆 Tower Wins</h1>
+    <div class="sub">Real numbers · auto-refresh every 30s · last refresh <span id="ts">—</span></div>
+  </div>
+  <div>
+    <span id="status-pill" class="pill">LIVE</span>
+  </div>
+</header>
+
+<div class="grid">
+
+  <div class="card">
+    <h2>🟢 F41 OANDA forex</h2>
+    <div class="big" id="f41-cycles">—</div>
+    <div class="meta">trader cycles today</div>
+    <div class="row"><span class="k">open trades NOW</span><span class="v" id="f41-open">—</span></div>
+  </div>
+
+  <div class="card">
+    <h2>🟡 F42 Binance crypto</h2>
+    <div class="big amber" id="f42-cycles">—</div>
+    <div class="meta">trader cycles today · 24/7</div>
+  </div>
+
+  <div class="card">
+    <h2>🔵 F43 Alpaca paper</h2>
+    <div class="big blue" id="f43-cycles">—</div>
+    <div class="meta">trader cycles today · weekends quiet</div>
+  </div>
+
+  <div class="card">
+    <h2>🎓 Certified Workers</h2>
+    <div class="big" id="certified">—</div>
+    <div class="meta">trading authorisation grants standing now</div>
+    <div class="row"><span class="k">verdicts today</span><span class="v" id="verdicts">—</span></div>
+  </div>
+
+  <div class="card">
+    <h2>⚔ AI Battles</h2>
+    <div class="big amber" id="battles">—</div>
+    <div class="meta">@hqskyscraper · TikTok handle</div>
+    <div class="row"><span class="k">last winner</span><span class="v" id="winner">—</span></div>
+    <div class="row"><span class="k">followers</span><span class="v" id="followers">—</span></div>
+  </div>
+
+  <div class="card">
+    <h2>👥 Worker Fleets</h2>
+    <div class="big" id="fleet-total">—</div>
+    <div class="meta">live operatives across F47 + F166</div>
+    <div class="row"><span class="k">F47 Embassy</span><span class="v" id="f47-fleet">—</span></div>
+    <div class="row"><span class="k">F166 TikTok Studio</span><span class="v" id="f166-fleet">—</span></div>
+  </div>
+
+  <div class="card">
+    <h2>📜 Activity today</h2>
+    <div class="big blue" id="f47-stamps">—</div>
+    <div class="meta">F47 records stamped · system events</div>
+    <div class="row"><span class="k">pitstops</span><span class="v" id="pitstops">—</span></div>
+  </div>
+
+  <div class="card">
+    <h2>🌍 GitHub Push</h2>
+    <div class="big" id="gh-commit" style="font-size: 22px;">—</div>
+    <div class="meta">last commit on devon3dp/skyscraperhq main</div>
+    <div class="row"><span class="k">last push ts</span><span class="v" id="gh-ts">—</span></div>
+  </div>
+
+  <div class="card" style="grid-column: 1 / -1;">
+    <h2>⚙ Daemon Health</h2>
+    <div id="daemons" style="display:flex; flex-wrap:wrap; gap:8px; margin-top: 4px;"></div>
+  </div>
+
+</div>
+
+<footer>
+  data feed: <code>/api/tower_wins</code> · auto-refresh every 30s · numbers from <code>data/registries/</code>
+</footer>
+
+<script>
+const $ = id => document.getElementById(id);
+
+async function refresh() {
+  try {
+    const r = await fetch('/api/tower_wins', { cache: 'no-store' });
+    const d = await r.json();
+    if (!d.ok) {
+      $('status-pill').textContent = 'ERROR';
+      $('status-pill').className = 'pill red';
+      return;
+    }
+    $('ts').textContent = (d.ts || '').slice(11,19);
+    $('status-pill').textContent = 'LIVE';
+    $('status-pill').className = 'pill';
+
+    const t = d.trading || {};
+    $('f41-cycles').textContent = t.f41_cycles_today ?? '0';
+    $('f42-cycles').textContent = t.f42_cycles_today ?? '0';
+    $('f43-cycles').textContent = t.f43_cycles_today ?? '0';
+    $('f41-open').textContent = t.f41_open_trades_now ?? '0';
+    $('certified').textContent = t.certified_workers ?? '0';
+    $('verdicts').textContent = t.verdicts_generated_today ?? '0';
+
+    const tk = d.tiktok || {};
+    $('battles').textContent = tk.ai_battles_total ?? '0';
+    $('winner').textContent = tk.last_battle_winner || '—';
+    $('followers').textContent = tk.followers ?? '0';
+
+    const fleets = d.fleets || {};
+    $('f47-fleet').textContent = fleets.F47 ?? '0';
+    $('f166-fleet').textContent = fleets.F166 ?? '0';
+    $('fleet-total').textContent =
+      String((fleets.F47 || 0) + (fleets.F166 || 0));
+
+    const ev = d.events || {};
+    $('f47-stamps').textContent = ev.f47_stamps_today ?? '0';
+    $('pitstops').textContent = ev.pitstops_today ?? '0';
+
+    const gh = d.github || {};
+    $('gh-commit').textContent = gh.last_commit || '—';
+    $('gh-ts').textContent = (gh.last_push_ts || '—').slice(11,19);
+
+    const daemonDiv = $('daemons');
+    daemonDiv.innerHTML = '';
+    Object.entries(d.daemons || {}).forEach(([name, active]) => {
+      const span = document.createElement('span');
+      span.className = 'pill ' + (active ? '' : 'red');
+      span.textContent = (active ? '✓ ' : '✗ ') + name;
+      daemonDiv.appendChild(span);
+    });
+  } catch (e) {
+    $('status-pill').textContent = 'OFFLINE';
+    $('status-pill').className = 'pill red';
+  }
+}
+
+refresh();
+setInterval(refresh, 30000);
+</script>
+
+</body>
+</html>

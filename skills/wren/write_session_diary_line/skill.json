@@ -1,0 +1,14 @@
+{
+  "name": "write_session_diary_line",
+  "description": "Append one timestamped human-readable line to the session diary. Use at meaningful events.",
+  "params": {
+    "type": "object",
+    "properties": {
+      "text": {"type": "string", "description": "one-line human-readable summary, <240 chars"}
+    },
+    "required": ["text"]
+  },
+  "safety_class": "stamp",
+  "entrypoint": "skill:run",
+  "tags": ["diary", "boundary"]
+}

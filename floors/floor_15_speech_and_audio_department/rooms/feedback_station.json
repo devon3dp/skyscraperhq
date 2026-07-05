@@ -1,0 +1,31 @@
+{
+  "room_id": "feedback_station",
+  "name": "Feedback Station",
+  "category": "seating",
+  "purpose": "Station for gathering user feedback on voice commerce systems.",
+  "concierge_blurb": "Providing a space to hear your voice.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 6.0,
+    "offset_z": 4.0,
+    "footprint_m": [
+      8,
+      4
+    ],
+    "height_m": 1.2
+  },
+  "render": {
+    "primary_prop": "chair_set",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Feedback Station",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_15"
+}

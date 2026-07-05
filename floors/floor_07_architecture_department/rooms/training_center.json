@@ -1,0 +1,31 @@
+{
+  "room_id": "training_center",
+  "name": "Training Center",
+  "category": "operations",
+  "purpose": "Host training sessions and workshops.",
+  "concierge_blurb": "Interactive space for skills development.",
+  "current_state": "already_exists",
+  "visitor_open": false,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 6.5,
+    "offset_z": 4.0,
+    "footprint_m": [
+      12,
+      8
+    ],
+    "height_m": 1.8
+  },
+  "render": {
+    "primary_prop": "seating",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Training",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_7"
+}

@@ -1,0 +1,34 @@
+{
+  "room_id": "security_monitoring_station",
+  "name": "Security Monitoring Station",
+  "category": "security",
+  "purpose": "Monitors the security of the department and the tower.",
+  "concierge_blurb": "A high-tech station for monitoring security feeds from the tower.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_right",
+    "offset_x": 8.0,
+    "offset_z": -5.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Security Dais",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/live_security_data.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 30
+  },
+  "floor": "floor_13"
+}

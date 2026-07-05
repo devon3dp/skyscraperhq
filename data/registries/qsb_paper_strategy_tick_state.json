@@ -1,0 +1,20 @@
+{
+  "ok": true,
+  "phase": "QSB_NEXT_SAFE_IMPROVEMENTS_V1",
+  "kind": "qsb_paper_strategy_tick_state",
+  "generated_ts": "2026-06-30T13:46:34.838755+00:00",
+  "cadence_tick_count": 73,
+  "open_trades_before": 20,
+  "open_trades_after": 20,
+  "marked_count": 20,
+  "auto_closed_now": [],
+  "opened_new": null,
+  "policy": "Deterministic price walk (no random). Auto-close on stop/target rules. Strategy IDs tagged _cadence so they are distinguishable from the seed batch.",
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "live_trading_enabled": false,
+  "binance_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

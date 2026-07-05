@@ -1,0 +1,218 @@
+{
+  "registry": "qsb_tower_ops_overseers_v1",
+  "phase": "QSB_TOWER_OPERATIONS_V1",
+  "ts": "2026-06-08T13:54:48.190940+00:00",
+  "overseers": [
+    {
+      "overseer_id": "ov_trading",
+      "display_name": "Trading Overseer",
+      "department_scope": [
+        "floor_41",
+        "floor_42",
+        "floor_43"
+      ],
+      "checks": [
+        "heartbeat_freshness",
+        "execution_locks_closed",
+        "reporting_chain_intact",
+        "telemetry_label_correct",
+        "no_fake_account_or_pnl",
+        "trading_execution_off"
+      ],
+      "latest_check_ts": "2026-06-08T13:54:48.190942+00:00",
+      "latest_result": "pass",
+      "incidents": [],
+      "reports_to": "Chief Overseer"
+    },
+    {
+      "overseer_id": "ov_research",
+      "display_name": "Research Overseer",
+      "department_scope": [
+        "floor_03"
+      ],
+      "checks": [
+        "heartbeat_freshness",
+        "execution_locks_closed",
+        "reporting_chain_intact",
+        "web_access_gate_locked",
+        "research_archive_writable"
+      ],
+      "latest_check_ts": "2026-06-08T13:54:48.190944+00:00",
+      "latest_result": "pass",
+      "incidents": [],
+      "reports_to": "Chief Overseer"
+    },
+    {
+      "overseer_id": "ov_maintenance",
+      "display_name": "Maintenance Overseer",
+      "department_scope": [
+        "floor_33"
+      ],
+      "checks": [
+        "heartbeat_freshness",
+        "execution_locks_closed",
+        "reporting_chain_intact",
+        "disk_free_ok",
+        "ports_listening",
+        "mounts_present"
+      ],
+      "latest_check_ts": "2026-06-08T13:54:48.190945+00:00",
+      "latest_result": "pass",
+      "incidents": [],
+      "reports_to": "Chief Overseer"
+    },
+    {
+      "overseer_id": "ov_security",
+      "display_name": "Security Overseer",
+      "department_scope": [
+        "floor_28",
+        "floor_30"
+      ],
+      "checks": [
+        "heartbeat_freshness",
+        "execution_locks_closed",
+        "reporting_chain_intact",
+        "lock_matrix_all_false",
+        "openclaw_gate_closed",
+        "provider_access_off"
+      ],
+      "latest_check_ts": "2026-06-08T13:54:48.190947+00:00",
+      "latest_result": "pass",
+      "incidents": [],
+      "reports_to": "Chief Overseer"
+    },
+    {
+      "overseer_id": "ov_it",
+      "display_name": "IT Overseer",
+      "department_scope": [
+        "floor_35"
+      ],
+      "checks": [
+        "heartbeat_freshness",
+        "execution_locks_closed",
+        "reporting_chain_intact",
+        "ports_mapped",
+        "sidecars_health",
+        "credential_redaction"
+      ],
+      "latest_check_ts": "2026-06-08T13:54:48.190948+00:00",
+      "latest_result": "pass",
+      "incidents": [],
+      "reports_to": "Chief Overseer"
+    },
+    {
+      "overseer_id": "ov_media_sound",
+      "display_name": "Media Sound Overseer",
+      "department_scope": [
+        "floor_14",
+        "floor_15"
+      ],
+      "checks": [
+        "heartbeat_freshness",
+        "execution_locks_closed",
+        "reporting_chain_intact",
+        "browser_speech_route_available"
+      ],
+      "latest_check_ts": "2026-06-08T13:54:48.190949+00:00",
+      "latest_result": "pass",
+      "incidents": [],
+      "reports_to": "Chief Overseer"
+    },
+    {
+      "overseer_id": "ov_worker_conduct",
+      "display_name": "Worker Conduct Overseer",
+      "department_scope": [
+        "floor_38"
+      ],
+      "checks": [
+        "heartbeat_freshness",
+        "execution_locks_closed",
+        "reporting_chain_intact"
+      ],
+      "latest_check_ts": "2026-06-08T13:54:48.190950+00:00",
+      "latest_result": "pass",
+      "incidents": [],
+      "reports_to": "Chief Overseer"
+    },
+    {
+      "overseer_id": "ov_openclaw",
+      "display_name": "OpenClaw Readiness Overseer",
+      "department_scope": [
+        "floor_38"
+      ],
+      "checks": [
+        "heartbeat_freshness",
+        "execution_locks_closed",
+        "reporting_chain_intact",
+        "openclaw_readiness_not_equal_execution"
+      ],
+      "latest_check_ts": "2026-06-08T13:54:48.190951+00:00",
+      "latest_result": "pass",
+      "incidents": [],
+      "reports_to": "Chief Overseer"
+    },
+    {
+      "overseer_id": "ov_risk",
+      "display_name": "Risk Compliance Overseer",
+      "department_scope": [
+        "floor_30"
+      ],
+      "checks": [
+        "heartbeat_freshness",
+        "execution_locks_closed",
+        "reporting_chain_intact",
+        "lock_count_true_equals_zero"
+      ],
+      "latest_check_ts": "2026-06-08T13:54:48.190952+00:00",
+      "latest_result": "pass",
+      "incidents": [],
+      "reports_to": "Chief Overseer"
+    },
+    {
+      "overseer_id": "ov_kernel",
+      "display_name": "Kernel Reporting Overseer",
+      "department_scope": [
+        "floor_53",
+        "penthouse"
+      ],
+      "checks": [
+        "heartbeat_freshness",
+        "execution_locks_closed",
+        "reporting_chain_intact",
+        "kernel_chat_status_available"
+      ],
+      "latest_check_ts": "2026-06-08T13:54:48.190953+00:00",
+      "latest_result": "pass",
+      "incidents": [],
+      "reports_to": "Chief Overseer"
+    }
+  ],
+  "live_trading_enabled": false,
+  "order_execution_enabled": false,
+  "practice_order_execution_enabled": false,
+  "binance_order_execution_enabled": false,
+  "binance_live_trading_enabled": false,
+  "stock_order_execution_enabled": false,
+  "stock_live_trading_enabled": false,
+  "stock_paper_order_execution_enabled": false,
+  "cross_market_execution_enabled": false,
+  "worker_execution_enabled": false,
+  "recruited_worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "external_provider_execution_enabled": false,
+  "openclaw_execution_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "live_dispatch_enabled": false,
+  "direct_provider_access": false,
+  "recruitment_openclaw_execution_enabled": false,
+  "recruited_worker_live_execution_enabled": false,
+  "recruited_worker_provider_access_enabled": false,
+  "recruited_worker_autonomous_dispatch_enabled": false,
+  "maintenance_auto_repair_enabled": false,
+  "web_access_autonomous_enabled": false,
+  "worker_real_registry_enabled": true,
+  "openclaw_readiness_enabled": true,
+  "security_enforcement_enabled": true,
+  "it_network_observability_enabled": true
+}

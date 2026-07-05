@@ -1,0 +1,34 @@
+{
+  "room_id": "guest_seating",
+  "name": "Guest Seating Area",
+  "category": "seating",
+  "purpose": "Visitors can relax and wait here.",
+  "concierge_blurb": "Please take a seat while you wait for your appointment.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": -5.0,
+    "footprint_m": [
+      8,
+      6
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "chair_set",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "SEATING",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_0"
+}

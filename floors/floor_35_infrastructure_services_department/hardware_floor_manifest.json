@@ -1,0 +1,104 @@
+{
+  "ok": true,
+  "kind": "hardware_floor_manifest",
+  "phase": "EQSB_SYSTEM_OBSERVATORY_HARDWARE_FLOOR_LIVE_TELEMETRY_REPAIR_V1",
+  "generated_ts": "2026-06-30T13:46:32.847051+00:00",
+  "floor_id": "floor_35",
+  "co_located_with_department": "Infrastructure Services Department",
+  "sub_department": "Hardware Systems Floor",
+  "purpose": "Read-only machine-room sub-department for CPU, GPU, RAM, disks, OS, services, ports, dashboard process, Ollama, AirLLM chamber, storage health, and performance bottlenecks.",
+  "read_only": true,
+  "advisory_only": true,
+  "execution_allowed": false,
+  "kernel_required": false,
+  "models_required": false,
+  "workers": [
+    {
+      "worker_id": "wrk_hardware_systems_manager",
+      "display_name": "Hardware Systems Manager",
+      "role_description": "Owns the Hardware Systems Floor; tracks every hardware report.",
+      "home_floor": "floor_35_infrastructure_services_department"
+    },
+    {
+      "worker_id": "wrk_cpu_monitor",
+      "display_name": "CPU Monitor",
+      "role_description": "Reads CPU model / cores / threads / load average. Read-only.",
+      "home_floor": "floor_35_infrastructure_services_department"
+    },
+    {
+      "worker_id": "wrk_gpu_monitor",
+      "display_name": "GPU Monitor",
+      "role_description": "Reads GPU model, NVIDIA driver, CUDA version, VRAM. Read-only.",
+      "home_floor": "floor_35_infrastructure_services_department"
+    },
+    {
+      "worker_id": "wrk_memory_monitor",
+      "display_name": "Memory Monitor",
+      "role_description": "Reads RAM total/used/available, swap, memory pressure.",
+      "home_floor": "floor_35_infrastructure_services_department"
+    },
+    {
+      "worker_id": "wrk_storage_monitor",
+      "display_name": "Storage Monitor",
+      "role_description": "Reads disk usage for /, /vaults/nvme0, /vaults/ai. Read-only.",
+      "home_floor": "floor_35_infrastructure_services_department"
+    },
+    {
+      "worker_id": "wrk_process_monitor",
+      "display_name": "Process Monitor",
+      "role_description": "Tracks the dashboard server, Ollama, AirLLM venv presence.",
+      "home_floor": "floor_35_infrastructure_services_department"
+    },
+    {
+      "worker_id": "wrk_port_monitor",
+      "display_name": "Port Monitor",
+      "role_description": "Lists local listening ports (ss -ltn). Read-only.",
+      "home_floor": "floor_35_infrastructure_services_department"
+    },
+    {
+      "worker_id": "wrk_service_monitor",
+      "display_name": "Service Monitor",
+      "role_description": "Reads service presence (Ollama / dashboard pid file). Never modifies services.",
+      "home_floor": "floor_35_infrastructure_services_department"
+    },
+    {
+      "worker_id": "wrk_performance_adviser",
+      "display_name": "Performance Adviser",
+      "role_description": "Builds advisory recommendations from memory pressure, VRAM headroom, disk space.",
+      "home_floor": "floor_35_infrastructure_services_department"
+    },
+    {
+      "worker_id": "wrk_resource_accountant",
+      "display_name": "Resource Accountant",
+      "role_description": "Tracks data/logs and data/backups size growth.",
+      "home_floor": "floor_35_infrastructure_services_department"
+    },
+    {
+      "worker_id": "wrk_kernel_hardware_liaison",
+      "display_name": "Kernel Hardware Liaison",
+      "role_description": "Routes hardware observatory state to the EQSB Kernel introspection.",
+      "home_floor": "floor_35_infrastructure_services_department"
+    },
+    {
+      "worker_id": "wrk_code_observatory_liaison",
+      "display_name": "Code Observatory Liaison",
+      "role_description": "Routes code observatory state to the EQSB Kernel introspection.",
+      "home_floor": "floor_35_infrastructure_services_department"
+    }
+  ],
+  "observatory_sources": {
+    "cpu_profile": "data/registries/eqsb_cpu_profile.json",
+    "gpu_profile": "data/registries/eqsb_gpu_profile.json",
+    "memory_profile": "data/registries/eqsb_memory_profile.json",
+    "storage_profile": "data/registries/eqsb_storage_profile.json",
+    "os_environment": "data/registries/eqsb_os_environment.json",
+    "services_profile": "data/registries/eqsb_services_profile.json",
+    "ports_profile": "data/registries/eqsb_ports_profile.json",
+    "model_lane_hardware_profile": "data/registries/eqsb_model_lane_hardware_profile.json",
+    "hardware_understanding": "data/registries/eqsb_hardware_understanding.json",
+    "performance_advice": "data/registries/eqsb_performance_advice.json"
+  },
+  "dashboard_endpoint": "/api/observatory/hardware",
+  "active_local_only": true,
+  "real_money_live_trading_enabled": false
+}

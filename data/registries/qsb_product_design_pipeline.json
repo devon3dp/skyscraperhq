@@ -1,0 +1,26 @@
+{
+  "ok": true,
+  "kind": "qsb_product_design_pipeline",
+  "generated_ts": "2026-06-30T13:46:36.982961+00:00",
+  "stages": [
+    "concept",
+    "design_brief",
+    "cad_or_image",
+    "review",
+    "cost_calculation",
+    "manual_approval_gate",
+    "list_or_print"
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "worker_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "live_payments_enabled": false,
+  "live_listings_publishing_enabled": false,
+  "external_api_calls_enabled": false,
+  "secrets_in_logs": false,
+  "manual_approval_required_for_commerce": true
+}

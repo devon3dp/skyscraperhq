@@ -1,0 +1,60 @@
+{
+  "ok": true,
+  "floor_number": 64,
+  "floor_name": "Hearthstone Kitchen",
+  "floor_kind": "public_dropship_storefront_v1",
+  "theme": "kitchen_and_home_gadgets",
+  "description": "viral kitchen gadgets + home tools dropship",
+  "tagline": "Hearthstone \u2014 kitchens come alive.",
+  "colour_palette": "warm oak / sage / brass",
+  "target_margin_pct": 60,
+  "categories": [
+    "gadgets",
+    "prep_tools",
+    "storage",
+    "smart",
+    "barware"
+  ],
+  "pricing_model": "list_price = supplier_cost \u00d7 (1 + margin) + shipping_factor",
+  "fulfillment_model": "dropship: order received \u2192 supplier_purchase \u2192 repackage_under_floor_brand \u2192 ship_to_customer",
+  "website_scaffold": "web/shops/floor_64/index.html",
+  "catalog_file": "data/registries/qsb_floor64_catalog.json",
+  "created_ts": "2026-06-11T09:09:29.874813Z",
+  "inter_floor_produces": [
+    "F17 graphics (web design feed)",
+    "F44 accounts (revenue + COGS rows)",
+    "F47 wren (daily store report)"
+  ],
+  "inter_floor_consumes": [
+    "F11 market intel (trend signals)",
+    "F25 agent coordination (recruit when needed)",
+    "F30 permissions (sealed packets for orders)"
+  ],
+  "real_payments_enabled": false,
+  "real_supplier_orders_enabled": false,
+  "go_live_blockers": [
+    "real payment processor wired (Stripe/PayPal)",
+    "real supplier API or manual buyer wired",
+    "real shipping carrier wired",
+    "domain + hosting",
+    "CLAUDE.md authorization to flip live_payments_enabled"
+  ],
+  "advisory_only": true,
+  "interior_brief": {
+    "archetype": "shop",
+    "palette": "brand-led",
+    "furniture": [
+      "display cases",
+      "reception desk",
+      "customer chairs",
+      "packaging station"
+    ],
+    "lighting": "warm spots + display LEDs",
+    "mood": "welcoming + on-brand",
+    "designed_by": "F66 Architects + F17 Graphics + Fitters team",
+    "fitted_at": "2026-06-11T14:39:45.620109Z",
+    "godot_scene_brief": "render an shop floor with brand-led palette, welcoming + on-brand mood, key furniture: display cases, reception desk, customer chairs"
+  },
+  "fitted_out": true,
+  "fit_out_ts": "2026-06-11T14:39:45.620109Z"
+}

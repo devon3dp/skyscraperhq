@@ -1,0 +1,17 @@
+integration_services_department:
+  version: 1.1
+  floor_id: floor_22
+  role: cross_floor_service_integration_layer
+  execution_enabled: false
+  hardwired_providers: false
+  models_required: false
+  kernel_required: false
+  providers_are_external: true
+
+principle: Floor 22 coordinates service paths and dependency records. It does not execute providers, tools, adapters, CLI commands, file operations, or model calls.
+
+primary_paths:
+  coding_to_adapter_to_routing: floor_05 -> floor_21 -> floor_24
+  routing_to_local_models: floor_24 -> floor_27
+  routing_to_external_provider_sockets: floor_24 -> floor_23
+  external_sockets_to_roof: floor_23 -> roof

@@ -1,0 +1,34 @@
+{
+  "room_id": "fashion_workshop_73",
+  "name": "Tailoring Workshop",
+  "category": "workshop",
+  "purpose": "For customizing and altering garments.",
+  "concierge_blurb": "Crafting bespoke pieces, one stitch at a time.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -4.5,
+    "offset_z": -3.0,
+    "footprint_m": [
+      8,
+      6
+    ],
+    "height_m": 1.2
+  },
+  "render": {
+    "primary_prop": "bench",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Tailoring Bench",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_73"
+}

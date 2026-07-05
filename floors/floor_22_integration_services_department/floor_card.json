@@ -1,0 +1,64 @@
+{
+  "floor_id": "floor_22",
+  "floor_number": 22,
+  "floor_name": "Integration Services Department",
+  "department": "Integration Services Department",
+  "zone": "ZONE B \u00b7 OPERATIONS",
+  "archetype": "generic",
+  "staff_lead": "TBD",
+  "tour_blurb": "Integration Services Department \u2014 a floor in the QSB Tower. Skeleton card auto-generated; full fit-out pending.",
+  "visitor_open": false,
+  "advisory_only": true,
+  "execution_mode": "PREVIEW_ONLY",
+  "skeleton": true,
+  "skeleton_source": "floor_manifest.json",
+  "skeleton_generated_ts": "2026-06-17",
+  "live_signals": {
+    "theme": null,
+    "categories": null,
+    "palette": null,
+    "tagline": null
+  },
+  "gate_posture": {
+    "advisory_only": true,
+    "execution_allowed": false,
+    "live_payments_enabled": false
+  },
+  "team_roster": [
+    {
+      "id": "f022.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "spawned_id": "c4523f771b",
+      "spawned_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F022",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f022.operator.01",
+      "spawned_id": "6ffbb78ae9"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F022",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f022.operator.02",
+      "spawned_id": "997b3436fe"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F022",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f022.operator.03",
+      "spawned_id": "e694b2fecc"
+    }
+  ],
+  "floor_manager": "f022.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

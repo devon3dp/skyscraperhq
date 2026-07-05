@@ -1,0 +1,67 @@
+[
+  {
+    "id": "floor_24_to_air_llm_cloud",
+    "source_floor": "floor_24",
+    "target_floor": "floor_23",
+    "external_target": "roof",
+    "provider": "air_llm_cloud",
+    "lift": "model_lift",
+    "sealed_packets": true,
+    "execution_enabled": false,
+    "description": "Model Routing may hand off to AIR LLM Cloud socket, but no external call is executed."
+  },
+  {
+    "id": "floor_24_to_claude_socket",
+    "source_floor": "floor_24",
+    "target_floor": "floor_23",
+    "external_target": "external_provider",
+    "provider": "claude",
+    "lift": "model_lift",
+    "sealed_packets": true,
+    "execution_enabled": false,
+    "description": "Claude socket is ready for future provider connection."
+  },
+  {
+    "id": "floor_05_to_claude_code_port_to_floor_24_to_floor_23",
+    "source_floor": "floor_05",
+    "routing_floor": "floor_24",
+    "target_floor": "floor_23",
+    "provider": "claude",
+    "provider_port": "claude_code_socket",
+    "first_lift": "service_lift",
+    "second_lift": "model_lift",
+    "sealed_packets": true,
+    "execution_enabled": false,
+    "description": "Future Claude Code handoff path without direct provider execution."
+  },
+  {
+    "id": "floor_24_to_openai_socket",
+    "source_floor": "floor_24",
+    "target_floor": "floor_23",
+    "provider": "openai",
+    "lift": "model_lift",
+    "sealed_packets": true,
+    "execution_enabled": false,
+    "description": "OpenAI socket is ready but disconnected."
+  },
+  {
+    "id": "floor_24_to_gemini_socket",
+    "source_floor": "floor_24",
+    "target_floor": "floor_23",
+    "provider": "gemini",
+    "lift": "model_lift",
+    "sealed_packets": true,
+    "execution_enabled": false,
+    "description": "Gemini socket is ready but disconnected."
+  },
+  {
+    "id": "floor_24_to_deepseek_socket",
+    "source_floor": "floor_24",
+    "target_floor": "floor_23",
+    "provider": "deepseek",
+    "lift": "model_lift",
+    "sealed_packets": true,
+    "execution_enabled": false,
+    "description": "DeepSeek socket is ready but disconnected."
+  }
+]

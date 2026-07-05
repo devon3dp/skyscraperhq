@@ -1,0 +1,10 @@
+{
+  "ok": true, "kind": "qsb_tower_openclaw_animation_status", "ts": "2026-06-09T22:06:58Z",
+  "modes": ["patrol","inspect"],
+  "patrol_cycle_seconds": 5.0,
+  "preferred_patrol_targets": [55, 41, 42, 30, 35],
+  "click_opens_panel": true,
+  "real_execution_enabled": false,
+  "supervisory_only": true,
+  "owner_script": "TowerOpenClawAnimator.gd"
+}

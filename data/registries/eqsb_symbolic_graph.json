@@ -1,0 +1,1606 @@
+{
+  "schema_version": "eqsb_major_v1.0",
+  "kind": "eqsb_symbolic_graph",
+  "generated_ts": "2026-06-09T08:56:44.955004+00:00",
+  "node_count": 70,
+  "edge_count": 186,
+  "node_kinds": [
+    "axiom",
+    "belief",
+    "contradiction",
+    "entropy_signal",
+    "guardian",
+    "hypothesis",
+    "kernel",
+    "memory",
+    "model_lane",
+    "quantum_signal",
+    "registry",
+    "symbol"
+  ],
+  "relations_in_use": [
+    "axiom_supports_belief",
+    "collapse_selects_hypothesis",
+    "continuity_hash_links_state",
+    "entropy_raises_uncertainty",
+    "floor_routes_to_floor",
+    "guardian_validates_kernel_output",
+    "hypothesis_explains_signal",
+    "kernel_owns_axiom",
+    "kernel_validates_model_output",
+    "lock_protects_execution_path",
+    "memory_preserves_belief",
+    "model_lane_advises_kernel",
+    "model_lane_suggests_text",
+    "quantum_signal_weights_hypothesis",
+    "registry_supports_belief",
+    "symbol_represents_entity",
+    "worker_assigned_to_floor"
+  ],
+  "supported_node_kinds": [
+    "kernel",
+    "guardian",
+    "axiom",
+    "belief",
+    "symbol",
+    "memory",
+    "registry",
+    "model_lane",
+    "entropy_signal",
+    "quantum_signal",
+    "contradiction",
+    "hypothesis",
+    "replay_event",
+    "floor",
+    "worker",
+    "lock_matrix"
+  ],
+  "supported_relations": [
+    "kernel_owns_axiom",
+    "guardian_validates_kernel_output",
+    "axiom_supports_belief",
+    "registry_supports_belief",
+    "symbol_represents_entity",
+    "contradiction_challenges_belief",
+    "hypothesis_explains_signal",
+    "entropy_raises_uncertainty",
+    "model_lane_suggests_text",
+    "kernel_validates_model_output",
+    "memory_preserves_belief",
+    "continuity_hash_links_state",
+    "quantum_signal_weights_hypothesis",
+    "collapse_selects_hypothesis",
+    "floor_routes_to_floor",
+    "lock_protects_execution_path",
+    "model_lane_advises_kernel",
+    "worker_assigned_to_floor"
+  ],
+  "orphan_symbols": [],
+  "unsupported_beliefs": [
+    "node_belief_blf_autoloop_running",
+    "node_belief_blf_continuity_recursion_fix_holding",
+    "node_belief_blf_recruitment_floor45_sandbox_only",
+    "node_belief_blf_floors_53_registered"
+  ],
+  "contradicted_beliefs": [],
+  "high_confidence_beliefs": [
+    "node_belief_blf_eqsb_is_persistent_kernel",
+    "node_belief_blf_eqsb_distinct_from_models",
+    "node_belief_blf_registry_truth_outranks_paraphrase",
+    "node_belief_blf_guardian_validates_transitions",
+    "node_belief_blf_quantum_simulated_advisory",
+    "node_belief_blf_entropy_is_uncertainty_measure",
+    "node_belief_blf_beliefs_must_be_evidence_linked",
+    "node_belief_blf_contradictions_must_surface",
+    "node_belief_blf_kernel_active_local_only",
+    "node_belief_blf_locks_all_closed",
+    "node_belief_blf_autoloop_running",
+    "node_belief_blf_kernel_introspection_primary",
+    "node_belief_blf_continuity_recursion_fix_holding",
+    "node_belief_blf_recruitment_floor45_sandbox_only",
+    "node_belief_blf_airllm_isolated_advisory",
+    "node_belief_blf_floors_53_registered",
+    "node_belief_blf_quantum_simulated_only",
+    "node_belief_blf_registry_truth_outranks_model"
+  ],
+  "stale_symbols": [],
+  "missing_expected_nodes": [],
+  "nodes": [
+    {
+      "id": "node_kernel_self",
+      "kind": "kernel",
+      "label": "EQSB Kernel"
+    },
+    {
+      "id": "node_guardian",
+      "kind": "guardian",
+      "label": "Guardian Envelope"
+    },
+    {
+      "id": "node_memory",
+      "kind": "memory",
+      "label": "Memory / Continuity"
+    },
+    {
+      "id": "node_entropy_signal",
+      "kind": "entropy_signal",
+      "label": "Entropy Signal"
+    },
+    {
+      "id": "node_quantum_signal",
+      "kind": "quantum_signal",
+      "label": "Quantum-Symbolic Signal"
+    },
+    {
+      "id": "node_registry_truth",
+      "kind": "registry",
+      "label": "Registry Truth"
+    },
+    {
+      "id": "node_model_paraphrase",
+      "kind": "model_lane",
+      "label": "Model Paraphrase"
+    },
+    {
+      "id": "node_axiom_AXIOM_IDENTITY_001",
+      "kind": "axiom",
+      "label": "AXIOM_IDENTITY_001",
+      "category": "identity"
+    },
+    {
+      "id": "node_axiom_AXIOM_IDENTITY_002",
+      "kind": "axiom",
+      "label": "AXIOM_IDENTITY_002",
+      "category": "identity"
+    },
+    {
+      "id": "node_axiom_AXIOM_TRUTH_001",
+      "kind": "axiom",
+      "label": "AXIOM_TRUTH_001",
+      "category": "truth"
+    },
+    {
+      "id": "node_axiom_AXIOM_TRUTH_002",
+      "kind": "axiom",
+      "label": "AXIOM_TRUTH_002",
+      "category": "truth"
+    },
+    {
+      "id": "node_axiom_AXIOM_MEMORY_001",
+      "kind": "axiom",
+      "label": "AXIOM_MEMORY_001",
+      "category": "memory"
+    },
+    {
+      "id": "node_axiom_AXIOM_MEMORY_002",
+      "kind": "axiom",
+      "label": "AXIOM_MEMORY_002",
+      "category": "memory"
+    },
+    {
+      "id": "node_axiom_AXIOM_MEMORY_003",
+      "kind": "axiom",
+      "label": "AXIOM_MEMORY_003",
+      "category": "memory"
+    },
+    {
+      "id": "node_axiom_AXIOM_SYMBOLIC_001",
+      "kind": "axiom",
+      "label": "AXIOM_SYMBOLIC_001",
+      "category": "symbolic"
+    },
+    {
+      "id": "node_axiom_AXIOM_SYMBOLIC_002",
+      "kind": "axiom",
+      "label": "AXIOM_SYMBOLIC_002",
+      "category": "symbolic"
+    },
+    {
+      "id": "node_axiom_AXIOM_SYMBOLIC_003",
+      "kind": "axiom",
+      "label": "AXIOM_SYMBOLIC_003",
+      "category": "symbolic"
+    },
+    {
+      "id": "node_axiom_AXIOM_ENTROPY_001",
+      "kind": "axiom",
+      "label": "AXIOM_ENTROPY_001",
+      "category": "entropy"
+    },
+    {
+      "id": "node_axiom_AXIOM_ENTROPY_002",
+      "kind": "axiom",
+      "label": "AXIOM_ENTROPY_002",
+      "category": "entropy"
+    },
+    {
+      "id": "node_axiom_AXIOM_ENTROPY_003",
+      "kind": "axiom",
+      "label": "AXIOM_ENTROPY_003",
+      "category": "entropy"
+    },
+    {
+      "id": "node_axiom_AXIOM_QUANTUM_001",
+      "kind": "axiom",
+      "label": "AXIOM_QUANTUM_001",
+      "category": "quantum"
+    },
+    {
+      "id": "node_axiom_AXIOM_QUANTUM_002",
+      "kind": "axiom",
+      "label": "AXIOM_QUANTUM_002",
+      "category": "quantum"
+    },
+    {
+      "id": "node_axiom_AXIOM_QUANTUM_003",
+      "kind": "axiom",
+      "label": "AXIOM_QUANTUM_003",
+      "category": "quantum"
+    },
+    {
+      "id": "node_axiom_AXIOM_GUARDIAN_001",
+      "kind": "axiom",
+      "label": "AXIOM_GUARDIAN_001",
+      "category": "guardian"
+    },
+    {
+      "id": "node_axiom_AXIOM_GUARDIAN_002",
+      "kind": "axiom",
+      "label": "AXIOM_GUARDIAN_002",
+      "category": "guardian"
+    },
+    {
+      "id": "node_axiom_AXIOM_CONTINUITY_001",
+      "kind": "axiom",
+      "label": "AXIOM_CONTINUITY_001",
+      "category": "continuity"
+    },
+    {
+      "id": "node_axiom_AXIOM_CONTINUITY_002",
+      "kind": "axiom",
+      "label": "AXIOM_CONTINUITY_002",
+      "category": "continuity"
+    },
+    {
+      "id": "node_axiom_AXIOM_AUDIT_001",
+      "kind": "axiom",
+      "label": "AXIOM_AUDIT_001",
+      "category": "audit"
+    },
+    {
+      "id": "node_axiom_AXIOM_AUDIT_002",
+      "kind": "axiom",
+      "label": "AXIOM_AUDIT_002",
+      "category": "audit"
+    },
+    {
+      "id": "node_belief_blf_eqsb_is_persistent_kernel",
+      "kind": "belief",
+      "label": "blf_eqsb_is_persistent_kernel",
+      "state": "STRENGTHENED",
+      "confidence": 0.97
+    },
+    {
+      "id": "node_belief_blf_eqsb_distinct_from_models",
+      "kind": "belief",
+      "label": "blf_eqsb_distinct_from_models",
+      "state": "STRENGTHENED",
+      "confidence": 0.96
+    },
+    {
+      "id": "node_belief_blf_registry_truth_outranks_paraphrase",
+      "kind": "belief",
+      "label": "blf_registry_truth_outranks_paraphrase",
+      "state": "STRENGTHENED",
+      "confidence": 0.97
+    },
+    {
+      "id": "node_belief_blf_guardian_validates_transitions",
+      "kind": "belief",
+      "label": "blf_guardian_validates_transitions",
+      "state": "STRENGTHENED",
+      "confidence": 0.94
+    },
+    {
+      "id": "node_belief_blf_quantum_simulated_advisory",
+      "kind": "belief",
+      "label": "blf_quantum_simulated_advisory",
+      "state": "STRENGTHENED",
+      "confidence": 0.96
+    },
+    {
+      "id": "node_belief_blf_entropy_is_uncertainty_measure",
+      "kind": "belief",
+      "label": "blf_entropy_is_uncertainty_measure",
+      "state": "STRENGTHENED",
+      "confidence": 0.93
+    },
+    {
+      "id": "node_belief_blf_beliefs_must_be_evidence_linked",
+      "kind": "belief",
+      "label": "blf_beliefs_must_be_evidence_linked",
+      "state": "STRENGTHENED",
+      "confidence": 0.94
+    },
+    {
+      "id": "node_belief_blf_contradictions_must_surface",
+      "kind": "belief",
+      "label": "blf_contradictions_must_surface",
+      "state": "STRENGTHENED",
+      "confidence": 0.95
+    },
+    {
+      "id": "node_belief_blf_kernel_active_local_only",
+      "kind": "belief",
+      "label": "blf_kernel_active_local_only",
+      "state": "STRENGTHENED",
+      "confidence": 0.97
+    },
+    {
+      "id": "node_belief_blf_locks_all_closed",
+      "kind": "belief",
+      "label": "blf_locks_all_closed",
+      "state": "STRENGTHENED",
+      "confidence": 0.97
+    },
+    {
+      "id": "node_belief_blf_autoloop_running",
+      "kind": "belief",
+      "label": "blf_autoloop_running",
+      "state": "STRENGTHENED",
+      "confidence": 0.9
+    },
+    {
+      "id": "node_belief_blf_kernel_introspection_primary",
+      "kind": "belief",
+      "label": "blf_kernel_introspection_primary",
+      "state": "STRENGTHENED",
+      "confidence": 0.92
+    },
+    {
+      "id": "node_belief_blf_continuity_recursion_fix_holding",
+      "kind": "belief",
+      "label": "blf_continuity_recursion_fix_holding",
+      "state": "STRENGTHENED",
+      "confidence": 0.95
+    },
+    {
+      "id": "node_belief_blf_recruitment_floor45_sandbox_only",
+      "kind": "belief",
+      "label": "blf_recruitment_floor45_sandbox_only",
+      "state": "STRENGTHENED",
+      "confidence": 0.92
+    },
+    {
+      "id": "node_belief_blf_airllm_isolated_advisory",
+      "kind": "belief",
+      "label": "blf_airllm_isolated_advisory",
+      "state": "STRENGTHENED",
+      "confidence": 0.93
+    },
+    {
+      "id": "node_belief_blf_floors_53_registered",
+      "kind": "belief",
+      "label": "blf_floors_53_registered",
+      "state": "STRENGTHENED",
+      "confidence": 0.9
+    },
+    {
+      "id": "node_belief_blf_quantum_simulated_only",
+      "kind": "belief",
+      "label": "blf_quantum_simulated_only",
+      "state": "STRENGTHENED",
+      "confidence": 0.98
+    },
+    {
+      "id": "node_belief_blf_registry_truth_outranks_model",
+      "kind": "belief",
+      "label": "blf_registry_truth_outranks_model",
+      "state": "STRENGTHENED",
+      "confidence": 0.95
+    },
+    {
+      "id": "node_symbol_SYMBOL_KERNEL_SELF",
+      "kind": "symbol",
+      "label": "SYMBOL_KERNEL_SELF",
+      "type": "kernel",
+      "confidence": 0.97
+    },
+    {
+      "id": "node_symbol_SYMBOL_GUARDIAN",
+      "kind": "symbol",
+      "label": "SYMBOL_GUARDIAN",
+      "type": "guardian",
+      "confidence": 0.94
+    },
+    {
+      "id": "node_symbol_SYMBOL_AXIOM",
+      "kind": "symbol",
+      "label": "SYMBOL_AXIOM",
+      "type": "axiom",
+      "confidence": 0.97
+    },
+    {
+      "id": "node_symbol_SYMBOL_MEMORY",
+      "kind": "symbol",
+      "label": "SYMBOL_MEMORY",
+      "type": "memory",
+      "confidence": 0.92
+    },
+    {
+      "id": "node_symbol_SYMBOL_BELIEF",
+      "kind": "symbol",
+      "label": "SYMBOL_BELIEF",
+      "type": "belief",
+      "confidence": 0.94
+    },
+    {
+      "id": "node_symbol_SYMBOL_ENTROPY",
+      "kind": "symbol",
+      "label": "SYMBOL_ENTROPY",
+      "type": "entropy_signal",
+      "confidence": 0.9
+    },
+    {
+      "id": "node_symbol_SYMBOL_QUANTUM_SIGNAL",
+      "kind": "symbol",
+      "label": "SYMBOL_QUANTUM_SIGNAL",
+      "type": "quantum_signal",
+      "confidence": 0.92
+    },
+    {
+      "id": "node_symbol_SYMBOL_SUPERPOSITION",
+      "kind": "symbol",
+      "label": "SYMBOL_SUPERPOSITION",
+      "type": "quantum_signal",
+      "confidence": 0.9
+    },
+    {
+      "id": "node_symbol_SYMBOL_COLLAPSE",
+      "kind": "symbol",
+      "label": "SYMBOL_COLLAPSE",
+      "type": "quantum_signal",
+      "confidence": 0.93
+    },
+    {
+      "id": "node_symbol_SYMBOL_HYPOTHESIS",
+      "kind": "symbol",
+      "label": "SYMBOL_HYPOTHESIS",
+      "type": "hypothesis",
+      "confidence": 0.9
+    },
+    {
+      "id": "node_symbol_SYMBOL_CONTRADICTION",
+      "kind": "symbol",
+      "label": "SYMBOL_CONTRADICTION",
+      "type": "contradiction",
+      "confidence": 0.93
+    },
+    {
+      "id": "node_symbol_SYMBOL_REGISTRY_TRUTH",
+      "kind": "symbol",
+      "label": "SYMBOL_REGISTRY_TRUTH",
+      "type": "registry",
+      "confidence": 0.97
+    },
+    {
+      "id": "node_symbol_SYMBOL_MODEL_PARAPHRASE",
+      "kind": "symbol",
+      "label": "SYMBOL_MODEL_PARAPHRASE",
+      "type": "model_lane",
+      "confidence": 0.92
+    },
+    {
+      "id": "node_symbol_SYMBOL_CONTINUITY",
+      "kind": "symbol",
+      "label": "SYMBOL_CONTINUITY",
+      "type": "memory",
+      "confidence": 0.93
+    },
+    {
+      "id": "node_symbol_SYMBOL_DRIFT",
+      "kind": "symbol",
+      "label": "SYMBOL_DRIFT",
+      "type": "entropy_signal",
+      "confidence": 0.9
+    },
+    {
+      "id": "node_hypothesis_hyp_oanda_credentials_missing",
+      "kind": "hypothesis",
+      "label": "OANDA practice pricing not ready \u2014 likely missing creds",
+      "severity": "MEDIUM"
+    },
+    {
+      "id": "node_hypothesis_hyp_stocks_market_data_stalled",
+      "kind": "hypothesis",
+      "label": "Stocks public market data not ready",
+      "severity": "MEDIUM"
+    },
+    {
+      "id": "node_hypothesis_hyp_entropy_climbing",
+      "kind": "hypothesis",
+      "label": "Entropy score climbing above 0.5",
+      "severity": "MEDIUM"
+    },
+    {
+      "id": "node_hypothesis_hyp_ctr_floor_named_no_manifest",
+      "kind": "hypothesis",
+      "label": "Contradiction detected: Floor named in qsb_floor_name_map.json but no manifest dir",
+      "severity": "LOW"
+    },
+    {
+      "id": "node_contradiction_ctr_floor_named_no_manifest",
+      "kind": "contradiction",
+      "label": "Floor named in qsb_floor_name_map.json but no manifest dir",
+      "severity": "LOW"
+    },
+    {
+      "id": "node_lane_lane_ollama_llama32",
+      "kind": "model_lane",
+      "label": "lane_ollama_llama32",
+      "role": "local speech / paraphrase / local reasoning"
+    },
+    {
+      "id": "node_lane_lane_airllm_chamber",
+      "kind": "model_lane",
+      "label": "lane_airllm_chamber",
+      "role": "big-model advisory chamber"
+    },
+    {
+      "id": "node_lane_lane_external_providers",
+      "kind": "model_lane",
+      "label": "lane_external_providers",
+      "role": "locked"
+    }
+  ],
+  "edges": [
+    {
+      "source": "node_kernel_self",
+      "relation": "kernel_owns_axiom",
+      "target": "node_axiom_AXIOM_IDENTITY_001"
+    },
+    {
+      "source": "node_kernel_self",
+      "relation": "kernel_owns_axiom",
+      "target": "node_axiom_AXIOM_IDENTITY_002"
+    },
+    {
+      "source": "node_kernel_self",
+      "relation": "kernel_owns_axiom",
+      "target": "node_axiom_AXIOM_TRUTH_001"
+    },
+    {
+      "source": "node_kernel_self",
+      "relation": "kernel_owns_axiom",
+      "target": "node_axiom_AXIOM_TRUTH_002"
+    },
+    {
+      "source": "node_kernel_self",
+      "relation": "kernel_owns_axiom",
+      "target": "node_axiom_AXIOM_MEMORY_001"
+    },
+    {
+      "source": "node_kernel_self",
+      "relation": "kernel_owns_axiom",
+      "target": "node_axiom_AXIOM_MEMORY_002"
+    },
+    {
+      "source": "node_kernel_self",
+      "relation": "kernel_owns_axiom",
+      "target": "node_axiom_AXIOM_MEMORY_003"
+    },
+    {
+      "source": "node_kernel_self",
+      "relation": "kernel_owns_axiom",
+      "target": "node_axiom_AXIOM_SYMBOLIC_001"
+    },
+    {
+      "source": "node_kernel_self",
+      "relation": "kernel_owns_axiom",
+      "target": "node_axiom_AXIOM_SYMBOLIC_002"
+    },
+    {
+      "source": "node_kernel_self",
+      "relation": "kernel_owns_axiom",
+      "target": "node_axiom_AXIOM_SYMBOLIC_003"
+    },
+    {
+      "source": "node_kernel_self",
+      "relation": "kernel_owns_axiom",
+      "target": "node_axiom_AXIOM_ENTROPY_001"
+    },
+    {
+      "source": "node_kernel_self",
+      "relation": "kernel_owns_axiom",
+      "target": "node_axiom_AXIOM_ENTROPY_002"
+    },
+    {
+      "source": "node_kernel_self",
+      "relation": "kernel_owns_axiom",
+      "target": "node_axiom_AXIOM_ENTROPY_003"
+    },
+    {
+      "source": "node_kernel_self",
+      "relation": "kernel_owns_axiom",
+      "target": "node_axiom_AXIOM_QUANTUM_001"
+    },
+    {
+      "source": "node_kernel_self",
+      "relation": "kernel_owns_axiom",
+      "target": "node_axiom_AXIOM_QUANTUM_002"
+    },
+    {
+      "source": "node_kernel_self",
+      "relation": "kernel_owns_axiom",
+      "target": "node_axiom_AXIOM_QUANTUM_003"
+    },
+    {
+      "source": "node_kernel_self",
+      "relation": "kernel_owns_axiom",
+      "target": "node_axiom_AXIOM_GUARDIAN_001"
+    },
+    {
+      "source": "node_kernel_self",
+      "relation": "kernel_owns_axiom",
+      "target": "node_axiom_AXIOM_GUARDIAN_002"
+    },
+    {
+      "source": "node_kernel_self",
+      "relation": "kernel_owns_axiom",
+      "target": "node_axiom_AXIOM_CONTINUITY_001"
+    },
+    {
+      "source": "node_kernel_self",
+      "relation": "kernel_owns_axiom",
+      "target": "node_axiom_AXIOM_CONTINUITY_002"
+    },
+    {
+      "source": "node_kernel_self",
+      "relation": "kernel_owns_axiom",
+      "target": "node_axiom_AXIOM_AUDIT_001"
+    },
+    {
+      "source": "node_kernel_self",
+      "relation": "kernel_owns_axiom",
+      "target": "node_axiom_AXIOM_AUDIT_002"
+    },
+    {
+      "source": "node_axiom_AXIOM_IDENTITY_001",
+      "relation": "axiom_supports_belief",
+      "target": "node_belief_blf_eqsb_is_persistent_kernel"
+    },
+    {
+      "source": "node_axiom_AXIOM_IDENTITY_002",
+      "relation": "axiom_supports_belief",
+      "target": "node_belief_blf_eqsb_is_persistent_kernel"
+    },
+    {
+      "source": "node_registry_truth",
+      "relation": "registry_supports_belief",
+      "target": "node_belief_blf_eqsb_is_persistent_kernel"
+    },
+    {
+      "source": "node_memory",
+      "relation": "memory_preserves_belief",
+      "target": "node_belief_blf_eqsb_is_persistent_kernel"
+    },
+    {
+      "source": "node_axiom_AXIOM_IDENTITY_002",
+      "relation": "axiom_supports_belief",
+      "target": "node_belief_blf_eqsb_distinct_from_models"
+    },
+    {
+      "source": "node_axiom_AXIOM_TRUTH_001",
+      "relation": "axiom_supports_belief",
+      "target": "node_belief_blf_eqsb_distinct_from_models"
+    },
+    {
+      "source": "node_registry_truth",
+      "relation": "registry_supports_belief",
+      "target": "node_belief_blf_eqsb_distinct_from_models"
+    },
+    {
+      "source": "node_memory",
+      "relation": "memory_preserves_belief",
+      "target": "node_belief_blf_eqsb_distinct_from_models"
+    },
+    {
+      "source": "node_axiom_AXIOM_TRUTH_001",
+      "relation": "axiom_supports_belief",
+      "target": "node_belief_blf_registry_truth_outranks_paraphrase"
+    },
+    {
+      "source": "node_axiom_AXIOM_GUARDIAN_002",
+      "relation": "axiom_supports_belief",
+      "target": "node_belief_blf_registry_truth_outranks_paraphrase"
+    },
+    {
+      "source": "node_registry_truth",
+      "relation": "registry_supports_belief",
+      "target": "node_belief_blf_registry_truth_outranks_paraphrase"
+    },
+    {
+      "source": "node_memory",
+      "relation": "memory_preserves_belief",
+      "target": "node_belief_blf_registry_truth_outranks_paraphrase"
+    },
+    {
+      "source": "node_axiom_AXIOM_GUARDIAN_001",
+      "relation": "axiom_supports_belief",
+      "target": "node_belief_blf_guardian_validates_transitions"
+    },
+    {
+      "source": "node_axiom_AXIOM_GUARDIAN_002",
+      "relation": "axiom_supports_belief",
+      "target": "node_belief_blf_guardian_validates_transitions"
+    },
+    {
+      "source": "node_registry_truth",
+      "relation": "registry_supports_belief",
+      "target": "node_belief_blf_guardian_validates_transitions"
+    },
+    {
+      "source": "node_memory",
+      "relation": "memory_preserves_belief",
+      "target": "node_belief_blf_guardian_validates_transitions"
+    },
+    {
+      "source": "node_axiom_AXIOM_QUANTUM_001",
+      "relation": "axiom_supports_belief",
+      "target": "node_belief_blf_quantum_simulated_advisory"
+    },
+    {
+      "source": "node_axiom_AXIOM_QUANTUM_002",
+      "relation": "axiom_supports_belief",
+      "target": "node_belief_blf_quantum_simulated_advisory"
+    },
+    {
+      "source": "node_axiom_AXIOM_QUANTUM_003",
+      "relation": "axiom_supports_belief",
+      "target": "node_belief_blf_quantum_simulated_advisory"
+    },
+    {
+      "source": "node_registry_truth",
+      "relation": "registry_supports_belief",
+      "target": "node_belief_blf_quantum_simulated_advisory"
+    },
+    {
+      "source": "node_memory",
+      "relation": "memory_preserves_belief",
+      "target": "node_belief_blf_quantum_simulated_advisory"
+    },
+    {
+      "source": "node_axiom_AXIOM_ENTROPY_001",
+      "relation": "axiom_supports_belief",
+      "target": "node_belief_blf_entropy_is_uncertainty_measure"
+    },
+    {
+      "source": "node_axiom_AXIOM_ENTROPY_002",
+      "relation": "axiom_supports_belief",
+      "target": "node_belief_blf_entropy_is_uncertainty_measure"
+    },
+    {
+      "source": "node_axiom_AXIOM_ENTROPY_003",
+      "relation": "axiom_supports_belief",
+      "target": "node_belief_blf_entropy_is_uncertainty_measure"
+    },
+    {
+      "source": "node_registry_truth",
+      "relation": "registry_supports_belief",
+      "target": "node_belief_blf_entropy_is_uncertainty_measure"
+    },
+    {
+      "source": "node_memory",
+      "relation": "memory_preserves_belief",
+      "target": "node_belief_blf_entropy_is_uncertainty_measure"
+    },
+    {
+      "source": "node_axiom_AXIOM_MEMORY_001",
+      "relation": "axiom_supports_belief",
+      "target": "node_belief_blf_beliefs_must_be_evidence_linked"
+    },
+    {
+      "source": "node_axiom_AXIOM_TRUTH_002",
+      "relation": "axiom_supports_belief",
+      "target": "node_belief_blf_beliefs_must_be_evidence_linked"
+    },
+    {
+      "source": "node_registry_truth",
+      "relation": "registry_supports_belief",
+      "target": "node_belief_blf_beliefs_must_be_evidence_linked"
+    },
+    {
+      "source": "node_memory",
+      "relation": "memory_preserves_belief",
+      "target": "node_belief_blf_beliefs_must_be_evidence_linked"
+    },
+    {
+      "source": "node_axiom_AXIOM_SYMBOLIC_003",
+      "relation": "axiom_supports_belief",
+      "target": "node_belief_blf_contradictions_must_surface"
+    },
+    {
+      "source": "node_axiom_AXIOM_GUARDIAN_002",
+      "relation": "axiom_supports_belief",
+      "target": "node_belief_blf_contradictions_must_surface"
+    },
+    {
+      "source": "node_registry_truth",
+      "relation": "registry_supports_belief",
+      "target": "node_belief_blf_contradictions_must_surface"
+    },
+    {
+      "source": "node_memory",
+      "relation": "memory_preserves_belief",
+      "target": "node_belief_blf_contradictions_must_surface"
+    },
+    {
+      "source": "node_axiom_ax_07",
+      "relation": "axiom_supports_belief",
+      "target": "node_belief_blf_kernel_active_local_only"
+    },
+    {
+      "source": "node_axiom_ax_08",
+      "relation": "axiom_supports_belief",
+      "target": "node_belief_blf_kernel_active_local_only"
+    },
+    {
+      "source": "node_registry_truth",
+      "relation": "registry_supports_belief",
+      "target": "node_belief_blf_kernel_active_local_only"
+    },
+    {
+      "source": "node_memory",
+      "relation": "memory_preserves_belief",
+      "target": "node_belief_blf_kernel_active_local_only"
+    },
+    {
+      "source": "node_axiom_ax_08",
+      "relation": "axiom_supports_belief",
+      "target": "node_belief_blf_locks_all_closed"
+    },
+    {
+      "source": "node_axiom_ax_09",
+      "relation": "axiom_supports_belief",
+      "target": "node_belief_blf_locks_all_closed"
+    },
+    {
+      "source": "node_registry_truth",
+      "relation": "registry_supports_belief",
+      "target": "node_belief_blf_locks_all_closed"
+    },
+    {
+      "source": "node_memory",
+      "relation": "memory_preserves_belief",
+      "target": "node_belief_blf_locks_all_closed"
+    },
+    {
+      "source": "node_registry_truth",
+      "relation": "registry_supports_belief",
+      "target": "node_belief_blf_autoloop_running"
+    },
+    {
+      "source": "node_memory",
+      "relation": "memory_preserves_belief",
+      "target": "node_belief_blf_autoloop_running"
+    },
+    {
+      "source": "node_axiom_ax_10",
+      "relation": "axiom_supports_belief",
+      "target": "node_belief_blf_kernel_introspection_primary"
+    },
+    {
+      "source": "node_registry_truth",
+      "relation": "registry_supports_belief",
+      "target": "node_belief_blf_kernel_introspection_primary"
+    },
+    {
+      "source": "node_memory",
+      "relation": "memory_preserves_belief",
+      "target": "node_belief_blf_kernel_introspection_primary"
+    },
+    {
+      "source": "node_registry_truth",
+      "relation": "registry_supports_belief",
+      "target": "node_belief_blf_continuity_recursion_fix_holding"
+    },
+    {
+      "source": "node_memory",
+      "relation": "memory_preserves_belief",
+      "target": "node_belief_blf_continuity_recursion_fix_holding"
+    },
+    {
+      "source": "node_registry_truth",
+      "relation": "registry_supports_belief",
+      "target": "node_belief_blf_recruitment_floor45_sandbox_only"
+    },
+    {
+      "source": "node_memory",
+      "relation": "memory_preserves_belief",
+      "target": "node_belief_blf_recruitment_floor45_sandbox_only"
+    },
+    {
+      "source": "node_axiom_ax_03",
+      "relation": "axiom_supports_belief",
+      "target": "node_belief_blf_airllm_isolated_advisory"
+    },
+    {
+      "source": "node_axiom_ax_07",
+      "relation": "axiom_supports_belief",
+      "target": "node_belief_blf_airllm_isolated_advisory"
+    },
+    {
+      "source": "node_registry_truth",
+      "relation": "registry_supports_belief",
+      "target": "node_belief_blf_airllm_isolated_advisory"
+    },
+    {
+      "source": "node_memory",
+      "relation": "memory_preserves_belief",
+      "target": "node_belief_blf_airllm_isolated_advisory"
+    },
+    {
+      "source": "node_registry_truth",
+      "relation": "registry_supports_belief",
+      "target": "node_belief_blf_floors_53_registered"
+    },
+    {
+      "source": "node_memory",
+      "relation": "memory_preserves_belief",
+      "target": "node_belief_blf_floors_53_registered"
+    },
+    {
+      "source": "node_axiom_ax_07",
+      "relation": "axiom_supports_belief",
+      "target": "node_belief_blf_quantum_simulated_only"
+    },
+    {
+      "source": "node_registry_truth",
+      "relation": "registry_supports_belief",
+      "target": "node_belief_blf_quantum_simulated_only"
+    },
+    {
+      "source": "node_memory",
+      "relation": "memory_preserves_belief",
+      "target": "node_belief_blf_quantum_simulated_only"
+    },
+    {
+      "source": "node_axiom_ax_10",
+      "relation": "axiom_supports_belief",
+      "target": "node_belief_blf_registry_truth_outranks_model"
+    },
+    {
+      "source": "node_registry_truth",
+      "relation": "registry_supports_belief",
+      "target": "node_belief_blf_registry_truth_outranks_model"
+    },
+    {
+      "source": "node_memory",
+      "relation": "memory_preserves_belief",
+      "target": "node_belief_blf_registry_truth_outranks_model"
+    },
+    {
+      "source": "node_symbol_SYMBOL_KERNEL_SELF",
+      "relation": "symbol_represents_entity",
+      "target": "node_kernel_self"
+    },
+    {
+      "source": "node_symbol_SYMBOL_GUARDIAN",
+      "relation": "symbol_represents_entity",
+      "target": "node_kernel_self"
+    },
+    {
+      "source": "node_symbol_SYMBOL_AXIOM",
+      "relation": "symbol_represents_entity",
+      "target": "node_kernel_self"
+    },
+    {
+      "source": "node_symbol_SYMBOL_MEMORY",
+      "relation": "symbol_represents_entity",
+      "target": "node_kernel_self"
+    },
+    {
+      "source": "node_symbol_SYMBOL_BELIEF",
+      "relation": "symbol_represents_entity",
+      "target": "node_kernel_self"
+    },
+    {
+      "source": "node_symbol_SYMBOL_ENTROPY",
+      "relation": "symbol_represents_entity",
+      "target": "node_kernel_self"
+    },
+    {
+      "source": "node_symbol_SYMBOL_QUANTUM_SIGNAL",
+      "relation": "symbol_represents_entity",
+      "target": "node_kernel_self"
+    },
+    {
+      "source": "node_symbol_SYMBOL_SUPERPOSITION",
+      "relation": "symbol_represents_entity",
+      "target": "node_kernel_self"
+    },
+    {
+      "source": "node_symbol_SYMBOL_COLLAPSE",
+      "relation": "symbol_represents_entity",
+      "target": "node_kernel_self"
+    },
+    {
+      "source": "node_symbol_SYMBOL_HYPOTHESIS",
+      "relation": "symbol_represents_entity",
+      "target": "node_kernel_self"
+    },
+    {
+      "source": "node_symbol_SYMBOL_CONTRADICTION",
+      "relation": "symbol_represents_entity",
+      "target": "node_kernel_self"
+    },
+    {
+      "source": "node_symbol_SYMBOL_REGISTRY_TRUTH",
+      "relation": "symbol_represents_entity",
+      "target": "node_kernel_self"
+    },
+    {
+      "source": "node_symbol_SYMBOL_MODEL_PARAPHRASE",
+      "relation": "symbol_represents_entity",
+      "target": "node_kernel_self"
+    },
+    {
+      "source": "node_symbol_SYMBOL_CONTINUITY",
+      "relation": "symbol_represents_entity",
+      "target": "node_kernel_self"
+    },
+    {
+      "source": "node_symbol_SYMBOL_DRIFT",
+      "relation": "symbol_represents_entity",
+      "target": "node_kernel_self"
+    },
+    {
+      "source": "node_hypothesis_hyp_oanda_credentials_missing",
+      "relation": "hypothesis_explains_signal",
+      "target": "node_entropy_signal"
+    },
+    {
+      "source": "node_quantum_signal",
+      "relation": "quantum_signal_weights_hypothesis",
+      "target": "node_hypothesis_hyp_oanda_credentials_missing"
+    },
+    {
+      "source": "node_hypothesis_hyp_stocks_market_data_stalled",
+      "relation": "hypothesis_explains_signal",
+      "target": "node_entropy_signal"
+    },
+    {
+      "source": "node_quantum_signal",
+      "relation": "quantum_signal_weights_hypothesis",
+      "target": "node_hypothesis_hyp_stocks_market_data_stalled"
+    },
+    {
+      "source": "node_hypothesis_hyp_entropy_climbing",
+      "relation": "hypothesis_explains_signal",
+      "target": "node_entropy_signal"
+    },
+    {
+      "source": "node_quantum_signal",
+      "relation": "quantum_signal_weights_hypothesis",
+      "target": "node_hypothesis_hyp_entropy_climbing"
+    },
+    {
+      "source": "node_hypothesis_hyp_ctr_floor_named_no_manifest",
+      "relation": "hypothesis_explains_signal",
+      "target": "node_entropy_signal"
+    },
+    {
+      "source": "node_quantum_signal",
+      "relation": "quantum_signal_weights_hypothesis",
+      "target": "node_hypothesis_hyp_ctr_floor_named_no_manifest"
+    },
+    {
+      "source": "node_contradiction_ctr_floor_named_no_manifest",
+      "relation": "entropy_raises_uncertainty",
+      "target": "node_entropy_signal"
+    },
+    {
+      "source": "node_lane_lane_ollama_llama32",
+      "relation": "model_lane_suggests_text",
+      "target": "node_kernel_self"
+    },
+    {
+      "source": "node_kernel_self",
+      "relation": "kernel_validates_model_output",
+      "target": "node_lane_lane_ollama_llama32"
+    },
+    {
+      "source": "node_guardian",
+      "relation": "guardian_validates_kernel_output",
+      "target": "node_lane_lane_ollama_llama32"
+    },
+    {
+      "source": "node_lane_lane_airllm_chamber",
+      "relation": "model_lane_suggests_text",
+      "target": "node_kernel_self"
+    },
+    {
+      "source": "node_kernel_self",
+      "relation": "kernel_validates_model_output",
+      "target": "node_lane_lane_airllm_chamber"
+    },
+    {
+      "source": "node_guardian",
+      "relation": "guardian_validates_kernel_output",
+      "target": "node_lane_lane_airllm_chamber"
+    },
+    {
+      "source": "node_lane_lane_external_providers",
+      "relation": "model_lane_suggests_text",
+      "target": "node_kernel_self"
+    },
+    {
+      "source": "node_kernel_self",
+      "relation": "kernel_validates_model_output",
+      "target": "node_lane_lane_external_providers"
+    },
+    {
+      "source": "node_guardian",
+      "relation": "guardian_validates_kernel_output",
+      "target": "node_lane_lane_external_providers"
+    },
+    {
+      "source": "node_kernel_self",
+      "relation": "continuity_hash_links_state",
+      "target": "node_memory"
+    },
+    {
+      "source": "node_quantum_signal",
+      "relation": "collapse_selects_hypothesis",
+      "target": "node_hypothesis_hyp_oanda_credentials_missing"
+    },
+    {
+      "from": "fx_market_scout",
+      "to": "floor_41",
+      "relation": "worker_assigned_to_floor",
+      "advisory_only": true
+    },
+    {
+      "from": "fx_spread_watcher",
+      "to": "floor_41",
+      "relation": "worker_assigned_to_floor",
+      "advisory_only": true
+    },
+    {
+      "from": "crypto_market_scout",
+      "to": "floor_42",
+      "relation": "worker_assigned_to_floor",
+      "advisory_only": true
+    },
+    {
+      "from": "crypto_spread_watcher",
+      "to": "floor_42",
+      "relation": "worker_assigned_to_floor",
+      "advisory_only": true
+    },
+    {
+      "from": "equity_market_scout",
+      "to": "floor_43",
+      "relation": "worker_assigned_to_floor",
+      "advisory_only": true
+    },
+    {
+      "from": "cross_market_correlation",
+      "to": "floor_37",
+      "relation": "worker_assigned_to_floor",
+      "advisory_only": true
+    },
+    {
+      "from": "paper_strategy_analyst",
+      "to": "floor_37",
+      "relation": "worker_assigned_to_floor",
+      "advisory_only": true
+    },
+    {
+      "from": "risk_sentinel",
+      "to": "floor_30",
+      "relation": "worker_assigned_to_floor",
+      "advisory_only": true
+    },
+    {
+      "from": "ledger_clerk",
+      "to": "floor_31",
+      "relation": "worker_assigned_to_floor",
+      "advisory_only": true
+    },
+    {
+      "from": "kernel_commentary_runner",
+      "to": "floor_53",
+      "relation": "worker_assigned_to_floor",
+      "advisory_only": true
+    },
+    {
+      "from": "openclaw_lift_observer",
+      "to": "floor_38",
+      "relation": "worker_assigned_to_floor",
+      "advisory_only": true
+    },
+    {
+      "from": "openclaw_risk_guard",
+      "to": "floor_30",
+      "relation": "worker_assigned_to_floor",
+      "advisory_only": true
+    },
+    {
+      "from": "openclaw_visual_clerk",
+      "to": "floor_38",
+      "relation": "worker_assigned_to_floor",
+      "advisory_only": true
+    },
+    {
+      "from": "openclaw_task_intake",
+      "to": "floor_38",
+      "relation": "worker_assigned_to_floor",
+      "advisory_only": true
+    },
+    {
+      "from": "openclaw_readiness_aud",
+      "to": "floor_38",
+      "relation": "worker_assigned_to_floor",
+      "advisory_only": true
+    },
+    {
+      "from": "speech_route_monitor",
+      "to": "floor_15",
+      "relation": "worker_assigned_to_floor",
+      "advisory_only": true
+    },
+    {
+      "from": "tts_output_clerk",
+      "to": "floor_15",
+      "relation": "worker_assigned_to_floor",
+      "advisory_only": true
+    },
+    {
+      "from": "stt_intake_clerk",
+      "to": "floor_15",
+      "relation": "worker_assigned_to_floor",
+      "advisory_only": true
+    },
+    {
+      "from": "media_floor_liaison",
+      "to": "floor_14",
+      "relation": "worker_assigned_to_floor",
+      "advisory_only": true
+    },
+    {
+      "from": "airllm_model_scout",
+      "to": "floor_23",
+      "relation": "worker_assigned_to_floor",
+      "advisory_only": true
+    },
+    {
+      "from": "big_model_prompt_clerk",
+      "to": "floor_23",
+      "relation": "worker_assigned_to_floor",
+      "advisory_only": true
+    },
+    {
+      "from": "advisory_output_auditor",
+      "to": "floor_31",
+      "relation": "worker_assigned_to_floor",
+      "advisory_only": true
+    },
+    {
+      "from": "rec_0a3d757d27",
+      "to": "floor_38",
+      "relation": "worker_assigned_to_floor",
+      "advisory_only": true
+    },
+    {
+      "from": "f45_equity_market_scout",
+      "to": "floor_45",
+      "relation": "worker_assigned_to_floor",
+      "advisory_only": true
+    },
+    {
+      "from": "f45_crypto_market_scout",
+      "to": "floor_45",
+      "relation": "worker_assigned_to_floor",
+      "advisory_only": true
+    },
+    {
+      "from": "f45_fx_market_scout",
+      "to": "floor_45",
+      "relation": "worker_assigned_to_floor",
+      "advisory_only": true
+    },
+    {
+      "from": "f45_cross_market_analyst",
+      "to": "floor_45",
+      "relation": "worker_assigned_to_floor",
+      "advisory_only": true
+    },
+    {
+      "from": "f45_risk_gatekeeper",
+      "to": "floor_45",
+      "relation": "worker_assigned_to_floor",
+      "advisory_only": true
+    },
+    {
+      "from": "f45_ledger_runner",
+      "to": "floor_45",
+      "relation": "worker_assigned_to_floor",
+      "advisory_only": true
+    },
+    {
+      "from": "f45_airllm_advisory_clerk",
+      "to": "floor_45",
+      "relation": "worker_assigned_to_floor",
+      "advisory_only": true
+    },
+    {
+      "from": "f45_kernel_liaison",
+      "to": "floor_45",
+      "relation": "worker_assigned_to_floor",
+      "advisory_only": true
+    },
+    {
+      "from": "f45_openclaw_sandbox_observer",
+      "to": "floor_45",
+      "relation": "worker_assigned_to_floor",
+      "advisory_only": true
+    },
+    {
+      "from": "f45_strategy_backtester",
+      "to": "floor_45",
+      "relation": "worker_assigned_to_floor",
+      "advisory_only": true
+    },
+    {
+      "from": "f45_volatility_watcher",
+      "to": "floor_45",
+      "relation": "worker_assigned_to_floor",
+      "advisory_only": true
+    },
+    {
+      "from": "f45_correlation_mapper",
+      "to": "floor_45",
+      "relation": "worker_assigned_to_floor",
+      "advisory_only": true
+    },
+    {
+      "from": "floor_41",
+      "to": "floor_37",
+      "relation": "floor_routes_to_floor",
+      "route_type": "strategy",
+      "execution_allowed": false
+    },
+    {
+      "from": "floor_42",
+      "to": "floor_37",
+      "relation": "floor_routes_to_floor",
+      "route_type": "strategy",
+      "execution_allowed": false
+    },
+    {
+      "from": "floor_43",
+      "to": "floor_37",
+      "relation": "floor_routes_to_floor",
+      "route_type": "strategy",
+      "execution_allowed": false
+    },
+    {
+      "from": "floor_37",
+      "to": "floor_38",
+      "relation": "floor_routes_to_floor",
+      "route_type": "worker",
+      "execution_allowed": false
+    },
+    {
+      "from": "floor_38",
+      "to": "floor_30",
+      "relation": "floor_routes_to_floor",
+      "route_type": "openclaw",
+      "execution_allowed": false
+    },
+    {
+      "from": "floor_30",
+      "to": "floor_31",
+      "relation": "floor_routes_to_floor",
+      "route_type": "ledger",
+      "execution_allowed": false
+    },
+    {
+      "from": "floor_31",
+      "to": "floor_53",
+      "relation": "floor_routes_to_floor",
+      "route_type": "ledger",
+      "execution_allowed": false
+    },
+    {
+      "from": "floor_53",
+      "to": "penthouse",
+      "relation": "floor_routes_to_floor",
+      "route_type": "kernel",
+      "execution_allowed": false
+    },
+    {
+      "from": "floor_23",
+      "to": "penthouse",
+      "relation": "floor_routes_to_floor",
+      "route_type": "airllm",
+      "execution_allowed": false
+    },
+    {
+      "from": "floor_24",
+      "to": "floor_23",
+      "relation": "floor_routes_to_floor",
+      "route_type": "routing",
+      "execution_allowed": false
+    },
+    {
+      "from": "floor_38",
+      "to": "floor_31",
+      "relation": "floor_routes_to_floor",
+      "route_type": "openclaw",
+      "execution_allowed": false
+    },
+    {
+      "from": "floor_38",
+      "to": "floor_53",
+      "relation": "floor_routes_to_floor",
+      "route_type": "openclaw",
+      "execution_allowed": false
+    },
+    {
+      "from": "floor_30",
+      "to": "floor_53",
+      "relation": "floor_routes_to_floor",
+      "route_type": "ledger",
+      "execution_allowed": false
+    },
+    {
+      "from": "floor_41",
+      "to": "floor_31",
+      "relation": "floor_routes_to_floor",
+      "route_type": "ledger",
+      "execution_allowed": false
+    },
+    {
+      "from": "floor_42",
+      "to": "floor_31",
+      "relation": "floor_routes_to_floor",
+      "route_type": "ledger",
+      "execution_allowed": false
+    },
+    {
+      "from": "floor_43",
+      "to": "floor_31",
+      "relation": "floor_routes_to_floor",
+      "route_type": "ledger",
+      "execution_allowed": false
+    },
+    {
+      "from": "floor_45",
+      "to": "floor_25",
+      "relation": "floor_routes_to_floor",
+      "route_type": "worker_recruitment_sandbox",
+      "execution_allowed": false
+    },
+    {
+      "from": "floor_45",
+      "to": "floor_38",
+      "relation": "floor_routes_to_floor",
+      "route_type": "worker_recruitment_sandbox",
+      "execution_allowed": false
+    },
+    {
+      "from": "floor_45",
+      "to": "floor_37",
+      "relation": "floor_routes_to_floor",
+      "route_type": "worker_recruitment_sandbox",
+      "execution_allowed": false
+    },
+    {
+      "from": "floor_45",
+      "to": "floor_30",
+      "relation": "floor_routes_to_floor",
+      "route_type": "worker_recruitment_sandbox",
+      "execution_allowed": false
+    },
+    {
+      "from": "floor_45",
+      "to": "floor_31",
+      "relation": "floor_routes_to_floor",
+      "route_type": "worker_recruitment_sandbox",
+      "execution_allowed": false
+    },
+    {
+      "from": "floor_45",
+      "to": "floor_53",
+      "relation": "floor_routes_to_floor",
+      "route_type": "worker_recruitment_sandbox",
+      "execution_allowed": false
+    },
+    {
+      "from": "floor_45",
+      "to": "penthouse",
+      "relation": "floor_routes_to_floor",
+      "route_type": "worker_recruitment_sandbox",
+      "execution_allowed": false
+    },
+    {
+      "from": "lane_ollama_llama32",
+      "to": "eqsb_kernel",
+      "relation": "model_lane_advises_kernel",
+      "registry_truth_outranks_model": true,
+      "execution_allowed": false
+    },
+    {
+      "from": "lane_airllm_chamber",
+      "to": "eqsb_kernel",
+      "relation": "model_lane_advises_kernel",
+      "registry_truth_outranks_model": true,
+      "execution_allowed": false
+    },
+    {
+      "from": "lane_external_providers",
+      "to": "eqsb_kernel",
+      "relation": "model_lane_advises_kernel",
+      "registry_truth_outranks_model": true,
+      "execution_allowed": false
+    },
+    {
+      "from": "lock_matrix",
+      "to": "floor_30",
+      "relation": "lock_protects_execution_path",
+      "execution_allowed": false
+    },
+    {
+      "from": "lock_matrix",
+      "to": "floor_38",
+      "relation": "lock_protects_execution_path",
+      "execution_allowed": false
+    },
+    {
+      "from": "lock_matrix",
+      "to": "floor_41",
+      "relation": "lock_protects_execution_path",
+      "execution_allowed": false
+    },
+    {
+      "from": "lock_matrix",
+      "to": "floor_42",
+      "relation": "lock_protects_execution_path",
+      "execution_allowed": false
+    },
+    {
+      "from": "lock_matrix",
+      "to": "floor_43",
+      "relation": "lock_protects_execution_path",
+      "execution_allowed": false
+    }
+  ],
+  "active_local_only": true,
+  "advisory_only": true,
+  "execution_allowed": false,
+  "paper_only": true,
+  "not_financial_advice": true,
+  "worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "external_provider_execution_enabled": false,
+  "openclaw_execution_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "live_dispatch_enabled": false,
+  "direct_provider_access": false,
+  "live_trading_enabled": false,
+  "order_execution_enabled": false,
+  "practice_order_execution_enabled": false,
+  "stock_order_execution_enabled": false,
+  "stock_live_trading_enabled": false,
+  "stock_paper_order_execution_enabled": false,
+  "binance_order_execution_enabled": false,
+  "binance_live_trading_enabled": false,
+  "model_inference_enabled": false,
+  "autonomous_workers_enabled": false,
+  "maintenance_auto_repair_enabled": false,
+  "web_access_autonomous_enabled": false,
+  "symbolic_graph_hash": "0f56d8be3de75f2b"
+}

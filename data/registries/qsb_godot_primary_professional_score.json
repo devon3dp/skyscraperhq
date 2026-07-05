@@ -1,0 +1,33 @@
+{
+  "ok": true,
+  "kind": "qsb_godot_primary_professional_score",
+  "phase": "QSB_GODOT_NATIVE_COCKPIT_PRIMARY_GRAPHICS_ENGINE_SWITCH_V1",
+  "generated_ts": "2026-06-09T20:32:00+00:00",
+  "gates_total": 25,
+  "gates_passed": 25,
+  "score": 100,
+  "verdict": "professional_cockpit_ready_pending_visual_launch_verification",
+  "caveat": "Score reflects code presence + role classification. The OPERATOR must launch the cockpit (./scripts/qsb_launch_primary_cockpit.sh) and visually confirm. Visual verification is the operator's eye, not this score.",
+  "what_still_looks_prototype_level_honest": [
+    "renderer is gl_compatibility (llvmpipe software fallback) because NVIDIA driver mismatch on this box — vsync + post-processing limited until that's fixed",
+    "Talk button is a scaffold (no mic capture yet)",
+    "Commentary toggle is wired to the ticker but TTS hook is stub",
+    "Renderer debug panel is planned (not yet drawn)",
+    "Layout reset preset switcher is planned",
+    "Worker view mode is planned (currently density badges only, no view-mode toggle)"
+  ],
+  "what_would_raise_this_score_beyond_100": [
+    "Hardware NVIDIA driver fix → switch renderer to forward_plus",
+    "Wire real mic capture into Talk + voice STT",
+    "Real-time chart panels in HUD right column (PnL spark, bank supply spark)",
+    "Floor interior renderer that opens a cutaway view per selected floor"
+  ],
+  "safety_envelope": {
+    "execution_allowed": false,
+    "live_trading_enabled": false,
+    "live_payments_enabled": false,
+    "live_listings_publishing_enabled": false,
+    "openclaw_real_tool_execution_enabled": false,
+    "autonomous_dispatch_enabled": false
+  }
+}

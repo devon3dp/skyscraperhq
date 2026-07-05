@@ -1,0 +1,87 @@
+{
+  "ok": true,
+  "kind": "qsb_ml_rl_curriculum",
+  "phase": "QSB_ML_RL_LAB_CLASSROOM_RESEARCH_WORKER_INTEGRATION_V1",
+  "generated_ts": "2026-06-09T16:49:28+00:00",
+  "topics": [
+    {
+      "id": "cur_torch_basics",
+      "title": "Torch basics",
+      "hours": 4
+    },
+    {
+      "id": "cur_tensors",
+      "title": "Tensors",
+      "hours": 3
+    },
+    {
+      "id": "cur_forward_pass",
+      "title": "Neural network forward pass",
+      "hours": 2
+    },
+    {
+      "id": "cur_backward_pass",
+      "title": "Backward pass + autograd",
+      "hours": 3
+    },
+    {
+      "id": "cur_optimizer",
+      "title": "Optimizer step",
+      "hours": 2
+    },
+    {
+      "id": "cur_dqn_concept",
+      "title": "DQN concept",
+      "hours": 4
+    },
+    {
+      "id": "cur_reward_functions",
+      "title": "Reward functions",
+      "hours": 3
+    },
+    {
+      "id": "cur_overfitting",
+      "title": "Overfitting risk",
+      "hours": 2
+    },
+    {
+      "id": "cur_paper_sim",
+      "title": "Paper trading simulation only",
+      "hours": 2
+    },
+    {
+      "id": "cur_risk_aware_rl",
+      "title": "Risk-aware reinforcement learning",
+      "hours": 4
+    },
+    {
+      "id": "cur_why_live_locked",
+      "title": "Why live execution is locked",
+      "hours": 1
+    },
+    {
+      "id": "cur_backtest_reading",
+      "title": "How to read backtest/smoke-test results",
+      "hours": 2
+    },
+    {
+      "id": "cur_workers_report_lessons",
+      "title": "How workers report lessons",
+      "hours": 1
+    }
+  ],
+  "total_topics": 13,
+  "total_hours": 33,
+  "delivery_mode": "classroom + lab notebook + recorded experiment review",
+  "certification_required_before_advisory_strategy_submission": true,
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "live_payments_enabled": false,
+  "live_listings_publishing_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "worker_execution_enabled": false,
+  "secrets_in_logs": false
+}

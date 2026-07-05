@@ -1,0 +1,18 @@
+{
+  "updated_at": "2026-06-26T13:20:02Z",
+  "by_instrument": {
+    "USD_JPY": {
+      "n": 25,
+      "avg_slip_gbp": 0.9870246928141785,
+      "max_slip_gbp": 4.276410741965008,
+      "p90_slip_gbp": 2.150519195285976
+    }
+  },
+  "by_worker_x_instrument": {
+    "belief_driven_jpy::USD_JPY": {
+      "n": 25,
+      "avg_slip_gbp": 0.9870246928141785,
+      "max_slip_gbp": 4.276410741965008
+    }
+  }
+}

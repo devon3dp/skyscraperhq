@@ -1,0 +1,26 @@
+{
+  "ok": true,
+  "kind": "qsb_floor_interior_visual_score",
+  "ts": "2026-06-09T21:42:32Z",
+  "scores": {
+    "floor_coverage": 14,
+    "click_to_enter": 10,
+    "room_geometry": 12,
+    "worker_visibility": 12,
+    "worker_animation": 10,
+    "department_identity": 10,
+    "live_activity_stream": 10,
+    "floor_ui_readability": 8,
+    "key_floor_specialization": 6,
+    "performance_policy": 6,
+    "production_feel": 8
+  },
+  "total_score": 96,
+  "cap_rules_applied": {
+    "no_worker_animation_cap_60": false,
+    "no_click_to_enter_cap_70": false,
+    "empty_generic_cap_80": false,
+    "no_visual_check_cap_90": true,
+    "no_full_smoke_pass_cap_95": false
+  }
+}

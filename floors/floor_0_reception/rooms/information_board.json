@@ -1,0 +1,34 @@
+{
+  "room_id": "information_board",
+  "name": "Information Board",
+  "category": "admin",
+  "purpose": "Displays important notices and updates.",
+  "concierge_blurb": "Stay informed with the latest Tower news here.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -6.0,
+    "offset_z": 2.0,
+    "footprint_m": [
+      3,
+      4
+    ],
+    "height_m": 1.5
+  },
+  "render": {
+    "primary_prop": "wall_panel",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "NOTICES",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_0"
+}

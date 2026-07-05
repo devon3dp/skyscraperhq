@@ -1,0 +1,89 @@
+[
+  {
+    "provider": "air_llm_cloud",
+    "display_name": "AIR LLM Cloud",
+    "socket_id": "air_llm_cloud_socket",
+    "location": "roof_external_layer",
+    "capabilities": [
+      "external_gateway",
+      "future_multi_provider",
+      "cloud_router"
+    ],
+    "execution_enabled": false,
+    "hardwired": false,
+    "status": "not_connected"
+  },
+  {
+    "provider": "claude",
+    "display_name": "Claude",
+    "socket_id": "claude_socket",
+    "location": "external_provider",
+    "capabilities": [
+      "reasoning",
+      "writing",
+      "coding",
+      "analysis",
+      "claude_code_handoff"
+    ],
+    "execution_enabled": false,
+    "hardwired": false,
+    "status": "not_connected"
+  },
+  {
+    "provider": "openai",
+    "display_name": "OpenAI",
+    "socket_id": "openai_socket",
+    "location": "external_provider",
+    "capabilities": [
+      "reasoning",
+      "writing",
+      "coding",
+      "vision",
+      "tool_use"
+    ],
+    "execution_enabled": false,
+    "hardwired": false,
+    "status": "not_connected"
+  },
+  {
+    "provider": "gemini",
+    "display_name": "Gemini",
+    "socket_id": "gemini_socket",
+    "location": "external_provider",
+    "capabilities": [
+      "reasoning",
+      "vision",
+      "long_context",
+      "multimodal"
+    ],
+    "execution_enabled": false,
+    "hardwired": false,
+    "status": "not_connected"
+  },
+  {
+    "provider": "deepseek",
+    "display_name": "DeepSeek",
+    "socket_id": "deepseek_socket",
+    "location": "external_provider",
+    "capabilities": [
+      "coding",
+      "reasoning",
+      "analysis"
+    ],
+    "execution_enabled": false,
+    "hardwired": false,
+    "status": "not_connected"
+  },
+  {
+    "provider": "future_models",
+    "display_name": "Future Models",
+    "socket_id": "future_model_socket",
+    "location": "future_external_or_local_provider",
+    "capabilities": [
+      "expansion_ready"
+    ],
+    "execution_enabled": false,
+    "hardwired": false,
+    "status": "expansion_ready"
+  }
+]

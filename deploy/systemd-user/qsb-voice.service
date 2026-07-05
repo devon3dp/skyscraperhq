@@ -1,0 +1,18 @@
+[Unit]
+Description=QSB HQ Voice Server — server-side STT (whisper tiny.en/GGML) + TTS (SuperTonic) — :8795
+After=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/vaults/nvme0/qsb_tower_v1
+Environment=QSB_VOICE_PORT=8795
+# Main server runs in .venv (SuperTonic TTS). It auto-spawns the STT sidecar,
+# which runs in the neuralnexus venv (torch cu128 + transformers + CUDA).
+ExecStart=/vaults/nvme0/qsb_tower_v1/.venv/bin/python -u /vaults/nvme0/qsb_tower_v1/tools/qsb_voice_server.py
+Restart=always
+RestartSec=10
+StandardOutput=append:/vaults/nvme0/qsb_tower_v1/data/logs/voice_server.boot.log
+StandardError=append:/vaults/nvme0/qsb_tower_v1/data/logs/voice_server.boot.log
+
+[Install]
+WantedBy=default.target

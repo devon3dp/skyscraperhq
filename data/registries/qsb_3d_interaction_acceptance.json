@@ -1,0 +1,76 @@
+{
+  "ok": true,
+  "kind": "qsb_3d_interaction_acceptance",
+  "generated_ts": "2026-06-30T13:46:34.742399+00:00",
+  "acceptance_items": [
+    {
+      "item": "rotate",
+      "pass": true
+    },
+    {
+      "item": "zoom",
+      "pass": true
+    },
+    {
+      "item": "focus_selected_floor",
+      "pass": true
+    },
+    {
+      "item": "click_floor",
+      "pass": true
+    },
+    {
+      "item": "highlight_selected_floor",
+      "pass": true
+    },
+    {
+      "item": "floor_labels_dont_clutter",
+      "pass": true
+    },
+    {
+      "item": "per_floor_status_lights",
+      "pass": true
+    },
+    {
+      "item": "per_floor_safety_state",
+      "pass": true
+    },
+    {
+      "item": "penthouse_crown_glow_tied_to_cadence",
+      "pass": true
+    },
+    {
+      "item": "lift_shafts_visible",
+      "pass": true
+    },
+    {
+      "item": "lift_capsules_visible",
+      "pass": true
+    },
+    {
+      "item": "real_event_packets_only",
+      "pass": true
+    },
+    {
+      "item": "openclaw_supervisor_visible",
+      "pass": true
+    },
+    {
+      "item": "no_random_worker_orbit",
+      "pass": true
+    },
+    {
+      "item": "no_label_swarm",
+      "pass": true
+    },
+    {
+      "item": "no_fake_packets",
+      "pass": true
+    }
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

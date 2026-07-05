@@ -1,0 +1,39 @@
+{
+  "registry": "openclaw_sandbox_registry_v1",
+  "openclaw_sandbox_enabled": true,
+  "openclaw_execution_enabled": false,
+  "workers": [
+    {
+      "id": "openclaw_market_probe",
+      "name": "OpenClaw Market Probe",
+      "role": "Sandbox-only inspection of Floor 41 paper market state.",
+      "home_floor": "floor_41",
+      "sandbox_only": true,
+      "execution_enabled": false
+    },
+    {
+      "id": "openclaw_strategy_mapper",
+      "name": "OpenClaw Strategy Mapper",
+      "role": "Maps paper signals into candidate strategy notes.",
+      "home_floor": "floor_37",
+      "sandbox_only": true,
+      "execution_enabled": false
+    },
+    {
+      "id": "openclaw_risk_guard",
+      "name": "OpenClaw Risk Guard",
+      "role": "Checks that all execution locks remain closed.",
+      "home_floor": "floor_30",
+      "sandbox_only": true,
+      "execution_enabled": false
+    },
+    {
+      "id": "openclaw_lift_observer",
+      "name": "OpenClaw Lift Observer",
+      "role": "Watches sandbox packets move through the tower lift system.",
+      "home_floor": "floor_25",
+      "sandbox_only": true,
+      "execution_enabled": false
+    }
+  ]
+}

@@ -1,0 +1,250 @@
+{
+  "registry": "sandbox_extended_workers_v1",
+  "phase": "OPENCLAW_WORKER_TRADING_SIMULATION_FLOOR_V1",
+  "mode": "sandbox_paper_only_visualization",
+  "execution_unlocks_added": false,
+  "paper_only": true,
+  "not_financial_advice": true,
+  "notes": [
+    "These workers are sandbox-only personas used for dashboard visualization and",
+    "paper-only strategy/risk/ledger activity. They do not execute orders, do not",
+    "call external providers, and do not unlock any execution flag. They extend the",
+    "Worker Sandbox roster without patching worker_sandbox.py."
+  ],
+  "default_flags": {
+    "sandbox_only": true,
+    "execution_enabled": false,
+    "paper_only": true,
+    "order_permission": false,
+    "practice_order_permission": false,
+    "live_order_permission": false,
+    "provider_access": false,
+    "openclaw_real_tool_access": false,
+    "autonomous_dispatch_permission": false
+  },
+  "workers": [
+    {
+      "id": "momentum_scout",
+      "name": "Momentum Scout",
+      "home_floor": "floor_41",
+      "team": "strategy",
+      "role": "Watches short-window momentum on paper candles; never trades.",
+      "sandbox_only": true, "execution_enabled": false, "paper_only": true,
+      "order_permission": false, "practice_order_permission": false, "live_order_permission": false,
+      "provider_access": false, "openclaw_real_tool_access": false, "autonomous_dispatch_permission": false
+    },
+    {
+      "id": "mean_reversion_analyst",
+      "name": "Mean Reversion Analyst",
+      "home_floor": "floor_37",
+      "team": "strategy",
+      "role": "Looks for mean-reversion paper setups in M5/M15 candles.",
+      "sandbox_only": true, "execution_enabled": false, "paper_only": true,
+      "order_permission": false, "practice_order_permission": false, "live_order_permission": false,
+      "provider_access": false, "openclaw_real_tool_access": false, "autonomous_dispatch_permission": false
+    },
+    {
+      "id": "breakout_watcher",
+      "name": "Breakout Watcher",
+      "home_floor": "floor_41",
+      "team": "strategy",
+      "role": "Annotates paper-only breakout candidates; never places orders.",
+      "sandbox_only": true, "execution_enabled": false, "paper_only": true,
+      "order_permission": false, "practice_order_permission": false, "live_order_permission": false,
+      "provider_access": false, "openclaw_real_tool_access": false, "autonomous_dispatch_permission": false
+    },
+    {
+      "id": "session_timing_analyst",
+      "name": "Session Timing Analyst",
+      "home_floor": "floor_27",
+      "team": "strategy",
+      "role": "Tracks paper-session windows (London/NY/Tokyo) for context.",
+      "sandbox_only": true, "execution_enabled": false, "paper_only": true,
+      "order_permission": false, "practice_order_permission": false, "live_order_permission": false,
+      "provider_access": false, "openclaw_real_tool_access": false, "autonomous_dispatch_permission": false
+    },
+    {
+      "id": "candle_historian",
+      "name": "Candle Historian",
+      "home_floor": "floor_37",
+      "team": "research",
+      "role": "Keeps paper-only candle history snapshots for backtest workers.",
+      "sandbox_only": true, "execution_enabled": false, "paper_only": true,
+      "order_permission": false, "practice_order_permission": false, "live_order_permission": false,
+      "provider_access": false, "openclaw_real_tool_access": false, "autonomous_dispatch_permission": false
+    },
+    {
+      "id": "volatility_mapper",
+      "name": "Volatility Mapper",
+      "home_floor": "floor_37",
+      "team": "research",
+      "role": "Estimates paper-volatility from candle ranges; observation only.",
+      "sandbox_only": true, "execution_enabled": false, "paper_only": true,
+      "order_permission": false, "practice_order_permission": false, "live_order_permission": false,
+      "provider_access": false, "openclaw_real_tool_access": false, "autonomous_dispatch_permission": false
+    },
+    {
+      "id": "spread_gatekeeper",
+      "name": "Spread Gatekeeper",
+      "home_floor": "floor_41",
+      "team": "risk",
+      "role": "Re-validates paper spread gates per instrument; advisory only.",
+      "sandbox_only": true, "execution_enabled": false, "paper_only": true,
+      "order_permission": false, "practice_order_permission": false, "live_order_permission": false,
+      "provider_access": false, "openclaw_real_tool_access": false, "autonomous_dispatch_permission": false
+    },
+    {
+      "id": "correlation_analyst",
+      "name": "Correlation Analyst",
+      "home_floor": "floor_27",
+      "team": "strategy",
+      "role": "Reads alignment labels from 8772 and annotates decision context.",
+      "sandbox_only": true, "execution_enabled": false, "paper_only": true,
+      "order_permission": false, "practice_order_permission": false, "live_order_permission": false,
+      "provider_access": false, "openclaw_real_tool_access": false, "autonomous_dispatch_permission": false
+    },
+    {
+      "id": "signal_confidence_clerk",
+      "name": "Signal Confidence Clerk",
+      "home_floor": "floor_27",
+      "team": "strategy",
+      "role": "Books confidence/threshold deltas across strategy intelligence runs.",
+      "sandbox_only": true, "execution_enabled": false, "paper_only": true,
+      "order_permission": false, "practice_order_permission": false, "live_order_permission": false,
+      "provider_access": false, "openclaw_real_tool_access": false, "autonomous_dispatch_permission": false
+    },
+    {
+      "id": "paper_trade_ticket_writer",
+      "name": "Paper Trade Ticket Writer",
+      "home_floor": "floor_31",
+      "team": "paper_trading",
+      "role": "Writes paper-only simulated trade tickets to the simulator ledger.",
+      "sandbox_only": true, "execution_enabled": false, "paper_only": true,
+      "order_permission": false, "practice_order_permission": false, "live_order_permission": false,
+      "provider_access": false, "openclaw_real_tool_access": false, "autonomous_dispatch_permission": false
+    },
+    {
+      "id": "paper_pl_clerk",
+      "name": "Paper P/L Clerk",
+      "home_floor": "floor_31",
+      "team": "paper_trading",
+      "role": "Tracks paper-only simulated P/L for each open paper ticket.",
+      "sandbox_only": true, "execution_enabled": false, "paper_only": true,
+      "order_permission": false, "practice_order_permission": false, "live_order_permission": false,
+      "provider_access": false, "openclaw_real_tool_access": false, "autonomous_dispatch_permission": false
+    },
+    {
+      "id": "strategy_backtest_runner",
+      "name": "Strategy Backtest Runner",
+      "home_floor": "floor_37",
+      "team": "research",
+      "role": "Runs paper-only backtests against the candle historian's archive.",
+      "sandbox_only": true, "execution_enabled": false, "paper_only": true,
+      "order_permission": false, "practice_order_permission": false, "live_order_permission": false,
+      "provider_access": false, "openclaw_real_tool_access": false, "autonomous_dispatch_permission": false
+    },
+    {
+      "id": "strategy_mutation_analyst",
+      "name": "Strategy Mutation Analyst",
+      "home_floor": "floor_37",
+      "team": "research",
+      "role": "Proposes paper-only mutations to strategy parameters; no live tuning.",
+      "sandbox_only": true, "execution_enabled": false, "paper_only": true,
+      "order_permission": false, "practice_order_permission": false, "live_order_permission": false,
+      "provider_access": false, "openclaw_real_tool_access": false, "autonomous_dispatch_permission": false
+    },
+    {
+      "id": "risk_lock_auditor",
+      "name": "Risk Lock Auditor",
+      "home_floor": "floor_30",
+      "team": "risk",
+      "role": "Continuously audits that every execution lock remains false.",
+      "sandbox_only": true, "execution_enabled": false, "paper_only": true,
+      "order_permission": false, "practice_order_permission": false, "live_order_permission": false,
+      "provider_access": false, "openclaw_real_tool_access": false, "autonomous_dispatch_permission": false
+    },
+    {
+      "id": "kill_switch_inspector",
+      "name": "Kill-Switch Inspector",
+      "home_floor": "floor_30",
+      "team": "risk",
+      "role": "Inspects kill-switch wiring; reports readiness (gate stays closed).",
+      "sandbox_only": true, "execution_enabled": false, "paper_only": true,
+      "order_permission": false, "practice_order_permission": false, "live_order_permission": false,
+      "provider_access": false, "openclaw_real_tool_access": false, "autonomous_dispatch_permission": false
+    },
+    {
+      "id": "openclaw_route_planner",
+      "name": "OpenClaw Route Planner",
+      "home_floor": "floor_25",
+      "team": "openclaw",
+      "role": "Plans paper-only OpenClaw packet routes through the tower lifts.",
+      "sandbox_only": true, "execution_enabled": false, "paper_only": true,
+      "order_permission": false, "practice_order_permission": false, "live_order_permission": false,
+      "provider_access": false, "openclaw_real_tool_access": false, "autonomous_dispatch_permission": false
+    },
+    {
+      "id": "openclaw_packet_inspector",
+      "name": "OpenClaw Packet Inspector",
+      "home_floor": "floor_25",
+      "team": "openclaw",
+      "role": "Inspects sealed sandbox packets between floors; observation only.",
+      "sandbox_only": true, "execution_enabled": false, "paper_only": true,
+      "order_permission": false, "practice_order_permission": false, "live_order_permission": false,
+      "provider_access": false, "openclaw_real_tool_access": false, "autonomous_dispatch_permission": false
+    },
+    {
+      "id": "air_llm_model_scout",
+      "name": "AIR LLM Model Scout",
+      "home_floor": "floor_13",
+      "team": "air_llm",
+      "role": "Surveys candidate AIR LLM models from the bridge; no provider calls.",
+      "sandbox_only": true, "execution_enabled": false, "paper_only": true,
+      "order_permission": false, "practice_order_permission": false, "live_order_permission": false,
+      "provider_access": false, "openclaw_real_tool_access": false, "autonomous_dispatch_permission": false
+    },
+    {
+      "id": "local_model_liaison",
+      "name": "Local Model Liaison",
+      "home_floor": "floor_12",
+      "team": "air_llm",
+      "role": "Coordinates with the local Ollama gateway; read-only.",
+      "sandbox_only": true, "execution_enabled": false, "paper_only": true,
+      "order_permission": false, "practice_order_permission": false, "live_order_permission": false,
+      "provider_access": false, "openclaw_real_tool_access": false, "autonomous_dispatch_permission": false
+    },
+    {
+      "id": "kernel_context_courier",
+      "name": "Kernel Context Courier",
+      "home_floor": "floor_53",
+      "team": "kernel",
+      "role": "Carries sealed context summaries to the Penthouse Kernel; sandbox-only.",
+      "sandbox_only": true, "execution_enabled": false, "paper_only": true,
+      "order_permission": false, "practice_order_permission": false, "live_order_permission": false,
+      "provider_access": false, "openclaw_real_tool_access": false, "autonomous_dispatch_permission": false
+    },
+    {
+      "id": "dashboard_animator",
+      "name": "Dashboard Animator",
+      "home_floor": "floor_53",
+      "team": "tower",
+      "role": "Drives visual cockpit animations; pure UI worker.",
+      "sandbox_only": true, "execution_enabled": false, "paper_only": true,
+      "order_permission": false, "practice_order_permission": false, "live_order_permission": false,
+      "provider_access": false, "openclaw_real_tool_access": false, "autonomous_dispatch_permission": false
+    }
+  ],
+  "locks": {
+    "live_trading_enabled": false,
+    "order_execution_enabled": false,
+    "practice_order_execution_enabled": false,
+    "worker_execution_enabled": false,
+    "provider_execution_enabled": false,
+    "external_provider_execution_enabled": false,
+    "openclaw_execution_enabled": false,
+    "openclaw_real_tool_execution_enabled": false,
+    "autonomous_dispatch_enabled": false,
+    "live_dispatch_enabled": false,
+    "direct_provider_access": false
+  }
+}

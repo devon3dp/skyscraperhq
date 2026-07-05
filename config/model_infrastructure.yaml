@@ -1,0 +1,22 @@
+model_infrastructure:
+  version: 1.1
+  principle: Models are temporary tenants. The tower owns the infrastructure.
+  hardwire_providers: false
+  tower_boot_requires_models: false
+
+floors:
+  coding_request_origin: floor_05
+  air_llm_operations: floor_23
+  model_routing_exchange: floor_24
+  local_model_operations: floor_27
+
+routing:
+  direct_provider_access_from_departments: false
+  all_model_requests_route_through: floor_24
+  packets_are_sealed: true
+
+lifts:
+  floor_05_to_floor_24: service_lift
+  floor_24_to_floor_23: model_lift
+  floor_24_to_floor_27: model_lift
+  floor_24_to_roof: model_lift

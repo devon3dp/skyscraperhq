@@ -1,0 +1,34 @@
+{
+  "room_id": "mockup_space",
+  "name": "Mock-Up Workshop",
+  "category": "workshop",
+  "purpose": "This room is for creating physical models of designs.",
+  "concierge_blurb": "Plasticine and wooden blocks arranged into miniature prototypes.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 4.0,
+    "offset_z": 8.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "bench",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Mock-Up",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 0
+  },
+  "floor": "floor_49"
+}

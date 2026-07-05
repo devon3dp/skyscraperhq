@@ -1,0 +1,34 @@
+{
+  "room_id": "suite_senior",
+  "name": "Senior Suite",
+  "category": "accommodation",
+  "purpose": "Provides a comfortable stay for senior workers.",
+  "concierge_blurb": "Experience the comfort of our luxurious suites designed for distinguished guests.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -8.0,
+    "offset_z": 2.5,
+    "footprint_m": [
+      15,
+      7
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "chair_set",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Senior Suite",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_54"
+}

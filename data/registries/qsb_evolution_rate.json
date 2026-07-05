@@ -1,0 +1,46 @@
+{
+  "ok": true,
+  "kind": "qsb_evolution_rate",
+  "generated_ts": "2026-06-15T15:50:47.431864Z",
+  "today": "2026-06-15",
+  "yesterday": "2026-06-14",
+  "event_total_today": 3287,
+  "event_total_yesterday": 2371,
+  "growth_pct": 38.63348797975538,
+  "per_stream_today": {
+    "qsb_f47_team_records.jsonl": 2820,
+    "qsb_tower_activity_tail.jsonl": 187,
+    "qsb_floor44_master_ledger.jsonl": 0,
+    "qsb_cohort_training_runs.jsonl": 0,
+    "qsb_market_news_feed.jsonl": 0,
+    "qsb_arb_candidates.jsonl": 0,
+    "qsb_provider_spend_ledger.jsonl": 280,
+    "qsb_floor27_terminal_transcript.jsonl": 0,
+    "qsb_floor60_lse_paper_ledger.jsonl": 0,
+    "qsb_floor43_alpaca_paper_orders.jsonl": 0
+  },
+  "per_stream_yesterday": {
+    "qsb_f47_team_records.jsonl": 2095,
+    "qsb_tower_activity_tail.jsonl": 72,
+    "qsb_floor44_master_ledger.jsonl": 0,
+    "qsb_cohort_training_runs.jsonl": 0,
+    "qsb_market_news_feed.jsonl": 0,
+    "qsb_arb_candidates.jsonl": 0,
+    "qsb_provider_spend_ledger.jsonl": 204,
+    "qsb_floor27_terminal_transcript.jsonl": 0,
+    "qsb_floor60_lse_paper_ledger.jsonl": 0,
+    "qsb_floor43_alpaca_paper_orders.jsonl": 0
+  },
+  "composite_velocity_index": 136.96,
+  "tower_volume": {
+    "floors": 169,
+    "workers": 7724
+  },
+  "velocity_categories": {
+    "records_per_hour": 117.5,
+    "activity_events_per_hour": 7.79,
+    "trades_per_hour": 0.0,
+    "news_headlines_per_hour": 0.0
+  },
+  "advisory_only": true
+}

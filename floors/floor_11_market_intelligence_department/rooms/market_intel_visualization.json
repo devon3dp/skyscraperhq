@@ -1,0 +1,34 @@
+{
+  "room_id": "market_intel_visualization",
+  "name": "Visualization Room",
+  "category": "workshop",
+  "purpose": "This room is for creating visual representations of market data.",
+  "concierge_blurb": "A space where data comes to life through visuals.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 6.5,
+    "offset_z": -1,
+    "footprint_m": [
+      8,
+      4
+    ],
+    "height_m": 2
+  },
+  "render": {
+    "primary_prop": "projection_screen",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Visualization Room",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/data_visualizations.jsonl",
+    "display": "big_number",
+    "refresh_seconds": 120
+  },
+  "floor": "floor_11"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "train_L2_write_read",
+  "title": "Level 2 — Write a file then read it back",
+  "stages": [
+    {
+      "kind": "write",
+      "prompt": "Use wren_write_file with path='data/wren_sandbox/L2_note.md' and content='# Wren L2 Note\\n- I wrote this myself\\n- Next stage will read it back'. Nothing else. STAGE_OUT: <tool result verbatim>."
+    },
+    {
+      "kind": "read",
+      "prompt": "Use wren_read_file with path='data/wren_sandbox/L2_note.md'. STAGE_OUT: the exact content you got back, prefixed with 'read:'."
+    }
+  ]
+}

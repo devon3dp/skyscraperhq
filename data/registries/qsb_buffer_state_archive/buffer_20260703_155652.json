@@ -1,0 +1,219 @@
+{
+  "ts": "2026-07-02T23:00:22.502628Z",
+  "daemons": {
+    "dashboard": false,
+    "lumen": false,
+    "vision": false,
+    "heartbeat": false,
+    "cloudflared": false,
+    "qualify": false,
+    "godot": false
+  },
+  "adb_device": "",
+  "cloudflared_url": "",
+  "highlights": {
+    "alive_count": 0,
+    "down": [
+      "dashboard",
+      "lumen",
+      "vision",
+      "heartbeat",
+      "cloudflared",
+      "qualify",
+      "godot"
+    ],
+    "f47_chat_tail_count": 20,
+    "cli_chat_tail_count": 20,
+    "unsigned_proposals": 60,
+    "diary_last": "- 22:03 UTC (2026-07-02) \u2014 PITSTOP `session_2026-07-02_evening_dashboards_agents_boardroom`. Focus: hq_wren_boardroom_shipped_agents_wired. Resume from data/registries/pitstops/pitstop_20260702T220331824631Z_session_2026-07-02_evening_dashboards_agents_boardroom.md.",
+    "last_decision": {
+      "ts": "2026-07-02T23:00:16Z",
+      "kind": "hw_sample",
+      "operator": "hw_benchmark"
+    }
+  },
+  "f47_chat_tail": [
+    {
+      "ts": "2026-06-21T10:20:44Z",
+      "you": "will your floor still have a 3d interior that i can enter and see you and your floor and your team members ?"
+    },
+    {
+      "ts": "2026-06-21T10:29:08Z",
+      "you": "hows it going"
+    },
+    {
+      "ts": "2026-06-21T10:30:15Z",
+      "you": "but i thought you was fitting out your floor ?"
+    },
+    {
+      "ts": "2026-06-21T10:51:59Z",
+      "you": "can u smoke test yourself ?"
+    },
+    {
+      "ts": "2026-06-21T12:22:35Z",
+      "you": "hows iyt going wren"
+    },
+    {
+      "ts": "2026-06-21T12:22:59Z",
+      "you": "did you fit out your floor"
+    },
+    {
+      "ts": "2026-06-21T12:23:35Z",
+      "you": "ok can you now improve the reception ?"
+    },
+    {
+      "ts": "2026-06-21T13:07:00Z",
+      "you": "yes is it ready for me to see"
+    },
+    {
+      "ts": "2026-06-21T13:07:45Z",
+      "you": "is the interior of the reception ready for e to see inside ?"
+    },
+    {
+      "ts": "2026-06-21T13:08:34Z",
+      "you": "no fo"
+    },
+    {
+      "ts": "2026-06-21T13:08:54Z",
+      "you": "F0 stands for floor 0"
+    },
+    {
+      "ts": "2026-06-21T13:09:46Z",
+      "you": "tell me what you can and cant do in your software"
+    },
+    {
+      "ts": "2026-06-21T13:10:13Z",
+      "you": "are you aware you live in the skyscraper ?"
+    },
+    {
+      "ts": "2026-06-21T13:10:44Z",
+      "you": "do you have a team ?"
+    },
+    {
+      "ts": "2026-06-21T13:12:03Z",
+      "you": "what other members do you need on your team to help manage the skyscraper backend and front end and understand all the workers ?"
+    },
+    {
+      "ts": "2026-06-21T13:12:44Z",
+      "you": "ok what skills do you need and tools ?"
+    },
+    {
+      "ts": "2026-06-21T13:13:30Z",
+      "you": "how can i improve your understanding of the skyscraperhq ?"
+    },
+    {
+      "ts": "2026-06-30T15:22:21Z",
+      "you": "hello"
+    },
+    {
+      "ts": "2026-06-30T15:22:32Z",
+      "you": "its ross how are you"
+    },
+    {
+      "ts": "2026-06-30T15:24:43Z",
+      "you": "can you get the team to check why  qsb tower v1.6 is not working right prove your work"
+    }
+  ],
+  "cli_chat_tail": [
+    {
+      "ts": "2026-07-02T21:56:27.850Z",
+      "role": "user",
+      "text": "[tool_result:=== send substantive Q to ThinkPad ===\n{\"ack\": true, \"node\": \"thinkpad\", \"ts\": \"2026-07-02T21:56:27.547663+00:00\"}\n\n=== TP round-trip proof ===\nsent at: 2026-07-02T21:56:27Z (1783029387s "
+    },
+    {
+      "ts": "2026-07-02T21:57:07.303Z",
+      "role": "assistant",
+      "text": "**Proof \u2014 ThinkPad round-trip:**\n\n```\nSent 21:56:27Z  \u2192 HQ POST /msg with 2283-char question about our 6 agents (Wren, Sage, Forge, HQ dash, Wren dash, Boardroom Hub)\n                  4 explicit Q's "
+    },
+    {
+      "ts": "2026-07-02T21:57:11.777Z",
+      "role": "assistant",
+      "text": "[tool_use:Bash]"
+    },
+    {
+      "ts": "2026-07-02T21:57:21.416Z",
+      "role": "user",
+      "text": "[tool_result:ross     3560961  1.2  0.0 115564 27800 ?        Ss   22:57   0:00 python3 tools/qsb_boardroom_hub.py --port 8852\n\n1\navatar keys\n\n-rw-rw-r-- 1 ross ross 538K Jul  2 22:57 /tmp/dashscreens"
+    },
+    {
+      "ts": "2026-07-02T21:58:05.495Z",
+      "role": "assistant",
+      "text": "[tool_use:Read]"
+    },
+    {
+      "ts": "2026-07-02T21:58:05.660Z",
+      "role": "user",
+      "text": "[tool_result:]"
+    },
+    {
+      "ts": "2026-07-02T21:58:49.384Z",
+      "role": "assistant",
+      "text": "Proving I know Forge + Sage in my own words + asking external Claude for a second read.\n\n**What I know about Forge + Sage** (my own read from the code):\n\n```\nFORGE\n  File:     tools/qsb_wren_team.py  "
+    },
+    {
+      "ts": "2026-07-02T21:58:55.316Z",
+      "role": "assistant",
+      "text": "[tool_use:Bash]"
+    },
+    {
+      "ts": "2026-07-02T21:59:02.967Z",
+      "role": "user",
+      "text": "[tool_result:=== ask external Claude (via qsb_consult_external.py \u2014 advisory, capped /day) ===\nusage: qsb_consult_external.py [-h] [--provider {openai,deepseek}]\n                               [--mode"
+    },
+    {
+      "ts": "2026-07-02T21:59:21.465Z",
+      "role": "assistant",
+      "text": "[tool_use:Bash]"
+    },
+    {
+      "ts": "2026-07-02T21:59:21.544Z",
+      "role": "user",
+      "text": "[tool_result:usage: qsb_consult_external.py [-h] [--provider {openai,deepseek}]\n                               [--model MODEL] [--prompt PROMPT]\n                               [--max-tokens MAX_TOKENS"
+    },
+    {
+      "ts": "2026-07-02T21:59:43.539Z",
+      "role": "assistant",
+      "text": "[tool_use:Bash]"
+    },
+    {
+      "ts": "2026-07-02T21:59:43.606Z",
+      "role": "user",
+      "text": "[tool_result:                               [--model MODEL] [--prompt PROMPT]\n                               [--max-tokens MAX_TOKENS] [--reason REASON]\n                               [--status]\n\nqsb_"
+    },
+    {
+      "ts": "2026-07-02T22:00:07.505Z",
+      "role": "assistant",
+      "text": "[tool_use:Bash]"
+    },
+    {
+      "ts": "2026-07-02T22:00:07.630Z",
+      "role": "user",
+      "text": "[tool_result:  authorization:     qsb_provider_consultation_authorization.json  (advisory consultation only \u2014 Wren-initiated, synchronous, single round-trip)\n  providers:         ['openai', 'deepseek'"
+    },
+    {
+      "ts": "2026-07-02T22:00:30.760Z",
+      "role": "assistant",
+      "text": "[tool_use:Bash]"
+    },
+    {
+      "ts": "2026-07-02T22:00:41.103Z",
+      "role": "user",
+      "text": "[tool_result:308:    ap = argparse.ArgumentParser(description=__doc__.split(\"\\n\")[0])\n309:    ap.add_argument(\"--provider\", choices=[\"openai\", \"deepseek\"])\n310:    ap.add_argument(\"--model\", help=\"e.g"
+    },
+    {
+      "ts": "2026-07-02T22:01:11.029Z",
+      "role": "assistant",
+      "text": "External consult worked (openai gpt-4o-mini, $0.00 spent) \u2014 model drifted off-topic into floor summaries but did mention \"Sage audits team\" at the end, so it registered the question.\n\nRunning pitstop "
+    },
+    {
+      "ts": "2026-07-02T22:01:58.962Z",
+      "role": "assistant",
+      "text": "[tool_use:Bash]"
+    },
+    {
+      "ts": "2026-07-02T22:02:14.831Z",
+      "role": "user",
+      "text": "[tool_result:    return os.stat(self, follow_symlinks=follow_symlinks)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nOSError: [Errno 36] File name too long: 'SHIPPED THIS SESSION (chronolo"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "room_id": "coding_seminar_room",
+  "name": "Coding Seminar Room",
+  "category": "seating",
+  "purpose": "A room for team meetings and training sessions.",
+  "concierge_blurb": "Tables and chairs arranged in a circle, with screens on the walls for presentations.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_right",
+    "offset_x": 8.0,
+    "offset_z": -4.5,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 2.3
+  },
+  "render": {
+    "primary_prop": "seating_set",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Seminar Room",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": null,
+    "refresh_seconds": 600
+  },
+  "floor": "floor_5"
+}

@@ -1,0 +1,2889 @@
+{
+  "ok": true,
+  "kind": "qsb_inter_floor_packet_routes_v1",
+  "generated_ts": "2026-06-11T08:26:41.160821Z",
+  "lift_required": true,
+  "sealed_packet_required": true,
+  "no_direct_floor_to_floor": true,
+  "routes": {
+    "1": {
+      "produces_to": [
+        19,
+        25,
+        34
+      ],
+      "consumes_from": [
+        34,
+        46,
+        52
+      ],
+      "packet_kinds": [
+        "ops_status",
+        "schedule",
+        "priority"
+      ]
+    },
+    "2": {
+      "produces_to": [
+        3,
+        4,
+        47
+      ],
+      "consumes_from": [
+        1,
+        3,
+        16
+      ],
+      "packet_kinds": [
+        "memory_snapshot",
+        "recall",
+        "context_pack"
+      ]
+    },
+    "3": {
+      "produces_to": [
+        4,
+        11,
+        48
+      ],
+      "consumes_from": [
+        11,
+        16,
+        26
+      ],
+      "packet_kinds": [
+        "finding",
+        "synthesis",
+        "citation"
+      ]
+    },
+    "4": {
+      "produces_to": [
+        2,
+        3,
+        47
+      ],
+      "consumes_from": [
+        2,
+        3,
+        16
+      ],
+      "packet_kinds": [
+        "knowledge_card",
+        "glossary",
+        "crosslink"
+      ]
+    },
+    "5": {
+      "produces_to": [
+        6,
+        8,
+        39
+      ],
+      "consumes_from": [
+        7,
+        8,
+        40
+      ],
+      "packet_kinds": [
+        "code_change",
+        "review",
+        "test_assignment"
+      ]
+    },
+    "6": {
+      "produces_to": [
+        5,
+        35,
+        52
+      ],
+      "consumes_from": [
+        5,
+        7,
+        40
+      ],
+      "packet_kinds": [
+        "build_artifact",
+        "infra_request"
+      ]
+    },
+    "7": {
+      "produces_to": [
+        5,
+        6,
+        36
+      ],
+      "consumes_from": [
+        3,
+        48
+      ],
+      "packet_kinds": [
+        "blueprint",
+        "adr",
+        "spec"
+      ]
+    },
+    "8": {
+      "produces_to": [
+        5,
+        9,
+        38
+      ],
+      "consumes_from": [
+        5,
+        37,
+        38
+      ],
+      "packet_kinds": [
+        "test_result",
+        "smoke_outcome",
+        "flake_report"
+      ]
+    },
+    "9": {
+      "produces_to": [
+        8,
+        31,
+        32
+      ],
+      "consumes_from": [
+        8,
+        31
+      ],
+      "packet_kinds": [
+        "qa_signoff",
+        "triage"
+      ]
+    },
+    "10": {
+      "produces_to": [
+        11,
+        41,
+        42
+      ],
+      "consumes_from": [
+        11,
+        12,
+        37
+      ],
+      "packet_kinds": [
+        "sim_signal",
+        "backtest"
+      ]
+    },
+    "11": {
+      "produces_to": [
+        10,
+        41,
+        42,
+        43
+      ],
+      "consumes_from": [
+        2,
+        3,
+        34
+      ],
+      "packet_kinds": [
+        "market_pulse",
+        "sentiment",
+        "calendar"
+      ]
+    },
+    "12": {
+      "produces_to": [
+        41,
+        42,
+        43,
+        44
+      ],
+      "consumes_from": [
+        11,
+        34
+      ],
+      "packet_kinds": [
+        "risk_alert",
+        "exposure_check"
+      ]
+    },
+    "13": {
+      "produces_to": [
+        14,
+        17,
+        34
+      ],
+      "consumes_from": [
+        16
+      ],
+      "packet_kinds": [
+        "frame",
+        "perception"
+      ]
+    },
+    "14": {
+      "produces_to": [
+        17,
+        47
+      ],
+      "consumes_from": [
+        13,
+        15,
+        16
+      ],
+      "packet_kinds": [
+        "media_asset",
+        "clip"
+      ]
+    },
+    "15": {
+      "produces_to": [
+        47,
+        14
+      ],
+      "consumes_from": [
+        14,
+        16
+      ],
+      "packet_kinds": [
+        "voice_clip",
+        "narration",
+        "transcript"
+      ]
+    },
+    "16": {
+      "produces_to": [
+        2,
+        4,
+        14,
+        15
+      ],
+      "consumes_from": [
+        14
+      ],
+      "packet_kinds": [
+        "document",
+        "section",
+        "metadata"
+      ]
+    },
+    "17": {
+      "produces_to": [
+        47,
+        14,
+        34
+      ],
+      "consumes_from": [
+        44,
+        13,
+        14
+      ],
+      "packet_kinds": [
+        "design_asset",
+        "icon",
+        "color_token",
+        "dashboard_render"
+      ]
+    },
+    "18": {
+      "produces_to": [
+        19,
+        35,
+        33
+      ],
+      "consumes_from": [
+        34,
+        19
+      ],
+      "packet_kinds": [
+        "automation_run",
+        "script_output"
+      ]
+    },
+    "19": {
+      "produces_to": [
+        1,
+        18,
+        25
+      ],
+      "consumes_from": [
+        1,
+        25
+      ],
+      "packet_kinds": [
+        "workflow_state",
+        "handoff"
+      ]
+    },
+    "20": {
+      "produces_to": [
+        21,
+        22,
+        24
+      ],
+      "consumes_from": [
+        22,
+        30
+      ],
+      "packet_kinds": [
+        "api_call_log",
+        "endpoint_health"
+      ]
+    },
+    "21": {
+      "produces_to": [
+        20,
+        22,
+        23
+      ],
+      "consumes_from": [
+        20,
+        23
+      ],
+      "packet_kinds": [
+        "schema_map",
+        "adapter_lookup"
+      ]
+    },
+    "22": {
+      "produces_to": [
+        20,
+        21,
+        23,
+        24
+      ],
+      "consumes_from": [
+        20,
+        21
+      ],
+      "packet_kinds": [
+        "integration_event",
+        "handshake"
+      ]
+    },
+    "23": {
+      "produces_to": [
+        24,
+        27,
+        47
+      ],
+      "consumes_from": [
+        20,
+        24
+      ],
+      "packet_kinds": [
+        "llm_call_log",
+        "provider_health",
+        "tenant_brief"
+      ]
+    },
+    "24": {
+      "produces_to": [
+        23,
+        25,
+        27
+      ],
+      "consumes_from": [
+        26,
+        30
+      ],
+      "packet_kinds": [
+        "routing_decision",
+        "fallback"
+      ]
+    },
+    "25": {
+      "produces_to": [
+        1,
+        19,
+        45
+      ],
+      "consumes_from": [
+        19,
+        45,
+        30
+      ],
+      "packet_kinds": [
+        "agent_dispatch",
+        "recruit_request"
+      ]
+    },
+    "26": {
+      "produces_to": [
+        3,
+        24,
+        27
+      ],
+      "consumes_from": [
+        24,
+        27,
+        37
+      ],
+      "packet_kinds": [
+        "eval_score",
+        "benchmark_result"
+      ]
+    },
+    "27": {
+      "produces_to": [
+        23,
+        26
+      ],
+      "consumes_from": [
+        23,
+        26
+      ],
+      "packet_kinds": [
+        "local_inference",
+        "model_card"
+      ]
+    },
+    "28": {
+      "produces_to": [
+        29,
+        30,
+        31,
+        34
+      ],
+      "consumes_from": [
+        30,
+        31
+      ],
+      "packet_kinds": [
+        "security_alert",
+        "vault_audit"
+      ]
+    },
+    "29": {
+      "produces_to": [
+        28,
+        34,
+        52
+      ],
+      "consumes_from": [
+        28,
+        34
+      ],
+      "packet_kinds": [
+        "guardian_alert",
+        "perimeter"
+      ]
+    },
+    "30": {
+      "produces_to": [
+        20,
+        28,
+        31,
+        50
+      ],
+      "consumes_from": [
+        "ALL"
+      ],
+      "packet_kinds": [
+        "permission_grant",
+        "gate_audit",
+        "sealed_packet"
+      ]
+    },
+    "31": {
+      "produces_to": [
+        9,
+        30,
+        32,
+        44,
+        50
+      ],
+      "consumes_from": [
+        28,
+        32,
+        44
+      ],
+      "packet_kinds": [
+        "audit_finding",
+        "reconcile"
+      ]
+    },
+    "32": {
+      "produces_to": [
+        28,
+        30,
+        31,
+        50
+      ],
+      "consumes_from": [
+        28,
+        31
+      ],
+      "packet_kinds": [
+        "compliance_check",
+        "retention"
+      ]
+    },
+    "33": {
+      "produces_to": [
+        18,
+        34,
+        35,
+        52
+      ],
+      "consumes_from": [
+        34,
+        35
+      ],
+      "packet_kinds": [
+        "diagnostic",
+        "root_cause"
+      ]
+    },
+    "34": {
+      "produces_to": [
+        "ALL"
+      ],
+      "consumes_from": [
+        "ALL"
+      ],
+      "packet_kinds": [
+        "sentinel_status",
+        "alert",
+        "heartbeat"
+      ]
+    },
+    "35": {
+      "produces_to": [
+        6,
+        33,
+        52
+      ],
+      "consumes_from": [
+        6,
+        33,
+        52
+      ],
+      "packet_kinds": [
+        "infra_event",
+        "outage"
+      ]
+    },
+    "36": {
+      "produces_to": [
+        7,
+        48,
+        51,
+        53
+      ],
+      "consumes_from": [
+        48,
+        51
+      ],
+      "packet_kinds": [
+        "expansion_plan",
+        "capacity"
+      ]
+    },
+    "37": {
+      "produces_to": [
+        10,
+        26,
+        38,
+        39
+      ],
+      "consumes_from": [
+        38,
+        39
+      ],
+      "packet_kinds": [
+        "sim_run",
+        "experiment_log"
+      ]
+    },
+    "38": {
+      "produces_to": [
+        8,
+        37,
+        40
+      ],
+      "consumes_from": [
+        8,
+        37
+      ],
+      "packet_kinds": [
+        "sandbox_run",
+        "isolation_check"
+      ]
+    },
+    "39": {
+      "produces_to": [
+        5,
+        37,
+        40
+      ],
+      "consumes_from": [
+        5,
+        37,
+        40
+      ],
+      "packet_kinds": [
+        "dev_spike",
+        "prototype_iter"
+      ]
+    },
+    "40": {
+      "produces_to": [
+        5,
+        6,
+        39
+      ],
+      "consumes_from": [
+        39
+      ],
+      "packet_kinds": [
+        "prototype_demo",
+        "iteration"
+      ]
+    },
+    "41": {
+      "produces_to": [
+        44,
+        47,
+        12
+      ],
+      "consumes_from": [
+        11,
+        12,
+        34
+      ],
+      "packet_kinds": [
+        "trade_settlement",
+        "pnl_row"
+      ]
+    },
+    "42": {
+      "produces_to": [
+        44,
+        47,
+        12
+      ],
+      "consumes_from": [
+        11,
+        12,
+        34
+      ],
+      "packet_kinds": [
+        "trade_settlement",
+        "pnl_row"
+      ]
+    },
+    "43": {
+      "produces_to": [
+        44,
+        47,
+        12
+      ],
+      "consumes_from": [
+        11,
+        12,
+        34
+      ],
+      "packet_kinds": [
+        "trade_settlement",
+        "pnl_row"
+      ]
+    },
+    "44": {
+      "produces_to": [
+        17,
+        31,
+        47,
+        50
+      ],
+      "consumes_from": [
+        41,
+        42,
+        43
+      ],
+      "packet_kinds": [
+        "book_rollup",
+        "daily_close",
+        "tax_row"
+      ]
+    },
+    "45": {
+      "produces_to": [
+        25,
+        "ALL"
+      ],
+      "consumes_from": [
+        25,
+        1,
+        47
+      ],
+      "packet_kinds": [
+        "recruit_offer",
+        "onboard_complete"
+      ]
+    },
+    "46": {
+      "produces_to": [
+        47,
+        51
+      ],
+      "consumes_from": [
+        47,
+        51
+      ],
+      "packet_kinds": [
+        "exec_brief",
+        "calendar"
+      ]
+    },
+    "47": {
+      "produces_to": [
+        "ALL"
+      ],
+      "consumes_from": [
+        "ALL"
+      ],
+      "packet_kinds": [
+        "wren_brief",
+        "helm_advisory",
+        "auger_advisory",
+        "daily_journal"
+      ]
+    },
+    "48": {
+      "produces_to": [
+        36,
+        47,
+        51,
+        53
+      ],
+      "consumes_from": [
+        3,
+        36,
+        47
+      ],
+      "packet_kinds": [
+        "strategy",
+        "foresight"
+      ]
+    },
+    "49": {
+      "produces_to": [
+        35,
+        51,
+        52,
+        53
+      ],
+      "consumes_from": [
+        35,
+        52
+      ],
+      "packet_kinds": [
+        "resource_request",
+        "allocation"
+      ]
+    },
+    "50": {
+      "produces_to": [
+        30,
+        31,
+        32,
+        47,
+        51
+      ],
+      "consumes_from": [
+        30,
+        31,
+        32
+      ],
+      "packet_kinds": [
+        "governance_decision",
+        "policy"
+      ]
+    },
+    "51": {
+      "produces_to": [
+        47,
+        50,
+        53
+      ],
+      "consumes_from": [
+        46,
+        47,
+        48,
+        50
+      ],
+      "packet_kinds": [
+        "council_decision",
+        "vote_outcome"
+      ]
+    },
+    "52": {
+      "produces_to": [
+        35,
+        49,
+        53
+      ],
+      "consumes_from": [
+        33,
+        34,
+        35,
+        49
+      ],
+      "packet_kinds": [
+        "infra_command",
+        "capacity_command"
+      ]
+    },
+    "53": {
+      "produces_to": [
+        47,
+        51
+      ],
+      "consumes_from": [
+        47,
+        48,
+        49,
+        50,
+        51,
+        52
+      ],
+      "packet_kinds": [
+        "tower_command",
+        "daily_directive"
+      ]
+    },
+    "54": {
+      "produces_to": [
+        47,
+        44
+      ],
+      "consumes_from": [
+        30,
+        47,
+        49
+      ],
+      "packet_kinds": [
+        "occupancy_report",
+        "consumption_cost"
+      ]
+    },
+    "55": {
+      "produces_to": [
+        47,
+        44
+      ],
+      "consumes_from": [
+        30,
+        47,
+        49
+      ],
+      "packet_kinds": [
+        "occupancy_report",
+        "consumption_cost"
+      ]
+    },
+    "56": {
+      "produces_to": [
+        47,
+        44
+      ],
+      "consumes_from": [
+        30,
+        47,
+        49
+      ],
+      "packet_kinds": [
+        "occupancy_report",
+        "consumption_cost"
+      ]
+    },
+    "57": {
+      "produces_to": [
+        47,
+        44
+      ],
+      "consumes_from": [
+        30,
+        47,
+        49
+      ],
+      "packet_kinds": [
+        "occupancy_report",
+        "consumption_cost"
+      ]
+    },
+    "58": {
+      "produces_to": [
+        47,
+        44
+      ],
+      "consumes_from": [
+        30,
+        47,
+        49
+      ],
+      "packet_kinds": [
+        "occupancy_report",
+        "consumption_cost"
+      ]
+    },
+    "59": {
+      "produces_to": [
+        44,
+        47
+      ],
+      "consumes_from": [
+        30,
+        44,
+        49,
+        54
+      ],
+      "packet_kinds": [
+        "sales_revenue",
+        "inventory_state"
+      ]
+    },
+    "60": {
+      "produces_to": [
+        44,
+        47,
+        12,
+        11
+      ],
+      "consumes_from": [
+        11,
+        12,
+        34
+      ],
+      "packet_kinds": [
+        "trade_settlement",
+        "pnl_row"
+      ]
+    },
+    "61": {
+      "produces_to": [
+        44,
+        47,
+        17,
+        11
+      ],
+      "consumes_from": [
+        11,
+        17,
+        25,
+        30
+      ],
+      "packet_kinds": [
+        "order_received",
+        "revenue_row",
+        "marketing_signal"
+      ]
+    },
+    "62": {
+      "produces_to": [
+        44,
+        47,
+        17,
+        11
+      ],
+      "consumes_from": [
+        11,
+        17,
+        25,
+        30
+      ],
+      "packet_kinds": [
+        "order_received",
+        "revenue_row",
+        "marketing_signal"
+      ]
+    },
+    "63": {
+      "produces_to": [
+        44,
+        47,
+        17,
+        11
+      ],
+      "consumes_from": [
+        11,
+        17,
+        25,
+        30
+      ],
+      "packet_kinds": [
+        "order_received",
+        "revenue_row",
+        "marketing_signal"
+      ]
+    },
+    "64": {
+      "produces_to": [
+        44,
+        47,
+        17,
+        11
+      ],
+      "consumes_from": [
+        11,
+        17,
+        25,
+        30
+      ],
+      "packet_kinds": [
+        "order_received",
+        "revenue_row",
+        "marketing_signal"
+      ]
+    },
+    "65": {
+      "produces_to": [
+        44,
+        47,
+        17,
+        11
+      ],
+      "consumes_from": [
+        11,
+        17,
+        25,
+        30
+      ],
+      "packet_kinds": [
+        "order_received",
+        "revenue_row",
+        "marketing_signal"
+      ]
+    },
+    "154": {
+      "produces_to": [
+        44,
+        47,
+        17,
+        11
+      ],
+      "consumes_from": [
+        11,
+        17,
+        25,
+        30
+      ],
+      "packet_kinds": [
+        "order_received",
+        "revenue_row",
+        "marketing_signal"
+      ]
+    },
+    "155": {
+      "produces_to": [
+        44,
+        47,
+        17,
+        11
+      ],
+      "consumes_from": [
+        11,
+        17,
+        25,
+        30
+      ],
+      "packet_kinds": [
+        "order_received",
+        "revenue_row",
+        "marketing_signal"
+      ]
+    },
+    "156": {
+      "produces_to": [
+        44,
+        47,
+        17,
+        11
+      ],
+      "consumes_from": [
+        11,
+        17,
+        25,
+        30
+      ],
+      "packet_kinds": [
+        "order_received",
+        "revenue_row",
+        "marketing_signal"
+      ]
+    },
+    "157": {
+      "produces_to": [
+        44,
+        47,
+        17,
+        11
+      ],
+      "consumes_from": [
+        11,
+        17,
+        25,
+        30
+      ],
+      "packet_kinds": [
+        "order_received",
+        "revenue_row",
+        "marketing_signal"
+      ]
+    },
+    "158": {
+      "produces_to": [
+        44,
+        47,
+        17,
+        11
+      ],
+      "consumes_from": [
+        11,
+        17,
+        25,
+        30
+      ],
+      "packet_kinds": [
+        "order_received",
+        "revenue_row",
+        "marketing_signal"
+      ]
+    },
+    "159": {
+      "produces_to": [
+        44,
+        47,
+        17,
+        11
+      ],
+      "consumes_from": [
+        11,
+        17,
+        25,
+        30
+      ],
+      "packet_kinds": [
+        "order_received",
+        "revenue_row",
+        "marketing_signal"
+      ]
+    },
+    "160": {
+      "produces_to": [
+        44,
+        47,
+        17,
+        11
+      ],
+      "consumes_from": [
+        11,
+        17,
+        25,
+        30
+      ],
+      "packet_kinds": [
+        "order_received",
+        "revenue_row",
+        "marketing_signal"
+      ]
+    },
+    "161": {
+      "produces_to": [
+        44,
+        47,
+        17,
+        11
+      ],
+      "consumes_from": [
+        11,
+        17,
+        25,
+        30
+      ],
+      "packet_kinds": [
+        "order_received",
+        "revenue_row",
+        "marketing_signal"
+      ]
+    },
+    "162": {
+      "produces_to": [
+        44,
+        47,
+        17,
+        11
+      ],
+      "consumes_from": [
+        11,
+        17,
+        25,
+        30
+      ],
+      "packet_kinds": [
+        "order_received",
+        "revenue_row",
+        "marketing_signal"
+      ]
+    },
+    "163": {
+      "produces_to": [
+        44,
+        47,
+        17,
+        11
+      ],
+      "consumes_from": [
+        11,
+        17,
+        25,
+        30
+      ],
+      "packet_kinds": [
+        "order_received",
+        "revenue_row",
+        "marketing_signal"
+      ]
+    },
+    "66": {
+      "produces_to": [
+        17,
+        36,
+        47,
+        50
+      ],
+      "consumes_from": [
+        12,
+        36,
+        47
+      ],
+      "packet_kinds": [
+        "blueprint",
+        "interior_brief"
+      ]
+    },
+    "67": {
+      "produces_to": [
+        44,
+        47,
+        14,
+        17
+      ],
+      "consumes_from": [
+        1,
+        11,
+        17,
+        25,
+        30,
+        47
+      ],
+      "packet_kinds": [
+        "service_record",
+        "content_asset"
+      ]
+    },
+    "68": {
+      "produces_to": [
+        44,
+        47,
+        14,
+        17
+      ],
+      "consumes_from": [
+        1,
+        11,
+        17,
+        25,
+        30,
+        47
+      ],
+      "packet_kinds": [
+        "service_record",
+        "content_asset"
+      ]
+    },
+    "69": {
+      "produces_to": [
+        44,
+        47,
+        14,
+        17
+      ],
+      "consumes_from": [
+        1,
+        11,
+        17,
+        25,
+        30,
+        47
+      ],
+      "packet_kinds": [
+        "service_record",
+        "content_asset"
+      ]
+    },
+    "70": {
+      "produces_to": [
+        44,
+        47,
+        14,
+        17
+      ],
+      "consumes_from": [
+        1,
+        11,
+        17,
+        25,
+        30,
+        47
+      ],
+      "packet_kinds": [
+        "service_record",
+        "content_asset"
+      ]
+    },
+    "71": {
+      "produces_to": [
+        44,
+        47,
+        14,
+        17
+      ],
+      "consumes_from": [
+        1,
+        11,
+        17,
+        25,
+        30,
+        47
+      ],
+      "packet_kinds": [
+        "service_record",
+        "content_asset"
+      ]
+    },
+    "72": {
+      "produces_to": [
+        44,
+        47,
+        14,
+        17
+      ],
+      "consumes_from": [
+        1,
+        11,
+        17,
+        25,
+        30,
+        47
+      ],
+      "packet_kinds": [
+        "service_record",
+        "content_asset"
+      ]
+    },
+    "73": {
+      "produces_to": [
+        44,
+        47,
+        14,
+        17
+      ],
+      "consumes_from": [
+        1,
+        11,
+        17,
+        25,
+        30,
+        47
+      ],
+      "packet_kinds": [
+        "service_record",
+        "content_asset"
+      ]
+    },
+    "74": {
+      "produces_to": [
+        44,
+        47,
+        14,
+        17
+      ],
+      "consumes_from": [
+        1,
+        11,
+        17,
+        25,
+        30,
+        47
+      ],
+      "packet_kinds": [
+        "service_record",
+        "content_asset"
+      ]
+    },
+    "75": {
+      "produces_to": [
+        44,
+        47,
+        14,
+        17
+      ],
+      "consumes_from": [
+        1,
+        11,
+        17,
+        25,
+        30,
+        47
+      ],
+      "packet_kinds": [
+        "service_record",
+        "content_asset"
+      ]
+    },
+    "76": {
+      "produces_to": [
+        44,
+        47,
+        14,
+        17
+      ],
+      "consumes_from": [
+        1,
+        11,
+        17,
+        25,
+        30,
+        47
+      ],
+      "packet_kinds": [
+        "service_record",
+        "content_asset"
+      ]
+    },
+    "77": {
+      "produces_to": [
+        44,
+        47,
+        14,
+        17
+      ],
+      "consumes_from": [
+        1,
+        11,
+        17,
+        25,
+        30,
+        47
+      ],
+      "packet_kinds": [
+        "service_record",
+        "content_asset"
+      ]
+    },
+    "78": {
+      "produces_to": [
+        44,
+        47,
+        14,
+        17
+      ],
+      "consumes_from": [
+        1,
+        11,
+        17,
+        25,
+        30,
+        47
+      ],
+      "packet_kinds": [
+        "service_record",
+        "content_asset"
+      ]
+    },
+    "79": {
+      "produces_to": [
+        44,
+        47,
+        14,
+        17
+      ],
+      "consumes_from": [
+        1,
+        11,
+        17,
+        25,
+        30,
+        47
+      ],
+      "packet_kinds": [
+        "service_record",
+        "content_asset"
+      ]
+    },
+    "80": {
+      "produces_to": [
+        44,
+        47,
+        14,
+        17
+      ],
+      "consumes_from": [
+        1,
+        11,
+        17,
+        25,
+        30,
+        47
+      ],
+      "packet_kinds": [
+        "service_record",
+        "content_asset"
+      ]
+    },
+    "81": {
+      "produces_to": [
+        44,
+        47,
+        14,
+        17
+      ],
+      "consumes_from": [
+        1,
+        11,
+        17,
+        25,
+        30,
+        47
+      ],
+      "packet_kinds": [
+        "service_record",
+        "content_asset"
+      ]
+    },
+    "82": {
+      "produces_to": [
+        44,
+        47,
+        14,
+        17
+      ],
+      "consumes_from": [
+        1,
+        11,
+        17,
+        25,
+        30,
+        47
+      ],
+      "packet_kinds": [
+        "service_record",
+        "content_asset"
+      ]
+    },
+    "83": {
+      "produces_to": [
+        44,
+        47,
+        14,
+        17
+      ],
+      "consumes_from": [
+        1,
+        11,
+        17,
+        25,
+        30,
+        47
+      ],
+      "packet_kinds": [
+        "service_record",
+        "content_asset"
+      ]
+    },
+    "84": {
+      "produces_to": [
+        44,
+        47,
+        14,
+        17
+      ],
+      "consumes_from": [
+        1,
+        11,
+        17,
+        25,
+        30,
+        47
+      ],
+      "packet_kinds": [
+        "service_record",
+        "content_asset"
+      ]
+    },
+    "85": {
+      "produces_to": [
+        44,
+        47,
+        14,
+        17
+      ],
+      "consumes_from": [
+        1,
+        11,
+        17,
+        25,
+        30,
+        47
+      ],
+      "packet_kinds": [
+        "service_record",
+        "content_asset"
+      ]
+    },
+    "86": {
+      "produces_to": [
+        44,
+        47,
+        14,
+        17
+      ],
+      "consumes_from": [
+        1,
+        11,
+        17,
+        25,
+        30,
+        47
+      ],
+      "packet_kinds": [
+        "service_record",
+        "content_asset"
+      ]
+    },
+    "87": {
+      "produces_to": [
+        44,
+        47,
+        14,
+        17
+      ],
+      "consumes_from": [
+        1,
+        11,
+        17,
+        25,
+        30,
+        47
+      ],
+      "packet_kinds": [
+        "service_record",
+        "content_asset"
+      ]
+    },
+    "88": {
+      "produces_to": [
+        44,
+        47,
+        14,
+        17
+      ],
+      "consumes_from": [
+        1,
+        11,
+        17,
+        25,
+        30,
+        47
+      ],
+      "packet_kinds": [
+        "service_record",
+        "content_asset"
+      ]
+    },
+    "89": {
+      "produces_to": [
+        44,
+        47,
+        14,
+        17
+      ],
+      "consumes_from": [
+        1,
+        11,
+        17,
+        25,
+        30,
+        47
+      ],
+      "packet_kinds": [
+        "service_record",
+        "content_asset"
+      ]
+    },
+    "90": {
+      "produces_to": [
+        44,
+        47,
+        14,
+        17
+      ],
+      "consumes_from": [
+        1,
+        11,
+        17,
+        25,
+        30,
+        47
+      ],
+      "packet_kinds": [
+        "service_record",
+        "content_asset"
+      ]
+    },
+    "91": {
+      "produces_to": [
+        44,
+        47,
+        14,
+        17
+      ],
+      "consumes_from": [
+        1,
+        11,
+        17,
+        25,
+        30,
+        47
+      ],
+      "packet_kinds": [
+        "service_record",
+        "content_asset"
+      ]
+    },
+    "92": {
+      "produces_to": [
+        44,
+        47,
+        14,
+        17
+      ],
+      "consumes_from": [
+        1,
+        11,
+        17,
+        25,
+        30,
+        47
+      ],
+      "packet_kinds": [
+        "service_record",
+        "content_asset"
+      ]
+    },
+    "93": {
+      "produces_to": [
+        44,
+        47,
+        14,
+        17
+      ],
+      "consumes_from": [
+        1,
+        11,
+        17,
+        25,
+        30,
+        47
+      ],
+      "packet_kinds": [
+        "service_record",
+        "content_asset"
+      ]
+    },
+    "94": {
+      "produces_to": [
+        44,
+        47,
+        14,
+        17
+      ],
+      "consumes_from": [
+        1,
+        11,
+        17,
+        25,
+        30,
+        47
+      ],
+      "packet_kinds": [
+        "service_record",
+        "content_asset"
+      ]
+    },
+    "95": {
+      "produces_to": [
+        44,
+        47,
+        14,
+        17
+      ],
+      "consumes_from": [
+        1,
+        11,
+        17,
+        25,
+        30,
+        47
+      ],
+      "packet_kinds": [
+        "service_record",
+        "content_asset"
+      ]
+    },
+    "96": {
+      "produces_to": [
+        44,
+        47,
+        14,
+        17
+      ],
+      "consumes_from": [
+        1,
+        11,
+        17,
+        25,
+        30,
+        47
+      ],
+      "packet_kinds": [
+        "service_record",
+        "content_asset"
+      ]
+    },
+    "97": {
+      "produces_to": [
+        44,
+        47,
+        14,
+        17
+      ],
+      "consumes_from": [
+        1,
+        11,
+        17,
+        25,
+        30,
+        47
+      ],
+      "packet_kinds": [
+        "service_record",
+        "content_asset"
+      ]
+    },
+    "98": {
+      "produces_to": [
+        44,
+        47,
+        14,
+        17
+      ],
+      "consumes_from": [
+        1,
+        11,
+        17,
+        25,
+        30,
+        47
+      ],
+      "packet_kinds": [
+        "service_record",
+        "content_asset"
+      ]
+    },
+    "99": {
+      "produces_to": [
+        44,
+        47,
+        14,
+        17
+      ],
+      "consumes_from": [
+        1,
+        11,
+        17,
+        25,
+        30,
+        47
+      ],
+      "packet_kinds": [
+        "service_record",
+        "content_asset"
+      ]
+    },
+    "100": {
+      "produces_to": [
+        44,
+        47,
+        14,
+        17
+      ],
+      "consumes_from": [
+        1,
+        11,
+        17,
+        25,
+        30,
+        47
+      ],
+      "packet_kinds": [
+        "service_record",
+        "content_asset"
+      ]
+    },
+    "101": {
+      "produces_to": [
+        44,
+        47,
+        30,
+        32,
+        34
+      ],
+      "consumes_from": [
+        1,
+        25,
+        30,
+        "ALL"
+      ],
+      "packet_kinds": [
+        "support_ticket",
+        "sla_report"
+      ]
+    },
+    "102": {
+      "produces_to": [
+        44,
+        47,
+        30,
+        32,
+        34
+      ],
+      "consumes_from": [
+        1,
+        25,
+        30,
+        "ALL"
+      ],
+      "packet_kinds": [
+        "support_ticket",
+        "sla_report"
+      ]
+    },
+    "103": {
+      "produces_to": [
+        44,
+        47,
+        30,
+        32,
+        34
+      ],
+      "consumes_from": [
+        1,
+        25,
+        30,
+        "ALL"
+      ],
+      "packet_kinds": [
+        "support_ticket",
+        "sla_report"
+      ]
+    },
+    "104": {
+      "produces_to": [
+        44,
+        47,
+        30,
+        32,
+        34
+      ],
+      "consumes_from": [
+        1,
+        25,
+        30,
+        "ALL"
+      ],
+      "packet_kinds": [
+        "support_ticket",
+        "sla_report"
+      ]
+    },
+    "105": {
+      "produces_to": [
+        44,
+        47,
+        30,
+        32,
+        34
+      ],
+      "consumes_from": [
+        1,
+        25,
+        30,
+        "ALL"
+      ],
+      "packet_kinds": [
+        "support_ticket",
+        "sla_report"
+      ]
+    },
+    "106": {
+      "produces_to": [
+        44,
+        47,
+        30,
+        32,
+        34
+      ],
+      "consumes_from": [
+        1,
+        25,
+        30,
+        "ALL"
+      ],
+      "packet_kinds": [
+        "support_ticket",
+        "sla_report"
+      ]
+    },
+    "107": {
+      "produces_to": [
+        44,
+        47,
+        30,
+        32,
+        34
+      ],
+      "consumes_from": [
+        1,
+        25,
+        30,
+        "ALL"
+      ],
+      "packet_kinds": [
+        "support_ticket",
+        "sla_report"
+      ]
+    },
+    "108": {
+      "produces_to": [
+        44,
+        47,
+        30,
+        32,
+        34
+      ],
+      "consumes_from": [
+        1,
+        25,
+        30,
+        "ALL"
+      ],
+      "packet_kinds": [
+        "support_ticket",
+        "sla_report"
+      ]
+    },
+    "109": {
+      "produces_to": [
+        44,
+        47,
+        30,
+        32,
+        34
+      ],
+      "consumes_from": [
+        1,
+        25,
+        30,
+        "ALL"
+      ],
+      "packet_kinds": [
+        "support_ticket",
+        "sla_report"
+      ]
+    },
+    "110": {
+      "produces_to": [
+        44,
+        47,
+        30,
+        32,
+        34
+      ],
+      "consumes_from": [
+        1,
+        25,
+        30,
+        "ALL"
+      ],
+      "packet_kinds": [
+        "support_ticket",
+        "sla_report"
+      ]
+    },
+    "111": {
+      "produces_to": [
+        44,
+        47,
+        30,
+        32,
+        34
+      ],
+      "consumes_from": [
+        1,
+        25,
+        30,
+        "ALL"
+      ],
+      "packet_kinds": [
+        "support_ticket",
+        "sla_report"
+      ]
+    },
+    "112": {
+      "produces_to": [
+        44,
+        47,
+        30,
+        32,
+        34
+      ],
+      "consumes_from": [
+        1,
+        25,
+        30,
+        "ALL"
+      ],
+      "packet_kinds": [
+        "support_ticket",
+        "sla_report"
+      ]
+    },
+    "113": {
+      "produces_to": [
+        44,
+        47,
+        30,
+        32,
+        34
+      ],
+      "consumes_from": [
+        1,
+        25,
+        30,
+        "ALL"
+      ],
+      "packet_kinds": [
+        "support_ticket",
+        "sla_report"
+      ]
+    },
+    "114": {
+      "produces_to": [
+        44,
+        47,
+        30,
+        32,
+        34
+      ],
+      "consumes_from": [
+        1,
+        25,
+        30,
+        "ALL"
+      ],
+      "packet_kinds": [
+        "support_ticket",
+        "sla_report"
+      ]
+    },
+    "115": {
+      "produces_to": [
+        44,
+        47,
+        30,
+        32,
+        34
+      ],
+      "consumes_from": [
+        1,
+        25,
+        30,
+        "ALL"
+      ],
+      "packet_kinds": [
+        "support_ticket",
+        "sla_report"
+      ]
+    },
+    "116": {
+      "produces_to": [
+        3,
+        26,
+        37,
+        47
+      ],
+      "consumes_from": [
+        3,
+        16,
+        26,
+        27
+      ],
+      "packet_kinds": [
+        "research_finding",
+        "publication_draft"
+      ]
+    },
+    "117": {
+      "produces_to": [
+        3,
+        26,
+        37,
+        47
+      ],
+      "consumes_from": [
+        3,
+        16,
+        26,
+        27
+      ],
+      "packet_kinds": [
+        "research_finding",
+        "publication_draft"
+      ]
+    },
+    "118": {
+      "produces_to": [
+        3,
+        26,
+        37,
+        47
+      ],
+      "consumes_from": [
+        3,
+        16,
+        26,
+        27
+      ],
+      "packet_kinds": [
+        "research_finding",
+        "publication_draft"
+      ]
+    },
+    "119": {
+      "produces_to": [
+        3,
+        26,
+        37,
+        47
+      ],
+      "consumes_from": [
+        3,
+        16,
+        26,
+        27
+      ],
+      "packet_kinds": [
+        "research_finding",
+        "publication_draft"
+      ]
+    },
+    "120": {
+      "produces_to": [
+        3,
+        26,
+        37,
+        47
+      ],
+      "consumes_from": [
+        3,
+        16,
+        26,
+        27
+      ],
+      "packet_kinds": [
+        "research_finding",
+        "publication_draft"
+      ]
+    },
+    "121": {
+      "produces_to": [
+        3,
+        26,
+        37,
+        47
+      ],
+      "consumes_from": [
+        3,
+        16,
+        26,
+        27
+      ],
+      "packet_kinds": [
+        "research_finding",
+        "publication_draft"
+      ]
+    },
+    "122": {
+      "produces_to": [
+        3,
+        26,
+        37,
+        47
+      ],
+      "consumes_from": [
+        3,
+        16,
+        26,
+        27
+      ],
+      "packet_kinds": [
+        "research_finding",
+        "publication_draft"
+      ]
+    },
+    "123": {
+      "produces_to": [
+        3,
+        26,
+        37,
+        47
+      ],
+      "consumes_from": [
+        3,
+        16,
+        26,
+        27
+      ],
+      "packet_kinds": [
+        "research_finding",
+        "publication_draft"
+      ]
+    },
+    "124": {
+      "produces_to": [
+        3,
+        26,
+        37,
+        47
+      ],
+      "consumes_from": [
+        3,
+        16,
+        26,
+        27
+      ],
+      "packet_kinds": [
+        "research_finding",
+        "publication_draft"
+      ]
+    },
+    "125": {
+      "produces_to": [
+        3,
+        26,
+        37,
+        47
+      ],
+      "consumes_from": [
+        3,
+        16,
+        26,
+        27
+      ],
+      "packet_kinds": [
+        "research_finding",
+        "publication_draft"
+      ]
+    },
+    "126": {
+      "produces_to": [
+        3,
+        26,
+        37,
+        47
+      ],
+      "consumes_from": [
+        3,
+        16,
+        26,
+        27
+      ],
+      "packet_kinds": [
+        "research_finding",
+        "publication_draft"
+      ]
+    },
+    "127": {
+      "produces_to": [
+        3,
+        26,
+        37,
+        47
+      ],
+      "consumes_from": [
+        3,
+        16,
+        26,
+        27
+      ],
+      "packet_kinds": [
+        "research_finding",
+        "publication_draft"
+      ]
+    },
+    "128": {
+      "produces_to": [
+        3,
+        26,
+        37,
+        47
+      ],
+      "consumes_from": [
+        3,
+        16,
+        26,
+        27
+      ],
+      "packet_kinds": [
+        "research_finding",
+        "publication_draft"
+      ]
+    },
+    "129": {
+      "produces_to": [
+        3,
+        26,
+        37,
+        47
+      ],
+      "consumes_from": [
+        3,
+        16,
+        26,
+        27
+      ],
+      "packet_kinds": [
+        "research_finding",
+        "publication_draft"
+      ]
+    },
+    "130": {
+      "produces_to": [
+        3,
+        26,
+        37,
+        47
+      ],
+      "consumes_from": [
+        3,
+        16,
+        26,
+        27
+      ],
+      "packet_kinds": [
+        "research_finding",
+        "publication_draft"
+      ]
+    },
+    "131": {
+      "produces_to": [
+        3,
+        26,
+        37,
+        47
+      ],
+      "consumes_from": [
+        3,
+        16,
+        26,
+        27
+      ],
+      "packet_kinds": [
+        "research_finding",
+        "publication_draft"
+      ]
+    },
+    "132": {
+      "produces_to": [
+        3,
+        26,
+        37,
+        47
+      ],
+      "consumes_from": [
+        3,
+        16,
+        26,
+        27
+      ],
+      "packet_kinds": [
+        "research_finding",
+        "publication_draft"
+      ]
+    },
+    "133": {
+      "produces_to": [
+        3,
+        26,
+        37,
+        47
+      ],
+      "consumes_from": [
+        3,
+        16,
+        26,
+        27
+      ],
+      "packet_kinds": [
+        "research_finding",
+        "publication_draft"
+      ]
+    },
+    "134": {
+      "produces_to": [
+        3,
+        26,
+        37,
+        47
+      ],
+      "consumes_from": [
+        3,
+        16,
+        26,
+        27
+      ],
+      "packet_kinds": [
+        "research_finding",
+        "publication_draft"
+      ]
+    },
+    "135": {
+      "produces_to": [
+        3,
+        26,
+        37,
+        47
+      ],
+      "consumes_from": [
+        3,
+        16,
+        26,
+        27
+      ],
+      "packet_kinds": [
+        "research_finding",
+        "publication_draft"
+      ]
+    },
+    "136": {
+      "produces_to": [
+        3,
+        26,
+        37,
+        47
+      ],
+      "consumes_from": [
+        3,
+        16,
+        26,
+        27
+      ],
+      "packet_kinds": [
+        "research_finding",
+        "publication_draft"
+      ]
+    },
+    "137": {
+      "produces_to": [
+        3,
+        26,
+        37,
+        47
+      ],
+      "consumes_from": [
+        3,
+        16,
+        26,
+        27
+      ],
+      "packet_kinds": [
+        "research_finding",
+        "publication_draft"
+      ]
+    },
+    "138": {
+      "produces_to": [
+        3,
+        26,
+        37,
+        47
+      ],
+      "consumes_from": [
+        3,
+        16,
+        26,
+        27
+      ],
+      "packet_kinds": [
+        "research_finding",
+        "publication_draft"
+      ]
+    },
+    "139": {
+      "produces_to": [
+        3,
+        26,
+        37,
+        47
+      ],
+      "consumes_from": [
+        3,
+        16,
+        26,
+        27
+      ],
+      "packet_kinds": [
+        "research_finding",
+        "publication_draft"
+      ]
+    },
+    "140": {
+      "produces_to": [
+        3,
+        26,
+        37,
+        47
+      ],
+      "consumes_from": [
+        3,
+        16,
+        26,
+        27
+      ],
+      "packet_kinds": [
+        "research_finding",
+        "publication_draft"
+      ]
+    },
+    "141": {
+      "produces_to": [
+        14,
+        17,
+        47,
+        50
+      ],
+      "consumes_from": [
+        15,
+        17,
+        25
+      ],
+      "packet_kinds": [
+        "programme",
+        "attendance_record"
+      ]
+    },
+    "142": {
+      "produces_to": [
+        14,
+        17,
+        47,
+        50
+      ],
+      "consumes_from": [
+        15,
+        17,
+        25
+      ],
+      "packet_kinds": [
+        "programme",
+        "attendance_record"
+      ]
+    },
+    "143": {
+      "produces_to": [
+        14,
+        17,
+        47,
+        50
+      ],
+      "consumes_from": [
+        15,
+        17,
+        25
+      ],
+      "packet_kinds": [
+        "programme",
+        "attendance_record"
+      ]
+    },
+    "144": {
+      "produces_to": [
+        14,
+        17,
+        47,
+        50
+      ],
+      "consumes_from": [
+        15,
+        17,
+        25
+      ],
+      "packet_kinds": [
+        "programme",
+        "attendance_record"
+      ]
+    },
+    "145": {
+      "produces_to": [
+        14,
+        17,
+        47,
+        50
+      ],
+      "consumes_from": [
+        15,
+        17,
+        25
+      ],
+      "packet_kinds": [
+        "programme",
+        "attendance_record"
+      ]
+    },
+    "146": {
+      "produces_to": [
+        14,
+        17,
+        47,
+        50
+      ],
+      "consumes_from": [
+        15,
+        17,
+        25
+      ],
+      "packet_kinds": [
+        "programme",
+        "attendance_record"
+      ]
+    },
+    "147": {
+      "produces_to": [
+        14,
+        17,
+        47,
+        50
+      ],
+      "consumes_from": [
+        15,
+        17,
+        25
+      ],
+      "packet_kinds": [
+        "programme",
+        "attendance_record"
+      ]
+    },
+    "148": {
+      "produces_to": [
+        14,
+        17,
+        47,
+        50
+      ],
+      "consumes_from": [
+        15,
+        17,
+        25
+      ],
+      "packet_kinds": [
+        "programme",
+        "attendance_record"
+      ]
+    },
+    "149": {
+      "produces_to": [
+        14,
+        17,
+        47,
+        50
+      ],
+      "consumes_from": [
+        15,
+        17,
+        25
+      ],
+      "packet_kinds": [
+        "programme",
+        "attendance_record"
+      ]
+    },
+    "150": {
+      "produces_to": [
+        14,
+        17,
+        47,
+        50
+      ],
+      "consumes_from": [
+        15,
+        17,
+        25
+      ],
+      "packet_kinds": [
+        "programme",
+        "attendance_record"
+      ]
+    },
+    "151": {
+      "produces_to": [
+        14,
+        17,
+        47,
+        50
+      ],
+      "consumes_from": [
+        15,
+        17,
+        25
+      ],
+      "packet_kinds": [
+        "programme",
+        "attendance_record"
+      ]
+    },
+    "152": {
+      "produces_to": [
+        14,
+        17,
+        47,
+        50
+      ],
+      "consumes_from": [
+        15,
+        17,
+        25
+      ],
+      "packet_kinds": [
+        "programme",
+        "attendance_record"
+      ]
+    }
+  },
+  "sealing_authority": "F30 permissions_department",
+  "audit_authority": "F31 audit_department",
+  "advisory_only": true,
+  "updated_ts": "2026-06-11T09:23:33.799878Z",
+  "route_count": 162
+}

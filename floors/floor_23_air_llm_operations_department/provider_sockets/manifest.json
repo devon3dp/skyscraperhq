@@ -1,0 +1,68 @@
+{
+  "floor_id": "floor_23",
+  "socket_count": 6,
+  "sockets": [
+    {
+      "id": "air_llm_cloud_socket",
+      "provider": "air_llm_cloud",
+      "display_name": "AIR LLM Cloud Socket",
+      "location": "roof_external_layer",
+      "building_floor": "floor_23",
+      "status": "socket_ready_not_connected",
+      "hardwired": false,
+      "execution_enabled": false
+    },
+    {
+      "id": "claude_socket",
+      "provider": "claude",
+      "display_name": "Claude Socket",
+      "location": "external_provider",
+      "building_floor": "floor_23",
+      "status": "socket_ready_not_connected",
+      "hardwired": false,
+      "execution_enabled": false
+    },
+    {
+      "id": "openai_socket",
+      "provider": "openai",
+      "display_name": "OpenAI Socket",
+      "location": "external_provider",
+      "building_floor": "floor_23",
+      "status": "socket_ready_not_connected",
+      "hardwired": false,
+      "execution_enabled": false
+    },
+    {
+      "id": "gemini_socket",
+      "provider": "gemini",
+      "display_name": "Gemini Socket",
+      "location": "external_provider",
+      "building_floor": "floor_23",
+      "status": "socket_ready_not_connected",
+      "hardwired": false,
+      "execution_enabled": false
+    },
+    {
+      "id": "deepseek_socket",
+      "provider": "deepseek",
+      "display_name": "DeepSeek Socket",
+      "location": "external_provider",
+      "building_floor": "floor_23",
+      "status": "socket_ready_not_connected",
+      "hardwired": false,
+      "execution_enabled": false
+    },
+    {
+      "id": "future_model_socket",
+      "provider": "future_models",
+      "display_name": "Future Model Socket",
+      "location": "future_external_or_local_provider",
+      "building_floor": "floor_23",
+      "status": "expansion_ready",
+      "hardwired": false,
+      "execution_enabled": false
+    }
+  ],
+  "execution_enabled": false,
+  "hardwired": false
+}

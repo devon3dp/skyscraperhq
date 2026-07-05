@@ -1,0 +1,31 @@
+{
+  "room_id": "pawsworth_window",
+  "name": "Pawsworth Window Lounge",
+  "category": "seating",
+  "purpose": "A place for visitors to relax and enjoy the view.",
+  "concierge_blurb": "Enjoy a quiet moment with a view of the city below.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 8.0,
+    "offset_z": -5.0,
+    "footprint_m": [
+      4,
+      6
+    ],
+    "height_m": 1.2
+  },
+  "render": {
+    "primary_prop": "bench",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Window Bench",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_63"
+}

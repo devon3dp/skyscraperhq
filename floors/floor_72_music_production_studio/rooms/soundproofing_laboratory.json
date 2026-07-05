@@ -1,0 +1,31 @@
+{
+  "room_id": "soundproofing_laboratory",
+  "name": "Soundproofing Lab",
+  "category": "lab",
+  "purpose": "Research and development for soundproofing materials.",
+  "concierge_blurb": "Explore the science behind perfect sound isolation in our lab.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -8.0,
+    "offset_z": -4.0,
+    "footprint_m": [
+      6,
+      3
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "bench",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Soundproof Bench",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_72"
+}

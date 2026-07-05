@@ -1,0 +1,265 @@
+{
+  "ts": "2026-06-09T09:52:31.119317+00:00",
+  "floor": "floor_34",
+  "department": "Monitoring Department",
+  "version": "1.1",
+  "status": "degraded",
+  "execution_enabled": false,
+  "kernel_required": false,
+  "models_required": false,
+  "critical_issues": [],
+  "warnings": [
+    "diagnostics status: degraded"
+  ],
+  "system": {
+    "cpu_percent": null,
+    "memory_percent": 13.73,
+    "root_disk_percent": 88.02,
+    "tower_disk_percent": 79.2,
+    "tower_free_gb": 129.45
+  },
+  "dashboard_heartbeat": {
+    "online": true,
+    "pid_running": true,
+    "registry_ok": true,
+    "counts": {
+      "floors": 53,
+      "vacant": 0,
+      "lifts": 9,
+      "workers": 48,
+      "kernel_installed": false
+    },
+    "status_code": "local_watch",
+    "kernel_installed": false,
+    "message": "Dashboard local heartbeat OK.",
+    "registry_error": null
+  },
+  "service_uptime": {
+    "pid": 2252443,
+    "running": true,
+    "uptime_seconds": 349.53,
+    "message": "Dashboard process running."
+  },
+  "lift_traffic": {
+    "ok": true,
+    "total_traffic": 22,
+    "active_lifts": 4,
+    "states": [
+      {
+        "lift_id": "emergency_stairwell",
+        "status": "available",
+        "current_position": "ground",
+        "traffic_count": 0,
+        "updated_ts": "2026-06-07T16:01:59.718795+00:00"
+      },
+      {
+        "lift_id": "executive_lift",
+        "status": "online",
+        "current_position": "ground",
+        "traffic_count": 0,
+        "updated_ts": "2026-06-07T16:01:59.718783+00:00"
+      },
+      {
+        "lift_id": "main_high_rise",
+        "status": "online",
+        "current_position": "ground",
+        "traffic_count": 0,
+        "updated_ts": "2026-06-07T16:01:59.718780+00:00"
+      },
+      {
+        "lift_id": "main_low_rise",
+        "status": "online",
+        "current_position": "floor_01",
+        "traffic_count": 5,
+        "updated_ts": "2026-06-08T16:13:18.289708+00:00"
+      },
+      {
+        "lift_id": "main_mid_rise",
+        "status": "online",
+        "current_position": "floor_27",
+        "traffic_count": 5,
+        "updated_ts": "2026-06-07T16:22:03.234721+00:00"
+      },
+      {
+        "lift_id": "memory_lift",
+        "status": "online",
+        "current_position": "ground",
+        "traffic_count": 0,
+        "updated_ts": "2026-06-07T16:01:59.718788+00:00"
+      },
+      {
+        "lift_id": "model_lift",
+        "status": "online",
+        "current_position": "floor_27",
+        "traffic_count": 4,
+        "updated_ts": "2026-06-08T16:13:18.277609+00:00"
+      },
+      {
+        "lift_id": "security_lift",
+        "status": "online",
+        "current_position": "ground",
+        "traffic_count": 0,
+        "updated_ts": "2026-06-07T16:01:59.718792+00:00"
+      },
+      {
+        "lift_id": "service_lift",
+        "status": "online",
+        "current_position": "floor_24",
+        "traffic_count": 8,
+        "updated_ts": "2026-06-08T16:13:18.288580+00:00"
+      }
+    ]
+  },
+  "packet_flow": {
+    "ok": true,
+    "recent_count": 20,
+    "by_lift": {
+      "main_low_rise": 4,
+      "service_lift": 7,
+      "model_lift": 4,
+      "main_mid_rise": 5
+    },
+    "by_status": {
+      "delivered": 20
+    },
+    "recent": [
+      {
+        "id": 22,
+        "ts": "2026-06-08T16:13:18.289612+00:00",
+        "source": "ground",
+        "target": "floor_01",
+        "lift_id": "main_low_rise",
+        "priority": 5,
+        "receipt": "delivered",
+        "status": "delivered"
+      },
+      {
+        "id": 21,
+        "ts": "2026-06-08T16:13:18.288437+00:00",
+        "source": "floor_05",
+        "target": "floor_24",
+        "lift_id": "service_lift",
+        "priority": 5,
+        "receipt": "delivered",
+        "status": "delivered"
+      },
+      {
+        "id": 20,
+        "ts": "2026-06-08T16:13:18.277369+00:00",
+        "source": "floor_24",
+        "target": "floor_27",
+        "lift_id": "model_lift",
+        "priority": 5,
+        "receipt": "delivered",
+        "status": "delivered"
+      },
+      {
+        "id": 19,
+        "ts": "2026-06-08T16:11:49.021572+00:00",
+        "source": "ground",
+        "target": "floor_01",
+        "lift_id": "main_low_rise",
+        "priority": 5,
+        "receipt": "delivered",
+        "status": "delivered"
+      },
+      {
+        "id": 18,
+        "ts": "2026-06-08T16:11:49.020330+00:00",
+        "source": "floor_05",
+        "target": "floor_24",
+        "lift_id": "service_lift",
+        "priority": 5,
+        "receipt": "delivered",
+        "status": "delivered"
+      },
+      {
+        "id": 17,
+        "ts": "2026-06-08T16:11:48.999390+00:00",
+        "source": "floor_24",
+        "target": "floor_27",
+        "lift_id": "model_lift",
+        "priority": 5,
+        "receipt": "delivered",
+        "status": "delivered"
+      },
+      {
+        "id": 16,
+        "ts": "2026-06-08T16:11:05.479480+00:00",
+        "source": "ground",
+        "target": "floor_01",
+        "lift_id": "main_low_rise",
+        "priority": 5,
+        "receipt": "delivered",
+        "status": "delivered"
+      },
+      {
+        "id": 15,
+        "ts": "2026-06-07T16:36:15.067684+00:00",
+        "source": "floor_24",
+        "target": "floor_27",
+        "lift_id": "model_lift",
+        "priority": 5,
+        "receipt": "delivered",
+        "status": "delivered"
+      },
+      {
+        "id": 14,
+        "ts": "2026-06-07T16:36:15.038550+00:00",
+        "source": "floor_05",
+        "target": "floor_24",
+        "lift_id": "service_lift",
+        "priority": 5,
+        "receipt": "delivered",
+        "status": "delivered"
+      },
+      {
+        "id": 13,
+        "ts": "2026-06-07T16:36:15.013187+00:00",
+        "source": "ground",
+        "target": "floor_01",
+        "lift_id": "main_low_rise",
+        "priority": 5,
+        "receipt": "delivered",
+        "status": "delivered"
+      }
+    ]
+  },
+  "floor_registry": {
+    "ok": true,
+    "floors": 53,
+    "vacant": 0,
+    "zone_counts": {
+      "ZONE A": 15,
+      "ZONE B": 15,
+      "ZONE C": 15,
+      "ZONE D": 8
+    }
+  },
+  "provider_socket_watch": {
+    "adapter_systems": {
+      "adapter_count": 9,
+      "execution_enabled": false,
+      "hardwired_adapters": false
+    },
+    "air_llm_operations": {
+      "provider_count": 6,
+      "socket_count": 6,
+      "execution_enabled": false,
+      "hardwired_providers": false
+    },
+    "local_model_operations": {
+      "detected_models": 15,
+      "execution_enabled": false,
+      "hardwired_models": false
+    }
+  },
+  "diagnostics_watch": {
+    "available": true,
+    "status": "degraded",
+    "checks_run": 52,
+    "critical_failures": 0,
+    "warning_failures": 1,
+    "ts": "2026-06-09T09:52:31.110870+00:00"
+  }
+}

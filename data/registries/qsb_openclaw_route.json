@@ -1,0 +1,53 @@
+{
+  "ok": true,
+  "kind": "qsb_openclaw_route",
+  "generated_ts": "2026-06-30T13:46:34.757868+00:00",
+  "current_floor": 30,
+  "current_label": "floor_30_permissions_risk",
+  "visit_order": [
+    {
+      "floor": 30,
+      "label": "floor_30_permissions_risk"
+    },
+    {
+      "floor": 31,
+      "label": "floor_31_audit_ledger"
+    },
+    {
+      "floor": 37,
+      "label": "floor_37_simulation_labs"
+    },
+    {
+      "floor": 38,
+      "label": "floor_38_sandbox_operations"
+    },
+    {
+      "floor": 41,
+      "label": "floor_41_oanda_practice_trading"
+    },
+    {
+      "floor": 42,
+      "label": "floor_42_binance_trading_floor"
+    },
+    {
+      "floor": 43,
+      "label": "floor_43_stock_exchange_floor"
+    },
+    {
+      "floor": 45,
+      "label": "floor_45_worker_recruitment_agency"
+    },
+    {
+      "floor": 53,
+      "label": "floor_53_tower_command"
+    }
+  ],
+  "advanced_by": "eqsb_cadence_state.tick_count",
+  "deterministic": true,
+  "is_random": false,
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

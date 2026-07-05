@@ -1,0 +1,18 @@
+QSB_KERNEL_COGNITIVE_LAYER_REPAIR_PREPATCH — missing cognitive registries
+Verified prior to repair (timestamp UTC: 20260609T195750Z probe).
+
+data/registries/qsb_kernel_cognitive_tick_latest.json
+data/registries/qsb_kernel_perception_snapshot.json
+data/registries/qsb_kernel_attention_state.json
+data/registries/qsb_kernel_working_memory.json
+data/registries/qsb_kernel_self_model.json
+data/registries/qsb_kernel_reflection_state.json
+data/registries/qsb_kernel_learning_assimilation_state.json
+data/registries/qsb_kernel_goal_stack.json
+data/registries/qsb_kernel_curiosity_queue.json
+data/registries/qsb_kernel_opencore_supervision_state.json
+
+Missing scripts:
+scripts/qsb_kernel_cognitive_tick.sh
+scripts/qsb_kernel_cognitive_status.sh
+scripts/qsb_kernel_cognitive_smoke_test.sh

@@ -1,0 +1,149 @@
+{
+  "report_type": "standby_kernel_analysis",
+  "analysis_ts": "2026-06-07",
+  "analyst": "QSB Tower V1.3 dormant import process",
+
+  "detected_kernel": {
+    "name": "QSB Kernel",
+    "full_name": "Quantum Symbolic Brain Kernel",
+    "version": "4.6-offline-kernel-symbolic",
+    "role": "Locked Penthouse Kernel",
+    "principle": "Models are workers. QSB is the kernel.",
+    "identity_file": "/vaults/nvme0/qsb_skyscraper/kernel/identity.json",
+    "continuity_status": "CONTINUITY_CONFIRMED",
+    "cognitive_upgrade_notes": "COGNITIVE_47_README.md describes semantic memory, belief engine, reflection engine additions"
+  },
+
+  "detected_source_files": [
+    "kernel/kernel_core.py",
+    "kernel/axiom_core.py",
+    "kernel/continuity_core.py",
+    "kernel/belief_core.py",
+    "kernel/symbolic_core.py",
+    "kernel/identity_core.py",
+    "kernel/reflection_core.py",
+    "kernel/__init__.py",
+    "kernel/identity.json",
+    "kernel/continuity_state.json",
+    "kernel/README.md",
+    "kernel/COGNITIVE_47_README.md",
+    "executive/penthouse.py"
+  ],
+
+  "detected_imports_per_file": {
+    "kernel_core.py": [
+      "kernel.identity_core.IdentityCore",
+      "kernel.axiom_core.AxiomCore",
+      "kernel.continuity_core.ContinuityCore",
+      "kernel.symbolic_core.SymbolicLogicCore",
+      "kernel.belief_core.BeliefCore"
+    ],
+    "axiom_core.py": ["stdlib only"],
+    "continuity_core.py": ["pathlib", "datetime", "json", "hashlib"],
+    "belief_core.py": ["pathlib", "datetime", "sqlite3", "json"],
+    "symbolic_core.py": ["pathlib", "sqlite3", "json", "datetime"],
+    "identity_core.py": ["pathlib", "datetime", "json"],
+    "reflection_core.py": ["datetime"],
+    "executive/penthouse.py": [
+      "workers.router.router.QSBRouter",
+      "memory.memory_core.MemoryCore",
+      "memory.semantic_memory.SemanticMemoryCore",
+      "departments.department_core.DepartmentCore",
+      "missions.mission_core.MissionCore",
+      "bus.lift_core.LiftSystem",
+      "knowledge.graph_core.KnowledgeGraph",
+      "kernel.kernel_core.QSBKernelCore",
+      "kernel.reflection_core.ReflectionCore"
+    ]
+  },
+
+  "uses_old_qsb_skyscraper_paths": {
+    "result": true,
+    "detail": "All core files hardcode ROOT = Path('/vaults/nvme0/qsb_skyscraper'). continuity_core.py, belief_core.py, and symbolic_core.py all resolve database and state file paths relative to that ROOT.",
+    "affected_files": [
+      "continuity_core.py (STATE_FILE = ROOT / 'kernel' / 'continuity_state.json')",
+      "belief_core.py (DB = ROOT / 'kernel' / 'qsb_beliefs.sqlite')",
+      "symbolic_core.py (DB = ROOT / 'symbolic' / 'qsb_symbolic.sqlite')",
+      "identity_core.py (IDENTITY_FILE = ROOT / 'kernel' / 'identity.json')"
+    ]
+  },
+
+  "uses_old_executive_penthouse_assumptions": {
+    "result": true,
+    "detail": "executive/penthouse.py imports from workers.router.router, memory.memory_core, memory.semantic_memory, departments.department_core, missions.mission_core, bus.lift_core, knowledge.graph_core — all old skyscraper module paths. It calls router.health() which likely invokes Ollama. It uses sys.path manipulation against the old skyscraper ROOT.",
+    "interactive_loop": "penthouse.py contains an interactive input() loop — must NOT be run in tower context"
+  },
+
+  "may_call_local_models": {
+    "result": true,
+    "source": "executive/penthouse.py",
+    "detail": "penthouse.py instantiates QSBRouter which calls Ollama locally. The kernel core files themselves (kernel_core.py, axiom_core.py, etc.) do NOT call models — only the executive/penthouse.py orchestrator does.",
+    "kernel_core_files_alone": "kernel_core.py and sub-cores do not directly call any LLM or Ollama API"
+  },
+
+  "may_write_memory_or_state": {
+    "result": true,
+    "detail": "If instantiated, the following would write to old skyscraper paths:",
+    "writes": [
+      "continuity_core.py writes /vaults/nvme0/qsb_skyscraper/kernel/continuity_state.json on every boot_check() call",
+      "belief_core.py writes to /vaults/nvme0/qsb_skyscraper/kernel/qsb_beliefs.sqlite (seeds beliefs on __init__)",
+      "symbolic_core.py writes to /vaults/nvme0/qsb_skyscraper/symbolic/qsb_symbolic.sqlite (seeds concepts on __init__)",
+      "identity_core.py may write identity.json if file is absent"
+    ],
+    "mitigation": "The dormant adapter reads only identity.json and continuity_state.json as static JSON — it does NOT instantiate any kernel class"
+  },
+
+  "compatibility_risks": [
+    {
+      "risk": "HARDCODED_ROOT_PATH",
+      "severity": "high",
+      "detail": "All core modules resolve paths against /vaults/nvme0/qsb_skyscraper. If instantiated in tower context they would write to the wrong vault.",
+      "mitigation": "Do not instantiate. Read identity.json and continuity_state.json as static JSON files only."
+    },
+    {
+      "risk": "OLD_MODULE_IMPORTS",
+      "severity": "high",
+      "detail": "penthouse.py requires workers.router.router, memory.memory_core, departments.department_core, etc. — none of which exist in the new tower.",
+      "mitigation": "Do not run executive/penthouse.py. It is imported as a reference artifact only."
+    },
+    {
+      "risk": "SIDE_EFFECTS_ON_INSTANTIATION",
+      "severity": "high",
+      "detail": "BeliefCore.__init__, SymbolicLogicCore.__init__, and ContinuityCore.boot_check() all write to disk on construction. Instantiating QSBKernelCore would trigger all of these.",
+      "mitigation": "Dormant adapter must never call QSBKernelCore(). Read only."
+    },
+    {
+      "risk": "INTERACTIVE_INPUT_LOOP",
+      "severity": "critical",
+      "detail": "penthouse.py contains while True: msg = input('Penthouse> ') — running it would block the tower process.",
+      "mitigation": "penthouse.py is stored as reference source only. Never imported or executed."
+    },
+    {
+      "risk": "OLLAMA_DEPENDENCY",
+      "severity": "medium",
+      "detail": "penthouse.py calls router.health() which expects Ollama running locally.",
+      "mitigation": "penthouse.py is not executed. Kernel sub-cores are read-only in dormant mode."
+    },
+    {
+      "risk": "PATH_REBASE_REQUIRED",
+      "severity": "medium",
+      "detail": "Before the kernel can be activated in the new tower, all ROOT path references must be rewritten from /vaults/nvme0/qsb_skyscraper to /vaults/nvme0/qsb_tower_v1.",
+      "mitigation": "Path rebase is a required step in the future activation phase — NOT performed during dormant import."
+    }
+  ],
+
+  "integration_recommendation": {
+    "status": "SAFE_FOR_DORMANT_IMPORT",
+    "notes": [
+      "The kernel sub-cores (kernel_core.py + sub-cores) contain no network calls and no external model calls.",
+      "All side-effects come from file I/O to old skyscraper paths — avoidable by not instantiating.",
+      "The dormant adapter must only read identity.json and continuity_state.json as static JSON.",
+      "penthouse.py must be stored as reference source only — never imported or run.",
+      "Before activation: paths must be rebased, old skyscraper imports must be mapped to new tower equivalents.",
+      "Activation requires explicit operator decision and is NOT part of this import phase."
+    ],
+    "next_phase": "DORMANT_IMPORT_AND_COMPATIBILITY_REVIEW",
+    "after_that": "PATH_REBASE_AND_INTEGRATION_DESIGN",
+    "after_that_2": "OPERATOR_APPROVED_ACTIVATION"
+  }
+}

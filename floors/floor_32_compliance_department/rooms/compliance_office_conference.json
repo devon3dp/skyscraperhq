@@ -1,0 +1,34 @@
+{
+  "room_id": "compliance_office_conference",
+  "name": "Compliance Conference Room",
+  "category": "meeting_room",
+  "purpose": "For compliance discussions and strategy meetings.",
+  "concierge_blurb": "A spacious room with a large table and comfortable chairs for important discussions.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      12,
+      9
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "desk",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "CONFERENCE ROOM",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 0
+  },
+  "floor": "floor_32"
+}

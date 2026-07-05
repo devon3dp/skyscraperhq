@@ -1,0 +1,34 @@
+{
+  "room_id": "climate_modeling_area",
+  "name": "Climate Modeling Lab",
+  "category": "lab",
+  "purpose": "This lab is for climate modeling and analysis.",
+  "concierge_blurb": "Interactive climate models and data displays greet visitors here.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "center",
+    "offset_x": 0.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      15,
+      15
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "display",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Climate Models",
+    "glow": true
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/climate_models.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_121"
+}

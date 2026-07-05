@@ -1,0 +1,29 @@
+{
+  "ok": true,
+  "kind": "eqsb_code_risk_report",
+  "generated_ts": "2026-06-30T13:46:33.330090+00:00",
+  "phase": "EQSB_SYSTEM_OBSERVATORY_HARDWARE_FLOOR_LIVE_TELEMETRY_REPAIR_V1",
+  "risk_file_count": 2,
+  "risks": [
+    {
+      "path": "src/tower/eqsb_observatory.py",
+      "flags": [
+        "random_in_observatory_code",
+        "subprocess_shell_true",
+        "has_todo_or_fixme"
+      ]
+    },
+    {
+      "path": "src/tower/qsb_dashboard_live_telemetry.py",
+      "flags": [
+        "random_in_observatory_code"
+      ]
+    }
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

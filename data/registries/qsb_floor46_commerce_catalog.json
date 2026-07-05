@@ -1,0 +1,141 @@
+{
+  "ok": true,
+  "kind": "qsb_floor46_commerce_catalog",
+  "generated_ts": "2026-06-09T17:34:24+00:00",
+  "policy": "Sandbox catalogue. No listings published. No marketplace contact.",
+  "product_count": 6,
+  "category_breakdown": {
+    "art_print": 1,
+    "sticker_pack": 1,
+    "digital_template": 1,
+    "digital_bundle": 1,
+    "physical_mug": 1,
+    "physical_apparel": 1
+  },
+  "products": [
+    {
+      "sku": "QSB-PRINT-001",
+      "title": "QSB Tower Skyscraper Art Print (Sandbox)",
+      "category": "art_print",
+      "cost_to_produce": 4.5,
+      "suggested_price": 18.0,
+      "avg_market_price": 22.0,
+      "estimated_demand_monthly": 35,
+      "tags": [
+        "wall_art",
+        "architecture",
+        "skyscraper"
+      ],
+      "status": "draft",
+      "notes": "Anchor product \u2014 depicts the QSB Tower; high-margin print.",
+      "margin_percent": 75.0,
+      "vs_market_percent": -18.18,
+      "image_url": "https://loremflickr.com/600/600/commerce?lock=5352",
+      "description": "item \u2014 sourced via direct on a dropship model."
+    },
+    {
+      "sku": "QSB-STICKER-002",
+      "title": "Floor 41 OANDA Practice Trader Sticker Pack (Sandbox)",
+      "category": "sticker_pack",
+      "cost_to_produce": 1.2,
+      "suggested_price": 6.0,
+      "avg_market_price": 7.5,
+      "estimated_demand_monthly": 80,
+      "tags": [
+        "sticker",
+        "fx",
+        "trading",
+        "novelty"
+      ],
+      "status": "draft",
+      "notes": "Cheap impulse buy; supports basket-size lift on the print.",
+      "margin_percent": 80.0,
+      "vs_market_percent": -20.0,
+      "image_url": "https://loremflickr.com/600/600/commerce?lock=3259",
+      "description": "item \u2014 sourced via direct on a dropship model."
+    },
+    {
+      "sku": "QSB-DIGI-003",
+      "title": "OpenClaw Routing Notebook Template (Digital, Sandbox)",
+      "category": "digital_template",
+      "cost_to_produce": 0.0,
+      "suggested_price": 9.0,
+      "avg_market_price": 11.0,
+      "estimated_demand_monthly": 20,
+      "tags": [
+        "digital",
+        "notion",
+        "template",
+        "routing"
+      ],
+      "status": "draft",
+      "notes": "Zero unit cost; 100% margin once delivered.",
+      "margin_percent": 100.0,
+      "vs_market_percent": -18.18,
+      "image_url": "https://loremflickr.com/600/600/commerce?lock=9698",
+      "description": "item \u2014 sourced via direct on a dropship model."
+    },
+    {
+      "sku": "QSB-PAT-004",
+      "title": "ML/RL Lab Lab-Notebook PDF Bundle (Sandbox)",
+      "category": "digital_bundle",
+      "cost_to_produce": 0.0,
+      "suggested_price": 24.0,
+      "avg_market_price": 28.0,
+      "estimated_demand_monthly": 15,
+      "tags": [
+        "digital",
+        "ml",
+        "rl",
+        "bundle"
+      ],
+      "status": "draft",
+      "notes": "High-margin, low-volume; targets the data-science buyer.",
+      "margin_percent": 100.0,
+      "vs_market_percent": -14.29,
+      "image_url": "https://loremflickr.com/600/600/commerce?lock=1275",
+      "description": "item \u2014 sourced via direct on a dropship model."
+    },
+    {
+      "sku": "QSB-MUG-005",
+      "title": "Penthouse Kernel 4.5 Coffee Mug (Sandbox)",
+      "category": "physical_mug",
+      "cost_to_produce": 6.5,
+      "suggested_price": 18.0,
+      "avg_market_price": 20.0,
+      "estimated_demand_monthly": 18,
+      "tags": [
+        "mug",
+        "novelty",
+        "kernel"
+      ],
+      "status": "draft",
+      "notes": "Lower margin; requires print-on-demand partner \u2014 NOT wired.",
+      "margin_percent": 63.89,
+      "vs_market_percent": -10.0,
+      "image_url": "https://loremflickr.com/600/600/commerce?lock=1643",
+      "description": "item \u2014 sourced via direct on a dropship model."
+    },
+    {
+      "sku": "QSB-TEE-006",
+      "title": "\"I Survived Floor 25 Recruitment\" T-shirt (Sandbox)",
+      "category": "physical_apparel",
+      "cost_to_produce": 9.0,
+      "suggested_price": 24.0,
+      "avg_market_price": 27.0,
+      "estimated_demand_monthly": 12,
+      "tags": [
+        "apparel",
+        "novelty",
+        "recruitment"
+      ],
+      "status": "draft",
+      "notes": "Apparel margins typical; lowest priority for an MVP launch.",
+      "margin_percent": 62.5,
+      "vs_market_percent": -11.11,
+      "image_url": "https://loremflickr.com/600/600/commerce?lock=5582",
+      "description": "item \u2014 sourced via direct on a dropship model."
+    }
+  ],
+  "enriched_ts": "2026-06-12T17:33:49.698145+00:00"
+}

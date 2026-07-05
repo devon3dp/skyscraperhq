@@ -1,0 +1,34 @@
+{
+  "room_id": "botanical_garden_display",
+  "name": "Botanical Display",
+  "category": "display",
+  "purpose": "To showcase rare and exotic plant specimens.",
+  "concierge_blurb": "Marvel at the unique flora from around the world.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.0,
+    "offset_z": -4.0,
+    "footprint_m": [
+      12.0,
+      8.0
+    ],
+    "height_m": 1.5
+  },
+  "render": {
+    "primary_prop": "garden_bed",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Exotic Plants",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_150"
+}

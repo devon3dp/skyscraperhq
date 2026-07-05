@@ -1,0 +1,34 @@
+{
+  "room_id": "documentation_archive",
+  "name": "Documentation Archive",
+  "category": "archive",
+  "purpose": "Housing and maintaining quality assurance documentation.",
+  "concierge_blurb": "Store of all QA manuals, protocols, and records.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_right",
+    "offset_x": 8.0,
+    "offset_z": -2.0,
+    "footprint_m": [
+      6,
+      4
+    ],
+    "height_m": 1.5
+  },
+  "render": {
+    "primary_prop": "archive_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Doc Archive",
+    "glow": false
+  },
+  "interactive": {
+    "type": "count",
+    "source_path": "data/registries/document_count.jsonl",
+    "display": "big_number",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_9"
+}

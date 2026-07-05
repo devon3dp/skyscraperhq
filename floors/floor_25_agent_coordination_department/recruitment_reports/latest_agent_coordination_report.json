@@ -1,0 +1,857 @@
+{
+  "ts": "2026-06-09T09:52:31.094194+00:00",
+  "floor": "floor_25",
+  "department": "Worker Recruitment and Coordination Department",
+  "version": "1.1",
+  "status": "critical",
+  "kernel_installed": false,
+  "kernel_logic_present": false,
+  "execution_enabled": false,
+  "worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "autonomous_workers_enabled": false,
+  "candidate_registration_enabled": true,
+  "live_dispatch_enabled": false,
+  "candidate_workers": 5,
+  "worker_slots": 6,
+  "onboarding_queue": 15,
+  "checks_run": 10,
+  "passed": 9,
+  "critical_failures": 1,
+  "warnings": 0,
+  "items": [
+    {
+      "check_id": "floor_manifest_present_and_safe",
+      "status": "pass",
+      "severity": "critical",
+      "details": {
+        "manifest": {
+          "floor_id": "floor_25",
+          "number": 25,
+          "department": "Worker Recruitment and Coordination Department",
+          "legacy_department_name": "Agent Coordination Department",
+          "version": "1.1",
+          "zone": "ZONE B",
+          "status": "online",
+          "role": "Candidate worker recruitment, classification, onboarding queue, and permission prechecks.",
+          "kernel_required": false,
+          "kernel_installed": false,
+          "kernel_logic_present": false,
+          "models_required": false,
+          "execution_enabled": false,
+          "worker_execution_enabled": false,
+          "provider_execution_enabled": false,
+          "autonomous_workers_enabled": false,
+          "candidate_registration_enabled": true,
+          "live_dispatch_enabled": false,
+          "hardwired_providers": false,
+          "providers_are_external": true,
+          "models_are_temporary_tenants": true,
+          "lift_access": [
+            "main_mid_rise",
+            "service_lift",
+            "security_lift",
+            "emergency_stairwell"
+          ],
+          "routes_through": {
+            "model_requests": "floor_24",
+            "local_model_inventory": "floor_27",
+            "external_provider_sockets": "floor_23",
+            "adapters": "floor_21",
+            "security": "floor_28_floor_32"
+          },
+          "created_or_verified": "2026-06-07T18:04:27.095844+00:00",
+          "notice": "Floor 25 is recruitment only. It reaches model operations indirectly through Floor 24; no worker execution is enabled.",
+          "indirect_model_lift_access": {
+            "enabled": true,
+            "transfer_floor": "floor_24",
+            "path": [
+              "floor_25",
+              "floor_24",
+              "floor_27"
+            ],
+            "first_leg": {
+              "from": "floor_25",
+              "to": "floor_24",
+              "allowed_lifts": [
+                "service_lift",
+                "main_mid_rise"
+              ]
+            },
+            "second_leg": {
+              "from": "floor_24",
+              "to": "floor_27",
+              "allowed_lifts": [
+                "model_lift"
+              ]
+            },
+            "sealed_packets": true,
+            "direct_provider_access": false
+          },
+          "patched_v11a": "2026-06-07T18:08:47.768708+00:00"
+        }
+      }
+    },
+    {
+      "check_id": "policy_execution_disabled",
+      "status": "pass",
+      "severity": "critical",
+      "details": {
+        "policy": {
+          "version": "1.1",
+          "floor": "floor_25",
+          "department": "Worker Recruitment and Coordination Department",
+          "legacy_department_name": "Agent Coordination Department",
+          "role": "Recruit, inspect, classify, and stage candidate workers before future activation.",
+          "kernel_required": false,
+          "kernel_installed": false,
+          "kernel_logic_present": false,
+          "models_required": false,
+          "execution_enabled": false,
+          "worker_execution_enabled": false,
+          "provider_execution_enabled": false,
+          "autonomous_workers_enabled": false,
+          "candidate_registration_enabled": true,
+          "live_dispatch_enabled": false,
+          "security_enforcement_required_before_activation": true,
+          "providers_are_external": true,
+          "models_are_temporary_tenants": true,
+          "principle": "Floor 25 recruits and coordinates candidate workers. It does not execute workers.",
+          "notice": "Claude Code, OpenClaw, Ollama, local models, and future agents may be registered as candidates only."
+        }
+      }
+    },
+    {
+      "check_id": "candidate_registration_open_but_execution_closed",
+      "status": "pass",
+      "severity": "critical",
+      "details": {
+        "candidate_registration_enabled": true,
+        "live_dispatch_enabled": false
+      }
+    },
+    {
+      "check_id": "worker_slots_candidate_only",
+      "status": "pass",
+      "severity": "critical",
+      "details": {
+        "slot_count": 6,
+        "unsafe_slots": []
+      }
+    },
+    {
+      "check_id": "external_candidates_non_executing",
+      "status": "pass",
+      "severity": "critical",
+      "details": {
+        "candidate_count": 5,
+        "unsafe_candidates": []
+      }
+    },
+    {
+      "check_id": "onboarding_queue_non_executing",
+      "status": "fail",
+      "severity": "critical",
+      "details": {
+        "queue_count": 15,
+        "unsafe_queue": [
+          {
+            "queue_id": "onboard_f45_equity_market_scout",
+            "worker_id": "f45_equity_market_scout",
+            "candidate_id": "f45_equity_market_scout",
+            "display_name": "Equity Market Scout",
+            "target_floor": "floor_43",
+            "training_status": "intake",
+            "current_task": "intake_processing",
+            "execution_allowed": false,
+            "sandbox_only": true,
+            "advisory_or_paper_only": true,
+            "not_financial_advice": true,
+            "added_ts": "2026-06-08T18:34:32.427151+00:00"
+          },
+          {
+            "queue_id": "onboard_f45_crypto_market_scout",
+            "worker_id": "f45_crypto_market_scout",
+            "candidate_id": "f45_crypto_market_scout",
+            "display_name": "Crypto Market Scout",
+            "target_floor": "floor_42",
+            "training_status": "intake",
+            "current_task": "intake_processing",
+            "execution_allowed": false,
+            "sandbox_only": true,
+            "advisory_or_paper_only": true,
+            "not_financial_advice": true,
+            "added_ts": "2026-06-08T18:34:32.427154+00:00"
+          },
+          {
+            "queue_id": "onboard_f45_fx_market_scout",
+            "worker_id": "f45_fx_market_scout",
+            "candidate_id": "f45_fx_market_scout",
+            "display_name": "FX Market Scout",
+            "target_floor": "floor_41",
+            "training_status": "intake",
+            "current_task": "intake_processing",
+            "execution_allowed": false,
+            "sandbox_only": true,
+            "advisory_or_paper_only": true,
+            "not_financial_advice": true,
+            "added_ts": "2026-06-08T18:34:32.427156+00:00"
+          },
+          {
+            "queue_id": "onboard_f45_cross_market_analyst",
+            "worker_id": "f45_cross_market_analyst",
+            "candidate_id": "f45_cross_market_analyst",
+            "display_name": "Cross-Market Analyst",
+            "target_floor": "floor_37",
+            "training_status": "intake",
+            "current_task": "intake_processing",
+            "execution_allowed": false,
+            "sandbox_only": true,
+            "advisory_or_paper_only": true,
+            "not_financial_advice": true,
+            "added_ts": "2026-06-08T18:34:32.427157+00:00"
+          },
+          {
+            "queue_id": "onboard_f45_risk_gatekeeper",
+            "worker_id": "f45_risk_gatekeeper",
+            "candidate_id": "f45_risk_gatekeeper",
+            "display_name": "Risk Gatekeeper",
+            "target_floor": "floor_30",
+            "training_status": "intake",
+            "current_task": "intake_processing",
+            "execution_allowed": false,
+            "sandbox_only": true,
+            "advisory_or_paper_only": true,
+            "not_financial_advice": true,
+            "added_ts": "2026-06-08T18:34:32.427158+00:00"
+          },
+          {
+            "queue_id": "onboard_f45_ledger_runner",
+            "worker_id": "f45_ledger_runner",
+            "candidate_id": "f45_ledger_runner",
+            "display_name": "Ledger Runner",
+            "target_floor": "floor_31",
+            "training_status": "intake",
+            "current_task": "intake_processing",
+            "execution_allowed": false,
+            "sandbox_only": true,
+            "advisory_or_paper_only": true,
+            "not_financial_advice": true,
+            "added_ts": "2026-06-08T18:34:32.427160+00:00"
+          },
+          {
+            "queue_id": "onboard_f45_airllm_advisory_clerk",
+            "worker_id": "f45_airllm_advisory_clerk",
+            "candidate_id": "f45_airllm_advisory_clerk",
+            "display_name": "AirLLM Advisory Clerk",
+            "target_floor": "floor_23",
+            "training_status": "intake",
+            "current_task": "intake_processing",
+            "execution_allowed": false,
+            "sandbox_only": true,
+            "advisory_or_paper_only": true,
+            "not_financial_advice": true,
+            "added_ts": "2026-06-08T18:34:32.427161+00:00"
+          },
+          {
+            "queue_id": "onboard_f45_kernel_liaison",
+            "worker_id": "f45_kernel_liaison",
+            "candidate_id": "f45_kernel_liaison",
+            "display_name": "Kernel Liaison",
+            "target_floor": "floor_53",
+            "training_status": "intake",
+            "current_task": "intake_processing",
+            "execution_allowed": false,
+            "sandbox_only": true,
+            "advisory_or_paper_only": true,
+            "not_financial_advice": true,
+            "added_ts": "2026-06-08T18:34:32.427164+00:00"
+          },
+          {
+            "queue_id": "onboard_f45_openclaw_sandbox_observer",
+            "worker_id": "f45_openclaw_sandbox_observer",
+            "candidate_id": "f45_openclaw_sandbox_observer",
+            "display_name": "OpenClaw Sandbox Observer",
+            "target_floor": "floor_38",
+            "training_status": "intake",
+            "current_task": "intake_processing",
+            "execution_allowed": false,
+            "sandbox_only": true,
+            "advisory_or_paper_only": true,
+            "not_financial_advice": true,
+            "added_ts": "2026-06-08T18:34:32.427165+00:00"
+          },
+          {
+            "queue_id": "onboard_f45_strategy_backtester",
+            "worker_id": "f45_strategy_backtester",
+            "candidate_id": "f45_strategy_backtester",
+            "display_name": "Strategy Backtester",
+            "target_floor": "floor_37",
+            "training_status": "intake",
+            "current_task": "intake_processing",
+            "execution_allowed": false,
+            "sandbox_only": true,
+            "advisory_or_paper_only": true,
+            "not_financial_advice": true,
+            "added_ts": "2026-06-08T18:34:32.427166+00:00"
+          },
+          {
+            "queue_id": "onboard_f45_volatility_watcher",
+            "worker_id": "f45_volatility_watcher",
+            "candidate_id": "f45_volatility_watcher",
+            "display_name": "Volatility Watcher",
+            "target_floor": "floor_37",
+            "training_status": "intake",
+            "current_task": "intake_processing",
+            "execution_allowed": false,
+            "sandbox_only": true,
+            "advisory_or_paper_only": true,
+            "not_financial_advice": true,
+            "added_ts": "2026-06-08T18:34:32.427168+00:00"
+          },
+          {
+            "queue_id": "onboard_f45_correlation_mapper",
+            "worker_id": "f45_correlation_mapper",
+            "candidate_id": "f45_correlation_mapper",
+            "display_name": "Correlation Mapper",
+            "target_floor": "floor_25",
+            "training_status": "intake",
+            "current_task": "intake_processing",
+            "execution_allowed": false,
+            "sandbox_only": true,
+            "advisory_or_paper_only": true,
+            "not_financial_advice": true,
+            "added_ts": "2026-06-08T18:34:32.427169+00:00"
+          }
+        ]
+      }
+    },
+    {
+      "check_id": "registry_prechecks_passed",
+      "status": "pass",
+      "severity": "critical",
+      "details": {
+        "precheck_count": 5,
+        "failed_registry_prechecks": []
+      }
+    },
+    {
+      "check_id": "lift_routes_available",
+      "status": "pass",
+      "severity": "critical",
+      "details": {
+        "route_architecture": "floor_25 -> floor_24 -> floor_27",
+        "floor25_to_router": {
+          "id": "service_lift",
+          "name": "Service Lift",
+          "type": "service",
+          "serves": [
+            "B3",
+            "B2",
+            "B1",
+            "ground",
+            "floor_01",
+            "floor_02",
+            "floor_03",
+            "floor_04",
+            "floor_05",
+            "floor_06",
+            "floor_07",
+            "floor_08",
+            "floor_09",
+            "floor_10",
+            "floor_11",
+            "floor_12",
+            "floor_13",
+            "floor_14",
+            "floor_15",
+            "floor_16",
+            "floor_17",
+            "floor_18",
+            "floor_19",
+            "floor_20",
+            "floor_21",
+            "floor_22",
+            "floor_23",
+            "floor_24",
+            "floor_25",
+            "floor_26",
+            "floor_27",
+            "floor_28",
+            "floor_29",
+            "floor_30",
+            "floor_31",
+            "floor_32",
+            "floor_33",
+            "floor_34",
+            "floor_35",
+            "floor_36",
+            "floor_37",
+            "floor_38",
+            "floor_39",
+            "floor_40",
+            "floor_41",
+            "floor_42",
+            "floor_43",
+            "floor_44",
+            "floor_45",
+            "floor_46",
+            "floor_47",
+            "floor_48",
+            "floor_49",
+            "floor_50",
+            "floor_51",
+            "floor_52",
+            "floor_53",
+            "penthouse",
+            "roof"
+          ],
+          "status": "online"
+        },
+        "floor24_to_local_models": {
+          "id": "model_lift",
+          "name": "Model Lift",
+          "type": "model",
+          "serves": [
+            "floor_21",
+            "floor_23",
+            "floor_24",
+            "floor_26",
+            "floor_27",
+            "roof"
+          ],
+          "status": "online"
+        },
+        "floor25_to_security": {
+          "id": "security_lift",
+          "name": "Security Lift",
+          "type": "security",
+          "serves": [
+            "B3",
+            "B2",
+            "B1",
+            "ground",
+            "floor_01",
+            "floor_02",
+            "floor_03",
+            "floor_04",
+            "floor_05",
+            "floor_06",
+            "floor_07",
+            "floor_08",
+            "floor_09",
+            "floor_10",
+            "floor_11",
+            "floor_12",
+            "floor_13",
+            "floor_14",
+            "floor_15",
+            "floor_16",
+            "floor_17",
+            "floor_18",
+            "floor_19",
+            "floor_20",
+            "floor_21",
+            "floor_22",
+            "floor_23",
+            "floor_24",
+            "floor_25",
+            "floor_26",
+            "floor_27",
+            "floor_28",
+            "floor_29",
+            "floor_30",
+            "floor_31",
+            "floor_32",
+            "floor_33",
+            "floor_34",
+            "floor_35",
+            "floor_36",
+            "floor_37",
+            "floor_38",
+            "floor_39",
+            "floor_40",
+            "floor_41",
+            "floor_42",
+            "floor_43",
+            "floor_44",
+            "floor_45",
+            "floor_46",
+            "floor_47",
+            "floor_48",
+            "floor_49",
+            "floor_50",
+            "floor_51",
+            "floor_52",
+            "floor_53",
+            "penthouse",
+            "roof"
+          ],
+          "status": "online"
+        },
+        "note": "Floor 25 does not need direct model_lift access. It reaches model systems through Floor 24 routing."
+      }
+    },
+    {
+      "check_id": "security_spine_visible",
+      "status": "pass",
+      "severity": "warning",
+      "details": {
+        "security_spine": {
+          "database": "/vaults/nvme0/qsb_tower_v1/data/db/security_spine.sqlite",
+          "spine": "security_spine",
+          "department": "Security Spine",
+          "version": "1.1",
+          "status": "healthy",
+          "floors": [
+            "floor_28",
+            "floor_29",
+            "floor_30",
+            "floor_31",
+            "floor_32"
+          ],
+          "execution_enabled": false,
+          "enforcement_enabled": false,
+          "security_gates": 4,
+          "guardian_rules": 5,
+          "permission_roles": 4,
+          "lift_permissions": 9,
+          "compliance_rules": 5,
+          "checks_run": 23,
+          "critical_failures": 0,
+          "warnings": 0,
+          "passed": 23,
+          "latest_report": "floors/floor_32_compliance_department/compliance_reports/latest_security_spine_report.json",
+          "recent_security_events": [
+            {
+              "id": 38878,
+              "ts": "2026-06-09T09:52:31.089827+00:00",
+              "floor_id": "floor_28",
+              "event_type": "security_spine_check",
+              "status": "healthy",
+              "details": "{\"ts\": \"2026-06-09T09:52:31.088967+00:00\", \"spine\": \"security_spine\", \"version\": \"1.1\", \"status\": \"healthy\", \"floors\": [\"floor_28\", \"floor_29\", \"floor_30\", \"floor_31\", \"floor_32\"], \"execution_enabled\": false, \"enforcement_enabled\": false, \"checks_run\": 23, \"critical_failures\": 0, \"warnings\": 0, \"passed\": 23}"
+            },
+            {
+              "id": 38877,
+              "ts": "2026-06-09T09:52:31.014112+00:00",
+              "floor_id": "floor_28",
+              "event_type": "security_spine_check",
+              "status": "healthy",
+              "details": "{\"ts\": \"2026-06-09T09:52:31.013273+00:00\", \"spine\": \"security_spine\", \"version\": \"1.1\", \"status\": \"healthy\", \"floors\": [\"floor_28\", \"floor_29\", \"floor_30\", \"floor_31\", \"floor_32\"], \"execution_enabled\": false, \"enforcement_enabled\": false, \"checks_run\": 23, \"critical_failures\": 0, \"warnings\": 0, \"passed\": 23}"
+            },
+            {
+              "id": 38876,
+              "ts": "2026-06-09T09:52:30.892459+00:00",
+              "floor_id": "floor_28",
+              "event_type": "security_spine_check",
+              "status": "healthy",
+              "details": "{\"ts\": \"2026-06-09T09:52:30.891538+00:00\", \"spine\": \"security_spine\", \"version\": \"1.1\", \"status\": \"healthy\", \"floors\": [\"floor_28\", \"floor_29\", \"floor_30\", \"floor_31\", \"floor_32\"], \"execution_enabled\": false, \"enforcement_enabled\": false, \"checks_run\": 23, \"critical_failures\": 0, \"warnings\": 0, \"passed\": 23}"
+            },
+            {
+              "id": 38875,
+              "ts": "2026-06-09T09:52:30.802866+00:00",
+              "floor_id": "floor_28",
+              "event_type": "security_spine_check",
+              "status": "healthy",
+              "details": "{\"ts\": \"2026-06-09T09:52:30.801777+00:00\", \"spine\": \"security_spine\", \"version\": \"1.1\", \"status\": \"healthy\", \"floors\": [\"floor_28\", \"floor_29\", \"floor_30\", \"floor_31\", \"floor_32\"], \"execution_enabled\": false, \"enforcement_enabled\": false, \"checks_run\": 23, \"critical_failures\": 0, \"warnings\": 0, \"passed\": 23}"
+            },
+            {
+              "id": 38874,
+              "ts": "2026-06-09T09:52:30.715035+00:00",
+              "floor_id": "floor_28",
+              "event_type": "security_spine_check",
+              "status": "healthy",
+              "details": "{\"ts\": \"2026-06-09T09:52:30.714090+00:00\", \"spine\": \"security_spine\", \"version\": \"1.1\", \"status\": \"healthy\", \"floors\": [\"floor_28\", \"floor_29\", \"floor_30\", \"floor_31\", \"floor_32\"], \"execution_enabled\": false, \"enforcement_enabled\": false, \"checks_run\": 23, \"critical_failures\": 0, \"warnings\": 0, \"passed\": 23}"
+            },
+            {
+              "id": 38873,
+              "ts": "2026-06-09T09:52:30.624774+00:00",
+              "floor_id": "floor_28",
+              "event_type": "security_spine_check",
+              "status": "healthy",
+              "details": "{\"ts\": \"2026-06-09T09:52:30.623948+00:00\", \"spine\": \"security_spine\", \"version\": \"1.1\", \"status\": \"healthy\", \"floors\": [\"floor_28\", \"floor_29\", \"floor_30\", \"floor_31\", \"floor_32\"], \"execution_enabled\": false, \"enforcement_enabled\": false, \"checks_run\": 23, \"critical_failures\": 0, \"warnings\": 0, \"passed\": 23}"
+            },
+            {
+              "id": 38872,
+              "ts": "2026-06-09T09:49:39.827735+00:00",
+              "floor_id": "floor_28",
+              "event_type": "security_spine_check",
+              "status": "healthy",
+              "details": "{\"ts\": \"2026-06-09T09:49:39.826846+00:00\", \"spine\": \"security_spine\", \"version\": \"1.1\", \"status\": \"healthy\", \"floors\": [\"floor_28\", \"floor_29\", \"floor_30\", \"floor_31\", \"floor_32\"], \"execution_enabled\": false, \"enforcement_enabled\": false, \"checks_run\": 23, \"critical_failures\": 0, \"warnings\": 0, \"passed\": 23}"
+            },
+            {
+              "id": 38871,
+              "ts": "2026-06-09T09:49:39.758953+00:00",
+              "floor_id": "floor_28",
+              "event_type": "security_spine_check",
+              "status": "healthy",
+              "details": "{\"ts\": \"2026-06-09T09:49:39.758063+00:00\", \"spine\": \"security_spine\", \"version\": \"1.1\", \"status\": \"healthy\", \"floors\": [\"floor_28\", \"floor_29\", \"floor_30\", \"floor_31\", \"floor_32\"], \"execution_enabled\": false, \"enforcement_enabled\": false, \"checks_run\": 23, \"critical_failures\": 0, \"warnings\": 0, \"passed\": 23}"
+            },
+            {
+              "id": 38870,
+              "ts": "2026-06-09T09:49:39.678864+00:00",
+              "floor_id": "floor_28",
+              "event_type": "security_spine_check",
+              "status": "healthy",
+              "details": "{\"ts\": \"2026-06-09T09:49:39.677937+00:00\", \"spine\": \"security_spine\", \"version\": \"1.1\", \"status\": \"healthy\", \"floors\": [\"floor_28\", \"floor_29\", \"floor_30\", \"floor_31\", \"floor_32\"], \"execution_enabled\": false, \"enforcement_enabled\": false, \"checks_run\": 23, \"critical_failures\": 0, \"warnings\": 0, \"passed\": 23}"
+            },
+            {
+              "id": 38869,
+              "ts": "2026-06-09T09:49:39.549662+00:00",
+              "floor_id": "floor_28",
+              "event_type": "security_spine_check",
+              "status": "healthy",
+              "details": "{\"ts\": \"2026-06-09T09:49:39.548751+00:00\", \"spine\": \"security_spine\", \"version\": \"1.1\", \"status\": \"healthy\", \"floors\": [\"floor_28\", \"floor_29\", \"floor_30\", \"floor_31\", \"floor_32\"], \"execution_enabled\": false, \"enforcement_enabled\": false, \"checks_run\": 23, \"critical_failures\": 0, \"warnings\": 0, \"passed\": 23}"
+            }
+          ],
+          "recent_audit_records": [
+            {
+              "id": 38878,
+              "ts": "2026-06-09T09:52:31.090694+00:00",
+              "source": "security_spine",
+              "action": "run_security_spine_check",
+              "status": "healthy",
+              "details": "{\"ts\": \"2026-06-09T09:52:31.088967+00:00\", \"spine\": \"security_spine\", \"version\": \"1.1\", \"status\": \"healthy\", \"floors\": [\"floor_28\", \"floor_29\", \"floor_30\", \"floor_31\", \"floor_32\"], \"execution_enabled\": false, \"enforcement_enabled\": false, \"checks_run\": 23, \"critical_failures\": 0, \"warnings\": 0, \"passed\": 23}"
+            },
+            {
+              "id": 38877,
+              "ts": "2026-06-09T09:52:31.014953+00:00",
+              "source": "security_spine",
+              "action": "run_security_spine_check",
+              "status": "healthy",
+              "details": "{\"ts\": \"2026-06-09T09:52:31.013273+00:00\", \"spine\": \"security_spine\", \"version\": \"1.1\", \"status\": \"healthy\", \"floors\": [\"floor_28\", \"floor_29\", \"floor_30\", \"floor_31\", \"floor_32\"], \"execution_enabled\": false, \"enforcement_enabled\": false, \"checks_run\": 23, \"critical_failures\": 0, \"warnings\": 0, \"passed\": 23}"
+            },
+            {
+              "id": 38876,
+              "ts": "2026-06-09T09:52:30.893374+00:00",
+              "source": "security_spine",
+              "action": "run_security_spine_check",
+              "status": "healthy",
+              "details": "{\"ts\": \"2026-06-09T09:52:30.891538+00:00\", \"spine\": \"security_spine\", \"version\": \"1.1\", \"status\": \"healthy\", \"floors\": [\"floor_28\", \"floor_29\", \"floor_30\", \"floor_31\", \"floor_32\"], \"execution_enabled\": false, \"enforcement_enabled\": false, \"checks_run\": 23, \"critical_failures\": 0, \"warnings\": 0, \"passed\": 23}"
+            },
+            {
+              "id": 38875,
+              "ts": "2026-06-09T09:52:30.803699+00:00",
+              "source": "security_spine",
+              "action": "run_security_spine_check",
+              "status": "healthy",
+              "details": "{\"ts\": \"2026-06-09T09:52:30.801777+00:00\", \"spine\": \"security_spine\", \"version\": \"1.1\", \"status\": \"healthy\", \"floors\": [\"floor_28\", \"floor_29\", \"floor_30\", \"floor_31\", \"floor_32\"], \"execution_enabled\": false, \"enforcement_enabled\": false, \"checks_run\": 23, \"critical_failures\": 0, \"warnings\": 0, \"passed\": 23}"
+            },
+            {
+              "id": 38874,
+              "ts": "2026-06-09T09:52:30.715953+00:00",
+              "source": "security_spine",
+              "action": "run_security_spine_check",
+              "status": "healthy",
+              "details": "{\"ts\": \"2026-06-09T09:52:30.714090+00:00\", \"spine\": \"security_spine\", \"version\": \"1.1\", \"status\": \"healthy\", \"floors\": [\"floor_28\", \"floor_29\", \"floor_30\", \"floor_31\", \"floor_32\"], \"execution_enabled\": false, \"enforcement_enabled\": false, \"checks_run\": 23, \"critical_failures\": 0, \"warnings\": 0, \"passed\": 23}"
+            },
+            {
+              "id": 38873,
+              "ts": "2026-06-09T09:52:30.625659+00:00",
+              "source": "security_spine",
+              "action": "run_security_spine_check",
+              "status": "healthy",
+              "details": "{\"ts\": \"2026-06-09T09:52:30.623948+00:00\", \"spine\": \"security_spine\", \"version\": \"1.1\", \"status\": \"healthy\", \"floors\": [\"floor_28\", \"floor_29\", \"floor_30\", \"floor_31\", \"floor_32\"], \"execution_enabled\": false, \"enforcement_enabled\": false, \"checks_run\": 23, \"critical_failures\": 0, \"warnings\": 0, \"passed\": 23}"
+            },
+            {
+              "id": 38872,
+              "ts": "2026-06-09T09:49:39.828603+00:00",
+              "source": "security_spine",
+              "action": "run_security_spine_check",
+              "status": "healthy",
+              "details": "{\"ts\": \"2026-06-09T09:49:39.826846+00:00\", \"spine\": \"security_spine\", \"version\": \"1.1\", \"status\": \"healthy\", \"floors\": [\"floor_28\", \"floor_29\", \"floor_30\", \"floor_31\", \"floor_32\"], \"execution_enabled\": false, \"enforcement_enabled\": false, \"checks_run\": 23, \"critical_failures\": 0, \"warnings\": 0, \"passed\": 23}"
+            },
+            {
+              "id": 38871,
+              "ts": "2026-06-09T09:49:39.760026+00:00",
+              "source": "security_spine",
+              "action": "run_security_spine_check",
+              "status": "healthy",
+              "details": "{\"ts\": \"2026-06-09T09:49:39.758063+00:00\", \"spine\": \"security_spine\", \"version\": \"1.1\", \"status\": \"healthy\", \"floors\": [\"floor_28\", \"floor_29\", \"floor_30\", \"floor_31\", \"floor_32\"], \"execution_enabled\": false, \"enforcement_enabled\": false, \"checks_run\": 23, \"critical_failures\": 0, \"warnings\": 0, \"passed\": 23}"
+            },
+            {
+              "id": 38870,
+              "ts": "2026-06-09T09:49:39.679812+00:00",
+              "source": "security_spine",
+              "action": "run_security_spine_check",
+              "status": "healthy",
+              "details": "{\"ts\": \"2026-06-09T09:49:39.677937+00:00\", \"spine\": \"security_spine\", \"version\": \"1.1\", \"status\": \"healthy\", \"floors\": [\"floor_28\", \"floor_29\", \"floor_30\", \"floor_31\", \"floor_32\"], \"execution_enabled\": false, \"enforcement_enabled\": false, \"checks_run\": 23, \"critical_failures\": 0, \"warnings\": 0, \"passed\": 23}"
+            },
+            {
+              "id": 38869,
+              "ts": "2026-06-09T09:49:39.550643+00:00",
+              "source": "security_spine",
+              "action": "run_security_spine_check",
+              "status": "healthy",
+              "details": "{\"ts\": \"2026-06-09T09:49:39.548751+00:00\", \"spine\": \"security_spine\", \"version\": \"1.1\", \"status\": \"healthy\", \"floors\": [\"floor_28\", \"floor_29\", \"floor_30\", \"floor_31\", \"floor_32\"], \"execution_enabled\": false, \"enforcement_enabled\": false, \"checks_run\": 23, \"critical_failures\": 0, \"warnings\": 0, \"passed\": 23}"
+            }
+          ],
+          "recent_compliance_runs": [
+            {
+              "id": 38878,
+              "ts": "2026-06-09T09:52:31.088967+00:00",
+              "status": "healthy",
+              "checks_run": 23,
+              "failures": 0,
+              "warnings": 0,
+              "summary": {
+                "ts": "2026-06-09T09:52:31.088967+00:00",
+                "spine": "security_spine",
+                "version": "1.1",
+                "status": "healthy",
+                "floors": [
+                  "floor_28",
+                  "floor_29",
+                  "floor_30",
+                  "floor_31",
+                  "floor_32"
+                ],
+                "execution_enabled": false,
+                "enforcement_enabled": false,
+                "checks_run": 23,
+                "critical_failures": 0,
+                "warnings": 0,
+                "passed": 23
+              }
+            },
+            {
+              "id": 38877,
+              "ts": "2026-06-09T09:52:31.013273+00:00",
+              "status": "healthy",
+              "checks_run": 23,
+              "failures": 0,
+              "warnings": 0,
+              "summary": {
+                "ts": "2026-06-09T09:52:31.013273+00:00",
+                "spine": "security_spine",
+                "version": "1.1",
+                "status": "healthy",
+                "floors": [
+                  "floor_28",
+                  "floor_29",
+                  "floor_30",
+                  "floor_31",
+                  "floor_32"
+                ],
+                "execution_enabled": false,
+                "enforcement_enabled": false,
+                "checks_run": 23,
+                "critical_failures": 0,
+                "warnings": 0,
+                "passed": 23
+              }
+            },
+            {
+              "id": 38876,
+              "ts": "2026-06-09T09:52:30.891538+00:00",
+              "status": "healthy",
+              "checks_run": 23,
+              "failures": 0,
+              "warnings": 0,
+              "summary": {
+                "ts": "2026-06-09T09:52:30.891538+00:00",
+                "spine": "security_spine",
+                "version": "1.1",
+                "status": "healthy",
+                "floors": [
+                  "floor_28",
+                  "floor_29",
+                  "floor_30",
+                  "floor_31",
+                  "floor_32"
+                ],
+                "execution_enabled": false,
+                "enforcement_enabled": false,
+                "checks_run": 23,
+                "critical_failures": 0,
+                "warnings": 0,
+                "passed": 23
+              }
+            },
+            {
+              "id": 38875,
+              "ts": "2026-06-09T09:52:30.801777+00:00",
+              "status": "healthy",
+              "checks_run": 23,
+              "failures": 0,
+              "warnings": 0,
+              "summary": {
+                "ts": "2026-06-09T09:52:30.801777+00:00",
+                "spine": "security_spine",
+                "version": "1.1",
+                "status": "healthy",
+                "floors": [
+                  "floor_28",
+                  "floor_29",
+                  "floor_30",
+                  "floor_31",
+                  "floor_32"
+                ],
+                "execution_enabled": false,
+                "enforcement_enabled": false,
+                "checks_run": 23,
+                "critical_failures": 0,
+                "warnings": 0,
+                "passed": 23
+              }
+            },
+            {
+              "id": 38874,
+              "ts": "2026-06-09T09:52:30.714090+00:00",
+              "status": "healthy",
+              "checks_run": 23,
+              "failures": 0,
+              "warnings": 0,
+              "summary": {
+                "ts": "2026-06-09T09:52:30.714090+00:00",
+                "spine": "security_spine",
+                "version": "1.1",
+                "status": "healthy",
+                "floors": [
+                  "floor_28",
+                  "floor_29",
+                  "floor_30",
+                  "floor_31",
+                  "floor_32"
+                ],
+                "execution_enabled": false,
+                "enforcement_enabled": false,
+                "checks_run": 23,
+                "critical_failures": 0,
+                "warnings": 0,
+                "passed": 23
+              }
+            }
+          ],
+          "policy": {
+            "version": "1.1",
+            "spine_id": "security_spine",
+            "floors": [
+              "floor_28",
+              "floor_29",
+              "floor_30",
+              "floor_31",
+              "floor_32"
+            ],
+            "kernel_required": false,
+            "models_required": false,
+            "execution_enabled": false,
+            "enforcement_enabled": false,
+            "mode": "readiness_and_recording",
+            "principle": "The Security Spine prepares gates, permissions, audit, and compliance before future kernel occupancy. It does not execute actions or enforce live blocking yet.",
+            "notice": "Security is registered and visible. Enforcement remains disabled until explicitly activated later."
+          }
+        }
+      }
+    },
+    {
+      "check_id": "kernel_absence_preserved",
+      "status": "pass",
+      "severity": "critical",
+      "details": {
+        "forbidden_present": []
+      }
+    }
+  ],
+  "next_recommended_phase": "Floor 26 Model Evaluation Department V1.1"
+}

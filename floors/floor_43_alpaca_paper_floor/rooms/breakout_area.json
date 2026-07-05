@@ -1,0 +1,31 @@
+{
+  "room_id": "breakout_area",
+  "name": "Breakout Lounge",
+  "category": "seating",
+  "purpose": "Relaxation area for traders during breaks.",
+  "concierge_blurb": "Escape the trading floor and relax in this comfortable lounge.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 8.0,
+    "offset_z": 6.0,
+    "footprint_m": [
+      12,
+      9
+    ],
+    "height_m": 3.5
+  },
+  "render": {
+    "primary_prop": "chair_set",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Breakout Lounge",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_43"
+}

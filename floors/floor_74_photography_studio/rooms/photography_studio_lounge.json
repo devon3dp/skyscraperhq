@@ -1,0 +1,34 @@
+{
+  "room_id": "photography_studio_lounge",
+  "name": "Lounge",
+  "category": "seating",
+  "purpose": "To provide a relaxed space for clients and staff.",
+  "concierge_blurb": "Take a seat, relax, and enjoy the view from our lounge area.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 6.0,
+    "offset_z": -12.0,
+    "footprint_m": [
+      8,
+      4
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "chair_set",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Lounge",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 0
+  },
+  "floor": "floor_74"
+}

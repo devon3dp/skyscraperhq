@@ -1,0 +1,34 @@
+{
+  "room_id": "reference_room",
+  "name": "Reference Room",
+  "category": "operations",
+  "purpose": "a space for in-depth research and cross-referencing.",
+  "concierge_blurb": "Books line the walls, inviting you to dive deep into knowledge.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_center",
+    "offset_x": 0.0,
+    "offset_z": -1.5,
+    "footprint_m": [
+      8.0,
+      4.0
+    ],
+    "height_m": 2.3
+  },
+  "render": {
+    "primary_prop": "archive_shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Reference Room",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": null,
+    "refresh_seconds": null
+  },
+  "floor": "floor_57"
+}

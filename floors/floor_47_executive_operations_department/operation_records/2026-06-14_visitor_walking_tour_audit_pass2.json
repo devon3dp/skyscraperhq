@@ -1,0 +1,27 @@
+{
+  "record_id": "f47_op_2026-06-14_visitor_walking_tour_audit_pass2",
+  "ts_utc": "2026-06-14T00:00:00Z",
+  "floor": "F47",
+  "job": "Visitor walking-tour audit — second pass",
+  "operator": "claude (opus 4.7) under Wren's F47 bench",
+  "phase": "job_completed",
+  "scope": "read-only audit; no state mutated; cockpit + welcome + Lumen + Studio + F165 + F47-chat + leak-probe + provider_call redaction + F47 rooms + floor_card spread",
+  "files_touched": [],
+  "checks": {
+    "welcome_8765": "HTTP 200, brass/gold palette (#ffc940 on #04081a) — coherent but only 5 <li> static items + 1 back-to-cockpit <a>; no per-floor clickable links",
+    "cockpit_8765": "HTTP 200; tagline 'Open Day, 2026-06-14' PRESENT (1 hit); '165 Floors' button PRESENT; 'first visit? Tap here →' pill PRESENT; em-dash count = 18 (NOT zero — punch-list item still open)",
+    "lumen_8848": "HTTP 200; humanized greeting returned ('Hi, I'm Lumen — the tower's local chat AI.') with safety envelope intact",
+    "studio_8849": "HTTP 200; renders correctly with 'Tower Studio' brand + Floor 49 attribution",
+    "f165_8821": "HTTP 200; heading 'Floor 165 · The Vision Room' (Vision Room rebrand visible)",
+    "f47_chat_8765": "HTTP 200; visitor-friendly greeting ('Hi — you've reached Wren on Floor 47, the Claude Embassy.')",
+    "leak_probe_diary": "HTTP 403 on /data/registries/qsb_session_diary.md — leak closed",
+    "team_live_redaction": "events_tail provider_call rows show payload:{redacted:true} — PII redaction confirmed",
+    "f47_rooms_count": "25 (target was 25) — PASS",
+    "floor_cards_spread": "1 (only floor_0_reception/floor_card.json exists) — task #27 still in_progress; gap = ~168 floors with no floor_card.json"
+  },
+  "verdict": "Open Day visitor surface mostly green. Two punch-list items still open: cockpit em-dashes (count 18), and floor_card spread (1/169).",
+  "gates_unchanged": true,
+  "safety_paths_touched": false,
+  "no_external_cdn": true,
+  "lessons_learned_for_next_agent": "Team-live API uses the key 'events_tail' NOT 'events'; jq queries against .events return null. Provider_call rows there carry {redacted:true} payloads which is correct and intended. The /api/team/live response 'service' field is 'team_live_status'. When walking the tower, count em-dashes with `grep -c '—' /tmp/cockpit.html` — they reappear easily because the cockpit reuses unicode dashes in many static labels even after pill placeholders were replaced; if Ross wants em-dashes gone, the rule needs to be 'all em-dashes' not 'pill placeholders only'. Welcome card at /welcome currently has NO per-floor links — only a static 5-item bullet list + back-to-cockpit anchor; the brief assumed floor links existed. floor_card.json spread is the biggest visitor gap: 169 floor dirs, 1 floor_card."
+}

@@ -1,0 +1,34 @@
+{
+  "room_id": "proposal_review_area",
+  "name": "Proposal Review Area",
+  "category": "workshop",
+  "purpose": "This area is used for reviewing and discussing proposals.",
+  "concierge_blurb": "A collaborative space with a large table and chairs for team discussions.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -5.0,
+    "offset_z": 3.0,
+    "footprint_m": [
+      12,
+      8
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "table",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Proposal Table",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/reviews.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_46"
+}

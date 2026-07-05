@@ -1,0 +1,64 @@
+{
+  "floor_id": "floor_36",
+  "floor_number": 36,
+  "floor_name": "Expansion Planning Department",
+  "department": "Expansion Planning Department",
+  "zone": "ZONE C \u00b7 CRAFT + COMMERCE",
+  "archetype": "generic",
+  "staff_lead": "TBD",
+  "tour_blurb": "Expansion Planning Department \u2014 a floor in the QSB Tower. Skeleton card auto-generated; full fit-out pending.",
+  "visitor_open": false,
+  "advisory_only": true,
+  "execution_mode": "PREVIEW_ONLY",
+  "skeleton": true,
+  "skeleton_source": "floor_manifest.json",
+  "skeleton_generated_ts": "2026-06-17",
+  "live_signals": {
+    "theme": null,
+    "categories": null,
+    "palette": null,
+    "tagline": null
+  },
+  "gate_posture": {
+    "advisory_only": true,
+    "execution_allowed": false,
+    "live_payments_enabled": false
+  },
+  "team_roster": [
+    {
+      "id": "f036.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "spawned_id": "abb710c02f",
+      "spawned_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F036",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f036.operator.01",
+      "spawned_id": "69588f6d35"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F036",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f036.operator.02",
+      "spawned_id": "f90b929515"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F036",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f036.operator.03",
+      "spawned_id": "8ee401d0f5"
+    }
+  ],
+  "floor_manager": "f036.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

@@ -1,0 +1,47 @@
+{
+  "ts": "2026-06-29T09:10:00Z",
+  "directive": "QSB_PERSISTENT_TEAM_MEMORY_ORCHESTRATION_UNREAL_DRIVER_V1",
+  "answers": {
+    "Q1_team_system_created": "file-backed: detection + memory + brief + adapters + delegation + Wren SIC + tick/daemon + Unreal driver + roundtable + proof + learning + master menu",
+    "Q2_local_models_detected": {
+      "wren":   "qwen3.5:9b (default) + qwen2.5-cpu:32b",
+      "hermes": "hermes3:8b (default for speed) + hermes3-cpu:70b (too slow)",
+      "iquest_coder": "iquest-coder-v1:40b-instruct (default) + iquest-coder-cpu:40b",
+      "llava":  "llava:7b",
+      "ollama_endpoint_reachable": true
+    },
+    "Q3_wren_sic_available": true,
+    "Q3_wren_proof": "data/team_memory/wren/wren_continuity_report.md (live 47.3s response 2026-06-29 09:00 UTC)",
+    "Q4_hermes_available": "partial — 8B works, 70B times out at 240s",
+    "Q5_iquest_available": true,
+    "Q6_memory_folders": ["shared", "claude", "wren", "hermes", "iquest_coder", "openclaw", "smoke_testers", "maintenance"],
+    "Q7_shared_brief": "data/team_memory/shared/shared_project_brief.md (rebuilt every tick, canonical floor count detected)",
+    "Q8_model_learns_project": "adapter prepends shared brief + private memory on every call",
+    "Q9_each_model_memory": "decisions.jsonl + lessons.jsonl + memory.md per member; F47 stamp per call",
+    "Q10_claude_delegate": "scripts/qsb_team_delegate_task.{py,sh} — parallel ThreadPoolExecutor, real consensus",
+    "Q11_wren_keeps_up": ["qsb_wren_second_in_command_tick.sh", "qsb_wren_review_claude_plan.sh", "qsb_wren_memory_keeper.sh", "qsb_wren_status_report.sh"],
+    "Q12_hermes_iquest_help": ["team_adapters/qsb_ask_hermes.sh", "team_adapters/qsb_ask_iquest_coder.sh", "auto-participate in roundtables"],
+    "Q13_team_confirms": "consensus computed from real responses; model_unavailable when timeout/empty — no faking",
+    "Q14_team_learns": "qsb_team_learning_tick.py flags ≥50% failure rate or repeated ducks; appends to shared + private lessons",
+    "Q15_unreal_driven_cli": ["scripts/unreal/qsb_unreal_find_project.sh", "qsb_unreal_open_editor.sh (PYSCRIPT=)", "qsb_unreal_cli_build_pass.sh", "qsb_unreal_take_screenshot.sh", "qsb_unreal_driver_status.sh", "5 Python build passes"],
+    "Q16_proof_scripts": ["qsb_team_prove_persistence.sh", "qsb_team_prove_model_calls.sh", "qsb_team_prove_memory_sync.sh", "qsb_team_prove_delegation.sh", "qsb_team_prove_wren_second.sh", "qsb_team_prove_unreal_driver.sh", "qsb_team_prove_full_system.sh"],
+    "Q17_proof_suite_pass": "5/6 at 2026-06-29 09:03 (delegation fails until first roundtable lands)",
+    "Q18_failed_or_missing": [
+      "Materials still not assigned in UE (recipe ready, needs in-editor exec)",
+      "Hermes 70B cold-start too slow — pinned 8B in adapter",
+      "OpenClaw/smoke testers/maintenance are scripts + JSONL, not models",
+      "UMG HUD widgets scaffold not styled/bound",
+      "Full-tower github push pending separate decision"
+    ],
+    "Q19_next_command": [
+      "./scripts/qsb_team_control.sh prove",
+      "./scripts/qsb_team_control.sh status",
+      "cat data/logs/qsb_persistent_team_orchestration_report.md"
+    ]
+  },
+  "smoke_results": {
+    "team_tick_rc": 0,
+    "wren_sic_rc": 0,
+    "proof_suite": "5/6"
+  }
+}

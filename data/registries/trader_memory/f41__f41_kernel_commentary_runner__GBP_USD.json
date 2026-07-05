@@ -1,0 +1,65 @@
+{
+  "worker_id": "f41_kernel_commentary_runner",
+  "instrument": "GBP_USD",
+  "strategy": {
+    "name": "mean_revert",
+    "params": {
+      "lookback_min": 5,
+      "threshold_bps": 5
+    }
+  },
+  "stats": {
+    "wins": 0,
+    "losses": 3,
+    "total_pnl": 0.0,
+    "win_streak": 0,
+    "loss_streak": 3,
+    "trades_total": 3,
+    "last_trade_ts": "2026-06-21T13:47:59.432139+00:00"
+  },
+  "open_trades": [],
+  "closed_trades": [
+    {
+      "order_id": "trd_00000856",
+      "side": "BUY",
+      "qty": 100.0,
+      "entry_px": 1.27095,
+      "opened_ts": "2026-06-21T13:26:50.724374+00:00",
+      "exit_px": 1.27095,
+      "pnl": 0.0,
+      "won": false,
+      "closed_ts": "2026-06-21T13:47:59.432139+00:00",
+      "strategy_name": "ad_hoc_cohort",
+      "close_reason": "cycle_close_age_1268s"
+    },
+    {
+      "order_id": "trd_00000847",
+      "side": "BUY",
+      "qty": 100.0,
+      "entry_px": 1.27095,
+      "opened_ts": "2026-06-21T13:16:49.511104+00:00",
+      "exit_px": 1.27095,
+      "pnl": 0.0,
+      "won": false,
+      "closed_ts": "2026-06-21T13:37:58.959771+00:00",
+      "strategy_name": "ad_hoc_cohort",
+      "close_reason": "cycle_close_age_1269s"
+    },
+    {
+      "order_id": "trd_00000838",
+      "side": "BUY",
+      "qty": 100.0,
+      "entry_px": 1.27095,
+      "opened_ts": "2026-06-21T13:06:47.624879+00:00",
+      "exit_px": 1.27095,
+      "pnl": 0.0,
+      "won": false,
+      "closed_ts": "2026-06-21T13:25:51.705155+00:00",
+      "strategy_name": "ad_hoc_cohort",
+      "close_reason": "cycle_close_age_1143s"
+    }
+  ],
+  "strategy_history": [],
+  "backfilled_from": "qsb_floor41_oanda_closed_trades.json",
+  "backfilled_ts": "2026-06-21T16:22:56Z"
+}

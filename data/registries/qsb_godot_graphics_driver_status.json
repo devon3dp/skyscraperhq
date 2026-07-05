@@ -1,0 +1,34 @@
+{
+  "ok": true,
+  "kind": "qsb_godot_graphics_driver_status",
+  "phase": "QSB_GODOT_PROFESSIONAL_COCKPIT_VISUAL_UPGRADE_AFTER_FIRST_LAUNCH_V1",
+  "generated_ts": "2026-06-09T16:21:14+00:00",
+  "hardware": {
+    "gpu_pci": "01:00.0 NVIDIA Corporation Device 2c05 (rev a1)",
+    "gpu_audio": "01:00.1 NVIDIA Audio device",
+    "vendor": "NVIDIA"
+  },
+  "current_runtime": {
+    "renderer_active": "OpenGL \u00b7 llvmpipe (software fallback)",
+    "godot_setting": "rendering_method=gl_compatibility (project.godot)",
+    "nvidia_smi_status": "NVML library version mismatch \u2014 userspace driver out of sync with kernel module",
+    "dri3_screen": "failed (nouveau)",
+    "vulkan": "vulkaninfo not installed",
+    "glxinfo": "not installed"
+  },
+  "verdict": "Godot is running with software rendering. This works correctly but at low FPS for complex scenes. NOT a blocker for the V1 visual upgrade.",
+  "recommendations_for_user_only_not_action": [
+    "sudo apt install --reinstall libnvidia-gl-580 nvidia-utils-580 (match kernel module version)",
+    "OR sudo apt install nvidia-driver-550 (matched LTS driver)",
+    "Reboot after driver fix; Godot will pick up forward_plus automatically",
+    "Until then, gl_compatibility is the correct choice and is preserved in project.godot"
+  ],
+  "this_phase_action": "continue building professional UI in gl_compatibility mode \u2014 do not touch GPU drivers.",
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "live_payments_enabled": false,
+  "live_listings_publishing_enabled": false
+}

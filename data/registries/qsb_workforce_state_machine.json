@@ -1,0 +1,84 @@
+{
+  "ok": true,
+  "kind": "qsb_workforce_state_machine",
+  "generated_ts": "2026-06-30T13:46:34.683845+00:00",
+  "worker_classes": [
+    "operational_worker",
+    "training_worker",
+    "candidate_worker",
+    "lesson_worker",
+    "resting_worker",
+    "suspended_worker",
+    "stale_worker",
+    "visual_group"
+  ],
+  "worker_states": [
+    "idle_at_station",
+    "working",
+    "moving",
+    "training",
+    "reviewing_lesson",
+    "awaiting_assignment",
+    "resting",
+    "promoted",
+    "warned",
+    "suspended",
+    "blocked",
+    "stale"
+  ],
+  "transitions": {
+    "hired": [
+      "awaiting_assignment"
+    ],
+    "assigned": [
+      "idle_at_station"
+    ],
+    "task_dispatched": [
+      "working",
+      "moving"
+    ],
+    "movement_event": [
+      "moving"
+    ],
+    "lesson_assigned": [
+      "reviewing_lesson"
+    ],
+    "training_assigned": [
+      "training"
+    ],
+    "rested": [
+      "resting"
+    ],
+    "promotion_approved": [
+      "promoted",
+      "idle_at_station"
+    ],
+    "strike_issued": [
+      "warned"
+    ],
+    "suspension_issued": [
+      "suspended"
+    ],
+    "guardian_block": [
+      "blocked"
+    ],
+    "stale_detected": [
+      "stale"
+    ]
+  },
+  "default_state_for_class": {
+    "operational_worker": "idle_at_station",
+    "training_worker": "training",
+    "candidate_worker": "awaiting_assignment",
+    "lesson_worker": "reviewing_lesson",
+    "resting_worker": "resting",
+    "suspended_worker": "suspended",
+    "stale_worker": "stale"
+  },
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

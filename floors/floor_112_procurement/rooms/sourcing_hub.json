@@ -1,0 +1,34 @@
+{
+  "room_id": "sourcing_hub",
+  "name": "Sourcing Hub",
+  "category": "trading",
+  "purpose": "Managing vendor relationships and procurement processes.",
+  "concierge_blurb": "A bustling hub for sourcing and managing vendors.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_center",
+    "offset_x": 0.0,
+    "offset_z": 0.0,
+    "footprint_m": [
+      15,
+      8
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "trading_desk",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Sourcing Hub",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/sourcing_hub.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 60
+  },
+  "floor": "floor_112"
+}

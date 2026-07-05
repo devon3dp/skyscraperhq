@@ -1,0 +1,64 @@
+{
+  "ok": true,
+  "kind": "qsb_godot_live_stream_channels",
+  "phase": "QSB_GODOT_PROFESSIONAL_3D_DASHBOARD_UPGRADE_V1",
+  "generated_ts": "2026-06-09T15:45:19+00:00",
+  "channels": [
+    {
+      "source": "/api/dashboard/lift_scene_state",
+      "entity": "lift_car",
+      "animation": "Y lerp + emission boost during motion",
+      "stale_timeout_s": 60,
+      "current_state": "live"
+    },
+    {
+      "source": "/api/openclaw/route",
+      "entity": "openclaw_orb",
+      "animation": "Y lerp + orbital theta + halo rotate",
+      "stale_timeout_s": 90,
+      "current_state": "live"
+    },
+    {
+      "source": "/api/dashboard/worker_scene_state",
+      "entity": "worker_chip",
+      "animation": "ring slow rotate (fixed d\u03c9); count fixed",
+      "stale_timeout_s": 120,
+      "current_state": "live"
+    },
+    {
+      "source": "/api/dashboard/intercom_packets",
+      "entity": "event_packet",
+      "animation": "sphere trail along lift columns",
+      "stale_timeout_s": 60,
+      "current_state": "live"
+    },
+    {
+      "source": "/api/trading/oanda/floor41/pnl",
+      "entity": "pnl_halo",
+      "animation": "F41 halo green when total>0, red when <0",
+      "stale_timeout_s": 60,
+      "current_state": "live"
+    },
+    {
+      "source": "eqsb_cadence_state.tick_count",
+      "entity": "cadence_pulse",
+      "animation": "penthouse_light intensity pulse on tick increment",
+      "stale_timeout_s": 90,
+      "current_state": "live"
+    },
+    {
+      "source": "eqsb_guardian_state.safety_state",
+      "entity": "guardian_lock",
+      "animation": "no flash if OK; flash amber if DEGRADED",
+      "stale_timeout_s": 60,
+      "current_state": "live"
+    }
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "live_payments_enabled": false,
+  "live_listings_publishing_enabled": false
+}

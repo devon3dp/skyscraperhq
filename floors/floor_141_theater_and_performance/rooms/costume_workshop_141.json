@@ -1,0 +1,34 @@
+{
+  "room_id": "costume_workshop_141",
+  "name": "Costume Workshop",
+  "category": "workshop",
+  "purpose": "A place for costume designers to create and repair outfits.",
+  "concierge_blurb": "Where costumes come alive before the stage.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "left_wall",
+    "offset_x": -8.0,
+    "offset_z": 2.5,
+    "footprint_m": [
+      13,
+      9
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "bench",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Costume Workshop",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 0
+  },
+  "floor": "floor_141"
+}

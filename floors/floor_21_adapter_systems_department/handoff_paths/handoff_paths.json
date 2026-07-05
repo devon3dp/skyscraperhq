@@ -1,0 +1,50 @@
+[
+  {
+    "id": "floor_24_to_floor_21_to_floor_27_local_model",
+    "source_floor": "floor_24",
+    "adapter_floor": "floor_21",
+    "target_floor": "floor_27",
+    "adapter": "ollama_adapter",
+    "incoming_lift": "service_lift",
+    "outgoing_lift": "model_lift",
+    "sealed_packets": true,
+    "execution_enabled": false,
+    "description": "Future route where Floor 24 asks Floor 21 to prepare Ollama/local-model adapter handoff."
+  },
+  {
+    "id": "floor_24_to_floor_21_to_floor_23_external_provider",
+    "source_floor": "floor_24",
+    "adapter_floor": "floor_21",
+    "target_floor": "floor_23",
+    "adapter": "claude_adapter",
+    "incoming_lift": "service_lift",
+    "outgoing_lift": "model_lift",
+    "sealed_packets": true,
+    "execution_enabled": false,
+    "description": "Future route where Floor 21 prepares external provider adapter handoff before Floor 23 socket layer."
+  },
+  {
+    "id": "floor_05_to_floor_21_claude_code_port",
+    "source_floor": "floor_05",
+    "adapter_floor": "floor_21",
+    "target_floor": "floor_24",
+    "adapter": "claude_code_adapter",
+    "incoming_lift": "service_lift",
+    "outgoing_lift": "service_lift",
+    "sealed_packets": true,
+    "execution_enabled": false,
+    "description": "Future route where Floor 5 coding packets can be adapter-prepared before Floor 24 routing."
+  },
+  {
+    "id": "floor_35_to_floor_21_local_cli_bridge",
+    "source_floor": "floor_35",
+    "adapter_floor": "floor_21",
+    "target_floor": "floor_35",
+    "adapter": "local_cli_adapter",
+    "incoming_lift": "service_lift",
+    "outgoing_lift": "service_lift",
+    "sealed_packets": true,
+    "execution_enabled": false,
+    "description": "Future local CLI bridge. Disabled until explicitly enabled later."
+  }
+]

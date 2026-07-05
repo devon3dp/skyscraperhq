@@ -1,0 +1,31 @@
+{
+  "room_id": "conference_room",
+  "name": "Conference Room",
+  "category": "operations",
+  "purpose": "A space for important meetings and briefings.",
+  "concierge_blurb": "Seating arrangement for up to eight people around a large table.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -6.0,
+    "offset_z": 4.0,
+    "footprint_m": [
+      8,
+      5
+    ],
+    "height_m": 1.2
+  },
+  "render": {
+    "primary_prop": "chair_set",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Conf Room",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_53"
+}

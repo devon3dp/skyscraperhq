@@ -1,0 +1,34 @@
+{
+  "room_id": "living_light_kitchen",
+  "name": "Living Light Kitchen",
+  "category": "kitchen",
+  "purpose": "To display and explain the use of eco-friendly kitchen products.",
+  "concierge_blurb": "Learn how to cook sustainably in this functional, green kitchen.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -6.0,
+    "offset_z": 4.5,
+    "footprint_m": [
+      9,
+      7
+    ],
+    "height_m": 2.3
+  },
+  "render": {
+    "primary_prop": "kitchen_line",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Green Kitchen",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 0
+  },
+  "floor": "floor_162"
+}

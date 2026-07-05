@@ -1,0 +1,34 @@
+{
+  "room_id": "data_analysis_workshop",
+  "name": "Data Analysis Workshop",
+  "category": "workshop",
+  "purpose": "A space for analyzing and processing large datasets.",
+  "concierge_blurb": "Workstations and screens set up for data analysis tasks.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 8.0,
+    "offset_z": 5.0,
+    "footprint_m": [
+      12,
+      6
+    ],
+    "height_m": 2.0
+  },
+  "render": {
+    "primary_prop": "desk",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Analysis Desk",
+    "glow": false
+  },
+  "interactive": {
+    "type": "live_data",
+    "source_path": "data/registries/live_analysis_data.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 30
+  },
+  "floor": "floor_13"
+}

@@ -1,0 +1,64 @@
+{
+  "floor_id": "floor_29",
+  "floor_number": 29,
+  "floor_name": "Guardian Department",
+  "department": "Guardian Department",
+  "zone": "ZONE B \u00b7 OPERATIONS",
+  "archetype": "generic",
+  "staff_lead": "TBD",
+  "tour_blurb": "Guardian Department \u2014 a floor in the QSB Tower. Skeleton card auto-generated; full fit-out pending.",
+  "visitor_open": false,
+  "advisory_only": true,
+  "execution_mode": "PREVIEW_ONLY",
+  "skeleton": true,
+  "skeleton_source": "floor_manifest.json",
+  "skeleton_generated_ts": "2026-06-17",
+  "live_signals": {
+    "theme": null,
+    "categories": null,
+    "palette": null,
+    "tagline": null
+  },
+  "gate_posture": {
+    "advisory_only": true,
+    "execution_allowed": false,
+    "live_payments_enabled": false
+  },
+  "team_roster": [
+    {
+      "id": "f029.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "spawned_id": "ae5e5b8e64",
+      "spawned_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F029",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f029.operator.01",
+      "spawned_id": "4c1c0549fe"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F029",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f029.operator.02",
+      "spawned_id": "97ecda5f4d"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F029",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f029.operator.03",
+      "spawned_id": "b11c764b4b"
+    }
+  ],
+  "floor_manager": "f029.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

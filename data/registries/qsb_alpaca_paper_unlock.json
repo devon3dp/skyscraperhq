@@ -1,0 +1,19 @@
+{
+  "ts": "2026-06-10T20:37:36Z",
+  "kind": "alpaca_paper_unlock",
+  "authorized_by": "ross_2026_06_10_chat",
+  "scope": "Alpaca paper env ONLY \u2014 env_name must equal 'paper' AND ALPACA_ORDER_EXECUTION_ENABLED=true",
+  "still_locked": [
+    "alpaca live (env=live) \u2014 unconditional StockOrderBlocked",
+    "binance live (env=live) \u2014 unconditional",
+    "binance real-money \u2014 unconditional",
+    "openclaw real execution \u2014 unconditional",
+    "autonomous worker dispatch \u2014 unconditional",
+    "self-rewrite of code or registries \u2014 unconditional"
+  ],
+  "newly_open": [
+    "alpaca paper place_order (env=paper + intent flag true + creds present)",
+    "binance testnet place_market_order (already open under Tier B from earlier today)"
+  ],
+  "advisory_only_for_real_money": true
+}

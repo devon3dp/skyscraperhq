@@ -1,0 +1,34 @@
+{
+  "room_id": "staff_break_area",
+  "name": "Staff Break Area",
+  "category": "reception",
+  "purpose": "This area is for staff to take breaks and relax.",
+  "concierge_blurb": "Comfortable seating arranged around a small table with snacks and drinks available.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -4.0,
+    "offset_z": 2.0,
+    "footprint_m": [
+      6,
+      4
+    ],
+    "height_m": 1.5
+  },
+  "render": {
+    "primary_prop": "seating",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Break Area",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 300
+  },
+  "floor": "floor_44"
+}

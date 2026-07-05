@@ -1,0 +1,14 @@
+[Unit]
+Description=QSB Tower F47 audit master daily snapshot
+After=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/vaults/nvme0/qsb_tower_v1
+Environment=PATH=/vaults/nvme0/qsb_tower_v1/.venv/bin:/usr/local/bin:/usr/bin:/bin
+ExecStart=/vaults/nvme0/qsb_tower_v1/.venv/bin/python3 /vaults/nvme0/qsb_tower_v1/tools/qsb_f47_snapshot.py
+StandardOutput=append:/vaults/nvme0/qsb_tower_v1/logs/qsb_f47_snapshot.log
+StandardError=append:/vaults/nvme0/qsb_tower_v1/logs/qsb_f47_snapshot.log
+
+[Install]
+WantedBy=default.target

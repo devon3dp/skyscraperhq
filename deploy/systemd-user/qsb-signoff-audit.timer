@@ -1,0 +1,11 @@
+[Unit]
+Description=Run sign-off audit every 30 minutes
+
+[Timer]
+OnBootSec=3min
+OnUnitActiveSec=30min
+Unit=qsb-signoff-audit.service
+Persistent=true
+
+[Install]
+WantedBy=timers.target

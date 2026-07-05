@@ -1,0 +1,72 @@
+{
+  "room_id": "decorator_atelier",
+  "name": "Decorator's Atelier",
+  "category": "atelier",
+  "floor": "floor_47",
+  "purpose": "this atelier is for cockpit CSS/scene-material tuning by the decoration crew.",
+  "concierge_blurb": "The Atelier is where the building's surfaces are finished: palette, glow, materials. Visitors usually see the work without noticing it.",
+  "current_state": "to_build",
+  "visitor_open": true,
+  "evidence_paths": [
+    "src/dashboard/static/cockpit.css",
+    "src/dashboard/static/welcome.html",
+    "data/registries/qsb_f47_fleet_roster.json"
+  ],
+  "live_signals": {
+    "palette_source": "src/dashboard/static/welcome.html",
+    "palette_tokens": [
+      "--bg-deep: #0d0b08",
+      "--bg-panel: #161310",
+      "--bg-soft: #1f1a14",
+      "--brass: #d6a84a",
+      "--brass-bright: #f3c969",
+      "--brass-dim: #8c6a2c",
+      "--ivory: #f1e7d2",
+      "--warm-grey: #b8aa92",
+      "--line: #3a2f1f",
+      "--accent: #ff8c33"
+    ],
+    "cockpit_palette_source": "src/dashboard/static/cockpit.css",
+    "cockpit_tokens_sample": [
+      "--bg: #040814",
+      "--panel: #0a142a",
+      "--gold: #ffc940",
+      "--green: #4dffb0",
+      "--blue: #6ab8ff"
+    ],
+    "decorator_roster_slice": {
+      "category": "design_decoration",
+      "total_in_category": 25,
+      "roles_present": [
+        "designer/colorist",
+        "designer/decorator",
+        "designer/graphic_designer",
+        "designer/scene_fitter",
+        "designer/ui_designer"
+      ]
+    },
+    "advisory_only": true
+  },
+  "built_at": "2026-06-14T17:15:00Z",
+  "built_by": "f47_floor_buildout_batch_2",
+  "lessons_learned_for_next_agent": "The prompt hinted that --bg-deep and --brass live in src/dashboard/static/welcome.html but the cockpit's main palette in cockpit.css is a different scheme (deep-blue navy: --bg, --panel, --gold). The Atelier therefore tunes two palettes: the warm welcome palette and the cool cockpit palette. Future agents should not collapse them.",
+  "layout": {
+    "zone": "right_wall",
+    "offset_x": -0.05,
+    "offset_z": 0.0,
+    "footprint_m": [
+      2.4,
+      0.1
+    ],
+    "height_m": 1.6
+  },
+  "render": {
+    "primary_prop": "wall_panel",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "DECORATOR ATELIER",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  }
+}

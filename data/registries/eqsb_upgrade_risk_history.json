@@ -1,0 +1,36 @@
+{
+  "ok": true,
+  "kind": "eqsb_upgrade_risk_history",
+  "generated_ts": "2026-06-30T13:46:34.483662+00:00",
+  "current_risk_file_count": 2,
+  "current_risks": [
+    {
+      "path": "src/tower/eqsb_observatory.py",
+      "flags": [
+        "random_in_observatory_code",
+        "subprocess_shell_true",
+        "has_todo_or_fixme"
+      ]
+    },
+    {
+      "path": "src/tower/qsb_dashboard_live_telemetry.py",
+      "flags": [
+        "random_in_observatory_code"
+      ]
+    }
+  ],
+  "lessons_so_far": [
+    "Random animations were eliminated in V3; visual contract is LIVE_DATA_ONLY.",
+    "Worker counts mismatched because no canonical registry existed pre-V2.",
+    "Floor 44 Accounts/PnL needed a real manifest \u2014 added by this phase.",
+    "Discipline strikes are reserved for rule violations, never paper losses.",
+    "Hardware observatory is read-only; recommendations require operator approval.",
+    "Browser SpeechSynthesis handles narration \u2014 no server-side TTS dependency."
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

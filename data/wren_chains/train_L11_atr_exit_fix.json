@@ -1,0 +1,42 @@
+{
+  "id": "train_L11_atr_exit_fix",
+  "title": "L11 — TEAM ships ATR-based exit function (TP proposal + Acer exit-log schema + Forge code + iQuest review)",
+  "stages": [
+    {
+      "kind": "read_proposal",
+      "prompt": "Use wren_read_file with path='data/team_memory/shared/node_inbox/20260703T150000_tp_exit_geometry_proposal.json' — read TP's exit-geometry proposal. STAGE_OUT: quote the CONVERGENT FIX section verbatim (2-3 lines)."
+    },
+    {
+      "kind": "acer_schema",
+      "prompt": "Use wren_curl to POST http://192.168.1.74:9001/ with body='{\"message\":\"Give me the EXIT LOG schema — one line per field, python dict style. Fields Ross wants: ts, worker_id, instrument, venue, pnl_gbp, exit_trigger (atr_stop|take_profit|time|manual), entry_ts, hold_seconds, atr_at_entry, atr_at_exit. Just the dict.\"}'. STAGE_OUT: Acer's reply verbatim."
+    },
+    {
+      "kind": "forge_atr_code",
+      "prompt": "Use wren_dispatch_f46_team worker='forge' task='Write ONLY 12 lines of Python. Function compute_atr(bars, period=14) -> float that computes Average True Range from a list of (high, low, close) tuples. Then function apply_dynamic_exit(position, atr, multiplier=1.5) that returns dict {stop, take_profit} from entry_price using ATR × multiplier. No prose. No markdown backticks.'. STAGE_OUT: paste Forge's code."
+    },
+    {
+      "kind": "write_candidate",
+      "prompt": "Use wren_write_file with path='data/team_sandbox/L11_atr_exits.py' and content that combines: (a) docstring '\"\"\"L11 — ATR exits · TP proposal · Acer schema · Forge code.\"\"\"', (b) blank line, (c) Forge's Python from prior stage. STAGE_OUT: tool result showing bytes written."
+    },
+    {
+      "kind": "claude_verify",
+      "shell_cmd": "python3 -c 'import ast; ast.parse(open(\"data/team_sandbox/L11_atr_exits.py\").read()); print(\"SYNTAX OK\")'",
+      "expect_exit": 0,
+      "expect_contains": "SYNTAX OK"
+    },
+    {
+      "kind": "claude_verify",
+      "shell_cmd": "cd data/team_sandbox && python3 -c 'from L11_atr_exits import compute_atr, apply_dynamic_exit; a = compute_atr([(1.05,1.03,1.04),(1.06,1.04,1.05),(1.07,1.05,1.06),(1.08,1.06,1.07),(1.09,1.07,1.08),(1.10,1.08,1.09),(1.11,1.09,1.10),(1.12,1.10,1.11),(1.13,1.11,1.12),(1.14,1.12,1.13),(1.15,1.13,1.14),(1.16,1.14,1.15),(1.17,1.15,1.16),(1.18,1.16,1.17),(1.19,1.17,1.18)]); assert a > 0; r = apply_dynamic_exit({\"entry_price\": 1.10, \"direction\": 1}, a, 1.5); assert r[\"stop\"] < 1.10 and r[\"take_profit\"] > 1.10; print(f\"ATR={a:.4f} STOP={r[\\\"stop\\\"]:.4f} TP={r[\\\"take_profit\\\"]:.4f}\")'",
+      "expect_exit": 0,
+      "expect_contains": "ATR="
+    },
+    {
+      "kind": "iquest_review",
+      "prompt": "Use wren_dispatch_iquest task='In 2 lines: given ATR computes from (high,low,close) bars and apply_dynamic_exit returns stop=entry-ATR*mult, TP=entry+ATR*mult — is there an edge case for zero-range bars (H=L=C) or negative direction? Just yes/no + one-line fix if yes.'. STAGE_OUT: iQuest's review verbatim."
+    },
+    {
+      "kind": "final",
+      "prompt": "Given all prior stages: does the L11 exit-fix pass the exit gate? In ONE line: 'L11 VERDICT: shipped_to_sandbox=<yes|no>, syntax=<pass|fail>, smoke=<pass|fail>, iquest_veto=<yes|no>, ready_for_prod=<yes|no>'."
+    }
+  ]
+}

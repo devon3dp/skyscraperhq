@@ -1,0 +1,101 @@
+{
+  "ok": true,
+  "kind": "qsb_floor41_oanda_department_map",
+  "phase": "QSB_FLOOR_41_OANDA_FULL_TRADING_FLOOR_REBUILD_V1",
+  "generated_ts": "2026-06-30T13:46:36.079832+00:00",
+  "floor": 41,
+  "department": "OANDA Trading Floor",
+  "zone": "ZONE C",
+  "room_count": 13,
+  "rooms": [
+    {
+      "room_id": "f41_room_01",
+      "name": "Market Feed Desk",
+      "position": 1,
+      "responsibility": "consume OANDA practice pricing stream"
+    },
+    {
+      "room_id": "f41_room_02",
+      "name": "Instrument Watch Board",
+      "position": 2,
+      "responsibility": "tile each instrument with bid/ask/spread"
+    },
+    {
+      "room_id": "f41_room_03",
+      "name": "Spread Watch Station",
+      "position": 3,
+      "responsibility": "alert when spread exceeds threshold"
+    },
+    {
+      "room_id": "f41_room_04",
+      "name": "Strategy Desk",
+      "position": 4,
+      "responsibility": "rank strategies, propose entries"
+    },
+    {
+      "room_id": "f41_room_05",
+      "name": "Order Entry Desk",
+      "position": 5,
+      "responsibility": "submit practice/paper open orders"
+    },
+    {
+      "room_id": "f41_room_06",
+      "name": "Open Trades Board",
+      "position": 6,
+      "responsibility": "show every open trade with mark + uPnL"
+    },
+    {
+      "room_id": "f41_room_07",
+      "name": "Close Trade Desk",
+      "position": 7,
+      "responsibility": "submit practice/paper close orders"
+    },
+    {
+      "room_id": "f41_room_08",
+      "name": "PnL Accounting Desk",
+      "position": 8,
+      "responsibility": "compute realized + unrealized + total"
+    },
+    {
+      "room_id": "f41_room_09",
+      "name": "Risk / Guardian Station",
+      "position": 9,
+      "responsibility": "veto trades over risk thresholds"
+    },
+    {
+      "room_id": "f41_room_10",
+      "name": "OpenClaw Inspection Post",
+      "position": 10,
+      "responsibility": "read-only supervisor checks"
+    },
+    {
+      "room_id": "f41_room_11",
+      "name": "Audit Dispatch",
+      "position": 11,
+      "responsibility": "append events to ledger + audit log"
+    },
+    {
+      "room_id": "f41_room_12",
+      "name": "Lessons Output Desk",
+      "position": 12,
+      "responsibility": "emit lessons from losing closed trades"
+    },
+    {
+      "room_id": "f41_room_13",
+      "name": "Worker Thought Console",
+      "position": 13,
+      "responsibility": "stream worker thoughts to dashboard"
+    }
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "oanda_practice_paper_trading_allowed": true,
+  "live_money_enabled": false,
+  "oanda_live_environment_allowed": false,
+  "real_production_trading_allowed": false,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "worker_execution_enabled": false,
+  "autonomous_dispatch_enabled": false
+}

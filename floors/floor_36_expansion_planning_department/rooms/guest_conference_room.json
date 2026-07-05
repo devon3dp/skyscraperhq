@@ -1,0 +1,34 @@
+{
+  "room_id": "guest_conference_room",
+  "name": "Guest Conference Room",
+  "category": "reception",
+  "purpose": "Provides a space for external partners to meet with the department.",
+  "concierge_blurb": "A small conference room with modern furniture and a whiteboard.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 6.0,
+    "offset_z": -2.0,
+    "footprint_m": [
+      8,
+      4
+    ],
+    "height_m": 2.5
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Guest Dais",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 600
+  },
+  "floor": "floor_36"
+}

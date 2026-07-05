@@ -1,0 +1,8 @@
+[
+  {"id":"1","status":"in_progress","subject":"Finish Qwen2.5-32B download","note":"BLOCKED on hotspot 0.17 KB/s. snapshot_download alive + resumable."},
+  {"id":"3","status":"pending","subject":"Resume F47 walkable_interior + inventory rooms","note":"deferred for F46 + deep dive"},
+  {"id":"4","status":"in_progress","subject":"F46 unique per-floor fit-out","note":"REFRAMED: Ross corrected — every floor unique, not archetype-grouped, not generic. Need data-driven per-floor fit_out.json renderer."},
+  {"id":"5","status":"completed","subject":"Deep dive: trader memory architecture","note":"DONE. trader_memory.py + cert + PnL + verdicts + bank mapped. Phase 1 closed-loop confirmed; Phase 2 (verdicts→cert, beliefs→behavior, bank→introspection) is OPEN."},
+  {"id":"6","status":"pending","subject":"Diagnose trainer-figure visible on F46","note":"API says no workers on F46; trainer color in palette unused for F46. Need Ross to point at the screen."},
+  {"id":"7","status":"pending","subject":"Close Phase 2 of trader learning loop","note":"Wire classroom_verdicts → worker_certification.apply; UncertaintyTracker beliefs → trader decision; bank balance introspection. Helm sprint memory flagged this as gap."}
+]

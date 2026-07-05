@@ -1,0 +1,34 @@
+{
+  "room_id": "library_reference_desk",
+  "name": "Reference Desk",
+  "category": "reception",
+  "purpose": "The point of contact for library users and inquiries.",
+  "concierge_blurb": "Need help? Start here with our friendly staff.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_right",
+    "offset_x": 5.0,
+    "offset_z": -2.0,
+    "footprint_m": [
+      6.0,
+      4.0
+    ],
+    "height_m": 3.0
+  },
+  "render": {
+    "primary_prop": "desk",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Reference Desk",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 0
+  },
+  "floor": "floor_57"
+}

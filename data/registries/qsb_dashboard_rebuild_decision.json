@@ -1,0 +1,27 @@
+{
+  "ok": true,
+  "phase": "QSB_LIVE_SKYSCRAPER_COMMAND_CENTER_REBUILD_V1",
+  "kind": "qsb_dashboard_rebuild_decision",
+  "generated_ts": "2026-06-30T13:46:32.826835+00:00",
+  "path": "REFACTOR",
+  "rationale": "3D scene + V2/V3 overlay are structurally healthy; V3 already eliminated all random orbits/packets. The remaining gaps are Profit Command, Workforce HR cards (scorecards/rewards/discipline/promotions), Running Commentary, resilient floor interior cards, and frontend health hardening \u2014 all additive panels around the same skyscraper container.",
+  "preserved": [
+    "EQSB Penthouse panel + /api/eqsb/*",
+    "QSB V2 Ops panel + /api/qsb_v2/*",
+    "QSB V3 Live Telemetry panel + /api/dashboard/live_telemetry",
+    "3D Babylon scene + 2D SVG fallback",
+    "Same dashboard URL (http://127.0.0.1:8765/?v=unified) and port 8765"
+  ],
+  "additions": [
+    "Profit Command panel + /api/profit_command",
+    "Workforce HR panel + scorecards/rewards/discipline/promotions",
+    "Running Commentary button + /api/narrator/{tower,floor,worker,profit,openclaw}",
+    "Floor interior card view (replaces JSON dump)",
+    "Wider resilient fetch wrappers in panels"
+  ],
+  "backup_path_planned": "data/backups/dashboard_rebuild_<timestamp>/",
+  "no_heavy_dependencies": true,
+  "execution_allowed": false,
+  "active_local_only": true,
+  "real_money_live_trading_enabled": false
+}

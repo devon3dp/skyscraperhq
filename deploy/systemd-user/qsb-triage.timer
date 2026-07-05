@@ -1,0 +1,11 @@
+[Unit]
+Description=Run tower triage every 5 minutes
+
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=5min
+Unit=qsb-triage.service
+Persistent=true
+
+[Install]
+WantedBy=timers.target

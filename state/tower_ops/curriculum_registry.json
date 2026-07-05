@@ -1,0 +1,203 @@
+{
+  "registry": "qsb_curriculum_v1",
+  "phase": "QSB_TOWER_OPERATIONS_V3",
+  "ts": "2026-06-08T15:08:43.049940+00:00",
+  "courses": [
+    {
+      "course_id": "qsb_induction",
+      "title": "QSB Induction",
+      "classroom": "Reception / Intake Desk",
+      "gates_capability": null,
+      "duration_minutes_advisory": 30,
+      "policy": "ADVISORY_ONLY \u2014 no execution unlocks."
+    },
+    {
+      "course_id": "worker_badge_identity",
+      "title": "Worker Badge and Identity",
+      "classroom": "Access Badge Classroom",
+      "gates_capability": null,
+      "duration_minutes_advisory": 30,
+      "policy": "ADVISORY_ONLY \u2014 no execution unlocks."
+    },
+    {
+      "course_id": "safety_locks_101",
+      "title": "Safety Locks 101",
+      "classroom": "Safety and Locks Classroom",
+      "gates_capability": "read_lock_matrix",
+      "duration_minutes_advisory": 30,
+      "policy": "ADVISORY_ONLY \u2014 no execution unlocks."
+    },
+    {
+      "course_id": "trading_telemetry_readonly",
+      "title": "Read-Only Trading Telemetry",
+      "classroom": "Trading Telemetry Classroom",
+      "gates_capability": "read_trading_telemetry",
+      "duration_minutes_advisory": 30,
+      "policy": "ADVISORY_ONLY \u2014 no execution unlocks."
+    },
+    {
+      "course_id": "oanda_telemetry_reading",
+      "title": "OANDA Telemetry Reading",
+      "classroom": "Trading Telemetry Classroom",
+      "gates_capability": "access_floor_41",
+      "duration_minutes_advisory": 30,
+      "policy": "ADVISORY_ONLY \u2014 no execution unlocks."
+    },
+    {
+      "course_id": "binance_telemetry_reading",
+      "title": "Binance Telemetry Reading",
+      "classroom": "Trading Telemetry Classroom",
+      "gates_capability": "access_floor_42",
+      "duration_minutes_advisory": 30,
+      "policy": "ADVISORY_ONLY \u2014 no execution unlocks."
+    },
+    {
+      "course_id": "stocks_telemetry_reading",
+      "title": "Stocks Telemetry Reading",
+      "classroom": "Trading Telemetry Classroom",
+      "gates_capability": "access_floor_43",
+      "duration_minutes_advisory": 30,
+      "policy": "ADVISORY_ONLY \u2014 no execution unlocks."
+    },
+    {
+      "course_id": "accounts_pnl_labels",
+      "title": "Accounts and P&L Labels",
+      "classroom": "Accounts Classroom",
+      "gates_capability": "access_accounts_data",
+      "duration_minutes_advisory": 30,
+      "policy": "ADVISORY_ONLY \u2014 no execution unlocks."
+    },
+    {
+      "course_id": "openclaw_readiness_not_exec",
+      "title": "OpenClaw Readiness, Not Execution",
+      "classroom": "OpenClaw Readiness Classroom",
+      "gates_capability": "openclaw_readiness_review",
+      "duration_minutes_advisory": 30,
+      "policy": "ADVISORY_ONLY \u2014 no execution unlocks."
+    },
+    {
+      "course_id": "security_permissions",
+      "title": "Security and Permissions",
+      "classroom": "Security Classroom",
+      "gates_capability": "security_role",
+      "duration_minutes_advisory": 30,
+      "policy": "ADVISORY_ONLY \u2014 no execution unlocks."
+    },
+    {
+      "course_id": "maintenance_monitoring",
+      "title": "Maintenance Monitoring",
+      "classroom": "Maintenance Classroom",
+      "gates_capability": "maintenance_role",
+      "duration_minutes_advisory": 30,
+      "policy": "ADVISORY_ONLY \u2014 no execution unlocks."
+    },
+    {
+      "course_id": "it_local_sidecars",
+      "title": "IT and Local Sidecars",
+      "classroom": "IT / Networking Classroom",
+      "gates_capability": "it_role",
+      "duration_minutes_advisory": 30,
+      "policy": "ADVISORY_ONLY \u2014 no execution unlocks."
+    },
+    {
+      "course_id": "research_quality_sources",
+      "title": "Research Quality and Source Checking",
+      "classroom": "Research Methods Classroom",
+      "gates_capability": "research_role",
+      "duration_minutes_advisory": 30,
+      "policy": "ADVISORY_ONLY \u2014 no execution unlocks."
+    },
+    {
+      "course_id": "model_lane_routing",
+      "title": "Model Lane Routing",
+      "classroom": "Kernel Etiquette Classroom",
+      "gates_capability": "read_model_lanes",
+      "duration_minutes_advisory": 30,
+      "policy": "ADVISORY_ONLY \u2014 no execution unlocks."
+    },
+    {
+      "course_id": "airllm_advisory_use",
+      "title": "AirLLM Advisory Use",
+      "classroom": "Kernel Etiquette Classroom",
+      "gates_capability": "airllm_manual_query",
+      "duration_minutes_advisory": 30,
+      "policy": "ADVISORY_ONLY \u2014 no execution unlocks."
+    },
+    {
+      "course_id": "quantum_safety_lab",
+      "title": "Quantum Safety and Symbolic Lab",
+      "classroom": "Quantum Classroom",
+      "gates_capability": "access_quantum_floor",
+      "duration_minutes_advisory": 30,
+      "policy": "ADVISORY_ONLY \u2014 no execution unlocks."
+    },
+    {
+      "course_id": "kernel_communication",
+      "title": "Kernel Communication",
+      "classroom": "Kernel Etiquette Classroom",
+      "gates_capability": "kernel_chat_use",
+      "duration_minutes_advisory": 30,
+      "policy": "ADVISORY_ONLY \u2014 no execution unlocks."
+    },
+    {
+      "course_id": "speech_media_controls",
+      "title": "Speech and Media Controls",
+      "classroom": "Kernel Etiquette Classroom",
+      "gates_capability": "speech_media_use",
+      "duration_minutes_advisory": 30,
+      "policy": "ADVISORY_ONLY \u2014 no execution unlocks."
+    },
+    {
+      "course_id": "manager_reporting",
+      "title": "Manager Reporting",
+      "classroom": "Classrooms",
+      "gates_capability": "manager_role",
+      "duration_minutes_advisory": 30,
+      "policy": "ADVISORY_ONLY \u2014 no execution unlocks."
+    },
+    {
+      "course_id": "overseer_duties",
+      "title": "Overseer Duties",
+      "classroom": "Classrooms",
+      "gates_capability": "overseer_role",
+      "duration_minutes_advisory": 30,
+      "policy": "ADVISORY_ONLY \u2014 no execution unlocks."
+    },
+    {
+      "course_id": "emergency_procedure",
+      "title": "Emergency Procedure",
+      "classroom": "Safety and Locks Classroom",
+      "gates_capability": "emergency_role",
+      "duration_minutes_advisory": 30,
+      "policy": "ADVISORY_ONLY \u2014 no execution unlocks."
+    }
+  ],
+  "live_trading_enabled": false,
+  "order_execution_enabled": false,
+  "practice_order_execution_enabled": false,
+  "binance_order_execution_enabled": false,
+  "binance_live_trading_enabled": false,
+  "stock_order_execution_enabled": false,
+  "stock_live_trading_enabled": false,
+  "stock_paper_order_execution_enabled": false,
+  "cross_market_execution_enabled": false,
+  "worker_execution_enabled": false,
+  "recruited_worker_execution_enabled": false,
+  "provider_execution_enabled": false,
+  "external_provider_execution_enabled": false,
+  "openclaw_execution_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "live_dispatch_enabled": false,
+  "direct_provider_access": false,
+  "recruitment_openclaw_execution_enabled": false,
+  "recruited_worker_live_execution_enabled": false,
+  "recruited_worker_provider_access_enabled": false,
+  "recruited_worker_autonomous_dispatch_enabled": false,
+  "maintenance_auto_repair_enabled": false,
+  "web_access_autonomous_enabled": false,
+  "worker_real_registry_enabled": true,
+  "openclaw_readiness_enabled": true,
+  "security_enforcement_enabled": true,
+  "it_network_observability_enabled": true
+}

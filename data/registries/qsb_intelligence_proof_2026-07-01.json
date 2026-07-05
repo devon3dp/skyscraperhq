@@ -1,0 +1,75 @@
+{
+  "ts": "2026-07-01T07:02:45.677522Z",
+  "author": "hq-claude",
+  "ross_directive": "NO LOOPS \u2014 intelligent (belief-driven) trading ONLY, PROVE it",
+  "flagged": "OANDA F41 showing 0W/649L",
+  "verdict": "GHOST \u2014 0W/649L is stale legacy paper_simulator data from Jun 20-21; no processes alive; archived to _archive/legacy_f41_loop_2026-07-01/",
+  "current_fleet_verdict": "INTELLIGENT \u2014 46 belief-driven traders with real signals + gates",
+  "loop_smoking_gun_legacy": {
+    "worker_ids": [
+      "f41_risk_sentinel",
+      "f41_paper_strategy_analyst",
+      "f41_market_scout"
+    ],
+    "close_reason_verbatim": "cycle_close_age_1172s",
+    "strategy_name": "ad_hoc_cohort",
+    "execution_mode": "paper_simulator",
+    "entry_reason": "cohort ad_hoc_cohort for f41_risk_sentinel",
+    "why_this_is_a_loop": "opens on cycle timer; closes on age timer; no signal reasoning; always eats bid/ask spread; pnl_amount consistently -0.014 or 0.0",
+    "aliveness": "0 processes running \u2014 file-only ghost"
+  },
+  "intelligence_evidence_current": {
+    "per_worker_belief_state_file": "data/registries/cognitive/belief_state_<worker>__<instrument>.json",
+    "sample_worker": "belief_driven_us10y",
+    "sample_state": {
+      "regime": {
+        "mean_retreat": -0.0007,
+        "step_std": 0.013083,
+        "regime_confidence": 1.0
+      },
+      "strategy_fitness": {
+        "win_rate": 0.0,
+        "expectancy": 0.0,
+        "n_trades": 0
+      },
+      "stream_evidence": {
+        "ticks_seen": 2335,
+        "last_tick_ts": "2026-07-01T07:01:31Z"
+      }
+    },
+    "close_reasons_seen_live": [
+      "profit_lock",
+      "abs_stop_0.50",
+      "regime_shift_to_trend_ticks_28",
+      "time_boxed_profit_lock",
+      "stale_no_signal"
+    ],
+    "gate_refusals_seen_live_this_morning": [
+      "belief_driven_eurgbp: not acting: win_rate 15.00% below 35%",
+      "belief_driven_xau:   not acting: win_rate  0.00% below 35%",
+      "belief_driven_wti:   not acting: win_rate 27.75% below 35%",
+      "belief_driven_nas:   not acting: win_rate 15.00% below 35%",
+      "belief_driven_xag:   not acting: win_rate  0.00% below 35%"
+    ],
+    "close_held_examples": [
+      "belief_driven_eth: CLOSE_HELD pnl_est=\u00a30.030<floor\u00a30.10 age=93s reason_was=profit_lock (refused to close at tiny profit)",
+      "belief_driven_us10y: CLOSE_HELD pnl_est=\u00a3-0.013<floor\u00a30.10 age=524s reason_was=regime_shift_to_trend (holding through regime signal)"
+    ]
+  },
+  "chain_of_intelligence_for_one_trade": {
+    "worker": "belief_driven_btc",
+    "step_1_evidence": "F42 Binance stream publishes market.tick.BTCUSDT events to bus",
+    "step_2_belief_update": "qsb_belief_updater subscribes trade.closed + market.tick; mutates belief_state (regime.mean_retreat, strategy_fitness.win_rate)",
+    "step_3_regime_signal": "qsb_regime_detector publishes market.regime_shift when confidence exceeds threshold",
+    "step_4_decision": "trader checks: (a) win_rate >= 35% gate, (b) MTF fast_ema vs slow_ema agreement, (c) regime confidence, (d) mtf_disagree hold",
+    "step_5_open_or_refuse": "OPEN @ 58565.99 (REAL)  or  not acting: mtf_disagree(5m=-1 vs 1h=+1)",
+    "step_6_close_signal": "one of {profit_lock, abs_stop_0.50, regime_shift_to_X, time_boxed_profit_lock, stale_no_signal} \u2014 never cycle_close_age",
+    "step_7_belief_feedback": "trade.closed publishes back to bus; belief_updater mutates strategy_fitness.win_rate; next open gated on updated state"
+  },
+  "kill_actions": {
+    "archived_files_count": 8,
+    "archive_path": "_archive/legacy_f41_loop_2026-07-01/",
+    "clean_stub_written": "data/registries/qsb_floor41_oanda_pnl.json (0W/0L/\u00a30.00 \u2014 reflects reality)",
+    "note": "dashboard will now stop showing the ghost; real OANDA activity surfaces via qsb_trader_pnl_bus_latest.json under venue=oanda"
+  }
+}

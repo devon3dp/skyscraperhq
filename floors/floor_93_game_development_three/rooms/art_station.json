@@ -1,0 +1,31 @@
+{
+  "room_id": "art_station",
+  "name": "Art Station",
+  "category": "operations",
+  "purpose": "This station is for creating and refining game art.",
+  "concierge_blurb": "Experience the creative process behind game graphics.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -7.0,
+    "offset_z": 2.5,
+    "footprint_m": [
+      8,
+      6
+    ],
+    "height_m": 1.5
+  },
+  "render": {
+    "primary_prop": "bench",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Art Station",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_93"
+}

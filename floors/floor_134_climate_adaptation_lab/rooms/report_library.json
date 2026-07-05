@@ -1,0 +1,31 @@
+{
+  "room_id": "report_library",
+  "name": "Report Library",
+  "category": "library",
+  "purpose": "Housing and reviewing past reports on climate adaptation.",
+  "concierge_blurb": "Browse our extensive collection of reports from the Climate Adaptation Lab.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "left_wall",
+    "offset_x": -4.5,
+    "offset_z": 2.0,
+    "footprint_m": [
+      3,
+      6
+    ],
+    "height_m": 1.8
+  },
+  "render": {
+    "primary_prop": "shelf",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Report Lib",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_134"
+}

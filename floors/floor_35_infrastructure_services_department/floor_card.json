@@ -1,0 +1,64 @@
+{
+  "floor_id": "floor_35",
+  "floor_number": 35,
+  "floor_name": "Infrastructure Services Department",
+  "department": "Infrastructure Services Department",
+  "zone": "ZONE B \u00b7 OPERATIONS",
+  "archetype": "generic",
+  "staff_lead": "TBD",
+  "tour_blurb": "Infrastructure Services Department \u2014 a floor in the QSB Tower. Skeleton card auto-generated; full fit-out pending.",
+  "visitor_open": false,
+  "advisory_only": true,
+  "execution_mode": "PREVIEW_ONLY",
+  "skeleton": true,
+  "skeleton_source": "floor_manifest.json",
+  "skeleton_generated_ts": "2026-06-17",
+  "live_signals": {
+    "theme": null,
+    "categories": null,
+    "palette": null,
+    "tagline": null
+  },
+  "gate_posture": {
+    "advisory_only": true,
+    "execution_allowed": false,
+    "live_payments_enabled": false
+  },
+  "team_roster": [
+    {
+      "id": "f035.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "spawned_id": "306068b874",
+      "spawned_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F035",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f035.operator.01",
+      "spawned_id": "ae20f95cd1"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F035",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f035.operator.02",
+      "spawned_id": "23d61205c4"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F035",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f035.operator.03",
+      "spawned_id": "e3cb6f31ec"
+    }
+  ],
+  "floor_manager": "f035.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

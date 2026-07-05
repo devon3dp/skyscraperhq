@@ -1,0 +1,28 @@
+{
+  "ok": true,
+  "kind": "qsb_native_cockpit_visual_failure_audit",
+  "phase": "QSB_GODOT_NATIVE_3D_COCKPIT_REBUILD_V1",
+  "generated_ts": "2026-06-09T15:21:58+00:00",
+  "summary": "The PyQt5 cockpit is a flat 2D admin panel with a small isometric tower diagram drawn by QGraphicsScene. It is a technical proof of native packaging \u2014 not a 3D graphics-first cockpit. The user has rejected it as the main visual path.",
+  "honest_observations": [
+    "PyQt5 cockpit is QGraphicsView (2D scene graph) \u2014 not a 3D engine.",
+    "Tower is depth-cued but rendered as 2D rectangles with painted shadows.",
+    "No perspective camera. No orbit. No rotate. No real Z-buffer.",
+    "Tower occupies ~22% of window \u2014 most space is HUD tables and text panels.",
+    "Floor interiors are HTML-like text dumps in QTextEdit, not 3D rooms.",
+    "Workers are not rendered as 3D entities \u2014 they are integer counts on chips.",
+    "Lifts are 10x10 px squares \u2014 not 3D cars in shafts.",
+    "Screenshot proof captured a working UI, not visual delight.",
+    "health 30/30 measures wiring quality, NOT visual quality.",
+    "This is acceptable as an admin/diagnostic fallback. It is NOT acceptable as the main 3D cockpit."
+  ],
+  "rejection_acknowledged": true,
+  "do_not_call_this_main_3d_cockpit_anymore": true,
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "live_payments_enabled": false,
+  "live_listings_publishing_enabled": false
+}

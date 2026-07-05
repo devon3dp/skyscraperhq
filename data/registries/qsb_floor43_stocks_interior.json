@@ -1,0 +1,157 @@
+{
+  "ok": true,
+  "kind": "qsb_floor43_stocks_interior",
+  "phase": "QSB_FLOOR_41_42_43_INTERCOM_AND_FLOOR_43_VISIBLE_V1",
+  "generated_ts": "2026-06-30T13:46:36.755475+00:00",
+  "floor": 43,
+  "department": "Stock Exchange Floor",
+  "rooms": [
+    {
+      "name": "Stock Market Feed Desk",
+      "responsibility": "stream equity quotes + bars from data provider"
+    },
+    {
+      "name": "Sector Watch Desk",
+      "responsibility": "score sector breadth, leadership, momentum"
+    },
+    {
+      "name": "Paper Order Desk",
+      "responsibility": "format paper orders (live placement blocked)"
+    },
+    {
+      "name": "Risk Station",
+      "responsibility": "veto orders over caps; kill switch"
+    },
+    {
+      "name": "Ledger Dispatch",
+      "responsibility": "append every paper order + audit to ledger"
+    },
+    {
+      "name": "Compliance Desk",
+      "responsibility": "regulatory checks + KYC/AML labels"
+    },
+    {
+      "name": "OpenClaw Inspection Post",
+      "responsibility": "read-only supervisor checks"
+    }
+  ],
+  "workers": [
+    {
+      "worker_id": "f43_floor_manager",
+      "role": "Stocks Floor Manager",
+      "room": "Sector Watch Desk",
+      "station": "Sector Watch Desk \u00b7 station #03",
+      "state": "idle_at_station",
+      "current_task": "monitor stocks paper feed (no placement)",
+      "stable": true,
+      "source": "qsb_floor43_stocks.py"
+    },
+    {
+      "worker_id": "f43_market_scout",
+      "role": "Equity Market Scout",
+      "room": "Stock Market Feed Desk",
+      "station": "Stock Market Feed Desk \u00b7 station #03",
+      "state": "idle_at_station",
+      "current_task": "monitor stocks paper feed (no placement)",
+      "stable": true,
+      "source": "qsb_floor43_stocks.py"
+    },
+    {
+      "worker_id": "f43_sector_analyst",
+      "role": "Sector Breadth Analyst",
+      "room": "Sector Watch Desk",
+      "station": "Sector Watch Desk \u00b7 station #09",
+      "state": "idle_at_station",
+      "current_task": "monitor stocks paper feed (no placement)",
+      "stable": true,
+      "source": "qsb_floor43_stocks.py"
+    },
+    {
+      "worker_id": "f43_paper_order_clerk",
+      "role": "Paper Order Clerk",
+      "room": "Paper Order Desk",
+      "station": "Paper Order Desk \u00b7 station #07",
+      "state": "idle_at_station",
+      "current_task": "monitor stocks paper feed (no placement)",
+      "stable": true,
+      "source": "qsb_floor43_stocks.py"
+    },
+    {
+      "worker_id": "f43_risk_sentinel",
+      "role": "Risk Sentinel",
+      "room": "Risk Station",
+      "station": "Risk Station \u00b7 station #06",
+      "state": "idle_at_station",
+      "current_task": "monitor stocks paper feed (no placement)",
+      "stable": true,
+      "source": "qsb_floor43_stocks.py"
+    },
+    {
+      "worker_id": "f43_ledger_clerk",
+      "role": "Ledger Dispatch Clerk",
+      "room": "Ledger Dispatch",
+      "station": "Ledger Dispatch \u00b7 station #06",
+      "state": "idle_at_station",
+      "current_task": "monitor stocks paper feed (no placement)",
+      "stable": true,
+      "source": "qsb_floor43_stocks.py"
+    },
+    {
+      "worker_id": "f43_compliance_clerk",
+      "role": "Compliance Clerk",
+      "room": "Compliance Desk",
+      "station": "Compliance Desk \u00b7 station #05",
+      "state": "idle_at_station",
+      "current_task": "monitor stocks paper feed (no placement)",
+      "stable": true,
+      "source": "qsb_floor43_stocks.py"
+    },
+    {
+      "worker_id": "f43_openclaw_inspector",
+      "role": "OpenClaw Stocks Inspector",
+      "room": "OpenClaw Inspection Post",
+      "station": "OpenClaw Inspection Post \u00b7 station #10",
+      "state": "idle_at_station",
+      "current_task": "monitor stocks paper feed (no placement)",
+      "stable": true,
+      "source": "qsb_floor43_stocks.py"
+    }
+  ],
+  "policy": {
+    "mode": "paper_preview_only",
+    "placement": "blocked_without_explicit_unlock",
+    "real_money_enabled": false
+  },
+  "telemetry": {
+    "status_ts": "2026-06-10T14:32:03.929270+00:00",
+    "provider": "alpaca",
+    "environment": "paper",
+    "market_status": "credentials_absent",
+    "default_symbols": [
+      "AAPL",
+      "MSFT",
+      "NVDA",
+      "TSLA",
+      "SPY",
+      "QQQ"
+    ],
+    "snapshot_ts": "2026-06-08T10:41:52.322162+00:00",
+    "quotes": [],
+    "credentials_state": {
+      "credentials_source": "environment_variables_only",
+      "api_key_present": false,
+      "api_secret_present": false,
+      "read_only_mode": true,
+      "env_file_path": "/vaults/nvme0/qsb_tower_v1/.env.alpaca",
+      "env_file_exists": false
+    }
+  },
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "stocks_paper_preview_only": false,
+  "stocks_paper_order_placement_enabled": true,
+  "real_order_placement_enabled": false,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

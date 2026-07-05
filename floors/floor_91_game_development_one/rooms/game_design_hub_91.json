@@ -1,0 +1,34 @@
+{
+  "room_id": "game_design_hub_91",
+  "name": "Game Design Hub",
+  "category": "workshop",
+  "purpose": "A collaborative space for designing game mechanics and assets.",
+  "concierge_blurb": "Creativity in action: designers sketching and brainstorming.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_right",
+    "offset_x": 8.0,
+    "offset_z": -2.5,
+    "footprint_m": [
+      10,
+      4
+    ],
+    "height_m": 1.7
+  },
+  "render": {
+    "primary_prop": "plinth",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Game Design Hub",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": null,
+    "refresh_seconds": 600
+  },
+  "floor": "floor_91"
+}

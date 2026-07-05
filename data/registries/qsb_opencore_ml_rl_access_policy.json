@@ -1,0 +1,37 @@
+{
+  "ok": true,
+  "kind": "qsb_opencore_ml_rl_access_policy",
+  "phase": "QSB_ML_RL_LAB_CLASSROOM_RESEARCH_WORKER_INTEGRATION_V1",
+  "generated_ts": "2026-06-09T16:49:28+00:00",
+  "opencore_role": "governance overseer above OpenClaw \u2014 final ratifier of escalations",
+  "access_mode": "READ_ONLY",
+  "escalation_paths": [
+    "OpenClaw flag \u2192 OpenCore review \u2192 human approver",
+    "Guardian lock challenge \u2192 OpenCore audit ledger entry"
+  ],
+  "may_recommend": [
+    "worker training escalation",
+    "experiment review",
+    "curriculum revision",
+    "lab quarantine on safety concern"
+  ],
+  "may_NOT": [
+    "execute trades",
+    "publish listings",
+    "spend money",
+    "install/remove packages",
+    "modify secrets",
+    "bypass Guardian",
+    "enable autonomous dispatch"
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "live_payments_enabled": false,
+  "live_listings_publishing_enabled": false,
+  "autonomous_dispatch_enabled": false,
+  "worker_execution_enabled": false,
+  "secrets_in_logs": false
+}

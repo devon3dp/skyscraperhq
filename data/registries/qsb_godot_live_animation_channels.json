@@ -1,0 +1,47 @@
+{
+  "ok": true,
+  "kind": "qsb_godot_live_animation_channels",
+  "phase": "QSB_GODOT_PROFESSIONAL_COCKPIT_VISUAL_UPGRADE_AFTER_FIRST_LAUNCH_V1",
+  "generated_ts": "2026-06-09T16:25:51+00:00",
+  "channels": [
+    {
+      "source": "/api/native_cockpit/state \u00b7 openclaw.current_floor",
+      "entity": "openclaw_orb",
+      "animation": "marker scaffold; orbit + Y lerp in V2",
+      "current_state": "scaffold_only"
+    },
+    {
+      "source": "/api/native_cockpit/state \u00b7 lifts[].current_floor",
+      "entity": "lift_car",
+      "animation": "scaffold (V2 will lerp); V1 uses static spacing",
+      "current_state": "scaffold_only"
+    },
+    {
+      "source": "/api/native_cockpit/state \u00b7 trading.oanda_pnl.total",
+      "entity": "ticker_line",
+      "animation": "ticker entry on each poll",
+      "current_state": "live"
+    },
+    {
+      "source": "/api/native_cockpit/state \u00b7 verified.verified_total_workers",
+      "entity": "ticker_line",
+      "animation": "ticker entry on each poll",
+      "current_state": "live"
+    },
+    {
+      "source": "ControlBar.voice toggles",
+      "entity": "ticker_line",
+      "animation": "ticker entry on voice state_changed",
+      "current_state": "live"
+    }
+  ],
+  "no_random_animations": true,
+  "honest_v2_plan": "wire lift Y lerp + openclaw orbit + event packet trails using gl_compatibility-friendly emissive boxes",
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "live_payments_enabled": false,
+  "live_listings_publishing_enabled": false
+}

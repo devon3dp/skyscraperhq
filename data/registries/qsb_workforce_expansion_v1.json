@@ -1,0 +1,53 @@
+{
+  "ok": true,
+  "phase": "QSB_SKYSCRAPER_100_PERCENT_ONLINE_INTERACTIVE_3D_WORKFORCE_COMPLETION_V1",
+  "kind": "qsb_workforce_expansion_v1",
+  "generated_ts": "2026-06-30T13:46:34.680243+00:00",
+  "total_new_workers_employed": 1000,
+  "by_department": {
+    "Recruitment Agency": 80,
+    "Training Academy": 150,
+    "Lessons Room": 50,
+    "Worker Operations Control": 90,
+    "Rewards Office": 60,
+    "Promotion Board": 40,
+    "Disciplinary Review Board": 70,
+    "Rest / Dormitory Floor": 280,
+    "Floor Operations Department": 180
+  },
+  "by_floor": {
+    "floor_45_worker_recruitment_agency": 80,
+    "floor_36_expansion_planning_department": 150,
+    "floor_38_sandbox_operations": 50,
+    "floor_47_executive_operations_department": 90,
+    "floor_44_accounts_department": 100,
+    "floor_30_permissions_department": 70,
+    "floor_49_resource_management_department": 280,
+    "floor_52_infrastructure_command_department": 180
+  },
+  "by_class": {
+    "candidate_worker": 80,
+    "training_worker": 150,
+    "lesson_worker": 50,
+    "operational_worker": 440,
+    "resting_worker": 280
+  },
+  "departments_built": [
+    "Recruitment Agency",
+    "Training Academy",
+    "Lessons Room",
+    "Worker Operations Control",
+    "Rewards Office",
+    "Promotion Board",
+    "Disciplinary Review Board",
+    "Rest / Dormitory Floor",
+    "Floor Operations Department"
+  ],
+  "department_count": 9,
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

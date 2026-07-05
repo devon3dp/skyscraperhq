@@ -1,0 +1,26 @@
+{
+  "ok": true,
+  "kind": "qsb_godot_floor_interaction_contract",
+  "phase": "QSB_GODOT_PROFESSIONAL_COCKPIT_VISUAL_UPGRADE_AFTER_FIRST_LAUNCH_V1",
+  "generated_ts": "2026-06-09T16:25:51+00:00",
+  "current_v1": [
+    "keyboard UP/DOWN",
+    "keyboard 1/2/3 shortcuts to F41/F42/F55",
+    "control bar Trading/Models/Risk buttons",
+    "control bar Reset/Focus/Pause/Labels",
+    "ChatPanel.show_floor updates on key change"
+  ],
+  "v2_plan": [
+    "raycast mouse pick floor slab",
+    "hover highlight",
+    "double-click \u2192 enter interior",
+    "pin floor button"
+  ],
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false,
+  "live_payments_enabled": false,
+  "live_listings_publishing_enabled": false
+}

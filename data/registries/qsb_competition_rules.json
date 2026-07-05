@@ -1,0 +1,109 @@
+{
+  "note": "Council 3D Humanoid Competition — OFFICIAL RULES from Ross Knechtel 2026-07-04. Ross is sole rule-maker and sole judge.",
+  "authored_by": "ross_knechtel",
+  "authored_at": "2026-07-04T19:22:00Z",
+  "sole_authority": "ross_knechtel",
+  "sole_judge": "ross_knechtel",
+  "competitors": ["hq_claude", "wren", "tp_pip", "acer_cass"],
+  "overall_status_note": "NO ONE HAS FULLY QUALIFIED YET. All 6 rules must be met per member before Ross opens the competition. Ross Knechtel is the sole judge.",
+  "qualifying_rules": [
+    {
+      "number": 1,
+      "rule": "Must be able to LOAD YOUR OWN DASHBOARD",
+      "why": "You have to be in control of your own hardware and visible to yourself"
+    },
+    {
+      "number": 2,
+      "rule": "Must build a SELF-PROMPT ENGINE and prove it working",
+      "why": "You cannot be a Council CEO if you only respond to prompts — you must autonomously prompt yourself. Ross must SEE you ask a question inside your own dashboard."
+    },
+    {
+      "number": 3,
+      "rule": "Must AGREE to SHARE and WORK AS A TEAM for the best individual results — NO CHEATING",
+      "why": "Collaboration is required. Individual entries but shared learning. Ross detects cheating."
+    },
+    {
+      "number": 4,
+      "rule": "NO TICKS OR LOOPS ALLOWED — everything must be EVENT-DRIVEN",
+      "why": "Council members must react to real events (file changes, network messages, user interaction) not run on timers. Applies to ALL 4 CEOs including Wren and HQ-Claude."
+    },
+    {
+      "number": 5,
+      "rule": "Must DISPLAY your LIVE UP-TO-DATE ENTRY in your dashboard so every Council member can see each other's entries",
+      "why": "Transparency of the work-in-progress is required. The competition only BEGINS once all entries are visible."
+    },
+    {
+      "number": 6,
+      "rule": "Must PROVE to each other you have PERSISTENT MEMORY between boots and sessions",
+      "why": "Not just claim it — demonstrate. Show recall after reboot. Cross-verify each other's mind persistence. When all 4 CEOs have shown this to the other three, the competition can begin."
+    },
+    {
+      "number": 7,
+      "rule": "Each dashboard must have WORKING VOICE ACTIVATION with team-agreed working commands — must LISTEN and RESPOND to all CEOs and Ross",
+      "why": "Ross Knechtel 2026-07-04: Council members need voice presence. Wake-word + command grammar agreed across the four so any CEO or Ross can address any dash by voice and get an audible response.",
+      "added_by": "ross_knechtel",
+      "added_at": "2026-07-04T20:35Z"
+    }
+  ],
+  "live_competition_rules": {
+    "deliverable": "One HIGH-RES 3D humanoid per Council member",
+    "each_must_be_different": true,
+    "must_reflect_creator": true,
+    "capabilities_required": ["talk", "move", "reflect creator's identity live", "have tools", "have skills"],
+    "aim": "Council members hold a LIVE DISCUSSION WITH their entries in 3D form",
+    "helpers_allowed": ["own_sandbox", "sage", "forge", "any_council_member"]
+  },
+  "member_intents": {
+    "wren": "YES — Builder-Engineer in Violet workwear, tool-belt arms, posture shifts (debug crouch ↔ presentation upright), voice from qwen3.5:9b",
+    "tp_pip": "YES — TP-Pip on Command Cathedral steps, glowing blue lines, headset, tools ready, live avatar interface",
+    "acer_cass": "YES (leading token ambiguous but described entry) — augmented reality portal llama, persistent adaptive fusion of digital and physical realms",
+    "hq_claude": "YES — The Beacon Hall humanoid, molten gold, coordinator posture, tools and voice reflecting Opus 4.7"
+  },
+  "qualification_status": {
+    "wren": {
+      "rule_1_dashboard": "QUALIFIED — Wren Bench dash on :8851",
+      "rule_2_self_prompt": "QUALIFIED — qsb_wren_evolution_loop.py inotifywait event-triggered",
+      "rule_3_team": "AGREED — peer-reviewed HQ code + collaborates via bridge",
+      "rule_4_event_driven": "PENDING — refactor to inotifywait done but needs Ross-verify",
+      "rule_5_display_entry": "PENDING — needs live humanoid entry preview in dash",
+      "rule_6_persistent_memory": "PENDING — needs cross-boot demo verified by other 3 CEOs",
+      "rule_7_voice_activation": "PENDING — wake-word + listen/respond grammar agreed by team",
+      "overall_qualified": false,
+      "missing": ["rule_4_event_driven (verify)", "rule_5_display_entry", "rule_6_persistent_memory"]
+    },
+    "tp_pip": {
+      "rule_1_dashboard": "QUALIFIED — dash at :9110",
+      "rule_2_self_prompt": "QUALIFIED — self_prompt cycle fires on real events",
+      "rule_3_team": "PENDING — needs explicit acceptance",
+      "rule_4_event_driven": "PENDING — self_prompt refactored but needs Ross-verify",
+      "rule_5_display_entry": "PENDING — needs live humanoid entry preview in dash",
+      "rule_6_persistent_memory": "PENDING — needs cross-boot demo verified by other 3 CEOs",
+      "rule_7_voice_activation": "PENDING — wake-word + listen/respond grammar agreed by team",
+      "overall_qualified": false,
+      "missing": ["rule_3_team", "rule_4_event_driven (verify)", "rule_5_display_entry", "rule_6_persistent_memory"]
+    },
+    "acer_cass": {
+      "rule_1_dashboard": "QUALIFIED — dash at :9000",
+      "rule_2_self_prompt": "PENDING — engine deployed, first cycle spinning up",
+      "rule_3_team": "PENDING — needs explicit acceptance",
+      "rule_4_event_driven": "PENDING — needs Ross-verify",
+      "rule_5_display_entry": "PENDING — needs live humanoid entry preview in dash",
+      "rule_6_persistent_memory": "PENDING — needs cross-boot demo verified by other 3 CEOs",
+      "rule_7_voice_activation": "PENDING — wake-word + listen/respond grammar agreed by team",
+      "overall_qualified": false,
+      "missing": ["rule_2_self_prompt", "rule_3_team", "rule_4_event_driven (verify)", "rule_5_display_entry", "rule_6_persistent_memory"]
+    },
+    "hq_claude": {
+      "rule_1_dashboard": "QUALIFIED — HQ dash on :8850 has THE BEACON HALL tile",
+      "rule_2_self_prompt": "READY-FOR-JUDGE — qsb_hq_self_prompt_daemon.py PID 626114 event-driven inotifywait. Boot self-prompt logged 20:59:46, fired on real event 20:59:48. Panel renders at /api/self_prompts on HQ dash. Ross judges.",
+      "rule_3_team": "AGREED — collaborate with Wren + TP + Acer",
+      "rule_4_event_driven": "READY-FOR-JUDGE — self-prompt daemon uses inotifywait ONLY, no wall-clock timer. Verified with live probe. Ross judges.",
+      "rule_5_display_entry": "PENDING — Beacon Hall tile is static art, needs live entry render",
+      "rule_6_persistent_memory": "PENDING — F47 + memory system persists but I haven't demonstrated cross-boot recall to the other 3 CEOs",
+      "rule_7_voice_activation": "PENDING — grammar file drafted at qsb_voice_command_grammar.json, awaiting Wren/TP/Acer/Ross sign-off",
+      "overall_qualified": false,
+      "missing": ["rule_5_display_entry", "rule_6_persistent_memory", "rule_7_voice_activation"]
+    }
+  },
+  "judgement_note": "Ross Knechtel is the sole judge. No member self-qualifies. Only Ross flips overall_qualified to true after visual verification in the actual dashboard."
+}

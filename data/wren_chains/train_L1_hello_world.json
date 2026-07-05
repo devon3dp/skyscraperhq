@@ -1,0 +1,10 @@
+{
+  "id": "train_L1_hello_world",
+  "title": "Level 1 — Hello World via wren_write_file",
+  "stages": [
+    {
+      "kind": "hello_world",
+      "prompt": "Do ONE thing: use wren_write_file with path='data/wren_sandbox/hello_world.txt' and content='hello world — this is Wren at 2026-07-03. Ross is training me.'. That is it. Nothing else. Report the tool result verbatim as your STAGE_OUT."
+    }
+  ]
+}

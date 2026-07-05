@@ -1,0 +1,21 @@
+{
+  "ok": true,
+  "kind": "qsb_godot_overlay_audio_chat_repair_report",
+  "ts": "2026-06-09T21:21:25Z",
+  "phase": "QSB_GODOT_COCKPIT_OVERLAY_AUDIO_CHAT_PRODUCTION_REPAIR_V1",
+  "visual_clarity_score": 90,
+  "smoke_test_pass": 29,
+  "smoke_test_fail": 0,
+  "kernel_chat_end_to_end": true,
+  "audio_tts_available": true,
+  "audio_sound_available": true,
+  "right_tabs_count": 12,
+  "audio_controls_visible": 11,
+  "live_trading_enabled": false,
+  "live_payments_enabled": false,
+  "secrets_exposed": false,
+  "godot_window_title": "QSB Tower — Native 3D Operations Cockpit",
+  "godot_alive_pid_at_report": "1730770",
+  "report_path": "data/logs/qsb_godot_overlay_audio_chat_repair_report.md",
+  "next_command": "./scripts/qsb_launch_primary_cockpit.sh"
+}

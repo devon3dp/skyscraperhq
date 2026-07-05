@@ -1,0 +1,34 @@
+{
+  "room_id": "strategy_meeting_room",
+  "name": "Strategy Meeting Room",
+  "category": "reception",
+  "purpose": "Host meetings to strategize and plan marketing operations.",
+  "concierge_blurb": "A dedicated space for high-level discussions and planning.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "back_left",
+    "offset_x": -4.0,
+    "offset_z": 2.0,
+    "footprint_m": [
+      8,
+      6
+    ],
+    "height_m": 1.8
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "Strategy Room",
+    "glow": true
+  },
+  "interactive": {
+    "type": "none",
+    "source_path": null,
+    "display": "none",
+    "refresh_seconds": 0
+  },
+  "floor": "floor_110"
+}

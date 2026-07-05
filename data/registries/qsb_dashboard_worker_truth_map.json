@@ -1,0 +1,53 @@
+{
+  "ok": true,
+  "kind": "qsb_dashboard_worker_truth_map",
+  "generated_ts": "2026-06-30T13:46:34.877495+00:00",
+  "totals_explained": {
+    "canonical_workers": {
+      "count": 1190,
+      "registry": "data/registries/qsb_canonical_workers.json",
+      "definition": "Unique worker_id across all source registries."
+    },
+    "active_reporting": {
+      "count": 1130,
+      "registry": "qsb_canonical_workers.total_active_workers",
+      "definition": "status='active' AND reporting_enabled=True."
+    },
+    "rendered_default": {
+      "count": 0,
+      "registry": "qsb_workforce_view_mode.default_mode",
+      "definition": "In default 'selected_floor_and_groups' mode, no individual worker renders externally \u2014 count badges per floor instead. Selecting a floor renders workers for that floor only."
+    },
+    "training_or_sim": {
+      "count": 108,
+      "registry": "qsb_workforce_truth_contract.totals.training_workers",
+      "definition": "training_worker class \u2014 visible only in Training Academy interior."
+    },
+    "candidates": {
+      "count": 12,
+      "registry": "worker_recruitment_agency_status.json",
+      "definition": "Visible only in Recruitment interior."
+    },
+    "resting": {
+      "count": 0,
+      "registry": "qsb_workforce_truth_contract.totals.resting_workers",
+      "definition": "Visible only in Rest/Dormitory interior (floor_49)."
+    },
+    "legacy_unified_view": {
+      "count": 64,
+      "registry": "/api/unified.workers[]",
+      "definition": "Legacy merge of worker_sandbox + openclaw_sandbox + workers.json (sim_worker_floor_*). Sidebar reads this; label says 'showing X of Y canonical \u00b7 Z SIM seeds'."
+    },
+    "tower_ops_directory": {
+      "count": 170,
+      "registry": "/api/workers/directory (tower_ops.worker_directory)",
+      "definition": "Parallel V2 reconciliation; predates V1."
+    }
+  },
+  "why_totals_can_differ": "Multiple reconciliation paths coexist. V1 canonical is authoritative; legacy views remain for backward compat and are clearly labelled.",
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

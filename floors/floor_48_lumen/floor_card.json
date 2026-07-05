@@ -1,0 +1,103 @@
+{
+  "schema": "qsb_floor_card.v1",
+  "generated_ts": "2026-06-14T17:05:25+00:00",
+  "floor_id": "floor_48_lumen",
+  "floor_number": 48,
+  "name": "Lumen AI",
+  "brand_tagline": "A chat AI grown inside QSB Tower.",
+  "role": "conversational floor / local chat service",
+  "status": "active_local_only",
+  "owner": "tower",
+  "tenant_models": [],
+  "engine": "Powered by the local QSB Kernel substrate (kernel_dialogue_adapter). Not a separate LLM. External model inference is gated; until that gate flips, every reply comes from the topic table the Kernel has already learned.",
+  "honest_description": "Lumen does not invent text. Lumen looks up structured answers from the Kernel's topic table. If a question doesn't match a topic, Lumen will say so.",
+  "endpoints": {
+    "ui": "http://127.0.0.1:8848/",
+    "healthz": "http://127.0.0.1:8848/healthz",
+    "state": "http://127.0.0.1:8848/api/state"
+  },
+  "source_paths": {
+    "service": "tools/qsb_lumen_serve.py",
+    "module": "src/tower/floors/floor_48_lumen_ai/",
+    "web": "web/lumen_ai/",
+    "state_registry": "data/registries/qsb_floor48_lumen_ai_state.json",
+    "conversations_registry": "data/registries/qsb_floor48_lumen_conversations.json",
+    "pricing_registry": "data/registries/qsb_floor48_lumen_pricing.json",
+    "logs": "data/logs/lumen_ai.log"
+  },
+  "gates": {
+    "preview_only": true,
+    "local_only": true,
+    "model_inference_external_apis": false,
+    "real_payments_enabled": false,
+    "public_api_open": false,
+    "rate_limit_active": true,
+    "conversation_history_active": true,
+    "kernel_powered": true
+  },
+  "live_signals": {
+    "probed_ts": "2026-06-14T17:05:25+00:00",
+    "healthz": {
+      "url": "http://127.0.0.1:8848/healthz",
+      "ok": true,
+      "response": {
+        "ok": true,
+        "service": "lumen_ai"
+      }
+    },
+    "state": {
+      "url": "http://127.0.0.1:8848/api/state",
+      "ok": true,
+      "status": "active_local_only",
+      "brand_name": "Lumen",
+      "floor_label": "Floor 48 \u2014 Lumen AI (Chat Service)"
+    },
+    "last_greeting": "Hi, I'm Lumen \u2014 the tower's local chat AI. I won't pretend to know things I don't. Try 'tower briefing' or 'family tree' to start.",
+    "greeting_source": "data/registries/qsb_floor48_lumen_conversations.json"
+  },
+  "tour_blurb": "Forty-eight is Lumen \u2014 the Tower's conversational floor. Visitors come up to think out loud, ask questions, and have ideas reflected back with care. Lumen listens patiently and answers in plain English. If you'd like a quiet conversation rather than a worker dispatch, this is your stop.",
+  "tour_blurb_source": "data/registries/qsb_open_day_tour.json#floors[id=floor_48]",
+  "policy": "Local-only chat service. Real customers and real billing require operator-flipped gates (public_api_open, real_payments_enabled) in a separate session.",
+  "lifts": [
+    "lobby_chat_lift",
+    "kernel_dialogue_adapter_lift"
+  ],
+  "open_day_ready": true,
+  "team_roster": [
+    {
+      "id": "f048.floor_manager.01",
+      "category": "floor_manager",
+      "role": "owns floor: keeps room schema current, tracks worker headcount, stamps daily activity, escalates to Wren+Hermes",
+      "tier": 2,
+      "advisory_only": true,
+      "spawned_id": "34d6b2d7fe",
+      "spawned_ts": "2026-06-21T10:43:27Z"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F048",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f048.operator.01",
+      "spawned_id": "b232d55417"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F048",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f048.operator.02",
+      "spawned_id": "287847b91c"
+    },
+    {
+      "category": "operator",
+      "role": "operator on F048",
+      "tier": 2,
+      "advisory_only": true,
+      "id": "f048.operator.03",
+      "spawned_id": "1ced9acf02"
+    }
+  ],
+  "floor_manager": "f048.floor_manager.01",
+  "staffed_ts": "2026-06-21T10:43:27Z"
+}

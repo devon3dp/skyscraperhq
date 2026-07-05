@@ -1,0 +1,19 @@
+{
+  "ok": true,
+  "kind": "qsb_worker_lifecycle_state",
+  "generated_ts": "2026-06-30T13:46:34.683943+00:00",
+  "by_class_count": {
+    "candidate_worker": 80,
+    "training_worker": 150,
+    "lesson_worker": 50,
+    "operational_worker": 440,
+    "resting_worker": 280
+  },
+  "policy": "Workers transition states only when a real event fires (paper trade open/close, Guardian block, OpenClaw ticket, promotion approval, etc.). No automatic random state changes.",
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "read_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}

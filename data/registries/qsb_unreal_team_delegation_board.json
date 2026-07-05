@@ -1,0 +1,106 @@
+{
+  "ts": "2026-06-28T14:10:00Z",
+  "members": {
+    "claude": {
+      "role": "Unreal architecture lead, visual build coordinator, HUD/dashboard contract, QSB data bridge owner, final report owner",
+      "current_task": "running QSB_UNREAL_VISIBLE_BUILD_AND_TEAM_DELEGATION_REPAIR_V1 directive end-to-end",
+      "files_touched": [
+        "scripts/qsb_unreal_visible_build_*.sh (5)",
+        "scripts/qsb_unreal_apply_visual_upgrade_pass.py+sh",
+        "scripts/qsb_detect_canonical_tower_structure.sh",
+        "scripts/qsb_dashboard_and_trader_status_sweep.sh",
+        "data/logs/qsb_unreal_current_visual_diagnosis.md",
+        "tools/qsb_ue5_live_pulse.py",
+        "external/unreal-mcp/Python/scripts/actors/*.py (multiple)",
+        "/vaults/nvme0/qsb_unreal_skyscraper/Plugins/UnrealMCP/Source/.../UnrealMCPEditorCommands.cpp (mesh-variety patch)"
+      ],
+      "status": "in_progress",
+      "next_action": "ship final report + run sweep + screenshots",
+      "blocker": "MCP plugin lacks material/UMG/blueprint asset creation — see diagnosis"
+    },
+    "gpt_openai": {
+      "model": "gpt-4o-mini (and gpt-4o for smart calls)",
+      "role": "HUD labels, dashboard wording, floor descriptions, command names, user-facing copy, shop/service/product panel wording",
+      "current_task": "design pack for high-detail scenery (Cylinder/Sphere/Cone variety)",
+      "delivered": [
+        "/tmp/gpt4o_detail.txt — actor specs for trees/cars/bus stops",
+        "/tmp/team_openai.txt — top-3 missing additions per video reference",
+        "/tmp/gpt4o_v2.txt — smart-floor-layout suggestion"
+      ],
+      "spend_today_usd": 0.0223,
+      "cap_today_usd": 1.0,
+      "status": "available",
+      "next_action": "draft HUD top-bar labels + floor band descriptions"
+    },
+    "deepseek": {
+      "model": "deepseek-chat (and deepseek-reasoner for review)",
+      "role": "code structure review, Unreal Python review, data bridge review, build script review, smoke test review, performance suggestions",
+      "current_task": "street geometry + adversarial review of build approach",
+      "delivered": [
+        "/tmp/team_deepseek.txt — animated elevators + interior fit-outs + traffic on neighbor blocks",
+        "/tmp/deepseek_streets.txt — road slab + lamp + crossing coords"
+      ],
+      "spend_today_usd": 0.0,
+      "cap_today_usd": 1.0,
+      "status": "available",
+      "next_action": "review scripts/qsb_unreal_apply_visual_upgrade_pass.py for performance + correctness"
+    },
+    "wren_local_qwen3.5_9b": {
+      "role": "build executor (her wren_bash can run Python scripts that hit MCP TCP), local-first chat, RAG lookups via wren_retrieve",
+      "current_task": "wren_curl now web-enabled (2026-06-28 ross_amendment) — can read external references herself",
+      "delivered": [
+        "Top-3 missing additions report (/tmp/team_wren.txt)",
+        "TikTok page fetch attempt (/tmp/wren_tiktok.txt — page is JS-walled)"
+      ],
+      "tools": ["wren_read_file", "wren_grep_repo", "wren_retrieve", "wren_edit_file (claude_signoff)", "wren_bash (claude_signoff)", "wren_scrcpy (claude_signoff)", "wren_curl (claude_signoff, host_allowlist now wildcard)", "wren_stamp_f47_record", "wren_propose_patch", "wren_list_skills", "wren_run_skill"],
+      "status": "available_idle",
+      "blocker_last_run": "park build script TCP-timeout in her direct python run; needs the wren_bash → python3 with longer per-call timeout"
+    },
+    "hermes_local_hermes3_8b": {
+      "role": "second-opinion advisor, math drafts, JSON shape proposals",
+      "current_task": "none",
+      "delivered": [],
+      "status": "DOWN",
+      "blocker": "returned empty 2x since 2026-06-28 12:42 UTC — needs model probe + likely a reload"
+    },
+    "openclaw_inspector": {
+      "role": "visual inspection, missing feature tickets, floor-count mismatch tickets, build-quality tickets, HUD clutter tickets",
+      "current_task": "queued — inspect current 645-actor scene + ticket every missing layer from the directive",
+      "status": "queued",
+      "next_action": "produce data/registries/qsb_openclaw_inspection_tickets.jsonl"
+    },
+    "maintenance_crew": {
+      "role": "Unreal install status, GPU/Vulkan status, lighting rebuild status, disk/RAM pressure, editor launch status",
+      "current_task": "monitor",
+      "delivered": [
+        "VRAM check at editor launch: RTX 5070 Ti 16GB, freed Ollama models to leave 9.6GB headroom",
+        "Editor launch SOPs in scripts/qsb_unreal_open_editor.sh"
+      ],
+      "status": "active"
+    },
+    "smoke_testers": {
+      "role": "visible build loop test, HUD test, data bridge test, floor count test, material test, screenshot test, trader status test, alpaca status test",
+      "scripts": [
+        "scripts/qsb_unreal_visible_build_smoke_test.sh",
+        "scripts/qsb_unreal_visual_detail_smoke_test.sh",
+        "scripts/qsb_unreal_hud_smoke_test.sh",
+        "scripts/qsb_unreal_team_delegation_smoke_test.sh",
+        "scripts/qsb_dashboard_trader_status_smoke_test.sh",
+        "scripts/qsb_unreal_professional_build_full_suite.sh"
+      ],
+      "status": "scaffolded"
+    },
+    "worker_teams": {
+      "city_team": {"owns": "neighbor buildings, ring road, plaza, skyline depth"},
+      "tower_shell_team": {"owns": "169 floor slabs, helix twist, window strips"},
+      "interior_team": {"owns": "future — needs plugin extension to spawn rooms"},
+      "lift_team": {"owns": "VU_LiftShaft_1..8 + future animated cabs"},
+      "worker_visualization_team": {"owns": "per-floor beacons V2_Beacon_*"},
+      "hud_team": {"owns": "UMG widget plan — needs UE Python"},
+      "data_bridge_team": {"owns": "tools/qsb_ue5_live_pulse.py — already running"},
+      "trader_board_team": {"owns": "V_VenueBar_* indicator cubes growing with committed £"},
+      "voice_command_team": {"owns": "future — needs TTS+ASR hookup"},
+      "polish_team": {"owns": "lighting rebuild, material assignment (post plugin extension)"}
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "note": "Avatar competition themes — each Council member picks a theme + color that represents their room on the shared boardroom.",
+  "updated_by": "hq_claude",
+  "updated_at": "2026-07-03T19:32:00Z",
+  "themes": {
+    "tp":     {"member": "TP-CEO",     "theme": "Command Cathedral", "color": "#22d3ee", "hex_name": "cyan",   "voice": "M1"},
+    "acer":   {"member": "Acer",       "theme": "Data Foundry",      "color": "#f59e0b", "hex_name": "amber",  "voice": "M4"},
+    "wren":   {"member": "Wren",       "theme": "Wren Bench",        "color": "#a78bfa", "hex_name": "violet", "voice": "F3"},
+    "claude": {"member": "HQ-Claude",  "theme": "The Beacon Hall",   "color": "#eab308", "hex_name": "molten gold", "voice": "M1"}
+  },
+  "conversation_endpoint": "http://192.168.0.10:9100/talk"
+}

@@ -1,0 +1,38 @@
+{
+  "ok": true,
+  "kind": "qsb_cockpit_target_misroute_audit",
+  "phase": "QSB_GODOT_NATIVE_COCKPIT_PRIMARY_GRAPHICS_ENGINE_SWITCH_V1",
+  "generated_ts": "2026-06-09T20:32:00+00:00",
+  "summary": "Operator was still seeing the browser dashboard because no registry declared a primary cockpit, and recent V1-V6 work emphasised the browser panel. Godot was wired but never launched.",
+  "scripts_still_reporting_browser_as_primary": [
+    "qsb_browser_visible_dashboard_check.sh",
+    "qsb_dashboard_visual_presence_check.sh",
+    "qsb_browser_visible_reality_check.sh"
+  ],
+  "scripts_that_are_fine_keeping_browser_url": [
+    "qsb_boot_stack.sh",
+    "qsb_floor41_oanda_health_check.sh",
+    "final_active_kernel_preflight.sh",
+    "qsb_standalone_audit.py",
+    "qsb_next3d_visual_check.sh"
+  ],
+  "registries_marking_browser_as_primary": [],
+  "registries_added_to_close_the_gap": [
+    "qsb_cockpit_primary_engine_policy.json",
+    "qsb_godot_primary_cockpit_status.json",
+    "qsb_browser_dashboard_legacy_status.json",
+    "qsb_pyqt_admin_fallback_status.json"
+  ],
+  "scripts_added_to_make_godot_primary": [
+    "scripts/qsb_cockpit_primary_status.sh",
+    "scripts/qsb_launch_primary_cockpit.sh",
+    "scripts/qsb_godot_primary_status.sh",
+    "scripts/qsb_godot_professional_upgrade_status.sh"
+  ],
+  "reports_that_must_stop_treating_browser_as_success": [
+    "morning_briefing 'what to open' line",
+    "chat 'open dashboard' topic — now leads with Godot",
+    "chat 'dashboard_pointer' topic — updated"
+  ],
+  "root_cause": "I (Claude) reported browser-dashboard improvements as success. That ends now."
+}

@@ -1,0 +1,109 @@
+{
+  "ts": "2026-06-07T19:50:02.105722+00:00",
+  "source_system": "/vaults/nvme0/qsb_skyscraper",
+  "target_tower": "/vaults/nvme0/qsb_tower_v1",
+  "standby_kernel_detected": true,
+  "detected_identity": {
+    "name": "QSB Kernel",
+    "full_name": "Quantum Symbolic Brain Kernel",
+    "version": "4.6-offline-kernel-symbolic",
+    "role": "Locked Penthouse Kernel",
+    "principle": "Models are workers. QSB is the kernel.",
+    "architecture": "Penthouse kernel above floors, lifts, departments, and local model workers.",
+    "created_or_verified": "2026-06-07T15:38:31.144765+00:00"
+  },
+  "detected_generation": "old_qsb_locked_cognitive_kernel_4_6_to_4_7",
+  "original_target_note": "User remembered Kernel 4.5; discovered source appears evolved to 4.6/4.7.",
+  "integration_mode_recommended": "adapter_import_not_direct_overwrite",
+  "kernel_installed_into_new_tower": false,
+  "new_tower_penthouse_should_remain_socket_until_import_plan_passes": true,
+  "existing_files": [
+    {
+      "path": "/vaults/nvme0/qsb_skyscraper/kernel/kernel_core.py",
+      "relative_to_old": "kernel/kernel_core.py",
+      "size": 1162,
+      "sha256": "82ed521f912c0bcb78fee3e326f91c4501ece64317d1b1f9ffa3727f70120a41"
+    },
+    {
+      "path": "/vaults/nvme0/qsb_skyscraper/kernel/axiom_core.py",
+      "relative_to_old": "kernel/axiom_core.py",
+      "size": 1350,
+      "sha256": "7315294641009cc19caa70b93a5e61d207cb2f62b7b22555598c2f8cf4d9e1f9"
+    },
+    {
+      "path": "/vaults/nvme0/qsb_skyscraper/kernel/continuity_core.py",
+      "relative_to_old": "kernel/continuity_core.py",
+      "size": 1869,
+      "sha256": "9279e12b7c190108bdfba6f86863dc60227f532745149fb7c98a70267be53981"
+    },
+    {
+      "path": "/vaults/nvme0/qsb_skyscraper/kernel/belief_core.py",
+      "relative_to_old": "kernel/belief_core.py",
+      "size": 5084,
+      "sha256": "9cd46b6a7619acdc011c89bc7944c8ceffed4bcfc916e40337b1e65a599836ae"
+    },
+    {
+      "path": "/vaults/nvme0/qsb_skyscraper/kernel/symbolic_core.py",
+      "relative_to_old": "kernel/symbolic_core.py",
+      "size": 7791,
+      "sha256": "c65a425223c720244dbd6e69084814de083ad3258cb403e239bcfcf25270a1ef"
+    },
+    {
+      "path": "/vaults/nvme0/qsb_skyscraper/kernel/identity_core.py",
+      "relative_to_old": "kernel/identity_core.py",
+      "size": 979,
+      "sha256": "a502d9ea2f01150259e8529a69424553d3aafc248eb4442265c3775177a42215"
+    },
+    {
+      "path": "/vaults/nvme0/qsb_skyscraper/kernel/identity.json",
+      "relative_to_old": "kernel/identity.json",
+      "size": 370,
+      "sha256": "c9e449ec53d92309f7a531726e46ba8d27666fbe244db1eaa9a3e6e651e54710"
+    },
+    {
+      "path": "/vaults/nvme0/qsb_skyscraper/kernel/continuity_state.json",
+      "relative_to_old": "kernel/continuity_state.json",
+      "size": 1170,
+      "sha256": "c45cbb011573f17bf211f98b7d676f8e929d37cbc8a0467ac7cec16730ce1b67"
+    },
+    {
+      "path": "/vaults/nvme0/qsb_skyscraper/kernel/README.md",
+      "relative_to_old": "kernel/README.md",
+      "size": 670,
+      "sha256": "800ab94b26585887f0a510c218a64679d51017366ae92070f56a60e19dc9b79f"
+    },
+    {
+      "path": "/vaults/nvme0/qsb_skyscraper/kernel/COGNITIVE_47_README.md",
+      "relative_to_old": "kernel/COGNITIVE_47_README.md",
+      "size": 467,
+      "sha256": "cebe9f5176f21c393586e543ebcc7778239bdc3a8d47a17da393435f70420547"
+    },
+    {
+      "path": "/vaults/nvme0/qsb_skyscraper/executive/penthouse.py",
+      "relative_to_old": "executive/penthouse.py",
+      "size": 14728,
+      "sha256": "8699bd66683a32ce8317f5901990bf7aaa9829dabe5a0fad3a4889287d931da5"
+    },
+    {
+      "path": "/vaults/nvme0/qsb_skyscraper/add_cognitive_kernel_47.py",
+      "relative_to_old": "add_cognitive_kernel_47.py",
+      "size": 29485,
+      "sha256": "a938a2b1b3a8886701bf02cfe4519f643e12c15726a45ba49bba159a677b28f7"
+    },
+    {
+      "path": "/vaults/nvme0/qsb_skyscraper/promote_symbolic_to_kernel.py",
+      "relative_to_old": "promote_symbolic_to_kernel.py",
+      "size": 10502,
+      "sha256": "f0e3f2d4209d90c0c9b75d21fe5f3127153f84839c37c103a7986c7c1a4ffd7e"
+    }
+  ],
+  "missing_expected_files": [],
+  "recommended_next_step": "create compatibility adapter plan before copying kernel files",
+  "safety": {
+    "do_not_overwrite_new_penthouse": true,
+    "do_not_enable_worker_execution": true,
+    "do_not_enable_provider_execution": true,
+    "do_not_enable_model_inference": true,
+    "do_not_install_kernel_yet": true
+  }
+}

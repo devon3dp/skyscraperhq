@@ -1,0 +1,29 @@
+{
+  "ok": true,
+  "kind": "qsb_tower_working_hours_policy_v1",
+  "effective_from": "2026-06-11",
+  "tz": "local_operator_tz (Ross)",
+  "work_hours": {
+    "start": "08:00",
+    "end": "17:00"
+  },
+  "recreation_hours": {
+    "start": "17:00",
+    "end": "22:00"
+  },
+  "rest_hours": {
+    "start": "22:00",
+    "end": "08:00"
+  },
+  "applies_to": "all rosters",
+  "exceptions": {
+    "F41_oanda": "follow FX sessions (24/5)",
+    "F42_binance": "crypto 24/7 (rotating shifts)",
+    "F43_alpaca": "US market hours + pre/after as scouts",
+    "F34_monitoring": "always-on sentinel watch",
+    "F28_security": "always-on guards"
+  },
+  "authorized_by": "Ross",
+  "authorized_ts": "2026-06-11T08:25:36.968730Z",
+  "advisory_only": true
+}

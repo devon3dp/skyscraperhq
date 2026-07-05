@@ -1,0 +1,31 @@
+{
+  "ok": true,
+  "kind": "qsb_godot_telemetry_bridge_sources",
+  "phase": "QSB_OLD_DASHBOARD_TO_GODOT_FEATURE_MIGRATION_V1",
+  "generated_ts": "2026-06-09T21:35:00+00:00",
+  "primary_endpoint": "http://127.0.0.1:8765/api/native_cockpit/state",
+  "supplementary_endpoint": "http://127.0.0.1:8765/api/cognitive_unified",
+  "poll_interval_seconds": 5,
+  "direct_registry_fallbacks_used_by_panels": [
+    "qsb_dashboard_live_telemetry.json",
+    "qsb_3d_skyscraper_state.json",
+    "qsb_kernel_cognitive_tick_latest.json",
+    "qsb_kernel_attention_state.json",
+    "qsb_kernel_working_memory.json",
+    "qsb_kernel_goal_stack.json",
+    "qsb_ml_rl_lab_status.json",
+    "qsb_banking_gateway_status.json",
+    "qsb_github_upgrade_candidates.json",
+    "qsb_floor41_oanda_pnl.json",
+    "qsb_floor42_binance_testnet_state.json",
+    "qsb_floor43_stocks_state.json",
+    "qsb_floor46_commerce_state.json",
+    "qsb_ml_rl_classroom_map.json",
+    "qsb_worker_scene_state.json",
+    "qsb_openclaw_route.json",
+    "qsb_openclaw_tickets.json",
+    "cognitive/cognitive_*.json (multiple)"
+  ],
+  "freshness_indicator": "per-panel coloured pill (fresh/Ns/Nm stale/missing)",
+  "stale_missing_shown_not_hidden": true
+}

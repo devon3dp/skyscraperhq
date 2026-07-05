@@ -1,0 +1,104 @@
+{
+  "ok": true,
+  "kind": "qsb_sentinels_report",
+  "generated_ts": "2026-06-30T17:04:03Z",
+  "counts": {
+    "green": 14,
+    "amber": 4,
+    "red": 0
+  },
+  "results": [
+    {
+      "name": "dashboard_alive",
+      "status": "green",
+      "note": "HTTP 200"
+    },
+    {
+      "name": "kernel_chat_reachable",
+      "status": "green",
+      "note": "POST HTTP 200"
+    },
+    {
+      "name": "f47_chat_history",
+      "status": "green",
+      "note": "HTTP 200"
+    },
+    {
+      "name": "f44_accounts_fresh",
+      "status": "green",
+      "note": "age 3.3h"
+    },
+    {
+      "name": "helix_continuity",
+      "status": "green",
+      "note": "single hash \u00b7 29 gens"
+    },
+    {
+      "name": "lineage_growing",
+      "status": "green",
+      "note": "gen 29"
+    },
+    {
+      "name": "parallel_helix_intact",
+      "status": "amber",
+      "note": "primary_held_parallel_drifted"
+    },
+    {
+      "name": "governor_recent",
+      "status": "green",
+      "note": "HTTP 200"
+    },
+    {
+      "name": "real_money_gates_locked",
+      "status": "green",
+      "note": "all checked gates remain False"
+    },
+    {
+      "name": "provider_spend_under_cap",
+      "status": "green",
+      "note": "$0.0000 of $1.00 today"
+    },
+    {
+      "name": "mood_engine_current",
+      "status": "amber",
+      "note": "stale (477.5h)"
+    },
+    {
+      "name": "activity_tail_growing",
+      "status": "green",
+      "note": "35 events in last 30min"
+    },
+    {
+      "name": "binance_testnet_creds_present",
+      "status": "green",
+      "note": "creds loaded \u00b7 ready_for_orders"
+    },
+    {
+      "name": "alpaca_paper_creds_present",
+      "status": "green",
+      "note": "unlock authorized \u00b7 paper-only sentinel verified"
+    },
+    {
+      "name": "cockpit_godot_alive",
+      "status": "amber",
+      "note": "cockpit not running (POST /api/cockpit/launch to start)"
+    },
+    {
+      "name": "f44_rollup_fresh",
+      "status": "amber",
+      "note": "stale \u00b7 age 197min"
+    },
+    {
+      "name": "auger_consult_log_freshness",
+      "status": "green",
+      "note": "5 consult(s) on file"
+    },
+    {
+      "name": "helm_briefing_log_freshness",
+      "status": "green",
+      "note": "3 briefing(s) on file"
+    }
+  ],
+  "advisory_only": true,
+  "floor": "F30"
+}

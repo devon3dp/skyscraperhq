@@ -1,0 +1,36 @@
+{
+  "ts": "2026-06-28T14:58:00Z",
+  "verdict": "blockout_prototype_not_final",
+  "scene_actor_count_approx": 645,
+  "what_exists": [
+    "169 floor slabs helix-twisted 268.8 deg total",
+    "8 neighbor buildings",
+    "ring road + cardinal roads + car park + 12 cars",
+    "40 trees + 8 bus stops + 40 hydrants/benches",
+    "1 directional sun + 2 sky fill lights + 12 band lights + 169 beacons + crown + lamp lights",
+    "1 overview CameraActor"
+  ],
+  "what_is_missing_or_primitive": [
+    "materials (all grey BasicShapes default)",
+    "lighting rebuild (directional light conflict warning)",
+    "neon/emissive/hologram/dark-glass/metal",
+    "interior blockout (rooms, command panels)",
+    "HUD inside Unreal (UMG widgets)",
+    "lift shafts + animated cabs",
+    "live-driving visibility for user",
+    "skyline depth beyond 8 neighbors"
+  ],
+  "plugin_limit": "MCP plugin spawns StaticMeshActors with BasicShapes meshes only; no material/UMG/blueprint asset creation",
+  "two_paths": {
+    "extend_plugin": "add set_actor_material + create_material_instance handlers",
+    "use_ue_python": "via -ExecCmds=py or editor Python console; can create Materials, UMG, Blueprints"
+  },
+  "lighting_warning_fix": "deselect Atmosphere Sun Light on duplicate DirectionalLights, then Build > Build Lighting Only",
+  "next_immediate_actions": [
+    "extend plugin with material API",
+    "author 8 base materials (M_QSB_DarkGlass etc)",
+    "rebuild lighting",
+    "wire UMG HUD via UE Python",
+    "add lift shafts as a second compound actor pass"
+  ]
+}

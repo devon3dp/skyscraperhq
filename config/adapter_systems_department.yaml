@@ -1,0 +1,11 @@
+adapter_systems_department:
+  version: 1.1
+  floor_id: floor_21
+  role: neutral_adapter_socket_layer
+  execution_enabled: false
+  hardwired_adapters: false
+  models_required: false
+  kernel_required: false
+  providers_are_external: true
+
+principle: Floor 21 owns adapter sockets and bridge records only. It does not execute providers, tools, CLI commands, or file operations.

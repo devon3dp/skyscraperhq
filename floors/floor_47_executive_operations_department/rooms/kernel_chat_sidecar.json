@@ -1,0 +1,49 @@
+{
+  "room_id": "kernel_chat_sidecar",
+  "name": "Kernel Chat Sidecar",
+  "category": "reception",
+  "floor": "floor_47",
+  "purpose": "this sidecar lets a visitor exchange a brief, advisory line with Wren's local kernel.",
+  "concierge_blurb": "A small window where you may say hello. Wren answers locally, slowly, and only as a guide \u2014 never as an instruction.",
+  "current_state": "partial",
+  "visitor_open": true,
+  "mutation_allowed": false,
+  "evidence_paths": [
+    "src/tower/model_floors/claude_floor/kernel_inbox.py",
+    "src/tower/model_floors/claude_floor/f47_chat_room.py",
+    "data/registries/qsb_claude_f47_chat_history.jsonl"
+  ],
+  "live_signals": {
+    "endpoint": "/api/f47_chat",
+    "advisory_only": true,
+    "last_visitor_greeting_line": "Hi \u2014 you've reached Wren on Floor 47, the Claude Embassy.",
+    "chat_history_path": "data/registries/qsb_claude_f47_chat_history.jsonl",
+    "history_count": 87,
+    "provider_costs_leaked": false
+  },
+  "built_at": "2026-06-14T18:10:00Z",
+  "built_by": "f47_floor_buildout_batch_5",
+  "lessons_learned_for_next_agent": "history_count is wc -l of qsb_claude_f47_chat_history.jsonl (87 at build time) \u2014 refresh on read, do not store as ground truth. Each row carries a 'kernel' field plus a 'claude_cli' field; both may include reply text and MUST stay server-side \u2014 never echo full row contents to /welcome or any visitor surface. The endpoint /api/f47_chat is served by the dashboard, not by the standalone kernel_chat_sidecar.py daemon (which runs on :8766 for a different operator-facing bridge); do not collapse the two. Concierge_blurb and live_signals here are stripped of cost_usd, token counts, model names, and provider names by design \u2014 those live only in the helm/auger conferring room descriptor and in CLAUDE.md.",
+  "layout": {
+    "zone": "right_wall",
+    "offset_x": -0.05,
+    "offset_z": -4.0,
+    "footprint_m": [
+      2.0,
+      0.1
+    ],
+    "height_m": 1.4
+  },
+  "render": {
+    "primary_prop": "wall_panel",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "KERNEL CHAT",
+    "glow": true
+  },
+  "interactive": {
+    "type": "tail",
+    "source_path": "data/registries/qsb_kernel_chat.jsonl",
+    "display": "scrolling_list",
+    "refresh_seconds": 15
+  }
+}

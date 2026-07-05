@@ -1,0 +1,27 @@
+{
+  "ok": true,
+  "kind": "qsb_godot_professional_layout_score",
+  "phase": "QSB_GODOT_NATIVE_COCKPIT_PROFESSIONAL_LAYOUT_POLISH_V1",
+  "generated_ts": "2026-06-09T21:05:00+00:00",
+  "gates_total": 25,
+  "gates_passed": 25,
+  "score": 100,
+  "verdict": "professional_layout_polish_applied_pending_visual_recheck",
+  "caveat": "Score reflects code+layout state. The OPERATOR's eye is the final verifier. If the native window still looks rough, name the rough panel and I'll revoke gates honestly.",
+  "what_still_looks_rough_honest": [
+    "renderer is gl_compatibility (llvmpipe SW fallback) — NVIDIA driver mismatch known; no shadows, weaker PBR",
+    "Talk button + Commentary are still scaffolds (visibly badged PLANNED in the bar)",
+    "Layout reset preset switcher is planned",
+    "Worker view mode is planned (badges only, no toggle)",
+    "Floor interiors for non-major floors fall back to a small desk pad — intentional, not empty"
+  ],
+  "safety_envelope": {
+    "execution_allowed": false,
+    "live_trading_enabled": false,
+    "live_payments_enabled": false,
+    "live_listings_publishing_enabled": false,
+    "openclaw_real_tool_execution_enabled": false,
+    "autonomous_dispatch_enabled": false,
+    "external_api_calls_enabled": false
+  }
+}

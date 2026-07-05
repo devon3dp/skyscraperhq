@@ -1,0 +1,31 @@
+{
+  "room_id": "dna_computing_core",
+  "name": "DNA Computing Core",
+  "category": "lab",
+  "purpose": "Performing DNA-based computations and algorithms.",
+  "concierge_blurb": "Witness the future of computing, powered by nature\u2019s code.",
+  "current_state": "already_exists",
+  "visitor_open": true,
+  "evidence_paths": [],
+  "live_signals": {},
+  "layout": {
+    "zone": "front_left",
+    "offset_x": -8.0,
+    "offset_z": 4.5,
+    "footprint_m": [
+      12,
+      9
+    ],
+    "height_m": 1.5
+  },
+  "render": {
+    "primary_prop": "dais",
+    "palette": "embassy_brass_wren_green",
+    "label_text": "DNA Core",
+    "glow": false
+  },
+  "interactive": {
+    "type": "none"
+  },
+  "floor": "floor_132"
+}

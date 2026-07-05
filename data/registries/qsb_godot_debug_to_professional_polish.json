@@ -1,0 +1,19 @@
+{
+  "ok": true,
+  "kind": "qsb_godot_debug_to_professional_polish",
+  "phase": "QSB_GODOT_NATIVE_COCKPIT_PROFESSIONAL_LAYOUT_POLISH_V1",
+  "generated_ts": "2026-06-09T21:05:00+00:00",
+  "old_title": "QSB Godot Native Cockpit (DEBUG)",
+  "new_title": "QSB Tower — Native 3D Operations Cockpit",
+  "old_subtitle": "Professional 3D skyscraper prototype",
+  "new_subtitle": "QSB Skyscraper Command System",
+  "applied_in": [
+    "/home/ross/qsb_godot_native_cockpit/scripts/Main.gd line 53 (DisplayServer.window_set_title)",
+    "/home/ross/qsb_godot_native_cockpit/scripts/ControlBar.gd line 42 (title label)"
+  ],
+  "removed_debug_signals": [
+    "(DEBUG) suffix from window title",
+    "'prototype' phrasing from control bar"
+  ],
+  "policy": "No 'DEBUG' or 'prototype' text in any user-visible UI label of the Godot cockpit."
+}

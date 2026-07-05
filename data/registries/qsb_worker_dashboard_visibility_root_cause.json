@@ -1,0 +1,37 @@
+{
+  "ok": true,
+  "phase": "QSB_DASHBOARD_TOTAL_REBUILD_3D_WORKERS_OPENCLAW_ONLINE_V1",
+  "kind": "qsb_worker_dashboard_visibility_root_cause",
+  "generated_ts": "2026-06-30T13:46:34.741323+00:00",
+  "headline_root_cause": "default worker_view_mode = 'counts_only' filters every individual worker out of the SVG render set.",
+  "fix_applied_in_this_phase": "Default mode changed to 'selected_floor_and_groups' \u2014 per-floor count badges remain (no swarm) AND individual workers render inside the SVG floor SELECTED via picking. Department interior layer paints workers at their canonical room/station.",
+  "totals": {
+    "canonical_workers": 1190,
+    "operational": 1130,
+    "training": 108,
+    "candidate": 12,
+    "resting": 0
+  },
+  "answers": {
+    "1_why_counts_only_is_default": "The previous phase set default_mode='counts_only' in qsb_workforce_view_mode.json AND cockpit.js initWorkerViewMode hard-codes 'counts_only' as the initial QSB.workerViewMode. In counts_only mode qsb_tower_2d.js::refreshWorkers builds an empty renderSet, so NO individual worker dots/labels are ever rendered on the SVG \u2014 that is the visual root cause of 'workers not shown'.",
+    "2_ui_or_fallback_or_missing_data": "UI MODE \u2014 data exists; rendering is gated on view mode.",
+    "3_too_many_workers": "Yes \u2014 1,191 canonical workers; prior phase chose to hide all individual labels to prevent spam.",
+    "4_room_assignments_missing": "No \u2014 qsb_worker_room_assignments.json + station_assignments are populated with 1,000+ stations. The renderer simply never queries them.",
+    "5_room_assignments_rendered": "No \u2014 there is no SVG layer that draws stations.",
+    "6_tasks_missing": "No \u2014 qsb_worker_task_board.json carries 21 active tasks today (18 movement-derived + 3 open trades). The dashboard exterior does not visualize them.",
+    "7_workers_tied_to_interiors": "Indirectly \u2014 /api/floor_detail returns workers per floor when an inspector window opens, but the main SVG tower never renders an interior layer.",
+    "8_sim_workers_hidden_correctly": "Yes \u2014 sim_seed counts are reported separately and badged in the legacy sidebar; they do not pollute operational counts.",
+    "9_operational_workers_hidden_incorrectly": "YES \u2014 this is the user's complaint. In counts_only mode every individual operational worker is hidden, so it looks like there are no workers at all.",
+    "10_frontend_decision_function": "src/dashboard/static/qsb_tower_2d.js::refreshWorkers \u2014 gates on window.QSB.workerViewMode; src/dashboard/static/qsb_scene.js::refreshWorkers \u2014 same gate; src/dashboard/static/cockpit.js::initWorkerViewMode \u2014 sets the default.",
+    "11_data_source_for_selected_floor_workers": "/api/floor_detail?floor=N (built by paintFloorWindow). For workers we now ALSO consume qsb_worker_room_assignments.json + station_assignments + task_board so the floor inspector can place each worker at a room/station.",
+    "12_why_departments_not_visibly_occupied": "Because no SVG/HTML layer draws individual workers inside their assigned room. The data exists; the renderer was never wired to consume it.",
+    "13_why_floor_interiors_no_work": "Same reason \u2014 interior renderer (qsb_floor_interior.js) is generic and unaware of qsb_worker_room_assignments."
+  },
+  "previous_view_mode_default": "counts_only",
+  "new_view_mode_default": "selected_floor_and_groups",
+  "execution_allowed": false,
+  "active_local_only": true,
+  "advisory_only": true,
+  "real_money_live_trading_enabled": false,
+  "openclaw_real_tool_execution_enabled": false
+}
