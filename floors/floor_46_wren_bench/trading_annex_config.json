@@ -1,0 +1,15 @@
+{
+  "nlp_integration": {
+    "enabled": true,
+    "model": "Qwen/Qwen2.5-32B-Instruct",
+    "endpoint": "/api/nlp"
+  },
+  "trading_environment": {
+    "dashboard_integration": true,
+    "features": [
+      "real_time_data",
+      "historical_analysis",
+      "trade_simulation"
+    ]
+  }
+}

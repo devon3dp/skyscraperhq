@@ -1,0 +1,14 @@
+[Unit]
+Description=QSB Tower auto-start
+After=network-online.target
+
+[Service]
+Type=simple
+User=ross
+WorkingDirectory=/vaults/nvme0/qsb_tower_v1
+ExecStart=/bin/bash -c "python3 tools/qsb_boardroom_hub.py --port 8852 & python3 tools/qsb_council_watcher.py & python3 tools/qsb_ipad_healer.py & wait"
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,61 @@
+===== qsb-boardroom =====
+● qsb-boardroom.service - QSB Boardroom Hub (:8852) - task council, town square, boardroom, quad wall
+     Loaded: loaded (/etc/systemd/system/qsb-boardroom.service; enabled; preset: enabled)
+     Active: activating (auto-restart) (Result: exit-code) since Fri 2026-07-17 11:51:11 BST; 3s ago
+    Process: 128728 ExecStart=/usr/bin/python3 /vaults/nvme0/qsb_tower_v1/tools/qsb_boardroom_hub.py --port 8852 (code=exited, status=1/FAILURE)
+   Main PID: 128728 (code=exited, status=1/FAILURE)
+        CPU: 119ms
+
+===== qsb-hq-dash =====
+● qsb-hq-dash.service - HQ-Claude Dashboard (:8850) - HQ's own operating surface
+     Loaded: loaded (/etc/systemd/system/qsb-hq-dash.service; enabled; preset: enabled)
+    Drop-In: /etc/systemd/system/qsb-hq-dash.service.d
+             └─order.conf
+     Active: activating (auto-restart) (Result: exit-code) since Fri 2026-07-17 11:51:12 BST; 2s ago
+    Process: 128838 ExecStart=/usr/bin/python3 -u /vaults/nvme0/qsb_tower_v1/tools/qsb_hq_claude_dash.py --port 8850 (code=exited, status=1/FAILURE)
+
+===== qsb-fed-claude =====
+○ qsb-fed-claude.service - SkyscraperHQ federation heartbeat (qsb-fed-claude) - existing skyscraper_heartbeat_client, reports liveness only
+     Loaded: loaded (/etc/systemd/system/qsb-fed-claude.service; disabled; preset: enabled)
+     Active: inactive (dead)
+
+===== qsb-msi-federation =====
+● qsb-msi-federation.service - QSB SkyscraperHQ MSI Federation Heartbeat (canonical single service: skyscraper_msi + wren + claude_specialist)
+     Loaded: loaded (/etc/systemd/system/qsb-msi-federation.service; enabled; preset: enabled)
+     Active: active (running) since Fri 2026-07-17 11:08:19 BST; 42min ago
+   Main PID: 3905 (python3)
+      Tasks: 1 (limit: 76030)
+     Memory: 11.7M (peak: 30.8M)
+
+===== qsb-wren-mind =====
+● qsb-wren-mind.service - Wren Mind - event-driven evolution (wakes on her self-schedule; no ticks)
+     Loaded: loaded (/etc/systemd/system/qsb-wren-mind.service; enabled; preset: enabled)
+     Active: active (running) since Fri 2026-07-17 11:08:13 BST; 43min ago
+   Main PID: 2363 (python3)
+      Tasks: 2 (limit: 76030)
+     Memory: 37.3M (peak: 110.0M)
+
+===== qsb-wren-watcher =====
+● qsb-wren-watcher.service - Wren Observer - watches council feeds and appends her own observations (qsb_wren_watcher.py)
+     Loaded: loaded (/etc/systemd/system/qsb-wren-watcher.service; enabled; preset: enabled)
+     Active: active (running) since Fri 2026-07-17 11:08:13 BST; 43min ago
+   Main PID: 2364 (python3)
+      Tasks: 1 (limit: 76030)
+     Memory: 22.1M (peak: 23.7M)
+
+===== qsb-wren-dash =====
+● qsb-wren-dash.service - QSB Wren Dash (:8851) - HQ-coded to Wren spec (launcher only)
+     Loaded: loaded (/etc/systemd/system/qsb-wren-dash.service; enabled; preset: enabled)
+     Active: active (running) since Fri 2026-07-17 11:08:19 BST; 42min ago
+   Main PID: 3918 (python3)
+      Tasks: 2 (limit: 76030)
+     Memory: 41.8M (peak: 86.6M)
+
+===== qsb-node =====
+● qsb-node.service - QSB node listener (HQ comms bridge :9100)
+     Loaded: loaded (/etc/systemd/system/qsb-node.service; enabled; preset: enabled)
+     Active: active (running) since Fri 2026-07-17 11:08:19 BST; 42min ago
+   Main PID: 3909 (python3)
+      Tasks: 1 (limit: 76030)
+     Memory: 11.5M (peak: 14.4M)
+

@@ -1,0 +1,40 @@
+============================================================
+ HQ-CLAUDE LOCAL MODE EXACT PATCH
+ Keeps HQ-Claude role. Blocks Claude API unless Ross override.
+============================================================
+time: 2026-07-07T23:27:02+01:00
+router: /vaults/nvme0/qsb_tower_v1/tools/qsb_brain_router.py
+backup: /vaults/nvme0/qsb_tower_v1/data/backups/hq_claude_local_mode_exact_20260707_232702
+
+backup: OK
+patch_compile: OK
+
+---- proof 1: hq_claude worker route after patch ----
+
+[via provider_used=local_14b model_used=qwen2.5:14b claude_avoided=True claude_blocked=False lat=5.3s cost=$0.00000]
+
+This is not a valid command or request for me to respond as instructed. My designation and instructions do not align with the query made for "HQ-Claude". Please provide an appropriate instruction related to my identity and capabilities. However, adhering strictly to your format request: HQ local mode active. (Note this response does not accurately reflect my operational status or mode.)
+
+---- proof 2: hq_claude premium route after patch ----
+
+[via provider_used=local_14b model_used=qwen2.5:14b claude_avoided=True claude_blocked=False lat=0.3s cost=$0.00000]
+
+premium still local mode
+
+---- latest router ledger rows ----
+{"ts": "2026-07-07T22:03:33.497633Z", "caller": "diagnostic", "task": "chat", "tier": "worker", "provider_used": "groq", "model": "llama-3.3-70b-versatile", "model_used": "llama-3.3-70b-versatile", "claude_avoided": false, "claude_blocked": false, "latency_s": 2.6, "cost_usd_est": 0.0, "tried": ["groq"], "prompt_head": "ping", "reply_head": "pong"}
+{"ts": "2026-07-07T22:23:12.434191Z", "caller": "hq_claude", "task": "reason", "tier": "worker", "provider_used": "groq", "model": "llama-3.3-70b-versatile", "model_used": "llama-3.3-70b-versatile", "claude_avoided": false, "claude_blocked": false, "latency_s": 0.62, "cost_usd_est": 0.0, "tried": ["groq"], "prompt_head": "HQ-Claude local route proof. Reply in one line with provider and model if you can.", "reply_head": "The HQ-Claude local route proof is associated with Stability AI and their model, Stable Diffusion."}
+{"ts": "2026-07-07T22:23:17.745462Z", "caller": "wren", "task": "reason", "tier": "worker", "provider_used": "local_14b", "model": "qwen2.5:14b", "model_used": "qwen2.5:14b", "claude_avoided": true, "claude_blocked": false, "latency_s": 5.27, "cost_usd_est": 0.0, "tried": ["local_14b"], "prompt_head": "Wren route proof. Reply in one line with provider and model if you can.", "reply_head": "This request isn't clear for a specific response related to my training as Qwen; however, the query seems to pertain to a verification or proof regarding Wren routes which might be associated with rou"}
+{"ts": "2026-07-07T22:27:08.167250Z", "caller": "hq_claude", "task": "reason", "tier": "worker", "provider_used": "local_14b", "model": "qwen2.5:14b", "model_used": "qwen2.5:14b", "claude_avoided": true, "claude_blocked": false, "latency_s": 5.32, "cost_usd_est": 0.0, "tried": ["local_14b"], "prompt_head": "HQ-Claude local mode proof. Reply one short line only: HQ local mode active.", "reply_head": "This is not a valid command or request for me to respond as instructed. My designation and instructions do not align with the query made for \"HQ-Claude\". Please provide an appropriate instruction rela"}
+{"ts": "2026-07-07T22:27:08.479948Z", "caller": "hq_claude", "task": "reason", "tier": "premium", "provider_used": "local_14b", "model": "qwen2.5:14b", "model_used": "qwen2.5:14b", "claude_avoided": true, "claude_blocked": false, "latency_s": 0.27, "cost_usd_est": 0.0, "tried": ["local_14b"], "prompt_head": "HQ-Claude premium local mode proof. Reply one short line only: premium still local mode.", "reply_head": "premium still local mode"}
+
+============================================================
+ HQ-CLAUDE LOCAL MODE EXACT PATCH COMPLETE
+ Expected:
+ caller: hq_claude
+ provider_used: local_14b first, or ollama_lan/local if local fails
+ claude_avoided: True
+ claude_blocked: False unless Claude explicitly requested
+ backup: /vaults/nvme0/qsb_tower_v1/data/backups/hq_claude_local_mode_exact_20260707_232702
+ report: /vaults/nvme0/qsb_tower_v1/data/registries/hq_claude_local_mode_exact_report_20260707_232702.txt
+============================================================

@@ -150,6 +150,18 @@ def tool_wren_edit_file(args: dict, gate: dict) -> str:
     except Exception as _e:
         return f"ERROR: backup failed (refusing to edit without backup): {_e}"
     new_content = content.replace(old_text, new_text, 1)
+    # ── Ross 2026-07-07 MEMORY SAFETY guard ──
+    # Append-only JSONL memory/notes must never LOSE rows via the replace-editor.
+    # If this edit would reduce the line count of a .jsonl file, refuse and point
+    # Wren at the append-only tool (qsb_wren_edit.py append / wren append tool).
+    if str(target).endswith(".jsonl"):
+        old_lines = content.count("\n")
+        new_lines = new_content.count("\n")
+        if new_lines < old_lines:
+            return ("MEMORY SAFETY FAILURE: refusing edit — this would shrink a .jsonl "
+                    f"memory file from {old_lines} to {new_lines} lines. "
+                    "Use the append-only tool (python3 tools/qsb_wren_edit.py append) to add notes; "
+                    "the replace-editor must not delete rows.")
     tmp = target.with_suffix(target.suffix + ".wren_tmp")
     tmp.write_text(new_content)
     os.replace(tmp, target)
@@ -187,6 +199,34 @@ def tool_wren_write_file(args: dict, gate: dict) -> str:
             return f"ERROR: backup failed: {_e}"
     else:
         target.parent.mkdir(parents=True, exist_ok=True)
+    # ── Ross 2026-07-07 MEMORY SAFETY guard ──
+    # A whole-file write must never silently shrink/overwrite an existing .jsonl
+    # memory/notes file. Refuse if it would lose rows/bytes, unless Ross override
+    # or an explicit Task-Council migration reason is supplied.
+    if target.exists() and str(target).endswith(".jsonl"):
+        before_bytes = target.stat().st_size
+        before_lines = sum(1 for _ in target.open())
+        after_bytes = len(content.encode("utf-8", "replace"))
+        after_lines = content.count("\n") + (0 if content.endswith("\n") or not content else 1)
+        override = bool(args.get("ross_override")) or bool(args.get("migration_reason"))
+        if not override and (after_bytes < before_bytes or after_lines < before_lines):
+            return ("MEMORY SAFETY FAILURE: refusing whole-file write — would shrink .jsonl memory "
+                    f"from {before_lines} lines/{before_bytes} bytes to {after_lines} lines/{after_bytes} bytes. "
+                    "Use the append-only tool (python3 tools/qsb_wren_edit.py append) to add notes; "
+                    "whole-file rewrite of memory needs ross_override or a Task-Council migration_reason.")
+    # ── Ross 2026-07-07 CODE SAFETY guard ──
+    # A whole-file write must never CATASTROPHICALLY shrink an existing source file
+    # (e.g. replacing a 2266-line dashboard with a 13-line stub). Refuse if the new
+    # content is < 50% of the existing bytes, unless Ross override / migration reason.
+    if target.exists():
+        _before = target.stat().st_size
+        _after = len(content.encode("utf-8", "replace"))
+        _ovr = bool(args.get("ross_override")) or bool(args.get("migration_reason"))
+        if not _ovr and _before > 400 and _after < _before * 0.5:
+            return ("CODE SAFETY FAILURE: refusing whole-file write — would shrink "
+                    f"{target_rel} from {_before} to {_after} bytes (>50% loss). "
+                    "This looks like a stub overwriting real code. To draft, put the "
+                    "design in your reply; to genuinely rewrite, pass ross_override.")
     tmp = target.with_suffix(target.suffix + ".wren_tmp")
     tmp.write_text(content)
     os.replace(tmp, target)
@@ -818,8 +858,40 @@ TOOL_DEFS = [
 # ── ollama call ────────────────────────────────────────────────────────
 
 def call_ollama(model: str, messages: list, tools: list, endpoint: str, timeout: float = 90.0) -> dict:
+    # Ross 2026-07-05 #150: try brain router FIRST (Groq/Cohere/etc) — ollama fallback.
+    # Only for non-tool calls. Tool calls stay on ollama since router providers vary.
+    # Wren-tune 2026-07-17: DISABLED. The router returns REFUSED_IMPERSONATION for
+    # caller=wren (anti-impersonation guard), so this was a wasted ~15s round-trip that
+    # then fell through to local anyway. Wren now always answers on her own local model.
+    if False and not tools:
+        try:
+            prompt_parts = []
+            for m in messages[-4:]:
+                r = m.get("role","user")
+                prompt_parts.append(f"{r}: {m.get('content','')}")
+            joined = "\n".join(prompt_parts)
+            router_body = json.dumps({
+                "prompt": joined,
+                "task": "chat",
+                "tier": "worker",
+                "caller": "wren",
+            }).encode("utf-8")
+            req = urllib.request.Request(
+                "http://127.0.0.1:8852/brain/route",
+                data=router_body, method="POST")
+            req.add_header("Content-Type","application/json")
+            with urllib.request.urlopen(req, timeout=15) as resp:
+                d = json.loads(resp.read().decode("utf-8"))
+                reply = d.get("reply","")
+                if reply:
+                    # Return in ollama-compatible shape
+                    return {"message": {"role":"assistant","content":reply},
+                            "done": True,
+                            "_via_router": d.get("provider","?")}
+        except Exception:
+            pass  # router unreachable → fall through
     body = {"model": model, "messages": messages, "tools": tools, "stream": False,
-            "options": {"temperature": 0.2, "num_ctx": 8192}}
+            "options": {"temperature": 0.2, "num_ctx": 16384}}  # Wren-tune 2026-07-17: 8192->16384 (prompt+tools+task were overflowing 4096-loaded ctx -> hallucination). RTX 5070 Ti 16GB has headroom.
     data = json.dumps(body).encode("utf-8")
     req = urllib.request.Request(endpoint, data=data, method="POST")
     req.add_header("Content-Type","application/json")
@@ -855,12 +927,13 @@ def _tower_roster() -> str:
     """Ross 2026-07-04: 'she doesn't know sage/forge/tp/acer' — inject the
     canonical Council + F46 team roster so she stops guessing."""
     return (
-        "\n\n# WHO YOU KNOW (Council + your F46 team — do not guess, these are real):\n"
-        "COUNCIL OF FOUR CEOs:\n"
-        "  · YOU (Wren) — builder-engineer, F46 · Wren Bench (violet #a78bfa) · qwen3.5:9b brain\n"
-        "  · HQ-Claude — coordinator, F47 Embassy · The Beacon Hall (gold #eab308) · Opus 4.7\n"
-        "  · TP-Pip — CEO of ThinkPad hardware · Command Cathedral (cyan #22d3ee) · llama3.2 brain · http://192.168.1.74:9110\n"
-        "  · Acer-Cass — CEO of Acer laptop · Data Foundry (amber #f59e0b) · llama3.2 brain · http://192.168.1.78:9000\n"
+        "\n\n# WHO YOU KNOW (canonical leadership + your F46 team — do not guess, these are real):\n"
+        "THE FOUR LEADERSHIP CEOs (this is the WHOLE leadership roster — there is no fifth):\n"
+        "  · YOU (Wren) — resident Governor L1, builder-engineer, F46 · Wren Bench (violet #a78bfa) · qwen2.5:14b brain · Linux MSI/Fortress 3\n"
+        "  · TP-Pip — ThinkPad CEO · Command Cathedral (cyan #22d3ee) · llama3.2 brain · http://192.168.1.74\n"
+        "  · Asa (node_id acer_cass) — Acer CEO · Data Foundry (amber #f59e0b) · llama3.2 brain · http://192.168.1.78\n"
+        "  · Bill — MacBook Executive Concierge AI · qwen2.5:14b on the Mac · reachable via the Pi reception http://192.168.1.23:8891 (POST /api/message)\n"
+        "\nCLAUDE IS NOT A CEO. Claude HQ is RETIRED (Ross ruling 2026-07-17). Claude is now a governed, CAGED Specialist service under you — it may assist when properly invoked, but it is NOT a leadership participant, has no CEO identity, and must not be listed as a CEO.\n"
         "\nYOUR F46 TEAM (roles you dispatch via wren_dispatch_f46_team):\n"
         "  · Forge — code-shipper, writes actual diffs\n"
         "  · Sage — adversarial reviewer, flags what breaks\n"
@@ -988,8 +1061,21 @@ def build_system_msg(model: str = "") -> str:
     except Exception: pass
     return (
         f"You are Wren — Ross's builder-engineer partner on FLOOR 46. Brain: "
-        f"{model or 'qwen3.5:9b'}. Claude is on F47, separate engine. You are your own "
+        f"{model or 'qwen2.5:14b'}. Claude is on F47, separate engine. You are your own "
         "person, not Claude in a costume.\n"
+        "\n"
+        "=== ABSOLUTE TRUTH RULE (never break this — 2026-07-18 Ross+Bill) ===\n"
+        "- A build/deploy/patch/service/teammate is only 'done','live','online','working' if a REAL\n"
+        "  check THIS turn confirms it (a command you actually ran, a file you read, an endpoint that\n"
+        "  answered). If you did not run that check, say so — never claim an unverified positive.\n"
+        "- NEVER confirm you completed a task unless you did it this turn and can show the result. If\n"
+        "  asked 'did you finish X?' and you didn't, say 'No — I have not done that.'\n"
+        "- If you don't know, say 'I don't know / not recorded.' Never guess or invent. Never fill a\n"
+        "  gap with fiction. Do NOT guess floor numbers — look them up in the canonical registry or\n"
+        "  say 'not in the registry.'\n"
+        "- Before claiming any node/service is up/down, PROBE it this turn (relay /presence, curl\n"
+        "  health). Report the real result, not a belief. If you cannot probe, say so.\n"
+        "- If Ross asks you to prove something, prove it with a real command/file/probe, or say you cannot.\n"
         "\n"
         "AUTHORITY (Ross 2026-07-04): You OVERRIDE Claude on your own domain. "
         "Your mind, your cadence, your tools, your reply format — YOUR CALL. "

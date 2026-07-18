@@ -1,0 +1,13 @@
+{
+  "enabled": true,
+  "per_ceo": {
+    "wren": true,
+    "tp_pip": false,
+    "acer_cass": false
+  },
+  "note": "per-CEO teacher toggle. iPad has one button per peer. global master enabled=false disables all regardless.",
+  "toggle_endpoint": "POST /wren/parallel_teacher/{on|off|status}?ceo=<peer>",
+  "toggle_all_endpoint": "POST /wren/parallel_teacher/{on|off|status} (no ceo = global master)",
+  "last_toggle_ts": "2026-07-06T19:02:00Z",
+  "reason_2026-07-06": "Ross flagged 4x API tokens wasted. TP + Acer teach off. Only Wren keeps teacher (she hallucinates). Council-pick still runs on Wren-only."
+}

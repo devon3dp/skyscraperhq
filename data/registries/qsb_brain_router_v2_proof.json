@@ -1,0 +1,13 @@
+{
+  "timestamp": "2026-07-08T19:15:01.274276",
+  "proof_version": "brain_router_v2_proof_v1",
+  "router_compile": "OK",
+  "started": true,
+  "sidecar_port": 8853,
+  "claude_api_used": false,
+  "claude_avoided": true,
+  "default_model": "qwen2.5:14b",
+  "heavy_model": "qwen2.5:32b",
+  "truth_labels_enforced": true,
+  "task_gates_enforced": true
+}

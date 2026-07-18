@@ -1,0 +1,69 @@
+{
+  "claude_hq": {
+    "url": "http://127.0.0.1:8850/",
+    "ok": true,
+    "http": 200
+  },
+  "claude_hq_api": {
+    "url": "http://127.0.0.1:8850/api/status",
+    "ok": true,
+    "http": 200
+  },
+  "wren": {
+    "url": "http://127.0.0.1:8851/",
+    "ok": true,
+    "http": 200
+  },
+  "wren_metrics": {
+    "url": "http://127.0.0.1:8853/api/metrics",
+    "ok": true,
+    "http": 200
+  },
+  "boardroom": {
+    "url": "http://127.0.0.1:8852/ipad",
+    "ok": true,
+    "http": 200
+  },
+  "gene_pool": {
+    "url": "http://127.0.0.1:8860/api/live",
+    "ok": true,
+    "http": 200
+  },
+  "proxy_hq": {
+    "url": "http://127.0.0.1:8852/proxy/hq",
+    "ok": true,
+    "http": 200
+  },
+  "proxy_wren": {
+    "url": "http://127.0.0.1:8852/proxy/wren",
+    "ok": true,
+    "http": 200
+  },
+  "proxy_acer": {
+    "url": "http://127.0.0.1:8852/proxy/acer",
+    "ok": true,
+    "http": 200
+  },
+  "proxy_tp": {
+    "url": "http://127.0.0.1:8852/proxy/tp",
+    "ok": false,
+    "error": "<HTTPError 502: 'Bad Gateway'>"
+  },
+  "acer_lan": {
+    "url": "http://192.168.1.41:9000/",
+    "ok": true,
+    "http": 200
+  },
+  "tp_lan": {
+    "url": "http://192.168.1.91:9110/",
+    "ok": false,
+    "error": "URLError(OSError(113, 'No route to host'))"
+  },
+  "summary": {
+    "critical_local_ok": true,
+    "acer_ok": true,
+    "tp_ok": false,
+    "tp_resolution": "If TP is still false with No route to host, TP-Pip is not reachable on LAN. Power it on, connect it to same Wi-Fi/LAN, or update Boardroom TP URL/IP.",
+    "loops_paused": true
+  }
+}

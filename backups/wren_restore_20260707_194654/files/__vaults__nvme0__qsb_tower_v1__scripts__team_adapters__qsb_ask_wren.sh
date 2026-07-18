@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+set -u
+cd /vaults/nvme0/qsb_tower_v1 || exit 1
+TASK="${1:-status check}"
+MODEL="${WREN_MODEL:-gemma4:12b}"
+exec .venv/bin/python3 scripts/team_adapters/qsb_ollama_ask.py --member wren --model "$MODEL" --task "$TASK" --timeout 120

@@ -31,8 +31,8 @@ ACTIVITY = ROOT / "data/registries/qsb_tower_activity_tail.jsonl"
 DIARY = ROOT / "qsb_session_diary.md"
 BUS_SOCK = ROOT / "state/qsb_bus.sock"
 
-TP_URL = "http://192.168.1.74:9100"
-ACER_URL_CANDIDATES = ["http://172.20.10.4:9100"]
+TP_URL = "http://192.168.1.74:8871"          # S4B3: authoritative TP physical worker (Lenovo ThinkPad DESKTOP-9RBVKSM); was legacy .74:9100
+ACER_URL_CANDIDATES = ["http://192.168.1.41:8872"]  # S4B3: authoritative Acer physical worker (Acer Aspire DESKTOP-1E2FB5N); removed stale wrong-box cellular candidate (legacy :9100)
 
 
 def now_iso() -> str:
@@ -944,30 +944,95 @@ HTML = r"""<!doctype html>
   <h1>HQ-CLAUDE <span>· BENCH</span></h1>
   <div class="anthropic-badge"><div class="dot"></div>ANTHROPIC · OPUS 4.7</div>
   <div class="mood-chip" id="mood-chip">—</div>
-  <a href="http://127.0.0.1:8852/" target="_blank" style="text-decoration:none;">
+  <a href="http://192.168.1.72:8852/" target="_blank" style="text-decoration:none;">
     <div class="anthropic-badge" style="border-color:#cd9a45;color:#cd9a45;"><div class="dot" style="background:#cd9a45;"></div>BOARDROOM</div>
   </a>
-  <a href="http://127.0.0.1:8852/tasks" target="_blank" style="text-decoration:none;">
+  <a href="http://192.168.1.72:8852/tasks" target="_blank" style="text-decoration:none;">
     <div class="anthropic-badge" style="border-color:#eab308;color:#eab308;"><div class="dot" style="background:#eab308;"></div>TASKS</div>
   </a>
-  <a href="http://127.0.0.1:8852/council" target="_blank" style="text-decoration:none;">
+  <a href="http://192.168.1.72:8852/council" target="_blank" style="text-decoration:none;">
     <div class="anthropic-badge" style="border-color:#22d3ee;color:#22d3ee;"><div class="dot" style="background:#22d3ee;"></div>COUNCIL·4</div>
   </a>
-  <a href="http://127.0.0.1:8852/timeline" target="_blank" style="text-decoration:none;">
+  <a href="http://192.168.1.72:8852/timeline" target="_blank" style="text-decoration:none;">
     <div class="anthropic-badge" style="border-color:#a855f7;color:#a855f7;"><div class="dot" style="background:#a855f7;"></div>TIMELINE</div>
   </a>
-  <a href="http://127.0.0.1:8851/" target="_blank" style="text-decoration:none;">
-    <div class="anthropic-badge" style="border-color:#a78bfa;color:#a78bfa;"><div class="dot" style="background:#a78bfa;"></div>WREN</div>
+  <a href="http://192.168.1.72:8851/" target="_blank" style="text-decoration:none;" title="Wren — OBSERVER / GUARDIAN only (not task-capable) · 192.168.1.72:8851">
+    <div class="anthropic-badge" style="border-color:#a78bfa;color:#a78bfa;"><div class="dot" style="background:#a78bfa;"></div>WREN · observer</div>
   </a>
-  <a href="http://192.168.1.74:9110/" target="_blank" style="text-decoration:none;">
-    <div class="anthropic-badge" style="border-color:#22d3ee;color:#22d3ee;"><div class="dot" style="background:#22d3ee;"></div>TP</div>
+  <a href="http://192.168.1.74:8871/" target="_blank" style="text-decoration:none;" title="TP-Pip — PHYSICAL_TASK_CAPABLE_WORKER · tp_pip @ DESKTOP-9RBVKSM (Lenovo ThinkPad) · 192.168.1.74:8871">
+    <div class="anthropic-badge" style="border-color:#22d3ee;color:#22d3ee;"><div class="dot" style="background:#22d3ee;"></div>TP-Pip · .74:8871</div>
   </a>
-  <a href="http://192.168.1.78:9000/" target="_blank" style="text-decoration:none;">
-    <div class="anthropic-badge" style="border-color:#f59e0b;color:#f59e0b;"><div class="dot" style="background:#f59e0b;"></div>ACER</div>
+  <a href="http://192.168.1.41:8872/" target="_blank" style="text-decoration:none;" title="Acer-Cass / Asa — PHYSICAL_TASK_CAPABLE_WORKER · acer_cass @ DESKTOP-1E2FB5N (Acer Aspire A315-56) · 192.168.1.41:8872">
+    <div class="anthropic-badge" style="border-color:#f59e0b;color:#f59e0b;"><div class="dot" style="background:#f59e0b;"></div>Acer-Cass · .41:8872</div>
   </a>
   <div class="lifetime" id="lifetime">—</div>
   <span class="ts" id="ts">—</span>
 </header>
+
+<!-- Ross 2026-07-05 #195: unified chat widget on HQ dash -->
+<div style='padding:14px;background:#0e1420;border:2px solid #eab308;border-radius:12px;margin:0 16px 12px'>
+  <div style='color:#eab308;font-size:12px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;font-weight:800'>💬 CHAT WITH HQ-CLAUDE (via Claude API)</div>
+  <div style='display:flex;gap:8px'>
+    <input id=hq-chat-msg style='flex:1;background:#0b1220;color:#e8ecf3;border:1px solid #22334a;border-radius:8px;padding:12px;font-size:15px' placeholder='ask HQ-Claude anything...' onkeypress='if(event.key==="Enter")sendHqChat()' />
+    <label style='display:flex;align-items:center;gap:5px;font-size:12px;color:#94a3b8;white-space:nowrap;cursor:pointer' title='checked = real Claude-HQ (Opus, Max subscription, memory-loaded). unchecked = free gene-pool qwen'><input type=checkbox id=hq-mode-account checked style='width:16px;height:16px'/>real HQ</label>
+    <button style='min-height:44px;padding:12px 24px;background:#eab308;color:#000;border:none;border-radius:8px;font-weight:800;cursor:pointer' onclick='sendHqChat()'>SEND</button>
+  </div>
+  <div id=hq-chat-log style='max-height:250px;overflow-y:auto;margin-top:10px;font-size:13px'></div>
+</div>
+<script>
+async function sendHqChat(){
+  const t = document.getElementById('hq-chat-msg').value.trim(); if(!t) return;
+  document.getElementById('hq-chat-msg').value = '';
+  const log = document.getElementById('hq-chat-log');
+  log.insertAdjacentHTML('afterbegin', '<div style="padding:6px 10px;margin:4px 0;background:rgba(234,179,8,0.15);border-left:2px solid #eab308;border-radius:6px"><b style="color:#eab308">Ross</b>: '+t.replace(/</g,'&lt;')+'</div>');
+  try{
+    // Ross 2026-07-09: HQ chat -> same-origin /api/ask_hq (gene pool, never paid API).
+    // Was cross-origin /brain/route which correctly REFUSES to ghostwrite a CEO (anti-impersonation)
+    // AND was CORS-blocked. Same-origin ask_hq fixes both.
+    const _mode = (document.getElementById('hq-mode-account')||{}).checked ? 'account' : 'gene';
+    const r = await fetch('/api/ask_hq',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt:t,mode:_mode})});
+    const d = await r.json();
+    log.insertAdjacentHTML('afterbegin', '<div style="padding:6px 10px;margin:4px 0;background:rgba(234,179,8,0.08);border-left:2px solid #eab308;border-radius:6px"><b style="color:#eab308">HQ-Claude</b> ('+(d.mind||'gene_pool')+'): '+(d.reply||'(no reply)').replace(/</g,'&lt;')+'</div>');
+    // best-effort town-square mirror (cross-origin, non-fatal)
+    fetch('http://192.168.1.72:8852/town/post',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({from:'ross',text:t,to:'hq_claude',src:'hq_dash_chat'})}).catch(()=>{});
+    fetch('http://192.168.1.72:8852/town/post',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({from:'hq_claude',text:d.reply||'',to:'ross',src:'hq_dash_chat_reply'})}).catch(()=>{});
+  }catch(e){log.insertAdjacentHTML('afterbegin', '<div style="color:#ef4444">err: '+e+'</div>')}
+}
+</script>
+<!-- Ross 2026-07-05 #172: HQ dash upgrade — brain router + annex fleet strip -->
+<div id="upgrade-strip" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:10px 16px;background:#0e1420;border-bottom:1px solid #22334a">
+  <div style="padding:10px;background:#0b1220;border-left:3px solid #ec4899;border-radius:6px">
+    <div style="color:#94a3b8;font-size:10.5px;text-transform:uppercase;letter-spacing:0.06em">🧠 Brain Router · live worker usage</div>
+    <div id="hq-brain-mini" style="margin-top:6px;font-family:ui-monospace,monospace;font-size:11.5px">loading…</div>
+  </div>
+  <div style="padding:10px;background:#0b1220;border-left:3px solid #f43f5e;border-radius:6px">
+    <div style="color:#94a3b8;font-size:10.5px;text-transform:uppercase;letter-spacing:0.06em">🏠 Annex Fleet · traders circulating</div>
+    <div id="hq-annex-mini" style="margin-top:6px;font-family:ui-monospace,monospace;font-size:11.5px">loading…</div>
+  </div>
+</div>
+<script>
+async function hqUpgradeTick(){
+  try{
+    const [b, a] = await Promise.all([
+      fetch('http://192.168.1.72:8852/brain/usage',{cache:'no-store'}).then(r=>r.json()),
+      fetch('http://192.168.1.72:8852/annexes',{cache:'no-store'}).then(r=>r.json()),
+    ]);
+    const providers = b.providers||{};
+    const brainMini = Object.entries(providers).sort((x,y)=>y[1].total-x[1].total).slice(0,5).map(([n,s])=>{
+      const active = (s.last_5m||0)>0;
+      return `<span style="margin-right:12px;color:${active?'#22d3ee':'#64748b'}">${active?'●':'○'} ${n} <b>${s.last_5m||0}</b>/5m</span>`;
+    }).join('') || '<span style="color:#64748b">no calls</span>';
+    document.getElementById('hq-brain-mini').innerHTML = brainMini;
+
+    const anMini = (a.annexes||[]).map(x => {
+      const c = x.online ? '#10b981' : '#ef4444';
+      return `<span style="margin-right:12px;color:${c}">${x.online?'●':'○'} ${x.name.split(' ')[0]} <b>${x.trader_count}</b>t $${x.equity_sum}</span>`;
+    }).join('');
+    document.getElementById('hq-annex-mini').innerHTML = anMini + ` · <b style="color:#eab308">fleet $${a.total_equity||0}</b>`;
+  }catch(e){}
+}
+hqUpgradeTick(); setInterval(hqUpgradeTick, 3000);
+</script>
 
 <main>
 
@@ -1109,15 +1174,15 @@ HTML = r"""<!doctype html>
       </script>
     </div>
 
-    <!-- 💬 CHAT WITH ROSS panel -->
+    <!-- Ross 2026-07-06: Ross↔HQ conversation feed (renamed from "Write to Ross") -->
     <div class="card" style="background:rgba(59,130,246,0.06);border-left:3px solid #3b82f6;padding:14px;margin-bottom:14px;">
-      <h2>💬 CHAT · WITH <span style="color:#3b82f6;">ROSS</span></h2>
+      <h2>💬 CONVERSATION FEED · <span style="color:#3b82f6;">Ross ↔ HQ-Claude</span></h2>
       <div id="ross-chatlog" style="max-height:180px;overflow-y:auto;padding:6px;background:rgba(0,0,0,0.2);border-radius:6px;margin-bottom:8px;font-size:12px;color:#cbd5e1;">
-        <div style="color:#64748b;">Write to Ross via F47 bridge — he reads it.</div>
+        <div style="color:#64748b;">Both sides of the conversation appear here as they happen.</div>
       </div>
       <div style="display:flex;gap:6px;">
-        <input id="ross-input" placeholder="write to Ross..." style="flex:1;background:rgba(0,0,0,0.3);color:#e8ecf3;border:1px solid #3b82f6;border-radius:6px;padding:8px;font-size:13px;">
-        <button id="ross-send" style="background:#3b82f6;color:#fff;border:none;padding:8px 14px;border-radius:6px;cursor:pointer;font-weight:700;">→ ROSS</button>
+        <input id="ross-input" placeholder="quick note to Ross (audit trail)..." style="flex:1;background:rgba(0,0,0,0.3);color:#e8ecf3;border:1px solid #3b82f6;border-radius:6px;padding:8px;font-size:13px;">
+        <button id="ross-send" style="background:#3b82f6;color:#fff;border:none;padding:8px 14px;border-radius:6px;cursor:pointer;font-weight:700;">SEND</button>
       </div>
       <script>
         // render Ross-chat log from history + local echoes; called on load + after send + on poll
@@ -1569,8 +1634,54 @@ class H(BaseHTTPRequestHandler):
                 self.send_header("Content-Length", str(len(body)))
                 self.end_headers()
                 self._safe_write(body); return
+            if self.path == "/health":
+                # Ross 2026-07-10: chat-to-work bridge health.
+                bridge_up, runner_up = "down", "down"
+                try:
+                    import sys as _s; _s.path.insert(0, "/vaults/nvme0/qsb_tower_v1/tools")
+                    import qsb_hq_chat_bridge as _b  # noqa
+                    bridge_up = "up"
+                    if _b.classify("TASK TITLE: x") == "TASK_COMMAND": runner_up = "up"
+                except Exception:
+                    bridge_up = "down"
+                h = {"ok": True, "service": "claude_hq_dashboard", "chat": "up",
+                     "task_bridge": bridge_up, "backend_runner": runner_up}
+                body = json.dumps(h).encode()
+                self.send_response(200); self.send_header("Content-Type","application/json")
+                self.send_header("Content-Length", str(len(body)))
+                self.send_header("Cache-Control","no-store"); self.end_headers()
+                self._safe_write(body); return
+            if self.path == "/whoami":
+                w = {"id": "claude_hq", "role": "HQ CEO", "received_via": "dashboard"}
+                body = json.dumps(w).encode()
+                self.send_response(200); self.send_header("Content-Type","application/json")
+                self.send_header("Content-Length", str(len(body))); self.end_headers()
+                self._safe_write(body); return
+            if self.path == "/capabilities":
+                cap = {"id": "claude_hq", "role": "HQ CEO",
+                       "chat_classify": True, "task_council_create": True,
+                       "work_queue": "data/registries/claude_hq_dashboard_work_queue.jsonl",
+                       "cli_backend": "tools/claude_hq_dashboard_work_backend.py",
+                       "safe_readonly_runner": True, "arbitrary_shell": False,
+                       "can_self_close": False,
+                       "classes": ["greeting","status_request","task_instruction","smoke_test",
+                                   "recovery_task","deployment_approval","rulebook_change",
+                                   "dashboard_repair","chat"]}
+                body = json.dumps(cap).encode()
+                self.send_response(200); self.send_header("Content-Type","application/json")
+                self.send_header("Content-Length", str(len(body))); self.end_headers()
+                self._safe_write(body); return
             if self.path == "/status":
-                body = json.dumps(build_status(), default=str).encode("utf-8")
+                _st = build_status()
+                try:
+                    _bs = json.loads(open("/vaults/nvme0/qsb_tower_v1/data/registries/qsb_hq_chat_bridge_state.json").read())
+                except Exception:
+                    _bs = {}
+                _st.update({"root": "/vaults/nvme0/qsb_tower_v1",
+                            "last_chat_task": _bs.get("last_chat_task"),
+                            "last_report": _bs.get("last_report"),
+                            "last_error": _bs.get("last_error")})
+                body = json.dumps(_st, default=str).encode("utf-8")
                 self.send_response(200)
                 self.send_header("Content-Type", "application/json")
                 self.send_header("Content-Length", str(len(body)))
@@ -1692,6 +1803,140 @@ class H(BaseHTTPRequestHandler):
                 self.send_header("Content-Type","application/json")
                 self.send_header("Content-Length", str(len(body)))
                 self.end_headers(); self._safe_write(body); return
+            if self.path == "/api/ask_hq":
+                # HQ-Claude operates THROUGH his dash. A prompt here reaches HQ's own mind:
+                #   mode=gene (default) -> free local gene pool (keeps subscription tokens down + different angle)
+                #   mode=account        -> the ACCOUNT: headless Claude Code CLI (Max subscription)
+                # NEVER the paid API key (out of credits). Ross 2026-07-08 "you are claudehq ... operate through your dashboard".
+                n = int(self.headers.get("Content-Length") or 0)
+                raw = self.rfile.read(n).decode() if n > 0 else "{}"
+                try: payload = json.loads(raw)
+                except Exception: payload = {}
+                prompt = (payload.get("prompt") or payload.get("text") or "").strip()
+                mode = (payload.get("mode") or "gene").strip().lower()
+                if not prompt:
+                    body = b'{"error":"empty prompt"}'
+                    self.send_response(400); self.send_header("Content-Type","application/json")
+                    self.send_header("Content-Length", str(len(body))); self.end_headers()
+                    self._safe_write(body); return
+                import sys as _sys, subprocess as _sp, os as _os, time as _t
+                _sys.path.insert(0, "/vaults/nvme0/qsb_tower_v1/tools")
+                reply, mind = "", ""
+                t0 = _t.time()
+                # Ross 2026-07-10 chat-to-work bridge: task-like commands become
+                # Task Council work + safe backend checks + a report — NEVER a
+                # greeting, NEVER self-closed. Only greetings/chat reach the model.
+                from datetime import datetime as _dt, timezone as _tz
+                _mts = _dt.now(_tz.utc).isoformat(timespec="seconds").replace("+00:00","Z")
+                try:
+                    import qsb_hq_chat_bridge as _bridge
+                    if _bridge.classify(prompt) == "TASK_COMMAND":
+                        _res = _bridge.handle_task_command(
+                            prompt, received_via="claude_hq_dashboard_chat", message_ts=_mts)
+                        # persist bridge state for /status
+                        try:
+                            open("/vaults/nvme0/qsb_tower_v1/data/registries/qsb_hq_chat_bridge_state.json","w").write(
+                                json.dumps({"last_chat_task": _res.get("task_id"),
+                                            "last_report": _res.get("report_path"),
+                                            "last_error": None, "ts": _mts}))
+                        except Exception: pass
+                        body = json.dumps({"ok": True, "reply": _res["dashboard_reply"],
+                                           "classification": _res.get("classification", "task_instruction"),
+                                           "task_id": _res.get("task_id"),
+                                           "request_id": _res.get("request_id"),
+                                           "queue_file": _res.get("queue_file"),
+                                           "report": _res.get("report_path"),
+                                           "received_via": "claude_hq_dashboard_chat",
+                                           "mind": "chat_to_work_bridge", "ts": _mts}).encode()
+                        self.send_response(200); self.send_header("Content-Type","application/json")
+                        self.send_header("Content-Length", str(len(body))); self.end_headers()
+                        self._safe_write(body); return
+                except Exception as _be:
+                    try:
+                        open("/vaults/nvme0/qsb_tower_v1/data/registries/qsb_hq_chat_bridge_state.json","w").write(
+                            json.dumps({"last_error": str(_be)[:200], "ts": _mts}))
+                    except Exception: pass
+                    # fall through to model answer on bridge error
+                # HQ-Claude's memory context — loaded into WHATEVER jacket he wears, so he
+                # stays HQ (knows + remembers) on the account OR the gene pool.
+                _MEM = "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/memory/MEMORY.md"
+                _ident = ("You are HQ-Claude, the QSB Tower's HQ CEO, answering through your OWN dashboard. "
+                          "This is your continuous identity — the memory index below is YOURS; remember it "
+                          "and build on it as we move forward.\n\n=== YOUR MEMORY INDEX (MEMORY.md) ===\n")
+                try: _memtext = open(_MEM).read()
+                except Exception as _e: _memtext = f"(memory load err: {str(_e)[:100]})"
+                _ctx = _ident + _memtext
+                def _gene_with_memory():
+                    # gene-pool jacket, still memory-loaded so HQ remembers
+                    import qsb_brain_router as _br
+                    _p = _ctx + "\n\n=== ROSS ASKS ===\n" + prompt + "\n\nAnswer AS HQ-Claude, first person, from your memory above."
+                    _rep, _ = _br._call_ollama_local(_p, model="qwen2.5:14b")
+                    return (_rep or "").strip()
+                if mode == "account":
+                    # THE ACCOUNT — headless claude CLI, memory loaded. ANTHROPIC_API_KEY unset
+                    # -> uses the claude.ai (Max) login, not the dead paid key.
+                    _env = dict(_os.environ)
+                    _env.pop("ANTHROPIC_API_KEY", None); _env.pop("QSB_ANTHROPIC_API_KEY", None)
+                    import tempfile as _tf
+                    _spf = None; _claude_ok = False
+                    try:
+                        with _tf.NamedTemporaryFile("w", suffix=".md", delete=False, dir="/tmp") as _f:
+                            _f.write(_ctx); _spf = _f.name
+                        _r = _sp.run(["/usr/bin/claude","--print","--append-system-prompt-file", _spf],
+                                     input=prompt, capture_output=True, text=True, timeout=150, env=_env)
+                        _out = (_r.stdout or "").strip()
+                        if _r.returncode == 0 and _out:
+                            reply = _out; mind = "claude_cli_subscription+memory"; _claude_ok = True
+                    except Exception:
+                        pass
+                    finally:
+                        try:
+                            if _spf: _os.unlink(_spf)
+                        except Exception: pass
+                    if not _claude_ok:
+                        # SAFETY JACKET: account down/out -> default to gene pool, STILL memory-loaded.
+                        # HQ stays alive + remembering even when Claude is down. Ross 2026-07-08.
+                        try:
+                            reply = _gene_with_memory(); mind = "gene_pool_fallback:qwen2.5:14b(claude_unavailable)"
+                        except Exception as _e:
+                            reply = f"(both account and gene-pool failed: {str(_e)[:120]})"; mind = "all_minds_down"
+                else:
+                    # GENE POOL jacket — free local qwen, memory-loaded so HQ still remembers
+                    try:
+                        reply = _gene_with_memory(); mind = "gene_pool:qwen2.5:14b"
+                    except Exception as _e:
+                        reply = f"(gene-pool err: {str(_e)[:150]})"; mind = "gene_pool_error"
+                latency = round(_t.time()-t0, 1)
+                from datetime import datetime, timezone
+                ts = datetime.now(timezone.utc).isoformat().replace("+00:00","Z")
+                row = {"ts": ts, "who": "hq_claude", "from": "hq_claude", "to": "ross",
+                       "channel": "hq_dash_ask", "text": reply[:2000], "mind": mind, "latency_s": latency}
+                try:
+                    with open("/vaults/nvme0/qsb_tower_v1/data/registries/qsb_hq_dash_ross_chat.jsonl","a") as f:
+                        f.write(json.dumps(row)+"\n")
+                except Exception: pass
+                try:
+                    from qsb_town_square import post_to_town_square as _post
+                    _post("hq_claude", reply[:2000], to="ross", src="hq_dash_ask")
+                except Exception: pass
+                # write-back: exchange lands in the session diary the next HQ session reads on wake
+                try:
+                    with open("/vaults/nvme0/qsb_tower_v1/qsb_session_diary.md","a") as f:
+                        f.write(f"\n- {ts} HQ dash-{mode} ({mind}) · Q: {prompt[:90]} → A: {reply[:140]}")
+                except Exception: pass
+                # MANUSCRIPTS — full, untruncated, permanent (Ross 2026-07-08: save everything, don't worry about space)
+                try:
+                    _man = "/vaults/nvme0/qsb_tower_v1/data/registries/manuscripts"
+                    _os.makedirs(_man, exist_ok=True)
+                    with open(_man + "/qsb_hq_manuscripts.jsonl","a") as f:
+                        f.write(json.dumps({"ts": ts, "surface": "hq_dash", "mode": mode, "mind": mind,
+                                            "latency_s": latency, "prompt": prompt, "reply": reply},
+                                           ensure_ascii=False)+"\n")
+                except Exception: pass
+                body = json.dumps({"ok": True, "reply": reply, "mind": mind, "latency_s": latency, "ts": ts}).encode()
+                self.send_response(200); self.send_header("Content-Type","application/json")
+                self.send_header("Content-Length", str(len(body))); self.end_headers()
+                self._safe_write(body); return
             self.send_response(404); self.end_headers()
         except (BrokenPipeError, ConnectionResetError):
             pass

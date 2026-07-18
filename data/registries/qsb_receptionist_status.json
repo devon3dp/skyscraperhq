@@ -1,0 +1,90 @@
+{
+  "ok": true,
+  "service": "QSB Receptionist Dashboard V1C",
+  "port": 8856,
+  "hq_ip": "192.168.1.72",
+  "ts": "2026-07-18T14:47:20.874786Z",
+  "nodes": [
+    {
+      "key": "hq_claude",
+      "name": "Claude HQ",
+      "role": "COORDINATOR / ARCHITECT",
+      "open": "http://192.168.1.72:8850/",
+      "truth": null,
+      "status": "OFFLINE",
+      "detail": "no response (HTTP Error 404: Not Found)",
+      "host_ok": null
+    },
+    {
+      "key": "wren",
+      "name": "Wren",
+      "role": "OBSERVER / GUARDIAN",
+      "open": "http://192.168.1.72:8851/",
+      "truth": null,
+      "status": "LIVE",
+      "detail": "responds 200",
+      "host_ok": null
+    },
+    {
+      "key": "boardroom",
+      "name": "Boardroom",
+      "role": "town square / council",
+      "open": "http://192.168.1.72:8852/",
+      "truth": null,
+      "status": "LIVE",
+      "detail": "responds 200",
+      "host_ok": null
+    },
+    {
+      "key": "brain_v4",
+      "name": "Brain Module V4 / Gene Pool",
+      "role": "gene-pool router",
+      "open": "http://192.168.1.72:8860/",
+      "truth": null,
+      "status": "LIVE",
+      "detail": "responds 200",
+      "host_ok": null
+    },
+    {
+      "key": "tp_pip",
+      "name": "TP-Pip",
+      "role": "PHYSICAL_TASK_CAPABLE_WORKER",
+      "open": "http://192.168.1.74:8871/",
+      "truth": "192.168.1.74:8871 \u00b7 DESKTOP-9RBVKSM \u00b7 Lenovo ThinkPad",
+      "status": "OFFLINE",
+      "detail": "no response (<urlopen error timed out>)",
+      "host_ok": null
+    },
+    {
+      "key": "acer_cass",
+      "name": "Acer-Cass / Asa",
+      "role": "PHYSICAL_TASK_CAPABLE_WORKER",
+      "open": "http://192.168.1.41:8872/",
+      "truth": "192.168.1.41:8872 \u00b7 DESKTOP-1E2FB5N \u00b7 Acer Aspire A315-56",
+      "status": "OFFLINE",
+      "detail": "no response (<urlopen error timed out>)",
+      "host_ok": null
+    },
+    {
+      "key": "task_council",
+      "name": "Task Council",
+      "role": "shared task board",
+      "open": "http://192.168.1.72:8852/tasks",
+      "truth": null,
+      "status": "LIVE",
+      "detail": "snapshot \u00b7 105 tasks \u00b7 ~62 open \u00b7 updated 0s ago",
+      "host_ok": null
+    },
+    {
+      "key": "tour_guide",
+      "name": "Tour Guide",
+      "role": "guided tour",
+      "open": null,
+      "truth": null,
+      "status": "NOT BUILT YET",
+      "detail": "no live endpoint \u2014 not started; needs approval",
+      "host_ok": null
+    }
+  ],
+  "live_count": 4
+}

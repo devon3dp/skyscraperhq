@@ -1,0 +1,20 @@
+{
+ "generated_ts": "2026-07-11",
+ "path": "data/receptionist_drive",
+ "writable": true,
+ "secrets_excluded": true,
+ "private_bodies_excluded": true,
+ "unmasked_phones_excluded": true,
+ "folders": [
+  "calls",
+  "checkins",
+  "comms",
+  "directories",
+  "drafts",
+  "handover",
+  "messages",
+  "network",
+  "notes",
+  "websites"
+ ]
+}

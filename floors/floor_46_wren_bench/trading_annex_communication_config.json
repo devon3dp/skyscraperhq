@@ -1,0 +1,14 @@
+{
+  "communication_channels": [
+    {
+      "type": "websocket",
+      "endpoint": "/trading_annex/ws",
+      "description": "Real-time data feed for trading activities"
+    },
+    {
+      "type": "http",
+      "endpoint": "/trading_annex/data",
+      "description": "API endpoint for fetching market data"
+    }
+  ]
+}

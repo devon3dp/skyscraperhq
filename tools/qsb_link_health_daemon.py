@@ -18,8 +18,9 @@ LINKS = [
     {"name":"HQ-dash",   "url":"http://127.0.0.1:8850/",           "tag":"HQ dash"},
     {"name":"Wren-dash", "url":"http://127.0.0.1:8851/",           "tag":"Wren dash"},
     {"name":"Boardroom", "url":"http://127.0.0.1:8852/",           "tag":"Boardroom hub"},
-    {"name":"TP-Pip",    "url":"http://192.168.1.74:9110/state",   "tag":"TP-Pip node"},
-    {"name":"Acer-Cass", "url":"http://192.168.1.78:9000/state",   "tag":"Acer-Cass node"},
+    # 2026-07-11 S4A hardware-true physical worker endpoints
+    {"name":"TP-Pip",    "url":"http://192.168.1.74:8871/health",  "tag":"TP-Pip physical (Lenovo ThinkPad DESKTOP-9RBVKSM)"},
+    {"name":"Acer-Cass", "url":"http://192.168.1.41:8872/health",  "tag":"Acer-Cass physical (Acer Aspire DESKTOP-1E2FB5N)"},
     {"name":"Ollama",    "url":"http://127.0.0.1:11434/api/tags",  "tag":"Ollama server"},
 ]
 

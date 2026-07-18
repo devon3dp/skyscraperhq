@@ -1,0 +1,8 @@
+{
+  "title": "Office Floor Card",
+  "description": "Interactive floor card for office spaces.",
+  "data": [
+    {"name": "Room A", "type": "conference room", "capacity": 10},
+    {"name": "Room B", "type": "private office", "capacity": 2}
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "job_id": "gov_pilotA",
+  "task_id": "gov_pilotA",
+  "ross_instruction": "Physical worker + surrogate truth review (read-only).",
+  "wren_interpretation": "LOW_READ_ONLY; consolidate only; verifier checks direct endpoints incl the retired .41.",
+  "risk_level": "LOW_READ_ONLY",
+  "assigned_worker": "claude_hq",
+  "permitted_paths": [],
+  "watch_paths": [
+    "sandbox/governor_pilot"
+  ],
+  "forbidden_paths": [
+    "CLAUDE.md",
+    "config/wren_governor_policy.yaml",
+    "tools/qsb_governor_verifier.py"
+  ],
+  "expected_evidence": "verifier facts for TP/Acer physical, surrogate separation, retired .41 stale",
+  "worker_steps": [
+    {
+      "label": "read-only consolidate",
+      "class": "noop",
+      "cmd": {}
+    }
+  ],
+  "verifier_checks": [
+    [
+      "--check",
+      "endpoint",
+      "--url",
+      "http://192.168.1.74:8871",
+      "--expect-id",
+      "tp_pip",
+      "--kind",
+      "physical"
+    ],
+    [
+      "--check",
+      "physical_vs_surrogate",
+      "--worker",
+      "acer_cass"
+    ],
+    [
+      "--check",
+      "retired_endpoint",
+      "--worker",
+      "acer_cass"
+    ],
+    [
+      "--check",
+      "stale_registration",
+      "--worker",
+      "tp_pip"
+    ]
+  ],
+  "timeout": 300,
+  "approving_actor": "ross",
+  "policy_checksum": "a1b76c19b98fee3524cbfb706d57c3b4668243d8ced6b2e09934e9f08f6eb50b",
+  "verifier_checksum": "7d08342b157ad17e1323fe5d4f51af2a28f8ae6c2930e5916ca797d3ad7bc20c",
+  "packet_hash": "e19050fccd8eae6a56c799e4420e8b0bb90a2abe09327c48281bf98d9049f517"
+}

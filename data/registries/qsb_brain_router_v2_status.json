@@ -1,0 +1,47 @@
+{
+  "status": "UP",
+  "timestamp": "2026-07-08T19:15:57.209983",
+  "router": "QSB Brain Router V2",
+  "version": "brain_router_v2",
+  "host": "24.04ubuntu",
+  "port": 8853,
+  "roots": {
+    "skyscraper": "/vaults/nvme0/qsb_skyscraper",
+    "tower": "/vaults/nvme0/qsb_tower_v1"
+  },
+  "provider_policy": {
+    "default_model": "qwen2.5:14b",
+    "heavy_model": "qwen2.5:32b",
+    "local_ollama": "http://127.0.0.1:11434",
+    "remote_ollama": "http://192.168.1.71:11434",
+    "claude_api_default": "blocked/avoided",
+    "claude_api_used": false
+  },
+  "model_availability": {
+    "local_qwen14b": true,
+    "remote_qwen14b": false,
+    "local_qwen32b": true,
+    "remote_qwen32b": false
+  },
+  "team_readiness": {
+    "hq_claude": "YES",
+    "tp_pip": "NO",
+    "wren_ren": "YES_WITH_PROOF_LIMITS",
+    "asa": "FOUND_NEEDS_ENDPOINT",
+    "brain_router": "YES"
+  },
+  "truth_contract": {
+    "must_include_provider_used": true,
+    "must_include_model_used": true,
+    "must_include_claude_api_used": true,
+    "must_include_tool_proof": true,
+    "no_tool_output_means": "NO TOOL PROOF"
+  },
+  "task_gates": {
+    "read_only": "allowed",
+    "route_test": "allowed",
+    "write_with_backup": "requires token ROSS_APPROVED_WRITE_WITH_BACKUP",
+    "execute_with_approval": "requires token ROSS_APPROVED_EXECUTE_WITH_PROOF",
+    "emergency_stop": "reserved"
+  }
+}

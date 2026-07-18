@@ -1,0 +1,61 @@
+# SSK top-level listing
+total 23556
+drwxr-xr-x  47 ross ross 524288 Jul 17 16:28 .
+drwxr-x---+  3 root root   4096 Jul 17 14:48 ..
+drwxr-xr-x   3 ross ross 524288 Jul  8  2022 $RECYCLE.BIN
+drwxr-xr-x   2 ross ross 524288 Feb 24  2023 100MEDIA - Copy
+drwxr-xr-x   3 ross ross 524288 Aug  1  2024 august 2024
+drwxr-xr-x   2 ross ross 524288 Apr 29  2023 Backup
+drwxr-xr-x   5 ross ross 524288 Jan  5  2026 brains
+drwxr-xr-x   3 ross ross 524288 Jul 30  2025 core
+drwxr-xr-x   3 ross ross 524288 Jan 19  2025 DCIM
+drwxr-xr-x   2 ross ross 524288 Sep 19  2025 deeper
+drwxr-xr-x   2 ross ross 524288 Apr 29  2023 Document
+drwxr-xr-x   5 ross ross 524288 Apr 14  2023 drone
+drwxr-xr-x   2 ross ross 524288 Apr 29  2023 FlashDisk
+drwxr-xr-x  37 ross ross 524288 Jul 26  2025 fortress3
+drwxr-xr-x   3 ross ross 524288 Jul 31  2025 fusion
+drwxr-xr-x   8 ross ross 524288 Aug  9  2025 kernal
+drwxr-xr-x   9 ross ross 524288 Feb 15  2025 mmmmmmmmmmm
+drwxr-xr-x   2 ross ross 524288 Jun 29 14:36 models
+drwxr-xr-x   2 ross ross 524288 Apr 29  2023 Music
+drwxr-xr-x   3 ross ross 524288 Jan 16 12:08 neuralnexus_cosmic
+drwxr-xr-x   3 ross ross 524288 Jan  5  2026 newbrains
+drwxr-xr-x   6 ross ross 524288 Apr 12  2023 new films indo
+drwxr-xr-x   3 ross ross 524288 Jan 28  2025 New folder
+drwxr-xr-x   2 ross ross 524288 Aug  3  2025 New Folder 1
+drwxr-xr-x   2 ross ross 524288 Aug  8  2025 New folder (2)
+drwxr-xr-x   2 ross ross 524288 Jun 29 14:36 observations
+drwxr-xr-x   2 ross ross 524288 Apr 29  2023 Others
+drwxr-xr-x   2 ross ross 524288 Apr 29  2023 Photo
+drwxr-xr-x   2 ross ross 524288 Oct 22  2020 .PrivateFolder
+drwxr-xr-x   7 ross ross 524288 Jan 16 12:12 q3-clock
+drwxr-xr-x   3 ross ross 524288 Jan 16 12:17 qiskitchat
+drwxr-xr-x   8 ross ross 524288 Jun 29 13:33 qsb_claude_bridge
+drwxr-xr-x   4 ross ross 524288 Jun 30 16:42 qsb_meeting_room
+drwxr-xr-x   3 ross ross 524288 Jun 29 13:00 qsb_tower_backups
+drwxr-xr-x  34 ross ross 524288 Jun 29 09:24 qsb_tower_full
+drwxr-xr-x   4 ross ross 524288 Jan 16 12:24 quantum_brain_project
+drwxr-xr-x   5 ross ross 524288 Aug  2  2025 sandbox
+drwxr-xr-x  16 ross ross 524288 Jul 17 16:28 SKYSCRAPERHQ
+drwxr-xr-x   5 ross ross 524288 Jan  8  2026 SmartRunner
+drwxr-xr-x   2 ross ross 524288 Jul 26  2025 spiral_logic
+drwxr-xr-x  12 ross ross 524288 Jan 10  2022 .system_dont_del
+drwxr-xr-x   3 ross ross 524288 Jan  7  2022 System Volume Information
+drwxr-xr-x   5 ross ross 524288 Jan  5  2026 .Trash-1000
+drwxr-xr-x   3 ross ross 524288 Sep 18  2025 trisandbox
+drwxr-xr-x   2 ross ross 524288 Apr 29  2023 Upload
+drwxr-xr-x   2 ross ross 524288 Apr 29  2023 Video
+drwxr-xr-x   3 ross ross 524288 Feb 16  2025 yyyyyy
+
+# mount
+/dev/sda2 /media/ross/SSK Cloud exfat rw,nosuid,nodev,relatime,uid=1000,gid=1000,fmask=0022,dmask=0022,iocharset=utf8,errors=remount-ro
+
+# fstab SSK refs
+(no fstab entry — auto-mounted)
+
+# free space
+/dev/sda2       1.9T  1.4T  498G  74% /media/ross/SSK Cloud
+
+# SKYSCRAPERHQ tree checksum manifest
+e0a4343f56110287ee84b5c73159eded1cd43a74b06c0b614a85e9846c09a1e2  ./00_README/VAULT_POLICY.md

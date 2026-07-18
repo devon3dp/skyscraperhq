@@ -1,0 +1,24 @@
+{
+  "timestamp": "2026-07-08T05:54:52",
+  "cycle": 20,
+  "active_root": "/vaults/nvme0/qsb_tower_v1",
+  "model": "qwen2.5:14b",
+  "endpoints_ok": {
+    "brain_router": false,
+    "task_council": false,
+    "asa": true,
+    "tp_pip": true,
+    "ollama": true,
+    "boardroom": true
+  },
+  "hq_ok": true,
+  "asa_task_ok": true,
+  "tp_task_ok": false,
+  "claude_api_used": false,
+  "destructive_actions": false,
+  "trading_changes": false,
+  "hq_preview": "### HQ STATUS\n- Cycle: 20\n- Timestamp: 2026-07-08T05:54:43\n- Active Root: /vaults/nvme0/qsb_tower_v1\n- Mode: V1 overnight read-only team study\n\n### BRAIN ROUTER STATUS\n- Status: Timed out (FAILED)\n\n### TASK COUNCIL STATUS\n- Status: Timed out (FAILED)\n\n### WREN / ASA / TP-PIP STATUS\n- **ASA**: Alive, local_task_node mode, no Claude API used.\n- **TP-PIP**: Alive, remote_ollama provider route, model qwen2.5:14b used, no Claude API used.\n\n### SAFE MORNING ACTION\n- Review and restart the brain router and task council services upon morning shift start.\n\n### PROOF LABELS\n- ENDPOINT PROOF",
+  "asa_preview": "**Task Summary for Asa V1 Night Clerk (Read-Only)**\n\n- **Endpoint State**: Current systems are operational with no reported issues.\n- **Proof Labels**: NO TOOL PROOF\n\nNo further actions required at this time.",
+  "tp_preview": "NOT_OK: HTTP Error 404: Not Found",
+  "cycle_dir": "/vaults/nvme0/qsb_tower_v1/data/night_council/v1_team_overnight_20260708_010027/cycles/cycle_020"
+}

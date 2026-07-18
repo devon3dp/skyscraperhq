@@ -1,0 +1,327 @@
+{
+  "schema": "wren_local_workforce_registry_v1",
+  "status": "PROPOSED",
+  "generated": "2026-07-18T12:36:41.694484Z",
+  "service_id": "wren_local_workforce",
+  "governor": "wren",
+  "host": "wren_msi_linux",
+  "authorised_requesters": [
+    "ross",
+    "wren",
+    "tp_pip",
+    "acer_cass",
+    "bill"
+  ],
+  "ollama_endpoint": "http://127.0.0.1:11434",
+  "ollama_models_present": [
+    "codellama:13b",
+    "gemma4:12b",
+    "hermes3-cpu:70b",
+    "hermes3:70b",
+    "hermes3:8b",
+    "iquest-coder-cpu:40b",
+    "iquest-coder-v1:40b-instruct",
+    "llama2:13b",
+    "llama3.2:latest",
+    "llava:7b",
+    "mistral:7b",
+    "neural-chat:7b",
+    "nomic-embed-text:latest",
+    "qwen2.5-cpu:32b",
+    "qwen2.5:14b",
+    "qwen2.5:32b",
+    "qwen2.5:7b",
+    "qwen2.5:7b-instruct",
+    "qwen3.5:9b"
+  ],
+  "capability_probe": {
+    "model": "qwen2.5:7b",
+    "prompt": "Reply with exactly: WORKFORCE_OK",
+    "response": "WORKFORCE_OK",
+    "ok": true,
+    "ts": "2026-07-18T12:36:41.694484Z"
+  },
+  "note": "Discovered from live Ollama + real tools/ agents. No invented workers. Workers do NOT count as CEOs.",
+  "workers": [
+    {
+      "resource_id": "hermes_reasoning",
+      "display_name": "Hermes (reasoning)",
+      "worker_type": "reasoning",
+      "role": "rules & governance analysis, second-opinion",
+      "host": "wren_msi_linux",
+      "process_or_service": "tools/qsb_hermes_local_agent.py",
+      "model": "hermes3:70b",
+      "model_endpoint": "http://127.0.0.1:11434",
+      "local_or_cloud": "local",
+      "online": true,
+      "health_status": "ONLINE",
+      "capabilities": [
+        "reasoning",
+        "governance_analysis",
+        "research"
+      ],
+      "tools": [
+        "qsb_hermes_local_agent.py"
+      ],
+      "read_scope": "repo",
+      "propose_scope": "bench_proposal",
+      "write_scope": "none_without_task",
+      "network_scope": "localhost_ollama",
+      "protected_paths": [
+        "CLAUDE.md",
+        "floors/floor_28_security_department/vault/",
+        ".env*"
+      ],
+      "max_concurrent_tasks": 2,
+      "current_tasks": 0,
+      "last_heartbeat": "2026-07-18T12:36:41.694484Z",
+      "last_probe": "2026-07-18T12:36:41.694484Z",
+      "evidence_path": "data/registries/wren_local_workforce_registry.json",
+      "status": "ONLINE"
+    },
+    {
+      "resource_id": "iquest_coder",
+      "display_name": "iQuest Coder",
+      "worker_type": "coder",
+      "role": "coding + code review",
+      "host": "wren_msi_linux",
+      "process_or_service": "tools/qsb_iquest_local_agent.py",
+      "model": "iquest-coder-v1:40b-instruct",
+      "model_endpoint": "http://127.0.0.1:11434",
+      "local_or_cloud": "local",
+      "online": true,
+      "health_status": "ONLINE",
+      "capabilities": [
+        "coding",
+        "refactor",
+        "code_review"
+      ],
+      "tools": [
+        "qsb_iquest_local_agent.py"
+      ],
+      "read_scope": "repo",
+      "propose_scope": "bench_proposal",
+      "write_scope": "none_without_task",
+      "network_scope": "localhost_ollama",
+      "protected_paths": [
+        "CLAUDE.md",
+        "floors/floor_28_security_department/vault/",
+        ".env*"
+      ],
+      "max_concurrent_tasks": 2,
+      "current_tasks": 0,
+      "last_heartbeat": "2026-07-18T12:36:41.694484Z",
+      "last_probe": "2026-07-18T12:36:41.694484Z",
+      "evidence_path": "data/registries/wren_local_workforce_registry.json",
+      "status": "ONLINE"
+    },
+    {
+      "resource_id": "iquest_review",
+      "display_name": "iQuest Code Review",
+      "worker_type": "code_review",
+      "role": "independent code review",
+      "host": "wren_msi_linux",
+      "process_or_service": "tools/qsb_iquest_code_review.py",
+      "model": "iquest-coder-v1:40b-instruct",
+      "model_endpoint": "http://127.0.0.1:11434",
+      "local_or_cloud": "local",
+      "online": true,
+      "health_status": "ONLINE",
+      "capabilities": [
+        "code_review",
+        "static_analysis"
+      ],
+      "tools": [
+        "qsb_iquest_code_review.py"
+      ],
+      "read_scope": "repo",
+      "propose_scope": "bench_proposal",
+      "write_scope": "none_without_task",
+      "network_scope": "localhost_ollama",
+      "protected_paths": [
+        "CLAUDE.md",
+        "floors/floor_28_security_department/vault/",
+        ".env*"
+      ],
+      "max_concurrent_tasks": 2,
+      "current_tasks": 0,
+      "last_heartbeat": "2026-07-18T12:36:41.694484Z",
+      "last_probe": "2026-07-18T12:36:41.694484Z",
+      "evidence_path": "data/registries/wren_local_workforce_registry.json",
+      "status": "ONLINE"
+    },
+    {
+      "resource_id": "wren_resident",
+      "display_name": "Wren Resident Model",
+      "worker_type": "reasoning",
+      "role": "Wren's own reasoning + build",
+      "host": "wren_msi_linux",
+      "process_or_service": "tools/qsb_wren_local_agent.py",
+      "model": "qwen2.5:14b",
+      "model_endpoint": "http://127.0.0.1:11434",
+      "local_or_cloud": "local",
+      "online": true,
+      "health_status": "ONLINE",
+      "capabilities": [
+        "reasoning",
+        "build",
+        "governance",
+        "dashboard"
+      ],
+      "tools": [
+        "qsb_wren_local_agent.py"
+      ],
+      "read_scope": "repo",
+      "propose_scope": "bench_proposal",
+      "write_scope": "none_without_task",
+      "network_scope": "localhost_ollama",
+      "protected_paths": [
+        "CLAUDE.md",
+        "floors/floor_28_security_department/vault/",
+        ".env*"
+      ],
+      "max_concurrent_tasks": 2,
+      "current_tasks": 0,
+      "last_heartbeat": "2026-07-18T12:36:41.694484Z",
+      "last_probe": "2026-07-18T12:36:41.694484Z",
+      "evidence_path": "data/registries/wren_local_workforce_registry.json",
+      "status": "ONLINE"
+    },
+    {
+      "resource_id": "wren_rag",
+      "display_name": "Wren RAG",
+      "worker_type": "research",
+      "role": "codebase retrieval / RAG",
+      "host": "wren_msi_linux",
+      "process_or_service": "tools/qsb_wren_rag.py",
+      "model": "nomic-embed-text:latest",
+      "model_endpoint": "http://127.0.0.1:11434",
+      "local_or_cloud": "local",
+      "online": true,
+      "health_status": "ONLINE",
+      "capabilities": [
+        "retrieval",
+        "rag",
+        "codebase_qa"
+      ],
+      "tools": [
+        "qsb_wren_rag.py"
+      ],
+      "read_scope": "repo",
+      "propose_scope": "bench_proposal",
+      "write_scope": "none_without_task",
+      "network_scope": "localhost_ollama",
+      "protected_paths": [
+        "CLAUDE.md",
+        "floors/floor_28_security_department/vault/",
+        ".env*"
+      ],
+      "max_concurrent_tasks": 2,
+      "current_tasks": 0,
+      "last_heartbeat": "2026-07-18T12:36:41.694484Z",
+      "last_probe": "2026-07-18T12:36:41.694484Z",
+      "evidence_path": "data/registries/wren_local_workforce_registry.json",
+      "status": "ONLINE"
+    },
+    {
+      "resource_id": "coder_codellama",
+      "display_name": "CodeLlama Coder",
+      "worker_type": "coder",
+      "role": "coding worker",
+      "host": "wren_msi_linux",
+      "process_or_service": null,
+      "model": "codellama:13b",
+      "model_endpoint": "http://127.0.0.1:11434",
+      "local_or_cloud": "local",
+      "online": true,
+      "health_status": "ONLINE",
+      "capabilities": [
+        "coding"
+      ],
+      "tools": [],
+      "read_scope": "repo",
+      "propose_scope": "bench_proposal",
+      "write_scope": "none_without_task",
+      "network_scope": "localhost_ollama",
+      "protected_paths": [
+        "CLAUDE.md",
+        "floors/floor_28_security_department/vault/",
+        ".env*"
+      ],
+      "max_concurrent_tasks": 2,
+      "current_tasks": 0,
+      "last_heartbeat": "2026-07-18T12:36:41.694484Z",
+      "last_probe": "2026-07-18T12:36:41.694484Z",
+      "evidence_path": "data/registries/wren_local_workforce_registry.json",
+      "status": "ONLINE"
+    },
+    {
+      "resource_id": "coder_qwen",
+      "display_name": "Qwen Coder",
+      "worker_type": "coder",
+      "role": "coding worker",
+      "host": "wren_msi_linux",
+      "process_or_service": null,
+      "model": "qwen2.5:32b",
+      "model_endpoint": "http://127.0.0.1:11434",
+      "local_or_cloud": "local",
+      "online": true,
+      "health_status": "ONLINE",
+      "capabilities": [
+        "coding",
+        "reasoning"
+      ],
+      "tools": [],
+      "read_scope": "repo",
+      "propose_scope": "bench_proposal",
+      "write_scope": "none_without_task",
+      "network_scope": "localhost_ollama",
+      "protected_paths": [
+        "CLAUDE.md",
+        "floors/floor_28_security_department/vault/",
+        ".env*"
+      ],
+      "max_concurrent_tasks": 2,
+      "current_tasks": 0,
+      "last_heartbeat": "2026-07-18T12:36:41.694484Z",
+      "last_probe": "2026-07-18T12:36:41.694484Z",
+      "evidence_path": "data/registries/wren_local_workforce_registry.json",
+      "status": "ONLINE"
+    },
+    {
+      "resource_id": "research_worker",
+      "display_name": "Research Worker",
+      "worker_type": "research",
+      "role": "research tasks",
+      "host": "wren_msi_linux",
+      "process_or_service": "tools/qsb_research.py",
+      "model": "qwen2.5:14b",
+      "model_endpoint": "http://127.0.0.1:11434",
+      "local_or_cloud": "local",
+      "online": true,
+      "health_status": "ONLINE",
+      "capabilities": [
+        "research",
+        "summarise"
+      ],
+      "tools": [
+        "qsb_research.py"
+      ],
+      "read_scope": "repo",
+      "propose_scope": "bench_proposal",
+      "write_scope": "none_without_task",
+      "network_scope": "localhost_ollama",
+      "protected_paths": [
+        "CLAUDE.md",
+        "floors/floor_28_security_department/vault/",
+        ".env*"
+      ],
+      "max_concurrent_tasks": 2,
+      "current_tasks": 0,
+      "last_heartbeat": "2026-07-18T12:36:41.694484Z",
+      "last_probe": "2026-07-18T12:36:41.694484Z",
+      "evidence_path": "data/registries/wren_local_workforce_registry.json",
+      "status": "ONLINE"
+    }
+  ]
+}

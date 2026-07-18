@@ -1,0 +1,23 @@
+{
+  "trader_id": "belief_driven_eth_ta",
+  "trained_at": "2026-07-06T07:10:09.770677Z",
+  "closes_analyzed": 35,
+  "win_rate_current": 0.457,
+  "win_rate_target": 0.75,
+  "gap_to_target": 0.293,
+  "avg_win_pnl": 0.001,
+  "avg_loss_pnl": -0.0005,
+  "best_instrument": {
+    "name": "ETHUSDT",
+    "pnl": 0.0074
+  },
+  "worst_instrument": {
+    "name": "ETHUSDT",
+    "pnl": 0.0074
+  },
+  "learned_rules": [
+    "OVERHAUL \u2014 45% far below 75% \u00b7 SUSPEND and re-strategize"
+  ],
+  "recommended_units": 250,
+  "verdict": "SUSPEND"
+}

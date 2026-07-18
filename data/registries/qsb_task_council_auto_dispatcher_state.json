@@ -1,0 +1,34 @@
+{
+  "ts": "2026-07-08T16:08:16.001508+00:00",
+  "ok": true,
+  "doctrine": {
+    "claude_hq_name": "Claude HQ",
+    "wren": "protected GPU guardian",
+    "ceos": "API Gene Pool only",
+    "no_local_fallback": true,
+    "no_key_changes": true,
+    "no_trading": true
+  },
+  "task_read_ok": true,
+  "task_count": 29,
+  "dispatchable_count": 7,
+  "processed": [
+    {
+      "ok": true,
+      "task_id": "t_c0743b3659",
+      "ceo": "CEO 2",
+      "task_type": "default",
+      "provider": "OpenAI",
+      "gene_pool_http": 200,
+      "task_update_ok": true,
+      "task_update_path": "/tasks/update",
+      "town_ok": true,
+      "truth_gate": "routed_not_complete",
+      "result": "Task Council Auto Dispatcher ROUTED task for work.\nTask ID: t_c0743b3659\nCEO: CEO 2\nTask type: default\nProvider: OpenAI\nBrain Router reply: OpenAI route selected for CEO 2. Task class: default. Decision: use API Gene Pool provider OpenAI; keep Wren protected; no local CEO fallback. External wiring smoke route accepted.\nTruth gate: this is NOT marked complete until a worker implements it and a verifier confirms it.\nDoctrine: Wren protected; CEOs used API Gene Pool only; no key changes; no trading."
+    }
+  ],
+  "errors": [],
+  "interval_seconds": 60,
+  "max_per_cycle": 1,
+  "dry_run": false
+}

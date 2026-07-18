@@ -1,0 +1,63 @@
+QSB V1 TEAM OVERNIGHT LATEST SUMMARY
+timestamp: 2026-07-08T06:10:20
+active_root: /vaults/nvme0/qsb_tower_v1
+cycle: 21/48
+model: qwen2.5:14b
+mode: READ_ONLY_V1_TEAM_STUDY
+model_weight_learning: false
+destructive_actions: false
+trading_changes: false
+
+ENDPOINTS:
+  brain_router: DOWN
+  task_council: DOWN
+  asa: UP
+  tp_pip: UP
+  ollama: UP
+  boardroom: UP
+
+HQ:
+### HQ STATUS
+- Cycle: 21
+- Timestamp: 2026-07-08T06:10:09
+- Mode: V1 overnight read-only team study
+
+### BRAIN ROUTER STATUS
+- Status: Timed out (ENDPOINT PROOF)
+
+### TASK COUNCIL STATUS
+- Status: Timed out (ENDPOINT PROOF)
+
+### WREN / ASA / TP-PIP STATUS
+- **ASA**: Alive, mode: local_task_node (ENDPOINT PROOF)
+- **TP-PIP**: Alive, provider_route: remote_ollama, model_used: qwen2.5:14b (ENDPOINT PROOF)
+
+### SAFE MORNING ACTION
+- Review and restart the brain router and task council services.
+- Ensure all endpoints are operational before proceeding with daytime activities.
+
+### PROOF LABELS
+- ENDPOINT PROOF
+- INFERRED
+
+ASA:
+**Task Summary:**
+
+- **Role:** QSB Task Council Clerk (Asa V1 Night Clerk)
+- **Action Required:** Summarize the current endpoint state.
+- **Instructions Followed:**
+  - Use concise proof language.
+  - Do not claim access to tools or data that are not available.
+
+**Endpoint State Summary:**
+
+- No active destructive actions taken.
+- Current task completed as read-only operation.
+- Proof labels applied for all recorded activities.
+
+**Proof Labels:**
+- READ_ONLY
+- NO_TOOL_PROOF
+
+TP:
+NOT_OK: HTTP Error 404: Not Found

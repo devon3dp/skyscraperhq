@@ -1,0 +1,336 @@
+{
+  "ok": true,
+  "kind": "qsb_wren_strategy_library",
+  "phase": "F47_WREN_STRATEGY_LIBRARY_V1",
+  "generated_ts": "2026-06-10T16:06:12Z",
+  "owner": "Wren (F47 Embassy)",
+  "gbp_cap_per_trade": 1000.0,
+  "execution_envelope": {
+    "advisory_only_outside_certified_workers": true,
+    "real_money_live_trading_enabled": false,
+    "open_orders_must_go_through": [
+      "floor_41_oanda",
+      "floor_42_binance_testnet",
+      "floor_43_alpaca_paper"
+    ]
+  },
+  "strategy_count": 18,
+  "strategies": [
+    {
+      "strategy_id": "scalp_gold_intraday",
+      "name": "Gold scalp \u00b7 intraday",
+      "style": "scalp",
+      "venue": "oanda_practice",
+      "instrument": "XAU_USD",
+      "units": 0.2,
+      "direction_logic": "buy_on_pullback_to_session_VWAP",
+      "target_profit_pct": 0.12,
+      "max_loss_pct": 0.1,
+      "max_hold_seconds": 600,
+      "expected_trades_per_day": 6,
+      "estimated_gbp_exposure": 616,
+      "source_floor": "F37 Strategy Labs (advisory) + F44 Accounts",
+      "rationale": "Gold scalps the New York morning move; 30bp ATR on a 1-min chart is the typical band.",
+      "risk_cap_check": {
+        "ok": true,
+        "computed_gbp_exposure": 616.37,
+        "cap_gbp": 1000.0,
+        "reason": "within_cap"
+      }
+    },
+    {
+      "strategy_id": "scalp_silver_intraday",
+      "name": "Silver scalp \u00b7 intraday",
+      "style": "scalp",
+      "venue": "oanda_practice",
+      "instrument": "XAG_USD",
+      "units": 15,
+      "direction_logic": "fade_overextended_5m_move",
+      "target_profit_pct": 0.09,
+      "max_loss_pct": 0.105,
+      "max_hold_seconds": 540,
+      "expected_trades_per_day": 4,
+      "estimated_gbp_exposure": 727,
+      "source_floor": "F37 Strategy Labs (advisory)",
+      "rationale": "Silver is more volatile than gold; mean-revert on stretched 5m ATR works better than trend-follow.",
+      "risk_cap_check": {
+        "ok": true,
+        "computed_gbp_exposure": 727.06,
+        "cap_gbp": 1000.0,
+        "reason": "within_cap"
+      }
+    },
+    {
+      "strategy_id": "brent_oil_dayrange",
+      "name": "Brent crude \u00b7 day-range break",
+      "style": "breakout",
+      "venue": "oanda_practice",
+      "instrument": "BCO_USD",
+      "units": 12,
+      "direction_logic": "buy_on_break_of_opening_range_high",
+      "target_profit_pct": 0.22,
+      "max_loss_pct": 0.18,
+      "max_hold_seconds": 3600,
+      "expected_trades_per_day": 2,
+      "estimated_gbp_exposure": 859,
+      "source_floor": "F37 Strategy Labs (advisory) + F30 Guardian (volatility check)",
+      "rationale": "Brent has a clear London open range; first break has higher follow-through than re-tests.",
+      "risk_cap_check": {
+        "ok": true,
+        "computed_gbp_exposure": 860.67,
+        "cap_gbp": 1000.0,
+        "reason": "within_cap"
+      }
+    },
+    {
+      "strategy_id": "wti_oil_dayrange",
+      "name": "WTI crude \u00b7 day-range break",
+      "style": "breakout",
+      "venue": "oanda_practice",
+      "instrument": "WTICO_USD",
+      "units": 12,
+      "direction_logic": "buy_on_break_of_opening_range_high",
+      "target_profit_pct": 0.2,
+      "max_loss_pct": 0.18,
+      "max_hold_seconds": 3600,
+      "expected_trades_per_day": 2,
+      "estimated_gbp_exposure": 826,
+      "source_floor": "F37 Strategy Labs (advisory) + F30 Guardian",
+      "rationale": "WTI is the US benchmark; pairs well with Brent for relative-strength signals.",
+      "risk_cap_check": {
+        "ok": true,
+        "computed_gbp_exposure": 827.99,
+        "cap_gbp": 1000.0,
+        "reason": "within_cap"
+      }
+    },
+    {
+      "strategy_id": "scalp_eur_usd_fast",
+      "name": "EUR/USD scalp \u00b7 fast",
+      "style": "scalp",
+      "venue": "oanda_practice",
+      "instrument": "EUR_USD",
+      "units": 1000,
+      "direction_logic": "buy_on_5_pip_pullback_in_uptrend",
+      "target_profit_pct": 0.06,
+      "max_loss_pct": 0.05,
+      "max_hold_seconds": 300,
+      "expected_trades_per_day": 12,
+      "estimated_gbp_exposure": 863,
+      "source_floor": "F37 Strategy Labs (advisory) + F41 OANDA quotes",
+      "rationale": "Most liquid major; smallest spread; many small clean moves per session.",
+      "risk_cap_check": {
+        "ok": true,
+        "computed_gbp_exposure": 862.73,
+        "cap_gbp": 1000.0,
+        "reason": "within_cap"
+      }
+    },
+    {
+      "strategy_id": "scalp_gbp_usd_fast",
+      "name": "GBP/USD scalp \u00b7 fast",
+      "style": "scalp",
+      "venue": "oanda_practice",
+      "instrument": "GBP_USD",
+      "units": 700,
+      "direction_logic": "trade_with_london_open_momentum",
+      "target_profit_pct": 0.04,
+      "max_loss_pct": 0.07,
+      "max_hold_seconds": 180,
+      "expected_trades_per_day": 8,
+      "estimated_gbp_exposure": 700,
+      "source_floor": "F37 Strategy Labs (advisory)",
+      "rationale": "Sterling has the London-session edge; biggest moves are 08:00-10:00 UTC.",
+      "risk_cap_check": {
+        "ok": true,
+        "computed_gbp_exposure": 700.0,
+        "cap_gbp": 1000.0,
+        "reason": "within_cap"
+      }
+    },
+    {
+      "strategy_id": "scalp_usd_jpy_fast",
+      "name": "USD/JPY scalp \u00b7 fast",
+      "style": "scalp",
+      "venue": "oanda_practice",
+      "instrument": "USD_JPY",
+      "units": 1000,
+      "direction_logic": "fade_5_pip_overshoots_on_1m",
+      "target_profit_pct": 0.05,
+      "max_loss_pct": 0.05,
+      "max_hold_seconds": 240,
+      "expected_trades_per_day": 14,
+      "estimated_gbp_exposure": 747,
+      "source_floor": "F37 Strategy Labs (advisory)",
+      "rationale": "USD/JPY is the most predictable mean-reverter at the 1m timeframe.",
+      "risk_cap_check": {
+        "ok": true,
+        "computed_gbp_exposure": 746.84,
+        "cap_gbp": 1000.0,
+        "reason": "within_cap"
+      }
+    },
+    {
+      "strategy_id": "eur_gbp_range",
+      "name": "EUR/GBP range",
+      "style": "mean_revert",
+      "venue": "oanda_practice",
+      "instrument": "EUR_GBP",
+      "units": 900,
+      "direction_logic": "buy_at_lower_BB_2sigma_15m",
+      "target_profit_pct": 0.1,
+      "max_loss_pct": 0.08,
+      "max_hold_seconds": 1800,
+      "expected_trades_per_day": 3,
+      "estimated_gbp_exposure": 900,
+      "source_floor": "F37 Strategy Labs (advisory)",
+      "rationale": "EUR/GBP is a slow rangy cross; 15m Bollinger band touches reliably mean-revert.",
+      "risk_cap_check": {
+        "ok": true,
+        "computed_gbp_exposure": 776.45,
+        "cap_gbp": 1000.0,
+        "reason": "within_cap"
+      }
+    },
+    {
+      "strategy_id": "scalp_btc_testnet",
+      "name": "BTC scalp \u00b7 testnet",
+      "style": "scalp",
+      "venue": "binance_testnet",
+      "instrument": "BTCUSDT",
+      "units": 30,
+      "direction_logic": "buy_on_15s_RSI_oversold_bounce",
+      "target_profit_pct": 0.2,
+      "max_loss_pct": 0.18,
+      "max_hold_seconds": 240,
+      "expected_trades_per_day": 18,
+      "estimated_gbp_exposure": 22,
+      "source_floor": "F37 Strategy Labs (advisory) + F42 Binance interior",
+      "rationale": "BTC has 24/7 micro-moves; smallest viable quote_qty on testnet.",
+      "risk_cap_check": {
+        "ok": true,
+        "computed_gbp_exposure": 22.41,
+        "cap_gbp": 1000.0,
+        "reason": "within_cap"
+      }
+    },
+    {
+      "strategy_id": "scalp_eth_testnet",
+      "name": "ETH scalp \u00b7 testnet",
+      "style": "scalp",
+      "venue": "binance_testnet",
+      "instrument": "ETHUSDT",
+      "units": 25,
+      "direction_logic": "follow_BTC_momentum_with_30s_lag",
+      "target_profit_pct": 0.22,
+      "max_loss_pct": 0.2,
+      "max_hold_seconds": 300,
+      "expected_trades_per_day": 12,
+      "estimated_gbp_exposure": 19,
+      "source_floor": "F37 Strategy Labs (advisory) + F42 Binance interior",
+      "rationale": "ETH lags BTC by ~30s on micro-moves; piggyback signal with smaller spread risk.",
+      "risk_cap_check": {
+        "ok": true,
+        "computed_gbp_exposure": 18.67,
+        "cap_gbp": 1000.0,
+        "reason": "within_cap"
+      }
+    },
+    {
+      "strategy_id": "open_pullback_spy",
+      "name": "SPY first 5-min pullback",
+      "venue": "alpaca_paper",
+      "instrument": "SPY",
+      "units": 1,
+      "estimated_gbp_exposure": 50,
+      "style": "open_anomaly",
+      "description": "wait first 5min of session; enter on first 0.2% pullback; exit at +0.15% or +20min"
+    },
+    {
+      "strategy_id": "open_pullback_qqq",
+      "name": "QQQ first 5-min pullback",
+      "venue": "alpaca_paper",
+      "instrument": "QQQ",
+      "units": 1,
+      "estimated_gbp_exposure": 50,
+      "style": "open_anomaly",
+      "description": "same as SPY but on Nasdaq"
+    },
+    {
+      "strategy_id": "arb_hsbc_lse_nyse",
+      "name": "HSBC LSE-NYSE ADR arb",
+      "venue": "alpaca_paper",
+      "instrument": "HSBC",
+      "units": 5,
+      "estimated_gbp_exposure": 200,
+      "style": "arbitrage",
+      "description": "when ADR-LSE spread > 1.0%, buy cheaper / sell richer; exit at convergence"
+    },
+    {
+      "strategy_id": "arb_bp_lse_nyse",
+      "name": "BP LSE-NYSE ADR arb",
+      "venue": "alpaca_paper",
+      "instrument": "BP",
+      "units": 3,
+      "estimated_gbp_exposure": 100,
+      "style": "arbitrage",
+      "description": "wait for spread > 0.8%; cross-listed convergence trade"
+    },
+    {
+      "strategy_id": "gold_session_break",
+      "name": "Gold London-NY handoff break",
+      "venue": "oanda_practice",
+      "instrument": "XAU_USD",
+      "units": 0.1,
+      "estimated_gbp_exposure": 300,
+      "style": "session_break",
+      "description": "enter on first 15-min range break after London open or NY open"
+    },
+    {
+      "strategy_id": "oil_inventory_drift",
+      "name": "WTI weekly inventory drift",
+      "venue": "oanda_practice",
+      "instrument": "WTICO_USD",
+      "units": 10,
+      "estimated_gbp_exposure": 500,
+      "style": "macro_event",
+      "description": "enter on EIA inventory release; direction by surprise magnitude"
+    },
+    {
+      "strategy_id": "btc_funding_reversal",
+      "name": "BTC funding-rate reversal scalp",
+      "venue": "binance_testnet",
+      "instrument": "BTCUSDT",
+      "units": 0.00016,
+      "estimated_gbp_exposure": 10,
+      "style": "funding",
+      "description": "when 8h funding > +0.05% (longs paying), expect mean revert; scalp short OR exit long"
+    },
+    {
+      "strategy_id": "eth_btc_ratio",
+      "name": "ETH/BTC ratio scalp",
+      "venue": "binance_testnet",
+      "instrument": "ETHBTC",
+      "units": 0.005,
+      "estimated_gbp_exposure": 15,
+      "style": "pairs",
+      "description": "when ETH/BTC ratio deviates >0.5% from 24h mean, fade toward mean"
+    }
+  ],
+  "rejected": [],
+  "intent": "fast daily trades, small profits, max \u00a31000 notional per trade",
+  "floors_consulted": [
+    "F37 Strategy Labs",
+    "F30 Guardian",
+    "F41 OANDA",
+    "F42 Binance",
+    "F43 Stocks/Alpaca",
+    "F44 Accounts/PnL"
+  ],
+  "_f37_refinements_applied_ts": "2026-06-10T18:00:00Z",
+  "_f37_refinements_applied": [
+    "scalp_silver_intraday",
+    "scalp_gbp_usd_fast"
+  ],
+  "updated_ts": "2026-06-11T08:55:31.141799Z"
+}

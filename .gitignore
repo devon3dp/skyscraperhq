@@ -100,3 +100,6 @@ data/**/large_*
 data/backups/
 data/db/
 data/checkpoints/
+.secrets/
+floors/floor_43_alpaca_paper_floor/mcp_v2/server/
+floors/floor_43_alpaca_paper_floor/mcp_v2/.venv/

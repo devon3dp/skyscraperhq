@@ -1,0 +1,21 @@
+{
+  "schema": "qsb_governance_v2_supersession",
+  "status": "PROPOSED",
+  "generated": "2026-07-18",
+  "note": "Maps legacy governance sources to their Governance V2 disposition. Legacy files remain READABLE but are marked LEGACY — NOT EXECUTABLE AUTHORITY once V2 is ACTIVE. Nothing is deleted.",
+  "supersedes": [
+    {"legacy": "data/registries/qsb_task_rules.json", "disposition": "PATCH_IN_PLACE", "reason": "fixed quorum + HQ gates -> read from qsb_governance_v2.json", "carries_claude_hq": true, "carries_fixed_quorum": true},
+    {"legacy": "data/registries/qsb_leadership_roster.json", "disposition": "SUPERSEDED_BY_V2_ROSTER", "reason": "canonical roster now in qsb_governance_v2.json.roster", "carries_claude_hq": true},
+    {"legacy": "tools/qsb_claude_signoff_queue.py", "disposition": "REPLACED", "replacement": "tools/qsb_independent_review_queue.py", "keep_legacy_readable": true},
+    {"legacy": "tools/qsb_task_council.py", "disposition": "PATCH_IN_PLACE", "reason": "two-CEO quorum, no-self-verify, lifecycle, dispatcher-block"},
+    {"legacy": "tools/qsb_task_council_auto_dispatcher.py", "disposition": "PATCH_SAFETY", "reason": "cannot complete/close tasks"},
+    {"legacy": "tools/qsb_task_council_gene_pool_dispatcher.py", "disposition": "PATCH_SAFETY", "reason": "cannot complete/close tasks"},
+    {"legacy": "floors/floor_47_executive_operations_department/rulebook_2026-07-07.md", "disposition": "MARK_LEGACY_READABLE", "reason": "historical rulebook; not executable authority under V2"},
+    {"legacy": "data/registries/qsb_wren_rulebook_hardcopy_2026-07-07.md", "disposition": "MARK_LEGACY_READABLE"}
+  ],
+  "preserved_not_touched": [
+    "Claude HQ history", "former Claude Embassy records", "archived reports", "old conversations",
+    "Task Council evidence", "provenance", "legacy dashboards", "historical rulebooks",
+    "provider configuration for Claude", "Claude Specialist Service files"
+  ]
+}

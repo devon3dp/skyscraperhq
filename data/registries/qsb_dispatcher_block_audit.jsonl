@@ -1,0 +1,11 @@
+{"ts": "2026-07-18T12:33:13.905093Z", "blocked_action": "complete", "detail": {"route": null, "status": null, "actor": "dispatcher"}}
+{"ts": "2026-07-18T12:33:13.905203Z", "blocked_action": "mark_complete", "detail": {"route": null, "status": null, "actor": "dispatcher"}}
+{"ts": "2026-07-18T12:33:13.905237Z", "blocked_action": "self_verify", "detail": {"route": null, "status": null, "actor": "dispatcher"}}
+{"ts": "2026-07-18T12:33:13.905263Z", "blocked_action": "assign", "detail": {"route": "/tasks/complete", "status": null, "actor": "dispatcher"}}
+{"ts": "2026-07-18T12:33:13.905294Z", "blocked_action": "assign", "detail": {"route": null, "status": "done", "actor": "dispatcher"}}
+{"ts": "2026-07-18T12:35:21.105442Z", "blocked_action": "complete", "detail": {"route": null, "status": null, "actor": "dispatcher"}}
+{"ts": "2026-07-18T12:35:21.105494Z", "blocked_action": "mark_complete", "detail": {"route": null, "status": null, "actor": "dispatcher"}}
+{"ts": "2026-07-18T12:35:21.105520Z", "blocked_action": "self_verify", "detail": {"route": null, "status": null, "actor": "dispatcher"}}
+{"ts": "2026-07-18T12:35:21.105539Z", "blocked_action": "assign", "detail": {"route": "/tasks/complete", "status": null, "actor": "dispatcher"}}
+{"ts": "2026-07-18T12:35:21.105556Z", "blocked_action": "assign", "detail": {"route": null, "status": "done", "actor": "dispatcher"}}
+{"ts": "2026-07-18T12:44:50.560539Z", "blocked_action": "complete", "detail": {"route": null, "status": null, "actor": "auto_dispatcher"}}

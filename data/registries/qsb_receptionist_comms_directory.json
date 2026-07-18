@@ -1,0 +1,40 @@
+{
+ "generated_ts": "2026-07-11",
+ "channels": [
+  {
+   "channel": "Gmail",
+   "proc": "qsb_email_receiver.py",
+   "log": "qsb_email_triage_log.jsonl",
+   "file": "tools/qsb_email_sender.py",
+   "reply_mode": "DRAFT_ONLY"
+  },
+  {
+   "channel": "WhatsApp",
+   "proc": "qsb_wa_inbound.js",
+   "log": "qsb_whatsapp_sends.jsonl",
+   "file": "tools/whatsapp_inbound/qsb_wa_inbound.js",
+   "reply_mode": "DRAFT_ONLY"
+  },
+  {
+   "channel": "Telegram",
+   "proc": "qsb_telegram_receptionist.py",
+   "log": "qsb_telegram_audit.jsonl",
+   "file": "tools/qsb_telegram_receptionist.py",
+   "reply_mode": "DRAFT_ONLY"
+  },
+  {
+   "channel": "Phone / voice",
+   "proc": "qsb_twilio_voice_receptionist.py",
+   "log": null,
+   "file": "tools/qsb_twilio_voice_receptionist.py",
+   "reply_mode": "DISABLED"
+  },
+  {
+   "channel": "Galaxy bridge",
+   "proc": "qsb_galaxy",
+   "log": null,
+   "file": "tools/qsb_galaxy_receptionist.sh",
+   "reply_mode": "DISABLED"
+  }
+ ]
+}

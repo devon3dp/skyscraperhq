@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=QSB Receptionist Kiosk
+Comment=Open the SkyscraperHQ dashboard full-screen
+Exec=/opt/skyscraper_receptionist/kiosk_launch.sh
+Terminal=false
+X-GNOME-Autostart-enabled=true

@@ -53,8 +53,10 @@ def main():
     # crash — that's a soft-fail. Mid-file corruption is hard-fail + abort.
     parsed = 0
     last_partial = False
-    bad_line_no = None
-    with MASTER.open() as f:
+    bad_lines = []
+    # errors="surrogateescape" so NUL/binary corruption (boat power-loss zero-
+    # fill) is read rather than exploding the open() itself.
+    with MASTER.open(encoding="utf-8", errors="surrogateescape") as f:
         lines = f.readlines()
     for i, line in enumerate(lines, start=1):
         line = line.strip()
@@ -67,22 +69,29 @@ def main():
             if i == len(lines):
                 last_partial = True
             else:
-                bad_line_no = i
-                break
-    if bad_line_no is not None:
-        # Hard fail — corruption mid-file.
+                bad_lines.append(i)
+    if bad_lines:
+        # Hard fail — corruption mid-file. Report EVERY bad line (not just the
+        # first): a single power-loss event can zero-fill several rows, and
+        # stopping at the first hid the rest for days (2026-07-16 incident).
+        preview = ", ".join(str(n) for n in bad_lines[:20])
+        if len(bad_lines) > 20:
+            preview += f", … (+{len(bad_lines) - 20} more)"
         ts_err = datetime.datetime.now(datetime.UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
         with F47.open("a") as f:
             f.write(json.dumps({
                 "ts": ts_err, "kind": "f47_snapshot_aborted", "role": "claude",
                 "subject": "validation_failed",
-                "detail": (f"Master file invalid at line {bad_line_no}. "
-                           f"Snapshot ABORTED — refusing to overwrite the "
-                           f"prior good snapshot with a corrupt master. "
-                           f"Check master integrity before re-running."),
+                "detail": (f"Master file invalid — {len(bad_lines)} corrupt "
+                           f"line(s): {preview}. Snapshot ABORTED — refusing "
+                           f"to overwrite the prior good snapshot with a "
+                           f"corrupt master. Check master integrity before "
+                           f"re-running (likely NUL power-loss zero-fill; "
+                           f"strip leading \\x00 per line)."),
             }) + "\n")
-        print(f"[f47-snapshot] ❌ ABORT — line {bad_line_no} corrupt; "
-              f"prior snapshot preserved; F47 stamped f47_snapshot_aborted")
+        print(f"[f47-snapshot] ❌ ABORT — {len(bad_lines)} corrupt line(s): "
+              f"{preview}; prior snapshot preserved; F47 stamped "
+              f"f47_snapshot_aborted")
         return 2
 
     if last_partial:

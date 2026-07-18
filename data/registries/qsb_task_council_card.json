@@ -1,0 +1,13 @@
+{
+  "timestamp": "2026-07-07T23:47:14.538378",
+  "node": "QSB Task Council",
+  "title": "Task Council",
+  "role": "Coordinates HQ-Claude, TP-Pip, Wren/Ren, Asa via proof-first read-only tasks",
+  "status": "alive",
+  "port": 8854,
+  "health_url": "http://127.0.0.1:8854/health.json",
+  "proof_url": "http://127.0.0.1:8854/proof.json",
+  "nodes_url": "http://127.0.0.1:8854/nodes.json",
+  "run_demo_url": "http://127.0.0.1:8854/run-demo",
+  "claude_api_used": false
+}

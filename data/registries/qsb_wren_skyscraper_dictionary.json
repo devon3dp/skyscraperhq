@@ -1,0 +1,456 @@
+{
+ "generated_ts": "2026-07-11",
+ "count": 34,
+ "terms": [
+  {
+   "term": "Wren",
+   "aliases": [
+    "wen",
+    "ren",
+    "concierge",
+    "guardian"
+   ],
+   "type": "ceo",
+   "description": "Ross's private concierge/guardian on :8851 (bench+concierge merged). Observer/guardian/DRAFT-ONLY.",
+   "status": "LIVE",
+   "source_report_or_file": "today's verified reports + receptionist registries",
+   "confidence": "high",
+   "current_status": "LIVE"
+  },
+  {
+   "term": "Receptionist",
+   "aliases": [
+    "reception",
+    "front desk",
+    "iris"
+   ],
+   "type": "service",
+   "description": "Public front desk on :8856; floors/websites/comms/network/checklists. Audio pending Ross accept.",
+   "status": "LIVE",
+   "source_report_or_file": "today's verified reports + receptionist registries",
+   "confidence": "high",
+   "current_status": "LIVE"
+  },
+  {
+   "term": "Claude HQ",
+   "aliases": [
+    "claude",
+    "hq"
+   ],
+   "type": "ceo",
+   "description": "CEO/engineer under R115 on :8850. Not sole controller, not external verifier.",
+   "status": "LIVE",
+   "source_report_or_file": "today's verified reports + receptionist registries",
+   "confidence": "high",
+   "current_status": "LIVE"
+  },
+  {
+   "term": "TP-Pip",
+   "aliases": [
+    "tp",
+    "pip",
+    "thinkpad"
+   ],
+   "type": "worker",
+   "description": "Physical task-capable worker, Lenovo ThinkPad, 192.168.1.74:8871, DESKTOP-9RBVKSM.",
+   "status": "LIVE",
+   "source_report_or_file": "today's verified reports + receptionist registries",
+   "confidence": "high",
+   "current_status": "LIVE"
+  },
+  {
+   "term": "Acer-Cass",
+   "aliases": [
+    "acer",
+    "cass",
+    "asa"
+   ],
+   "type": "worker",
+   "description": "Physical task-capable worker, Acer Aspire, 192.168.1.41:8872, DESKTOP-1E2FB5N.",
+   "status": "LIVE",
+   "source_report_or_file": "today's verified reports + receptionist registries",
+   "confidence": "high",
+   "current_status": "LIVE"
+  },
+  {
+   "term": "Boardroom",
+   "aliases": [
+    "board room",
+    "town square"
+   ],
+   "type": "service",
+   "description": "Town square / council hub on :8852; hardware-true worker links.",
+   "status": "LIVE",
+   "source_report_or_file": "today's verified reports + receptionist registries",
+   "confidence": "high",
+   "current_status": "LIVE"
+  },
+  {
+   "term": "Task Council",
+   "aliases": [
+    "council",
+    "task board"
+   ],
+   "type": "service",
+   "description": "Work booking/assignment/proof/signoff layer (qsb_council_tasks.jsonl). Currently STALE.",
+   "status": "STALE",
+   "source_report_or_file": "today's verified reports + receptionist registries",
+   "confidence": "high",
+   "current_status": "STALE"
+  },
+  {
+   "term": "Council of 15",
+   "aliases": [
+    "council of fifteen",
+    "toolbox"
+   ],
+   "type": "resource",
+   "description": "Specialist toolbox/resources reference pool.",
+   "status": "REFERENCE",
+   "source_report_or_file": "today's verified reports + receptionist registries",
+   "confidence": "high",
+   "current_status": "REFERENCE"
+  },
+  {
+   "term": "Brain Module V4",
+   "aliases": [
+    "brain module",
+    "gene pool",
+    "brain router"
+   ],
+   "type": "service",
+   "description": "Gene-pool provider router on :8860; cosmetic animations truth-labelled.",
+   "status": "LIVE",
+   "source_report_or_file": "today's verified reports + receptionist registries",
+   "confidence": "high",
+   "current_status": "LIVE"
+  },
+  {
+   "term": "Tour Guide",
+   "aliases": [
+    "tour"
+   ],
+   "type": "feature",
+   "description": "Guided tour. NOT BUILT YET (no endpoint).",
+   "status": "NOT BUILT",
+   "source_report_or_file": "today's verified reports + receptionist registries",
+   "confidence": "high",
+   "current_status": "NOT BUILT"
+  },
+  {
+   "term": "Front Gate",
+   "aliases": [
+    "front gate",
+    "visitor gate"
+   ],
+   "type": "feature",
+   "description": "Public visitor code + tour landing. NOT BUILT (stopped before build).",
+   "status": "NOT BUILT",
+   "source_report_or_file": "today's verified reports + receptionist registries",
+   "confidence": "high",
+   "current_status": "NOT BUILT"
+  },
+  {
+   "term": "Netlify shops",
+   "aliases": [
+    "online shops",
+    "shops",
+    "stores",
+    "storefronts"
+   ],
+   "type": "websites",
+   "description": "16 shop folders in web/shops/ (public sites, NOT old dashboards). Brand domain skyscraperhq.uk OFFLINE.",
+   "status": "NEEDS VERIFICATION",
+   "source_report_or_file": "today's verified reports + receptionist registries",
+   "confidence": "high",
+   "current_status": "NEEDS VERIFICATION"
+  },
+  {
+   "term": "Lumen AI",
+   "aliases": [
+    "lumen"
+   ],
+   "type": "website",
+   "description": "Internal AI app (web/lumen_ai), PUBLIC_WEBSITE \u2014 NOT an online shop.",
+   "status": "NEEDS VERIFICATION",
+   "source_report_or_file": "today's verified reports + receptionist registries",
+   "confidence": "high",
+   "current_status": "NEEDS VERIFICATION"
+  },
+  {
+   "term": "Greenline Seeds",
+   "aliases": [
+    "green lane seeds",
+    "greenline",
+    "green lane"
+   ],
+   "type": "shop",
+   "description": "web/shops/greenline-seeds storefront; public URL unproven.",
+   "status": "NEEDS VERIFICATION",
+   "source_report_or_file": "today's verified reports + receptionist registries",
+   "confidence": "high",
+   "current_status": "NEEDS VERIFICATION"
+  },
+  {
+   "term": "Greenhouse Lane",
+   "aliases": [
+    "greenhouse"
+   ],
+   "type": "shop",
+   "description": "web/shops/greenhouse-lane storefront (Floor 158).",
+   "status": "NEEDS VERIFICATION",
+   "source_report_or_file": "today's verified reports + receptionist registries",
+   "confidence": "high",
+   "current_status": "NEEDS VERIFICATION"
+  },
+  {
+   "term": "OANDA",
+   "aliases": [
+    "oanda",
+    "forex floor"
+   ],
+   "type": "trading",
+   "description": "OANDA practice trading floor (F41).",
+   "status": "REFERENCE",
+   "source_report_or_file": "today's verified reports + receptionist registries",
+   "confidence": "high",
+   "current_status": "REFERENCE"
+  },
+  {
+   "term": "Binance",
+   "aliases": [
+    "binance"
+   ],
+   "type": "trading",
+   "description": "Binance testnet trading floor (F42).",
+   "status": "REFERENCE",
+   "source_report_or_file": "today's verified reports + receptionist registries",
+   "confidence": "high",
+   "current_status": "REFERENCE"
+  },
+  {
+   "term": "Kernel",
+   "aliases": [
+    "qsb kernel",
+    "kernel 4.5"
+   ],
+   "type": "architecture",
+   "description": "QSB Kernel \u2014 symbolic local-only artifact; not live executing logic.",
+   "status": "REFERENCE",
+   "source_report_or_file": "today's verified reports + receptionist registries",
+   "confidence": "high",
+   "current_status": "REFERENCE"
+  },
+  {
+   "term": "Galaxy",
+   "aliases": [
+    "samsung",
+    "galaxy phone"
+   ],
+   "type": "device",
+   "description": "Galaxy phone bridge \u2014 config present, bridge NOT running.",
+   "status": "NEEDS WIRING",
+   "source_report_or_file": "today's verified reports + receptionist registries",
+   "confidence": "high",
+   "current_status": "NEEDS WIRING"
+  },
+  {
+   "term": "Nighthawk",
+   "aliases": [
+    "netgear",
+    "router",
+    "gateway"
+   ],
+   "type": "device",
+   "description": "Router at 192.168.1.1 \u2014 Netgear confirmed (D86); 'Nighthawk' model unproven. Gateway LIVE.",
+   "status": "LIVE",
+   "source_report_or_file": "today's verified reports + receptionist registries",
+   "confidence": "high",
+   "current_status": "LIVE"
+  },
+  {
+   "term": "Pi Receptionist",
+   "aliases": [
+    "pi",
+    "raspberry",
+    "qsb-reception"
+   ],
+   "type": "device",
+   "description": "192.168.1.24, pings up but services closed (up-but-bare).",
+   "status": "PARTIAL",
+   "source_report_or_file": "today's verified reports + receptionist registries",
+   "confidence": "high",
+   "current_status": "PARTIAL"
+  },
+  {
+   "term": "SSK",
+   "aliases": [
+    "nas",
+    "ssk nas",
+    "storage"
+   ],
+   "type": "device",
+   "description": "WiFi NAS 10.10.10.254 \u2014 unreachable, not mounted.",
+   "status": "NEEDS WIRING",
+   "source_report_or_file": "today's verified reports + receptionist registries",
+   "confidence": "high",
+   "current_status": "NEEDS WIRING"
+  },
+  {
+   "term": "Gmail",
+   "aliases": [
+    "mail",
+    "email"
+   ],
+   "type": "comms",
+   "description": "Scripts+postfix, no live sync (log stale).",
+   "status": "PARTIAL",
+   "source_report_or_file": "today's verified reports + receptionist registries",
+   "confidence": "high",
+   "current_status": "PARTIAL"
+  },
+  {
+   "term": "WhatsApp",
+   "aliases": [
+    "whatsapp",
+    "wa"
+   ],
+   "type": "comms",
+   "description": "Inbound node bridge running; send DISABLED.",
+   "status": "LIVE",
+   "source_report_or_file": "today's verified reports + receptionist registries",
+   "confidence": "high",
+   "current_status": "LIVE"
+  },
+  {
+   "term": "Telegram",
+   "aliases": [
+    "telegram",
+    "tg"
+   ],
+   "type": "comms",
+   "description": "Poller running; send DISABLED.",
+   "status": "LIVE",
+   "source_report_or_file": "today's verified reports + receptionist registries",
+   "confidence": "high",
+   "current_status": "LIVE"
+  },
+  {
+   "term": "Phone",
+   "aliases": [
+    "twilio",
+    "voice",
+    "calls"
+   ],
+   "type": "comms",
+   "description": "Twilio script+config, NOT running/live.",
+   "status": "NEEDS WIRING",
+   "source_report_or_file": "today's verified reports + receptionist registries",
+   "confidence": "high",
+   "current_status": "NEEDS WIRING"
+  },
+  {
+   "term": "R115",
+   "aliases": [
+    "leash",
+    "pre-action manifest"
+   ],
+   "type": "rule",
+   "description": "Pre-action manifest required before any operational action; no hidden action; no self-close.",
+   "status": "RULE",
+   "source_report_or_file": "today's verified reports + receptionist registries",
+   "confidence": "high",
+   "current_status": "RULE"
+  },
+  {
+   "term": "smoke test",
+   "aliases": [
+    "smoke",
+    "smoke it"
+   ],
+   "type": "rule",
+   "description": "Run and prove behaviour with a report before claiming done.",
+   "status": "RULE",
+   "source_report_or_file": "today's verified reports + receptionist registries",
+   "confidence": "high",
+   "current_status": "RULE"
+  },
+  {
+   "term": "signoff",
+   "aliases": [
+    "sign off",
+    "sign it off"
+   ],
+   "type": "rule",
+   "description": "Ross approval/acceptance record; no self-signoff.",
+   "status": "RULE",
+   "source_report_or_file": "today's verified reports + receptionist registries",
+   "confidence": "high",
+   "current_status": "RULE"
+  },
+  {
+   "term": "no fake green",
+   "aliases": [
+    "fake green"
+   ],
+   "type": "rule",
+   "description": "Never claim pass without proof; surface STALE/PARTIAL honestly.",
+   "status": "RULE",
+   "source_report_or_file": "today's verified reports + receptionist registries",
+   "confidence": "high",
+   "current_status": "RULE"
+  },
+  {
+   "term": "draft-only",
+   "aliases": [
+    "draft only"
+   ],
+   "type": "rule",
+   "description": "Wren proposes drafts; Ross approves; Wren never executes/submits.",
+   "status": "RULE",
+   "source_report_or_file": "today's verified reports + receptionist registries",
+   "confidence": "high",
+   "current_status": "RULE"
+  },
+  {
+   "term": "physical task-capable",
+   "aliases": [
+    "task capable",
+    "task-capable worker"
+   ],
+   "type": "rule",
+   "description": "TP/Acer can receive tasks; cannot self-close.",
+   "status": "RULE",
+   "source_report_or_file": "today's verified reports + receptionist registries",
+   "confidence": "high",
+   "current_status": "RULE"
+  },
+  {
+   "term": "observer/guardian",
+   "aliases": [
+    "observer",
+    "guardian"
+   ],
+   "type": "rule",
+   "description": "Wren watches/warns/drafts; does not execute.",
+   "status": "RULE",
+   "source_report_or_file": "today's verified reports + receptionist registries",
+   "confidence": "high",
+   "current_status": "RULE"
+  },
+  {
+   "term": "the building",
+   "aliases": [
+    "skyscraper",
+    "skyscraperhq",
+    "tower"
+   ],
+   "type": "system",
+   "description": "SkyscraperHQ \u2014 the whole vertical AI headquarters.",
+   "status": "LIVE",
+   "source_report_or_file": "today's verified reports + receptionist registries",
+   "confidence": "high",
+   "current_status": "LIVE"
+  }
+ ]
+}

@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-07-07T23:30:28.285079",
+  "title": "HQ-Claude",
+  "subtitle": "Boardroom HQ Local Shell",
+  "status": "local_mode_active",
+  "dashboard_url": "http://127.0.0.1:8852/",
+  "router": "tools/qsb_brain_router.py",
+  "hub": "tools/qsb_boardroom_hub.py",
+  "persona_file": "data/registries/hq_claude_local_persona.json",
+  "status_file": "data/registries/hq_claude_local_status.json",
+  "proof_file": "data/registries/hq_claude_local_proof.json",
+  "provider_policy": "local_14b first; Claude API avoided unless Ross override",
+  "last_provider_used": "local_14b",
+  "last_model_used": "qwen2.5:14b",
+  "last_claude_avoided": true,
+  "last_claude_blocked": false,
+  "claude_api_default": "avoided/blocked",
+  "memory_overwrite": false,
+  "destructive_actions": false
+}

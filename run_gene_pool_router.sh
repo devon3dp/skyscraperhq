@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+set -u
+cd "/vaults/nvme0/qsb_tower_v1" || exit 1
+mkdir -p "/vaults/nvme0/qsb_tower_v1/logs" "/vaults/nvme0/qsb_tower_v1/runtime" "/vaults/nvme0/qsb_tower_v1/data/registries" "/vaults/nvme0/qsb_tower_v1/vaults/gene_pool"
+
+export GENE_POOL_ROUTER_HOST="0.0.0.0"
+export GENE_POOL_ROUTER_PORT="8860"
+
+# Load common vault env files. Missing files are fine.
+for f in \
+  "/home/ross/.claude/.credentials" \
+  "/home/ross/.claude/.env" \
+  "/vaults/nvme0/qsb_tower_v1/vaults/keys/openai_api.env" \
+  "/vaults/nvme0/qsb_tower_v1/vaults/keys/deepseek_api.env" \
+  "/vaults/nvme0/qsb_tower_v1/vaults/keys/gemini_api.env" \
+  "/vaults/nvme0/qsb_tower_v1/vaults/keys/cohere_api.env" \
+  "/vaults/nvme0/qsb_tower_v1/vaults/keys/kimi_api.env" \
+  "/vaults/nvme0/qsb_tower_v1/vaults/keys/moonshot_api.env" \
+  "/vaults/nvme0/qsb_tower_v1/vaults/keys/grok_api.env" \
+  "/vaults/nvme0/qsb_tower_v1/vaults/keys/xai_api.env" \
+  "/vaults/nvme0/qsb_tower_v1/vaults/keys/groq_api.env"
+do
+  if [ -f "$f" ]; then
+    set -a
+    . "$f" 2>/dev/null || true
+    set +a
+  fi
+done
+
+exec python3 -u "/vaults/nvme0/qsb_tower_v1/tools/skyscraper_gene_pool_router.py"

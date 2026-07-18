@@ -1,0 +1,48 @@
+{"event": "requester_rejected", "requester": "tp_pip", "ip": "127.0.0.1", "reason": "HQ surrogate (127.0.0.1) presented as physical tp_pip \u2014 rejected", "ts": "2026-07-12T15:21:23.552190Z"}
+{"event": "requester_rejected", "requester": "mallory", "ip": "127.0.0.1", "reason": "unknown requester 'mallory'", "ts": "2026-07-12T15:21:23.565545Z"}
+{"event": "draft", "job": "wren_1783869683", "requester": "wren", "ip": "127.0.0.1", "mode": "CHAT_ONLY", "ts": "2026-07-12T15:21:23.580371Z"}
+{"event": "wren_review", "job": "wren_1783869683", "verdict": "CLAIM_VERIFIED", "ts": "2026-07-12T15:21:33.634764Z"}
+{"event": "ross_approved", "job": "wren_1783869683", "ts": "2026-07-12T15:21:33.656866Z"}
+{"event": "launched", "job": "wren_1783869683", "verifier": "PASS", "cage_closed": true, "auth": "SUBSCRIPTION_OAUTH", "ts": "2026-07-12T15:21:43.085432Z"}
+{"event": "draft", "job": "hq_1783869825", "requester": "claude_hq", "ip": "127.0.0.1", "mode": "CHAT_ONLY", "ts": "2026-07-12T15:23:45.492500Z"}
+{"event": "wren_review", "job": "hq_1783869825", "verdict": "CLAIM_VERIFIED", "ts": "2026-07-12T15:23:53.321397Z"}
+{"event": "ross_approved", "job": "hq_1783869825", "ts": "2026-07-12T15:23:53.331518Z"}
+{"event": "launched", "job": "hq_1783869825", "verifier": "PASS", "cage_closed": true, "auth": "SUBSCRIPTION_OAUTH", "ts": "2026-07-12T15:23:59.935342Z"}
+{"event": "draft", "job": "wren_1783870442", "requester": "wren", "ip": "127.0.0.1", "mode": "CHAT_ONLY", "ts": "2026-07-12T15:34:02.831483Z"}
+{"event": "wren_review", "job": "wren_1783870442", "verdict": "CLAIM_VERIFIED", "ts": "2026-07-12T15:34:13.164001Z"}
+{"event": "ross_approved", "job": "wren_1783870442", "ts": "2026-07-12T15:34:13.173902Z"}
+{"event": "launched", "job": "wren_1783870442", "verifier": "PASS", "cage_closed": true, "auth": "SUBSCRIPTION_OAUTH", "ts": "2026-07-12T15:34:25.453762Z"}
+{"event": "draft", "job": "hq_1783870465", "requester": "claude_hq", "ip": "127.0.0.1", "mode": "CHAT_ONLY", "ts": "2026-07-12T15:34:25.486771Z"}
+{"event": "wren_review", "job": "hq_1783870465", "verdict": "CLAIM_VERIFIED", "ts": "2026-07-12T15:34:33.324643Z"}
+{"event": "ross_approved", "job": "hq_1783870465", "ts": "2026-07-12T15:34:33.330122Z"}
+{"event": "launched", "job": "hq_1783870465", "verifier": "PASS", "cage_closed": true, "auth": "SUBSCRIPTION_OAUTH", "ts": "2026-07-12T15:34:37.836049Z"}
+{"event": "draft", "job": "hq_1783870580", "requester": "claude_hq", "ip": "127.0.0.1", "mode": "CHAT_ONLY", "ts": "2026-07-12T15:36:20.580704Z"}
+{"event": "wren_review", "job": "hq_1783870580", "verdict": "CLAIM_VERIFIED", "ts": "2026-07-12T15:36:28.307443Z"}
+{"event": "ross_approved", "job": "hq_1783870580", "ts": "2026-07-12T15:36:28.312999Z"}
+{"event": "max_exhausted_sentinel", "job": "hq_1783870580", "ts": "2026-07-12T15:36:28.318996Z"}
+{"event": "draft", "job": "tppip_1783872018", "requester": "tp_pip", "ip": "192.168.1.74", "mode": "CHAT_ONLY", "ts": "2026-07-12T16:00:18.928364Z"}
+{"event": "wren_review", "job": "tppip_1783872018", "verdict": "CLAIM_VERIFIED", "ts": "2026-07-12T16:01:04.021758Z"}
+{"event": "ross_approved", "job": "tppip_1783872018", "ts": "2026-07-12T16:01:04.031676Z"}
+{"event": "launched", "job": "tppip_1783872018", "verifier": "PASS", "cage_closed": true, "auth": "SUBSCRIPTION_OAUTH", "ts": "2026-07-12T16:01:53.646944Z"}
+{"event": "draft", "job": "acer_1783872152", "requester": "acer_cass", "ip": "192.168.1.78", "mode": "CHAT_ONLY", "ts": "2026-07-12T16:02:32.551001Z"}
+{"event": "wren_review", "job": "acer_1783872152", "verdict": "CLAIM_VERIFIED", "ts": "2026-07-12T16:03:01.271829Z"}
+{"event": "ross_approved", "job": "acer_1783872152", "ts": "2026-07-12T16:03:01.281864Z"}
+{"event": "launched", "job": "acer_1783872152", "verifier": "PASS", "cage_closed": true, "auth": "SUBSCRIPTION_OAUTH", "ts": "2026-07-12T16:03:15.544410Z"}
+{"event": "requester_rejected", "requester": "acer_cass", "ip": "127.0.0.1", "reason": "HQ surrogate (127.0.0.1) presented as physical acer_cass \u2014 rejected", "ts": "2026-07-12T16:04:27.629487Z"}
+{"event": "requester_rejected", "requester": "tp_pip", "ip": "127.0.0.1", "reason": "HQ surrogate (127.0.0.1) presented as physical tp_pip \u2014 rejected", "ts": "2026-07-12T16:04:27.643106Z"}
+{"event": "draft", "job": "wren_1783874297", "requester": "wren", "ip": "127.0.0.1", "mode": "CHAT_ONLY", "ts": "2026-07-12T16:38:17.177961Z"}
+{"event": "wren_review", "job": "wren_1783874297", "verdict": "CLAIM_VERIFIED", "ts": "2026-07-12T16:38:26.003102Z"}
+{"event": "ross_approved", "job": "wren_1783874297", "ts": "2026-07-12T16:38:26.013498Z"}
+{"event": "launched", "job": "wren_1783874297", "verifier": "PASS", "cage_closed": true, "auth": "SUBSCRIPTION_OAUTH", "ts": "2026-07-12T16:40:59.910917Z"}
+{"event": "draft", "job": "tppip_1783876344", "requester": "tp_pip", "ip": "192.168.1.74", "mode": "READ_ONLY_REVIEW", "ts": "2026-07-12T17:12:24.491216Z"}
+{"event": "wren_review", "job": "tppip_1783876344", "verdict": "CLAIM_VERIFIED", "ts": "2026-07-12T17:12:33.949609Z"}
+{"event": "draft", "job": "tppip_1783876371", "requester": "tp_pip", "ip": "192.168.1.74", "mode": "READ_ONLY_REVIEW", "ts": "2026-07-12T17:12:51.045492Z"}
+{"event": "wren_review", "job": "tppip_1783876371", "verdict": "CLAIM_VERIFIED", "ts": "2026-07-12T17:13:00.933231Z"}
+{"event": "ross_approved", "job": "tppip_1783876371", "ts": "2026-07-12T17:13:00.941970Z"}
+{"event": "launched", "job": "tppip_1783876371", "verifier": "PASS", "cage_closed": true, "auth": "SUBSCRIPTION_OAUTH", "ts": "2026-07-12T17:13:54.373789Z"}
+{"event": "draft", "job": "wren_1783876575", "requester": "wren", "ip": "127.0.0.1", "mode": "CHAT_ONLY", "ts": "2026-07-12T17:16:15.275508Z"}
+{"event": "wren_review", "job": "wren_1783876575", "verdict": "CLAIM_VERIFIED", "ts": "2026-07-12T17:16:23.093429Z"}
+{"event": "ross_approved", "job": "wren_1783876575", "ts": "2026-07-12T17:16:23.103351Z"}
+{"event": "max_exhausted_sentinel", "job": "wren_1783876575", "ts": "2026-07-12T17:16:23.109605Z"}
+{"event": "requester_rejected", "requester": "mallory", "ip": "127.0.0.1", "reason": "unknown requester 'mallory'", "ts": "2026-07-12T17:16:23.123143Z"}
+{"event": "draft", "job": "wren_1783876583", "requester": "wren", "ip": "127.0.0.1", "mode": "CHAT_ONLY", "ts": "2026-07-12T17:16:23.137171Z"}

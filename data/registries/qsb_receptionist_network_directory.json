@@ -1,0 +1,74 @@
+{
+ "generated_ts": "2026-07-11",
+ "devices": [
+  {
+   "name": "Claude HQ",
+   "kind": "host",
+   "addr": "192.168.1.72",
+   "probe": "http://127.0.0.1:8850/",
+   "evidence": "local host"
+  },
+  {
+   "name": "Router / Nighthawk",
+   "kind": "router",
+   "addr": "192.168.1.1",
+   "probe": "http://192.168.1.1/",
+   "evidence": "Netgear CONFIRMED (Server: httpd/2.7 Netgear; model D86). 'Nighthawk' family NOT confirmed. Gateway responds (302). No router login.",
+   "model_confirmed": "Netgear (D86)"
+  },
+  {
+   "name": "TP-Pip (ThinkPad)",
+   "kind": "worker",
+   "addr": "192.168.1.74",
+   "probe": "http://192.168.1.74:8871/whoami",
+   "evidence": "physical worker"
+  },
+  {
+   "name": "Acer-Cass (Acer)",
+   "kind": "worker",
+   "addr": "192.168.1.41",
+   "probe": "http://192.168.1.41:8872/whoami",
+   "evidence": "physical worker"
+  },
+  {
+   "name": "Wren",
+   "kind": "guardian",
+   "addr": "192.168.1.72",
+   "probe": "http://127.0.0.1:8851/",
+   "evidence": "local guardian"
+  },
+  {
+   "name": "Pi Receptionist",
+   "kind": "pi",
+   "addr": "192.168.1.24",
+   "probe": null,
+   "evidence": "qsb-reception (192.168.1.24) resolves + pings UP; ports 22/80/8856 CLOSED -> host up but services not running (kiosk/ssh not up).",
+   "fixed_status": "PARTIAL"
+  },
+  {
+   "name": "Galaxy phone bridge",
+   "kind": "phone",
+   "addr": null,
+   "probe": null,
+   "evidence": "vault/.env.galaxy_sim present; no running bridge process; NEEDS WIRING."
+  }
+ ],
+ "storage": [
+  {
+   "name": "ECHO_CHAMBER (nvme0)",
+   "mount": "/vaults/nvme0",
+   "evidence": "lsblk mounted"
+  },
+  {
+   "name": "KINGSTON_CHAMBER",
+   "mount": "/vaults/kingston",
+   "evidence": "lsblk mounted"
+  },
+  {
+   "name": "SSK / NAS",
+   "mount": null,
+   "evidence": "WiFi NAS 10.10.10.254 checked read-only -> UNREACHABLE (000). Not mounted. NEEDS WIRING (no format/mount)."
+  }
+ ],
+ "verification_ts": "2026-07-11"
+}

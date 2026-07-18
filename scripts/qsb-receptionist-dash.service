@@ -1,0 +1,15 @@
+[Unit]
+Description=QSB Receptionist Dashboard V1 (:8856) - Pi touchscreen control desk, no Pico
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/vaults/nvme0/qsb_tower_v1
+ExecStart=/usr/bin/python3 /vaults/nvme0/qsb_tower_v1/tools/qsb_receptionist_dash.py
+Restart=on-failure
+RestartSec=3
+User=ross
+
+[Install]
+WantedBy=multi-user.target

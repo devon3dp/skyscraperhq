@@ -1,0 +1,24 @@
+{
+  "timestamp": "2026-07-08T04:06:36",
+  "cycle": 13,
+  "active_root": "/vaults/nvme0/qsb_tower_v1",
+  "model": "qwen2.5:14b",
+  "endpoints_ok": {
+    "brain_router": false,
+    "task_council": false,
+    "asa": true,
+    "tp_pip": true,
+    "ollama": true,
+    "boardroom": true
+  },
+  "hq_ok": true,
+  "asa_task_ok": true,
+  "tp_task_ok": false,
+  "claude_api_used": false,
+  "destructive_actions": false,
+  "trading_changes": false,
+  "hq_preview": "### HQ STATUS\n- Cycle: 13\n- Timestamp: 2026-07-08T04:06:26\n- Mode: V1 overnight read-only team study\n\n### BRAIN ROUTER STATUS\n- Status: Failed (timed out)\n\n### TASK COUNCIL STATUS\n- Status: Failed (timed out)\n\n### WREN / ASA / TP-PIP STATUS\n- **ASA**: Alive, local_task_node mode, port 9122, brain_router_v2 endpoint active.\n- **TP-PIP**: Alive, remote_ollama provider route, qwen2.5:14b model used, no claude_api_used.\n\n### SAFE MORNING ACTION\n- Review and restart the services that timed out (Brain Router and Task Council).\n\n### PROOF LABELS\n- ENDPOINT PROOF",
+  "asa_preview": "**Task Summary:**\n\n- **Role:** QSB Task Council Clerk (Asa V1 Night Clerk)\n- **Action Required:** Summarize the current endpoint state.\n- **Instructions Followed:**\n  - Use concise proof language.\n  - Do not claim access to tools or data that are not available.\n\n**Endpoint State Summary:**\n\n- Current route test gate status: read_only\n- No destructive actions permitted\n\n**Proof Labels:**\n- READ_ONLY\n- NO_TOOL_PROOF",
+  "tp_preview": "NOT_OK: HTTP Error 404: Not Found",
+  "cycle_dir": "/vaults/nvme0/qsb_tower_v1/data/night_council/v1_team_overnight_20260708_010027/cycles/cycle_013"
+}

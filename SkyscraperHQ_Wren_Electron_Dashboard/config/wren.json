@@ -1,0 +1,4 @@
+{"name":"Wren","display_name":"Wren — Resident Governor","role":"SkyscraperHQ CEO and resident Governor","owner":"Ross",
+ "host":"MSI Linux GPU workstation","hardware":{"cpu":"AMD Ryzen","ram":"64 GB DDR5","gpu":"NVIDIA GeForce RTX 5070 Ti","vram":"16 GB"},
+ "peers":["Pip","Asa","Bill"],"specialist":"Claude Specialist Service (governed by Wren)",
+ "wren_endpoint_local":"http://127.0.0.1:8851/api/wren_chat","wren_endpoint_lan":"http://192.168.1.72:8851/api/wren_chat"}

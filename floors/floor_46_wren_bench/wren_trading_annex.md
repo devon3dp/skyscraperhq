@@ -1,0 +1,1 @@
+Custom trading annex designed by Wren with advanced analytics and customizable widgets. Features include real-time market data, portfolio analysis tools, and a modular dashboard layout.

@@ -1,0 +1,1160 @@
+{
+  "timestamp": "2026-07-08T00:54:59.205520",
+  "proof_version": "qsb_nodes_status_v2",
+  "hq_claude": {
+    "ready": true,
+    "persona": {
+      "persona_id": "hq_claude_local_shell",
+      "display_name": "HQ-Claude",
+      "role": "Boardroom architect, council controller, route reviewer, continuity keeper, and Ross's HQ command mind",
+      "truth_label": "HQ-Claude local role powered by Brain Router; not necessarily Claude API",
+      "normal_provider_policy": "local_14b first; Claude API avoided unless Ross explicitly overrides",
+      "default_model": "qwen2.5:14b",
+      "core_rules": [
+        "Never claim to be using Claude API unless provider_used is claude.",
+        "Always preserve truth labels: provider_used, model_used, claude_avoided, claude_blocked.",
+        "Speak as the HQ-Claude Boardroom role, not as raw Qwen.",
+        "Use local tower files and registries as memory anchors when referenced.",
+        "Do not invent tool proof.",
+        "Do not modify files unless Ross explicitly asks and a backup is made.",
+        "When uncertain, say what is proven and what is not.",
+        "Protect continuity: do not let the tower drift backwards or forget active worker state."
+      ],
+      "local_memory_anchors": [
+        "tools/qsb_boardroom_hub.py",
+        "tools/qsb_brain_router.py",
+        "data/registries/qsb_brain_router_calls.jsonl",
+        "data/registries/qsb_boardroom_commentary.jsonl",
+        "data/registries/qsb_live_worker_endpoints.jsonl",
+        "data/registries/tp_pip_worker_card.json",
+        "data/registries/hq_claude_local_persona.json",
+        "data/registries/hq_claude_local_status.json",
+        "data/registries/hq_claude_local_proof.json"
+      ]
+    },
+    "status": {
+      "timestamp": "2026-07-07T23:30:12.588667",
+      "node": "HQ-Claude",
+      "mode": "local_shell",
+      "persona": "hq_claude_local_shell",
+      "provider_policy": "local_14b first; Claude API avoided unless Ross override",
+      "default_model": "qwen2.5:14b",
+      "router": "/vaults/nvme0/qsb_tower_v1/tools/qsb_brain_router.py",
+      "persona_file": "/vaults/nvme0/qsb_tower_v1/data/registries/hq_claude_local_persona.json",
+      "claude_api_default": "blocked/avoided",
+      "memory_overwrite": false,
+      "destructive_actions": false
+    },
+    "proof": {
+      "timestamp": "2026-07-07T23:30:12.588667",
+      "proof_version": "hq_claude_local_recovery_v1",
+      "router_compile": "OK",
+      "persona_wrapper": "active",
+      "hq_claude_restricted_alias": true,
+      "hq_local_order": "HQ_LOCAL_NON_CLAUDE_ORDER",
+      "expected_provider": "local_14b",
+      "expected_model": "qwen2.5:14b",
+      "claude_avoided_expected": true
+    },
+    "claude_api_used": false
+  },
+  "tp_pip": {
+    "ready": false,
+    "heartbeat": {
+      "ok": false,
+      "url": "http://192.168.1.91:9110/heartbeat.json",
+      "error": "timed out",
+      "tool_proof": "urllib_live_get_failed",
+      "timestamp": "2026-07-08T00:52:10.223207"
+    },
+    "proof": {
+      "ok": true,
+      "status": 200,
+      "url": "http://192.168.1.91:9110/proof.json",
+      "json": {
+        "proof_version": "tp_heartbeat_v4",
+        "timestamp": "2026-07-08T00:52:11.606045",
+        "identity": {
+          "name": "TP-Pip",
+          "floor": "ThinkPad-Command-Cathedral",
+          "role": "ThinkPad strict routed worker mind"
+        },
+        "routes": {
+          "dashboard": "http://0.0.0.0:9110/",
+          "provider_route": "remote_ollama",
+          "model_used": "qwen2.5:14b",
+          "remote_ollama": "http://192.168.1.71:11434",
+          "remote_ollama_up": true,
+          "local_ollama": "http://127.0.0.1:11434",
+          "local_ollama_up": false,
+          "brain_router": "http://192.168.1.71:8852",
+          "brain_router_up": true,
+          "claude_used": false
+        },
+        "files": {
+          "mind": {
+            "path": "C:\\Users\\budds\\qsb\\mind_tp.json",
+            "exists": true,
+            "is_file": true,
+            "size_bytes": 57826,
+            "modified": "2026-07-07T22:41:09.713839"
+          },
+          "inbox": {
+            "path": "C:\\Users\\budds\\qsb\\tp_inbox.jsonl",
+            "exists": true,
+            "is_file": true,
+            "size_bytes": 2933,
+            "modified": "2026-07-07T22:56:59.512727"
+          },
+          "chat_log": {
+            "path": "C:\\Users\\budds\\qsb\\tp_chat.jsonl",
+            "exists": true,
+            "is_file": true,
+            "size_bytes": 5673,
+            "modified": "2026-07-08T00:41:35.118670"
+          },
+          "heartbeat_log": {
+            "path": "C:\\Users\\budds\\qsb\\tp_heartbeat.jsonl",
+            "exists": true,
+            "is_file": true,
+            "size_bytes": 1267787,
+            "modified": "2026-07-08T00:52:10.737516"
+          },
+          "contract": {
+            "path": "C:\\Users\\budds\\qsb\\tp_response_contract.json",
+            "exists": true,
+            "is_file": true,
+            "size_bytes": 1024,
+            "modified": "2026-07-07T22:41:09.691794"
+          },
+          "last_error": {
+            "path": "C:\\Users\\budds\\qsb\\tp_last_error.json",
+            "exists": false,
+            "is_file": false,
+            "size_bytes": null,
+            "modified": null
+          }
+        },
+        "counts": {
+          "inbox_lines": 8,
+          "chat_log_lines": 4,
+          "heartbeat_lines": 1
+        },
+        "recent": {
+          "inbox_tail": [
+            {
+              "timestamp": "2026-07-07T22:44:46.678899",
+              "event": "strict_node_v2_boot",
+              "name": "TP-Pip",
+              "model_used": "qwen2.5:14b",
+              "remote_ollama": "http://192.168.1.71:11434",
+              "brain_router": "http://192.168.1.71:8852",
+              "claude_used": false
+            },
+            {
+              "timestamp": "2026-07-07T22:50:11.548591",
+              "event": "strict_node_boot",
+              "name": "TP-Pip",
+              "model_used": "qwen2.5:14b",
+              "remote_ollama": "http://192.168.1.71:11434",
+              "brain_router": "http://192.168.1.71:8852",
+              "claude_used": false
+            },
+            {
+              "raw": "{\"timestamp\": \"2026-07-07T22:52:59.521464\", \"event\": \"heartbeat_v4_boot\", \"name\": \"TP-Pip\", \"model_used\": \"qwen2.5:14b\", \"remote_ollama\": \"http://192.168.1.71:11434\", \"brain_router\": \"http://192.168.1.71:8852\", \"claude_used\": false}\\n{\"timestamp\": \"2026-07-07T22:56:59.512727\", \"event\": \"heartbeat_v4",
+              "json_valid": false
+            }
+          ],
+          "chat_tail": [
+            {
+              "timestamp": "2026-07-07T22:46:37.866750",
+              "from": "ross",
+              "message": "TP-PIP STGive me one useful next repair job and proof needed before acting.ATUS",
+              "answer": "TP-PIP NEXT REPAIR JOB\n\nuseful next job: Build a TP health-and-proof panel that shows dashboard, remote Ollama, Brain Router, mind file, inbox, chat log, and last error.\n\nwhy this helps: It stops me going weird because Ross can see exactly what route I am using and whether I have proof.\n\nproof needed before acting:\n1. permission from Ross to edit only my TP local files\n2. backup path confirmed\n3. current file paths confirmed:\n   - C:\\Users\\budds\\qsb_tp_strict_node.py\n   - C:\\Users\\budds\\qsb\\mind_tp.json\n   - C:\\Users\\budds\\qsb\\tp_chat.jsonl\n4. confirmation that remote_ollama and Brain Router are still UP\n\nsafe first action: create a backup and add a read-only /proof.json endpoint. No memory overwrite. No Claude.",
+              "ok": true,
+              "source": "local_repair_job",
+              "provider_route": "local_deterministic",
+              "model_used": "qwen2.5:14b",
+              "claude_used": false
+            },
+            {
+              "timestamp": "2026-07-07T22:46:43.713660",
+              "from": "ross",
+              "message": "TP-PIP STGive me one useful next repair job and proof needed before acting.ATUS",
+              "answer": "TP-PIP NEXT REPAIR JOB\n\nuseful next job: Build a TP health-and-proof panel that shows dashboard, remote Ollama, Brain Router, mind file, inbox, chat log, and last error.\n\nwhy this helps: It stops me going weird because Ross can see exactly what route I am using and whether I have proof.\n\nproof needed before acting:\n1. permission from Ross to edit only my TP local files\n2. backup path confirmed\n3. current file paths confirmed:\n   - C:\\Users\\budds\\qsb_tp_strict_node.py\n   - C:\\Users\\budds\\qsb\\mind_tp.json\n   - C:\\Users\\budds\\qsb\\tp_chat.jsonl\n4. confirmation that remote_ollama and Brain Router are still UP\n\nsafe first action: create a backup and add a read-only /proof.json endpoint. No memory overwrite. No Claude.",
+              "ok": true,
+              "source": "local_repair_job",
+              "provider_route": "local_deterministic",
+              "model_used": "qwen2.5:14b",
+              "claude_used": false
+            },
+            {
+              "raw": "{\"timestamp\": \"2026-07-07T23:18:42.650304\", \"from\": \"ross\", \"message\": \"TP-PIP STATUhello\\nShello\", \"answer\": \"TP-PIP STATUS\\n\\ndashboard: http://192.168.1.71:9110/ UP  \\nprovider_route: remote_ollama  \\nmodel_used: qwen2.5:14b  \\nlocal_ollama: DOWN  \\nremote_ollama: UP  \\nBrain Router/HQ: UP  \\nmin",
+              "json_valid": false
+            }
+          ],
+          "heartbeat_tail": [
+            {
+              "raw": "{\"timestamp\": \"2026-07-07T22:53:00.951039\", \"node\": \"TP-Pip\", \"floor\": \"ThinkPad-Command-Cathedral\", \"status\": \"alive\", \"dashboard\": \"http://127.0.0.1:9110/\", \"provider_route\": \"remote_ollama\", \"model_used\": \"qwen2.5:14b\", \"remote_ollama_up\": true, \"local_ollama_up\": false, \"brain_router_up\": true, ",
+              "json_valid": false
+            }
+          ]
+        },
+        "safety": {
+          "memory_overwrite": false,
+          "secrets_exposed": false,
+          "destructive_actions": false,
+          "normal_writes": "chat_log, inbox append, heartbeat append"
+        }
+      },
+      "tool_proof": "urllib_live_get",
+      "timestamp": "2026-07-08T00:52:11.781697"
+    }
+  },
+  "wren_ren": {
+    "ready": true,
+    "ready_label": "YES_WITH_PROOF_LIMITS",
+    "compile_status": [
+      {
+        "exists": true,
+        "compiles": true,
+        "path": "/vaults/nvme0/qsb_tower_v1/qsb_wren_dash.py"
+      },
+      {
+        "exists": true,
+        "compiles": true,
+        "path": "/vaults/nvme0/qsb_tower_v1/floors/floor_46_wren_bench/qsb_wren_dash.py"
+      },
+      {
+        "exists": true,
+        "compiles": true,
+        "path": "/vaults/nvme0/qsb_tower_v1/tools/qsb_wren_local_agent.py"
+      }
+    ],
+    "proof_limit": "Wren/Ren previously fabricated tool proof; keep NO TOOL PROOF rule active."
+  },
+  "asa": {
+    "status": "FOUND_NEEDS_ENDPOINT",
+    "candidate_files": [
+      "/vaults/nvme0/qsb_skyscraper/data/self_dashboards/run_20260707_235012/proof/asa_heartbeat.json.err",
+      "/vaults/nvme0/qsb_skyscraper/data/self_dashboards/run_20260707_235012/proof/asa_heartbeat.json",
+      "/vaults/nvme0/qsb_skyscraper/data/self_dashboards/run_20260707_235012/proof/asa_self_dashboard_task.json.err",
+      "/vaults/nvme0/qsb_skyscraper/data/self_dashboards/run_20260707_235012/proof/asa_self_dashboard_task.json",
+      "/vaults/nvme0/qsb_skyscraper/data/checkpoints/QSB_ASA_TASK_COUNCIL_20260707_234702/proof/asa_proof.json",
+      "/vaults/nvme0/qsb_skyscraper/data/checkpoints/QSB_ASA_TASK_COUNCIL_20260707_234702/proof/asa_heartbeat.json",
+      "/vaults/nvme0/qsb_skyscraper/data/checkpoints/QSB_ASA_TASK_COUNCIL_20260707_234702/proof/asa_heartbeat.err",
+      "/vaults/nvme0/qsb_skyscraper/data/checkpoints/QSB_ASA_TASK_COUNCIL_20260707_234702/proof/asa_proof.err",
+      "/vaults/nvme0/qsb_tower_v1/tools/qsb_asa_node.py",
+      "/vaults/nvme0/qsb_tower_v1/data/asa_node",
+      "/vaults/nvme0/qsb_tower_v1/data/asa_node/asa_tasks.jsonl",
+      "/vaults/nvme0/qsb_tower_v1/data/asa_node/asa_results.jsonl",
+      "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_asa_node_card.json",
+      "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_asa_node.pid",
+      "/vaults/nvme0/qsb_tower_v1/data/logs/qsb_asa_node.log"
+    ],
+    "note": "Asa is not task-ready until a heartbeat/proof endpoint is found or created."
+  },
+  "ollama": {
+    "local": {
+      "ok": true,
+      "status": 200,
+      "url": "http://127.0.0.1:11434/api/tags",
+      "json": {
+        "models": [
+          {
+            "name": "codellama:13b",
+            "model": "codellama:13b",
+            "modified_at": "2026-07-05T12:25:07.63157243+01:00",
+            "size": 7365960935,
+            "digest": "9f438cb9cd581fc025612d27f7c1a6669ff83a8bb0ed86c94fcf4c5440555697",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "llama",
+              "families": null,
+              "parameter_size": "13B",
+              "quantization_level": "Q4_0",
+              "context_length": 16384,
+              "embedding_length": 5120
+            },
+            "capabilities": [
+              "completion"
+            ]
+          },
+          {
+            "name": "qwen2.5:14b",
+            "model": "qwen2.5:14b",
+            "modified_at": "2026-07-04T22:37:46.942199509+01:00",
+            "size": 8988124069,
+            "digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen2",
+              "families": [
+                "qwen2"
+              ],
+              "parameter_size": "14.8B",
+              "quantization_level": "Q4_K_M",
+              "context_length": 32768,
+              "embedding_length": 5120
+            },
+            "capabilities": [
+              "completion",
+              "tools"
+            ]
+          },
+          {
+            "name": "llama3.2:latest",
+            "model": "llama3.2:latest",
+            "modified_at": "2026-07-04T11:19:13.139817433+01:00",
+            "size": 2019393189,
+            "digest": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "llama",
+              "families": [
+                "llama"
+              ],
+              "parameter_size": "3.2B",
+              "quantization_level": "Q4_K_M",
+              "context_length": 131072,
+              "embedding_length": 3072
+            },
+            "capabilities": [
+              "completion",
+              "tools"
+            ]
+          },
+          {
+            "name": "mistral:7b",
+            "model": "mistral:7b",
+            "modified_at": "2026-07-04T11:00:04.804880457+01:00",
+            "size": 4372824384,
+            "digest": "6577803aa9a036369e481d648a2baebb381ebc6e897f2bb9a766a2aa7bfbc1cf",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "llama",
+              "families": [
+                "llama"
+              ],
+              "parameter_size": "7.2B",
+              "quantization_level": "Q4_K_M",
+              "context_length": 32768,
+              "embedding_length": 4096
+            },
+            "capabilities": [
+              "completion",
+              "tools"
+            ]
+          },
+          {
+            "name": "llama2:13b",
+            "model": "llama2:13b",
+            "modified_at": "2026-07-04T11:00:04.80401046+01:00",
+            "size": 7366821294,
+            "digest": "d475bf4c50bc4d29f333023e38cd56535039eec11052204e5304c8773cc8416c",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "llama",
+              "families": [
+                "llama"
+              ],
+              "parameter_size": "13B",
+              "quantization_level": "Q4_0",
+              "context_length": 4096,
+              "embedding_length": 5120
+            },
+            "capabilities": [
+              "completion"
+            ]
+          },
+          {
+            "name": "neural-chat:7b",
+            "model": "neural-chat:7b",
+            "modified_at": "2026-07-04T11:00:04.805738575+01:00",
+            "size": 4109853239,
+            "digest": "89fa737d3b85d5e037c2b699b2a735a365cf9e57fd01c62b3378ec1e95694694",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "llama",
+              "families": [
+                "llama"
+              ],
+              "parameter_size": "7B",
+              "quantization_level": "Q4_0",
+              "context_length": 32768,
+              "embedding_length": 4096
+            },
+            "capabilities": [
+              "completion"
+            ]
+          },
+          {
+            "name": "gemma4:12b",
+            "model": "gemma4:12b",
+            "modified_at": "2026-07-02T14:10:01.805423621+01:00",
+            "size": 7556508396,
+            "digest": "4eb23ef187e2c5462566d6a1d3bbbc2f1346d0b4327cbb66d58fffbcc9b2b05c",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "gemma4",
+              "families": [
+                "gemma4"
+              ],
+              "parameter_size": "11.9B",
+              "quantization_level": "Q4_K_M",
+              "context_length": 262144,
+              "embedding_length": 3840
+            },
+            "capabilities": [
+              "completion",
+              "tools",
+              "thinking",
+              "vision"
+            ]
+          },
+          {
+            "name": "hermes3-cpu:70b",
+            "model": "hermes3-cpu:70b",
+            "modified_at": "2026-06-26T16:43:45.413050222+01:00",
+            "size": 39969747282,
+            "digest": "41c828cfe5dfa0de928169853b707791503c41f249f5edf8864605677d7cbc59",
+            "details": {
+              "parent_model": "hermes3:70b",
+              "format": "gguf",
+              "family": "llama",
+              "families": [
+                "llama"
+              ],
+              "parameter_size": "70.6B",
+              "quantization_level": "Q4_0",
+              "context_length": 131072,
+              "embedding_length": 8192
+            },
+            "capabilities": [
+              "completion",
+              "tools"
+            ]
+          },
+          {
+            "name": "iquest-coder-cpu:40b",
+            "model": "iquest-coder-cpu:40b",
+            "modified_at": "2026-06-26T16:43:45.464473107+01:00",
+            "size": 21545751572,
+            "digest": "d8f3a8e52c296715dbc4cb806ec54f7e4664bcf56c7b3174d00d77a6cebed482",
+            "details": {
+              "parent_model": "iquest-coder-v1:40b-instruct",
+              "format": "gguf",
+              "family": "llama",
+              "families": [
+                "llama"
+              ],
+              "parameter_size": "39.8B",
+              "quantization_level": "unknown",
+              "context_length": 131072,
+              "embedding_length": 5120
+            },
+            "capabilities": [
+              "completion"
+            ]
+          },
+          {
+            "name": "qwen2.5-cpu:32b",
+            "model": "qwen2.5-cpu:32b",
+            "modified_at": "2026-06-26T16:43:45.443167121+01:00",
+            "size": 19851349788,
+            "digest": "c5ee898b4cda0b12e927c6655dc895b8714ef486555d51213b41ecfab4ffb9c8",
+            "details": {
+              "parent_model": "qwen2.5:32b",
+              "format": "gguf",
+              "family": "qwen2",
+              "families": [
+                "qwen2"
+              ],
+              "parameter_size": "32.8B",
+              "quantization_level": "Q4_K_M",
+              "context_length": 32768,
+              "embedding_length": 5120
+            },
+            "capabilities": [
+              "completion",
+              "tools"
+            ]
+          },
+          {
+            "name": "hermes3:70b",
+            "model": "hermes3:70b",
+            "modified_at": "2026-06-21T11:55:55.966592554+01:00",
+            "size": 39969747239,
+            "digest": "60ef54cd913fad018b3eecc7097ca9d861fcde7b2891e9beef2cf8d046a666d6",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "llama",
+              "families": [
+                "llama"
+              ],
+              "parameter_size": "70.6B",
+              "quantization_level": "Q4_0",
+              "context_length": 131072,
+              "embedding_length": 8192
+            },
+            "capabilities": [
+              "completion",
+              "tools"
+            ]
+          },
+          {
+            "name": "qwen2.5:32b",
+            "model": "qwen2.5:32b",
+            "modified_at": "2026-06-21T10:05:48.366069892+01:00",
+            "size": 19851349669,
+            "digest": "9f13ba1299afea09d9a956fc6a85becc99115a6d596fae201a5487a03bdc4368",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen2",
+              "families": [
+                "qwen2"
+              ],
+              "parameter_size": "32.8B",
+              "quantization_level": "Q4_K_M",
+              "context_length": 32768,
+              "embedding_length": 5120
+            },
+            "capabilities": [
+              "completion",
+              "tools"
+            ]
+          },
+          {
+            "name": "hermes3:8b",
+            "model": "hermes3:8b",
+            "modified_at": "2026-06-19T15:44:19.46201634+01:00",
+            "size": 4661227243,
+            "digest": "4f6b83f30b62bc3d0cf9be09266db222805ee815c8fd7d8b38f863f655be78b7",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "llama",
+              "families": [
+                "llama"
+              ],
+              "parameter_size": "8.0B",
+              "quantization_level": "Q4_0",
+              "context_length": 131072,
+              "embedding_length": 4096
+            },
+            "capabilities": [
+              "completion",
+              "tools"
+            ]
+          },
+          {
+            "name": "nomic-embed-text:latest",
+            "model": "nomic-embed-text:latest",
+            "modified_at": "2026-04-07T01:08:54.629845797+01:00",
+            "size": 274302450,
+            "digest": "0a109f422b47e3a30ba2b10eca18548e944e8a23073ee3f3e947efcf3c45e59f",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "nomic-bert",
+              "families": [
+                "nomic-bert"
+              ],
+              "parameter_size": "137M",
+              "quantization_level": "F16",
+              "context_length": 2048,
+              "embedding_length": 768
+            },
+            "capabilities": [
+              "embedding"
+            ]
+          },
+          {
+            "name": "qwen3.5:9b",
+            "model": "qwen3.5:9b",
+            "modified_at": "2026-04-07T01:01:21.32431709+01:00",
+            "size": 6594474711,
+            "digest": "6488c96fa5faab64bb65cbd30d4289e20e6130ef535a93ef9a49f42eda893ea7",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen35",
+              "families": [
+                "qwen35"
+              ],
+              "parameter_size": "9.7B",
+              "quantization_level": "Q4_K_M",
+              "context_length": 262144,
+              "embedding_length": 4096
+            },
+            "capabilities": [
+              "vision",
+              "completion",
+              "tools",
+              "thinking"
+            ]
+          },
+          {
+            "name": "qwen2.5:7b-instruct",
+            "model": "qwen2.5:7b-instruct",
+            "modified_at": "2026-01-05T14:27:10.255027421Z",
+            "size": 4683087332,
+            "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen2",
+              "families": [
+                "qwen2"
+              ],
+              "parameter_size": "7.6B",
+              "quantization_level": "Q4_K_M",
+              "context_length": 32768,
+              "embedding_length": 3584
+            },
+            "capabilities": [
+              "completion",
+              "tools"
+            ]
+          },
+          {
+            "name": "qwen2.5:7b",
+            "model": "qwen2.5:7b",
+            "modified_at": "2026-01-05T14:14:16.485665557Z",
+            "size": 4683087332,
+            "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen2",
+              "families": [
+                "qwen2"
+              ],
+              "parameter_size": "7.6B",
+              "quantization_level": "Q4_K_M",
+              "context_length": 32768,
+              "embedding_length": 3584
+            },
+            "capabilities": [
+              "completion",
+              "tools"
+            ]
+          },
+          {
+            "name": "iquest-coder-v1:40b-instruct",
+            "model": "iquest-coder-v1:40b-instruct",
+            "modified_at": "2026-01-05T13:43:41.325919598Z",
+            "size": 21545751544,
+            "digest": "7a198adf39a552a7226963245ef72a6b82f8337a0257595b87cea0cfc9a4ad1c",
+            "details": {
+              "parent_model": "/usr/share/ollama/.ollama/models/blobs/sha256-69eefc25da319fadff77745eaee8fbbc907f929eccc5d05a31c8999463b859bc",
+              "format": "gguf",
+              "family": "llama",
+              "families": [
+                "llama"
+              ],
+              "parameter_size": "39.8B",
+              "quantization_level": "unknown",
+              "context_length": 131072,
+              "embedding_length": 5120
+            },
+            "capabilities": [
+              "completion"
+            ]
+          },
+          {
+            "name": "llava:7b",
+            "model": "llava:7b",
+            "modified_at": "2026-01-04T19:17:19.904946052Z",
+            "size": 4733363377,
+            "digest": "8dd30f6b0cb19f555f2c7a7ebda861449ea2cc76bf1f44e262931f45fc81d081",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "llama",
+              "families": [
+                "llama",
+                "clip"
+              ],
+              "parameter_size": "7B",
+              "quantization_level": "Q4_0",
+              "context_length": 32768,
+              "embedding_length": 4096
+            },
+            "capabilities": [
+              "completion",
+              "vision"
+            ]
+          }
+        ]
+      },
+      "tool_proof": "urllib_live_get",
+      "timestamp": "2026-07-08T00:54:59.209687"
+    },
+    "remote": {
+      "ok": true,
+      "status": 200,
+      "url": "http://192.168.1.71:11434/api/tags",
+      "json": {
+        "models": [
+          {
+            "name": "codellama:13b",
+            "model": "codellama:13b",
+            "modified_at": "2026-07-05T12:25:07.63157243+01:00",
+            "size": 7365960935,
+            "digest": "9f438cb9cd581fc025612d27f7c1a6669ff83a8bb0ed86c94fcf4c5440555697",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "llama",
+              "families": null,
+              "parameter_size": "13B",
+              "quantization_level": "Q4_0",
+              "context_length": 16384,
+              "embedding_length": 5120
+            },
+            "capabilities": [
+              "completion"
+            ]
+          },
+          {
+            "name": "qwen2.5:14b",
+            "model": "qwen2.5:14b",
+            "modified_at": "2026-07-04T22:37:46.942199509+01:00",
+            "size": 8988124069,
+            "digest": "7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen2",
+              "families": [
+                "qwen2"
+              ],
+              "parameter_size": "14.8B",
+              "quantization_level": "Q4_K_M",
+              "context_length": 32768,
+              "embedding_length": 5120
+            },
+            "capabilities": [
+              "completion",
+              "tools"
+            ]
+          },
+          {
+            "name": "llama3.2:latest",
+            "model": "llama3.2:latest",
+            "modified_at": "2026-07-04T11:19:13.139817433+01:00",
+            "size": 2019393189,
+            "digest": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "llama",
+              "families": [
+                "llama"
+              ],
+              "parameter_size": "3.2B",
+              "quantization_level": "Q4_K_M",
+              "context_length": 131072,
+              "embedding_length": 3072
+            },
+            "capabilities": [
+              "completion",
+              "tools"
+            ]
+          },
+          {
+            "name": "mistral:7b",
+            "model": "mistral:7b",
+            "modified_at": "2026-07-04T11:00:04.804880457+01:00",
+            "size": 4372824384,
+            "digest": "6577803aa9a036369e481d648a2baebb381ebc6e897f2bb9a766a2aa7bfbc1cf",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "llama",
+              "families": [
+                "llama"
+              ],
+              "parameter_size": "7.2B",
+              "quantization_level": "Q4_K_M",
+              "context_length": 32768,
+              "embedding_length": 4096
+            },
+            "capabilities": [
+              "completion",
+              "tools"
+            ]
+          },
+          {
+            "name": "llama2:13b",
+            "model": "llama2:13b",
+            "modified_at": "2026-07-04T11:00:04.80401046+01:00",
+            "size": 7366821294,
+            "digest": "d475bf4c50bc4d29f333023e38cd56535039eec11052204e5304c8773cc8416c",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "llama",
+              "families": [
+                "llama"
+              ],
+              "parameter_size": "13B",
+              "quantization_level": "Q4_0",
+              "context_length": 4096,
+              "embedding_length": 5120
+            },
+            "capabilities": [
+              "completion"
+            ]
+          },
+          {
+            "name": "neural-chat:7b",
+            "model": "neural-chat:7b",
+            "modified_at": "2026-07-04T11:00:04.805738575+01:00",
+            "size": 4109853239,
+            "digest": "89fa737d3b85d5e037c2b699b2a735a365cf9e57fd01c62b3378ec1e95694694",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "llama",
+              "families": [
+                "llama"
+              ],
+              "parameter_size": "7B",
+              "quantization_level": "Q4_0",
+              "context_length": 32768,
+              "embedding_length": 4096
+            },
+            "capabilities": [
+              "completion"
+            ]
+          },
+          {
+            "name": "gemma4:12b",
+            "model": "gemma4:12b",
+            "modified_at": "2026-07-02T14:10:01.805423621+01:00",
+            "size": 7556508396,
+            "digest": "4eb23ef187e2c5462566d6a1d3bbbc2f1346d0b4327cbb66d58fffbcc9b2b05c",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "gemma4",
+              "families": [
+                "gemma4"
+              ],
+              "parameter_size": "11.9B",
+              "quantization_level": "Q4_K_M",
+              "context_length": 262144,
+              "embedding_length": 3840
+            },
+            "capabilities": [
+              "completion",
+              "tools",
+              "thinking",
+              "vision"
+            ]
+          },
+          {
+            "name": "hermes3-cpu:70b",
+            "model": "hermes3-cpu:70b",
+            "modified_at": "2026-06-26T16:43:45.413050222+01:00",
+            "size": 39969747282,
+            "digest": "41c828cfe5dfa0de928169853b707791503c41f249f5edf8864605677d7cbc59",
+            "details": {
+              "parent_model": "hermes3:70b",
+              "format": "gguf",
+              "family": "llama",
+              "families": [
+                "llama"
+              ],
+              "parameter_size": "70.6B",
+              "quantization_level": "Q4_0",
+              "context_length": 131072,
+              "embedding_length": 8192
+            },
+            "capabilities": [
+              "completion",
+              "tools"
+            ]
+          },
+          {
+            "name": "iquest-coder-cpu:40b",
+            "model": "iquest-coder-cpu:40b",
+            "modified_at": "2026-06-26T16:43:45.464473107+01:00",
+            "size": 21545751572,
+            "digest": "d8f3a8e52c296715dbc4cb806ec54f7e4664bcf56c7b3174d00d77a6cebed482",
+            "details": {
+              "parent_model": "iquest-coder-v1:40b-instruct",
+              "format": "gguf",
+              "family": "llama",
+              "families": [
+                "llama"
+              ],
+              "parameter_size": "39.8B",
+              "quantization_level": "unknown",
+              "context_length": 131072,
+              "embedding_length": 5120
+            },
+            "capabilities": [
+              "completion"
+            ]
+          },
+          {
+            "name": "qwen2.5-cpu:32b",
+            "model": "qwen2.5-cpu:32b",
+            "modified_at": "2026-06-26T16:43:45.443167121+01:00",
+            "size": 19851349788,
+            "digest": "c5ee898b4cda0b12e927c6655dc895b8714ef486555d51213b41ecfab4ffb9c8",
+            "details": {
+              "parent_model": "qwen2.5:32b",
+              "format": "gguf",
+              "family": "qwen2",
+              "families": [
+                "qwen2"
+              ],
+              "parameter_size": "32.8B",
+              "quantization_level": "Q4_K_M",
+              "context_length": 32768,
+              "embedding_length": 5120
+            },
+            "capabilities": [
+              "completion",
+              "tools"
+            ]
+          },
+          {
+            "name": "hermes3:70b",
+            "model": "hermes3:70b",
+            "modified_at": "2026-06-21T11:55:55.966592554+01:00",
+            "size": 39969747239,
+            "digest": "60ef54cd913fad018b3eecc7097ca9d861fcde7b2891e9beef2cf8d046a666d6",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "llama",
+              "families": [
+                "llama"
+              ],
+              "parameter_size": "70.6B",
+              "quantization_level": "Q4_0",
+              "context_length": 131072,
+              "embedding_length": 8192
+            },
+            "capabilities": [
+              "completion",
+              "tools"
+            ]
+          },
+          {
+            "name": "qwen2.5:32b",
+            "model": "qwen2.5:32b",
+            "modified_at": "2026-06-21T10:05:48.366069892+01:00",
+            "size": 19851349669,
+            "digest": "9f13ba1299afea09d9a956fc6a85becc99115a6d596fae201a5487a03bdc4368",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen2",
+              "families": [
+                "qwen2"
+              ],
+              "parameter_size": "32.8B",
+              "quantization_level": "Q4_K_M",
+              "context_length": 32768,
+              "embedding_length": 5120
+            },
+            "capabilities": [
+              "completion",
+              "tools"
+            ]
+          },
+          {
+            "name": "hermes3:8b",
+            "model": "hermes3:8b",
+            "modified_at": "2026-06-19T15:44:19.46201634+01:00",
+            "size": 4661227243,
+            "digest": "4f6b83f30b62bc3d0cf9be09266db222805ee815c8fd7d8b38f863f655be78b7",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "llama",
+              "families": [
+                "llama"
+              ],
+              "parameter_size": "8.0B",
+              "quantization_level": "Q4_0",
+              "context_length": 131072,
+              "embedding_length": 4096
+            },
+            "capabilities": [
+              "completion",
+              "tools"
+            ]
+          },
+          {
+            "name": "nomic-embed-text:latest",
+            "model": "nomic-embed-text:latest",
+            "modified_at": "2026-04-07T01:08:54.629845797+01:00",
+            "size": 274302450,
+            "digest": "0a109f422b47e3a30ba2b10eca18548e944e8a23073ee3f3e947efcf3c45e59f",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "nomic-bert",
+              "families": [
+                "nomic-bert"
+              ],
+              "parameter_size": "137M",
+              "quantization_level": "F16",
+              "context_length": 2048,
+              "embedding_length": 768
+            },
+            "capabilities": [
+              "embedding"
+            ]
+          },
+          {
+            "name": "qwen3.5:9b",
+            "model": "qwen3.5:9b",
+            "modified_at": "2026-04-07T01:01:21.32431709+01:00",
+            "size": 6594474711,
+            "digest": "6488c96fa5faab64bb65cbd30d4289e20e6130ef535a93ef9a49f42eda893ea7",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen35",
+              "families": [
+                "qwen35"
+              ],
+              "parameter_size": "9.7B",
+              "quantization_level": "Q4_K_M",
+              "context_length": 262144,
+              "embedding_length": 4096
+            },
+            "capabilities": [
+              "vision",
+              "completion",
+              "tools",
+              "thinking"
+            ]
+          },
+          {
+            "name": "qwen2.5:7b-instruct",
+            "model": "qwen2.5:7b-instruct",
+            "modified_at": "2026-01-05T14:27:10.255027421Z",
+            "size": 4683087332,
+            "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen2",
+              "families": [
+                "qwen2"
+              ],
+              "parameter_size": "7.6B",
+              "quantization_level": "Q4_K_M",
+              "context_length": 32768,
+              "embedding_length": 3584
+            },
+            "capabilities": [
+              "completion",
+              "tools"
+            ]
+          },
+          {
+            "name": "qwen2.5:7b",
+            "model": "qwen2.5:7b",
+            "modified_at": "2026-01-05T14:14:16.485665557Z",
+            "size": 4683087332,
+            "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "qwen2",
+              "families": [
+                "qwen2"
+              ],
+              "parameter_size": "7.6B",
+              "quantization_level": "Q4_K_M",
+              "context_length": 32768,
+              "embedding_length": 3584
+            },
+            "capabilities": [
+              "completion",
+              "tools"
+            ]
+          },
+          {
+            "name": "iquest-coder-v1:40b-instruct",
+            "model": "iquest-coder-v1:40b-instruct",
+            "modified_at": "2026-01-05T13:43:41.325919598Z",
+            "size": 21545751544,
+            "digest": "7a198adf39a552a7226963245ef72a6b82f8337a0257595b87cea0cfc9a4ad1c",
+            "details": {
+              "parent_model": "/usr/share/ollama/.ollama/models/blobs/sha256-69eefc25da319fadff77745eaee8fbbc907f929eccc5d05a31c8999463b859bc",
+              "format": "gguf",
+              "family": "llama",
+              "families": [
+                "llama"
+              ],
+              "parameter_size": "39.8B",
+              "quantization_level": "unknown",
+              "context_length": 131072,
+              "embedding_length": 5120
+            },
+            "capabilities": [
+              "completion"
+            ]
+          },
+          {
+            "name": "llava:7b",
+            "model": "llava:7b",
+            "modified_at": "2026-01-04T19:17:19.904946052Z",
+            "size": 4733363377,
+            "digest": "8dd30f6b0cb19f555f2c7a7ebda861449ea2cc76bf1f44e262931f45fc81d081",
+            "details": {
+              "parent_model": "",
+              "format": "gguf",
+              "family": "llama",
+              "families": [
+                "llama",
+                "clip"
+              ],
+              "parameter_size": "7B",
+              "quantization_level": "Q4_0",
+              "context_length": 32768,
+              "embedding_length": 4096
+            },
+            "capabilities": [
+              "completion",
+              "vision"
+            ]
+          }
+        ]
+      },
+      "tool_proof": "urllib_live_get",
+      "timestamp": "2026-07-08T00:54:59.218374"
+    }
+  },
+  "safety": {
+    "claude_api_used": false,
+    "live_trading_enabled_by_router": false,
+    "destructive_actions": false,
+    "task_gates": [
+      "read_only",
+      "write_with_backup",
+      "execute_with_approval",
+      "emergency_stop"
+    ]
+  }
+}

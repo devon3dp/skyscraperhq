@@ -1,0 +1,34 @@
+{
+  "timestamp": "2026-07-07T23:47:12.440112",
+  "checkpoint": "/vaults/nvme0/qsb_skyscraper/data/checkpoints/QSB_ASA_TASK_COUNCIL_20260707_234702",
+  "asa": {
+    "timestamp": "2026-07-07T23:47:12.439970",
+    "node": "Asa",
+    "status": "alive",
+    "machine": "HQ",
+    "heartbeat_url": "http://127.0.0.1:9122/heartbeat.json",
+    "proof_url": "http://127.0.0.1:9122/proof.json",
+    "task_url": "http://127.0.0.1:9122/task",
+    "provider_route": "brain_router_v2",
+    "claude_api_used": false,
+    "source": "qsb_create_asa_and_task_council"
+  },
+  "task_council": {
+    "timestamp": "2026-07-07T23:47:12.439980",
+    "node": "QSB Task Council",
+    "status": "alive",
+    "machine": "HQ",
+    "health_url": "http://127.0.0.1:8854/health.json",
+    "proof_url": "http://127.0.0.1:8854/proof.json",
+    "nodes_url": "http://127.0.0.1:8854/nodes.json",
+    "run_demo_url": "http://127.0.0.1:8854/run-demo",
+    "provider_route": "brain_router_v2",
+    "claude_api_used": false,
+    "source": "qsb_create_asa_and_task_council"
+  },
+  "demo_cycle_status": null,
+  "demo_task_count": null,
+  "team_readiness": null,
+  "claude_api_used": false,
+  "destructive_actions": false
+}

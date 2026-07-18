@@ -1,0 +1,9 @@
+THINKPAD RUNTIME RESTORE MANIFEST  2026-07-07T20:19:48Z  machine=24.04ubuntu
+root=/vaults/nvme0/qsb_tower_v1
+--- sha256 (creds value NOT printed) ---
+0f11d4883a406fe3e9fa0c3dc3741d7458bdf479a050a07f5e5f57bb064b9540  data/registries/qsb_tp_pip_operator_card.json
+762fa41593909d6d56dae75d19b5b5611b58f192c551b1a0a4b2678dd234f887  data/registries/lessons_tp_pip.jsonl
+5ecb2d4722022ef1f9e615c2eb09e40e1490c8df3f532eb420180efcc42fc5c0  data/registries/qsb_council_mind_mirror_TP-Pip.json
+e7489d3f5dfb858e705c2dbc6ef0e835f53fe55cd7e22848bb7b87c43f3c394f  data/registries/qsb_council_mind_mirror_tp_pip.json
+e03690b3f66d00449432f5f9a824c165a97970af6eda55f75e3cbf0374a0f07c  data/registries/thinkpad_floor_creds.env
+7938602617a86fc6170f1f222619d32dd0d50660f71fbf58ed80c5ff440a02ce  src/workers/character_anchors.py

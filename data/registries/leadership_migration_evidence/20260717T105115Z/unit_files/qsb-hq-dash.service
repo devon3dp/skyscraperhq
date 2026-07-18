@@ -1,0 +1,14 @@
+[Unit]
+Description=HQ-Claude Dashboard (:8850) - HQ's own operating surface
+After=network.target
+[Service]
+Type=simple
+User=ross
+WorkingDirectory=/vaults/nvme0/qsb_tower_v1
+ExecStart=/usr/bin/python3 -u /vaults/nvme0/qsb_tower_v1/tools/qsb_hq_claude_dash.py --port 8850
+Restart=always
+RestartSec=3
+StandardOutput=append:/vaults/nvme0/qsb_tower_v1/logs/hq_claude_dash_8850.log
+StandardError=append:/vaults/nvme0/qsb_tower_v1/logs/hq_claude_dash_8850.log
+[Install]
+WantedBy=multi-user.target

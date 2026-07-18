@@ -1,0 +1,19 @@
+{
+  "node": "Wren",
+  "ts": "2026-07-04T20:33:57Z",
+  "mind": {
+    "node": "Wren",
+    "floor": "Wren-Bench",
+    "brain": "qwen3.5:9b",
+    "uptime_s": "live",
+    "cycle": "event-driven inotifywait",
+    "self_prompt": "active",
+    "event_driven": true,
+    "recent_thoughts": [
+      {
+        "kind": "self",
+        "text": "working on Rule 5 humanoid entry render"
+      }
+    ]
+  }
+}

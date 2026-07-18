@@ -1,0 +1,24 @@
+{
+  "trader_id": "belief_driven_btc",
+  "trained_at": "2026-07-06T07:10:09.769500Z",
+  "closes_analyzed": 983,
+  "win_rate_current": 0.538,
+  "win_rate_target": 0.75,
+  "gap_to_target": 0.212,
+  "avg_win_pnl": 0.1273,
+  "avg_loss_pnl": -0.2507,
+  "best_instrument": {
+    "name": "BTCUSDT",
+    "pnl": -46.4705
+  },
+  "worst_instrument": {
+    "name": "BTCUSDT",
+    "pnl": -46.4705
+  },
+  "learned_rules": [
+    "OVERHAUL \u2014 53% far below 75% \u00b7 SUSPEND and re-strategize",
+    "DROP BTCUSDT \u00b7 losing $-46.47"
+  ],
+  "recommended_units": 250,
+  "verdict": "SUSPEND"
+}

@@ -1,0 +1,219 @@
+{
+  "ts": "2026-07-12T21:32:14.004886Z",
+  "daemons": {
+    "dashboard": false,
+    "lumen": false,
+    "vision": false,
+    "heartbeat": false,
+    "cloudflared": false,
+    "qualify": false,
+    "godot": false
+  },
+  "adb_device": "",
+  "cloudflared_url": "",
+  "highlights": {
+    "alive_count": 0,
+    "down": [
+      "dashboard",
+      "lumen",
+      "vision",
+      "heartbeat",
+      "cloudflared",
+      "qualify",
+      "godot"
+    ],
+    "f47_chat_tail_count": 20,
+    "cli_chat_tail_count": 20,
+    "unsigned_proposals": 60,
+    "diary_last": "- 20:52 UTC (2026-07-12) \u2014 PITSTOP `physical-worker_live_cockpits___dashboard_hardening`. Focus: TP cockpit recovered; voice decision pending. Resume from data/registries/pitstops/pitstop_20260712T205234446441Z_physical-worker_live_cockpits___dashboard_hardening.md.",
+    "last_decision": {
+      "ts": "2026-07-12T21:30:25Z",
+      "kind": "hw_sample",
+      "operator": "hw_benchmark"
+    }
+  },
+  "f47_chat_tail": [
+    {
+      "ts": "2026-06-21T10:20:44Z",
+      "you": "will your floor still have a 3d interior that i can enter and see you and your floor and your team members ?"
+    },
+    {
+      "ts": "2026-06-21T10:29:08Z",
+      "you": "hows it going"
+    },
+    {
+      "ts": "2026-06-21T10:30:15Z",
+      "you": "but i thought you was fitting out your floor ?"
+    },
+    {
+      "ts": "2026-06-21T10:51:59Z",
+      "you": "can u smoke test yourself ?"
+    },
+    {
+      "ts": "2026-06-21T12:22:35Z",
+      "you": "hows iyt going wren"
+    },
+    {
+      "ts": "2026-06-21T12:22:59Z",
+      "you": "did you fit out your floor"
+    },
+    {
+      "ts": "2026-06-21T12:23:35Z",
+      "you": "ok can you now improve the reception ?"
+    },
+    {
+      "ts": "2026-06-21T13:07:00Z",
+      "you": "yes is it ready for me to see"
+    },
+    {
+      "ts": "2026-06-21T13:07:45Z",
+      "you": "is the interior of the reception ready for e to see inside ?"
+    },
+    {
+      "ts": "2026-06-21T13:08:34Z",
+      "you": "no fo"
+    },
+    {
+      "ts": "2026-06-21T13:08:54Z",
+      "you": "F0 stands for floor 0"
+    },
+    {
+      "ts": "2026-06-21T13:09:46Z",
+      "you": "tell me what you can and cant do in your software"
+    },
+    {
+      "ts": "2026-06-21T13:10:13Z",
+      "you": "are you aware you live in the skyscraper ?"
+    },
+    {
+      "ts": "2026-06-21T13:10:44Z",
+      "you": "do you have a team ?"
+    },
+    {
+      "ts": "2026-06-21T13:12:03Z",
+      "you": "what other members do you need on your team to help manage the skyscraper backend and front end and understand all the workers ?"
+    },
+    {
+      "ts": "2026-06-21T13:12:44Z",
+      "you": "ok what skills do you need and tools ?"
+    },
+    {
+      "ts": "2026-06-21T13:13:30Z",
+      "you": "how can i improve your understanding of the skyscraperhq ?"
+    },
+    {
+      "ts": "2026-06-30T15:22:21Z",
+      "you": "hello"
+    },
+    {
+      "ts": "2026-06-30T15:22:32Z",
+      "you": "its ross how are you"
+    },
+    {
+      "ts": "2026-06-30T15:24:43Z",
+      "you": "can you get the team to check why  qsb tower v1.6 is not working right prove your work"
+    }
+  ],
+  "cli_chat_tail": [
+    {
+      "ts": "2026-07-12T20:37:19.106Z",
+      "role": "user",
+      "text": "[tool_result:=== cockpit process count on TP (want exactly 1) ===\ncockpit procs: 1\nPID 708 python.exe\n=== cockpit content: PHYSICAL WORKER label + not surrogate ===\n        1 9110\n        1 DESKTOP-9R"
+    },
+    {
+      "ts": "2026-07-12T20:37:53.848Z",
+      "role": "assistant",
+      "text": "**Phase 1 GATE PASS \u2014 `TP_PIP_ORIGINAL_COCKPIT_RESTORED_BRAIN_UNCHANGED`**: exactly 1 cockpit process (PID 708), HTTP 200 showing DESKTOP-9RBVKSM/`tp_pip` (physical, with HQ-surrogate labelling), brai"
+    },
+    {
+      "ts": "2026-07-12T20:38:01.139Z",
+      "role": "assistant",
+      "text": "[tool_use:Bash]"
+    },
+    {
+      "ts": "2026-07-12T20:39:32.292Z",
+      "role": "user",
+      "text": "[tool_result:=== cockpit V3 existing feature coverage (grep deploy/physical_ceo_cockpit_v3.py) ===\n  avatar: 11 hits\n  voice: 0 hits\n  waveform: 0 hits\n  confidence: 4 hits\n  memory: 0 hits\n  resource"
+    },
+    {
+      "ts": "2026-07-12T20:40:20.662Z",
+      "role": "assistant",
+      "text": "Baseline clear: cockpit V3 already has avatar/task/council/wren/approval/confidence/alert panels, but **no voice/waveform/memory/resource/brain-router panels**, and critically **no local STT/TTS insta"
+    },
+    {
+      "ts": "2026-07-12T20:40:51.992Z",
+      "role": "assistant",
+      "text": "[tool_use:Bash]"
+    },
+    {
+      "ts": "2026-07-12T20:42:17.626Z",
+      "role": "user",
+      "text": "[tool_result:reports written: baseline + TP recovery]"
+    },
+    {
+      "ts": "2026-07-12T20:42:26.679Z",
+      "role": "assistant",
+      "text": "Voice report + consolidated + Wren + verifier:"
+    },
+    {
+      "ts": "2026-07-12T20:43:06.083Z",
+      "role": "assistant",
+      "text": "[tool_use:Bash]"
+    },
+    {
+      "ts": "2026-07-12T20:44:09.104Z",
+      "role": "user",
+      "text": "[tool_result:=== Wren review ===\n\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\nCLAIM_VERIFIED: Physical-worker minds backed up, TP-Pip cockpit recovered and running on :9120. Voice feat"
+    },
+    {
+      "ts": "2026-07-12T20:44:16.705Z",
+      "role": "assistant",
+      "text": "Wren **CLAIM_VERIFIED**, verifier PASS. Ledger + LATEST + task update:"
+    },
+    {
+      "ts": "2026-07-12T20:44:28.558Z",
+      "role": "assistant",
+      "text": "[tool_use:Bash]"
+    },
+    {
+      "ts": "2026-07-12T20:46:25.574Z",
+      "role": "user",
+      "text": "[tool_result:ledger appended: 9f7110028931643b\nconsolidated==LATEST: YES \u2713 (81c04cbac9dd8696)\nreports: 4]"
+    },
+    {
+      "ts": "2026-07-12T20:46:30.659Z",
+      "role": "assistant",
+      "text": "[tool_use:TaskUpdate]"
+    },
+    {
+      "ts": "2026-07-12T20:46:30.663Z",
+      "role": "user",
+      "text": "[tool_result:Updated task #23 ]"
+    },
+    {
+      "ts": "2026-07-12T20:46:50.841Z",
+      "role": "assistant",
+      "text": "Stopping for review with an honest partial.\n\n## VERDICT: `PHYSICAL_WORKER_LIVE_COCKPITS_PARTIAL_VOICE_BLOCKED`\n\nWren **CLAIM_VERIFIED**, verifier PASS. I'm being transparent about scope: this turn del"
+    },
+    {
+      "ts": "2026-07-12T20:52:15.663Z",
+      "role": "user",
+      "text": "pistop"
+    },
+    {
+      "ts": "2026-07-12T20:52:20.960Z",
+      "role": "assistant",
+      "text": "Pitstop \u2014 running the flush + resume-pointer tool now."
+    },
+    {
+      "ts": "2026-07-12T20:52:22.113Z",
+      "role": "assistant",
+      "text": "[tool_use:Bash]"
+    },
+    {
+      "ts": "2026-07-12T20:52:22.185Z",
+      "role": "user",
+      "text": "[tool_result:usage: qsb_pitstop.py [-h] [--tasklist TASKLIST] [--next-steps NEXT_STEPS]\n                      [--blockers BLOCKERS] [--tmp-files TMP_FILES]\n                      [--skip-tmp]\n         "
+    }
+  ]
+}

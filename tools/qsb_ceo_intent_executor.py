@@ -8,7 +8,7 @@ without actually invoking anything. HQ (this module) reads their reply,
 extracts the intended action, and does it — attributed to them.
 
 Supported intents (grow the list as we see patterns):
-  · POST http://192.168.1.71:8852/hq/write_file with JSON body → do the write
+  · POST http://192.168.1.72:8852/hq/write_file with JSON body → do the write
   · POST to boardroom /tasks/create → create the task
   · Invoke-WebRequest -Uri X -Body Y (PowerShell shape) → same as above
 

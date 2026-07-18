@@ -1,0 +1,1 @@
+{\n  \"models\": {\n    \"market_data_processor\": \"llava\",\n    \"risk_manager\": \"hermes_8b\",\n    \"trading_strategies\": \"wren_fast\"\n  },\n  \"data_sources\": [\n    {\n      \"type\": \"api\",\n      \"url\": \"https://api.example.com/market-data\"\n    }\n  ]\n}

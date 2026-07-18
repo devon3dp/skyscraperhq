@@ -1,0 +1,34 @@
+{
+  "wren": {
+    "registered": true,
+    "reachable_addr": "127.0.0.1",
+    "session_id": "sess_13e48496fab6",
+    "registered_at": "2026-07-18T11:30:41Z",
+    "last_heartbeat": "2026-07-18T14:47:17Z",
+    "last_heartbeat_epoch": 1784386037.9214249
+  },
+  "tp": {
+    "registered": true,
+    "reachable_addr": "192.168.1.74",
+    "session_id": "sess_f8b7021fc9f0",
+    "registered_at": "2026-07-17T17:46:01Z",
+    "last_heartbeat": "2026-07-17T17:46:01Z",
+    "last_heartbeat_epoch": 1784310361.7712972
+  },
+  "asa": {
+    "registered": true,
+    "reachable_addr": "192.168.1.78",
+    "session_id": "sess_2e5e11d95ed8",
+    "registered_at": "2026-07-18T14:47:02Z",
+    "last_heartbeat": "2026-07-18T14:47:02Z",
+    "last_heartbeat_epoch": 1784386022.358769
+  },
+  "bill": {
+    "registered": true,
+    "reachable_addr": "192.168.1.35",
+    "session_id": "sess_1782ca94e3eb",
+    "registered_at": "2026-07-18T13:09:34Z",
+    "last_heartbeat": "2026-07-18T14:47:04Z",
+    "last_heartbeat_epoch": 1784386024.831426
+  }
+}

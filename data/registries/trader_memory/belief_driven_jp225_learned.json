@@ -1,0 +1,24 @@
+{
+  "trader_id": "belief_driven_jp225",
+  "trained_at": "2026-07-06T07:10:09.773519Z",
+  "closes_analyzed": 5,
+  "win_rate_current": 0.4,
+  "win_rate_target": 0.75,
+  "gap_to_target": 0.35,
+  "avg_win_pnl": 5.0,
+  "avg_loss_pnl": -2.5,
+  "best_instrument": {
+    "name": "JP225_USD",
+    "pnl": 2.5
+  },
+  "worst_instrument": {
+    "name": "JP225_USD",
+    "pnl": 2.5
+  },
+  "learned_rules": [
+    "OVERHAUL \u2014 40% far below 75% \u00b7 SUSPEND and re-strategize",
+    "AMP JP225_USD \u00b7 winning +$2.50"
+  ],
+  "recommended_units": 250,
+  "verdict": "SUSPEND"
+}

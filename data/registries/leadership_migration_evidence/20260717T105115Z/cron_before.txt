@@ -1,0 +1,7 @@
+### user crontab ###
+# NVIDIA SDK Manager updater
+# NVIDIA SDK Manager updater
+0 12 */7 * * /bin/bash /home/ross/.nvsdkm/.updater/updater.sh
+@reboot /vaults/nvme0/qsb_tower_v1/deploy/qsb_tower_boot.sh
+*/5 * * * * /vaults/nvme0/qsb_tower_v1/deploy/qsb_tower_boot.sh >>/vaults/nvme0/qsb_tower_v1/logs/dashboards/boot_watchdog.log 2>&1
+5 * * * * /vaults/nvme0/qsb_tower_v1/tools/qsb_annex_sync.sh >/dev/null 2>&1

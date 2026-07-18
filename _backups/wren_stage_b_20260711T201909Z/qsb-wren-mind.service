@@ -1,0 +1,17 @@
+[Unit]
+Description=Wren Mind - event-driven evolution (wakes on her self-schedule; no ticks)
+After=network.target
+
+[Service]
+Type=simple
+User=ross
+WorkingDirectory=/vaults/nvme0/qsb_tower_v1
+ExecStart=/usr/bin/python3 -u /vaults/nvme0/qsb_tower_v1/tools/qsb_wren_evolution_loop.py
+Restart=on-failure
+RestartSec=5
+SuccessExitStatus=0
+StandardOutput=append:/vaults/nvme0/qsb_tower_v1/logs/wren_evolution.log
+StandardError=append:/vaults/nvme0/qsb_tower_v1/logs/wren_evolution.log
+
+[Install]
+WantedBy=multi-user.target

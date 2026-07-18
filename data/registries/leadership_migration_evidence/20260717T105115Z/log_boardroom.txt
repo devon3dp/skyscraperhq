@@ -1,0 +1,60 @@
+Jul 17 11:51:01 24.04ubuntu python3[128289]:   IPAD_HTML = """<!doctype html><html lang="en"><head>
+Jul 17 11:51:01 24.04ubuntu python3[128289]: /vaults/nvme0/qsb_tower_v1/tools/qsb_boardroom_hub.py:5023: SyntaxWarning: invalid escape sequence '\d'
+Jul 17 11:51:01 24.04ubuntu python3[128289]:   TASKS_HTML = """<!doctype html><html><head><meta charset=utf-8>
+Jul 17 11:51:01 24.04ubuntu python3[128289]: Traceback (most recent call last):
+Jul 17 11:51:01 24.04ubuntu python3[128289]:   File "/vaults/nvme0/qsb_tower_v1/tools/qsb_boardroom_hub.py", line 10872, in <module>
+Jul 17 11:51:01 24.04ubuntu python3[128289]:     main()
+Jul 17 11:51:01 24.04ubuntu python3[128289]:   File "/vaults/nvme0/qsb_tower_v1/tools/qsb_boardroom_hub.py", line 10862, in main
+Jul 17 11:51:01 24.04ubuntu python3[128289]:     srv = ThreadingHTTPServer((a.host, a.port), H)
+Jul 17 11:51:01 24.04ubuntu python3[128289]:           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Jul 17 11:51:01 24.04ubuntu python3[128289]:   File "/usr/lib/python3.12/socketserver.py", line 457, in __init__
+Jul 17 11:51:01 24.04ubuntu python3[128289]:     self.server_bind()
+Jul 17 11:51:01 24.04ubuntu python3[128289]:   File "/usr/lib/python3.12/http/server.py", line 136, in server_bind
+Jul 17 11:51:01 24.04ubuntu python3[128289]:     socketserver.TCPServer.server_bind(self)
+Jul 17 11:51:01 24.04ubuntu python3[128289]:   File "/usr/lib/python3.12/socketserver.py", line 473, in server_bind
+Jul 17 11:51:01 24.04ubuntu python3[128289]:     self.socket.bind(self.server_address)
+Jul 17 11:51:01 24.04ubuntu python3[128289]: OSError: [Errno 98] Address already in use
+Jul 17 11:51:01 24.04ubuntu systemd[1]: qsb-boardroom.service: Main process exited, code=exited, status=1/FAILURE
+Jul 17 11:51:01 24.04ubuntu systemd[1]: qsb-boardroom.service: Failed with result 'exit-code'.
+Jul 17 11:51:06 24.04ubuntu systemd[1]: qsb-boardroom.service: Scheduled restart job, restart counter is at 489.
+Jul 17 11:51:06 24.04ubuntu systemd[1]: Started qsb-boardroom.service - QSB Boardroom Hub (:8852) - task council, town square, boardroom, quad wall.
+Jul 17 11:51:06 24.04ubuntu python3[128513]: /vaults/nvme0/qsb_tower_v1/tools/qsb_boardroom_hub.py:770: SyntaxWarning: invalid escape sequence '\/'
+Jul 17 11:51:06 24.04ubuntu python3[128513]:   IPAD_HTML = """<!doctype html><html lang="en"><head>
+Jul 17 11:51:06 24.04ubuntu python3[128513]: /vaults/nvme0/qsb_tower_v1/tools/qsb_boardroom_hub.py:5023: SyntaxWarning: invalid escape sequence '\d'
+Jul 17 11:51:06 24.04ubuntu python3[128513]:   TASKS_HTML = """<!doctype html><html><head><meta charset=utf-8>
+Jul 17 11:51:06 24.04ubuntu python3[128513]: Traceback (most recent call last):
+Jul 17 11:51:06 24.04ubuntu python3[128513]:   File "/vaults/nvme0/qsb_tower_v1/tools/qsb_boardroom_hub.py", line 10872, in <module>
+Jul 17 11:51:06 24.04ubuntu python3[128513]:     main()
+Jul 17 11:51:06 24.04ubuntu python3[128513]:   File "/vaults/nvme0/qsb_tower_v1/tools/qsb_boardroom_hub.py", line 10862, in main
+Jul 17 11:51:06 24.04ubuntu python3[128513]:     srv = ThreadingHTTPServer((a.host, a.port), H)
+Jul 17 11:51:06 24.04ubuntu python3[128513]:           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Jul 17 11:51:06 24.04ubuntu python3[128513]:   File "/usr/lib/python3.12/socketserver.py", line 457, in __init__
+Jul 17 11:51:06 24.04ubuntu python3[128513]:     self.server_bind()
+Jul 17 11:51:06 24.04ubuntu python3[128513]:   File "/usr/lib/python3.12/http/server.py", line 136, in server_bind
+Jul 17 11:51:06 24.04ubuntu python3[128513]:     socketserver.TCPServer.server_bind(self)
+Jul 17 11:51:06 24.04ubuntu python3[128513]:   File "/usr/lib/python3.12/socketserver.py", line 473, in server_bind
+Jul 17 11:51:06 24.04ubuntu python3[128513]:     self.socket.bind(self.server_address)
+Jul 17 11:51:06 24.04ubuntu python3[128513]: OSError: [Errno 98] Address already in use
+Jul 17 11:51:06 24.04ubuntu systemd[1]: qsb-boardroom.service: Main process exited, code=exited, status=1/FAILURE
+Jul 17 11:51:06 24.04ubuntu systemd[1]: qsb-boardroom.service: Failed with result 'exit-code'.
+Jul 17 11:51:11 24.04ubuntu systemd[1]: qsb-boardroom.service: Scheduled restart job, restart counter is at 490.
+Jul 17 11:51:11 24.04ubuntu systemd[1]: Started qsb-boardroom.service - QSB Boardroom Hub (:8852) - task council, town square, boardroom, quad wall.
+Jul 17 11:51:11 24.04ubuntu python3[128728]: /vaults/nvme0/qsb_tower_v1/tools/qsb_boardroom_hub.py:770: SyntaxWarning: invalid escape sequence '\/'
+Jul 17 11:51:11 24.04ubuntu python3[128728]:   IPAD_HTML = """<!doctype html><html lang="en"><head>
+Jul 17 11:51:11 24.04ubuntu python3[128728]: /vaults/nvme0/qsb_tower_v1/tools/qsb_boardroom_hub.py:5023: SyntaxWarning: invalid escape sequence '\d'
+Jul 17 11:51:11 24.04ubuntu python3[128728]:   TASKS_HTML = """<!doctype html><html><head><meta charset=utf-8>
+Jul 17 11:51:11 24.04ubuntu python3[128728]: Traceback (most recent call last):
+Jul 17 11:51:11 24.04ubuntu python3[128728]:   File "/vaults/nvme0/qsb_tower_v1/tools/qsb_boardroom_hub.py", line 10872, in <module>
+Jul 17 11:51:11 24.04ubuntu python3[128728]:     main()
+Jul 17 11:51:11 24.04ubuntu python3[128728]:   File "/vaults/nvme0/qsb_tower_v1/tools/qsb_boardroom_hub.py", line 10862, in main
+Jul 17 11:51:11 24.04ubuntu python3[128728]:     srv = ThreadingHTTPServer((a.host, a.port), H)
+Jul 17 11:51:11 24.04ubuntu python3[128728]:           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Jul 17 11:51:11 24.04ubuntu python3[128728]:   File "/usr/lib/python3.12/socketserver.py", line 457, in __init__
+Jul 17 11:51:11 24.04ubuntu python3[128728]:     self.server_bind()
+Jul 17 11:51:11 24.04ubuntu python3[128728]:   File "/usr/lib/python3.12/http/server.py", line 136, in server_bind
+Jul 17 11:51:11 24.04ubuntu python3[128728]:     socketserver.TCPServer.server_bind(self)
+Jul 17 11:51:11 24.04ubuntu python3[128728]:   File "/usr/lib/python3.12/socketserver.py", line 473, in server_bind
+Jul 17 11:51:11 24.04ubuntu python3[128728]:     self.socket.bind(self.server_address)
+Jul 17 11:51:11 24.04ubuntu python3[128728]: OSError: [Errno 98] Address already in use
+Jul 17 11:51:11 24.04ubuntu systemd[1]: qsb-boardroom.service: Main process exited, code=exited, status=1/FAILURE
+Jul 17 11:51:11 24.04ubuntu systemd[1]: qsb-boardroom.service: Failed with result 'exit-code'.

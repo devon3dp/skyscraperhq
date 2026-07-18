@@ -107,13 +107,13 @@ PROFILES = {
         "endpoint":   "http://192.168.1.74:9110/state",
         "role":       "CEO of ThinkPad",
         "mind_remote":"C:/Users/budds/qsb/mind_tp.json",
-        "ollama":     "http://192.168.1.71:11434/api/tags",  # falls back to HQ
+        "ollama":     "http://192.168.1.72:11434/api/tags",  # falls back to HQ
     },
     "acer_cass": {
         "endpoint":   "http://192.168.1.78:9000/state",
         "role":       "CEO of Acer laptop",
         "mind_remote":"C:/Users/budds/qsb/mind_acer.json",
-        "ollama":     "http://192.168.1.71:11434/api/tags",
+        "ollama":     "http://192.168.1.72:11434/api/tags",
     },
 }
 

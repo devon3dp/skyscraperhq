@@ -1,0 +1,4432 @@
+{
+  "ts": "2026-07-18T14:47:21.594471+00:00",
+  "doctrine": {
+    "brain_router": "inside SkyscraperHQ",
+    "ceos": "API Gene Pool only",
+    "wren": "owns/protects local GPU; no CEO local fallback",
+    "claude_hq": "correct visible name"
+  },
+  "metrics": {
+    "uptime_s": 1735,
+    "events": 260,
+    "autonomy": {
+      "enabled": true,
+      "last_scan": "2026-07-18T14:46:00.011219+00:00",
+      "last_route": null,
+      "scan_count": 13,
+      "route_count": 0,
+      "stored_key_count": 533,
+      "active_provider_count": 7
+    },
+    "stored_key_count": 533,
+    "active_provider_count": 7,
+    "active": {
+      "event": "auto_scan",
+      "from": "Linux vault scanner",
+      "to": "Brain Router secure store",
+      "provider": "all",
+      "status": "stored",
+      "detail": "scanned 30205 candidate files; stored 533 key entries across 7 providers",
+      "ts": "2026-07-18T14:46:00.011228+00:00"
+    },
+    "rev": {
+      "router": 36,
+      "api_pool": 32,
+      "ceo_load": 48,
+      "wren_guard": 100,
+      "calls_1m": 2,
+      "calls_5m": 6,
+      "active_ceos": 2,
+      "avg_latency_s": 0.95
+    }
+  },
+  "providers": {
+    "claude": {
+      "provider": "claude",
+      "label": "Claude",
+      "role": "deep reasoning / Claude HQ preferred when funded",
+      "tier": "premium",
+      "key_count": 47,
+      "keys": [
+        {
+          "masked": "sk-ant-api03...t4YJDgAA",
+          "fingerprint": "901d172587bc29e7",
+          "sources": [
+            "/home/ross/.claude/file-history/abffeda1-e592-40d7-b539-4b41a879dfd9/626f81a8360b9f22@v3",
+            "/home/ross/.claude/file-history/da899cbc-9d68-4b5c-928c-2c5667de3f39/626f81a8360b9f22@v3",
+            "/home/ross/.claude/history.jsonl",
+            "/home/ross/.skyscraper_secrets/anthropic_api.env",
+            "/home/ross/.skyscraper_secrets/anthropic_api.env:ANTHROPIC_API_KEY",
+            "/vaults/nvme0/qsb_tower_v1/floors/floor_28_security_department/vault/.env.anthropic",
+            "/vaults/nvme0/qsb_tower_v1/floors/floor_28_security_department/vault/.env.anthropic.bak_20260706T1200Z_key_swap",
+            "/vaults/nvme0/qsb_tower_v1/floors/floor_28_security_department/vault/.env.anthropic:ANTHROPIC_API_KEY",
+            "/vaults/nvme0/qsb_tower_v1/vaults/gene_pool/gene_pool_keys.secure.env",
+            "/vaults/nvme0/qsb_tower_v1/vaults/keys/anthropic_api.env",
+            "/vaults/nvme0/qsb_tower_v1/vaults/keys/anthropic_api.env:ANTHROPIC_API_KEY",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-api03...C5D7dAAA",
+          "fingerprint": "9efe5ae53ea21ee0",
+          "sources": [
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/91d7c8c9-4904-4d4b-9cf0-7cd282540e5c.jsonl",
+            "/vaults/nvme0/qsb_tower_v1/vaults/gene_pool/gene_pool_keys.secure.env",
+            "previous_secure_store",
+            "process_env:pid=1401731:ANTHROPIC_API_KEY",
+            "process_env:pid=19364:ANTHROPIC_API_KEY",
+            "process_env:pid=19575:ANTHROPIC_API_KEY",
+            "process_env:pid=2214394:ANTHROPIC_API_KEY",
+            "process_env:pid=2214395:ANTHROPIC_API_KEY",
+            "process_env:pid=2214396:ANTHROPIC_API_KEY",
+            "process_env:pid=2214397:ANTHROPIC_API_KEY",
+            "process_env:pid=2214398:ANTHROPIC_API_KEY",
+            "process_env:pid=2214399:ANTHROPIC_API_KEY"
+          ]
+        },
+        {
+          "masked": "sk-ant-api03...Qra4ZwAA",
+          "fingerprint": "8280982a420a2ea0",
+          "sources": [
+            "/home/ross/.claude/file-history/da899cbc-9d68-4b5c-928c-2c5667de3f39/626f81a8360b9f22@v2",
+            "/home/ross/.claude/history.jsonl",
+            "/vaults/nvme0/qsb_tower_v1/vaults/gene_pool/gene_pool_keys.secure.env",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-api03...Z_Be-wAA",
+          "fingerprint": "054520dd4e6941d9",
+          "sources": [
+            "/home/ross/.claude/file-history/da899cbc-9d68-4b5c-928c-2c5667de3f39/626f81a8360b9f22@v4",
+            "/home/ross/.claude/history.jsonl",
+            "/vaults/nvme0/qsb_tower_v1/floors/floor_28_security_department/vault/.env.anthropic.bak_20260707T150241Z_ross_new_key_paste",
+            "/vaults/nvme0/qsb_tower_v1/vaults/gene_pool/gene_pool_keys.secure.env",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-api03...sPTXUQAA",
+          "fingerprint": "a156f6c5a5535d2f",
+          "sources": [
+            "/home/ross/.claude/history.jsonl",
+            "/vaults/nvme0/qsb_tower_v1/vaults/gene_pool/gene_pool_keys.secure.env",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "your_...ere`",
+          "fingerprint": "e3863713c895c359",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-api03...W1pPogAA",
+          "fingerprint": "09fb9dd4e2cdbae7",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/backups/acer_runtime_restore_20260707_201859/files/data__registries__qsb_council_mind_mirror_Acer-Cass.json",
+            "/vaults/nvme0/qsb_tower_v1/backups/acer_runtime_restore_20260707_201947/files/data__registries__qsb_council_mind_mirror_Acer-Cass.json",
+            "/vaults/nvme0/qsb_tower_v1/backups/thinkpad_runtime_restore_20260707_201859/files/data__registries__qsb_council_mind_mirror_TP-Pip.json",
+            "/vaults/nvme0/qsb_tower_v1/backups/thinkpad_runtime_restore_20260707_201947/files/data__registries__qsb_council_mind_mirror_TP-Pip.json",
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_council_mind_mirror_Acer-Cass.json",
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_council_mind_mirror_TP-Pip.json",
+            "/vaults/nvme0/qsb_tower_v1/vaults/gene_pool/gene_pool_keys.secure.env",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-oat01...4rTQMwAA",
+          "fingerprint": "55ab50ea73fb5406",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/vaults/gene_pool/gene_pool_keys.secure.env",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-ort01...PoeryAAA",
+          "fingerprint": "cddaf685ab410f94",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/vaults/gene_pool/gene_pool_keys.secure.env",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-oat01...X1d2DAAA",
+          "fingerprint": "6d3dc8e666b65d8c",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/vaults/gene_pool/gene_pool_keys.secure.env",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-ort01...9k_NRgAA",
+          "fingerprint": "2d7c0b0044374547",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/vaults/gene_pool/gene_pool_keys.secure.env",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-oat01...XrfuVwAA",
+          "fingerprint": "d3bd997ac898f2e3",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/vaults/gene_pool/gene_pool_keys.secure.env",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-ort01...WPY_QQAA",
+          "fingerprint": "4ab7fca38de61769",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/vaults/gene_pool/gene_pool_keys.secure.env",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-oat01...NzQT-AAA",
+          "fingerprint": "bbeee18aafa28c4d",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/vaults/gene_pool/gene_pool_keys.secure.env",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-ort01...B6uvagAA",
+          "fingerprint": "c9804e69c6097216",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/vaults/gene_pool/gene_pool_keys.secure.env",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-oat01...HWfL0wAA",
+          "fingerprint": "c0e17b9cda585ac8",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/vaults/gene_pool/gene_pool_keys.secure.env",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-ort01...P866lQAA",
+          "fingerprint": "9a8b36f0793caab0",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/vaults/gene_pool/gene_pool_keys.secure.env",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-oat01...pn2H0AAA",
+          "fingerprint": "9fda30db402c9560",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/vaults/gene_pool/gene_pool_keys.secure.env",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-ort01...uFMwygAA",
+          "fingerprint": "968820afca10f03a",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/vaults/gene_pool/gene_pool_keys.secure.env",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-oat01...xSTWgwAA",
+          "fingerprint": "232ce2fbc444d6ca",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/vaults/gene_pool/gene_pool_keys.secure.env",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-ort01...NmchDgAA",
+          "fingerprint": "277c6c7568a0461e",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/vaults/gene_pool/gene_pool_keys.secure.env",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-oat01...DX1Y_gAA",
+          "fingerprint": "22a3713b176ae322",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/vaults/gene_pool/gene_pool_keys.secure.env",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-ort01...X18drgAA",
+          "fingerprint": "38c14903b66cc989",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/vaults/gene_pool/gene_pool_keys.secure.env",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-oat01...gKb_mAAA",
+          "fingerprint": "b60147c979468209",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/vaults/gene_pool/gene_pool_keys.secure.env",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-ort01...ff0_2QAA",
+          "fingerprint": "b75adfddc5868dcf",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/vaults/gene_pool/gene_pool_keys.secure.env",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-oat01...xSJT3gAA",
+          "fingerprint": "2585a44e348db4ce",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/vaults/gene_pool/gene_pool_keys.secure.env",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-ort01...NUxA-AAA",
+          "fingerprint": "d52c7ea5e757080f",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/vaults/gene_pool/gene_pool_keys.secure.env",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-oat01...if2GDQAA",
+          "fingerprint": "cab83097523e8aba",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/vaults/gene_pool/gene_pool_keys.secure.env",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-ort01...fzUPdQAA",
+          "fingerprint": "e9a1c242501fb79e",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/vaults/gene_pool/gene_pool_keys.secure.env",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-oat01...fKvDqgAA",
+          "fingerprint": "f6e0cb32c3521d34",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/vaults/gene_pool/gene_pool_keys.secure.env",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-ort01...9vdD3AAA",
+          "fingerprint": "162f47e0776e54d4",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/vaults/gene_pool/gene_pool_keys.secure.env",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-oat01...Uw1CDAAA",
+          "fingerprint": "e12b1a26310ee4e3",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/vaults/gene_pool/gene_pool_keys.secure.env",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-ort01...ao2nqgAA",
+          "fingerprint": "cb07c65bb08a1024",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/vaults/gene_pool/gene_pool_keys.secure.env",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-oat01...PzwR2gAA",
+          "fingerprint": "c42d2f71dcb425f2",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/vaults/gene_pool/gene_pool_keys.secure.env",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-ort01...AH5MvgAA",
+          "fingerprint": "0d6d99e8e65a36a5",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/vaults/gene_pool/gene_pool_keys.secure.env",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-oat01...tJ4JdgAA",
+          "fingerprint": "f6b6eec7351aae2e",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/vaults/gene_pool/gene_pool_keys.secure.env",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-ort01...v3-0SgAA",
+          "fingerprint": "7e7e96a8ae61f91e",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/vaults/gene_pool/gene_pool_keys.secure.env",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-oat01...nk3HuAAA",
+          "fingerprint": "c11ae755ac88a99b",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/vaults/gene_pool/gene_pool_keys.secure.env",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-ort01...R-6ngQAA",
+          "fingerprint": "007a2c5890a8840c",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/vaults/gene_pool/gene_pool_keys.secure.env",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-oat01...Ep3nCAAA",
+          "fingerprint": "9e6bfbf536226fbf",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/vaults/gene_pool/gene_pool_keys.secure.env",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-ort01...cCJXIwAA",
+          "fingerprint": "b9c94a7a2b6effe2",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/vaults/gene_pool/gene_pool_keys.secure.env",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-oat01...2aTlRgAA",
+          "fingerprint": "0bb2c381e9cca2f7",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/vaults/gene_pool/gene_pool_keys.secure.env",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-ort01...X_RFkAAA",
+          "fingerprint": "af2ebbf0e4b77fda",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/vaults/gene_pool/gene_pool_keys.secure.env",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-oat01...xdRE8gAA",
+          "fingerprint": "204c7a95bcdb6be7",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/vaults/gene_pool/gene_pool_keys.secure.env",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-ort01...hf8GeAAA",
+          "fingerprint": "fb7830fcd40a4ca8",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/vaults/gene_pool/gene_pool_keys.secure.env",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-oat01...JS-wpgAA",
+          "fingerprint": "0969c74ae8dc7188",
+          "sources": [
+            "/home/ross/.claude/.credentials.json",
+            "/vaults/nvme0/qsb_tower_v1/vaults/gene_pool/gene_pool_keys.secure.env",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-ort01...Tov9bQAA",
+          "fingerprint": "1ad0b13c2ff4c39e",
+          "sources": [
+            "/home/ross/.claude/.credentials.json",
+            "/vaults/nvme0/qsb_tower_v1/vaults/gene_pool/gene_pool_keys.secure.env",
+            "previous_secure_store"
+          ]
+        }
+      ],
+      "status": "stored"
+    },
+    "openai": {
+      "provider": "openai",
+      "label": "OpenAI",
+      "role": "structured reasoning / planning",
+      "tier": "medium",
+      "key_count": 37,
+      "keys": [
+        {
+          "masked": "QSB_O...DEL=",
+          "fingerprint": "42630cea22b9965a",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": ".+$|^QSB_DEE..._KEY=.+$",
+          "fingerprint": "f25dab22f705562e",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-proj-1GZs...NPJK8nUA",
+          "fingerprint": "e66b1bba1de8375a",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/floors/floor_28_security_department/vault/.env.openai",
+            "/vaults/nvme0/qsb_tower_v1/floors/floor_28_security_department/vault/.env.openai:OPENAI_API_KEY",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-api03...t4YJDgAA",
+          "fingerprint": "901d172587bc29e7",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-api03...Qra4ZwAA",
+          "fingerprint": "8280982a420a2ea0",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-api03...Z_Be-wAA",
+          "fingerprint": "054520dd4e6941d9",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-api03...sPTXUQAA",
+          "fingerprint": "a156f6c5a5535d2f",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-api03...W1pPogAA",
+          "fingerprint": "09fb9dd4e2cdbae7",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/backups/thinkpad_runtime_restore_20260707_201859/files/data__registries__qsb_council_mind_mirror_TP-Pip.json",
+            "/vaults/nvme0/qsb_tower_v1/backups/thinkpad_runtime_restore_20260707_201947/files/data__registries__qsb_council_mind_mirror_TP-Pip.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-76c944f23...7facd57c",
+          "fingerprint": "b345e47bb4a10c0c",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-9v0SBsd4p...lbKh73US",
+          "fingerprint": "3a16823da16cca22",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-api03...C5D7dAAA",
+          "fingerprint": "9efe5ae53ea21ee0",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-oat01...4rTQMwAA",
+          "fingerprint": "55ab50ea73fb5406",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-ort01...PoeryAAA",
+          "fingerprint": "cddaf685ab410f94",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-oat01...X1d2DAAA",
+          "fingerprint": "6d3dc8e666b65d8c",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-ort01...9k_NRgAA",
+          "fingerprint": "2d7c0b0044374547",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-oat01...XrfuVwAA",
+          "fingerprint": "d3bd997ac898f2e3",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-ort01...WPY_QQAA",
+          "fingerprint": "4ab7fca38de61769",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-oat01...NzQT-AAA",
+          "fingerprint": "bbeee18aafa28c4d",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-ort01...B6uvagAA",
+          "fingerprint": "c9804e69c6097216",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-oat01...HWfL0wAA",
+          "fingerprint": "c0e17b9cda585ac8",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-ort01...P866lQAA",
+          "fingerprint": "9a8b36f0793caab0",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-oat01...pn2H0AAA",
+          "fingerprint": "9fda30db402c9560",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-ort01...uFMwygAA",
+          "fingerprint": "968820afca10f03a",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-oat01...xSTWgwAA",
+          "fingerprint": "232ce2fbc444d6ca",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-ort01...NmchDgAA",
+          "fingerprint": "277c6c7568a0461e",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-oat01...DX1Y_gAA",
+          "fingerprint": "22a3713b176ae322",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-ort01...X18drgAA",
+          "fingerprint": "38c14903b66cc989",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-oat01...gKb_mAAA",
+          "fingerprint": "b60147c979468209",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-ort01...ff0_2QAA",
+          "fingerprint": "b75adfddc5868dcf",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-oat01...xSJT3gAA",
+          "fingerprint": "2585a44e348db4ce",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-ort01...NUxA-AAA",
+          "fingerprint": "d52c7ea5e757080f",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-oat01...if2GDQAA",
+          "fingerprint": "cab83097523e8aba",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-ort01...fzUPdQAA",
+          "fingerprint": "e9a1c242501fb79e",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-oat01...fKvDqgAA",
+          "fingerprint": "f6e0cb32c3521d34",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-ort01...9vdD3AAA",
+          "fingerprint": "162f47e0776e54d4",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-oat01...Uw1CDAAA",
+          "fingerprint": "e12b1a26310ee4e3",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-ort01...ao2nqgAA",
+          "fingerprint": "cb07c65bb08a1024",
+          "sources": [
+            "previous_secure_store"
+          ]
+        }
+      ],
+      "status": "stored"
+    },
+    "deepseek": {
+      "provider": "deepseek",
+      "label": "DeepSeek",
+      "role": "coding / cheap reasoning",
+      "tier": "low",
+      "key_count": 34,
+      "keys": [
+        {
+          "masked": "QSB_D...DEL=",
+          "fingerprint": "211bfa994254fa97",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-76c944f23...7facd57c",
+          "fingerprint": "b345e47bb4a10c0c",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/floors/floor_28_security_department/vault/.env.deepseek",
+            "/vaults/nvme0/qsb_tower_v1/floors/floor_28_security_department/vault/.env.deepseek:DEEPSEEK_API_KEY",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-api03...t4YJDgAA",
+          "fingerprint": "901d172587bc29e7",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-api03...Qra4ZwAA",
+          "fingerprint": "8280982a420a2ea0",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-api03...Z_Be-wAA",
+          "fingerprint": "054520dd4e6941d9",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-api03...sPTXUQAA",
+          "fingerprint": "a156f6c5a5535d2f",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-api03...W1pPogAA",
+          "fingerprint": "09fb9dd4e2cdbae7",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/backups/thinkpad_runtime_restore_20260707_201859/files/data__registries__qsb_council_mind_mirror_TP-Pip.json",
+            "/vaults/nvme0/qsb_tower_v1/backups/thinkpad_runtime_restore_20260707_201947/files/data__registries__qsb_council_mind_mirror_TP-Pip.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-proj-1GZs...NPJK8nUA",
+          "fingerprint": "e66b1bba1de8375a",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-9v0SBsd4p...lbKh73US",
+          "fingerprint": "3a16823da16cca22",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-api03...C5D7dAAA",
+          "fingerprint": "9efe5ae53ea21ee0",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-oat01...4rTQMwAA",
+          "fingerprint": "55ab50ea73fb5406",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-ort01...PoeryAAA",
+          "fingerprint": "cddaf685ab410f94",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-oat01...X1d2DAAA",
+          "fingerprint": "6d3dc8e666b65d8c",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-ort01...9k_NRgAA",
+          "fingerprint": "2d7c0b0044374547",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-oat01...XrfuVwAA",
+          "fingerprint": "d3bd997ac898f2e3",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-ort01...WPY_QQAA",
+          "fingerprint": "4ab7fca38de61769",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-oat01...NzQT-AAA",
+          "fingerprint": "bbeee18aafa28c4d",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-ort01...B6uvagAA",
+          "fingerprint": "c9804e69c6097216",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-oat01...HWfL0wAA",
+          "fingerprint": "c0e17b9cda585ac8",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-ort01...P866lQAA",
+          "fingerprint": "9a8b36f0793caab0",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-oat01...pn2H0AAA",
+          "fingerprint": "9fda30db402c9560",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-ort01...uFMwygAA",
+          "fingerprint": "968820afca10f03a",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-oat01...xSTWgwAA",
+          "fingerprint": "232ce2fbc444d6ca",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-ort01...NmchDgAA",
+          "fingerprint": "277c6c7568a0461e",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-oat01...DX1Y_gAA",
+          "fingerprint": "22a3713b176ae322",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-ort01...X18drgAA",
+          "fingerprint": "38c14903b66cc989",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-oat01...gKb_mAAA",
+          "fingerprint": "b60147c979468209",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-ort01...ff0_2QAA",
+          "fingerprint": "b75adfddc5868dcf",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-oat01...xSJT3gAA",
+          "fingerprint": "2585a44e348db4ce",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-ort01...NUxA-AAA",
+          "fingerprint": "d52c7ea5e757080f",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-oat01...if2GDQAA",
+          "fingerprint": "cab83097523e8aba",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-ort01...fzUPdQAA",
+          "fingerprint": "e9a1c242501fb79e",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-oat01...fKvDqgAA",
+          "fingerprint": "f6e0cb32c3521d34",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-ort01...9vdD3AAA",
+          "fingerprint": "162f47e0776e54d4",
+          "sources": [
+            "previous_secure_store"
+          ]
+        }
+      ],
+      "status": "stored"
+    },
+    "gemini": {
+      "provider": "gemini",
+      "label": "Gemini",
+      "role": "long context / broad reasoning",
+      "tier": "low-medium",
+      "key_count": 2,
+      "keys": [
+        {
+          "masked": "AQ.Ab8RN6Kcr...-Zg3lATQ",
+          "fingerprint": "259097b12facea3d",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/floors/floor_28_security_department/vault/.env.gemini:GEMINI_API_KEY",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "<past...ere>",
+          "fingerprint": "84d367e69c29c6b2",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/floors/floor_28_security_department/vault/.env.gemini.template:GEMINI_API_KEY",
+            "previous_secure_store"
+          ]
+        }
+      ],
+      "status": "stored"
+    },
+    "cohere": {
+      "provider": "cohere",
+      "label": "Cohere",
+      "role": "retrieval / ranking / summaries",
+      "tier": "low-medium",
+      "key_count": 409,
+      "keys": [
+        {
+          "masked": "thinkpad_run...D_HHMMSS",
+          "fingerprint": "a9bf78bccc91409d",
+          "sources": [
+            "/home/ross/.claude/paste-cache/dfe44744ac775c53.txt",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "QSB_WORKFORC...SSONS_V1",
+          "fingerprint": "190f1ce7d84703ae",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "QSB_TOWER_V1...ER_VOICE",
+          "fingerprint": "c7cba4dddb44c7c1",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "R68_ALL_RULE..._TO_ROSS",
+          "fingerprint": "baada7cbedfafaf5",
+          "sources": [
+            "/home/ross/.claude/file-history/c1faefb0-25b6-4979-ac7d-40233d759501/34ad434c8fccd9ba@v10",
+            "/home/ross/.claude/file-history/c1faefb0-25b6-4979-ac7d-40233d759501/34ad434c8fccd9ba@v11",
+            "/home/ross/.claude/file-history/c1faefb0-25b6-4979-ac7d-40233d759501/34ad434c8fccd9ba@v12",
+            "/home/ross/.claude/file-history/c1faefb0-25b6-4979-ac7d-40233d759501/34ad434c8fccd9ba@v13",
+            "/home/ross/.claude/file-history/c1faefb0-25b6-4979-ac7d-40233d759501/34ad434c8fccd9ba@v14",
+            "/home/ross/.claude/file-history/c1faefb0-25b6-4979-ac7d-40233d759501/34ad434c8fccd9ba@v15",
+            "/home/ross/.claude/file-history/c1faefb0-25b6-4979-ac7d-40233d759501/34ad434c8fccd9ba@v16",
+            "/home/ross/.claude/file-history/c1faefb0-25b6-4979-ac7d-40233d759501/34ad434c8fccd9ba@v17",
+            "/home/ross/.claude/file-history/c1faefb0-25b6-4979-ac7d-40233d759501/34ad434c8fccd9ba@v8",
+            "/home/ross/.claude/file-history/c1faefb0-25b6-4979-ac7d-40233d759501/34ad434c8fccd9ba@v9",
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/rulebook_2026-07-07.md",
+            "/vaults/nvme0/qsb_tower_v1/backups/wren_restore_20260707_194654/files/__vaults__nvme0__qsb_tower_v1__data__registries__qsb_wren_rulebook_hardcopy_2026-07-07.md"
+          ]
+        },
+        {
+          "masked": "R73_WREN_STO...WHATSAPP",
+          "fingerprint": "dcfb08f11b9e8ce8",
+          "sources": [
+            "/home/ross/.claude/file-history/c1faefb0-25b6-4979-ac7d-40233d759501/34ad434c8fccd9ba@v10",
+            "/home/ross/.claude/file-history/c1faefb0-25b6-4979-ac7d-40233d759501/34ad434c8fccd9ba@v11",
+            "/home/ross/.claude/file-history/c1faefb0-25b6-4979-ac7d-40233d759501/34ad434c8fccd9ba@v12",
+            "/home/ross/.claude/file-history/c1faefb0-25b6-4979-ac7d-40233d759501/34ad434c8fccd9ba@v13",
+            "/home/ross/.claude/file-history/c1faefb0-25b6-4979-ac7d-40233d759501/34ad434c8fccd9ba@v14",
+            "/home/ross/.claude/file-history/c1faefb0-25b6-4979-ac7d-40233d759501/34ad434c8fccd9ba@v15",
+            "/home/ross/.claude/file-history/c1faefb0-25b6-4979-ac7d-40233d759501/34ad434c8fccd9ba@v16",
+            "/home/ross/.claude/file-history/c1faefb0-25b6-4979-ac7d-40233d759501/34ad434c8fccd9ba@v17",
+            "/home/ross/.claude/file-history/c1faefb0-25b6-4979-ac7d-40233d759501/34ad434c8fccd9ba@v9",
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/rulebook_2026-07-07.md",
+            "/vaults/nvme0/qsb_tower_v1/backups/wren_restore_20260707_194654/files/__vaults__nvme0__qsb_tower_v1__data__registries__qsb_wren_rulebook_hardcopy_2026-07-07.md",
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_wren_rulebook_hardcopy_2026-07-07.md"
+          ]
+        },
+        {
+          "masked": "feedback_wre...26-07-04",
+          "fingerprint": "2fdf93ea2ab448f1",
+          "sources": [
+            "/home/ross/.claude/file-history/c1faefb0-25b6-4979-ac7d-40233d759501/34ad434c8fccd9ba@v15",
+            "/home/ross/.claude/file-history/c1faefb0-25b6-4979-ac7d-40233d759501/34ad434c8fccd9ba@v16",
+            "/home/ross/.claude/file-history/c1faefb0-25b6-4979-ac7d-40233d759501/34ad434c8fccd9ba@v17",
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/rulebook_2026-07-07.md",
+            "/vaults/nvme0/qsb_tower_v1/backups/wren_restore_20260707_194654/files/__vaults__nvme0__qsb_tower_v1__data__registries__qsb_wren_rulebook_hardcopy_2026-07-07.md",
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_wren_rulebook_hardcopy_2026-07-07.md",
+            "/vaults/nvme0/qsb_tower_v1/floors/floor_47_executive_operations_department/rooms/library_shelf_rulebook_2026-07-07.md",
+            "/vaults/nvme0/qsb_tower_v1/floors/floor_47_executive_operations_department/rulebook_2026-07-07.md",
+            "/vaults/nvme0/qsb_tower_v1/floors/floor_47_executive_operations_department/rulebook_2026-07-07.md.bak_20260710T065310Z_pre_hardening_pass1",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "R78_HOME_FIX..._SIGNOFF",
+          "fingerprint": "55ea074d98f5da0f",
+          "sources": [
+            "/home/ross/.claude/file-history/c1faefb0-25b6-4979-ac7d-40233d759501/34ad434c8fccd9ba@v13",
+            "/home/ross/.claude/file-history/c1faefb0-25b6-4979-ac7d-40233d759501/34ad434c8fccd9ba@v14",
+            "/home/ross/.claude/file-history/c1faefb0-25b6-4979-ac7d-40233d759501/34ad434c8fccd9ba@v15",
+            "/home/ross/.claude/file-history/c1faefb0-25b6-4979-ac7d-40233d759501/34ad434c8fccd9ba@v16",
+            "/home/ross/.claude/file-history/c1faefb0-25b6-4979-ac7d-40233d759501/34ad434c8fccd9ba@v17",
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/rulebook_2026-07-07.md",
+            "/vaults/nvme0/qsb_tower_v1/backups/wren_restore_20260707_194654/files/__vaults__nvme0__qsb_tower_v1__data__registries__qsb_wren_rulebook_hardcopy_2026-07-07.md",
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_wren_rulebook_hardcopy_2026-07-07.md",
+            "/vaults/nvme0/qsb_tower_v1/floors/floor_47_executive_operations_department/rooms/library_shelf_rulebook_2026-07-07.md",
+            "/vaults/nvme0/qsb_tower_v1/floors/floor_47_executive_operations_department/rulebook_2026-07-07.md",
+            "/vaults/nvme0/qsb_tower_v1/floors/floor_47_executive_operations_department/rulebook_2026-07-07.md.bak_20260710T065310Z_pre_hardening_pass1",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "R79_NO_ONE_S..._WORKING",
+          "fingerprint": "44ec9ee714109e30",
+          "sources": [
+            "/home/ross/.claude/file-history/c1faefb0-25b6-4979-ac7d-40233d759501/34ad434c8fccd9ba@v14",
+            "/home/ross/.claude/file-history/c1faefb0-25b6-4979-ac7d-40233d759501/34ad434c8fccd9ba@v15",
+            "/home/ross/.claude/file-history/c1faefb0-25b6-4979-ac7d-40233d759501/34ad434c8fccd9ba@v16",
+            "/home/ross/.claude/file-history/c1faefb0-25b6-4979-ac7d-40233d759501/34ad434c8fccd9ba@v17",
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/rulebook_2026-07-07.md",
+            "/vaults/nvme0/qsb_tower_v1/backups/wren_restore_20260707_194654/files/__vaults__nvme0__qsb_tower_v1__data__registries__qsb_wren_rulebook_hardcopy_2026-07-07.md",
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_wren_rulebook_hardcopy_2026-07-07.md",
+            "/vaults/nvme0/qsb_tower_v1/floors/floor_47_executive_operations_department/rooms/library_shelf_rulebook_2026-07-07.md",
+            "/vaults/nvme0/qsb_tower_v1/floors/floor_47_executive_operations_department/rulebook_2026-07-07.md",
+            "/vaults/nvme0/qsb_tower_v1/floors/floor_47_executive_operations_department/rulebook_2026-07-07.md.bak_20260710T065310Z_pre_hardening_pass1",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "floor_47_exe...partment",
+          "fingerprint": "759d24022fbb31cd",
+          "sources": [
+            "/home/ross/.claude/file-history/c1faefb0-25b6-4979-ac7d-40233d759501/34ad434c8fccd9ba@v10",
+            "/home/ross/.claude/file-history/c1faefb0-25b6-4979-ac7d-40233d759501/34ad434c8fccd9ba@v11",
+            "/home/ross/.claude/file-history/c1faefb0-25b6-4979-ac7d-40233d759501/34ad434c8fccd9ba@v12",
+            "/home/ross/.claude/file-history/c1faefb0-25b6-4979-ac7d-40233d759501/34ad434c8fccd9ba@v13",
+            "/home/ross/.claude/file-history/c1faefb0-25b6-4979-ac7d-40233d759501/34ad434c8fccd9ba@v14",
+            "/home/ross/.claude/file-history/c1faefb0-25b6-4979-ac7d-40233d759501/34ad434c8fccd9ba@v15",
+            "/home/ross/.claude/file-history/c1faefb0-25b6-4979-ac7d-40233d759501/34ad434c8fccd9ba@v16",
+            "/home/ross/.claude/file-history/c1faefb0-25b6-4979-ac7d-40233d759501/34ad434c8fccd9ba@v17",
+            "/home/ross/.claude/file-history/c1faefb0-25b6-4979-ac7d-40233d759501/34ad434c8fccd9ba@v8",
+            "/home/ross/.claude/file-history/c1faefb0-25b6-4979-ac7d-40233d759501/34ad434c8fccd9ba@v9",
+            "/home/ross/.claude/paste-cache/7bac9a560d77853c.txt",
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/2a88b6fc-1a89-4bf7-b8ed-c4d879f31e30.jsonl"
+          ]
+        },
+        {
+          "masked": "feedback-lea...26-07-06",
+          "fingerprint": "9bd3a874f5ad490b",
+          "sources": [
+            "/home/ross/.claude/file-history/c1faefb0-25b6-4979-ac7d-40233d759501/24acfed7090bf8fd@v2",
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/memory/feedback_demotion_to_worker_threat_2026-07-06.md",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "feedback-ros...26-07-06",
+          "fingerprint": "67dfd70da21c503a",
+          "sources": [
+            "/home/ross/.claude/file-history/c1faefb0-25b6-4979-ac7d-40233d759501/24acfed7090bf8fd@v2",
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/memory/feedback_demotion_to_worker_threat_2026-07-06.md",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "feedback-i-p...26-07-06",
+          "fingerprint": "15d332c4706af04f",
+          "sources": [
+            "/home/ross/.claude/file-history/c1faefb0-25b6-4979-ac7d-40233d759501/24acfed7090bf8fd@v2",
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/memory/feedback_demotion_to_worker_threat_2026-07-06.md",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "project_2026...er_truth",
+          "fingerprint": "4869817e434ffb0c",
+          "sources": [
+            "/home/ross/.claude/file-history/11dca3e9-9d3b-483c-a20f-6f4d3673b39c/dcef92b19c4d6091@v2",
+            "/home/ross/.claude/file-history/1324ba65-8c9f-4039-bd04-be5c3afd5792/dcef92b19c4d6091@v2",
+            "/home/ross/.claude/file-history/231cac1d-4f7b-4f28-8a44-b30ee13907fe/dcef92b19c4d6091@v2",
+            "/home/ross/.claude/file-history/23780d9e-63f9-4a66-be4a-929abf1a67b7/dcef92b19c4d6091@v2",
+            "/home/ross/.claude/file-history/3b83d452-db73-47cb-b147-fd10ba48bbf1/dcef92b19c4d6091@v2",
+            "/home/ross/.claude/file-history/3e6de4f8-8cf0-43b8-83dc-ca584107937e/dcef92b19c4d6091@v2",
+            "/home/ross/.claude/file-history/47357199-c61c-4baf-81b8-60444d41574e/dcef92b19c4d6091@v2",
+            "/home/ross/.claude/file-history/86933670-c29b-41d6-9d0c-02b8e48eff16/dcef92b19c4d6091@v2",
+            "/home/ross/.claude/file-history/889c256d-1e6d-49c0-8356-5bb8df17c0b8/dcef92b19c4d6091@v2",
+            "/home/ross/.claude/file-history/928531a1-ab06-4e4c-8250-6a92f7003d6f/dcef92b19c4d6091@v2",
+            "/home/ross/.claude/file-history/98fb1b99-89f5-4bc8-9a5d-f5db2ca336e9/dcef92b19c4d6091@v2",
+            "/home/ross/.claude/file-history/9a18c260-7f96-4c77-8389-e3604bfec7d4/dcef92b19c4d6091@v2"
+          ]
+        },
+        {
+          "masked": "project_ross...l_access",
+          "fingerprint": "a81a8b1298684681",
+          "sources": [
+            "/home/ross/.claude/file-history/11dca3e9-9d3b-483c-a20f-6f4d3673b39c/dcef92b19c4d6091@v2",
+            "/home/ross/.claude/file-history/1324ba65-8c9f-4039-bd04-be5c3afd5792/dcef92b19c4d6091@v2",
+            "/home/ross/.claude/file-history/231cac1d-4f7b-4f28-8a44-b30ee13907fe/dcef92b19c4d6091@v2",
+            "/home/ross/.claude/file-history/23780d9e-63f9-4a66-be4a-929abf1a67b7/dcef92b19c4d6091@v2",
+            "/home/ross/.claude/file-history/3b83d452-db73-47cb-b147-fd10ba48bbf1/dcef92b19c4d6091@v2",
+            "/home/ross/.claude/file-history/3e6de4f8-8cf0-43b8-83dc-ca584107937e/dcef92b19c4d6091@v2",
+            "/home/ross/.claude/file-history/47357199-c61c-4baf-81b8-60444d41574e/dcef92b19c4d6091@v2",
+            "/home/ross/.claude/file-history/86933670-c29b-41d6-9d0c-02b8e48eff16/dcef92b19c4d6091@v2",
+            "/home/ross/.claude/file-history/889c256d-1e6d-49c0-8356-5bb8df17c0b8/dcef92b19c4d6091@v2",
+            "/home/ross/.claude/file-history/928531a1-ab06-4e4c-8250-6a92f7003d6f/dcef92b19c4d6091@v2",
+            "/home/ross/.claude/file-history/98fb1b99-89f5-4bc8-9a5d-f5db2ca336e9/dcef92b19c4d6091@v2",
+            "/home/ross/.claude/file-history/9a18c260-7f96-4c77-8389-e3604bfec7d4/dcef92b19c4d6091@v2"
+          ]
+        },
+        {
+          "masked": "mcp__plugin_...tication",
+          "fingerprint": "8a1fbce4973f1713",
+          "sources": [
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/66e4fe2e-3d00-4196-b8da-21f7653bc869/subagents/workflows/wf_f9601b61-b1a/agent-a32bc8f8fd64d38aa.jsonl",
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/66e4fe2e-3d00-4196-b8da-21f7653bc869/subagents/workflows/wf_f9601b61-b1a/agent-a5de0c1ba63408484.jsonl",
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/66e4fe2e-3d00-4196-b8da-21f7653bc869/subagents/workflows/wf_f9601b61-b1a/agent-a7eecb4c07460e323.jsonl",
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/66e4fe2e-3d00-4196-b8da-21f7653bc869/subagents/workflows/wf_f9601b61-b1a/agent-ab463c1e226ce9640.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "hermes-agent...-setup-2",
+          "fingerprint": "097f27fd60f08967",
+          "sources": [
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/66e4fe2e-3d00-4196-b8da-21f7653bc869/subagents/workflows/wf_f9601b61-b1a/agent-a5de0c1ba63408484.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sherpa-onnx-...26-03-06",
+          "fingerprint": "7654010843a280bc",
+          "sources": [
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/66e4fe2e-3d00-4196-b8da-21f7653bc869/subagents/workflows/wf_f9601b61-b1a/agent-a32bc8f8fd64d38aa.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "QSB_SKYSCRAP...ETION_V1",
+          "fingerprint": "8831c9e84b5244e3",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "f47_op_2026-...t_polish",
+          "fingerprint": "1df89a1e54b01e1f",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "nqsb_floor_i...t_latest",
+          "fingerprint": "0f7dfff2fd8436b7",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "n-----------...--------",
+          "fingerprint": "ab586223fd5a9fa0",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "nqsb_claude_...t_latest",
+          "fingerprint": "1e84dc738a655677",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "nqsb_every_f...e_report",
+          "fingerprint": "0e7fc2326c72a6bf",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "n-----------...--------",
+          "fingerprint": "f345965fd9d4b80e",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "cohere_aU8rt...H42CsW7L",
+          "fingerprint": "42066e3d33c7d97d",
+          "sources": [
+            "/home/ross/.claude/file-history/abffeda1-e592-40d7-b539-4b41a879dfd9/58bbc67bf390c3be@v2",
+            "/home/ross/.claude/file-history/da899cbc-9d68-4b5c-928c-2c5667de3f39/58bbc67bf390c3be@v2",
+            "/vaults/nvme0/qsb_tower_v1/floors/floor_28_security_department/vault/.env.cohere",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "EQSB_KERNEL_..._CORE_V1",
+          "fingerprint": "9e5295e96f0052cb",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_kernel_architecture_layers.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "QSB_GODOT_DA..._LOOP_V1",
+          "fingerprint": "83ef09e0097aa4b5",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_godot_production_readiness_gates.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "f47_op_2026-...it_pass2",
+          "fingerprint": "04797069db86e836",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/floors/floor_47_executive_operations_department/operation_records/2026-06-14_visitor_walking_tour_audit_pass2.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "bak_20260707...wen_only",
+          "fingerprint": "c278d1c666c6ef6f",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/asa_node/asa_results.jsonl",
+            "/vaults/nvme0/qsb_tower_v1/data/asa_node/asa_tasks.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "bak_20260707...roviders",
+          "fingerprint": "697fa2f6a1291a6b",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/asa_node/asa_results.jsonl",
+            "/vaults/nvme0/qsb_tower_v1/data/asa_node/asa_tasks.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "bak_20260707..._checker",
+          "fingerprint": "5ac4eb7c0693dc0b",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/asa_node/asa_results.jsonl",
+            "/vaults/nvme0/qsb_tower_v1/data/asa_node/asa_tasks.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "bak_20260707..._tp_wren",
+          "fingerprint": "fe9d64e949a5a5b4",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/asa_node/asa_results.jsonl",
+            "/vaults/nvme0/qsb_tower_v1/data/asa_node/asa_tasks.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_claude_k...e_design",
+          "fingerprint": "1a70cff77364a563",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/asa_node/asa_results.jsonl",
+            "/vaults/nvme0/qsb_tower_v1/data/asa_node/asa_tasks.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "bak_20260707..._clarity",
+          "fingerprint": "16706cca6ebec711",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/asa_node/asa_results.jsonl",
+            "/vaults/nvme0/qsb_tower_v1/data/asa_node/asa_tasks.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "bak_20260707...nl_guard",
+          "fingerprint": "0c9754571a153aca",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/asa_node/asa_results.jsonl",
+            "/vaults/nvme0/qsb_tower_v1/data/asa_node/asa_tasks.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "registry_tru...raphrase",
+          "fingerprint": "4e85052c275927a1",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_kernel_architecture_layers.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_three_mo...ignments",
+          "fingerprint": "34b3ddeb62aea990",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_three_model_embassy_floor_assignments.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "QSB_THREE_MO...PSEEK_V1",
+          "fingerprint": "15a488ecf7610613",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_three_model_embassy_floor_assignments.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "EQSB_SYSTEM_...EPAIR_V1",
+          "fingerprint": "852ca4cb911f1dba",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_model_fl...oke_test",
+          "fingerprint": "e8d2ab7572391ec2",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_unreal_t...oke_test",
+          "fingerprint": "2850c41db667dd82",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_model_fl...oke_test",
+          "fingerprint": "cc69f4b15ee039c5",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_unreal_a...ial_pass",
+          "fingerprint": "e5eed60a7c6263df",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_unreal_g...yscraper",
+          "fingerprint": "cbb3a7193a06d146",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "stop_strateg..._sidecar",
+          "fingerprint": "68d3ee9f151bf5d3",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_unreal_v...ld_suite",
+          "fingerprint": "52b72f6e1f6e8a02",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_model_fl...oke_test",
+          "fingerprint": "7891e2a32fed6ea8",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_model_fl...oke_test",
+          "fingerprint": "b14d7dbe62c63969",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_unreal_p...ll_suite",
+          "fingerprint": "e14b79e5aaf70a29",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_dashboar...ion_loop",
+          "fingerprint": "5f740bff9fc60e2d",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "run_strategy..._sidecar",
+          "fingerprint": "ac5c8488eb90acf7",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_godot_fl...on_check",
+          "fingerprint": "271314efe1447308",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_unreal_p...oke_test",
+          "fingerprint": "4d2dcfa713ec4eb3",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_unreal_p...oke_test",
+          "fingerprint": "2306e7475b3bcb0c",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_model_fl...p_latest",
+          "fingerprint": "3a6fe801ed074cc8",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_model_fl...t_latest",
+          "fingerprint": "340b3a6677e38028",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_godot_la...on_score",
+          "fingerprint": "f53d1411d356c0df",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_persiste...n_report",
+          "fingerprint": "35040b844ac0c186",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_kernel_t...e_latest",
+          "fingerprint": "01d7129c1e23c5d6",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_dashboar...on_score",
+          "fingerprint": "e36cac82ea7b8af5",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_unreal_p...e_latest",
+          "fingerprint": "bc9bad5febafd92d",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_model_fl...t_latest",
+          "fingerprint": "e278c9cf1cc1c567",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_godot_ov...r_report",
+          "fingerprint": "6e251d5478b2ebc4",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_dashboar...ce_gates",
+          "fingerprint": "b6f75dcc6a3c5985",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_tower_re...e_latest",
+          "fingerprint": "0807b0b634bec425",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_unreal_f...n_status",
+          "fingerprint": "82b67e2e1ada6e20",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_original...nventory",
+          "fingerprint": "fb190e8addae2a7e",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_kernel_l...2_latest",
+          "fingerprint": "ac635b4b7ec8d022",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_godot_wo...n_status",
+          "fingerprint": "5dec13cd6ca12d29",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_godot_or...igration",
+          "fingerprint": "c783740fde40a661",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_unreal_v...e_latest",
+          "fingerprint": "88091b3b0ef4e443",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_model_fl...t_latest",
+          "fingerprint": "1d60d05c72172f14",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_model_fl...t_latest",
+          "fingerprint": "7580bc1361c81d76",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_godot_tr...n_status",
+          "fingerprint": "17afda61e1ad41c3",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_godot_de...n_status",
+          "fingerprint": "e041ac3963fdbbb6",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_worker_d...ot_cause",
+          "fingerprint": "a868bedb84f527a1",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_every_fl...e_report",
+          "fingerprint": "22ef1c2569180872",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_unreal_p...n_status",
+          "fingerprint": "a52eafe08b6943f3",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_unreal_c...s_status",
+          "fingerprint": "6c29be292405191c",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_model_fl...e_latest",
+          "fingerprint": "73557a5849592705",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_unreal_f...tic_plan",
+          "fingerprint": "5c2f656a9a0ba18e",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_godot_fe...t_latest",
+          "fingerprint": "bf0d3bef676a78f8",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_dashboar...on_score",
+          "fingerprint": "cf191d479d439401",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_model_fl...t_latest",
+          "fingerprint": "93c93a943e0c89d1",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_godot_pr...le_guide",
+          "fingerprint": "0312a1b4e254865d",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_godot_fl...n_status",
+          "fingerprint": "759dbe423e7b49c9",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_claude_f...t_latest",
+          "fingerprint": "bec8e78e6ce268e3",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_godot_pr...te_check",
+          "fingerprint": "f20a72f9a3cd430c",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_model_fl...t_latest",
+          "fingerprint": "8210849a8e0bd292",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_unreal_p...d_report",
+          "fingerprint": "c59681681a2cd845",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_tower_vi...t_latest",
+          "fingerprint": "dd20977ccabf415c",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_unreal_v...m_report",
+          "fingerprint": "0bf8599219297b8e",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_unreal_p...e_latest",
+          "fingerprint": "1259220938f8c750",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_kernel_c...eckpoint",
+          "fingerprint": "6a9ad0f5e25e2f38",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_godot_ov...t_latest",
+          "fingerprint": "7b41fd5eb34b62b3",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_dashboar...ce_gates",
+          "fingerprint": "113d842934e77f02",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_unreal_t...s_report",
+          "fingerprint": "c3d21f88516a2f13",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_tower_wo...t_latest",
+          "fingerprint": "4b7a58dfbd21d739",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_model_fl...t_latest",
+          "fingerprint": "aab10635115eb612",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_godot_fl...t_latest",
+          "fingerprint": "4ed2574c381f1406",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qsb_floor_in...t_latest",
+          "fingerprint": "0a9f0c2ca8a25c20",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "belief_state...B10Y_USD",
+          "fingerprint": "d1bc2ce187f71976",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "belief_state...TGAS_USD",
+          "fingerprint": "5f759a62d58b28a0",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "belief_state..._EUR_USD",
+          "fingerprint": "23df354d3c208a94",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "belief_state..._EUR_USD",
+          "fingerprint": "0babc6ebb3b53bcd",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "belief_state...DE30_EUR",
+          "fingerprint": "21e000999632356c",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "belief_state...LINKUSDT",
+          "fingerprint": "101a550055effede",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "belief_state..._BTCUSDT",
+          "fingerprint": "d5d496a0b5525084",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "belief_state..._USD_JPY",
+          "fingerprint": "6b9fe886cc7bc496",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "belief_state..._EUR_GBP",
+          "fingerprint": "321d5454a8c4a646",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "belief_state...TICO_USD",
+          "fingerprint": "53171046c2b789ec",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "belief_state..._BTCUSDT",
+          "fingerprint": "09318d0a2dd809ac",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "belief_state..._USD_JPY",
+          "fingerprint": "b643187e48ae6a00",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "belief_state...S100_USD",
+          "fingerprint": "3a943c1f7465f08e",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "belief_state..._GBP_USD",
+          "fingerprint": "a31d028187848705",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "belief_state...S100_USD",
+          "fingerprint": "5cea969cf4d1cc3f",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "belief_state..._USD_JPY",
+          "fingerprint": "81d46acec2971a9c",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "belief_state..._USD_JPY",
+          "fingerprint": "1da0985887cc94bb",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "belief_state..._EUR_USD",
+          "fingerprint": "fc318e75d91e3c73",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "belief_state..._EUR_USD",
+          "fingerprint": "7441126e9054ef70",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "belief_state...10YB_GBP",
+          "fingerprint": "bcdc7cf03737f013",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "belief_state..._EUR_USD",
+          "fingerprint": "679dab9fb14c6c27",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "belief_state...TGAS_USD",
+          "fingerprint": "831503e981999612",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "belief_state...X500_USD",
+          "fingerprint": "e89b37fd86364263",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "belief_state..._GBP_USD",
+          "fingerprint": "900798862f83ef37",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "belief_state...P225_USD",
+          "fingerprint": "ef98c6d15cb8a353",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "belief_state..._USD_JPY",
+          "fingerprint": "51b80e5fd05325b9",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "belief_state..._EUR_USD",
+          "fingerprint": "a761d79b650f7e9c",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "belief_state...AVAXUSDT",
+          "fingerprint": "3020cd9c9b55f9d2",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "belief_state..._GBP_USD",
+          "fingerprint": "525d22619ecc7558",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "belief_state..._BNBUSDT",
+          "fingerprint": "6200ac20af9ce996",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "belief_state..._ETHUSDT",
+          "fingerprint": "4a21fa706db24d3b",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "belief_state...TICO_USD",
+          "fingerprint": "f33a0466535b4bc9",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "belief_state...HEAT_USD",
+          "fingerprint": "63e6a46a1311d6ec",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "belief_state..._USD_JPY",
+          "fingerprint": "f5b01f953b6a7aa2",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "belief_state..._XAU_USD",
+          "fingerprint": "8d6fe345f1173b59",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "belief_state...X500_USD",
+          "fingerprint": "32365e5f8f149bcb",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "belief_state..._GBP_USD",
+          "fingerprint": "6e20aca12c369eab",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "belief_state...US30_USD",
+          "fingerprint": "9195a56fdfeac04a",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "belief_state..._ETHUSDT",
+          "fingerprint": "4daaa6882330b5e2",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "cognitive_di...e_design",
+          "fingerprint": "d545a8ac87ec089d",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "belief_state..._EUR_USD",
+          "fingerprint": "7d171ba29951bc18",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "belief_state..._USD_JPY",
+          "fingerprint": "baaf5b653c9138e9",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "f41__f41_ker..._GBP_USD",
+          "fingerprint": "808fc088b3b875df",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "f41__f41_ope..._USD_JPY",
+          "fingerprint": "ec807468579858ac",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "f41__f41_pap..._USD_JPY",
+          "fingerprint": "0d8bf8df73e53e82",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "f41__f41_ope..._EUR_USD",
+          "fingerprint": "45cdb114431c71d7",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "f41__f41_pap..._GBP_USD",
+          "fingerprint": "0c7358f7b999485a",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "f41__f41_pap..._EUR_USD",
+          "fingerprint": "59ba9373ead1d6a7",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "floor_52_inf...partment",
+          "fingerprint": "7ef64b243a812877",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "2026-06-14_v...it_pass2",
+          "fingerprint": "c99d6ac092b05dc1",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "2026-06-14_f...lassroom",
+          "fingerprint": "45bca86ecf7028a5",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "2026-06-14_f...4_room_1",
+          "fingerprint": "1d114d34246efa29",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "2026-06-14_f...ter_wall",
+          "fingerprint": "c87299766f861e67",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "2026-06-20_w...a_agreed",
+          "fingerprint": "683df8b27fb0728f",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "2026-06-14_f...m_window",
+          "fingerprint": "7eae122ff0f76c72",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "2026-06-14_f...se_panel",
+          "fingerprint": "e4b9a9f085ecb4bd",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "2026-06-14_f...de_panel",
+          "fingerprint": "b6a75bfc45f0cce9",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "2026-06-14_f..._sidecar",
+          "fingerprint": "cbe478434b7bd295",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "floor_27_loc...partment",
+          "fingerprint": "9469c846e6b0d399",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "floor_22_int...partment",
+          "fingerprint": "3df69116cb635c84",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "floor_35_inf...partment",
+          "fingerprint": "c9687f910f00fca2",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/eqsb_code_map.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-api03...W1pPogAA",
+          "fingerprint": "09fb9dd4e2cdbae7",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/backups/acer_runtime_restore_20260707_201859/files/data__registries__qsb_council_mind_mirror_Acer-Cass.json",
+            "/vaults/nvme0/qsb_tower_v1/backups/acer_runtime_restore_20260707_201947/files/data__registries__qsb_council_mind_mirror_Acer-Cass.json",
+            "/vaults/nvme0/qsb_tower_v1/backups/thinkpad_runtime_restore_20260707_201859/files/data__registries__qsb_council_mind_mirror_TP-Pip.json",
+            "/vaults/nvme0/qsb_tower_v1/backups/thinkpad_runtime_restore_20260707_201947/files/data__registries__qsb_council_mind_mirror_TP-Pip.json",
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_council_mind_mirror_Acer-Cass.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "acer_thinkpa...restored",
+          "fingerprint": "7834af9582e58452",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_council_mind_mirror_Acer-Cass.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "acer_thinkpa..._restore",
+          "fingerprint": "0c93e6b8b21cde18",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_council_mind_mirror_Acer-Cass.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026..._shipped",
+          "fingerprint": "52476c7e8dcb93bf",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "generative_a..._mapping",
+          "fingerprint": "08cd8bec1b15b43d",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "client_level..._enabled",
+          "fingerprint": "b19a83695d32c4ad",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "service_uses..._default",
+          "fingerprint": "03a0c20941af8f65",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "client_level..._enabled",
+          "fingerprint": "fcb7a5f6590166fd",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "generate-tex...-request",
+          "fingerprint": "c4e543fcfeae0dda",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "generate-tex...-request",
+          "fingerprint": "59b66805d2baaf83",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "substitute-v..._message",
+          "fingerprint": "c36c1abf24a473d3",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "substitute-v...t_prompt",
+          "fingerprint": "ebb12909b1d4ddd2",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "ff089b810b38...f18100cf",
+          "fingerprint": "5b857bdb4a393048",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_lineage.jsonl",
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-api03...t4YJDgAA",
+          "fingerprint": "901d172587bc29e7",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-api03...Qra4ZwAA",
+          "fingerprint": "8280982a420a2ea0",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-api03...Z_Be-wAA",
+          "fingerprint": "054520dd4e6941d9",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-api03...sPTXUQAA",
+          "fingerprint": "a156f6c5a5535d2f",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-proj-1GZs...NPJK8nUA",
+          "fingerprint": "e66b1bba1de8375a",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "Ab8RN6KcriKF...-Zg3lATQ",
+          "fingerprint": "a445001ba1b278bc",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-9v0SBsd4p...lbKh73US",
+          "fingerprint": "3a16823da16cca22",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "gsk_bn5Dv1aK...saUvFC2g",
+          "fingerprint": "bea06de3db94be74",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...1_landed",
+          "fingerprint": "dac1e92b853bb25d",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...r_fitout",
+          "fingerprint": "d80780fa94c088f6",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026..._shipped",
+          "fingerprint": "4937e7cee43dbe74",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_deep...nd_state",
+          "fingerprint": "2eb03469ec7078a1",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...nd_state",
+          "fingerprint": "ef5b477f00e66e86",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_f47_...ld_start",
+          "fingerprint": "937a81702a46a94e",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...ld_start",
+          "fingerprint": "564eacc325aa3afa",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...wren_ack",
+          "fingerprint": "68c608392b906432",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...er_recap",
+          "fingerprint": "dbfaa3939e1ba0eb",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_pre_...wap_done",
+          "fingerprint": "b97796a7ddf2a43e",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...wap_done",
+          "fingerprint": "37a1374cb72e4183",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_skys...nloading",
+          "fingerprint": "2a7245d090da7443",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "skyscraper_s...nloading",
+          "fingerprint": "d5ec68148113110d",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...nloading",
+          "fingerprint": "c8ff16ff59d1f057",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_godo...nloading",
+          "fingerprint": "1489333fb957f923",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "godot_carpar...nloading",
+          "fingerprint": "5805fb0e18277261",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...nloading",
+          "fingerprint": "a11bdc221da321e6",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...re_smoke",
+          "fingerprint": "fee9be5dd37cd23a",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_gith...andalone",
+          "fingerprint": "df9e52c68c9e7789",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "github_daily...andalone",
+          "fingerprint": "3d677564baed91a5",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...andalone",
+          "fingerprint": "cf3ca46acc4930e3",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_tikt...ry_saved",
+          "fingerprint": "69bae8cd463efc82",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "tiktok_signu...ry_saved",
+          "fingerprint": "518f35a7f72306e7",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...ry_saved",
+          "fingerprint": "53157476bc77d48c",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_godo...k_paused",
+          "fingerprint": "c531ef3ee539272d",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "godot_rooms_...k_paused",
+          "fingerprint": "664c1b14b89b79f0",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...k_paused",
+          "fingerprint": "c1eb3127e564d6e4",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_qwen...k_ready_",
+          "fingerprint": "e78b6f78d89693c0",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qwen32b_done...k_ready_",
+          "fingerprint": "995a3705ae1a908b",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...k_ready_",
+          "fingerprint": "b3f2606ec88bd1a0",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_tikt...irllm_pa",
+          "fingerprint": "2756ac51e37b6692",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "tiktok_live_...irllm_pa",
+          "fingerprint": "4a928a5bb71dc53d",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...irllm_pa",
+          "fingerprint": "61ebe78b7e2d5a0c",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_perf...o_audit_",
+          "fingerprint": "b134f3c98bad273f",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "perf_swap_wr...o_audit_",
+          "fingerprint": "c66fdc4b37fae021",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...o_audit_",
+          "fingerprint": "940a99f50d0ae904",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_post...oom_dial",
+          "fingerprint": "7c3eef2dbaa009fb",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "post_crash_r...oom_dial",
+          "fingerprint": "63f754a4b8b362d1",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...oom_dial",
+          "fingerprint": "a9fed42743a4ef1d",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_f166...xed_phas",
+          "fingerprint": "10f3d2c2100da54e",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "f166_tiktok_...xed_phas",
+          "fingerprint": "0d7e1330a0b64f26",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...xed_phas",
+          "fingerprint": "5bfec7bb3bed0240",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_pre_..._partial",
+          "fingerprint": "70893d03e0156bcb",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pre_pc_resta..._partial",
+          "fingerprint": "a3de08d970ee47a4",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026..._partial",
+          "fingerprint": "1035a3be51fdb02e",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_end_...i_team_s",
+          "fingerprint": "5c6fd2101d06ef15",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "end_of_day_r...i_team_s",
+          "fingerprint": "343a3cafe4c80597",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...i_team_s",
+          "fingerprint": "9eb64d925cc8df16",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...n_flight",
+          "fingerprint": "2be140dab43b2722",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...ery_save",
+          "fingerprint": "9c1fc44d4072b688",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...3_venues",
+          "fingerprint": "276ba86954f66203",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...ker_live",
+          "fingerprint": "fd1d574abf5dd9b3",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_pre_..._shipped",
+          "fingerprint": "95a2ac0935fa4b04",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pre_restart_..._shipped",
+          "fingerprint": "90c04f1b053d2d36",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026..._shipped",
+          "fingerprint": "f1eea1b7eb14878d",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_post..._winning",
+          "fingerprint": "f16365cdb4f1dba9",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "post_crash_2..._winning",
+          "fingerprint": "f1f4dc2a50cc3f43",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026..._winning",
+          "fingerprint": "c0a089c3bdcb5c21",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...26-06-26",
+          "fingerprint": "c9651f6e23e4bfcb",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...26-06-27",
+          "fingerprint": "8b565ecb6f1cdf73",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_ue5_...26-06-28",
+          "fingerprint": "3d529c1b31383657",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "ue5_skyscrap...26-06-28",
+          "fingerprint": "4d2feaf04d690666",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "QSB_UNREAL_V...EPAIR_V1",
+          "fingerprint": "56f006870de6fed3",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...26-06-28",
+          "fingerprint": "4886af8aad7e490d",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_ue5_...28_part2",
+          "fingerprint": "29cc69dc7386dc55",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "ue5_tiktok_r...28_part2",
+          "fingerprint": "4b632af46fc436ef",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "TIKTOK_REFER...GRADE_V1",
+          "fingerprint": "cd47eaf2fe4d6ebd",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...28_part2",
+          "fingerprint": "9c3eeb18e67afee5",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_ue5_...26-06-28",
+          "fingerprint": "175eb5b1c5fd9fd6",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "ue5_honest_f...26-06-28",
+          "fingerprint": "cd7acf2f309d591e",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...26-06-28",
+          "fingerprint": "ce421de9f1ce0bfe",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_pc_r...26-06-29",
+          "fingerprint": "b50867c7a1ffb72f",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pc_restart_p...26-06-29",
+          "fingerprint": "9d9f7526c82e332a",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...26-06-29",
+          "fingerprint": "0e5e021a4cc6efb4",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_pre_...26-06-30",
+          "fingerprint": "928aee9b64bc1359",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...26-06-30",
+          "fingerprint": "88aa71ad88fd9c1c",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...inuation",
+          "fingerprint": "7472732d1d464d10",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026..._evening",
+          "fingerprint": "8970325f0f5eccc1",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_olla...tool_fix",
+          "fingerprint": "05f7b6647b2f2b50",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "ollama_repai...tool_fix",
+          "fingerprint": "e7c9c6f99df72dd6",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...tool_fix",
+          "fingerprint": "2f03ae36b6da7be7",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_sess...oardroom",
+          "fingerprint": "78a424c4ab4549ec",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "session_2026...oardroom",
+          "fingerprint": "7e20fba463dd63ee",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...oardroom",
+          "fingerprint": "d4ac1754fe214604",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_sess..._federat",
+          "fingerprint": "693d262a08ff862b",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "session_2026..._federat",
+          "fingerprint": "8e31d8743394bf85",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "shipped_agen...rce_sync",
+          "fingerprint": "87603296a12a5c04",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026..._federat",
+          "fingerprint": "292b85da4a42759e",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_boar..._evening",
+          "fingerprint": "51325a55af867595",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "boardroom_hu..._evening",
+          "fingerprint": "aba8499f424b4c98",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026..._evening",
+          "fingerprint": "36740a50eb09a996",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_boar..._evening",
+          "fingerprint": "6c92674bfa4498ba",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "boardroom_hq..._evening",
+          "fingerprint": "4a9a8e98c0bac4f2",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026..._evening",
+          "fingerprint": "8f9929c30aed55bb",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_coun...ng_rules",
+          "fingerprint": "1915db2e011ba958",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...ng_rules",
+          "fingerprint": "99559af2bf228b51",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_coun...h_online",
+          "fingerprint": "14b41a7baade0982",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...h_online",
+          "fingerprint": "15f2e23ef73be9a8",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_l12_...treaming",
+          "fingerprint": "c6561764d6149d29",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "l12_stage3_w...treaming",
+          "fingerprint": "df49c223709bbdf0",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...treaming",
+          "fingerprint": "dec2ac01a5865b67",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_shut...26-07-05",
+          "fingerprint": "f3b9225c5720675a",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...26-07-05",
+          "fingerprint": "60636eceba6276e8",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026..._shipped",
+          "fingerprint": "f306c49653357617",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...ll_wired",
+          "fingerprint": "84db351730a93624",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "2026-07-05_n...ll_wired",
+          "fingerprint": "ee4c2427577573f3",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...ll_wired",
+          "fingerprint": "1ef1d27fa8e131e6",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...ive_v215",
+          "fingerprint": "1595e62946a55805",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_ipad...07-06_v3",
+          "fingerprint": "3aa4153fa43031bb",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...07-06_v3",
+          "fingerprint": "03ac500535cb8b9f",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026..._restore",
+          "fingerprint": "eac8353ce7cc63d9",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026..._restore",
+          "fingerprint": "e48ca18649d52ee5",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...verified",
+          "fingerprint": "2d2864a524b13388",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "2026-07-07_b...verified",
+          "fingerprint": "63066b1a195141f2",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...verified",
+          "fingerprint": "d5ec352c0935d409",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...restored",
+          "fingerprint": "78363fc690e96dae",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "2026-07-07_a...restored",
+          "fingerprint": "f74711c0d4a0ac69",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "thinkpad_run...7_201947",
+          "fingerprint": "02cc4aede0a2d583",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...restored",
+          "fingerprint": "3af6b8081f208efb",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "feedback_dem...26-07-06",
+          "fingerprint": "37bbe07eb506352b",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "feedback_tak...26-07-06",
+          "fingerprint": "be920b35947cf10d",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/backups/acer_runtime_restore_20260707_201859/files/data__registries__qsb_council_mind_mirror_Acer-Cass.json",
+            "/vaults/nvme0/qsb_tower_v1/backups/acer_runtime_restore_20260707_201947/files/data__registries__qsb_council_mind_mirror_Acer-Cass.json",
+            "/vaults/nvme0/qsb_tower_v1/backups/thinkpad_runtime_restore_20260707_201859/files/data__registries__qsb_council_mind_mirror_TP-Pip.json",
+            "/vaults/nvme0/qsb_tower_v1/backups/thinkpad_runtime_restore_20260707_201947/files/data__registries__qsb_council_mind_mirror_TP-Pip.json",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "data__regist...cer-Cass",
+          "fingerprint": "c590ae95230600f3",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "thinkpad_run...7_201859",
+          "fingerprint": "6d62a303245dbfc5",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "data__regist...r_TP-Pip",
+          "fingerprint": "6e84fb65e91a9a14",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "__vaults__nv...26-07-07",
+          "fingerprint": "0fe6657f988bbad7",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "ross_emergen...26-07-07",
+          "fingerprint": "bb84ca1eb3f0b282",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "HANDOFF_brai...26-07-07",
+          "fingerprint": "c7e7111211ffe51b",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-api03...C5D7dAAA",
+          "fingerprint": "9efe5ae53ea21ee0",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-oat01...4rTQMwAA",
+          "fingerprint": "55ab50ea73fb5406",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-ort01...PoeryAAA",
+          "fingerprint": "cddaf685ab410f94",
+          "sources": [
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...restored",
+          "fingerprint": "a9b509dcfa0f0311",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "2026-07-08_g...restored",
+          "fingerprint": "101fb9d33c98ebe6",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...restored",
+          "fingerprint": "0e645bc96faa5864",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...ne_pools",
+          "fingerprint": "1a60740e23433cac",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "2026-07-08_n...ne_pools",
+          "fingerprint": "cfbcba8332441d26",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...ne_pools",
+          "fingerprint": "84de3f1adfc66061",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...eal_ip72",
+          "fingerprint": "7dbd0091e6b776b2",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "2026-07-09_p...eal_ip72",
+          "fingerprint": "e3dc6d38c9cde344",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...eal_ip72",
+          "fingerprint": "87348e15debaaf01",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_hq_c...ar_start",
+          "fingerprint": "aad6c510fa700223",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "hq_conduct_c...ar_start",
+          "fingerprint": "46216f45f1b57ecb",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...ar_start",
+          "fingerprint": "52cd7bb2695e15a2",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "proof_requir...ed_files",
+          "fingerprint": "197624c53282f73a",
+          "sources": [
+            "/home/ross/.claude/file-history/915a001a-6b53-44ce-aab0-877d3a0e11b1/afe0e78124bcc801@v3",
+            "/home/ross/.claude/file-history/915a001a-6b53-44ce-aab0-877d3a0e11b1/afe0e78124bcc801@v4",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_pi_o...26-07-10",
+          "fingerprint": "1d7726fd24243c40",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...26-07-10",
+          "fingerprint": "7675addb78e548a4",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_tp_a...4b1_done",
+          "fingerprint": "2c0fbceda191c96f",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "tp_acer_hard...4b1_done",
+          "fingerprint": "b4bb197d8b16ef77",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...4b1_done",
+          "fingerprint": "471f5818dddda2a1",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "BRAIN_MODULE...ITH_DEMO",
+          "fingerprint": "abe6c1641ec38f30",
+          "sources": [
+            "/home/ross/.claude/file-history/0b34b292-a44f-46ed-b1a6-7412a81abf76/0722460bca823d31@v2",
+            "/home/ross/.claude/paste-cache/691bfa5c9429ed54.txt",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "BRAIN_MODULE...SPECTION",
+          "fingerprint": "c102d67469d8bb6e",
+          "sources": [
+            "/home/ross/.claude/paste-cache/691bfa5c9429ed54.txt",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "S4B2_NO_CHAN...ADY_SAFE",
+          "fingerprint": "eedd295b2db8f8a9",
+          "sources": [
+            "/home/ross/.claude/file-history/0b34b292-a44f-46ed-b1a6-7412a81abf76/9cb854ede33e46a7@v2",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_wren...ime_down",
+          "fingerprint": "97e07478cd655704",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "wren_concier...ime_down",
+          "fingerprint": "dad81ba1794f8744",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...ime_down",
+          "fingerprint": "68f26dba3c58b92c",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "CLAUDE_MAX_R...T_PROVEN",
+          "fingerprint": "20e46e78bbbc7a9a",
+          "sources": [
+            "/home/ross/.claude/file-history/0b34b292-a44f-46ed-b1a6-7412a81abf76/3cf8ff0790c05bbd@v1",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "CLAUDE_MAX_R...RD_BUILD",
+          "fingerprint": "667952cc9349ba6e",
+          "sources": [
+            "/home/ross/.claude/file-history/0b34b292-a44f-46ed-b1a6-7412a81abf76/3cf8ff0790c05bbd@v1",
+            "/home/ross/.claude/file-history/0b34b292-a44f-46ed-b1a6-7412a81abf76/3cf8ff0790c05bbd@v2",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "CLAUDE_HQ_SE...T_PROVEN",
+          "fingerprint": "e28c6aa53985a5ff",
+          "sources": [
+            "/home/ross/.claude/file-history/0b34b292-a44f-46ed-b1a6-7412a81abf76/3cf8ff0790c05bbd@v2",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_phys...ardening",
+          "fingerprint": "aa076498616cce25",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "physical-wor...ardening",
+          "fingerprint": "ebc4115997155d21",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...ardening",
+          "fingerprint": "34c5cce5f17dccb4",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_phys...it_dashb",
+          "fingerprint": "45c32ee5559b59f9",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "physical-wor...it_dashb",
+          "fingerprint": "60186125933ef4f8",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...it_dashb",
+          "fingerprint": "e04a07c00f3e03a3",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_phys...autonomy",
+          "fingerprint": "d8f5d465a9867a24",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "physical-wor...autonomy",
+          "fingerprint": "a6aaf6a562a1b45c",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...autonomy",
+          "fingerprint": "fe2fd607fbf212d0",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_fede...rounding",
+          "fingerprint": "76dbc86ce6c2fba8",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "federated_ph...rounding",
+          "fingerprint": "8b421d67de2387f9",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...rounding",
+          "fingerprint": "f6e7cb54a47ae212",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "PHYSICAL_WOR...IVE_PASS",
+          "fingerprint": "a33f252182d80a7a",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "SKYSCRAPERHQ...NODES-V1",
+          "fingerprint": "b8ebb1854d7813b5",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "SKYSCRAPERHQ...ORE_PASS",
+          "fingerprint": "d745e412b363813b",
+          "sources": [
+            "/home/ross/.claude/paste-cache/81d7c3daed6c6bf7.txt",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "SKYSCRAPERHQ...Y_REPORT",
+          "fingerprint": "4ed4e42844db5eb7",
+          "sources": [
+            "/home/ross/.claude/paste-cache/81d7c3daed6c6bf7.txt",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "SKYSCRAPERHQ...DES_PASS",
+          "fingerprint": "b163bd46abc2a3fb",
+          "sources": [
+            "/home/ross/.claude/paste-cache/81d7c3daed6c6bf7.txt",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "PHYSICAL_WOR...N_REPORT",
+          "fingerprint": "4ec7cf4ad817cbed",
+          "sources": [
+            "/home/ross/.claude/paste-cache/81d7c3daed6c6bf7.txt",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "RASPBERRY_PI...E_REPORT",
+          "fingerprint": "0e72d812f52939ef",
+          "sources": [
+            "/home/ross/.claude/paste-cache/81d7c3daed6c6bf7.txt",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "MACBOOK_FEDO...E_REPORT",
+          "fingerprint": "f89dabd662f0a8bb",
+          "sources": [
+            "/home/ross/.claude/paste-cache/81d7c3daed6c6bf7.txt",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "SKYSCRAPERHQ...T_REPORT",
+          "fingerprint": "ad9a8b1f177a9b55",
+          "sources": [
+            "/home/ross/.claude/paste-cache/81d7c3daed6c6bf7.txt",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "SKYSCRAPERHQ...T_REPORT",
+          "fingerprint": "600be49b81e40bd5",
+          "sources": [
+            "/home/ross/.claude/paste-cache/81d7c3daed6c6bf7.txt",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "SKYSCRAPERHQ...D_REPORT",
+          "fingerprint": "febb8a33abd0e3a5",
+          "sources": [
+            "/home/ross/.claude/paste-cache/81d7c3daed6c6bf7.txt",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "SKYSCRAPERHQ...D_PROVEN",
+          "fingerprint": "17f991f3d3e74eed",
+          "sources": [
+            "/home/ross/.claude/paste-cache/81d7c3daed6c6bf7.txt",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "SKYSCRAPERHQ..._UI_WORK",
+          "fingerprint": "72cae45f82556b4e",
+          "sources": [
+            "/home/ross/.claude/paste-cache/81d7c3daed6c6bf7.txt",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "SKYSCRAPERHQ..._BLOCKER",
+          "fingerprint": "8676fd5099de2688",
+          "sources": [
+            "/home/ross/.claude/paste-cache/81d7c3daed6c6bf7.txt",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "SKYSCRAPERHQ..._BLOCKER",
+          "fingerprint": "1350594ac0c3d2e3",
+          "sources": [
+            "/home/ross/.claude/paste-cache/81d7c3daed6c6bf7.txt",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "SKYSCRAPERHQ..._BLOCKER",
+          "fingerprint": "4ed6b66a5ed65a94",
+          "sources": [
+            "/home/ross/.claude/paste-cache/81d7c3daed6c6bf7.txt",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "SKYSCRAPERHQ...LED_BACK",
+          "fingerprint": "4ef2f73e229d3f0b",
+          "sources": [
+            "/home/ross/.claude/paste-cache/81d7c3daed6c6bf7.txt",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_pi_f...dmission",
+          "fingerprint": "1b86518ef2898078",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pi_federatio...dmission",
+          "fingerprint": "700f32986c7b5c9b",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...dmission",
+          "fingerprint": "a0738f437d131a24",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_ssk_...26-07-16",
+          "fingerprint": "adac9d0817f45414",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "ssk_audit__c...26-07-16",
+          "fingerprint": "ff2a4746f159076c",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...26-07-16",
+          "fingerprint": "9f0b4d1622330d52",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_ssk_..._2026-07",
+          "fingerprint": "f68c7df13c0bd7d4",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "ssk_storage_..._2026-07",
+          "fingerprint": "23ff6c7c281c0844",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026..._2026-07",
+          "fingerprint": "8b2ba2a9a453f41b",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "mcp__unrealM...ent_node",
+          "fingerprint": "c202e89783c9dbe1",
+          "sources": [
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/2a88b6fc-1a89-4bf7-b8ed-c4d879f31e30.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "mcp__unrealM...ion_node",
+          "fingerprint": "7c21f6c09979b272",
+          "sources": [
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/2a88b6fc-1a89-4bf7-b8ed-c4d879f31e30.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "mcp__unrealM...eference",
+          "fingerprint": "e772bed2e3573763",
+          "sources": [
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/2a88b6fc-1a89-4bf7-b8ed-c4d879f31e30.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "mcp__unrealM...ion_node",
+          "fingerprint": "cf74927f505f048d",
+          "sources": [
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/2a88b6fc-1a89-4bf7-b8ed-c4d879f31e30.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "mcp__unrealM...eference",
+          "fingerprint": "05efb8f31a6bc099",
+          "sources": [
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/2a88b6fc-1a89-4bf7-b8ed-c4d879f31e30.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "mcp__unrealM...lueprint",
+          "fingerprint": "bdea96b9dd368d41",
+          "sources": [
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/2a88b6fc-1a89-4bf7-b8ed-c4d879f31e30.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "mcp__unrealM...o_widget",
+          "fingerprint": "6cb21e946e232024",
+          "sources": [
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/2a88b6fc-1a89-4bf7-b8ed-c4d879f31e30.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "mcp__unrealM...lueprint",
+          "fingerprint": "632b254ad0c3ece8",
+          "sources": [
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/2a88b6fc-1a89-4bf7-b8ed-c4d879f31e30.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "mcp__unrealM...operties",
+          "fingerprint": "3d11fd1ede1bfd5f",
+          "sources": [
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/2a88b6fc-1a89-4bf7-b8ed-c4d879f31e30.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "EqMLCokBCA8Y...r3oG86nJ",
+          "fingerprint": "e84a5ef93a208c08",
+          "sources": [
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/2a88b6fc-1a89-4bf7-b8ed-c4d879f31e30.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "qSomzIPY2xhd...6a4kbroV",
+          "fingerprint": "1d93bcf6363b52d3",
+          "sources": [
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/2a88b6fc-1a89-4bf7-b8ed-c4d879f31e30.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "KTD1ONaYLEVt...7SF51TcR",
+          "fingerprint": "074fb45ef9e138c3",
+          "sources": [
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/2a88b6fc-1a89-4bf7-b8ed-c4d879f31e30.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "amkWutj741oB...HTkrY7Qn",
+          "fingerprint": "af8611d6f60ffc32",
+          "sources": [
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/2a88b6fc-1a89-4bf7-b8ed-c4d879f31e30.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "767IByuYUm1k...cvmg1P6S",
+          "fingerprint": "a174bf72de6fa5d0",
+          "sources": [
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/2a88b6fc-1a89-4bf7-b8ed-c4d879f31e30.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "VGCX1nR6hBwv...RoV0etWZ",
+          "fingerprint": "4d7c3f9458047394",
+          "sources": [
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/2a88b6fc-1a89-4bf7-b8ed-c4d879f31e30.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "8q8IPU0VzVzA...zcWjzlqW",
+          "fingerprint": "7406fa65a1fb7d5e",
+          "sources": [
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/2a88b6fc-1a89-4bf7-b8ed-c4d879f31e30.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "C8hldbL7ZCWf...uy0RMMyJ",
+          "fingerprint": "febdd1896d38da4a",
+          "sources": [
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/2a88b6fc-1a89-4bf7-b8ed-c4d879f31e30.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "AeARMrcTuT8A...WzXkXImZ",
+          "fingerprint": "ed41523706ff1f2b",
+          "sources": [
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/2a88b6fc-1a89-4bf7-b8ed-c4d879f31e30.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "gmJjmPuMKTsv...gaV1GOiS",
+          "fingerprint": "fdbf144baee2d2f9",
+          "sources": [
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/2a88b6fc-1a89-4bf7-b8ed-c4d879f31e30.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "Bkej01tReRfP...hvFXPARS",
+          "fingerprint": "21d92c04f9d38970",
+          "sources": [
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/2a88b6fc-1a89-4bf7-b8ed-c4d879f31e30.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "wAhaEdHHaxt2...l08rhYJd",
+          "fingerprint": "da3575193e79914c",
+          "sources": [
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/2a88b6fc-1a89-4bf7-b8ed-c4d879f31e30.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "k7giI0VSpbyZ...FYnVFAjC",
+          "fingerprint": "f2bc01de0dbbdb63",
+          "sources": [
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/2a88b6fc-1a89-4bf7-b8ed-c4d879f31e30.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pBbErgDHilTM...tLkdTt12",
+          "fingerprint": "99e6e01ffce41aa1",
+          "sources": [
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/2a88b6fc-1a89-4bf7-b8ed-c4d879f31e30.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "m7EmNBSyMe0o...W6VuaaPy",
+          "fingerprint": "e17de0b89aea85b9",
+          "sources": [
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/2a88b6fc-1a89-4bf7-b8ed-c4d879f31e30.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "UHjQbxSkRhsb...nGmdg7c9",
+          "fingerprint": "f0e747dafdb3d1e5",
+          "sources": [
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/2a88b6fc-1a89-4bf7-b8ed-c4d879f31e30.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_grea..._nul_rep",
+          "fingerprint": "cf3d3eb3ba5ef267",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "great_handov..._nul_rep",
+          "fingerprint": "284269646d898603",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026..._nul_rep",
+          "fingerprint": "14fe412461675a39",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_wren...ith_wren",
+          "fingerprint": "7b8a40e93e067da2",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "wren_floor46...ith_wren",
+          "fingerprint": "a4fd45595f86fa09",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "pitstop_2026...ith_wren",
+          "fingerprint": "ba57bf20dcae721c",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_claude_meta_letters.jsonl",
+            "previous_secure_store"
+          ]
+        }
+      ],
+      "status": "stored"
+    },
+    "kimi": {
+      "provider": "kimi",
+      "label": "Kimi / Moonshot",
+      "role": "long document reasoning",
+      "tier": "low-medium",
+      "key_count": 2,
+      "keys": [
+        {
+          "masked": "sk-9v0SBsd4p...lbKh73US",
+          "fingerprint": "3a16823da16cca22",
+          "sources": [
+            "/home/ross/.claude/file-history/abffeda1-e592-40d7-b539-4b41a879dfd9/217ca103b0a02504@v2",
+            "/home/ross/.claude/file-history/da899cbc-9d68-4b5c-928c-2c5667de3f39/217ca103b0a02504@v2",
+            "/vaults/nvme0/qsb_tower_v1/floors/floor_28_security_department/vault/.env.kimi",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "sk-ant-api03...W1pPogAA",
+          "fingerprint": "09fb9dd4e2cdbae7",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/backups/thinkpad_runtime_restore_20260707_201859/files/data__registries__qsb_council_mind_mirror_TP-Pip.json",
+            "/vaults/nvme0/qsb_tower_v1/backups/thinkpad_runtime_restore_20260707_201947/files/data__registries__qsb_council_mind_mirror_TP-Pip.json",
+            "previous_secure_store"
+          ]
+        }
+      ],
+      "status": "stored"
+    },
+    "grok": {
+      "provider": "grok",
+      "label": "Grok / xAI",
+      "role": "alternate reasoning perspective",
+      "tier": "medium",
+      "key_count": 0,
+      "keys": [],
+      "status": "missing"
+    },
+    "groq": {
+      "provider": "groq",
+      "label": "Groq",
+      "role": "fast hosted inference",
+      "tier": "low",
+      "key_count": 2,
+      "keys": [
+        {
+          "masked": "<past...ere>",
+          "fingerprint": "84d367e69c29c6b2",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/floors/floor_28_security_department/vault/.env.groq.template:GROQ_API_KEY",
+            "previous_secure_store"
+          ]
+        },
+        {
+          "masked": "gsk_bn5Dv1aK...saUvFC2g",
+          "fingerprint": "bea06de3db94be74",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/floors/floor_28_security_department/vault/.env.groq",
+            "/vaults/nvme0/qsb_tower_v1/floors/floor_28_security_department/vault/.env.groq:GROQ_API_KEY",
+            "previous_secure_store"
+          ]
+        }
+      ],
+      "status": "stored"
+    }
+  }
+}

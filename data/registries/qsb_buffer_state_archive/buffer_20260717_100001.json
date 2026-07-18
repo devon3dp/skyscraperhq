@@ -1,0 +1,219 @@
+{
+  "ts": "2026-07-16T18:47:22.304326Z",
+  "daemons": {
+    "dashboard": false,
+    "lumen": false,
+    "vision": false,
+    "heartbeat": false,
+    "cloudflared": false,
+    "qualify": false,
+    "godot": false
+  },
+  "adb_device": "",
+  "cloudflared_url": "",
+  "highlights": {
+    "alive_count": 0,
+    "down": [
+      "dashboard",
+      "lumen",
+      "vision",
+      "heartbeat",
+      "cloudflared",
+      "qualify",
+      "godot"
+    ],
+    "f47_chat_tail_count": 20,
+    "cli_chat_tail_count": 20,
+    "unsigned_proposals": 60,
+    "diary_last": "- 15:21 UTC (2026-07-16) \u2014 PITSTOP `ssk_storage_vault__prepared_blocked_on_msi_pi_wifi__2026-07-`. Focus: SSK storage-only vault APPROVED + fully prepared (build script staged); execution BLOCKED on flaky MSI<->Pi wifi (SSH drops, HTTP ok). Stopped for Ross.. Resume from data/registries/pitstops/pitstop_20260716T152156741861Z_ssk_storage_vault__prepared_blocked_on_msi_pi_wifi__2026-07-.md.",
+    "last_decision": {
+      "ts": "2026-07-16T18:45:56Z",
+      "kind": "hw_sample",
+      "operator": "hw_benchmark"
+    }
+  },
+  "f47_chat_tail": [
+    {
+      "ts": "2026-06-21T10:20:44Z",
+      "you": "will your floor still have a 3d interior that i can enter and see you and your floor and your team members ?"
+    },
+    {
+      "ts": "2026-06-21T10:29:08Z",
+      "you": "hows it going"
+    },
+    {
+      "ts": "2026-06-21T10:30:15Z",
+      "you": "but i thought you was fitting out your floor ?"
+    },
+    {
+      "ts": "2026-06-21T10:51:59Z",
+      "you": "can u smoke test yourself ?"
+    },
+    {
+      "ts": "2026-06-21T12:22:35Z",
+      "you": "hows iyt going wren"
+    },
+    {
+      "ts": "2026-06-21T12:22:59Z",
+      "you": "did you fit out your floor"
+    },
+    {
+      "ts": "2026-06-21T12:23:35Z",
+      "you": "ok can you now improve the reception ?"
+    },
+    {
+      "ts": "2026-06-21T13:07:00Z",
+      "you": "yes is it ready for me to see"
+    },
+    {
+      "ts": "2026-06-21T13:07:45Z",
+      "you": "is the interior of the reception ready for e to see inside ?"
+    },
+    {
+      "ts": "2026-06-21T13:08:34Z",
+      "you": "no fo"
+    },
+    {
+      "ts": "2026-06-21T13:08:54Z",
+      "you": "F0 stands for floor 0"
+    },
+    {
+      "ts": "2026-06-21T13:09:46Z",
+      "you": "tell me what you can and cant do in your software"
+    },
+    {
+      "ts": "2026-06-21T13:10:13Z",
+      "you": "are you aware you live in the skyscraper ?"
+    },
+    {
+      "ts": "2026-06-21T13:10:44Z",
+      "you": "do you have a team ?"
+    },
+    {
+      "ts": "2026-06-21T13:12:03Z",
+      "you": "what other members do you need on your team to help manage the skyscraper backend and front end and understand all the workers ?"
+    },
+    {
+      "ts": "2026-06-21T13:12:44Z",
+      "you": "ok what skills do you need and tools ?"
+    },
+    {
+      "ts": "2026-06-21T13:13:30Z",
+      "you": "how can i improve your understanding of the skyscraperhq ?"
+    },
+    {
+      "ts": "2026-06-30T15:22:21Z",
+      "you": "hello"
+    },
+    {
+      "ts": "2026-06-30T15:22:32Z",
+      "you": "its ross how are you"
+    },
+    {
+      "ts": "2026-06-30T15:24:43Z",
+      "you": "can you get the team to check why  qsb tower v1.6 is not working right prove your work"
+    }
+  ],
+  "cli_chat_tail": [
+    {
+      "ts": "2026-07-16T14:41:51.131Z",
+      "role": "user",
+      "text": "[tool_result:LATEST_PITSTOP.txt updated -> data/registries/pitstops/pitstop_20260716T144124309464Z_ssk_audit__caretaker_federation__2026-07-16.md]"
+    },
+    {
+      "ts": "2026-07-16T14:42:03.020Z",
+      "role": "assistant",
+      "text": "\u2705 **Pitstop complete.**\n\n- **File:** `data/registries/pitstops/pitstop_20260716T144124309464Z_ssk_audit__caretaker_federation__2026-07-16.md`\n- **Flushed:** buffer snapshot, wake briefing, chat mirror"
+    },
+    {
+      "ts": "2026-07-16T15:08:22.626Z",
+      "role": "user",
+      "text": "CLAUDE \u2014 APPROVED SSK STORAGE-ONLY FEDERATION VAULT BUILD\n\nRoss approves the evidence-backed recommendation:\n\nSSK_STORAGE_ONLY_RECOMMENDED\n\nDo not switch the SSK into Wi-Fi mode.\n\nDo not unmount it fo"
+    },
+    {
+      "ts": "2026-07-16T15:09:19.797Z",
+      "role": "assistant",
+      "text": "Approved and well-scoped \u2014 additive vault, USB mode kept, no network/Netgear changes. **Resume point:** SSK is USB-mounted on the Pi at `/media/ross/SSK Cloud` (1.9T exFAT, 498G free); build a non-des"
+    },
+    {
+      "ts": "2026-07-16T15:09:33.375Z",
+      "role": "assistant",
+      "text": "[tool_use:Bash]"
+    },
+    {
+      "ts": "2026-07-16T15:10:13.735Z",
+      "role": "user",
+      "text": "[tool_result:===== STAGE 1 \u2014 live mount identity =====\nmount line:\ndf:\nrw test (create+remove marker):\n  READ-ONLY/blocked\nstable id (UUID/PARTUUID):\nfs errors (dmesg exfat tail):\n\n===== STAGE 2 \u2014 off"
+    },
+    {
+      "ts": "2026-07-16T15:10:43.173Z",
+      "role": "assistant",
+      "text": "The flaky wifi truncated that (empty `mount`/`df`, false \"READ-ONLY\"). Let me re-verify cleanly with retries."
+    },
+    {
+      "ts": "2026-07-16T15:10:52.380Z",
+      "role": "assistant",
+      "text": "[tool_use:Bash]"
+    },
+    {
+      "ts": "2026-07-16T15:12:57.665Z",
+      "role": "user",
+      "text": "[tool_result:Exit code 143\nCommand timed out after 2m 0s\nretry 1 (wifi)\nretry 2 (wifi)\nretry 3 (wifi)]"
+    },
+    {
+      "ts": "2026-07-16T15:13:33.049Z",
+      "role": "assistant",
+      "text": "The MSI\u2194Pi wifi is badly congested right now, and every small SSH round-trip risks a timeout. Since the vault work runs *locally on the Pi* (Pi\u2192SSK is fast), I'll switch to **one** self-contained Pi-s"
+    },
+    {
+      "ts": "2026-07-16T15:14:01.823Z",
+      "role": "assistant",
+      "text": "[tool_use:Bash]"
+    },
+    {
+      "ts": "2026-07-16T15:16:10.264Z",
+      "role": "user",
+      "text": "[tool_result:Exit code 143\nCommand timed out after 2m 0s\nlocal script bytes: 3808\nretry 1 (wifi)\nretry 2 (wifi)\nretry 3 (wifi)]"
+    },
+    {
+      "ts": "2026-07-16T15:16:26.802Z",
+      "role": "assistant",
+      "text": "The MSI\u2194Pi wifi is severely congested right now \u2014 repeated SSH attempts are timing out, and I won't keep thrashing it. Let me make one bounded reachability check and, if the Pi answers, run the prepar"
+    },
+    {
+      "ts": "2026-07-16T15:16:30.180Z",
+      "role": "assistant",
+      "text": "[tool_use:Bash]"
+    },
+    {
+      "ts": "2026-07-16T15:17:52.908Z",
+      "role": "user",
+      "text": "[tool_result:Exit code 143\nCommand timed out after 2m 0s\n=== Pi reachability (bounded) ===\n  192.168.1.23:8890/health -> 200\n  192.168.1.24:8890/health -> 200\n=== one bounded SSH probe ===\nTerminated]"
+    },
+    {
+      "ts": "2026-07-16T15:18:24.064Z",
+      "role": "assistant",
+      "text": "The Pi is **up** (HTTP `:8890/health`\u2192200 on both IPs) but **SSH is unreliable right now** \u2014 the wifi packet loss drops SSH sessions (HTTP survives, SSH doesn't). The vault build needs SSH to create d"
+    },
+    {
+      "ts": "2026-07-16T15:19:12.562Z",
+      "role": "assistant",
+      "text": "[tool_use:Bash]"
+    },
+    {
+      "ts": "2026-07-16T15:19:17.296Z",
+      "role": "user",
+      "text": "[tool_result:SSK vault reports written; build script staged as artifact.\n[1]+  Done                    setsid nautilus --select \"/home/ross/Desktop/SKYSCRAPERHQ_RUNS/00_SEND_THIS_TO_CHATGPT/SKYSCRAPER"
+    },
+    {
+      "ts": "2026-07-16T15:19:45.479Z",
+      "role": "assistant",
+      "text": "CURRENT REPORT DIRECTORY:\n/home/ross/Desktop/SKYSCRAPERHQ_RUNS/00_SEND_THIS_TO_CHATGPT/\n\nLATEST REPORT:\n/home/ross/Desktop/SKYSCRAPERHQ_RUNS/00_SEND_THIS_TO_CHATGPT/SKYSCRAPERHQ_SSK_STORAGE_VAULT_FINA"
+    },
+    {
+      "ts": "2026-07-16T15:21:20.781Z",
+      "role": "user",
+      "text": "pitstop"
+    }
+  ]
+}

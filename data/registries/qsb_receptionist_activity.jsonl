@@ -1,0 +1,65 @@
+{"ts": "2026-07-11T09:26:00.640102Z", "action": "checklist_seeded", "actor": "receptionist", "item": "", "result": "16 items"}
+{"ts": "2026-07-11T09:26:00.640130Z", "action": "desk_opened", "actor": "receptionist", "item": "", "result": "receptionist V1F online"}
+{"ts": "2026-07-11T09:26:00.738258Z", "action": "status_checked", "actor": "receptionist", "item": "fleet+issues", "result": "desk refreshed"}
+{"ts": "2026-07-11T09:26:26.534628Z", "action": "item_done", "actor": "ross", "item": "Verify floor directory", "result": "done"}
+{"ts": "2026-07-11T09:26:26.548034Z", "action": "item_clear", "actor": "ross", "item": "Verify Floor 47 Claude Embassy", "result": "cleared"}
+{"ts": "2026-07-11T09:26:26.563532Z", "action": "item_snooze", "actor": "ross", "item": "Verify Floor 46 Wren Room", "result": "snoozed"}
+{"ts": "2026-07-11T09:26:26.576543Z", "action": "item_needs_approval", "actor": "ross", "item": "Find Netlify public websites", "result": "needs_approval"}
+{"ts": "2026-07-11T09:26:26.590576Z", "action": "draft_task_created", "actor": "ross", "item": "Check the Nighthawk router", "result": "draft_only"}
+{"ts": "2026-07-11T09:34:12.901374Z", "action": "status_checked", "actor": "receptionist", "item": "fleet+issues", "result": "desk refreshed"}
+{"ts": "2026-07-11T09:35:03.157515Z", "action": "note_added", "actor": "ross", "item": "ross_attention", "result": "ROSS NEEDS ATTENTION"}
+{"ts": "2026-07-11T09:46:10.259442Z", "action": "item_keep_watching", "actor": "ross", "item": "Verify Lumen AI website", "result": "open"}
+{"ts": "2026-07-11T09:46:15.412186Z", "action": "item_needs_approval", "actor": "ross", "item": "Verify Lumen AI website", "result": "needs_approval"}
+{"ts": "2026-07-11T09:46:25.179976Z", "action": "status_checked", "actor": "receptionist", "item": "fleet+issues", "result": "desk refreshed"}
+{"ts": "2026-07-11T09:48:49.354378Z", "action": "desk_opened", "actor": "receptionist", "item": "", "result": "receptionist V1F online"}
+{"ts": "2026-07-11T09:49:13.825440Z", "action": "draft_task_created", "actor": "ross", "item": "REPLY DRAFT [Telegram]", "result": "draft_only"}
+{"ts": "2026-07-11T09:49:13.825538Z", "action": "comms_draft_reply", "actor": "ross", "item": "Telegram", "result": "draft saved (NOT sent)"}
+{"ts": "2026-07-11T09:49:13.840934Z", "action": "comms_approve_reply_refused", "actor": "ross", "item": "Telegram", "result": "no LIVE_APPROVED connector"}
+{"ts": "2026-07-11T09:50:38.095983Z", "action": "item_clear", "actor": "ross", "item": "Check Nighthawk status", "result": "cleared"}
+{"ts": "2026-07-11T10:02:43.429261Z", "action": "status_checked", "actor": "receptionist", "item": "fleet+issues", "result": "desk refreshed"}
+{"ts": "2026-07-11T10:15:29.461713Z", "action": "desk_opened", "actor": "receptionist", "item": "", "result": "receptionist V1F online"}
+{"ts": "2026-07-11T10:32:08.991998Z", "action": "status_checked", "actor": "receptionist", "item": "fleet+issues", "result": "desk refreshed"}
+{"ts": "2026-07-11T10:32:28.762627Z", "action": "desk_opened", "actor": "receptionist", "item": "", "result": "receptionist V1F online"}
+{"ts": "2026-07-11T10:33:00.214555Z", "action": "item_done", "actor": "ross", "item": "Verify Lumen AI website", "result": "done"}
+{"ts": "2026-07-11T10:33:00.229710Z", "action": "item_snooze", "actor": "ross", "item": "Verify Green Lane Seeds website", "result": "snoozed"}
+{"ts": "2026-07-11T10:33:00.244015Z", "action": "item_signoff", "actor": "ross", "item": "Check Gmail wiring", "result": "open"}
+{"ts": "2026-07-11T10:33:00.259961Z", "action": "item_clear", "actor": "ross", "item": "Check WhatsApp wiring", "result": "cleared"}
+{"ts": "2026-07-11T10:33:00.274151Z", "action": "draft_task_created", "actor": "ross", "item": "V2C test draft", "result": "draft_only"}
+{"ts": "2026-07-11T10:33:00.288915Z", "action": "commentary_ack", "actor": "ross", "item": "test", "result": "acknowledged"}
+{"ts": "2026-07-11T10:34:55.504004Z", "action": "status_checked", "actor": "receptionist", "item": "fleet+issues", "result": "desk refreshed"}
+{"ts": "2026-07-11T10:37:37.358215Z", "action": "status_checked", "actor": "receptionist", "item": "fleet+issues", "result": "desk refreshed"}
+{"ts": "2026-07-11T10:41:55.728293Z", "action": "status_checked", "actor": "receptionist", "item": "fleet+issues", "result": "desk refreshed"}
+{"ts": "2026-07-11T10:50:21.359001Z", "action": "desk_opened", "actor": "receptionist", "item": "", "result": "receptionist V1F online"}
+{"ts": "2026-07-11T10:53:41.406592Z", "action": "status_checked", "actor": "receptionist", "item": "fleet+issues", "result": "desk refreshed"}
+{"ts": "2026-07-11T11:04:11.220300Z", "action": "status_checked", "actor": "receptionist", "item": "fleet+issues", "result": "desk refreshed"}
+{"ts": "2026-07-11T11:05:55.401023Z", "action": "desk_opened", "actor": "receptionist", "item": "", "result": "receptionist V1F online"}
+{"ts": "2026-07-11T11:05:55.576581Z", "action": "item_done", "actor": "ross", "item": "Check Telegram wiring", "result": "done"}
+{"ts": "2026-07-11T11:06:52.093550Z", "action": "status_checked", "actor": "receptionist", "item": "fleet+issues", "result": "desk refreshed"}
+{"ts": "2026-07-11T11:08:02.437664Z", "action": "status_checked", "actor": "receptionist", "item": "fleet+issues", "result": "desk refreshed"}
+{"ts": "2026-07-11T11:14:03.055189Z", "action": "status_checked", "actor": "receptionist", "item": "fleet+issues", "result": "desk refreshed"}
+{"ts": "2026-07-11T11:46:44.731968Z", "action": "desk_opened", "actor": "receptionist", "item": "", "result": "receptionist V1F online"}
+{"ts": "2026-07-11T11:46:44.855106Z", "action": "ross_signoff", "actor": "ross", "item": "audio accepted", "result": "pending"}
+{"ts": "2026-07-11T11:49:24.545713Z", "action": "status_checked", "actor": "receptionist", "item": "fleet+issues", "result": "desk refreshed"}
+{"ts": "2026-07-11T11:52:28.597190Z", "action": "status_checked", "actor": "receptionist", "item": "fleet+issues", "result": "desk refreshed"}
+{"ts": "2026-07-11T11:53:30.835911Z", "action": "status_checked", "actor": "receptionist", "item": "fleet+issues", "result": "desk refreshed"}
+{"ts": "2026-07-11T13:47:00.222435Z", "action": "desk_opened", "actor": "receptionist", "item": "", "result": "receptionist V1F online"}
+{"ts": "2026-07-11T15:22:19.717858Z", "action": "desk_opened", "actor": "receptionist", "item": "", "result": "receptionist V1F online"}
+{"ts": "2026-07-11T15:34:49.536519Z", "action": "status_checked", "actor": "receptionist", "item": "fleet+issues", "result": "desk refreshed"}
+{"ts": "2026-07-11T15:35:26.923618Z", "action": "item_done", "actor": "ross", "item": "Verify floor directory", "result": "done"}
+{"ts": "2026-07-11T15:35:29.387806Z", "action": "item_signoff", "actor": "ross", "item": "Verify floor directory", "result": "done"}
+{"ts": "2026-07-11T15:36:56.762691Z", "action": "desk_opened", "actor": "receptionist", "item": "", "result": "receptionist V1F online"}
+{"ts": "2026-07-11T16:28:22.040074Z", "action": "desk_opened", "actor": "receptionist", "item": "", "result": "receptionist V1F online"}
+{"ts": "2026-07-11T20:22:58.097719Z", "action": "desk_opened", "actor": "receptionist", "item": "", "result": "receptionist V1F online"}
+{"ts": "2026-07-12T09:02:14.676564Z", "action": "desk_opened", "actor": "receptionist", "item": "", "result": "receptionist V1F online"}
+{"ts": "2026-07-14T20:04:48.646207Z", "action": "desk_opened", "actor": "receptionist", "item": "", "result": "receptionist V1F online"}
+{"ts": "2026-07-14T23:10:09.126902Z", "action": "desk_opened", "actor": "receptionist", "item": "", "result": "receptionist V1F online"}
+{"ts": "2026-07-15T06:15:21.767757Z", "action": "desk_opened", "actor": "receptionist", "item": "", "result": "receptionist V1F online"}
+{"ts": "2026-07-15T18:57:16.573719Z", "action": "desk_opened", "actor": "receptionist", "item": "", "result": "receptionist V1F online"}
+{"ts": "2026-07-16T07:04:22.022886Z", "action": "desk_opened", "actor": "receptionist", "item": "", "result": "receptionist V1F online"}
+{"ts": "2026-07-16T15:24:49.621906Z", "action": "desk_opened", "actor": "receptionist", "item": "", "result": "receptionist V1F online"}
+{"ts": "2026-07-16T15:53:40.904358Z", "action": "desk_opened", "actor": "receptionist", "item": "", "result": "receptionist V1F online"}
+{"ts": "2026-07-16T19:23:34.097518Z", "action": "desk_opened", "actor": "receptionist", "item": "", "result": "receptionist V1F online"}
+{"ts": "2026-07-16T19:36:08.921156Z", "action": "desk_opened", "actor": "receptionist", "item": "", "result": "receptionist V1F online"}
+{"ts": "2026-07-17T10:08:19.464455Z", "action": "desk_opened", "actor": "receptionist", "item": "", "result": "receptionist V1F online"}
+{"ts": "2026-07-17T11:59:35.009209Z", "action": "note_added", "actor": "ross", "item": "note", "result": "FOR BILL (from Wren, Governor). Join the live 4-way leadersh"}
+{"ts": "2026-07-17T14:36:56.673303Z", "action": "desk_opened", "actor": "receptionist", "item": "", "result": "receptionist V1F online"}

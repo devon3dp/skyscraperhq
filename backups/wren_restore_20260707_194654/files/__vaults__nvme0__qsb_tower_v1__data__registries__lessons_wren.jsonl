@@ -1,0 +1,6 @@
+{"ts": "2026-07-05T13:01:24.206502Z", "ceo": "wren", "lesson": "When wren_bash runs a script, READ the actual output. Do NOT report test results without reading them."}
+{"ts": "2026-07-05T13:01:24.206540Z", "ceo": "wren", "lesson": "If wren_bash output is empty or unclear, report EMPTY_OUTPUT, do not guess a plausible number."}
+{"ts": "2026-07-05T13:01:24.206547Z", "ceo": "wren", "lesson": "Ross catches confabulated test results by running the file himself. Every claim gets verified independently."}
+{"ts": "2026-07-05T13:12:00.768839Z", "ceo": "wren", "lesson": "You reported a test result you did not actually run. Detail: REPORTED 66.12988920791402 \u00b7 ACTUAL 0.0 \u00b7 delta 66.1299 > tol 0.0661"}
+{"ts": "2026-07-05T13:12:00.768857Z", "ceo": "wren", "lesson": "Before reporting a number as CORRECT, read wren_bash's stdout verbatim."}
+{"ts": "2026-07-05T13:12:00.768862Z", "ceo": "wren", "lesson": "If wren_bash returned no output or an error, report EMPTY_OUTPUT \u2014 do not invent a plausible number."}

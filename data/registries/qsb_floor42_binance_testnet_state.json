@@ -4,15 +4,15 @@
   "generated_ts": "2026-06-10T20:26:44+00:00",
   "floor_id": "floor_42_binance_testnet",
   "floor_label": "Floor 42 \u2014 Binance Testnet",
-  "status": "ready_for_orders",
+  "status": "live_testnet_execution_authorized",
   "flags": {
     "testnet_only": true,
     "live_real_money_binance_enabled": false,
     "binance_order_execution_enabled": false,
-    "binance_testnet_order_execution_enabled": false,
-    "external_api_calls_enabled": false,
+    "binance_testnet_order_execution_enabled": true,
+    "external_api_calls_enabled": true,
     "autonomous_dispatch_enabled": false,
-    "preview_only": true,
+    "preview_only": false,
     "kill_switch_on": false
   },
   "guards": {
@@ -58,5 +58,6 @@
     "5. Once preflight reports OK, certified workers may place testnet orders via CLI."
   ],
   "world_clock_aware": true,
-  "trading_sessions_module": "tower.cognitive_kernel.trading_sessions"
+  "trading_sessions_module": "tower.cognitive_kernel.trading_sessions",
+  "gate_flip_note": "Ross 2026-07-07: 'unlock' + 'launch the traders'. Testnet-only stays. Real money stays locked."
 }

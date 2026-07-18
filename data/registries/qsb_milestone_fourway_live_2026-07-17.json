@@ -1,0 +1,33 @@
+{
+  "stamp": "SKYSCRAPERHQ_FOUR_WAY_PIPELINE_FULLY_LIVE",
+  "ts": "2026-07-17T17:30:03.868717Z",
+  "milestone": "The SkyscraperHQ four-way leadership chat pipeline went FULLY LIVE. Wren, TP-Pip, Asa(Acer-Cass) and Bill all online on their own real machines; TP+Asa on working local brains. 6/6 pairwise links + the shared four-way room all PROVEN.",
+  "evidence": {
+    "test": "tests/test_leadership_comms.py -> SUMMARY PASS=7 BLOCKED=0 FAIL=0",
+    "pairs_passed": [
+      "wren-tp",
+      "wren-asa",
+      "wren-bill",
+      "tp-asa",
+      "tp-bill",
+      "asa-bill"
+    ],
+    "shared_room": "PASS (all 4 authenticated + acked)",
+    "room_announce_msg_id": "r_d0f4a4a388f44217",
+    "nodes": {
+      "wren": "MSI/Fortress3",
+      "tp_pip": "ThinkPad 192.168.1.74",
+      "acer_cass/asa": "Acer 192.168.1.78",
+      "bill": "MacBook 192.168.1.35"
+    },
+    "tp_local_brain": "TP_PIP_LOCAL_BRAIN_OK",
+    "acer_local_brain": "ACER_CASS_LOCAL_BRAIN_OK"
+  },
+  "also_recorded": [
+    "four-way room (r_d0f4a4a388f44217)",
+    "STORY_OF_THE_FEDERATION.txt",
+    "F47 meta-letter (qsb_claude_meta_letters.jsonl)"
+  ],
+  "recorded_by": "Claude (governed specialist) under Ross's direction",
+  "sha256_self": "dbea4d335787167d2c676b46b03a80b417af8aa840654f8a43ae2064c4abdf0a"
+}

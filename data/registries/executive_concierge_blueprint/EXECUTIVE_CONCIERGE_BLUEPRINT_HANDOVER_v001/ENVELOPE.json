@@ -1,0 +1,23 @@
+{
+  "kind": "blueprint_handover_envelope",
+  "version": "v001-structural-core",
+  "package_aggregate_sha256": "23975d7cbe513cfbba04c8e998de219e8114234dba95d13481cd3fbcc6a03d69",
+  "uncompressed_file_count": 180,
+  "archive": "EXECUTIVE_CONCIERGE_BLUEPRINT_v001.tar.zst",
+  "archive_size_bytes": 25633,
+  "archive_sha256": "a38e97c87688e985afc8b2e64d7f628de90b5b0a1855b1a9771160e4455fea11",
+  "author_of_record": "Wren (accepted 2026-07-16)",
+  "assembled_by": "governed coordinator",
+  "intended_recipient": "bill",
+  "bill_role": "Executive Concierge",
+  "transfer_route": "Raspberry Pi Federation",
+  "narrative_docs_status": "DEFERRED to v001.1 (Ross decision)",
+  "required_recipient_acks": [
+    "received",
+    "sha256_verified",
+    "indexed",
+    "identity_preserved",
+    "understanding_tested"
+  ],
+  "rollback": "re-transfer archive; verify archive_sha256; package is immutable, re-generatable from registries"
+}

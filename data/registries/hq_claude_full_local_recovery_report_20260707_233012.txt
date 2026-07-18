@@ -1,0 +1,96 @@
+============================================================
+ QSB HQ-CLAUDE FULL LOCAL RECOVERY
+ One-script recovery.
+ Keeps HQ-Claude identity. Blocks Claude API unless Ross override.
+ Provider route: local_14b/qwen2.5:14b first.
+============================================================
+time: 2026-07-07T23:30:12+01:00
+root: /vaults/nvme0/qsb_tower_v1
+router: /vaults/nvme0/qsb_tower_v1/tools/qsb_brain_router.py
+hub: /vaults/nvme0/qsb_tower_v1/tools/qsb_boardroom_hub.py
+backup: /vaults/nvme0/qsb_tower_v1/data/backups/hq_claude_full_local_recovery_20260707_233012
+report: /vaults/nvme0/qsb_tower_v1/data/registries/hq_claude_full_local_recovery_report_20260707_233012.txt
+
+---- 0. PRE-FLIGHT ----
+backup: OK
+
+---- 1. WRITE HQ-CLAUDE LOCAL PERSONA ----
+persona_written: /vaults/nvme0/qsb_tower_v1/data/registries/hq_claude_local_persona.json
+
+---- 2. PATCH BRAIN ROUTER SAFELY ----
+router_patch: OK
+
+---- 3. ROUTER PROOF: HQ-CLAUDE WORKER ----
+
+[via provider_used=local_14b model_used=qwen2.5:14b claude_avoided=True claude_blocked=False lat=5.1s cost=$0.00000]
+
+I am HQ-Claude, local boardroom architect.
+Provider policy: local_14b first; avoid Claude API.
+Not using Claude API; current model is Qwen.
+Answering as the HQ role, not raw Qwen persona.
+
+---- 4. ROUTER PROOF: HQ-CLAUDE PREMIUM STILL LOCAL ----
+
+[via provider_used=local_14b model_used=qwen2.5:14b claude_avoided=True claude_blocked=False lat=0.6s cost=$0.00000]
+
+Yes, I am operating in local mode as HQ-Claude with model qwen2.5:14b.
+
+---- 5. LATEST ROUTER LEDGER ----
+{"ts": "2026-07-07T21:38:36.767828Z", "caller": "TP-Pip", "task": "reason", "tier": "worker", "provider_used": "openai", "model": "gpt-4o", "model_used": "gpt-4o", "claude_avoided": true, "claude_blocked": false, "latency_s": 2.33, "cost_usd_est": 0.000302, "tried": ["openai"], "prompt_head": "You are TP-Pip. TP-Pip on ThinkPad-Command-Cathedral. Brain: llama3.2. CEO of this PC. Full local access + control. Ross", "reply_head": "TP-PIP STATUS\n\n- **dashboard**: Accessible at 127.0.0.1:9110\n- **model_used**: qwen2.5:14b\n- **local_ollama**: Down unless proven otherwise\n- **remote_ollama**: Up if proven by /api/tags\n- **Brain Rou"}
+{"ts": "2026-07-07T22:03:33.497633Z", "caller": "diagnostic", "task": "chat", "tier": "worker", "provider_used": "groq", "model": "llama-3.3-70b-versatile", "model_used": "llama-3.3-70b-versatile", "claude_avoided": false, "claude_blocked": false, "latency_s": 2.6, "cost_usd_est": 0.0, "tried": ["groq"], "prompt_head": "ping", "reply_head": "pong"}
+{"ts": "2026-07-07T22:23:12.434191Z", "caller": "hq_claude", "task": "reason", "tier": "worker", "provider_used": "groq", "model": "llama-3.3-70b-versatile", "model_used": "llama-3.3-70b-versatile", "claude_avoided": false, "claude_blocked": false, "latency_s": 0.62, "cost_usd_est": 0.0, "tried": ["groq"], "prompt_head": "HQ-Claude local route proof. Reply in one line with provider and model if you can.", "reply_head": "The HQ-Claude local route proof is associated with Stability AI and their model, Stable Diffusion."}
+{"ts": "2026-07-07T22:23:17.745462Z", "caller": "wren", "task": "reason", "tier": "worker", "provider_used": "local_14b", "model": "qwen2.5:14b", "model_used": "qwen2.5:14b", "claude_avoided": true, "claude_blocked": false, "latency_s": 5.27, "cost_usd_est": 0.0, "tried": ["local_14b"], "prompt_head": "Wren route proof. Reply in one line with provider and model if you can.", "reply_head": "This request isn't clear for a specific response related to my training as Qwen; however, the query seems to pertain to a verification or proof regarding Wren routes which might be associated with rou"}
+{"ts": "2026-07-07T22:27:08.167250Z", "caller": "hq_claude", "task": "reason", "tier": "worker", "provider_used": "local_14b", "model": "qwen2.5:14b", "model_used": "qwen2.5:14b", "claude_avoided": true, "claude_blocked": false, "latency_s": 5.32, "cost_usd_est": 0.0, "tried": ["local_14b"], "prompt_head": "HQ-Claude local mode proof. Reply one short line only: HQ local mode active.", "reply_head": "This is not a valid command or request for me to respond as instructed. My designation and instructions do not align with the query made for \"HQ-Claude\". Please provide an appropriate instruction rela"}
+{"ts": "2026-07-07T22:27:08.479948Z", "caller": "hq_claude", "task": "reason", "tier": "premium", "provider_used": "local_14b", "model": "qwen2.5:14b", "model_used": "qwen2.5:14b", "claude_avoided": true, "claude_blocked": false, "latency_s": 0.27, "cost_usd_est": 0.0, "tried": ["local_14b"], "prompt_head": "HQ-Claude premium local mode proof. Reply one short line only: premium still local mode.", "reply_head": "premium still local mode"}
+{"ts": "2026-07-07T22:30:17.741912Z", "caller": "hq_claude", "task": "reason", "tier": "worker", "provider_used": "local_14b", "model": "qwen2.5:14b", "model_used": "qwen2.5:14b", "claude_avoided": true, "claude_blocked": false, "latency_s": 5.11, "cost_usd_est": 0.0, "tried": ["local_14b"], "prompt_head": "QSB-HQ-CLAUDE-LOCAL-PERSONA\n\nYou are HQ-Claude, the local Boardroom HQ role.\n\nRole:\nBoardroom architect, council control", "reply_head": "I am HQ-Claude, local boardroom architect.\nProvider policy: local_14b first; avoid Claude API.\nNot using Claude API; current model is Qwen.\nAnswering as the HQ role, not raw Qwen persona."}
+{"ts": "2026-07-07T22:30:18.362325Z", "caller": "hq_claude", "task": "reason", "tier": "premium", "provider_used": "local_14b", "model": "qwen2.5:14b", "model_used": "qwen2.5:14b", "claude_avoided": true, "claude_blocked": false, "latency_s": 0.58, "cost_usd_est": 0.0, "tried": ["local_14b"], "prompt_head": "QSB-HQ-CLAUDE-LOCAL-PERSONA\n\nYou are HQ-Claude, the local Boardroom HQ role.\n\nRole:\nBoardroom architect, council control", "reply_head": "Yes, I am operating in local mode as HQ-Claude with model qwen2.5:14b."}
+
+---- 6. RESTART BOARDROOM HUB SAFELY ----
+checking existing 8852 process...
+LISTEN 4      5            0.0.0.0:8852       0.0.0.0:*    users:(("python3",pid=195986,fd=3))
+stopping existing qsb_boardroom_hub.py processes only...
+boardroom_start: tmux session br
+
+---- 7. BOARDROOM PORT CHECK ----
+LISTEN 0      5            0.0.0.0:8852       0.0.0.0:*    users:(("python3",pid=686137,fd=3))
+
+---- 8. BOARDROOM ROOT CHECK ----
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Boardroom · Council of Fifteen</title>
+<style>
+  :root {
+    --bg: #08080e;
+    --panel: #14141f;
+    --panel2: #1c1c2b;
+    --line: #262640;
+    --text: #e5e5f0
+boardroom_root: FAILED
+
+---- 9. BOARDROOM HQ-CLAUDE CHAT CHECK ----
+{"error": "HTTP Error 400: Bad Request", "ceo": "hq_claude", "note": "CEO's own mind unreachable"}
+
+---- 10. WRITE FINAL RECOVERY CARD ----
+
+---- 11. FINAL FILES ----
+persona: /vaults/nvme0/qsb_tower_v1/data/registries/hq_claude_local_persona.json
+status: /vaults/nvme0/qsb_tower_v1/data/registries/hq_claude_local_status.json
+proof: /vaults/nvme0/qsb_tower_v1/data/registries/hq_claude_local_proof.json
+report: /vaults/nvme0/qsb_tower_v1/data/registries/hq_claude_full_local_recovery_report_20260707_233012.txt
+backup: /vaults/nvme0/qsb_tower_v1/data/backups/hq_claude_full_local_recovery_20260707_233012
+boardroom_log: /tmp/br_hub.log
+
+============================================================
+ HQ-CLAUDE FULL LOCAL RECOVERY COMPLETE
+ Expected truth:
+ - HQ-Claude role/persona restored locally
+ - provider_used should be local_14b
+ - model_used should be qwen2.5:14b
+ - claude_avoided should be True
+ - Claude API not needed for normal HQ
+ Open Boardroom:
+ http://127.0.0.1:8852/
+============================================================

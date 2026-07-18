@@ -1,0 +1,61 @@
+{
+  "protocol_id": "resilience_v1",
+  "signed_off_by": [
+    {
+      "ceo": "wren",
+      "mind": "ollama_local_qwen",
+      "ts": "2026-07-06T11:25:18Z",
+      "reply": "AGREE\n\nThe protocol ensures robust system integrity and redundancy, crucial for reliable operation and communication among CEOs."
+    }
+  ],
+  "created": "2026-07-06",
+  "reason": "Ross 2026-07-06: 'i have done everything for days and we still here having the same problem ceos not restarting and coming online dashboards starting all all been able to talk to each other i want this in protocol prove it until all teams agree'",
+  "invariants": [
+    {
+      "id": "R1",
+      "rule": "Every CEO's LOCAL MIND has a systemd unit that boots at machine start and auto-restarts on crash (RestartSec=5, Restart=always).",
+      "hq_claude": "systemd: qsb-hub.service + qsb-hq-dash.service + qsb-healer.service",
+      "wren": "systemd: qsb-wren-dash.service + Wren evolution loop under supervision",
+      "tp_pip": "systemd on ThinkPad: qsb-council-node-tp.service (must auto-run at boot)",
+      "acer_cass": "systemd on Acer: qsb-council-node-acer.service (must auto-run at boot)"
+    },
+    {
+      "id": "R2",
+      "rule": "Every dashboard (hub 8852, HQ 8850, Wren 8851, traders 8847, studio 8849, lumen 8848) is under systemd or under iPad healer's watch \u2014 if down for >30s, healer restarts it."
+    },
+    {
+      "id": "R3",
+      "rule": "Cross-CEO communication has 3 redundant paths: (a) shared town-square JSONL on HQ box, (b) each CEO polls town-square every 5s and reads all posts, (c) if HQ box down, each CEO writes to their local mirror + syncs on reconnect."
+    },
+    {
+      "id": "R4",
+      "rule": "Truth policy enforced: /brain/route refuses caller=<ceo> impersonation. /ceo_mind/{ceo} is the only path for a CEO's voice. Offline CEO = ABSTAIN, never faked."
+    },
+    {
+      "id": "R5",
+      "rule": "Boot order guaranteed: (1) hub 8852 first, (2) HQ dash 8850, (3) Wren dash 8851, (4) watcher, (5) healer, (6) heartbeat. Boot script deploy/qsb_tower_boot.sh is idempotent."
+    },
+    {
+      "id": "R6",
+      "rule": "After ANY reboot, HQ's session_wakeup runs first thing: reads pitstop pointer, loads memory, verifies all CEOs online. Report to Ross within 30s."
+    },
+    {
+      "id": "R7",
+      "rule": "If any CEO cannot restart automatically for 2 consecutive checks, Telegram alerts Ross with the exact fix command."
+    }
+  ],
+  "signoff_required_from": [
+    "hq_claude",
+    "wren",
+    "tp_pip",
+    "acer_cass"
+  ],
+  "signoff_rule": "All 4 real minds via /ceo_mind/ must approve. Impersonation not allowed (truth policy).",
+  "prove_by": [
+    "Restart HQ box \u2192 all services come back within 60s (measured, not claimed)",
+    "Restart TP ThinkPad \u2192 his /message endpoint reachable within 60s",
+    "Restart Acer laptop \u2192 his /message endpoint reachable within 60s",
+    "Kill hub process \u2192 healer restarts within 30s",
+    "iPad renders live within 60s of full HQ boot"
+  ]
+}

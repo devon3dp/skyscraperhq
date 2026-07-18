@@ -1,0 +1,13 @@
+{
+  "timestamp": "2026-07-07T23:30:12.588667",
+  "node": "HQ-Claude",
+  "mode": "local_shell",
+  "persona": "hq_claude_local_shell",
+  "provider_policy": "local_14b first; Claude API avoided unless Ross override",
+  "default_model": "qwen2.5:14b",
+  "router": "/vaults/nvme0/qsb_tower_v1/tools/qsb_brain_router.py",
+  "persona_file": "/vaults/nvme0/qsb_tower_v1/data/registries/hq_claude_local_persona.json",
+  "claude_api_default": "blocked/avoided",
+  "memory_overwrite": false,
+  "destructive_actions": false
+}

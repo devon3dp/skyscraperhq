@@ -1,0 +1,11 @@
+{
+  "trading_annex": {
+    "layout": "wren_trading_annex.md",
+    "features": [
+      "real-time trading",
+      "portfolio analysis",
+      "risk management"
+    ],
+    "integration": "dashboard_integration.js"
+  }
+}

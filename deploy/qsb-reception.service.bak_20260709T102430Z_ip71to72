@@ -1,0 +1,17 @@
+[Unit]
+Description=QSB Receptionist (front desk) - opens the wall, posts to Town Square, routes thinking to the tower
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=qsbpi
+Environment=QSB_TOWER_HUB=http://192.168.1.71:8852
+Environment=QSB_BRAIN=http://192.168.1.71:8860
+Environment=QSB_RECEPTION_PORT=8080
+ExecStart=/usr/bin/python3 /home/qsbpi/qsb_receptionist.py
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

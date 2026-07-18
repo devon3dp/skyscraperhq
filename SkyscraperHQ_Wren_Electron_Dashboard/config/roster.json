@@ -1,0 +1,5 @@
+{"leaders":[{"id":"wren","name":"Wren","role":"Resident Governor (this machine)"},
+ {"id":"pip","name":"Pip","role":"ThinkPad CEO","endpoint":"http://192.168.1.74:8871"},
+ {"id":"asa","name":"Asa","role":"Acer CEO","endpoint":"http://192.168.1.78:8872"},
+ {"id":"bill","name":"Bill","role":"MacBook Executive Concierge"}],
+ "specialist":{"id":"claude_specialist","name":"Claude Specialist Service","role":"governed specialist under Wren (NOT a CEO)"}}

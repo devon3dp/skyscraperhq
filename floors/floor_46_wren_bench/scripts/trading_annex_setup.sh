@@ -1,0 +1,1 @@
+#!/bin/bash\n\n# Initialize market data processor\nllava init --config floors/floor_46_wren_bench/config/annex_config.json\n\n# Start risk management service\nhermes_8b start --model hermes_8b --data_source api\n\n# Configure trading strategies\nwren_fast setup --strategy high_frequency_trading

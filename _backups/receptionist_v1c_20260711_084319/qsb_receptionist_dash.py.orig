@@ -1,0 +1,356 @@
+#!/usr/bin/env python3
+"""qsb_receptionist_dash.py — Receptionist Dashboard V1.
+
+A Pi-touchscreen receptionist control desk for the QSB Tower. NO Pico / GPIO /
+serial dependency — this is a pure web dashboard served over HTTP.
+
+Truth rules (Ross 2026-07-11):
+- Every "online" light is a REAL live HTTP probe. No fake online, no random lights.
+- Tour Guide is labelled NOT BUILT YET until a real endpoint answers.
+- TP/Acer show the corrected hardware-true physical worker truth.
+- Wren = OBSERVER / GUARDIAN. Claude HQ = COORDINATOR / ARCHITECT.
+
+Routes: / /health /api/state /api/checkin /api/note /api/links /api/latest_reports
+Writes (append-only): data/registries/qsb_receptionist_events.jsonl
+                      data/registries/qsb_receptionist_status.json
+"""
+from __future__ import annotations
+import json, socket, urllib.request
+from datetime import datetime, timezone
+from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+from pathlib import Path
+from urllib.parse import urlparse
+
+ROOT = Path("/vaults/nvme0/qsb_tower_v1")
+EVENTS = ROOT / "data/registries/qsb_receptionist_events.jsonl"
+STATUS = ROOT / "data/registries/qsb_receptionist_status.json"
+COUNCIL = ROOT / "data/registries/qsb_council_tasks.jsonl"
+REPORTS_DIR = Path("/home/ross/Desktop/SKYSCRAPERHQ_RUNS/00_SEND_THIS_TO_CHATGPT")
+PORT = 8856
+
+
+def now_iso() -> str:
+    return datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
+
+
+def hq_ip() -> str:
+    """Best-effort LAN IP so the Pi's browser can reach the open-links."""
+    try:
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        s.connect(("192.168.1.1", 80))
+        ip = s.getsockname()[0]
+        s.close()
+        if ip.startswith("192.168."):
+            return ip
+    except Exception:
+        pass
+    return "192.168.1.72"
+
+
+HQ_IP = hq_ip()
+
+# NODES: the tower members the receptionist reports on. Each 'probe' is a REAL
+# HTTP GET; status is LIVE only if it answers, else OFFLINE. No fake states.
+NODES = [
+    {"key": "hq_claude", "name": "Claude HQ", "role": "COORDINATOR / ARCHITECT",
+     "probe": "http://127.0.0.1:8850/", "open": f"http://{HQ_IP}:8850/"},
+    {"key": "wren", "name": "Wren", "role": "OBSERVER / GUARDIAN",
+     "probe": "http://127.0.0.1:8851/", "open": f"http://{HQ_IP}:8851/"},
+    {"key": "boardroom", "name": "Boardroom", "role": "town square / council",
+     "probe": "http://127.0.0.1:8852/", "open": f"http://{HQ_IP}:8852/"},
+    {"key": "brain_v4", "name": "Brain Module V4 / Gene Pool", "role": "gene-pool router",
+     "probe": "http://127.0.0.1:8860/health", "open": f"http://{HQ_IP}:8860/"},
+    {"key": "tp_pip", "name": "TP-Pip", "role": "PHYSICAL_TASK_CAPABLE_WORKER",
+     "probe": "http://192.168.1.74:8871/whoami", "caps": "http://192.168.1.74:8871/capabilities",
+     "open": "http://192.168.1.74:8871/", "truth": "192.168.1.74:8871 · DESKTOP-9RBVKSM · Lenovo ThinkPad"},
+    {"key": "acer_cass", "name": "Acer-Cass / Asa", "role": "PHYSICAL_TASK_CAPABLE_WORKER",
+     "probe": "http://192.168.1.41:8872/whoami", "caps": "http://192.168.1.41:8872/capabilities",
+     "open": "http://192.168.1.41:8872/", "truth": "192.168.1.41:8872 · DESKTOP-1E2FB5N · Acer Aspire A315-56"},
+    {"key": "task_council", "name": "Task Council", "role": "shared task board", "kind": "file",
+     "open": f"http://{HQ_IP}:8852/tasks"},
+    {"key": "tour_guide", "name": "Tour Guide", "role": "guided tour", "kind": "not_ready"},
+]
+
+
+def _get(url: str, timeout: float = 1.6):
+    try:
+        r = urllib.request.urlopen(url, timeout=timeout)
+        body = r.read().decode("utf-8", "ignore")
+        return r.status, body
+    except Exception as e:
+        return None, str(e)[:120]
+
+
+def probe_node(n: dict) -> dict:
+    key, kind = n["key"], n.get("kind")
+    out = {"key": key, "name": n["name"], "role": n["role"], "open": n.get("open"),
+           "truth": n.get("truth"), "status": "OFFLINE", "detail": ""}
+    if kind == "not_ready":
+        out["status"] = "NOT BUILT YET"
+        out["detail"] = "no live Tour Guide endpoint — not started; needs approval"
+        return out
+    if kind == "file":
+        # Task Council = local jsonl. LIVE if readable + recent; STALE if old.
+        if COUNCIL.exists():
+            try:
+                lines = [l for l in COUNCIL.read_text(errors="ignore").splitlines() if l.strip()]
+                states = {}
+                for l in lines:
+                    try:
+                        states[json.loads(l).get("state", "?")] = states.get(json.loads(l).get("state", "?"), 0) + 1
+                    except Exception:
+                        pass
+                age_s = int(datetime.now(timezone.utc).timestamp() - COUNCIL.stat().st_mtime)
+                out["status"] = "LIVE" if age_s < 3600 else "STALE"
+                open_n = states.get("open", 0) + states.get("routed_for_work", 0) + states.get("needs_implementation", 0)
+                out["detail"] = f"{len(lines)} rows · ~{open_n} open · updated {age_s}s ago"
+            except Exception as e:
+                out["status"] = "STALE"; out["detail"] = f"read err: {str(e)[:60]}"
+        else:
+            out["status"] = "OFFLINE"; out["detail"] = "council file not found"
+        return out
+    # HTTP-probed node
+    code, body = _get(n["probe"])
+    if code == 200:
+        out["status"] = "LIVE"
+        # physical workers: confirm capability truth from /capabilities
+        if n.get("caps"):
+            c2, cbody = _get(n["caps"])
+            try:
+                d = json.loads(cbody)
+                out["detail"] = (f"{d.get('runtime_id')} @ {d.get('hostname')} · "
+                                 f"{d.get('host_mode')} · task_capable={d.get('can_receive_task')} · "
+                                 f"self_close={d.get('can_self_close')}")
+            except Exception:
+                out["detail"] = "whoami ok; capabilities unread"
+        else:
+            out["detail"] = "responds 200"
+    else:
+        out["status"] = "OFFLINE"
+        out["detail"] = f"no response ({body})"
+    return out
+
+
+def build_state() -> dict:
+    nodes = [probe_node(n) for n in NODES]
+    st = {"ok": True, "service": "QSB Receptionist Dashboard V1", "port": PORT,
+          "hq_ip": HQ_IP, "ts": now_iso(), "nodes": nodes,
+          "live_count": sum(1 for n in nodes if n["status"] == "LIVE")}
+    try:
+        STATUS.write_text(json.dumps(st, indent=2))
+    except Exception:
+        pass
+    return st
+
+
+def append_event(ev: dict) -> dict:
+    ev = {"ts": now_iso(), **ev}
+    try:
+        EVENTS.parent.mkdir(parents=True, exist_ok=True)
+        with EVENTS.open("a") as f:
+            f.write(json.dumps(ev) + "\n")
+        return {"ok": True, "event": ev}
+    except Exception as e:
+        return {"ok": False, "error": str(e)[:120]}
+
+
+def latest_reports(n: int = 8) -> list:
+    out = []
+    try:
+        files = sorted([p for p in REPORTS_DIR.glob("*REPORT*.txt")],
+                       key=lambda p: p.stat().st_mtime, reverse=True)[:n]
+        for p in files:
+            try:
+                head = p.read_text(errors="ignore").splitlines()
+                verdict = next((l for l in head if l.startswith("VERDICT:")), "")
+                out.append({"name": p.name,
+                            "mtime": datetime.fromtimestamp(p.stat().st_mtime, timezone.utc).isoformat().replace("+00:00", "Z"),
+                            "title": (head[0] if head else "")[:90], "verdict": verdict[:80]})
+            except Exception:
+                pass
+    except Exception:
+        pass
+    return out
+
+
+PAGE = """<!doctype html><html lang=en><head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>QSB Receptionist</title>
+<style>
+:root{--bg:#0b1220;--card:#111a2b;--ink:#e8ecf3;--dim:#8aa2b8;--line:#22334a;
+--live:#31d07f;--off:#ff5d5d;--stale:#f5b942;--wait:#6b7d92;--gold:#eab308;--cyan:#22d3ee;--amber:#f59e0b;--violet:#a78bfa}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+header{padding:16px 18px;background:linear-gradient(180deg,#0e1626,#0b1220);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+header h1{margin:0;font-size:22px;letter-spacing:.4px}
+.badge{padding:5px 11px;border-radius:999px;font-size:12px;font-weight:800;border:1px solid var(--line)}
+.rec-live{background:rgba(49,208,127,.14);color:var(--live);border-color:var(--live)}
+.wrap{max-width:1100px;margin:0 auto;padding:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.node{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;min-height:112px}
+.node b{font-size:16px}
+.role{font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:.06em;margin-top:2px}
+.truth{font-size:11px;color:var(--cyan);margin-top:5px;font-family:ui-monospace,monospace}
+.detail{font-size:12px;color:var(--dim);margin-top:6px;min-height:16px}
+.dot{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:6px;vertical-align:middle}
+.s-LIVE .dot{background:var(--live);box-shadow:0 0 9px var(--live)}
+.s-OFFLINE .dot{background:var(--off)}
+.s-STALE .dot{background:var(--stale)}
+.s-NOTBUILT .dot,.s-NEEDS .dot{background:var(--wait)}
+.stat{float:right;font-size:11px;font-weight:800;padding:2px 8px;border-radius:6px;border:1px solid var(--line)}
+.s-LIVE .stat{color:var(--live);border-color:var(--live)}
+.s-OFFLINE .stat{color:var(--off);border-color:var(--off)}
+.s-STALE .stat{color:var(--stale);border-color:var(--stale)}
+.s-NOTBUILT .stat,.s-NEEDS .stat{color:var(--wait)}
+h2{font-size:13px;color:var(--dim);text-transform:uppercase;letter-spacing:.08em;margin:22px 4px 10px}
+.actions{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.btn{display:block;text-align:center;text-decoration:none;color:var(--ink);background:#16233a;border:1px solid var(--line);border-radius:14px;padding:20px 14px;font-size:17px;font-weight:700;cursor:pointer;transition:.12s;user-select:none}
+.btn:active{transform:scale(.97);background:#1d2f4d}
+.btn small{display:block;font-size:11px;color:var(--dim);font-weight:500;margin-top:5px}
+.btn.gold{border-color:var(--gold);color:var(--gold)}
+.btn.dis{opacity:.5;border-style:dashed;cursor:not-allowed}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+input,textarea{flex:1;min-width:160px;background:#0b1322;color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:14px;font-size:16px}
+.rep{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:8px;font-size:13px}
+.rep .v{color:var(--live);font-family:ui-monospace,monospace;font-size:11px}
+.foot{color:var(--dim);font-size:11px;text-align:center;padding:16px}
+#toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:#16233a;border:1px solid var(--live);color:var(--live);padding:12px 18px;border-radius:10px;font-weight:700;opacity:0;transition:.2s;pointer-events:none}
+#toast.show{opacity:1}
+.legend{font-size:11px;color:var(--dim);margin:4px}
+.legend span{margin-right:12px}
+</style></head><body>
+<header>
+ <h1>🛎️ QSB Receptionist</h1>
+ <span class="badge rec-live"><span class="dot" style="background:var(--live)"></span>DESK LIVE</span>
+ <span class="badge" id="clock">—</span>
+ <span class="badge" id="livecount">—</span>
+ <span class="legend" style="margin-left:auto"><span>🟢 LIVE (real probe)</span><span>🔴 OFFLINE</span><span>🟡 STALE</span><span>⚪ NOT BUILT / NEEDS APPROVAL</span></span>
+</header>
+<div class="wrap">
+ <h2>Who is online — live status (real HTTP probes, no fake lights)</h2>
+ <div class="grid" id="nodes"></div>
+
+ <h2>Receptionist actions</h2>
+ <div class="actions" id="links"></div>
+
+ <h2>Visitor check-in &amp; notes</h2>
+ <div class="row"><input id="visitor" placeholder="visitor name / who is here"><button class="btn" style="flex:0 0 auto" onclick="checkin()">Check in ✓</button></div>
+ <div class="row"><input id="note" placeholder="receptionist note..."><button class="btn" style="flex:0 0 auto" onclick="addnote()">Add note ✎</button></div>
+ <div class="row"><button class="btn gold" style="flex:1" onclick="attention()">🔔 Flag: Ross needs attention</button></div>
+
+ <h2>Latest task / status reports</h2>
+ <div id="reports"></div>
+</div>
+<div id="toast"></div>
+<div class="foot">QSB Receptionist Dashboard V1 · served on :8856 · no Pico / GPIO — pure dashboard · truth-labelled</div>
+<script>
+const $=s=>document.querySelector(s);
+function cls(s){return s.replace(/[^A-Z]/gi,'').replace('NOTBUILTYET','NOTBUILT').replace('NEEDSAPPROVAL','NEEDS')}
+async function j(u,o){const r=await fetch(u,o||{cache:'no-store'});return r.json()}
+function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1800)}
+async function refresh(){
+ let d; try{d=await j('/api/state')}catch(e){return}
+ $('#clock').textContent=new Date().toLocaleTimeString();
+ $('#livecount').textContent=d.live_count+' LIVE';
+ $('#nodes').innerHTML=d.nodes.map(n=>{
+  const st=n.status, c='s-'+cls(st);
+  return `<div class="node ${c}"><span class="stat">${st}</span><b><span class="dot"></span>${n.name}</b>
+   <div class="role">${n.role||''}</div>
+   ${n.truth?`<div class="truth">${n.truth}</div>`:''}
+   <div class="detail">${n.detail||''}</div>
+   ${n.open&&st!=='NOT BUILT YET'?`<div class="row"><a class="btn" style="padding:9px;font-size:13px;flex:1" href="${n.open}" target="_blank">Open →</a></div>`:''}</div>`;
+ }).join('');
+}
+async function loadLinks(){
+ const d=await j('/api/links');
+ $('#links').innerHTML=d.links.map(l=>l.ready?
+  `<a class="btn" href="${l.url}" target="_blank">${l.label}<small>${l.note||''}</small></a>`:
+  `<div class="btn dis">${l.label}<small>${l.note||'not available'}</small></div>`).join('');
+}
+async function loadReports(){
+ const d=await j('/api/latest_reports');
+ $('#reports').innerHTML=(d.reports||[]).map(r=>`<div class="rep"><b>${r.name}</b> <span style="color:var(--dim)">· ${r.mtime}</span><br><span class="v">${r.verdict||r.title||''}</span></div>`).join('')||'<div class="rep">no reports found</div>';
+}
+async function post(u,b){return j(u,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(b)})}
+async function checkin(){const v=$('#visitor').value.trim();if(!v)return toast('enter a name');await post('/api/checkin',{visitor:v});$('#visitor').value='';toast('checked in: '+v)}
+async function addnote(){const v=$('#note').value.trim();if(!v)return toast('enter a note');await post('/api/note',{text:v});$('#note').value='';toast('note saved')}
+async function attention(){await post('/api/note',{text:'ROSS NEEDS ATTENTION',kind:'ross_attention'});toast('🔔 flagged for Ross')}
+refresh();loadLinks();loadReports();
+setInterval(refresh,5000);setInterval(loadReports,30000);
+</script></body></html>"""
+
+
+class H(BaseHTTPRequestHandler):
+    def log_message(self, *a):  # quiet
+        pass
+
+    def _send(self, code, body, ctype="application/json"):
+        b = body.encode() if isinstance(body, str) else body
+        self.send_response(code)
+        self.send_header("Content-Type", ctype)
+        self.send_header("Content-Length", str(len(b)))
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.end_headers()
+        self.wfile.write(b)
+
+    def _json(self, code, obj):
+        self._send(code, json.dumps(obj), "application/json")
+
+    def _body(self):
+        try:
+            n = int(self.headers.get("Content-Length", 0))
+            return json.loads(self.rfile.read(n).decode()) if n else {}
+        except Exception:
+            return {}
+
+    def do_GET(self):
+        p = urlparse(self.path).path
+        if p in ("/", "/dashboard"):
+            return self._send(200, PAGE, "text/html; charset=utf-8")
+        if p == "/health":
+            return self._json(200, {"ok": True, "service": "qsb_receptionist_dash", "port": PORT, "ts": now_iso()})
+        if p == "/api/state":
+            return self._json(200, build_state())
+        if p == "/api/links":
+            ip = HQ_IP
+            return self._json(200, {"links": [
+                {"label": "🏛️ Open Boardroom", "url": f"http://{ip}:8852/", "ready": True, "note": "town square / council"},
+                {"label": "🧠 Open Brain Module V4", "url": f"http://{ip}:8860/", "ready": True, "note": "gene-pool router"},
+                {"label": "📋 Open Task Council", "url": f"http://{ip}:8852/tasks", "ready": True, "note": "shared task board"},
+                {"label": "🖥️ Claude HQ dashboard", "url": f"http://{ip}:8850/", "ready": True, "note": "coordinator/architect"},
+                {"label": "💻 TP-Pip worker", "url": "http://192.168.1.74:8871/", "ready": True, "note": ".74:8871 · DESKTOP-9RBVKSM"},
+                {"label": "🖥️ Acer-Cass worker", "url": "http://192.168.1.41:8872/", "ready": True, "note": ".41:8872 · DESKTOP-1E2FB5N"},
+                {"label": "🧭 Tour Guide", "url": "", "ready": False, "note": "NOT BUILT YET · needs approval"},
+                {"label": "👋 Visitor greeting", "url": "", "ready": False, "note": "use check-in below"},
+            ]})
+        if p == "/api/latest_reports":
+            return self._json(200, {"reports": latest_reports()})
+        return self._json(404, {"ok": False, "error": "not found"})
+
+    def do_POST(self):
+        p = urlparse(self.path).path
+        b = self._body()
+        if p == "/api/checkin":
+            v = (b.get("visitor") or "").strip()[:120]
+            if not v:
+                return self._json(400, {"ok": False, "error": "visitor required"})
+            return self._json(200, append_event({"type": "checkin", "visitor": v}))
+        if p == "/api/note":
+            t = (b.get("text") or "").strip()[:500]
+            if not t:
+                return self._json(400, {"ok": False, "error": "text required"})
+            return self._json(200, append_event({"type": b.get("kind") or "note", "text": t}))
+        return self._json(404, {"ok": False, "error": "not found"})
+
+
+def main():
+    EVENTS.parent.mkdir(parents=True, exist_ok=True)
+    if not EVENTS.exists():
+        EVENTS.touch()
+    srv = ThreadingHTTPServer(("0.0.0.0", PORT), H)
+    print(f"[receptionist] serving on 0.0.0.0:{PORT} (HQ_IP={HQ_IP})")
+    srv.serve_forever()
+
+
+if __name__ == "__main__":
+    main()

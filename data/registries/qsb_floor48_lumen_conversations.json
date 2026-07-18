@@ -1,11 +1,107 @@
 {
   "ok": true,
   "kind": "qsb_floor48_lumen_conversations",
-  "generated_ts": "2026-07-05T07:02:09+00:00",
+  "generated_ts": "2026-07-10T21:05:48+00:00",
   "policy": "Per-conversation rolling history. Local only.",
-  "conversation_count": 15,
+  "conversation_count": 17,
   "max_history_turns": 50,
   "conversations": [
+    {
+      "conversation_id": "conv_1783361479_100ad5",
+      "started_ts": 1783361479.6946673,
+      "last_ts": 1783361479.7101266,
+      "user_label": "guest",
+      "turn_count": 2,
+      "last_turn_excerpt": "Hi, I'm Lumen \u2014 the tower's local chat AI. I won't pretend to know things I don't. Try 'tower briefing' or 'family tree' to start.",
+      "turns": [
+        {
+          "role": "user",
+          "content": "hello",
+          "ts": 1783361479.6947443,
+          "matched_topics": [],
+          "fallback_reason": null
+        },
+        {
+          "role": "lumen",
+          "content": "Hi, I'm Lumen \u2014 the tower's local chat AI. I won't pretend to know things I don't. Try 'tower briefing' or 'family tree' to start.",
+          "ts": 1783361479.7101245,
+          "matched_topics": [
+            "greeting"
+          ],
+          "fallback_reason": null
+        }
+      ]
+    },
+    {
+      "conversation_id": "conv_1783326533_856a06",
+      "started_ts": 1783326533.452383,
+      "last_ts": 1783326568.8423748,
+      "user_label": "guest",
+      "turn_count": 8,
+      "last_turn_excerpt": "EQSB Kernel \u2014 Structured Introspection\n========================================================\nschema_version: eqsb_major_v1.0\ngenerated_ts:   2026-06-09T08:56",
+      "turns": [
+        {
+          "role": "user",
+          "content": "who are you",
+          "ts": 1783326533.4525075,
+          "matched_topics": [],
+          "fallback_reason": null
+        },
+        {
+          "role": "lumen",
+          "content": "Hi \u2014 I'm Lumen, the QSB Tower's local chat AI. I answer from a topic table the Kernel has learned. Ask me about the bank, family tree, profit plan, free images, certified workers, or the morning briefing.",
+          "ts": 1783326533.4871268,
+          "matched_topics": [],
+          "fallback_reason": "no_topic_matched"
+        },
+        {
+          "role": "user",
+          "content": "tell memore about you",
+          "ts": 1783326547.2023833,
+          "matched_topics": [],
+          "fallback_reason": null
+        },
+        {
+          "role": "lumen",
+          "content": "Hi \u2014 I'm Lumen, the QSB Tower's local chat AI. I answer from a topic table the Kernel has learned. Ask me about the bank, family tree, profit plan, free images, certified workers, or the morning briefing.",
+          "ts": 1783326547.202555,
+          "matched_topics": [],
+          "fallback_reason": "no_topic_matched"
+        },
+        {
+          "role": "user",
+          "content": "show me the family tree",
+          "ts": 1783326556.6173863,
+          "matched_topics": [],
+          "fallback_reason": null
+        },
+        {
+          "role": "lumen",
+          "content": "EQSB Kernel \u2014 Structured Introspection\n========================================================\nschema_version: eqsb_major_v1.0\ngenerated_ts:   2026-06-09T08:56:44.962414+00:00\nlock_count_true: 0 \u00b7 active_local_only: True \u00b7 execution_allowed: False\n\nFamily Tree \u2014 Friends + Lineage\n--------------------------------------------------------\npolicy: Kernel writes lineage edges. Actual worker spawn happens in a separate Claude phase that writes the workforce registry; until then, child status stays 'pending_birth'.\nmax_children_per_parent: 3\nfriend_edges: 1   child_edges: 0\ngeneration_counts: {}\npopulation: 0 / 5000  (effective, headroom=5000)\n\nFriend edges (sample):\n  demo_worker_A \u2194 demo_worker_B   grant=grant_friend_1781027859_1\n\nChild edges (sample):\n  (no child edges yet)\n\n--------------------------------------------------------\nAll EQSB outputs are advisory_only=True, execution_allowed=False.",
+          "ts": 1783326556.621102,
+          "matched_topics": [
+            "family_tree"
+          ],
+          "fallback_reason": null
+        },
+        {
+          "role": "user",
+          "content": "show me your cognition",
+          "ts": 1783326568.8256721,
+          "matched_topics": [],
+          "fallback_reason": null
+        },
+        {
+          "role": "lumen",
+          "content": "EQSB Kernel \u2014 Structured Introspection\n========================================================\nschema_version: eqsb_major_v1.0\ngenerated_ts:   2026-06-09T08:56:44.962414+00:00\nlock_count_true: 0 \u00b7 active_local_only: True \u00b7 execution_allowed: False\n\nCognitive Kernel \u2014 20-Layer Substrate\n--------------------------------------------------------\npolicy:                Kernel THINKS, SPEAKS, PROPOSES. Kernel does NOT execute.\nexecution_allowed:     False\nactive_local_only:     True\nadvisory_only:         True\n\nSelf-Model\n  topic_count:         0\n  registry_count:      0\n  gap_count:           0\n  last_upgrade_phase:  None\n  i_can:\n    \u00b7 answer topic-table questions from registries\n    \u00b7 cite source paths in my answers\n    \u00b7 log safety-net misses for later upgrade\n    \u00b7 refuse execution intents\n  i_cannot:\n    \u00b7 execute trades or any action\n    \u00b7 modify my own code\n    \u00b7 unlock safety gates\n    \u00b7 guarantee correctness without registry citation\n  i_am_uncertain_about:\n    \u00b7 questions outside the topic table\n    \u00b7 registries that have not been refreshed recently\n    \u00b7 future Claude phase outcomes\n\nWorking Memory\n  capacity:            64\n  slot_count:          0\n\nOpen Action Proposals (0,\n\n[truncated for chat \u2014 full block available via kernel chat in dashboard]",
+          "ts": 1783326568.8423722,
+          "matched_topics": [
+            "cognitive_kernel_state"
+          ],
+          "fallback_reason": null
+        }
+      ]
+    },
     {
       "conversation_id": "conv_1781623742_834f1c",
       "started_ts": 1781623742.9837103,

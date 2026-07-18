@@ -1,0 +1,11 @@
+{
+  "timestamp": "2026-07-07T23:30:12.588667",
+  "proof_version": "hq_claude_local_recovery_v1",
+  "router_compile": "OK",
+  "persona_wrapper": "active",
+  "hq_claude_restricted_alias": true,
+  "hq_local_order": "HQ_LOCAL_NON_CLAUDE_ORDER",
+  "expected_provider": "local_14b",
+  "expected_model": "qwen2.5:14b",
+  "claude_avoided_expected": true
+}

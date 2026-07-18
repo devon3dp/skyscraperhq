@@ -1,0 +1,29 @@
+{
+  "ts": "2026-07-08T16:07:54.687765+00:00",
+  "ok": true,
+  "task_read_ok": true,
+  "task_count": 29,
+  "executed": [],
+  "needs_implementation": [
+    {
+      "ok": true,
+      "task_id": "t_c0743b3659",
+      "state": "needs_implementation",
+      "task_update_ok": true,
+      "town_ok": true
+    }
+  ],
+  "errors": [],
+  "dry_run": false,
+  "interval_seconds": 60,
+  "max_per_cycle": 1,
+  "doctrine": {
+    "worker_truth_gate": "implementation plus verification required before done",
+    "claude_hq_name": "Claude HQ",
+    "wren": "protected GPU guardian",
+    "ceos": "API Gene Pool only",
+    "no_local_fallback": true,
+    "no_key_changes": true,
+    "no_trading": true
+  }
+}

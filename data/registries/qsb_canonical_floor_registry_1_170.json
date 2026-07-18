@@ -1,0 +1,874 @@
+{
+ "schema": "qsb_canonical_floor_registry_1_170_v1",
+ "generated": "2026-07-17T14:42:50.873581Z",
+ "authoritative_source": "qsb_receptionist_floor_directory.json (floor_card.json backed)",
+ "note": "Tower is 170 floors numbered 0..169. Floor 0=Reception Lobby (recorded separately). No authoritative Floor 170; top real floor is 169. Floors 1..169 labels are floor_card-backed. Floor 170 marked UNKNOWN (not invented).",
+ "floor_0": {
+  "label": "Reception Lobby",
+  "provenance": "floors/floor_0_reception/floor_card.json"
+ },
+ "floors": {
+  "1": {
+   "label": "Order Fulfilment Hub",
+   "provenance": "floors/floor_01_operations_department/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "2": {
+   "label": "Memory Department",
+   "provenance": "floors/floor_02_memory_department/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "3": {
+   "label": "Research Department",
+   "provenance": "floors/floor_03_research_department/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "4": {
+   "label": "Knowledge Department",
+   "provenance": "floors/floor_04_knowledge_department/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "5": {
+   "label": "Coding Department",
+   "provenance": "floors/floor_05_coding_department/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "6": {
+   "label": "Etsy Shop Floor",
+   "provenance": "floors/floor_06_engineering_department/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "7": {
+   "label": "Shopify Storefront Floor",
+   "provenance": "floors/floor_07_architecture_department/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "8": {
+   "label": "Testing Department",
+   "provenance": "floors/floor_08_testing_department/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "9": {
+   "label": "Quality Assurance Department",
+   "provenance": "floors/floor_09_quality_assurance_department/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "10": {
+   "label": "Trading Simulation Department",
+   "provenance": "floors/floor_10_trading_simulation_department/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "11": {
+   "label": "Market Intelligence Department",
+   "provenance": "floors/floor_11_market_intelligence_department/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "12": {
+   "label": "Risk Analysis Department",
+   "provenance": "floors/floor_12_risk_analysis_department/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "13": {
+   "label": "Vision Department",
+   "provenance": "floors/floor_13_vision_department/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "14": {
+   "label": "Print-on-Demand Floor",
+   "provenance": "floors/floor_14_media_department/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "15": {
+   "label": "Voice Commerce Studio",
+   "provenance": "floors/floor_15_speech_and_audio_department/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "16": {
+   "label": "Listing Writer + SEO Lab",
+   "provenance": "floors/floor_16_document_processing_department/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "17": {
+   "label": "Product Design Studio + Prompt-to-Product",
+   "provenance": "floors/floor_17_graphics_and_design_department/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "18": {
+   "label": "Marketing + Promotion Floor",
+   "provenance": "floors/floor_18_automation_department/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "19": {
+   "label": "Customer Service Floor",
+   "provenance": "floors/floor_19_workflow_management_department/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "20": {
+   "label": "Api Services Department",
+   "provenance": "floors/floor_20_api_services_department/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "21": {
+   "label": "Adapter Systems Department",
+   "provenance": "floors/floor_21_adapter_systems_department/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "22": {
+   "label": "Integration Services Department",
+   "provenance": "floors/floor_22_integration_services_department/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "23": {
+   "label": "Air Llm Operations Department",
+   "provenance": "floors/floor_23_air_llm_operations_department/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "24": {
+   "label": "Model Routing Department",
+   "provenance": "floors/floor_24_model_routing_department/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "25": {
+   "label": "Agent Coordination Department",
+   "provenance": "floors/floor_25_agent_coordination_department/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "26": {
+   "label": "Commerce Accounting Floor",
+   "provenance": "floors/floor_26_model_evaluation_department/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "27": {
+   "label": "Local Model Operations Department",
+   "provenance": "floors/floor_27_local_model_operations_department/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "28": {
+   "label": "Security Department",
+   "provenance": "floors/floor_28_security_department/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "29": {
+   "label": "Guardian Department",
+   "provenance": "floors/floor_29_guardian_department/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "30": {
+   "label": "Permissions",
+   "provenance": "floors/floor_30_permissions_department/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "31": {
+   "label": "Audit Department",
+   "provenance": "floors/floor_31_audit_department/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "32": {
+   "label": "Platform Compliance Office",
+   "provenance": "floors/floor_32_compliance_department/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "33": {
+   "label": "Refund / Dispute Desk",
+   "provenance": "floors/floor_33_diagnostics_department/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "34": {
+   "label": "Storefront Analytics Room",
+   "provenance": "floors/floor_34_monitoring_department/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "35": {
+   "label": "Infrastructure Services Department",
+   "provenance": "floors/floor_35_infrastructure_services_department/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "36": {
+   "label": "Expansion Planning Department",
+   "provenance": "floors/floor_36_expansion_planning_department/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "37": {
+   "label": "Simulation Labs",
+   "provenance": "floors/floor_37_simulation_labs/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "38": {
+   "label": "Sandbox Operations",
+   "provenance": "floors/floor_38_sandbox_operations/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "39": {
+   "label": "Development Labs",
+   "provenance": "floors/floor_39_development_labs/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "40": {
+   "label": "Prototype Systems",
+   "provenance": "floors/floor_40_prototype_systems/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "41": {
+   "label": "OANDA Trading Floor",
+   "provenance": "floors/floor_41_oanda_practice_floor/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "42": {
+   "label": "Binance Trading Floor",
+   "provenance": "floors/floor_42_binance_trading_floor/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "43": {
+   "label": "Stock Exchange Trading Floor",
+   "provenance": "floors/floor_43_alpaca_paper_floor/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "44": {
+   "label": "Floor 44 Accounts Department",
+   "provenance": "floors/floor_44_accounts_department/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "45": {
+   "label": "Worker Recruitment Agency",
+   "provenance": "floors/floor_45_worker_recruitment_agency/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "46": {
+   "label": "Wren Bench",
+   "provenance": "floors/floor_46_wren_bench/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "47": {
+   "label": "Claude Embassy (Wren)",
+   "provenance": "floors/floor_47_executive_operations_department/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "48": {
+   "label": "UNKNOWN",
+   "provenance": "floors/floor_48_lumen/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "49": {
+   "label": "Tower Studio",
+   "provenance": "floors/floor_49_tower_studio/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "50": {
+   "label": "ML / RL Classroom",
+   "provenance": "floors/floor_50_building_governance_department/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "51": {
+   "label": "Executive Council Department",
+   "provenance": "floors/floor_51_executive_council_department/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "52": {
+   "label": "Infrastructure Command Department",
+   "provenance": "floors/floor_52_infrastructure_command_department/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "53": {
+   "label": "Tower Command Department",
+   "provenance": "floors/floor_53_tower_command_department/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "54": {
+   "label": "Accommodation",
+   "provenance": "floors/floor_54_accommodation/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "55": {
+   "label": "Cafeteria",
+   "provenance": "floors/floor_55_cafeteria/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "56": {
+   "label": "Cinema",
+   "provenance": "floors/floor_56_cinema/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "57": {
+   "label": "Grand Library",
+   "provenance": "floors/floor_57_grand_library/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "58": {
+   "label": "Music Conservatory",
+   "provenance": "floors/floor_58_music_conservatory/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "59": {
+   "label": "Shopping Centre",
+   "provenance": "floors/floor_59_shopping_centre/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "60": {
+   "label": "London Stock Exchange",
+   "provenance": "floors/floor_60_london_stock_exchange/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "61": {
+   "label": "Lumi\u00e8re Beauty",
+   "provenance": "floors/floor_61_lumi\u00e8re_beauty/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "62": {
+   "label": "Pinwheel Toys",
+   "provenance": "floors/floor_62_pinwheel_toys/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "63": {
+   "label": "Pawsworth",
+   "provenance": "floors/floor_63_pawsworth/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "64": {
+   "label": "Hearthstone Kitchen",
+   "provenance": "floors/floor_64_hearthstone_kitchen/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "65": {
+   "label": "Vector Tech",
+   "provenance": "floors/floor_65_vector_tech/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "66": {
+   "label": "Architects' Office",
+   "provenance": "floors/floor_66_architects_office/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "67": {
+   "label": "Wellness Studio",
+   "provenance": "floors/floor_67_wellness_studio/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "68": {
+   "label": "Pharmacy",
+   "provenance": "floors/floor_68_pharmacy/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "69": {
+   "label": "Independent Bookstore",
+   "provenance": "floors/floor_69_independent_bookstore/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "70": {
+   "label": "Pottery Studio",
+   "provenance": "floors/floor_70_pottery_studio/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "71": {
+   "label": "Art Gallery",
+   "provenance": "floors/floor_71_art_gallery/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "72": {
+   "label": "Music Production Studio",
+   "provenance": "floors/floor_72_music_production_studio/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "73": {
+   "label": "Fashion Boutique",
+   "provenance": "floors/floor_73_fashion_boutique/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "74": {
+   "label": "Photography Studio",
+   "provenance": "floors/floor_74_photography_studio/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "75": {
+   "label": "Florist",
+   "provenance": "floors/floor_75_florist/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "76": {
+   "label": "Bakery",
+   "provenance": "floors/floor_76_bakery/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "77": {
+   "label": "Coffee Roastery",
+   "provenance": "floors/floor_77_coffee_roastery/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "78": {
+   "label": "Brewery",
+   "provenance": "floors/floor_78_brewery/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "79": {
+   "label": "Distillery",
+   "provenance": "floors/floor_79_distillery/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "80": {
+   "label": "Restaurant District",
+   "provenance": "floors/floor_80_restaurant_district/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "81": {
+   "label": "Podcast Studio One",
+   "provenance": "floors/floor_81_podcast_studio_one/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "82": {
+   "label": "Podcast Studio Two",
+   "provenance": "floors/floor_82_podcast_studio_two/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "83": {
+   "label": "Podcast Studio Three",
+   "provenance": "floors/floor_83_podcast_studio_three/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "84": {
+   "label": "Podcast Studio Four",
+   "provenance": "floors/floor_84_podcast_studio_four/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "85": {
+   "label": "Podcast Studio Five",
+   "provenance": "floors/floor_85_podcast_studio_five/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "86": {
+   "label": "Video Production",
+   "provenance": "floors/floor_86_video_production/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "87": {
+   "label": "Film Studio",
+   "provenance": "floors/floor_87_film_studio/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "88": {
+   "label": "Animation Studio",
+   "provenance": "floors/floor_88_animation_studio/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "89": {
+   "label": "Documentary Unit",
+   "provenance": "floors/floor_89_documentary_unit/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "90": {
+   "label": "Live Stream Studio",
+   "provenance": "floors/floor_90_live_stream_studio/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "91": {
+   "label": "Game Development One",
+   "provenance": "floors/floor_91_game_development_one/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "92": {
+   "label": "Game Development Two",
+   "provenance": "floors/floor_92_game_development_two/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "93": {
+   "label": "Game Development Three",
+   "provenance": "floors/floor_93_game_development_three/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "94": {
+   "label": "Game Development Four",
+   "provenance": "floors/floor_94_game_development_four/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "95": {
+   "label": "Game Development Five",
+   "provenance": "floors/floor_95_game_development_five/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "96": {
+   "label": "Writing Hall",
+   "provenance": "floors/floor_96_writing_hall/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "97": {
+   "label": "Translation Bureau",
+   "provenance": "floors/floor_97_translation_bureau/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "98": {
+   "label": "Publishing House",
+   "provenance": "floors/floor_98_publishing_house/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "99": {
+   "label": "Newsroom",
+   "provenance": "floors/floor_99_newsroom/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "100": {
+   "label": "Academic Press",
+   "provenance": "floors/floor_100_academic_press/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "101": {
+   "label": "Legal Advisory",
+   "provenance": "floors/floor_101_legal_advisory/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "102": {
+   "label": "Tax & Accounting",
+   "provenance": "floors/floor_102_tax_and_accounting/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "103": {
+   "label": "HR Services",
+   "provenance": "floors/floor_103_hr_services/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "104": {
+   "label": "IT Help Desk",
+   "provenance": "floors/floor_104_it_help_desk/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "105": {
+   "label": "Cybersecurity",
+   "provenance": "floors/floor_105_cybersecurity/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "106": {
+   "label": "Data Centre",
+   "provenance": "floors/floor_106_data_centre/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "107": {
+   "label": "Cloud Platform Ops",
+   "provenance": "floors/floor_107_cloud_platform_ops/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "108": {
+   "label": "Customer Success",
+   "provenance": "floors/floor_108_customer_success/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "109": {
+   "label": "Sales Operations",
+   "provenance": "floors/floor_109_sales_operations/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "110": {
+   "label": "Marketing Operations",
+   "provenance": "floors/floor_110_marketing_operations/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "111": {
+   "label": "Logistics Hub",
+   "provenance": "floors/floor_111_logistics_hub/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "112": {
+   "label": "Procurement",
+   "provenance": "floors/floor_112_procurement/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "113": {
+   "label": "Facilities Management",
+   "provenance": "floors/floor_113_facilities_management/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "114": {
+   "label": "Mailroom & Reception",
+   "provenance": "floors/floor_114_mailroom_and_reception/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "115": {
+   "label": "Quality Assurance Lab",
+   "provenance": "floors/floor_115_quality_assurance_lab/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "116": {
+   "label": "Quantum Lab",
+   "provenance": "floors/floor_116_quantum_lab/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "117": {
+   "label": "Robotics Lab",
+   "provenance": "floors/floor_117_robotics_lab/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "118": {
+   "label": "Biotech Lab",
+   "provenance": "floors/floor_118_biotech_lab/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "119": {
+   "label": "Materials Science Lab",
+   "provenance": "floors/floor_119_materials_science_lab/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "120": {
+   "label": "Energy Research",
+   "provenance": "floors/floor_120_energy_research/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "121": {
+   "label": "Climate Sciences",
+   "provenance": "floors/floor_121_climate_sciences/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "122": {
+   "label": "Neuroscience Lab",
+   "provenance": "floors/floor_122_neuroscience_lab/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "123": {
+   "label": "AGI Safety Research",
+   "provenance": "floors/floor_123_agi_safety_research/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "124": {
+   "label": "Cryptography Research",
+   "provenance": "floors/floor_124_cryptography_research/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "125": {
+   "label": "Mathematical Sciences",
+   "provenance": "floors/floor_125_mathematical_sciences/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "126": {
+   "label": "Physics Department",
+   "provenance": "floors/floor_126_physics_department/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "127": {
+   "label": "Chemistry Department",
+   "provenance": "floors/floor_127_chemistry_department/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "128": {
+   "label": "Computer Science Dept",
+   "provenance": "floors/floor_128_computer_science_dept/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "129": {
+   "label": "Philosophy & Ethics",
+   "provenance": "floors/floor_129_philosophy_and_ethics/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "130": {
+   "label": "Linguistics Department",
+   "provenance": "floors/floor_130_linguistics_department/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "131": {
+   "label": "Space Tech Lab",
+   "provenance": "floors/floor_131_space_tech_lab/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "132": {
+   "label": "Synthetic Biology Lab",
+   "provenance": "floors/floor_132_synthetic_biology_lab/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "133": {
+   "label": "Longevity Research",
+   "provenance": "floors/floor_133_longevity_research/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "134": {
+   "label": "Climate Adaptation Lab",
+   "provenance": "floors/floor_134_climate_adaptation_lab/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "135": {
+   "label": "Marine Sciences",
+   "provenance": "floors/floor_135_marine_sciences/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "136": {
+   "label": "Atmospheric Science",
+   "provenance": "floors/floor_136_atmospheric_science/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "137": {
+   "label": "Earth Sciences",
+   "provenance": "floors/floor_137_earth_sciences/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "138": {
+   "label": "Anthropology Department",
+   "provenance": "floors/floor_138_anthropology_department/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "139": {
+   "label": "History Department",
+   "provenance": "floors/floor_139_history_department/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "140": {
+   "label": "Economics Department",
+   "provenance": "floors/floor_140_economics_department/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "141": {
+   "label": "Theater & Performance",
+   "provenance": "floors/floor_141_theater_and_performance/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "142": {
+   "label": "Cinema House",
+   "provenance": "floors/floor_142_cinema_house/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "143": {
+   "label": "Concert Hall",
+   "provenance": "floors/floor_143_concert_hall/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "144": {
+   "label": "Museum",
+   "provenance": "floors/floor_144_museum/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "145": {
+   "label": "Observatory",
+   "provenance": "floors/floor_145_observatory/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "146": {
+   "label": "Civic Hall",
+   "provenance": "floors/floor_146_civic_hall/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "147": {
+   "label": "Sanctuary Chapel",
+   "provenance": "floors/floor_147_sanctuary_chapel/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "148": {
+   "label": "Hall of Records",
+   "provenance": "floors/floor_148_hall_of_records/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "149": {
+   "label": "University Annex",
+   "provenance": "floors/floor_149_university_annex/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "150": {
+   "label": "Botanical Garden",
+   "provenance": "floors/floor_150_botanical_garden/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "151": {
+   "label": "Astronomy Tower",
+   "provenance": "floors/floor_151_astronomy_tower/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "152": {
+   "label": "Communications Hub",
+   "provenance": "floors/floor_152_communications_hub/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "153": {
+   "label": "Penthouse",
+   "provenance": "floors/floor_153_penthouse/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "154": {
+   "label": "Trailhead Outdoor",
+   "provenance": "floors/floor_154_trailhead_outdoor/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "155": {
+   "label": "Stretch Fitness",
+   "provenance": "floors/floor_155_stretch_fitness/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "156": {
+   "label": "Quilltree Office",
+   "provenance": "floors/floor_156_quilltree_office/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "157": {
+   "label": "Voyage & Co",
+   "provenance": "floors/floor_157_voyage_and_co/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "158": {
+   "label": "Greenhouse Lane",
+   "provenance": "floors/floor_158_greenhouse_lane/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "159": {
+   "label": "Little Robin",
+   "provenance": "floors/floor_159_little_robin/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "160": {
+   "label": "Inkwell & Co",
+   "provenance": "floors/floor_160_inkwell_and_co/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "161": {
+   "label": "Twilight Wellness",
+   "provenance": "floors/floor_161_twilight_wellness/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "162": {
+   "label": "Living Light Eco",
+   "provenance": "floors/floor_162_living_light_eco/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "163": {
+   "label": "Maker Lane",
+   "provenance": "floors/floor_163_maker_lane/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "164": {
+   "label": "Email Operations",
+   "provenance": "floors/floor_164_email_operations/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "165": {
+   "label": "Telegram Reception",
+   "provenance": "floors/floor_165_telegram_reception/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "166": {
+   "label": "TikTok Studio",
+   "provenance": "floors/floor_166_tiktok_studio/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "167": {
+   "label": "Boardroom \u00b7 3 CEOs",
+   "provenance": "floors/floor_167_boardroom_3_ceos/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "168": {
+   "label": "Penthouse \u00b7 Kernel",
+   "provenance": "floors/floor_168_penthouse_kernel/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "169": {
+   "label": "The Watchtower \u00b7 CEO Watch & Operations",
+   "provenance": "floors/floor_169_thinkpad_watcher/floor_card.json",
+   "authority": "CANONICAL_CURRENT"
+  },
+  "170": {
+   "label": "UNKNOWN \u2014 AUTHORITATIVE LABEL NOT FOUND",
+   "provenance": null,
+   "authority": "UNKNOWN"
+  }
+ },
+ "validation": {
+  "exactly_170_lines": true,
+  "continuous_01_170": true,
+  "no_duplicates": true,
+  "no_missing": true,
+  "no_blank": true,
+  "every_label_provenance_or_unknown": true,
+  "floor_53_not_top": true,
+  "floor_170_present": true
+ },
+ "blueprint_label_agreement_1_169": "144/169",
+ "interior_registry_floor_count": 1
+}

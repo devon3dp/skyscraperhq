@@ -1,0 +1,1192 @@
+{
+ "FLOOR_001": {
+  "floor": 1,
+  "name": "Operations Department",
+  "department": "operations",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_002": {
+  "floor": 2,
+  "name": "Memory Department",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_003": {
+  "floor": 3,
+  "name": "Research Department",
+  "department": "research",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_004": {
+  "floor": 4,
+  "name": "Knowledge Department",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_005": {
+  "floor": 5,
+  "name": "Coding",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_006": {
+  "floor": 6,
+  "name": "Engineering Department",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_007": {
+  "floor": 7,
+  "name": "Architecture Department",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_008": {
+  "floor": 8,
+  "name": "Testing Department",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_009": {
+  "floor": 9,
+  "name": "Quality Assurance Department",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_010": {
+  "floor": 10,
+  "name": "Trading Simulation Department",
+  "department": "trading",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_011": {
+  "floor": 11,
+  "name": "Market Intelligence Department",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_012": {
+  "floor": 12,
+  "name": "Risk Analysis Department",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_013": {
+  "floor": 13,
+  "name": "Vision Department",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_014": {
+  "floor": 14,
+  "name": "Media Department",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_015": {
+  "floor": 15,
+  "name": "Speech And Audio Department",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_016": {
+  "floor": 16,
+  "name": "Document Processing Department",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_017": {
+  "floor": 17,
+  "name": "Graphics And Design Department",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_018": {
+  "floor": 18,
+  "name": "Automation Department",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_019": {
+  "floor": 19,
+  "name": "Workflow Management Department",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_020": {
+  "floor": 20,
+  "name": "Api Services Department",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_021": {
+  "floor": 21,
+  "name": "Adapter Systems Department",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_022": {
+  "floor": 22,
+  "name": "Integration Services Department",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_023": {
+  "floor": 23,
+  "name": "Air Llm Operations Department",
+  "department": "operations",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_024": {
+  "floor": 24,
+  "name": "Model Routing Department",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_025": {
+  "floor": 25,
+  "name": "Agent Coordination Department",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_026": {
+  "floor": 26,
+  "name": "Model Evaluation Department",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_027": {
+  "floor": 27,
+  "name": "Local Model Operations Department",
+  "department": "operations",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_028": {
+  "floor": 28,
+  "name": "Security",
+  "department": "security",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_029": {
+  "floor": 29,
+  "name": "Guardian Department",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_030": {
+  "floor": 30,
+  "name": "Permissions",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_031": {
+  "floor": 31,
+  "name": "Audit Department",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_032": {
+  "floor": 32,
+  "name": "Compliance Department",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_033": {
+  "floor": 33,
+  "name": "Diagnostics Department",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_034": {
+  "floor": 34,
+  "name": "Monitoring",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_035": {
+  "floor": 35,
+  "name": "Infrastructure Services Department",
+  "department": "operations",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_036": {
+  "floor": 36,
+  "name": "Expansion Planning Department",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_037": {
+  "floor": 37,
+  "name": "Simulation Labs",
+  "department": "research",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_038": {
+  "floor": 38,
+  "name": "Sandbox Operations",
+  "department": "operations",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_039": {
+  "floor": 39,
+  "name": "Development Labs",
+  "department": "research",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_040": {
+  "floor": 40,
+  "name": "Prototype Systems",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_041": {
+  "floor": 41,
+  "name": "Oanda Trading Floor",
+  "department": "trading",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_042": {
+  "floor": 42,
+  "name": "Binance Trading Floor",
+  "department": "trading",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_043": {
+  "floor": 43,
+  "name": "Stock Exchange Trading Floor",
+  "department": "trading",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_044": {
+  "floor": 44,
+  "name": "Future Systems Vacant",
+  "department": "finance",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_045": {
+  "floor": 45,
+  "name": "Worker Recruitment Agency",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_046": {
+  "floor": 46,
+  "name": "Executive Support Department",
+  "department": "command",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_047": {
+  "floor": 47,
+  "name": "Claude Embassy (Wren)",
+  "department": "command",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_048": {
+  "floor": 48,
+  "name": "Strategic Planning Department",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_049": {
+  "floor": 49,
+  "name": "Resource Management Department",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_050": {
+  "floor": 50,
+  "name": "Governance",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_051": {
+  "floor": 51,
+  "name": "Executive Council Department",
+  "department": "command",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_052": {
+  "floor": 52,
+  "name": "Infrastructure Command Department",
+  "department": "command",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_053": {
+  "floor": 53,
+  "name": "Tower Command Department",
+  "department": "command",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_054": {
+  "floor": 54,
+  "name": "Accommodation",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_055": {
+  "floor": 55,
+  "name": "Cafeteria",
+  "department": "hospitality",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_056": {
+  "floor": 56,
+  "name": "Cinema",
+  "department": "entertainment",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_057": {
+  "floor": 57,
+  "name": "Grand Library",
+  "department": "library",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_058": {
+  "floor": 58,
+  "name": "Music Conservatory",
+  "department": "music",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_059": {
+  "floor": 59,
+  "name": "Shopping Centre",
+  "department": "commerce",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_060": {
+  "floor": 60,
+  "name": "London Stock Exchange",
+  "department": "trading",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_061": {
+  "floor": 61,
+  "name": "Lumi\u00e8re Beauty",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_062": {
+  "floor": 62,
+  "name": "Pinwheel Toys",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_063": {
+  "floor": 63,
+  "name": "Pawsworth",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_064": {
+  "floor": 64,
+  "name": "Hearthstone Kitchen",
+  "department": "hospitality",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_065": {
+  "floor": 65,
+  "name": "Vector Tech",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_066": {
+  "floor": 66,
+  "name": "Architects' Office",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_067": {
+  "floor": 67,
+  "name": "Wellness Studio",
+  "department": "music",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_068": {
+  "floor": 68,
+  "name": "Pharmacy",
+  "department": "wellness",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_069": {
+  "floor": 69,
+  "name": "Independent Bookstore",
+  "department": "commerce",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_070": {
+  "floor": 70,
+  "name": "Pottery Studio",
+  "department": "music",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_071": {
+  "floor": 71,
+  "name": "Art Gallery",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_072": {
+  "floor": 72,
+  "name": "Music Production Studio",
+  "department": "music",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_073": {
+  "floor": 73,
+  "name": "Fashion Boutique",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_074": {
+  "floor": 74,
+  "name": "Photography Studio",
+  "department": "music",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_075": {
+  "floor": 75,
+  "name": "Florist",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_076": {
+  "floor": 76,
+  "name": "Bakery",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_077": {
+  "floor": 77,
+  "name": "Coffee Roastery",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_078": {
+  "floor": 78,
+  "name": "Brewery",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_079": {
+  "floor": 79,
+  "name": "Distillery",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_080": {
+  "floor": 80,
+  "name": "Restaurant District",
+  "department": "hospitality",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_081": {
+  "floor": 81,
+  "name": "Podcast Studio One",
+  "department": "music",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_082": {
+  "floor": 82,
+  "name": "Podcast Studio Two",
+  "department": "music",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_083": {
+  "floor": 83,
+  "name": "Podcast Studio Three",
+  "department": "music",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_084": {
+  "floor": 84,
+  "name": "Podcast Studio Four",
+  "department": "music",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_085": {
+  "floor": 85,
+  "name": "Podcast Studio Five",
+  "department": "music",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_086": {
+  "floor": 86,
+  "name": "Video Production",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_087": {
+  "floor": 87,
+  "name": "Film Studio",
+  "department": "music",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_088": {
+  "floor": 88,
+  "name": "Animation Studio",
+  "department": "music",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_089": {
+  "floor": 89,
+  "name": "Documentary Unit",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_090": {
+  "floor": 90,
+  "name": "Live Stream Studio",
+  "department": "music",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_091": {
+  "floor": 91,
+  "name": "Game Development One",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_092": {
+  "floor": 92,
+  "name": "Game Development Two",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_093": {
+  "floor": 93,
+  "name": "Game Development Three",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_094": {
+  "floor": 94,
+  "name": "Game Development Four",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_095": {
+  "floor": 95,
+  "name": "Game Development Five",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_096": {
+  "floor": 96,
+  "name": "Writing Hall",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_097": {
+  "floor": 97,
+  "name": "Translation Bureau",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_098": {
+  "floor": 98,
+  "name": "Publishing House",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_099": {
+  "floor": 99,
+  "name": "Newsroom",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_100": {
+  "floor": 100,
+  "name": "Academic Press",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_101": {
+  "floor": 101,
+  "name": "Legal Advisory",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_102": {
+  "floor": 102,
+  "name": "Tax & Accounting",
+  "department": "finance",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_103": {
+  "floor": 103,
+  "name": "HR Services",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_104": {
+  "floor": 104,
+  "name": "IT Help Desk",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_105": {
+  "floor": 105,
+  "name": "Cybersecurity",
+  "department": "security",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_106": {
+  "floor": 106,
+  "name": "Data Centre",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_107": {
+  "floor": 107,
+  "name": "Cloud Platform Ops",
+  "department": "operations",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_108": {
+  "floor": 108,
+  "name": "Customer Success",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_109": {
+  "floor": 109,
+  "name": "Sales Operations",
+  "department": "operations",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_110": {
+  "floor": 110,
+  "name": "Marketing Operations",
+  "department": "operations",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_111": {
+  "floor": 111,
+  "name": "Logistics Hub",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_112": {
+  "floor": 112,
+  "name": "Procurement",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_113": {
+  "floor": 113,
+  "name": "Facilities Management",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_114": {
+  "floor": 114,
+  "name": "Mailroom & Reception",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_115": {
+  "floor": 115,
+  "name": "Quality Assurance Lab",
+  "department": "research",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_116": {
+  "floor": 116,
+  "name": "Quantum Lab",
+  "department": "research",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_117": {
+  "floor": 117,
+  "name": "Robotics Lab",
+  "department": "research",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_118": {
+  "floor": 118,
+  "name": "Biotech Lab",
+  "department": "research",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_119": {
+  "floor": 119,
+  "name": "Materials Science Lab",
+  "department": "research",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_120": {
+  "floor": 120,
+  "name": "Energy Research",
+  "department": "research",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_121": {
+  "floor": 121,
+  "name": "Climate Sciences",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_122": {
+  "floor": 122,
+  "name": "Neuroscience Lab",
+  "department": "research",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_123": {
+  "floor": 123,
+  "name": "AGI Safety Research",
+  "department": "research",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_124": {
+  "floor": 124,
+  "name": "Cryptography Research",
+  "department": "research",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_125": {
+  "floor": 125,
+  "name": "Mathematical Sciences",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_126": {
+  "floor": 126,
+  "name": "Physics Department",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_127": {
+  "floor": 127,
+  "name": "Chemistry Department",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_128": {
+  "floor": 128,
+  "name": "Computer Science Dept",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_129": {
+  "floor": 129,
+  "name": "Philosophy & Ethics",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_130": {
+  "floor": 130,
+  "name": "Linguistics Department",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_131": {
+  "floor": 131,
+  "name": "Space Tech Lab",
+  "department": "research",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_132": {
+  "floor": 132,
+  "name": "Synthetic Biology Lab",
+  "department": "research",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_133": {
+  "floor": 133,
+  "name": "Longevity Research",
+  "department": "research",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_134": {
+  "floor": 134,
+  "name": "Climate Adaptation Lab",
+  "department": "research",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_135": {
+  "floor": 135,
+  "name": "Marine Sciences",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_136": {
+  "floor": 136,
+  "name": "Atmospheric Science",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_137": {
+  "floor": 137,
+  "name": "Earth Sciences",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_138": {
+  "floor": 138,
+  "name": "Anthropology Department",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_139": {
+  "floor": 139,
+  "name": "History Department",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_140": {
+  "floor": 140,
+  "name": "Economics Department",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_141": {
+  "floor": 141,
+  "name": "Theater & Performance",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_142": {
+  "floor": 142,
+  "name": "Cinema House",
+  "department": "entertainment",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_143": {
+  "floor": 143,
+  "name": "Concert Hall",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_144": {
+  "floor": 144,
+  "name": "Museum",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_145": {
+  "floor": 145,
+  "name": "Observatory",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_146": {
+  "floor": 146,
+  "name": "Civic Hall",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_147": {
+  "floor": 147,
+  "name": "Sanctuary Chapel",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_148": {
+  "floor": 148,
+  "name": "Hall of Records",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_149": {
+  "floor": 149,
+  "name": "University Annex",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_150": {
+  "floor": 150,
+  "name": "Botanical Garden",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_151": {
+  "floor": 151,
+  "name": "Astronomy Tower",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_152": {
+  "floor": 152,
+  "name": "Communications Hub",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_153": {
+  "floor": 153,
+  "name": "Penthouse",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_154": {
+  "floor": 154,
+  "name": "Trailhead Outdoor",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_155": {
+  "floor": 155,
+  "name": "Stretch Fitness",
+  "department": "wellness",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_156": {
+  "floor": 156,
+  "name": "Quilltree Office",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_157": {
+  "floor": 157,
+  "name": "Voyage & Co",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_158": {
+  "floor": 158,
+  "name": "Greenhouse Lane",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_159": {
+  "floor": 159,
+  "name": "Little Robin",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_160": {
+  "floor": 160,
+  "name": "Inkwell & Co",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_161": {
+  "floor": 161,
+  "name": "Twilight Wellness",
+  "department": "wellness",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_162": {
+  "floor": 162,
+  "name": "Living Light Eco",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_163": {
+  "floor": 163,
+  "name": "Maker Lane",
+  "department": "general",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_164": {
+  "floor": 164,
+  "name": "Email Operations",
+  "department": "operations",
+  "status": "implemented",
+  "confidence": "MEDIUM"
+ },
+ "FLOOR_165": {
+  "floor": 165,
+  "name": "UNKNOWN \u2014 AUTHORITATIVE INFORMATION NOT FOUND",
+  "department": "UNKNOWN \u2014 AUTHORITATIVE INFORMATION NOT FOUND",
+  "status": "UNKNOWN \u2014 AUTHORITATIVE INFORMATION NOT FOUND",
+  "confidence": "NONE"
+ },
+ "FLOOR_166": {
+  "floor": 166,
+  "name": "UNKNOWN \u2014 AUTHORITATIVE INFORMATION NOT FOUND",
+  "department": "UNKNOWN \u2014 AUTHORITATIVE INFORMATION NOT FOUND",
+  "status": "UNKNOWN \u2014 AUTHORITATIVE INFORMATION NOT FOUND",
+  "confidence": "NONE"
+ },
+ "FLOOR_167": {
+  "floor": 167,
+  "name": "UNKNOWN \u2014 AUTHORITATIVE INFORMATION NOT FOUND",
+  "department": "UNKNOWN \u2014 AUTHORITATIVE INFORMATION NOT FOUND",
+  "status": "UNKNOWN \u2014 AUTHORITATIVE INFORMATION NOT FOUND",
+  "confidence": "NONE"
+ },
+ "FLOOR_168": {
+  "floor": 168,
+  "name": "UNKNOWN \u2014 AUTHORITATIVE INFORMATION NOT FOUND",
+  "department": "UNKNOWN \u2014 AUTHORITATIVE INFORMATION NOT FOUND",
+  "status": "UNKNOWN \u2014 AUTHORITATIVE INFORMATION NOT FOUND",
+  "confidence": "NONE"
+ },
+ "FLOOR_169": {
+  "floor": 169,
+  "name": "UNKNOWN \u2014 AUTHORITATIVE INFORMATION NOT FOUND",
+  "department": "UNKNOWN \u2014 AUTHORITATIVE INFORMATION NOT FOUND",
+  "status": "UNKNOWN \u2014 AUTHORITATIVE INFORMATION NOT FOUND",
+  "confidence": "NONE"
+ },
+ "FLOOR_170": {
+  "floor": 170,
+  "name": "UNKNOWN \u2014 AUTHORITATIVE INFORMATION NOT FOUND",
+  "department": "UNKNOWN \u2014 AUTHORITATIVE INFORMATION NOT FOUND",
+  "status": "UNKNOWN \u2014 AUTHORITATIVE INFORMATION NOT FOUND",
+  "confidence": "NONE"
+ }
+}

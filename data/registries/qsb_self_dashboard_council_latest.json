@@ -1,0 +1,50 @@
+{
+  "timestamp": "2026-07-07T23:50:51.187466",
+  "test": "QSB Self-Dashboard Council Smoke Test",
+  "run_folder": "/vaults/nvme0/qsb_skyscraper/data/self_dashboards/run_20260707_235012",
+  "dashboard_index_file": "/vaults/nvme0/qsb_skyscraper/data/self_dashboards/run_20260707_235012/dashboards/index.html",
+  "dashboard_index_url": "http://127.0.0.1:8855/index.html",
+  "backend_urls": {
+    "brain_router_v2": "http://127.0.0.1:8853/health.json",
+    "boardroom": "http://127.0.0.1:8852/",
+    "task_council": "http://127.0.0.1:8854/health.json",
+    "asa": "http://127.0.0.1:9122/heartbeat.json",
+    "tp_pip": "http://192.168.1.91:9110/heartbeat.json"
+  },
+  "node_results": {
+    "hq_claude": {
+      "status": "FULL_PASS",
+      "reason": "Dashboard contract generated through Brain Router V2."
+    },
+    "asa": {
+      "status": "FULL_PASS_IF_TASK_JSON_VALID",
+      "proof_file": "/vaults/nvme0/qsb_skyscraper/data/self_dashboards/run_20260707_235012/proof/asa_self_dashboard_task.json"
+    },
+    "tp_pip": {
+      "status": "BACKEND_PASS_NO_TASK_ENDPOINT_TESTED",
+      "reason": "Heartbeat/proof reachable. Own /task endpoint not yet proven."
+    },
+    "wren_ren": {
+      "status": "PASS_WITH_PROOF_LIMITS",
+      "compile_pass_count": 3,
+      "reason": "Wren/Ren local code compiles, but proof limits remain active."
+    },
+    "task_council": {
+      "status": "PASS_IF_RUN_DEMO_JSON_VALID",
+      "proof_file": "/vaults/nvme0/qsb_skyscraper/data/self_dashboards/run_20260707_235012/proof/task_council_run_demo.json"
+    }
+  },
+  "truth": {
+    "claude_api_used": false,
+    "live_trading_enabled": false,
+    "destructive_actions": false,
+    "backend_access_proven": true,
+    "full_remote_pc_control_proven": false,
+    "note": "This proves backend access to exposed services/endpoints. It does not prove unrestricted control of every remote PC unless that PC exposes a task/control endpoint."
+  },
+  "counts": {
+    "passes": 24,
+    "warns": 2,
+    "fails": 0
+  }
+}

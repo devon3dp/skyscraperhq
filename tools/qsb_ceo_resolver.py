@@ -1,0 +1,112 @@
+#!/usr/bin/env python3
+"""qsb_ceo_resolver.py — resolve(ceo_name) → url. Multi-path lookup.
+
+Order:
+  1. In-process cache (<CACHE_TTL s old)
+  2. Local disk cache /tmp/qsb_ceo_resolver_cache.json
+  3. Oracle registry /lookup?ceo=X
+  4. Static fallback map (last-known URLs)
+
+Also usable as CLI:  qsb_ceo_resolver.py --ceo wren
+"""
+from __future__ import annotations
+import argparse, datetime, json, os, sys, time, urllib.error, urllib.request
+from pathlib import Path
+
+REGISTRY = os.environ.get("QSB_CEO_REGISTRY", "http://145.241.225.163:9210")
+CACHE_FILE = Path(os.environ.get("QSB_CEO_RESOLVER_CACHE", "/tmp/qsb_ceo_resolver_cache.json"))
+CACHE_TTL = float(os.environ.get("QSB_CEO_RESOLVER_TTL", "60"))
+LOOKUP_TIMEOUT = float(os.environ.get("QSB_CEO_LOOKUP_TIMEOUT", "5"))
+
+STATIC_FALLBACK = {
+    "hq_claude": "http://192.168.1.72:8850",
+    "wren":      "http://192.168.1.72:8851",
+    # 2026-07-11 S4B1 policy-A: authoritative physical worker endpoints (hardware-true)
+    "tp_pip":    "http://192.168.1.74:8871",
+    "acer_cass": "http://192.168.1.41:8872",
+}
+
+_mem_cache: dict[str, tuple[float, str, str]] = {}
+
+
+def _load_disk_cache() -> dict[str, tuple[float, str, str]]:
+    if not CACHE_FILE.exists():
+        return {}
+    try:
+        raw = json.loads(CACHE_FILE.read_text())
+        return {k: (v["at"], v["url"], v["source"]) for k, v in raw.items()}
+    except Exception:
+        return {}
+
+
+def _save_disk_cache(cache: dict[str, tuple[float, str, str]]) -> None:
+    try:
+        obj = {k: {"at": v[0], "url": v[1], "source": v[2]} for k, v in cache.items()}
+        CACHE_FILE.write_text(json.dumps(obj, indent=2))
+    except Exception:
+        pass
+
+
+def _oracle_lookup(ceo: str) -> str | None:
+    try:
+        req = urllib.request.Request(f"{REGISTRY.rstrip('/')}/lookup?ceo={ceo}")
+        with urllib.request.urlopen(req, timeout=LOOKUP_TIMEOUT) as r:
+            body = json.loads(r.read())
+            return body.get("url")
+    except Exception:
+        return None
+
+
+def resolve(ceo: str, force_refresh: bool = False) -> tuple[str | None, str]:
+    """Return (url, source). source ∈ {mem, disk, oracle, fallback, none}."""
+    now = time.time()
+    if not force_refresh:
+        # 1. memory cache
+        rec = _mem_cache.get(ceo)
+        if rec and now - rec[0] < CACHE_TTL:
+            return rec[1], f"mem({rec[2]})"
+        # 2. disk cache
+        disk = _load_disk_cache()
+        drec = disk.get(ceo)
+        if drec and now - drec[0] < CACHE_TTL:
+            _mem_cache[ceo] = drec
+            return drec[1], f"disk({drec[2]})"
+
+    # 3. Oracle lookup
+    url = _oracle_lookup(ceo)
+    if url:
+        rec = (now, url, "oracle")
+        _mem_cache[ceo] = rec
+        disk = _load_disk_cache()
+        disk[ceo] = rec
+        _save_disk_cache(disk)
+        return url, "oracle"
+
+    # 4. last-known disk cache even if stale
+    disk = _load_disk_cache()
+    drec = disk.get(ceo)
+    if drec:
+        return drec[1], f"stale_disk({drec[2]})"
+
+    # 5. static fallback
+    fb = STATIC_FALLBACK.get(ceo)
+    if fb:
+        return fb, "static_fallback"
+    return None, "none"
+
+
+def main() -> None:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--ceo", required=True)
+    ap.add_argument("--force-refresh", action="store_true")
+    ap.add_argument("--registry", default=None, help="override registry URL")
+    args = ap.parse_args()
+    if args.registry:
+        global REGISTRY
+        REGISTRY = args.registry
+    url, source = resolve(args.ceo, force_refresh=args.force_refresh)
+    print(json.dumps({"ceo": args.ceo, "url": url, "source": source, "ts": datetime.datetime.now(datetime.timezone.utc).isoformat()}))
+
+
+if __name__ == "__main__":
+    main()

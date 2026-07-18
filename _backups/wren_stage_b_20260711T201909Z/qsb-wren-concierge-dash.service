@@ -1,0 +1,13 @@
+[Unit]
+Description=QSB Wren Concierge Dashboard (:8857) - Ross private concierge, read-only bridge, no execution
+After=network-online.target
+Wants=network-online.target
+[Service]
+Type=simple
+WorkingDirectory=/vaults/nvme0/qsb_tower_v1
+ExecStart=/usr/bin/python3 /vaults/nvme0/qsb_tower_v1/tools/qsb_wren_concierge_dash.py
+Restart=on-failure
+RestartSec=3
+User=ross
+[Install]
+WantedBy=multi-user.target

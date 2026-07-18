@@ -1,0 +1,24 @@
+{
+  "trader_id": "belief_driven_jpy",
+  "trained_at": "2026-07-06T07:10:09.767636Z",
+  "closes_analyzed": 152,
+  "win_rate_current": 0.52,
+  "win_rate_target": 0.75,
+  "gap_to_target": 0.23,
+  "avg_win_pnl": 1.7491,
+  "avg_loss_pnl": -2.0246,
+  "best_instrument": {
+    "name": "USD_JPY",
+    "pnl": -9.6187
+  },
+  "worst_instrument": {
+    "name": "USD_JPY",
+    "pnl": -9.6187
+  },
+  "learned_rules": [
+    "OVERHAUL \u2014 51% far below 75% \u00b7 SUSPEND and re-strategize",
+    "DROP USD_JPY \u00b7 losing $-9.62"
+  ],
+  "recommended_units": 250,
+  "verdict": "SUSPEND"
+}

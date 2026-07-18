@@ -1,0 +1,96 @@
+{
+  "schema": "qsb_governance_v2",
+  "version": "governance_v2",
+  "status": "PROPOSED",
+  "authored_by": "Claude Specialist Service (under Wren), on Ross's direct order 2026-07-18",
+  "authority": "Ross is owner and final authority. This policy is not active law until qsb_active_governance.json status=ACTIVE and all Section 25 gates pass.",
+  "canonical_model": {
+    "active_leaders": ["wren", "tp_pip", "acer_cass", "bill(conditional:verified_work_mode)"],
+    "retired": ["hq_claude"],
+    "specialist": "claude_specialist (governed by wren; not a CEO)",
+    "owner_final_authority": "ross"
+  },
+  "roster": {
+    "leaders": [
+      {"id": "wren", "display_name": "Wren", "role": "CEO and Resident Governor", "host_role": "MSI Linux Governor", "conditional": false},
+      {"id": "tp_pip", "display_name": "Pip", "aliases": ["TP", "ThinkPad"], "role": "CEO", "conditional": false},
+      {"id": "acer_cass", "display_name": "Asa", "aliases": ["Acer", "Cass"], "role": "CEO", "conditional": false},
+      {"id": "bill", "display_name": "Bill", "role": "Executive Concierge and Conditional Worker CEO", "conditional": true, "condition": "verified_work_mode"}
+    ],
+    "retired": [
+      {"id": "hq_claude", "display_name": "Claude HQ", "status": "RETIRED", "legacy_preserved": true}
+    ],
+    "specialists": [
+      {"id": "claude_specialist", "display_name": "Claude Specialist Service", "governed_by": "wren",
+       "counts_for_quorum": false, "may_vote": false, "may_own_task": false, "may_final_verify": false,
+       "may": ["research", "advise", "inspect", "provide_technical_evidence"]}
+    ]
+  },
+  "quorum": {
+    "normal":   {"active_ceos_required": 2, "roles": ["owner", "independent_partner_or_verifier"], "owner_may_self_verify": false},
+    "high_risk": {"active_ceos_required": 3, "alternative": {"active_ceos_required": 2, "plus": "ross_explicit_recorded_approval"}},
+    "critical": {"requires": ["ross_explicit_recorded_approval", "at_least_one_independent_active_ceo_verifier", "all_domain_safety_gates"]},
+    "non_counting": ["claude_specialist", "ai_model", "receptionist", "coder_worker", "bill_in_concierge_mode", "offline_ceo", "retired_ceo"]
+  },
+  "bill_work_mode": {
+    "counts_as_active_ceo_when_all_true": [
+      "mode == 'work'", "enabled == true", "endpoint_probe_ok == true",
+      "heartbeat_age_seconds <= 90", "suspended == false", "lease_not_expired"
+    ],
+    "default_after_restart": "concierge",
+    "state_file": "data/registries/qsb_bill_work_mode.json"
+  },
+  "admission": {
+    "ross_direct_instruction": "auto-admitted, still recorded (source, timestamp, wording, affected systems, risk, definition_of_done)",
+    "ceo_proposal": "requires one other active CEO to approve admission",
+    "unavailable_ceo": "ABSTAIN — OFFLINE (never agreement, never rejection, never freezes unrelated work)",
+    "retired_ceo": "never queried",
+    "bill_outside_work_mode": "never queried as admission voter"
+  },
+  "lifecycle": [
+    "INTAKE", "RISK_CLASSIFICATION", "ADMITTED", "OWNER_ASSIGNED", "PARTNER_ASSIGNED", "RESEARCH",
+    "BACKUP_GATE", "SAFETY_GATE", "EXECUTION", "EVIDENCE_CAPTURE", "AWAITING_INDEPENDENT_VERIFICATION",
+    "CORRECTION_REQUIRED", "VERIFIED", "AWAITING_ROSS", "COMPLETED", "REPORTED", "ARCHIVED"],
+  "lifecycle_rules": {
+    "no_direct_execution_to_completed": true,
+    "completed_requires": ["all_mandatory_checklist_pass", "evidence_exists", "evidence_hashes_recorded",
+      "independent_active_ceo_verified", "ross_approval_when_risk_requires", "final_report_exists", "db_records_completion"]
+  },
+  "capacity": {"max_tasks_per_active_ceo": 3, "system_max": "min(active_ceo_count * 3, 12)", "bill_contributes_only_in_verified_work_mode": true},
+  "sla": {
+    "ack_within_seconds": 600, "first_status_within_seconds": 600, "progress_heartbeat_seconds": 300,
+    "long_running_allowed": true, "stale_action": "inspection_and_reassignment_not_deletion",
+    "never_reopen_completed_for_busy_queue": true
+  },
+  "stop_conditions_removed": [
+    "one quiet CEO stops all work", "all four must be online", "Claude must reply", "HQ must approve",
+    "three of four always required", "Wren cannot count", "Bill always counts", "specific retired person must be present"
+  ],
+  "dispatcher_constraints": {
+    "may": ["discover", "classify", "recommend_owner", "recommend_partner", "admit_eligible", "assign", "notify", "collect_progress", "request_verification"],
+    "may_not": ["mark_complete", "call /tasks/complete", "call /tasks/done", "set status=done/completed", "self_verify", "bypass_evidence", "bypass_ross_approval", "close_task"]
+  },
+  "review_queue": {
+    "replaces": "tools/qsb_claude_signoff_queue.py",
+    "new": "tools/qsb_independent_review_queue.py",
+    "reviewer_eligibility": ["active", "not_proposer", "not_implementer", "not_suspended", "fresh_heartbeat", "bill_requires_work_mode"],
+    "claude_specialist": "may provide technical evidence, NOT CEO verification",
+    "no_single_point_of_failure": "Bill must not be hardcoded as the only reviewer"
+  },
+  "wren_status": {
+    "is": ["active_ceo", "resident_governor", "eligible_owner", "eligible_partner", "eligible_verifier_of_work_she_did_not_implement", "governor_of_claude_specialist"],
+    "still_must": ["register_tasks", "preserve_evidence", "use_backups", "respect_protected_boundaries", "avoid_self_verification", "obtain_required_ross_approval"]
+  },
+  "rule_ids": {
+    "GOV2-01": "Claude HQ retired from all active governance gates",
+    "GOV2-02": "Active leaders = Wren, Pip, Asa, Bill(work-mode)",
+    "GOV2-03": "Normal task = 2 distinct active CEOs (owner + independent partner/verifier)",
+    "GOV2-04": "Owner cannot verify own work",
+    "GOV2-05": "Offline/retired/out-of-work-mode leader = ABSTAIN, never freezes unrelated work",
+    "GOV2-06": "Dispatcher cannot complete/close/self-verify",
+    "GOV2-07": "Completion requires real evidence + hashes + independent verifier + report",
+    "GOV2-08": "Capacity = min(active*3,12); per-CEO max 3",
+    "GOV2-09": "Claude Specialist may advise/inspect, never counts for quorum/verify/own",
+    "GOV2-10": "Ross is final authority for high-risk/critical"
+  }
+}

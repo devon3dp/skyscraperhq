@@ -1,0 +1,25 @@
+{
+  "ts": "2026-07-12", "active": true, "routing_mode": "CONTROLLED",
+  "authorization": "ACTIVATE_CLAUDE_MAX_CAGE_CONTROLLED_ROUTING_V1 (Ross+ChatGPT 2026-07-12)",
+  "providers": {
+    "CLAUDE_MAX_CAGE_OAUTH": {"authentication_class":"SUBSCRIPTION_OAUTH","origin":"CAGED_REMOTE_INFERENCE","control_plane":"CLAUDE_HQ_LOCAL","governor":"WREN","final_acceptance":"ROSS","api_key_present":false,"automatic_paid_api_fallback":false,"direct_cli_access":false,"production_write_access":false,"brain_adapter_status":"ACTIVE_CONTROLLED_ROUTING","brain_adapter_endpoint":"http://127.0.0.1:8859","normal_routing":"CONTROLLED","active":true},
+    "CLAUDE_MAX_CLI_BREAK_GLASS": {"authentication_class":"SUBSCRIPTION_OAUTH","operator":"ROSS","automatic":false,"normal_routing":false,"permanent_process":false,"api_key_present":false,"active":false}
+  },
+  "routing_order": [
+    "1. Wren/local models for coordination and routine work",
+    "2. TP-Pip and Acer-Cass for their assigned local tasks",
+    "3. CLAUDE_MAX_CAGE_OAUTH only for approved specialist work (never merely because a local model was imperfect)",
+    "4. CLAUDE_MAX_CLI_BREAK_GLASS remains manual Ross-only and inactive"
+  ],
+  "allowed_modes": {
+    "CHAT_ONLY": "Wren-approved; no tools/files/shell",
+    "READ_ONLY_REVIEW": "Task Council task; staged copies only; no production write",
+    "SANDBOX_WRITE": "Ross approval; isolated copied workspace only",
+    "PRODUCTION_PATCH_REQUEST": "Ross approval; patch and report only; never auto-applied"
+  },
+  "per_request_requirements": ["recognised requester","Task Council record","Wren scope review","approved mode","immutable job packet","cage execution","verifier result","Wren verdict","Ross final acceptance where applicable"],
+  "max_limit_behaviour": {"sentinel":"MAX_USAGE_LIMIT_REACHED_NO_PAID_FALLBACK","then":["preserve request","set WAITING_FOR_MAX_RESET","no API billing","no usage credits","no break-glass","optionally recommend an honestly-labelled local model"]},
+  "routing": ["Wren/local models","TP-Pip and Acer-Cass","CLAUDE_MAX_CAGE_OAUTH via the Brain Cage Adapter after Wren/Ross approval","Ross-only manual break-glass"],
+  "forbidden": ["paid API fallback","ANTHROPIC_API_KEY injection","Gene Pool launching the legacy ross CLI","Gene Pool launching Claude without the cage broker","calling Claude a local model","invoking Claude merely because a local model was imperfect","CLAUDE_CAGED_API","CLAUDE_CAGED_CLI","CLAUDE_API","LOCAL_CLAUDE"],
+  "removed_identities": ["CLAUDE_CAGED_API","CLAUDE_CAGED_CLI"]
+}

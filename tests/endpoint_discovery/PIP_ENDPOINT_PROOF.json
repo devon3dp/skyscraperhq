@@ -1,0 +1,18 @@
+{
+  "node_id": "tp_pip",
+  "display_name": "Pip",
+  "network_present": true,
+  "pi_registered": true,
+  "heartbeat_fresh": true,
+  "ip": "192.168.1.74",
+  "port": 9120,
+  "health_route": "/health",
+  "chat_route": "/api/chat",
+  "request_field": "prompt",
+  "runtime": "physical_ceo_cockpit_v3",
+  "local_model": "llama3.2",
+  "provider": "local_ollama",
+  "direct_ack": "CEO_REPLY_PROVEN (live llama3.2 generation on own host)",
+  "old_stale_endpoint": "http://192.168.1.74:9130 (registered but not listening)",
+  "old_probe_path": ":8871/:8872 /api/chat (stale, 404)"
+}

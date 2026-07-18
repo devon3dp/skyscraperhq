@@ -1,0 +1,62 @@
+{
+  "schema": "qsb_leadership_roster_v1",
+  "created_utc": "2026-07-17T10:59:15Z",
+  "authority": "Wren (resident Governor, Linux MSI/Fortress 3)",
+  "canonical_statement": "Claude HQ is retired. Claude is a governed specialist service caged under Wren. The active leadership roster is Wren, TP, Asa, and Bill.",
+  "note_no_guessed_ips": "IP addresses and machine->identity assignments are NOT hardcoded here. The .41/.74 TP/Acer mapping is disputed/frozen pending Ross. Each client self-registers its reachable session via the leadership relay; identity is marked online ONLY on a received heartbeat.",
+  "identities": [
+    {
+      "id": "wren",
+      "display": "Wren",
+      "role": "Resident Governor",
+      "machine_class": "Linux MSI / Fortress 3",
+      "registered": false,
+      "online": false,
+      "reachable_addr": null,
+      "last_heartbeat": null,
+      "session_id": null
+    },
+    {
+      "id": "tp",
+      "display": "TP",
+      "role": "ThinkPad CEO",
+      "machine_class": "ThinkPad",
+      "registered": false,
+      "online": false,
+      "reachable_addr": null,
+      "last_heartbeat": null,
+      "session_id": null
+    },
+    {
+      "id": "asa",
+      "display": "Asa",
+      "role": "Acer CEO",
+      "machine_class": "Acer",
+      "registered": false,
+      "online": false,
+      "reachable_addr": null,
+      "last_heartbeat": null,
+      "session_id": null
+    },
+    {
+      "id": "bill",
+      "display": "Bill",
+      "role": "MacBook Executive Concierge AI",
+      "machine_class": "MacBook",
+      "registered": false,
+      "online": false,
+      "reachable_addr": null,
+      "last_heartbeat": null,
+      "session_id": null
+    }
+  ],
+  "claude_note": "Claude is NOT a roster participant. Claude is Wren's caged specialist service, invoked only under Wren's authority; it has no leadership identity, no CEO endpoint, and does not speak in the leadership room.",
+  "pairs": [
+    "wren-tp",
+    "wren-asa",
+    "wren-bill",
+    "tp-asa",
+    "tp-bill",
+    "asa-bill"
+  ]
+}

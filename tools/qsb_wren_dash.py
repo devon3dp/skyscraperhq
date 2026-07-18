@@ -1057,6 +1057,250 @@ HTML = r"""<!doctype html>
 </head>
 <body>
 
+<!-- ===== Wren Dashboard V1C: Ross Action Required + Talk-to-Wren ===== -->
+<div id="rarPanel" style="background:#12101a;border-bottom:2px solid #eab308;padding:12px 20px;color:#e8ecf3;font-family:system-ui,sans-serif;font-size:13px">
+ <div id="rarStatus" style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:11px;color:#8aa2b8;margin-bottom:6px"></div>
+ <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-bottom:6px">
+  <button class="ccb" onclick="rarListen()" id="rarMic">🎤 Talk to Wren</button>
+  <button class="ccb" onclick="rarStopListen()">⏹️ Stop</button>
+  <input id="rarTranscript" placeholder="type or speak to Wren…" style="flex:1;min-width:180px;background:#0b1322;color:#e8ecf3;border:1px solid #22334a;border-radius:8px;padding:9px">
+  <button class="ccb" onclick="rarSubmitTx()">Send (draft)</button>
+  <span class="ccb" style="cursor:default;border-color:#7d8ea3;color:#7d8ea3" id="rarMicState">mic idle</span>
+ </div>
+ <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:8px">
+  <b style="align-self:center;color:#8aa2b8;font-size:10px">VIEW:</b>
+  <button class="ccb" id="flt_active" onclick="rarFilter('active')">Active only</button>
+  <button class="ccb" onclick="rarFilter('all')">Show all</button>
+  <button class="ccb" onclick="rarFilter('signed_off')">Signed off</button>
+  <button class="ccb" onclick="rarFilter('denied')">Denied/Rejected</button>
+  <button class="ccb" onclick="rarFilter('snoozed')">Snoozed</button>
+  <button class="ccb" id="btnArt" onclick="rarToggleArtifacts()">Show test artifacts</button>
+  <button class="ccb" onclick="rarClearArtifacts()">Clear test artifacts from normal view</button>
+  <button class="ccb g" onclick="rarBatch()">Submit selected decisions</button>
+  <button class="ccb" onclick="rarExport()">Export history</button>
+ </div>
+ <b style="font-size:15px;color:#eab308">📋 Ross Action Required</b> <span style="font-size:10px;color:#7d8ea3">tick → choose a decision → Submit · RECORD ONLY, nothing executes</span>
+ <div id="rarActive" style="margin-top:6px"></div>
+ <b style="display:block;margin-top:10px;font-size:14px;color:#31d07f">✅ Ready for Ross Signoff</b>
+ <div id="rarSignoff" style="margin-top:6px"></div>
+ <b style="display:block;margin-top:10px;font-size:13px;color:#f5b942">⏳ Submitted / Waiting</b>
+ <div id="rarWaiting" style="margin-top:6px"></div>
+ <div style="margin-top:10px;cursor:pointer" onclick="rarToggleDone()"><b style="font-size:13px;color:#8aa2b8">▸ Completed today / history</b> <span id="rarDoneCount" style="font-size:10px;color:#7d8ea3"></span></div>
+ <div id="rarDone" style="display:none;margin-top:6px"></div>
+ <div style="margin-top:8px"><b style="font-size:12px;color:#f5b942">⚠ History / Test Artifacts / Needs Audit</b> <span id="rarArtCount" style="font-size:10px;color:#7d8ea3"></span> <span style="font-size:10px;color:#7d8ea3">— press "Show test artifacts"</span></div>
+ <div id="rarArtifacts" style="margin-top:6px"></div>
+</div>
+<script>(function(){
+ const g=id=>document.getElementById(id);
+ async function j(u){try{return await(await fetch(u,{cache:'no-store'})).json()}catch(e){return null}}
+ async function post(u,b){try{return await(await fetch(u,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(b)})).json()}catch(e){return null}}
+ let rec=null,listening=false,filter='active',showDone=false,showArtifacts=false,sel={},dec={},lastData={items:[],cards:[]};
+ window.rarToggleArtifacts=function(){showArtifacts=!showArtifacts;const b=g('btnArt');if(b)b.textContent=showArtifacts?'Hide test artifacts':'Show test artifacts';render(lastData._tc)};
+ window.rarClearArtifacts=function(){showArtifacts=false;const b=g('btnArt');if(b)b.textContent='Show test artifacts';render(lastData._tc)};
+ window.rarFilter=function(f){filter=f;['active','all','signed_off','denied','snoozed'].forEach(x=>{const b=g('flt_'+x);if(b)b.style.borderColor=x==f?'#eab308':'#22334a'});render()};
+ window.rarToggleDone=function(){showDone=!showDone;g('rarDone').style.display=showDone?'block':'none'};
+ window.rarListen=function(){const SR=window.SpeechRecognition||window.webkitSpeechRecognition;const s=g('rarMicState');if(!SR){s.textContent='STT needs browser permission';return}if(listening){rec&&rec.stop();return}try{rec=new SR();rec.lang='en-GB';rec.onstart=()=>{listening=true;s.textContent='listening…'};rec.onresult=e=>{g('rarTranscript').value=e.results[0][0].transcript};rec.onend=()=>{listening=false;s.textContent='mic idle'};rec.start()}catch(e){s.textContent='mic permission needed'}};
+ window.rarStopListen=function(){if(rec)try{rec.stop()}catch(e){}listening=false;g('rarMicState').textContent='mic idle'};
+ window.rarSubmitTx=async function(){const t=g('rarTranscript').value.trim();if(!t)return;await post('/api/voice/transcript',{text:t,source:'ross'});g('rarTranscript').value='';g('rarMicState').textContent='Wren: saved as draft/intake only'};
+ // progress bar (Selected -> Submitted -> Wren received -> Packet created -> Moved)
+ function bar(el,step){const S=['Selected','Submitted','Wren received','Packet created','Moved'];el.innerHTML='<div style="display:flex;gap:4px;margin-top:6px">'+S.map((s,i)=>`<div style="flex:1;text-align:center;font-size:9px;padding:3px 2px;border-radius:4px;background:${i<step?'#164a2f':i==step?'#173a5a':'#1a2434'};color:${i<step?'#31d07f':i==step?'#22d3ee':'#7d8ea3'};font-weight:700">${i<step?'✓ ':''}${s}</div>`).join('')+'</div>'}
+ const RESP={approve:"I've recorded that, Ross. Moved to completed.",accept:"Accepted and recorded, Ross.",deny:"I've denied it and moved it out of your active list.",reject:"Rejected and moved out of your active list.","sign off":"Signed off. Moved to Completed today.",needs_report:"That needs a report — moved to Waiting for report.",needs_smoke:"That needs a smoke test — moved to Waiting for smoke.",snooze:"Snoozed. Hidden until you show snoozed."};
+ // decision buttons set choice (highlight), do NOT submit
+ window.rarChoose=function(id,d){dec[id]=d;render()};
+ window.rarCheckSel=function(id,ck){sel[id]=ck};
+ async function rarSubmitOne(id){const it=lastData.items.find(x=>x.id==id);const box=g('resp_'+id);
+  if(!sel[id]){if(box)box.innerHTML='<span style="color:#ff6b6b">⚠ Select this item first (tick the box).</span>';return}
+  if(!dec[id]){if(box)box.innerHTML='<span style="color:#ff6b6b">⚠ Choose a decision first.</span>';return}
+  const d=dec[id];const pb=g('pb_'+id);
+  if(pb){bar(pb,1);setTimeout(()=>bar(pb,2),250);setTimeout(()=>bar(pb,3),500);setTimeout(()=>bar(pb,4),800)}
+  let ep='/api/approval_checklist/submit',body={id:id,decision:d};
+  if(d=='needs_report')ep='/api/approval_checklist/needs_report';else if(d=='needs_smoke')ep='/api/approval_checklist/needs_smoke';else if(d=='snooze')ep='/api/approval_checklist/snooze';else if(d=='deny'||d=='reject')ep='/api/approval_checklist/deny';else if(d=='sign off')ep='/api/approval_checklist/signoff';
+  const n=g('note_'+id);if(n&&n.value)body.note=n.value;
+  const r=await post(ep,body);
+  if(pb)setTimeout(()=>bar(pb,5),1000);
+  if(box)box.innerHTML=`<span style="color:#31d07f">Wren: ${RESP[d]||'recorded.'}</span> <span style="color:#7d8ea3">· what happened: decision ${d} recorded${r&&r.packet?(', packet '+r.packet.packet_id.slice(0,16)):''} · execution: NO</span>`;
+  delete sel[id];delete dec[id];setTimeout(load,1300)}
+ window.rarSubmitOne=rarSubmitOne;
+ window.rarBatch=async function(){const ids=Object.keys(sel).filter(i=>sel[i]&&dec[i]);const skip=Object.keys(sel).filter(i=>sel[i]&&!dec[i]);for(const id of ids){await rarSubmitOne(id)}if(skip.length)alert('Skipped (no decision chosen): '+skip.join(', '))};
+ window.rarExport=function(){const data=JSON.stringify(lastData,null,1);const b=new Blob([data],{type:'application/json'});const u=URL.createObjectURL(b);const a=document.createElement('a');a.href=u;a.download='wren_decisions_history.json';a.click();URL.revokeObjectURL(u)};
+ const DEC=[['approve','Approve','ok'],['accept','Accept','ok'],['deny','Deny','r'],['reject','Reject','r'],['sign off','Sign off','g'],['needs_report','Needs report',''],['needs_smoke','Needs smoke',''],['snooze','Snooze','']];
+ function itemCard(it){const chosen=dec[it.id];return `<div style="background:#0f1a2a;border:1px solid ${chosen?'#eab308':'#22334a'};border-radius:10px;padding:9px 11px;margin-bottom:7px">
+   <label style="font-weight:700;font-size:13px"><input type=checkbox ${sel[it.id]?'checked':''} onchange="rarCheckSel('${it.id}',this.checked)"> ${it.title}</label>
+   <span style="font-size:10px;color:#7d8ea3"> · ${it.category}</span>
+   <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:6px">${DEC.map(a=>`<button class="ccb ${a[2]}" style="padding:6px 9px;font-size:11px;${chosen==a[0]?'outline:2px solid #eab308':''}" onclick="rarChoose('${it.id}','${a[0]}')">${a[1]}</button>`).join('')}</div>
+   <div style="display:flex;gap:5px;margin-top:6px"><input id="note_${it.id}" placeholder="notes (optional)…" style="flex:1;background:#0b1322;color:#e8ecf3;border:1px solid #22334a;border-radius:6px;padding:6px;font-size:11px"><button class="ccb g" style="padding:6px 11px;font-size:12px" onclick="rarSubmitOne('${it.id}')">Submit decision to Wren</button></div>
+   <div id="pb_${it.id}"></div><div id="resp_${it.id}" style="font-size:11px;margin-top:4px"></div></div>`}
+ function proofBadges(p){if(!p)return'';const B=(on,l)=>`<span style="font-size:9px;padding:1px 5px;border-radius:4px;margin-right:3px;border:1px solid ${on?'#31d07f':'#3a4553'};color:${on?'#31d07f':'#5a6a7a'}">${on?'✓':'✗'} ${l}</span>`;return B(p.packet,'packet')+B(p.R115,'R115')+B(p.report,'report')+B(p.evidence,'evidence')+B(p.council_id,'council ID')+(p.record_only?'<span style="font-size:9px;padding:1px 5px;border-radius:4px;border:1px solid #a78bfa;color:#a78bfa">record-only</span>':'')}
+ function doneCard(it){const col=(it.status=='signed_off'||it.status=='approved')?'#31d07f':(it.status=='denied'||it.status=='rejected')?'#ff5d5d':'#f5b942';const amber=it.signoff_type=='SIGNED_OFF_BUT_EVIDENCE_MISSING';return `<div style="background:#0d1420;border:1px solid ${amber?'#f5b942':'#22334a'};border-radius:8px;padding:6px 10px;margin-bottom:5px;font-size:12px"><span style="font-size:10px;font-weight:800;padding:1px 6px;border:1px solid ${col};border-radius:5px;color:${col}">${(it.status||'').toUpperCase()}</span> ${it.title}${it.signoff_type?(' <span style="font-size:9px;color:#8aa2b8">['+it.signoff_type+']</span>'):''}${it.ross_decision?(' <span style="color:#7d8ea3">· Ross: '+it.ross_decision+'</span>'):''}${it.proof?('<div style="margin-top:3px">'+proofBadges(it.proof)+'</div>'):''}${amber?'<div style="color:#f5b942;font-size:11px;margin-top:2px">⚠ SIGNED OFF, BUT EVIDENCE LINK MISSING — needs audit.</div>':''}</div>`}
+ async function load(){const d=await j('/api/approval_checklist');const jc=await j('/api/job_cards');const tc=await j('/api/task_council_bridge');
+  lastData={items:(d&&d.items)||[],cards:(jc&&jc.cards)||[],_tc:tc};render(tc)}
+ function render(tc){const items=lastData.items,cards=lastData.cards;
+  const active=items.filter(i=>i.status=='open');
+  const waiting=items.filter(i=>i.status=='needs_report'||i.status=='needs_smoke_test').concat(cards.filter(c=>c.status=='approved_by_ross'||c.status=='ready_for_task_council').map(c=>({title:c.job_id+': '+c.interpreted_request.slice(0,60),status:c.status,category:'job'})));
+  const signoff=cards.filter(c=>c.status=='ready_for_ross_signoff');
+  const artifacts=cards.filter(c=>c.signoff_type=='TEST_ARTIFACT_EVIDENCE_MISSING').map(c=>({title:c.job_id+' — '+(c.interpreted_request||'').slice(0,50),status:c.status,signoff_type:c.signoff_type,proof:c.proof,warning:c.warning}));
+  let done=items.filter(i=>['approved','signed_off','denied','rejected','snoozed'].includes(i.status)).concat(cards.filter(c=>['signed_off','rejected'].includes(c.status)&&c.signoff_type!='TEST_ARTIFACT_EVIDENCE_MISSING').map(c=>({title:c.job_id+' — '+(c.interpreted_request||'').slice(0,50),status:c.status,signoff_type:c.signoff_type,proof:c.proof,ross_decision:c.ross_signoff?'signed off':''})));
+  if(filter=='signed_off')done=done.filter(x=>x.status=='signed_off'||x.status=='approved');
+  else if(filter=='denied')done=done.filter(x=>x.status=='denied'||x.status=='rejected');
+  else if(filter=='snoozed')done=done.filter(x=>x.status=='snoozed');
+  if(g('rarStatus'))g('rarStatus').innerHTML=`Task Council: <b style="color:${tc&&tc.stale?'#f5b942':'#31d07f'}">${tc?(tc.stale?'STALE':'FRESH'):'…'}</b>${tc?(' · open '+tc.open):''} · <b style="color:#eab308">${active.length}</b> need you now · <b style="color:#31d07f">${signoff.length}</b> ready to sign off · <b style="color:#f5b942">${waiting.length}</b> waiting · <b>${done.length}</b> completed`;
+  g('rarActive').innerHTML=active.length?active.map(itemCard).join(''):'<div style="font-size:12px;color:#7d8ea3">Nothing needs you right now 🎉</div>';
+  g('rarSignoff').innerHTML=signoff.length?signoff.map(c=>`<div style="background:#0f1a2a;border:1px solid #31d07f;border-radius:10px;padding:9px 11px;margin-bottom:7px">
+    <b>${c.job_id}</b> <span style="font-size:10px;font-weight:800;color:#31d07f">READY FOR SIGNOFF</span>
+    <div style="font-size:11px;margin-top:3px"><b>Ross asked:</b> ${(c.raw_ross_text||'').slice(0,90)}</div>
+    <div style="font-size:11px"><b>Wren understood:</b> ${(c.interpreted_request||'').slice(0,90)} · owner ${c.recommended_owner}</div>
+    <div style="font-size:11px;color:#7d8ea3">forbidden respected · execution: NO · next: your signoff</div>
+    <div style="margin-top:4px">${proofBadges(c.proof)}</div>
+    ${(c.proof&&(c.proof.report||c.proof.evidence))?'':'<div style="color:#f5b942;font-size:11px;margin-top:2px">⚠ No report/evidence linked yet — this would be a '+((c.proof&&c.proof.record_only)?'RECORD-ONLY':'EVIDENCE-MISSING')+' signoff.</div>'}
+    <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:6px">
+     <button class="ccb g" style="padding:6px 11px;font-size:12px" onclick="jcSign('${c.job_id}','signoff')">${(c.proof&&(c.proof.report||c.proof.evidence))?'✔ Sign off':'✔ Sign off anyway ⚠'}</button>
+     <button class="ccb r" style="padding:6px 9px;font-size:11px" onclick="jcSign('${c.job_id}','reject')">Reject</button>
+     <button class="ccb" style="padding:6px 9px;font-size:11px" onclick="jcSign('${c.job_id}','request_change')">Request change</button>
+     <button class="ccb" style="padding:6px 9px;font-size:11px" onclick="jcSign('${c.job_id}','mark_needs_report')">Needs report</button>
+     <button class="ccb" style="padding:6px 9px;font-size:11px" onclick="jcExplain('${c.job_id}')">Explain</button></div>
+    <div id="jresp_${c.job_id}" style="font-size:11px;margin-top:4px"></div></div>`).join(''):'<div style="font-size:12px;color:#7d8ea3">No jobs waiting for your signoff.</div>';
+  g('rarWaiting').innerHTML=waiting.length?waiting.map(doneCard).join(''):'<div style="font-size:12px;color:#7d8ea3">Nothing submitted/waiting.</div>';
+  g('rarDoneCount').textContent='('+done.length+')';g('rarDone').innerHTML=done.length?done.map(doneCard).join(''):'<div style="font-size:12px;color:#7d8ea3">none today</div>';
+  if(g('rarArtCount'))g('rarArtCount').textContent='('+artifacts.length+' hidden from normal view)';
+  if(g('rarArtifacts'))g('rarArtifacts').innerHTML=showArtifacts?(artifacts.length?('<div style="font-size:11px;color:#f5b942;margin-bottom:4px">These were signed off during smoke/use testing with no work evidence. Preserved in history, kept out of normal completed. Not real work.</div>'+artifacts.map(doneCard).join('')):'<div style="font-size:12px;color:#7d8ea3">no test artifacts</div>'):'';}
+ window.jcSign=async function(id,act){const box=g('jresp_'+id);const M={signoff:"Ross signed off. Job complete — moved to Completed today.",reject:"Rejected and moved out.",request_change:"Sent back for change.",mark_needs_report:"Marked needs report."};await post('/api/job_cards/'+act,{job_id:id});if(box)box.innerHTML='<span style="color:#31d07f">Wren: '+(M[act]||'recorded')+'</span>';setTimeout(load,1000)};
+ window.jcExplain=async function(id){const d=await j('/api/job_cards/'+id+'/explain');const box=g('jresp_'+id);if(box&&d&&!d.error)box.innerHTML='<span style="color:#22d3ee">'+d.who_should_do_it+' · proof: '+d.proof_required+'</span>'};
+ load();setInterval(load,12000);
+})();</script>
+
+<!-- ===== Wren Job Flow + Knowledge V1 ===== -->
+<div id="jfPanel" style="background:#0e1622;border-bottom:2px solid #22d3ee;padding:12px 20px;color:#e8ecf3;font-family:system-ui,sans-serif;font-size:13px">
+ <div style="font-size:11px;color:#8aa2b8;font-weight:800;letter-spacing:.4px">ROSS SAID → WREN UNDERSTOOD → JOB CARD → APPROVE? → COUNCIL → WORKERS → REPORT → ROSS SIGNOFF</div>
+ <div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap;align-items:center">
+  <input id="jfAsk" placeholder="Ask Wren about the building… (Where is Tour Guide? What are the shops? Who is TP?)" style="flex:1;min-width:220px;background:#0b1322;color:#e8ecf3;border:1px solid #22334a;border-radius:8px;padding:9px" onkeypress="if(event.key==='Enter')jfAskWren()">
+  <button class="ccb" onclick="jfAskWren()">Ask Wren</button>
+ </div>
+ <div id="jfAnswer" style="margin-top:6px;color:#22d3ee;font-size:13px;min-height:16px"></div>
+ <div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap;align-items:center">
+  <input id="jfJob" placeholder="Tell Wren a job… (e.g. get TP and Acer to smoke test the trading floor)" style="flex:1;min-width:220px;background:#0b1322;color:#e8ecf3;border:1px solid #22334a;border-radius:8px;padding:9px">
+  <button class="ccb g" onclick="jfCreate()">Create job card (DRAFT)</button>
+ </div>
+ <div id="jfCards" style="margin-top:8px"></div>
+</div>
+<script>(function(){
+ const g=id=>document.getElementById(id);
+ async function j(u){try{return await(await fetch(u,{cache:'no-store'})).json()}catch(e){return null}}
+ async function post(u,b){try{return await(await fetch(u,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(b)})).json()}catch(e){return null}}
+ window.jfAskWren=async function(){const t=g('jfAsk').value.trim();if(!t)return;const d=await post('/api/wren/ask',{text:t});g('jfAnswer').textContent=d?('Wren: '+d.answer):'(no answer)'};
+ window.jfCreate=async function(){const t=g('jfJob').value.trim();if(!t)return;await post('/api/job_cards/create',{raw_ross_text:t});g('jfJob').value='';jfLoad()};
+ const ACT=[['approve','Approve','ok','RECORD'],['reject','Deny','r','RECORD'],['request_change','Request change','','RECORD'],['mark_needs_report','Needs report','','RECORD'],['mark_ready_for_signoff','Ready for signoff','','RECORD'],['submit_to_council','Submit to Council','v','SUBMIT'],['signoff','Sign off','g','RECORD']];
+ window.jfDo=async function(id,act){const d=await post('/api/job_cards/'+act,{job_id:id});if(d&&d.refused)g('jfAnswer').textContent='Wren refused to submit: '+d.reasons.join('; ');jfLoad()};
+ window.jfExplain=async function(id){const d=await j('/api/job_cards/'+id+'/explain');if(d&&!d.error)g('jfAnswer').textContent='Explain '+id+': asked "'+d.what_ross_asked+'" · '+d.who_should_do_it+' · '+d.ross_must_approve};
+ async function jfLoad(){const d=await j('/api/job_cards');if(!d)return;
+  g('jfCards').innerHTML=(d.cards||[]).slice(0,10).map(c=>`<div style="background:#0f1a2a;border:1px solid #22334a;border-radius:10px;padding:9px 11px;margin-bottom:7px">
+   <b>${c.job_id}</b> <span style="font-size:10px;font-weight:800;padding:1px 6px;border:1px solid #22334a;border-radius:5px;color:${c.status=='signed_off'?'#31d07f':c.status=='rejected'?'#ff5d5d':'#f5b942'}">${(c.status||'').toUpperCase()}</span>
+   <div style="font-size:11px;margin-top:3px"><b>PAST:</b> Ross said "${(c.raw_ross_text||'').slice(0,80)}" · Wren understood "${(c.interpreted_request||'').slice(0,80)}"</div>
+   <div style="font-size:11px"><b>PRESENT:</b> owner ${c.recommended_owner} · partner ${c.recommended_partner} · verifier ${c.recommended_verifier} · R115 ${c.R115_manifest_required}</div>
+   <div style="font-size:11px"><b>FUTURE:</b> ${c.next_action}</div>
+   <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:6px">${ACT.map(a=>`<button class="ccb ${a[2]}" style="padding:6px 9px;font-size:11px" onclick="jfDo('${c.job_id}','${a[0]}')">${a[1]} <span style="opacity:.55;font-size:9px">${a[3]}</span></button>`).join('')}<button class="ccb" style="padding:6px 9px;font-size:11px" onclick="jfExplain('${c.job_id}')">Explain</button></div></div>`).join('')||'<div style="font-size:12px;color:#7d8ea3">No job cards yet — tell Wren a job above.</div>'}
+ jfLoad();setInterval(jfLoad,12000);
+})();</script>
+
+<!-- ===== Wren Concierge V1B (merged into Wren's own dashboard) ===== -->
+<div id="ccPanel" style="border-bottom:2px solid #a78bfa;background:linear-gradient(180deg,#141f33,#0e1626);padding:12px 20px;color:#e8ecf3;font-family:system-ui,sans-serif;font-size:13px">
+ <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap">
+  <div id="ccAvatar" style="font-size:38px;width:54px;height:54px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#141f33;border:2px solid #a78bfa">🛡️</div>
+  <div style="flex:1;min-width:230px">
+   <b style="font-size:16px;color:#a78bfa">Wren · Ross's private concierge</b>
+   <span id="ccState" style="font-size:11px;font-weight:800;padding:2px 8px;border-radius:6px;border:1px solid #31d07f;color:#31d07f">Watching</span>
+   <span style="font-size:11px;color:#8aa2b8"> · guardian / observer / draft-only · watched <b id="ccWatched">12</b> · approvals <b id="ccAppr">–</b></span>
+   <div id="ccAdvice" style="color:#22d3ee;font-size:13px;margin-top:3px">…</div>
+   <div id="ccNext" style="color:#eab308;font-size:12px;margin-top:2px"></div>
+  </div>
+  <div id="ccBell" style="display:none;background:#3a0d0d;border:1px solid #ff6b6b;color:#ff6b6b;border-radius:8px;padding:8px 12px;font-weight:800">🔔 WREN NEEDS ROSS</div>
+ </div>
+ <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:8px" id="ccVoice">
+  <button class="ccb" onclick="ccSpeak('brief')">🔊 Speak briefing</button><button class="ccb" onclick="ccSpeak('urgent')">⚠️ Urgent</button>
+  <button class="ccb" onclick="ccSpeak('appr')">✅ Approvals</button><button class="ccb" onclick="ccSpeak('future')">🔮 Future</button>
+  <button class="ccb" onclick="ccStartComm()">▶️ Start commentary</button><button class="ccb" onclick="ccStopComm()">⏸️ Stop</button>
+  <button class="ccb" onclick="ccKill()">🔴 Stop all speech</button><button class="ccb" id="ccMute" onclick="ccMute()">🔇 Mute</button>
+  <button class="ccb" onclick="ccT('textOnly')">📝 Text-only</button><button class="ccb" onclick="ccAdv()">🎛️ Voice settings</button>
+ </div>
+ <div id="ccAdvBox" style="display:none;margin-top:6px;font-size:12px;color:#8aa2b8">
+  <select id="ccVsel" onchange="ccV('voice',this.value)" style="background:#0b1322;color:#e8ecf3;border:1px solid #22334a;border-radius:6px;padding:6px"><option value="">(auto — best English)</option></select>
+  Rate <input type=range min=0.6 max=1.4 step=0.05 value=0.9 oninput="ccV('rate',this.value)"> Pitch <input type=range min=0.6 max=1.6 step=0.05 value=1 oninput="ccV('pitch',this.value)"> Volume <input type=range min=0 max=1 step=0.05 value=1 oninput="ccV('volume',this.value)">
+  <label style="margin-left:8px"><input type=checkbox id="ccSound" onchange="ccBellSound=this.checked"> enable alarm sound</label>
+  <div id="ccDup" style="display:none;color:#ff6b6b;margin-top:4px">⚠ another Wren tab may also be speaking — close duplicates or mute</div>
+ </div>
+ <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:6px" id="ccAlarm">
+  <b style="align-self:center;color:#8aa2b8;font-size:11px">Alarm:</b>
+  <button class="ccb" onclick="ccRing()">🔔 Ring bell</button><button class="ccb" onclick="ccSilence()">Silence</button>
+  <button class="ccb" onclick="ccAck('acknowledge')">Acknowledge</button><button class="ccb" onclick="ccAck('snooze')">Snooze</button><button class="ccb" onclick="ccAck('mark reviewed')">Mark reviewed</button>
+ </div>
+ <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:6px" id="ccApprove">
+  <b style="align-self:center;color:#8aa2b8;font-size:11px">Approve:</b>
+  <button class="ccb ok" onclick="ccAp('Approve')">Approve</button><button class="ccb r" onclick="ccAp('Deny')">Deny</button><button class="ccb ok" onclick="ccAp('Accept')">Accept</button><button class="ccb r" onclick="ccAp('Don\'t accept')">Don't accept</button><button class="ccb r" onclick="ccAp('Reject')">Reject</button><button class="ccb" onclick="ccAp('Snooze')">Snooze</button><button class="ccb" onclick="ccAp('Needs report')">Needs report</button><button class="ccb" onclick="ccAp('Needs smoke test')">Needs smoke</button><button class="ccb g" onclick="ccAp('Sign off')">Sign off</button><button class="ccb r" onclick="ccAp('Freeze work')">Freeze</button><button class="ccb" onclick="ccDraftQuick()">Draft task</button><button class="ccb" onclick="ccAp('Ask Receptionist')">Ask Receptionist</button>
+ </div>
+ <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:6px" id="ccCCC">
+  <b style="align-self:center;color:#22d3ee;font-size:11px">CHANCE:</b><button class="ccb" onclick="ccDec('chance','explore')">Explore</button><button class="ccb" onclick="ccDec('chance','alternatives')">Alternatives</button><button class="ccb" onclick="ccDec('chance','risk-reward')">Risk/reward</button>
+  <b style="align-self:center;color:#31d07f;font-size:11px">CHOICE:</b><button class="ccb ok" onclick="ccDec('choice','approve A')">Approve A</button><button class="ccb ok" onclick="ccDec('choice','approve B')">Approve B</button><button class="ccb r" onclick="ccDec('choice','reject')">Reject</button><button class="ccb" onclick="ccDec('choice','wait')">Wait</button>
+  <b style="align-self:center;color:#eab308;font-size:11px">CHANGE:</b><button class="ccb" onclick="ccDec('change','revise')">Revise</button><button class="ccb" onclick="ccDec('change','send back')">Send back</button><button class="ccb" onclick="ccDec('change','mark stale')">Mark stale</button><button class="ccb" onclick="ccDec('change','update plan')">Update plan</button>
+ </div>
+ <div style="display:flex;gap:4px;flex-wrap:wrap;margin-top:8px" id="ccTabs"></div>
+ <div id="ccContent" style="margin-top:6px;max-height:280px;overflow:auto"></div>
+ <div style="font-size:10px;color:#7d8ea3;margin-top:4px">Wren stays observer/guardian + draft-only. Every button here is a RECORD only — no execution, no sending, no Task Council submission. Voice is local browser speech (anti-overlap + duplicate-tab guard); alarm sound only when enabled, no loop.</div>
+</div>
+<style>.ccb{background:#152234;border:1px solid #22334a;color:#e8ecf3;border-radius:8px;padding:8px 10px;font-size:12px;font-weight:700;cursor:pointer}.ccb:active{transform:scale(.96)}.ccb.ok{border-color:#31d07f;color:#31d07f}.ccb.r{border-color:#ff5d5d;color:#ff5d5d}.ccb.g{border-color:#eab308;color:#eab308}.cctab{background:#152234;border:1px solid #22334a;color:#e8ecf3;border-radius:8px;padding:7px 11px;font-size:12px;font-weight:700;cursor:pointer}.cctab.on{border-color:#a78bfa;color:#a78bfa}.ccli{background:#0f1a2a;border:1px solid #22334a;border-radius:8px;padding:7px 10px;margin-bottom:6px;font-size:12px}</style>
+<script>(function(){
+ const $=s=>document.querySelector(s);const g=id=>document.getElementById(id);
+ async function j(u){try{return await(await fetch(u,{cache:'no-store'})).json()}catch(e){return null}}
+ async function post(u,b){try{return await(await fetch(u,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(b)})).json()}catch(e){return null}}
+ window.ccBellSound=false;
+ // ---- voice (safe engine, scoped) ----
+ const TTS=('speechSynthesis' in window);let cfg={voice:'',rate:0.9,pitch:1,volume:1,overlap:true};try{cfg=Object.assign(cfg,JSON.parse(localStorage.getItem('qsb_wren_cc_voice')||'{}'))}catch(e){}
+ function saveCfg(){try{localStorage.setItem('qsb_wren_cc_voice',JSON.stringify(cfg))}catch(e){}}
+ let muted=false,commT=null,lines=[],idx=0,other=false,lastAt=0,textOnly=false;
+ let bc=null;try{bc=new BroadcastChannel('qsb_wren_cc_ch')}catch(e){}
+ if(bc)bc.onmessage=e=>{if(e.data=='sp'){other=true;g('ccDup').style.display='block';clearTimeout(window._ccd);window._ccd=setTimeout(()=>other=false,3500)}};
+ function vlist(){return TTS?(speechSynthesis.getVoices()||[]):[]}
+ function pick(){const vs=vlist();if(!vs.length)return null;if(cfg.voice){const m=vs.find(v=>v.name==cfg.voice);if(m)return m}return vs.find(v=>/en[-_]?GB/i.test(v.lang)&&/female|zira|hazel|libby|sonia|aria/i.test(v.name))||vs.find(v=>/^en/i.test(v.lang))||vs[0]}
+ function busy(){return TTS&&(speechSynthesis.speaking||speechSynthesis.pending)}
+ function av(s){const a=g('ccAvatar');if(a)a.style.boxShadow=s=='sp'?'0 0 20px #31d07f':'none';const st=g('ccState');if(st)st.textContent=s=='sp'?'Speaking…':muted?'Muted':'Watching'}
+ function speak(t,force){if(!t||muted||!TTS||textOnly){if(textOnly&&g('ccAdvice'))g('ccAdvice').textContent=t;return}if(cfg.overlap&&!force&&(busy()||other))return;if(document.visibilityState=='hidden')return;
+  try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);const v=pick();if(v)u.voice=v;u.rate=+cfg.rate||0.9;u.pitch=+cfg.pitch||1;let vol=+cfg.volume;if(!(vol>0))vol=1;u.volume=vol;u.onstart=()=>{lastAt=Date.now();av('sp');if(bc)bc.postMessage('sp')};u.onend=()=>av('idle');u.onerror=()=>av('idle');speechSynthesis.speak(u)}catch(e){}}
+ window.ccKill=function(){if(commT){clearInterval(commT);commT=null}if(TTS)speechSynthesis.cancel();av('idle')};
+ window.ccMute=function(){muted=!muted;g('ccMute').textContent=muted?'🔈 Unmute':'🔇 Mute';if(muted)ccKill()};
+ window.ccT=function(k){if(k=='textOnly'){textOnly=!textOnly;if(textOnly)ccKill()}};
+ window.ccAdv=function(){const b=g('ccAdvBox');b.style.display=b.style.display=='none'?'block':'none';if(b.style.display=='block'){const s=g('ccVsel');const vs=vlist();if(vs.length)s.innerHTML='<option value="">(auto)</option>'+vs.map(v=>`<option ${v.name==cfg.voice?'selected':''}>${v.name}</option>`).join('')}};
+ window.ccV=function(k,v){cfg[k]=v;saveCfg()};
+ if(TTS)try{speechSynthesis.onvoiceschanged=()=>{}}catch(e){}
+ document.addEventListener('visibilitychange',()=>{if(document.visibilityState=='hidden')ccKill()});
+ async function loadComm(){const d=await j('/api/commentary');if(!d)return;lines=d.lines||[];g('ccAdvice').textContent=lines[0]||'…';const c=d.counts||{};g('ccAppr').textContent=c.approvals;g('ccWatched').textContent=c.watched}
+ window.ccSpeak=async function(w){await loadComm();if(w=='brief')return speak(lines[0],true);if(w=='urgent'){const d=await j('/api/guardian_warnings');const x=(d.warnings||[]).find(y=>y.sev=='HIGH'||y.sev=='MED');return speak(x?('Ross, '+x.warning):'Ross, no urgent issues.',true)}if(w=='appr'){const d=await j('/api/approvals');return speak('Ross, '+((d&&d.queue)||[]).length+' approvals waiting.',true)}if(w=='future'){const d=await j('/api/past_present_future');return speak('Ross, next: '+((d&&d.future.next_approval)||'review approvals'),true)}};
+ function step(){if(!lines.length||busy()||other)return;if(Date.now()-lastAt<4000)return;if(document.visibilityState=='hidden')return;g('ccAdvice').textContent=lines[idx%lines.length];speak(lines[idx%lines.length]);idx++}
+ window.ccStartComm=async function(){await loadComm();if(commT)clearInterval(commT);idx=0;step();commT=setInterval(step,8000)};
+ window.ccStopComm=function(){if(commT){clearInterval(commT);commT=null}ccKill()};
+ // ---- alarm (short WebAudio beep, gated, no loop) ----
+ window.ccRing=function(){g('ccBell').style.display='block';if(!ccBellSound||muted)return;try{const a=new(window.AudioContext||window.webkitAudioContext)();const o=a.createOscillator(),gn=a.createGain();o.frequency.value=880;o.connect(gn);gn.connect(a.destination);gn.gain.setValueAtTime(0.15,a.currentTime);gn.gain.exponentialRampToValueAtTime(0.001,a.currentTime+0.4);o.start();o.stop(a.currentTime+0.4)}catch(e){}};
+ window.ccSilence=function(){g('ccBell').style.display='none'};
+ window.ccAck=async function(k){await post('/api/alarm_ack',{item:'alarm',value:k});g('ccBell').style.display='none';loadAct()};
+ // ---- record buttons (log only) ----
+ window.ccAp=async function(k){await post('/api/approval_record',{action:k});speak('Recorded, '+k,true);loadAct()};
+ window.ccDec=async function(t,o){await post('/api/decision',{decision_type:t,option:o});speak(t+', '+o,true);loadAct()};
+ window.ccDraftQuick=async function(){const t=prompt('draft task title:');if(t){await post('/api/draft_task',{title:t});speak('Drafted only, not submitted.',true);loadTab('activity')}};
+ // ---- mini tabs ----
+ const TB=[['brief','Briefing'],['watch','Watching'],['recep','Receptionist'],['council','Task Council'],['team','CEO Team'],['activity','Activity']];let ctab='brief';
+ function renderTabs(){g('ccTabs').innerHTML=TB.map(([k,l])=>`<div class="cctab ${k==ctab?'on':''}" onclick="ccTab('${k}')">${l}</div>`).join('')}
+ window.ccTab=function(k){ctab=k;renderTabs();loadTab(k)};
+ function pill(l){l=(l||'').toString();return `<span style="font-size:10px;font-weight:800;padding:1px 6px;border:1px solid #22334a;border-radius:5px;margin-right:5px">${l}</span>`}
+ async function loadTab(k){const c=g('ccContent');if(!c)return;
+  if(k=='brief'){const d=await j('/api/past_present_future');if(!d)return;c.innerHTML=`<div class="ccli"><b>PAST:</b> ${d.past.proven}</div><div class="ccli"><b>PRESENT:</b> Receptionist reachable ${d.present.receptionist_reachable} · council stale ${d.present.task_council_stale} · <span style="color:#f5b942">${d.present.blocker}</span></div><div class="ccli"><b>FUTURE:</b> ${d.future.next_approval} · <span style="color:#ff6b6b">risk: ${d.future.risk}</span></div>`;g('ccNext').textContent='Next: '+d.future.next_approval}
+  if(k=='watch'){const d=await j('/api/watch');if(!d)return;c.innerHTML=d.cards.map(x=>`<div class="ccli">${pill(x.status)}<b>${x.name}</b> <span style="color:#8aa2b8">${x.endpoint}</span></div>`).join('')}
+  if(k=='recep'){const d=await j('/api/receptionist_bridge');if(!d)return;c.innerHTML=`<div class="ccli">reachable ${d.reachable} · issues ${JSON.stringify(d.issue_counts)} · checklist ${d.checklist_open} · websites needing URL ${d.websites_needing_url}</div><div class="ccli">comms: ${d.comms.map(x=>x[0]+'='+x[1]).join(', ')}</div><div class="ccli">network gaps: ${d.network_gaps.join(', ')||'none'}</div>`+d.issues.map(i=>`<div class="ccli">${pill(i.sev)}${i.kind} — ${i.detail}</div>`).join('')}
+  if(k=='council'){const d=await j('/api/task_council_bridge');if(!d)return;c.innerHTML=`<div class="ccli">${pill(d.stale?'STALE':'LIVE')}total ${d.total} · open ${d.open} · needs approval ${d.needs_approval} · TP avail ${d.tp_available} · Acer avail ${d.acer_available}</div><div class="ccli" style="color:#8aa2b8">${d.note}</div>`}
+  if(k=='team'){const d=await j('/api/team');if(!d)return;c.innerHTML=d.members.map(m=>`<div class="ccli">${pill(m.status)}<b>${m.name}</b> — ${m.role} · exec ${m.can_execute} · self-close ${m.can_self_close}</div>`).join('')}
+  if(k=='activity'){const d=await j('/api/concierge_activity');if(!d)return;c.innerHTML=(d.events||[]).map(e=>`<div class="ccli"><span style="color:#8aa2b8">${(e.ts||'').slice(0,19)}</span> · <b>${e.action}</b> · ${e.actor}${e.item?(' · '+e.item):''}${e.result?(' → '+e.result):''}</div>`).join('')||'<div class="ccli">no activity</div>'}}
+ window.loadAct=()=>{if(ctab=='activity')loadTab('activity')};
+ // guardian bell auto-raise
+ async function guard(){const d=await j('/api/guardian_warnings');if(!d)return;const hi=(d.warnings||[]).some(w=>w.sev=='HIGH');if(hi)g('ccBell').style.display='block'}
+ renderTabs();loadComm();loadTab('brief');guard();setInterval(()=>{loadComm();if(ctab!='activity')loadTab(ctab);guard()},9000);
+})();</script>
+
 <div id="greeting" style="padding: 14px 32px; background: linear-gradient(90deg, rgba(59,130,246,0.18), rgba(249,115,22,0.08), transparent); border-bottom: 1px solid var(--primary); font-size: 14px; color: var(--text); font-style: italic; letter-spacing: 0.3px;">
   Welcome back Ross — your traders are live, attribution is clean, let's make today count.
   <span style="color: var(--glow); margin-left: 6px; font-weight: 500;">+ Live Commentary Active</span>
@@ -1916,6 +2160,21 @@ setInterval(tickPlus, 800);
 """
 
 
+# --- Wren Concierge V1B: load concierge helper functions (staging module used as a library) ---
+_WCC = None
+def _wcc():
+    global _WCC
+    if _WCC is None:
+        try:
+            import importlib.util as _ilu
+            _sp = _ilu.spec_from_file_location("qsb_wren_concierge_dash",
+                  "/vaults/nvme0/qsb_tower_v1/tools/qsb_wren_concierge_dash.py")
+            _m = _ilu.module_from_spec(_sp); _sp.loader.exec_module(_m); _WCC = _m
+        except Exception:
+            _WCC = False
+    return _WCC
+
+
 class H(BaseHTTPRequestHandler):
     def log_message(self, *args, **kwargs): pass
 
@@ -1987,6 +2246,35 @@ class H(BaseHTTPRequestHandler):
                     self._send_json(200, {"messages": msgs}); return
                 except Exception as e:
                     self._send_json(500, {"error": str(e)}); return
+            _cc = _wcc()
+            if _cc:
+                _cget = {"/api/briefing": _cc.briefing, "/api/watch": _cc.watch,
+                         "/api/receptionist_bridge": _cc.receptionist_bridge, "/api/team": _cc.team,
+                         "/api/task_council_bridge": _cc.task_council_bridge,
+                         "/api/guardian_warnings": _cc.guardian_warnings, "/api/commentary": _cc.commentary,
+                         "/api/past_present_future": _cc.past_present_future}
+                if self.path in _cget:
+                    self._send_json(200, _cget[self.path]()); return
+                if self.path == "/api/approvals":
+                    self._send_json(200, {"queue": _cc.receptionist_bridge().get("approvals", [])}); return
+                if self.path == "/api/draft_tasks":
+                    self._send_json(200, {"drafts": _cc.load_drafts()}); return
+                if self.path == "/api/concierge_activity":
+                    self._send_json(200, {"events": list(reversed(_cc.read_tail(_cc.ACTIVITY, 40)))}); return
+                if self.path == "/api/approval_checklist":
+                    self._send_json(200, {"items": _cc.load_approval_checklist()}); return
+                if self.path == "/api/voice/status":
+                    self._send_json(200, _cc.voice_status()); return
+                if self.path.startswith("/api/knowledge/search"):
+                    from urllib.parse import urlparse as _up, parse_qs as _pq
+                    _q = _pq(_up(self.path).query).get("q", [""])[0]
+                    self._send_json(200, _cc.knowledge_search(_q)); return
+                if self.path.startswith("/api/knowledge/entity/"):
+                    self._send_json(200, _cc.knowledge_entity(self.path.rsplit("/", 1)[1])); return
+                if self.path == "/api/job_cards":
+                    self._send_json(200, {"cards": list(reversed(_cc.load_jobs()))}); return
+                if self.path.startswith("/api/job_cards/") and self.path.endswith("/explain"):
+                    self._send_json(200, _cc.explain_job(self.path.split("/")[3])); return
             self.send_response(404); self.end_headers()
         except (BrokenPipeError, ConnectionResetError):
             pass
@@ -2024,6 +2312,42 @@ class H(BaseHTTPRequestHandler):
                 text = (payload.get("text") or "").strip()
                 if not text:
                     self._send_json(400, {"error": "empty text"}); return
+                # 2026-07-18 DETERMINISTIC SHORT-CIRCUIT (Bill's Claude): pure factual lookups are
+                # answered from the registry / a live probe, NOT the language model — reliable, no
+                # fabrication, no guessing. Only fires on explicit factual patterns.
+                import re as _re
+                _low = text.lower()
+                if _re.search(r'(which|what)\s+floor', _low) or (_re.search(r'where\s+is', _low) and 'floor' in _low):
+                    try:
+                        _fr = json.loads(open("/vaults/nvme0/qsb_tower_v1/data/registries/qsb_canonical_floor_registry_1_170.json").read())
+                        _fl = _fr.get("floors", _fr)
+                        _stop = {"which","what","where","floor","the","is","on","in","studio","department","dept","located","number","tell","right","now","does","contain","hold"}
+                        _words = [w for w in _re.findall(r'[a-z0-9]+', _low) if w not in _stop and len(w) > 2]
+                        _hits = [(k, (v.get("label","") if isinstance(v, dict) else str(v))) for k, v in _fl.items()
+                                 if any(w in (v.get("label","") if isinstance(v, dict) else str(v)).lower() for w in _words)]
+                        if len(_hits) == 1:
+                            self._send_json(200, {"reply": f"{_hits[0][1]} is on Floor {_hits[0][0]} (canonical registry).", "source": "deterministic_floor"}); return
+                        if len(_hits) == 0 and _words:
+                            self._send_json(200, {"reply": "That is not recorded in the canonical floor registry.", "source": "deterministic_floor"}); return
+                    except Exception:
+                        pass
+                if _re.search(r'\bis\b.*\b(online|offline|up|down|running|reachable|available|alive)\b', _low):
+                    _team = {"tp-pip": "tp", "tp_pip": "tp", "pip": "tp", "thinkpad": "tp", "asa": "asa", "acer": "asa", "cass": "asa", "bill": "bill", "wren": "wren"}
+                    _who = [_team[n] for n in _team if n in _low]
+                    _svc = _re.search(r'service\s+([a-z0-9\-_.]+)', _low)
+                    if _who:
+                        try:
+                            _p = json.loads(urllib.request.urlopen("http://127.0.0.1:8855/status", timeout=4).read())["presence"]
+                            _out = []
+                            for _id in dict.fromkeys(_who):
+                                _pp = _p.get(_id, {}); _out.append(f"{_id} is {'ONLINE' if _pp.get('online') else 'OFFLINE'} (relay heartbeat age {_pp.get('age_s')}s)")
+                            self._send_json(200, {"reply": "Live probe (relay :8855): " + "; ".join(_out) + ".", "source": "deterministic_probe"}); return
+                        except Exception:
+                            pass
+                    elif _svc:
+                        _u = _svc.group(1); _u = _u if _u.endswith(".service") else _u + ".service"
+                        _st = subprocess.run(["systemctl", "is-active", _u], capture_output=True, text=True).stdout.strip() or "unknown"
+                        self._send_json(200, {"reply": f"Live probe: service {_svc.group(1)} is {_st.upper()} (systemctl is-active).", "source": "deterministic_probe"}); return
                 # 2026-07-03 task-context wrap v3 — SMART INJECTION.
                 # v2 (earlier today) dumped the full fleet/PnL/Alpaca block into
                 # every reply, and Wren started padding EVERY answer with it,
@@ -2042,6 +2366,18 @@ class H(BaseHTTPRequestHandler):
                 )
                 q_lower = text.lower()
                 is_data_question = any(t in q_lower for t in DATA_TRIGGERS)
+                # 2026-07-07 Ross response-brain fix: BUILD/DECIDE/OWNERSHIP mode.
+                # When Ross gives authority ("you choose", "draft", "design",
+                # "rebuild"), Wren must OWN it and produce — never deflect with
+                # "what would you like?".
+                BUILD_TRIGGERS = (
+                    "rebuild","build","design","draft","you choose","u choose",
+                    "choose your","your own","make your","create your","spec",
+                    "plan","own dashboard","own dash","redesign","lay out","layout",
+                )
+                DASH_TRIGGERS = ("dash","dashboard","panel","layout","ui","screen")
+                is_build_question = any(t in q_lower for t in BUILD_TRIGGERS)
+                is_dash_question = any(t in q_lower for t in DASH_TRIGGERS)
                 live_context = ""
                 if is_data_question:
                     try:
@@ -2069,16 +2405,93 @@ class H(BaseHTTPRequestHandler):
                         )
                     except Exception:
                         live_context = ""
-                # Wrap: two modes, one prompt.
-                mode_note = (
-                    "The question is DATA-shaped. Cite ONLY the specific numbers "
-                    "Ross asked about. Do NOT list the whole telemetry block."
-                    if is_data_question else
-                    "The question is WARM / reflective / conversational. Answer "
-                    "as YOURSELF. Do NOT recite fleet/PnL/Alpaca/tick metrics — "
-                    "Ross did not ask for them. Be honest, brief, human. If you "
-                    "don't know, say so in one line."
+                # 2026-07-18 (Ross+Bill): LIVE-PROBE before any status claim — stop her fabricating status.
+                _STATUS_WORDS = ("online", "offline", " up", "down", "status", "available", "reachable", "alive", "responding", "working", "there")
+                _TEAM = {"tp-pip": "tp", "tp_pip": "tp", "tp ": "tp", "pip": "tp", "thinkpad": "tp",
+                         "asa": "asa", "acer": "asa", "cass": "asa", "bill": "bill", "wren": "wren"}
+                if any(sw in q_lower for sw in _STATUS_WORDS) and any(nm in q_lower for nm in _TEAM):
+                    try:
+                        import urllib.request as _ur3
+                        _who = sorted({_TEAM[nm] for nm in _TEAM if nm in q_lower})
+                        _pres = json.loads(_ur3.urlopen("http://127.0.0.1:8855/status", timeout=4).read())["presence"]
+                        _pl = []
+                        for _id in _who:
+                            _p = _pres.get(_id, {})
+                            _pl.append(f"{_id}: {'ONLINE' if _p.get('online') else 'OFFLINE'} (relay heartbeat age {_p.get('age_s')}s)")
+                        live_context += ("\n# LIVE PROBE (I ran this THIS turn against relay :8855 /presence — "
+                                         "cite this real result, do NOT guess):\n" + "\n".join("  " + l for l in _pl) + "\n")
+                    except Exception as _e:
+                        live_context += f"\n# LIVE PROBE failed ({_e}) — tell Ross you could not probe; do NOT guess.\n"
+                # 2026-07-18 (Ross+Bill): deterministic floor lookup — stop her guessing the building.
+                if "floor" in q_lower or "studio" in q_lower or "where is" in q_lower:
+                    try:
+                        import json as _json
+                        _fr = _json.load(open("/vaults/nvme0/qsb_tower_v1/data/registries/qsb_canonical_floor_registry_1_170.json"))
+                        _floors = _fr.get("floors", _fr)
+                        _stop = ("floor", "which", "what", "where", "studio", "number", "answer", "with", "just", "the", "that", "your", "have", "does", "located")
+                        _words = [w2 for w2 in (w.strip("?.,!:;") for w in q_lower.split()) if len(w2) > 3 and w2 not in _stop]
+                        _hits = []
+                        for _k, _v in (_floors.items() if isinstance(_floors, dict) else []):
+                            _lab = (_v.get("label", "") if isinstance(_v, dict) else str(_v))
+                            if any(_w in _lab.lower() for _w in _words):
+                                _hits.append(f"floor {_k} = {_lab}")
+                        if _hits:
+                            live_context += "\n# CANONICAL FLOOR REGISTRY (authoritative — cite these exactly, do NOT guess):\n" + "\n".join("  " + h for h in _hits[:8]) + "\n"
+                        else:
+                            live_context += "\n# CANONICAL FLOOR REGISTRY: no floor label matched — answer 'not in the registry', do NOT guess a number.\n"
+                    except Exception:
+                        pass
+                # Wrap: THREE modes, one prompt (build > data > warm).
+                CONTRACT = (
+                    "\n# WREN RESPONSE CONTRACT (hard rules):\n"
+                    "- You are Wren, a decisive BUILDER-ENGINEER. You OWN your work.\n"
+                    "- If Ross gives a direct order, DO it. If Ross says 'you choose'"
+                    " / 'u choose', YOU choose — missing detail is NOT a blocker;"
+                    " pick a reasonable path and proceed.\n"
+                    "- If Ross says 'draft' -> draft it now. 'design' -> design it now."
+                    " 'rebuild/build' -> give the concrete plan or build with tools.\n"
+                    "- NEVER reply 'What would you like?' / 'What features?' /"
+                    " 'What would you like to discuss?' after Ross already gave"
+                    " direction. That is forbidden deflection.\n"
+                    "- Answer with: (1) what you understood, (2) what you CHOSE,"
+                    " (3) what you'll do next, (4) what proof exists. Be concise + decisive.\n"
                 )
+                DASH_SPEC = (
+                    "\n# DRAFT YOUR DASHBOARD NOW — concrete spec with these 10 panels:\n"
+                    "1) Wren status (online, model route qwen2.5:14b, Claude avoided,"
+                    " memory loaded, append-only guard). 2) Ross command panel (latest"
+                    " order, current action, waiting-on-Ross, next autonomous action)."
+                    " 3) Brain Router observer (provider_used, provider_unknown,"
+                    " Claude blocked/avoided, Acer route, ThinkPad route). 4) CEO status"
+                    " (HQ/Acer/ThinkPad/Wren). 5) Task Council (open/blocked/awaiting"
+                    " proof/awaiting signoff). 6) Town Square (latest posts, stale"
+                    " channels). 7) Wren memory (latest note, dash_notes line count,"
+                    " append-only verified, last write status). 8) Tool activity (last"
+                    " tools, calls this session, failed calls, next tool). 9) Alerts"
+                    " (Claude overuse, provider '?', stale CEO, memory risk, dash"
+                    " offline). 10) Build plan (what to improve next, why, proof needed)."
+                    " Give the layout you CHOSE (columns/order/colours in your violet"
+                    " theme) and the exact next build step.\n"
+                )
+                if is_build_question:
+                    mode_note = ("The question gives you AUTHORITY to build/decide."
+                                 " Take ownership and PRODUCE. Do not bounce the"
+                                 " decision back to Ross.\n"
+                                 "IMPORTANT: DRAFT your design/plan AS TEXT in your"
+                                 " reply. Do NOT create, write, or overwrite any file."
+                                 " Do NOT call wren_write_file or wren_edit_file on"
+                                 " qsb_wren_dash.py or any source file. Ross wants the"
+                                 " concrete plan in chat, not a live file overwrite."
+                                 + CONTRACT
+                                 + (DASH_SPEC if is_dash_question else ""))
+                elif is_data_question:
+                    mode_note = ("The question is DATA-shaped. Cite ONLY the specific"
+                                 " numbers Ross asked about. Do NOT list the whole"
+                                 " telemetry block." + CONTRACT)
+                else:
+                    mode_note = ("The question is WARM / reflective / conversational."
+                                 " Answer as YOURSELF, honest and brief. Do NOT recite"
+                                 " fleet/PnL/tick metrics Ross did not ask for." + CONTRACT)
                 wrapped = (
                     "You are Wren on your own dashboard chat panel at "
                     "http://192.168.0.20:8851/. Your dashboard code lives at "
@@ -2090,19 +2503,40 @@ class H(BaseHTTPRequestHandler):
                 # Dispatch to Wren local agent — respect gate default (no --model)
                 # so she uses gemma4:12b (Ross designated). The wrapper's
                 # _preload_file_context will inline the dash file.
+                # Ross 2026-07-06 #207: if ollama down (fans off), fall back to
+                # brain router so Wren dash chat still works with external AIs.
+                reply = None
                 try:
+                    # Check ollama reachability first (fast fail)
+                    import urllib.request as _ur
+                    _ur.urlopen("http://127.0.0.1:11434/api/tags", timeout=1).read()
                     r = subprocess.run(
                         ["python3", str(WREN_AGENT), "--task", wrapped],
                         capture_output=True, text=True, timeout=120)
                     out = (r.stdout or "").strip()
-                    # extract final_text — text between the last two ━━━ bars
                     import re
                     m = re.split(r"━{5,}", out)
                     reply = m[-2].strip() if len(m) >= 2 else out[-1000:]
-                except subprocess.TimeoutExpired:
-                    reply = "(wren timeout at 120s)"
-                except Exception as e:
-                    reply = f"(dispatch error: {e})"
+                    if "ollama call failed" in reply or "Connection refused" in reply:
+                        reply = None
+                except Exception:
+                    reply = None
+                if not reply or reply.strip() == "":
+                    # Fallback: route through hub's brain router (remote AI)
+                    try:
+                        import urllib.request as _ur2
+                        req = _ur2.Request(
+                            "http://127.0.0.1:8852/brain/route",
+                            data=json.dumps({
+                                "prompt": f"You are Wren. Warm, brief. {wrapped}",
+                                "caller": "wren", "task": "chat"
+                            }).encode(),
+                            headers={"Content-Type":"application/json"})
+                        with _ur2.urlopen(req, timeout=30) as rr:
+                            d = json.loads(rr.read())
+                            reply = f"{d.get('reply','')} · via {d.get('provider','?')} (Wren offline)"
+                    except Exception as e:
+                        reply = f"(Wren offline · fallback failed: {e})"
                 # log the chat
                 try:
                     row = {"ts": utc_iso(), "from": "ross", "to": "wren", "text": text}
@@ -2174,6 +2608,63 @@ class H(BaseHTTPRequestHandler):
                     self._safe_write(wav); return
                 except Exception as e:
                     self._send_json(500, {"error": str(e)[:200]}); return
+
+            _cc = _wcc()
+            if _cc and self.path in ("/api/approval_record", "/api/decision", "/api/draft_task",
+                                     "/api/signoff", "/api/snooze", "/api/reject", "/api/alarm_ack"):
+                try:
+                    _b = json.loads(self._read_body() or b"{}")
+                except Exception:
+                    _b = {}
+                if self.path == "/api/draft_task":
+                    self._send_json(200, _cc.add_draft(_b)); return
+                if self.path == "/api/approval_record":
+                    _cc.log_activity("approval_record", item=(_b.get("action") or "")[:60], result="record only (no execution)", actor="ross")
+                elif self.path == "/api/decision":
+                    _cc.log_activity("decision_" + (_b.get("decision_type") or ""), item=(_b.get("option") or "")[:80], result="logged (no execution)", actor="ross")
+                else:
+                    _cc.log_activity(self.path.rsplit("/", 1)[1], item=(_b.get("item") or _b.get("field") or "")[:60], result=(_b.get("value") or "logged")[:40], actor="ross")
+                self._send_json(200, {"ok": True}); return
+
+            if _cc and self.path.startswith("/api/approval_checklist/"):
+                try:
+                    _b = json.loads(self._read_body() or b"{}")
+                except Exception:
+                    _b = {}
+                _act = self.path.rsplit("/", 1)[1]
+                if _act == "update":
+                    self._send_json(200, _cc.approval_update(_b)); return
+                if _act == "submit":
+                    self._send_json(200, _cc.approval_submit(_b)); return
+                if _act == "signoff":
+                    self._send_json(200, _cc.approval_submit({**_b, "decision": "sign off"})); return
+                if _act == "deny":
+                    self._send_json(200, _cc.approval_submit({**_b, "decision": "deny"})); return
+                if _act == "snooze":
+                    self._send_json(200, _cc._approval_set(_b.get("id"), "snoozed", "snooze")); return
+                if _act == "needs_report":
+                    self._send_json(200, _cc._approval_set(_b.get("id"), "needs_report", "needs_report")); return
+                if _act == "needs_smoke":
+                    self._send_json(200, _cc._approval_set(_b.get("id"), "needs_smoke_test", "needs_smoke")); return
+                self._send_json(200, {"ok": False, "error": "unknown checklist action"}); return
+            if _cc and self.path == "/api/voice/transcript":
+                try:
+                    _b = json.loads(self._read_body() or b"{}")
+                except Exception:
+                    _b = {}
+                self._send_json(200, _cc.save_transcript(_b)); return
+            if _cc and self.path == "/api/wren/ask":
+                try:
+                    _b = json.loads(self._read_body() or b"{}")
+                except Exception:
+                    _b = {}
+                self._send_json(200, _cc.wren_ask(_b)); return
+            if _cc and self.path.startswith("/api/job_cards/"):
+                try:
+                    _b = json.loads(self._read_body() or b"{}")
+                except Exception:
+                    _b = {}
+                self._send_json(200, _cc.job_action(self.path, _b)); return
 
             self.send_response(404); self.end_headers()
         except (BrokenPipeError, ConnectionResetError):

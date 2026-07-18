@@ -1,0 +1,24 @@
+{
+  "trader_id": "belief_driven_eth",
+  "trained_at": "2026-07-06T07:10:09.770490Z",
+  "closes_analyzed": 506,
+  "win_rate_current": 0.615,
+  "win_rate_target": 0.75,
+  "gap_to_target": 0.135,
+  "avg_win_pnl": 0.0947,
+  "avg_loss_pnl": -0.2219,
+  "best_instrument": {
+    "name": "ETHUSDT",
+    "pnl": -13.8105
+  },
+  "worst_instrument": {
+    "name": "ETHUSDT",
+    "pnl": -13.8105
+  },
+  "learned_rules": [
+    "IMPROVE \u2014 61% vs 75% target \u00b7 tighten stops, avoid worst-performing instrument",
+    "DROP ETHUSDT \u00b7 losing $-13.81"
+  ],
+  "recommended_units": 250,
+  "verdict": "TRAIN"
+}

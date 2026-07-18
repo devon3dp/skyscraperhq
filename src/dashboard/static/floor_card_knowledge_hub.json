@@ -1,0 +1,14 @@
+{
+  "title": "Knowledge Hub",
+  "description": "Aggregates key insights and links to relevant knowledge base entries in an engaging, visual format.",
+  "panels": [
+    {
+      "type": "interactive_cards",
+      "data_source": "knowledge_base",
+      "metrics": [
+        {"title": "Inventory Levels", "value": "real_time_inventory_level()"},
+        {"title": "Maintenance Status", "value": "maintenance_status()"}
+      ]
+    }
+  ]
+}

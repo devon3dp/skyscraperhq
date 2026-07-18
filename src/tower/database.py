@@ -14,7 +14,15 @@ def connect():
 def init_db():
     conn=connect(); conn.executescript(SCHEMA); reg=Registry()
     for f in reg.floors():
-        conn.execute('INSERT OR IGNORE INTO floor_state VALUES (?,?,?,?,?)',(f['id'],f['status'],100,0 if f['vacant'] else len(f['workers']),now()))
+        workers = f.get('workers')
+        if workers is None:
+            workers = f.get('team_roster', [])
+        if workers is None:
+            workers = []
+        floor_id = f.get('id') or f.get('floor_id') or f.get('name') or 'unknown_floor'
+        floor_status = f.get('status') or f.get('execution_mode') or f.get('current_status') or 'unknown'
+        vacant = bool(f.get('vacant', False))
+        conn.execute('INSERT OR IGNORE INTO floor_state VALUES (?,?,?,?,?)',(floor_id,floor_status,100,0 if vacant else len(workers),now()))
     for l in reg.lifts():
         conn.execute('INSERT OR IGNORE INTO lift_state VALUES (?,?,?,?,?)',(l['id'],l['status'],'ground',0,now()))
     conn.commit(); conn.close()

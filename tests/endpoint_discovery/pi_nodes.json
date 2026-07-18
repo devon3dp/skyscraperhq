@@ -1,0 +1,88 @@
+{
+    "nodes": [
+        {
+            "node_id": "acer_cass",
+            "hostname": "DESKTOP-1E2FB5N",
+            "role": "Data Foundry CEO",
+            "owner": "Ross",
+            "os": "Windows",
+            "endpoint": "http://192.168.1.78:9130",
+            "models": "\"llama3.2\"",
+            "kind": "physical_worker",
+            "online": 1,
+            "last_heartbeat": "2026-07-18T12:50:52.780325Z",
+            "risk_limit": "local_only",
+            "registered": "2026-07-17T09:33:48.108246Z"
+        },
+        {
+            "node_id": "tp_pip",
+            "hostname": "DESKTOP-9RBVKSM",
+            "role": "Command Cathedral CEO",
+            "owner": "Ross",
+            "os": "Windows",
+            "endpoint": "http://192.168.1.74:9130",
+            "models": "\"llama3.2\"",
+            "kind": "physical_worker",
+            "online": 1,
+            "last_heartbeat": "2026-07-18T12:50:51.872820Z",
+            "risk_limit": "local_only",
+            "registered": "2026-07-18T06:52:21.639922Z"
+        },
+        {
+            "node_id": "bill",
+            "hostname": "MacBook Pro M1 Max",
+            "role": "MacBook Executive Concierge",
+            "owner": "Ross",
+            "os": "macOS",
+            "endpoint": "",
+            "models": "[\"qwen2.5:14b\"]",
+            "kind": "physical_worker",
+            "online": 1,
+            "last_heartbeat": "2026-07-18T12:50:51.885285Z",
+            "risk_limit": "local_only",
+            "registered": "2026-07-18T12:50:31.827532Z"
+        },
+        {
+            "node_id": "skyscraper_msi",
+            "hostname": "24.04ubuntu",
+            "role": "physical host",
+            "owner": "Ross",
+            "os": "Linux 24.04ubuntu 6.17.0-40-generic #40~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue Jun 23 16:48:12 UTC 2 x86_64",
+            "endpoint": "",
+            "models": "[]",
+            "kind": "physical_worker",
+            "online": 1,
+            "last_heartbeat": "2026-07-18T12:50:52.749610Z",
+            "risk_limit": "local_only",
+            "registered": "2026-07-18T12:50:48.482481Z"
+        },
+        {
+            "node_id": "wren",
+            "hostname": "24.04ubuntu",
+            "role": "Governor L1 / heavy local AI",
+            "owner": "Ross",
+            "os": "Linux 24.04ubuntu 6.17.0-40-generic #40~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue Jun 23 16:48:12 UTC 2 x86_64",
+            "endpoint": "http://192.168.1.72:8851",
+            "models": "[\"codellama:13b\", \"qwen2.5:14b\", \"llama3.2:latest\", \"neural-chat:7b\"]",
+            "kind": "physical_worker",
+            "online": 1,
+            "last_heartbeat": "2026-07-18T12:50:52.768688Z",
+            "risk_limit": "local_only",
+            "registered": "2026-07-18T12:50:48.523658Z"
+        },
+        {
+            "node_id": "claude_specialist",
+            "hostname": "24.04ubuntu",
+            "role": "governed specialist (separate from Wren)",
+            "owner": "Ross",
+            "os": "Linux 24.04ubuntu 6.17.0-40-generic #40~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Tue Jun 23 16:48:12 UTC 2 x86_64",
+            "endpoint": "",
+            "models": "[]",
+            "kind": "physical_worker",
+            "online": 1,
+            "last_heartbeat": "2026-07-18T12:50:52.793134Z",
+            "risk_limit": "local_only",
+            "registered": "2026-07-18T12:50:48.564439Z"
+        }
+    ]
+}

@@ -1,0 +1,16 @@
+{
+  "timestamp": "2026-07-08T00:52:22.216107",
+  "proof_version": "qsb_task_council_v1",
+  "node": "QSB Task Council",
+  "status": "alive",
+  "port": 8854,
+  "health_url": "http://127.0.0.1:8854/health.json",
+  "nodes_url": "http://127.0.0.1:8854/nodes.json",
+  "tasks_url": "http://127.0.0.1:8854/tasks.json",
+  "run_demo_url": "http://127.0.0.1:8854/run-demo",
+  "brain_router_v2": "http://127.0.0.1:8853",
+  "asa_node": "http://127.0.0.1:9122",
+  "tp_pip": "http://192.168.1.91:9110/heartbeat.json",
+  "claude_api_used": false,
+  "truth_policy": "All task records must include provider/model/tool proof where applicable."
+}

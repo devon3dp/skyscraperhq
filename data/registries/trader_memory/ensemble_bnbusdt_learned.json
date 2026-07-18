@@ -1,0 +1,23 @@
+{
+  "trader_id": "ensemble_bnbusdt",
+  "trained_at": "2026-07-06T07:10:09.773436Z",
+  "closes_analyzed": 75,
+  "win_rate_current": 0.533,
+  "win_rate_target": 0.75,
+  "gap_to_target": 0.217,
+  "avg_win_pnl": 0.0022,
+  "avg_loss_pnl": -0.0042,
+  "best_instrument": {
+    "name": "BNBUSDT",
+    "pnl": -0.0575
+  },
+  "worst_instrument": {
+    "name": "BNBUSDT",
+    "pnl": -0.0575
+  },
+  "learned_rules": [
+    "OVERHAUL \u2014 53% far below 75% \u00b7 SUSPEND and re-strategize"
+  ],
+  "recommended_units": 250,
+  "verdict": "SUSPEND"
+}

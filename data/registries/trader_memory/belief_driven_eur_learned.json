@@ -1,0 +1,24 @@
+{
+  "trader_id": "belief_driven_eur",
+  "trained_at": "2026-07-06T07:10:09.770890Z",
+  "closes_analyzed": 211,
+  "win_rate_current": 0.559,
+  "win_rate_target": 0.75,
+  "gap_to_target": 0.191,
+  "avg_win_pnl": 0.0651,
+  "avg_loss_pnl": -0.0933,
+  "best_instrument": {
+    "name": "EUR_USD",
+    "pnl": -0.9983
+  },
+  "worst_instrument": {
+    "name": "EUR_USD",
+    "pnl": -0.9983
+  },
+  "learned_rules": [
+    "IMPROVE \u2014 55% vs 75% target \u00b7 tighten stops, avoid worst-performing instrument",
+    "DROP EUR_USD \u00b7 losing $-1.00"
+  ],
+  "recommended_units": 250,
+  "verdict": "TRAIN"
+}

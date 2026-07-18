@@ -1,0 +1,46 @@
+{
+  "timestamp": "2026-07-07T23:44:07.022134",
+  "checkpoint": "/vaults/nvme0/qsb_skyscraper/data/checkpoints/QSB_BACK_TO_WORK_BRAIN_ROUTER_V2_20260707_234347",
+  "skyscraper_root": "/vaults/nvme0/qsb_skyscraper",
+  "tower_root": "/vaults/nvme0/qsb_tower_v1",
+  "brain_router_v2": {
+    "port": 8853,
+    "health_url": "http://127.0.0.1:8853/health.json",
+    "proof_url": "http://127.0.0.1:8853/proof.json",
+    "nodes_url": "http://127.0.0.1:8853/nodes.json",
+    "route_test_url": "http://127.0.0.1:8853/route-test?model=qwen2.5:14b",
+    "status": "UP",
+    "version": "brain_router_v2",
+    "truth_labels_enforced": true,
+    "task_gates_enforced": true,
+    "claude_api_used": false
+  },
+  "team_readiness": {
+    "hq_claude": "YES",
+    "tp_pip": "YES",
+    "wren_ren": "YES_WITH_PROOF_LIMITS",
+    "asa": "NOT_PROVEN",
+    "brain_router": "YES"
+  },
+  "route_test": {
+    "ok": true,
+    "provider_used": "local_ollama",
+    "model_used": "qwen2.5:14b",
+    "claude_api_used": false,
+    "tool_proof": "live_ollama_tags_local+ollama_generate_http_200",
+    "fallback_used": false
+  },
+  "safety": {
+    "no_claude_api": true,
+    "no_live_trading_enabled": true,
+    "destructive_actions": false,
+    "write_gates_require_ross_token": true
+  },
+  "next_allowed_work": {
+    "hq_claude": "architect/reviewer using local shell",
+    "tp_pip": "strict worker via heartbeat/proof",
+    "wren_ren": "graphics/GPU worker with proof limits",
+    "asa": "not ready until real endpoint/proof is created",
+    "brain_router": "V2 sidecar ready for health/route/gate tests"
+  }
+}

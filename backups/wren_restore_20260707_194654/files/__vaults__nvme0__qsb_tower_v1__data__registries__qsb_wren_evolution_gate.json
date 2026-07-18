@@ -1,0 +1,8 @@
+{
+  "enabled": true,
+  "notes": "Set enabled=false to pause Wren's always-working loop. Loop reads this on every tick.",
+  "created_by": "wren_evolution_loop",
+  "created_at": "2026-07-03T12:08:27.235916Z",
+  "max_cycles_per_hour": 60,
+  "note": "Bumped from 20 to 60/hr \u2014 Ross 2026-07-03 13:52Z: wren must work harder as permanent resident"
+}

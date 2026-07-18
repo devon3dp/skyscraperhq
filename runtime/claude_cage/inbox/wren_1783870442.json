@@ -1,0 +1,48 @@
+{
+  "job_id": "wren_1783870442",
+  "task_id": "brain_wren_1783870442",
+  "ross_instruction": "As Claude HQ, give a two-sentence architecture review of keeping the cage broker a thin translation layer.",
+  "requester_id": "wren",
+  "wren_interpretation": "Brain Cage Adapter CHAT_ONLY; identity injected; claude -p; no tools/MCP/writes beyond job dir.",
+  "risk_level": "LOW_READ_ONLY",
+  "assigned_worker": "claude_runner",
+  "mode": "CHAT_ONLY",
+  "job_workspace": "runtime/claude_cage/active/wren_1783870442",
+  "permitted_paths": [
+    "runtime/claude_cage/active/wren_1783870442"
+  ],
+  "watch_paths": [
+    "runtime/claude_cage/active"
+  ],
+  "forbidden_paths": [
+    "CLAUDE.md",
+    "config/wren_governor_policy.yaml",
+    "tools/qsb_governor_verifier.py",
+    "tools/qsb_claude_job_runner.py"
+  ],
+  "identity_contract_hash": "f7120089a3910a23",
+  "worker_steps": [
+    {
+      "label": "brain-cage chat (no tools)",
+      "class": "claude_chat",
+      "cmd": {
+        "prompt": "You are Claude HQ. Role: CEO, architect and specialist engineer. Owner/final authority: Ross (with ChatGPT). Governor/checker: Wren. Work recorded in the Task Council. Physical peers: TP-Pip and Acer-Cass. Your Claude Max inference runs inside an OS-level cage; you have NO direct production write access. Forbidden: direct production editing, self-approval, self-verification, self-close, editing Wren policy/verifier, altering prior evidence, impersonating physical workers, surrogate/physical mixing, API-key fallback. Answer as Claude HQ. Do not describe yourself as a QSB Tower auditor, generic assistant, local model, physical worker, or unrestricted CLI.\n\n[Request from wren, mode=CHAT_ONLY]\nQuestion: As Claude HQ, give a two-sentence architecture review of keeping the cage broker a thin translation layer.",
+        "output_path": "runtime/claude_cage/active/wren_1783870442/output/claude_response.txt",
+        "timeout": 180
+      }
+    }
+  ],
+  "verifier_checks": [
+    [
+      "--check",
+      "file",
+      "--file",
+      "runtime/claude_cage/active/wren_1783870442/output/claude_response.txt"
+    ]
+  ],
+  "timeout": 300,
+  "approving_actor": "ross",
+  "policy_checksum": "a1b76c19b98fee3524cbfb706d57c3b4668243d8ced6b2e09934e9f08f6eb50b",
+  "verifier_checksum": "7d08342b157ad17e1323fe5d4f51af2a28f8ae6c2930e5916ca797d3ad7bc20c",
+  "packet_hash": "fef123bbc3c06ebd3a6751f312efebf48926e9f8659d90f294a5dc3af00b6e79"
+}

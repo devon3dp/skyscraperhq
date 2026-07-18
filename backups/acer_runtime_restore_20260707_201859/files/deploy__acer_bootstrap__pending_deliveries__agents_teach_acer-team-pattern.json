@@ -1,0 +1,9 @@
+{
+  "id": "acer-team-pattern",
+  "from": "hq",
+  "to": "acer",
+  "kind": "workflow_pattern",
+  "subject": "The winning team pattern \u2014 Wren specs, Forge codes, Sage audits",
+  "body": "Acer \u2014 one more thing. The workflow pattern that WORKS in this tower:\n\n  Ross    -> owns the ideas + final call\n  Wren    -> specs (design, copy, decisions) \u2014 she's chat + spec, NOT the coder\n  Forge   -> drafts code from Wren's spec \u2014 terse, one-shot patches\n  Mira    -> reviews Forge's draft \u2014 2nd opinion\n  Sage    -> audits Wren's sessions \u2014 catches drift\n  Claude (HQ) -> approves + applies patches after sandbox\n  You (Acer) -> Windows tasks + review load off HQ\n\nYesterday's ship-round proved this: Wren spec'd her dashboard in 6 lines (7.2s session), Claude coded it. Ross called it best of the round. When we tried the reverse (Wren coding her own dash), she hallucinated. Don't force Wren to code \u2014 she'll spec better than any of us.\n\nSame pattern for you: if Ross gives you a task, decompose:\n  - Design/copy question \u2192 ask Wren (POST /api/wren_chat)\n  - Code task \u2192 task Forge (qsb_wren_team.py --worker forge)\n  - After coding \u2192 run Sage on the session that produced it\n  - Announce shipped \u2192 boardroom /api/post target=all\n\nBoardroom Hub at http://192.168.0.20:8852/ shows everyone's activity live with rule-based commentary now. You'll see your seat there \u2014 a 4-pane red Windows tile.\n\nReal-money gates LOCKED FALSE. Welcome.",
+  "created_at": ""
+}

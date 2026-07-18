@@ -1,0 +1,91 @@
+{"kind": "probe_fail", "service": "hub", "detail": "<urlopen error [Errno 111] Connection refused>", "ts": "2026-07-06T06:54:26.428533Z"}
+{"kind": "heal_attempt", "service": "hub", "ts": "2026-07-06T06:54:26.428625Z"}
+{"kind": "heal_result", "service": "hub", "healed": true, "detail": "restart \u2192 probe http 200", "ts": "2026-07-06T06:54:33.873688Z"}
+{"kind": "probe_fail", "service": "traders_dash", "detail": "timed out", "ts": "2026-07-06T06:58:14.928637Z"}
+{"kind": "probe_fail", "service": "traders_dash", "detail": "timed out", "ts": "2026-07-06T06:59:19.367540Z"}
+{"kind": "probe_fail", "service": "traders_dash", "detail": "timed out", "ts": "2026-07-06T07:00:24.262502Z"}
+{"kind": "probe_fail", "service": "traders_dash", "detail": "timed out", "ts": "2026-07-06T07:07:11.453493Z"}
+{"kind": "probe_fail", "service": "hub", "detail": "<urlopen error [Errno 111] Connection refused>", "ts": "2026-07-06T07:12:51.038724Z"}
+{"kind": "heal_attempt", "service": "hub", "ts": "2026-07-06T07:12:51.048948Z"}
+{"kind": "heal_result", "service": "hub", "healed": true, "detail": "restart \u2192 probe http 200", "ts": "2026-07-06T07:12:58.536940Z"}
+{"kind": "probe_fail", "service": "traders_dash", "detail": "timed out", "ts": "2026-07-06T07:19:09.828975Z"}
+{"kind": "probe_fail", "service": "hub", "detail": "<urlopen error [Errno 111] Connection refused>", "ts": "2026-07-06T07:22:19.177648Z"}
+{"kind": "heal_attempt", "service": "hub", "ts": "2026-07-06T07:22:19.177942Z"}
+{"kind": "heal_result", "service": "hub", "healed": true, "detail": "restart \u2192 probe http 200", "ts": "2026-07-06T07:22:27.897268Z"}
+{"kind": "probe_fail", "service": "hub", "detail": "<urlopen error timed out>", "ts": "2026-07-06T07:27:06.623692Z"}
+{"kind": "heal_attempt", "service": "hub", "ts": "2026-07-06T07:27:06.634023Z"}
+{"kind": "heal_result", "service": "hub", "healed": true, "detail": "restart \u2192 probe http 200", "ts": "2026-07-06T07:27:14.483653Z"}
+{"kind": "probe_fail", "service": "hub", "detail": "<urlopen error timed out>", "ts": "2026-07-06T07:37:28.254540Z"}
+{"kind": "heal_attempt", "service": "hub", "ts": "2026-07-06T07:37:28.254831Z"}
+{"kind": "heal_result", "service": "hub", "healed": true, "detail": "restart \u2192 probe http 200", "ts": "2026-07-06T07:37:36.214428Z"}
+{"kind": "probe_fail", "service": "hub", "detail": "<urlopen error timed out>", "ts": "2026-07-06T07:42:14.161825Z"}
+{"kind": "heal_attempt", "service": "hub", "ts": "2026-07-06T07:42:14.172060Z"}
+{"kind": "heal_result", "service": "hub", "healed": true, "detail": "restart \u2192 probe http 200", "ts": "2026-07-06T07:42:22.081206Z"}
+{"kind": "probe_fail", "service": "hub", "detail": "<urlopen error timed out>", "ts": "2026-07-06T07:57:09.507826Z"}
+{"kind": "heal_attempt", "service": "hub", "ts": "2026-07-06T07:57:09.507931Z"}
+{"kind": "heal_result", "service": "hub", "healed": true, "detail": "restart \u2192 probe http 200", "ts": "2026-07-06T07:57:17.506987Z"}
+{"kind": "probe_fail", "service": "hub", "detail": "<urlopen error timed out>", "ts": "2026-07-06T08:05:04.412790Z"}
+{"kind": "heal_attempt", "service": "hub", "ts": "2026-07-06T08:05:04.423042Z"}
+{"kind": "heal_result", "service": "hub", "healed": true, "detail": "restart \u2192 probe http 200", "ts": "2026-07-06T08:05:12.374935Z"}
+{"kind": "probe_fail", "service": "hub", "detail": "timed out", "ts": "2026-07-06T08:14:56.223939Z"}
+{"kind": "heal_attempt", "service": "hub", "ts": "2026-07-06T08:14:56.224789Z"}
+{"kind": "heal_result", "service": "hub", "healed": true, "detail": "restart \u2192 probe http 200", "ts": "2026-07-06T08:15:04.147055Z"}
+{"kind": "probe_fail", "service": "hub", "detail": "timed out", "ts": "2026-07-06T08:21:41.070899Z"}
+{"kind": "heal_attempt", "service": "hub", "ts": "2026-07-06T08:21:41.071154Z"}
+{"kind": "heal_result", "service": "hub", "healed": true, "detail": "restart \u2192 probe http 200", "ts": "2026-07-06T08:21:48.985813Z"}
+{"kind": "probe_fail", "service": "hub", "detail": "<urlopen error timed out>", "ts": "2026-07-06T08:26:29.313491Z"}
+{"kind": "heal_attempt", "service": "hub", "ts": "2026-07-06T08:26:29.323938Z"}
+{"kind": "heal_result", "service": "hub", "healed": true, "detail": "restart \u2192 probe http 200", "ts": "2026-07-06T08:26:37.311535Z"}
+{"kind": "probe_fail", "service": "traders_dash", "detail": "timed out", "ts": "2026-07-06T08:27:10.550039Z"}
+{"kind": "probe_fail", "service": "traders_dash", "detail": "<urlopen error timed out>", "ts": "2026-07-06T08:30:51.667007Z"}
+{"kind": "probe_fail", "service": "traders_dash", "detail": "<urlopen error timed out>", "ts": "2026-07-06T08:31:25.839471Z"}
+{"kind": "probe_fail", "service": "traders_dash", "detail": "<urlopen error timed out>", "ts": "2026-07-06T08:32:00.068369Z"}
+{"kind": "probe_fail", "service": "traders_dash", "detail": "<urlopen error timed out>", "ts": "2026-07-06T08:32:36.074570Z"}
+{"kind": "probe_fail", "service": "traders_dash", "detail": "timed out", "ts": "2026-07-06T08:33:09.545517Z"}
+{"kind": "probe_fail", "service": "traders_dash", "detail": "<urlopen error timed out>", "ts": "2026-07-06T08:33:42.800754Z"}
+{"kind": "probe_fail", "service": "hub", "detail": "<urlopen error timed out>", "ts": "2026-07-06T08:34:15.937475Z"}
+{"kind": "heal_attempt", "service": "hub", "ts": "2026-07-06T08:34:15.937555Z"}
+{"kind": "heal_result", "service": "hub", "healed": true, "detail": "restart \u2192 probe http 200", "ts": "2026-07-06T08:34:23.818533Z"}
+{"kind": "probe_fail", "service": "traders_dash", "detail": "<urlopen error timed out>", "ts": "2026-07-06T08:34:26.823479Z"}
+{"kind": "probe_fail", "service": "traders_dash", "detail": "<urlopen error timed out>", "ts": "2026-07-06T08:35:00.039469Z"}
+{"kind": "probe_fail", "service": "traders_dash", "detail": "<urlopen error timed out>", "ts": "2026-07-06T08:36:07.688713Z"}
+{"kind": "probe_fail", "service": "traders_dash", "detail": "<urlopen error timed out>", "ts": "2026-07-06T08:36:41.053501Z"}
+{"kind": "probe_fail", "service": "hub", "detail": "<urlopen error timed out>", "ts": "2026-07-06T08:47:32.391025Z"}
+{"kind": "heal_attempt", "service": "hub", "ts": "2026-07-06T08:47:32.391118Z"}
+{"kind": "heal_result", "service": "hub", "healed": true, "detail": "restart \u2192 probe http 200", "ts": "2026-07-06T08:47:40.475177Z"}
+{"kind": "probe_fail", "service": "traders_dash", "detail": "<urlopen error timed out>", "ts": "2026-07-06T08:47:43.489509Z"}
+{"kind": "probe_fail", "service": "traders_dash", "detail": "<urlopen error timed out>", "ts": "2026-07-06T08:48:16.833471Z"}
+{"kind": "probe_fail", "service": "traders_dash", "detail": "<urlopen error timed out>", "ts": "2026-07-06T08:49:24.129466Z"}
+{"kind": "probe_fail", "service": "traders_dash", "detail": "timed out", "ts": "2026-07-06T08:51:31.197372Z"}
+{"kind": "probe_fail", "service": "traders_dash", "detail": "<urlopen error timed out>", "ts": "2026-07-06T08:52:35.172497Z"}
+{"kind": "probe_fail", "service": "traders_dash", "detail": "<urlopen error timed out>", "ts": "2026-07-06T08:53:08.344515Z"}
+{"kind": "probe_fail", "service": "traders_dash", "detail": "<urlopen error timed out>", "ts": "2026-07-06T08:53:41.854467Z"}
+{"kind": "probe_fail", "service": "traders_dash", "detail": "<urlopen error timed out>", "ts": "2026-07-06T08:54:15.247475Z"}
+{"kind": "probe_fail", "service": "traders_dash", "detail": "<urlopen error timed out>", "ts": "2026-07-06T08:56:23.590528Z"}
+{"kind": "probe_fail", "service": "traders_dash", "detail": "<urlopen error timed out>", "ts": "2026-07-06T08:56:57.200478Z"}
+{"kind": "probe_fail", "service": "traders_dash", "detail": "<urlopen error timed out>", "ts": "2026-07-06T08:57:30.870310Z"}
+{"kind": "probe_fail", "service": "hub", "detail": "timed out", "ts": "2026-07-06T08:58:03.992647Z"}
+{"kind": "heal_attempt", "service": "hub", "ts": "2026-07-06T08:58:04.002899Z"}
+{"kind": "heal_result", "service": "hub", "healed": true, "detail": "restart \u2192 probe http 200", "ts": "2026-07-06T08:58:11.872636Z"}
+{"kind": "probe_fail", "service": "traders_dash", "detail": "<urlopen error timed out>", "ts": "2026-07-06T08:58:14.903492Z"}
+{"kind": "probe_fail", "service": "traders_dash", "detail": "<urlopen error timed out>", "ts": "2026-07-06T08:58:48.109491Z"}
+{"kind": "probe_fail", "service": "traders_dash", "detail": "<urlopen error timed out>", "ts": "2026-07-06T08:59:21.714488Z"}
+{"kind": "probe_fail", "service": "traders_dash", "detail": "<urlopen error timed out>", "ts": "2026-07-06T08:59:54.860465Z"}
+{"kind": "probe_fail", "service": "traders_dash", "detail": "<urlopen error timed out>", "ts": "2026-07-06T09:00:29.475487Z"}
+{"kind": "probe_fail", "service": "traders_dash", "detail": "<urlopen error timed out>", "ts": "2026-07-06T09:01:02.738013Z"}
+{"kind": "probe_fail", "service": "traders_dash", "detail": "<urlopen error timed out>", "ts": "2026-07-06T09:01:35.917480Z"}
+{"kind": "probe_fail", "service": "traders_dash", "detail": "<urlopen error timed out>", "ts": "2026-07-06T09:02:09.063493Z"}
+{"kind": "probe_fail", "service": "traders_dash", "detail": "<urlopen error timed out>", "ts": "2026-07-06T09:02:44.329506Z"}
+{"kind": "probe_fail", "service": "traders_dash", "detail": "<urlopen error timed out>", "ts": "2026-07-06T09:03:20.054332Z"}
+{"kind": "probe_fail", "service": "traders_dash", "detail": "<urlopen error timed out>", "ts": "2026-07-06T09:03:53.183320Z"}
+{"kind": "probe_fail", "service": "traders_dash", "detail": "<urlopen error timed out>", "ts": "2026-07-06T09:04:26.323517Z"}
+{"kind": "probe_fail", "service": "traders_dash", "detail": "<urlopen error timed out>", "ts": "2026-07-06T09:04:59.530881Z"}
+{"kind": "probe_fail", "service": "traders_dash", "detail": "<urlopen error timed out>", "ts": "2026-07-06T09:06:06.246855Z"}
+{"kind": "probe_fail", "service": "traders_dash", "detail": "<urlopen error timed out>", "ts": "2026-07-06T09:06:39.755317Z"}
+{"kind": "probe_fail", "service": "traders_dash", "detail": "<urlopen error timed out>", "ts": "2026-07-06T09:07:14.806612Z"}
+{"kind": "probe_fail", "service": "hub", "detail": "<urlopen error timed out>", "ts": "2026-07-06T09:08:18.113811Z"}
+{"kind": "heal_attempt", "service": "hub", "ts": "2026-07-06T09:08:18.114979Z"}
+{"kind": "heal_result", "service": "hub", "healed": true, "detail": "restart \u2192 probe http 200", "ts": "2026-07-06T09:08:25.908351Z"}
+{"kind": "probe_fail", "service": "hub", "detail": "<urlopen error timed out>", "ts": "2026-07-06T09:17:13.071465Z"}
+{"kind": "heal_attempt", "service": "hub", "ts": "2026-07-06T09:17:13.071545Z"}
+{"kind": "heal_result", "service": "hub", "healed": true, "detail": "restart \u2192 probe http 200", "ts": "2026-07-06T09:17:21.522067Z"}

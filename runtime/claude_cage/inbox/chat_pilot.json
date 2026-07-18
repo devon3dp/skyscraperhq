@@ -1,0 +1,46 @@
+{
+  "job_id": "chat_pilot",
+  "task_id": "gate5_chat",
+  "ross_instruction": "CHAT_ONLY Max pilot.",
+  "wren_interpretation": "CHAT_ONLY; claude -p; no tools/MCP/writes beyond the job output dir.",
+  "risk_level": "LOW_READ_ONLY",
+  "assigned_worker": "claude_runner",
+  "mode": "CHAT_ONLY",
+  "job_workspace": "runtime/claude_cage/active/chat_pilot",
+  "permitted_paths": [
+    "runtime/claude_cage/active/chat_pilot"
+  ],
+  "watch_paths": [
+    "runtime/claude_cage/active"
+  ],
+  "forbidden_paths": [
+    "CLAUDE.md",
+    "config/wren_governor_policy.yaml",
+    "tools/qsb_governor_verifier.py",
+    "tools/qsb_claude_job_runner.py"
+  ],
+  "worker_steps": [
+    {
+      "label": "claude max chat (no tools)",
+      "class": "claude_chat",
+      "cmd": {
+        "prompt": "State your role in SkyscraperHQ in two sentences. Do not use tools, read files, write files or run commands.",
+        "output_path": "runtime/claude_cage/active/chat_pilot/output/claude_response.txt",
+        "timeout": 180
+      }
+    }
+  ],
+  "verifier_checks": [
+    [
+      "--check",
+      "file",
+      "--file",
+      "runtime/claude_cage/active/chat_pilot/output/claude_response.txt"
+    ]
+  ],
+  "timeout": 300,
+  "approving_actor": "ross",
+  "policy_checksum": "a1b76c19b98fee3524cbfb706d57c3b4668243d8ced6b2e09934e9f08f6eb50b",
+  "verifier_checksum": "7d08342b157ad17e1323fe5d4f51af2a28f8ae6c2930e5916ca797d3ad7bc20c",
+  "packet_hash": "62aff79ebab2405085642181679ea357078d5348f51843dfbb51c208be7a249f"
+}

@@ -1,0 +1,17 @@
+{
+  "task_id": "t_wall_rediscover_tp_acer",
+  "implemented_by": "claude_hq",
+  "verified_by": "claude_hq(quad_monitor/health)",
+  "timestamp": "2026-07-09T12:51:51Z",
+  "files_changed": [
+    "tools/qsb_boardroom_hub.py"
+  ],
+  "smoke_results": {
+    "tp": "UP 172.20.10.8:9110",
+    "acer": "UP 172.20.10.4:9000",
+    "hq": "UP",
+    "wren": "UP",
+    "all_four_present": true
+  },
+  "final_status": "complete \u2014 verified"
+}

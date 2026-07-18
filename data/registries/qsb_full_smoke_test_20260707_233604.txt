@@ -1,0 +1,93 @@
+============================================================
+ QSB FULL SMOKE TEST
+ Root: /vaults/nvme0/qsb_tower_v1
+ Time: 2026-07-07T23:36:04+01:00
+ Read-only. No edits. No restarts. No Claude API.
+============================================================
+
+---- 1. Root and core folders ----
+PASS: /vaults/nvme0/qsb_tower_v1 exists
+PASS: /vaults/nvme0/qsb_tower_v1/data exists
+PASS: /vaults/nvme0/qsb_tower_v1/data/registries exists
+PASS: /vaults/nvme0/qsb_tower_v1/tools exists
+PASS: /vaults/nvme0/qsb_tower_v1/src/dashboard exists
+PASS: /vaults/nvme0/qsb_tower_v1/src/dashboard/static exists
+
+---- 2. HQ-Claude local recovery files ----
+PASS: hq_claude_local_persona.json valid JSON
+PASS: hq_claude_local_status.json valid JSON
+PASS: hq_claude_local_proof.json valid JSON
+
+---- 3. HQ-Claude truth fields ----
+PASS: HQ-Claude node = HQ-Claude
+PASS: HQ-Claude mode = local_shell
+PASS: HQ-Claude default_model = qwen2.5:14b
+PASS: HQ-Claude claude_api_default = blocked/avoided
+PASS: HQ-Claude memory_overwrite = False
+PASS: HQ-Claude destructive_actions = False
+PASS: HQ-Claude proof_version = hq_claude_local_recovery_v1
+PASS: HQ-Claude router_compile = OK
+PASS: HQ-Claude expected_model = qwen2.5:14b
+PASS: HQ-Claude claude_avoided_expected = True
+
+---- 4. Brain Router / Boardroom files ----
+PASS: /vaults/nvme0/qsb_tower_v1/tools/qsb_brain_router.py exists
+PASS: /vaults/nvme0/qsb_tower_v1/tools/qsb_brain_router.py compiles
+PASS: /vaults/nvme0/qsb_tower_v1/tools/qsb_boardroom_hub.py exists
+PASS: /vaults/nvme0/qsb_tower_v1/tools/qsb_boardroom_hub.py compiles
+PASS: /vaults/nvme0/qsb_tower_v1/src/dashboard/server.py exists
+PASS: /vaults/nvme0/qsb_tower_v1/src/dashboard/server.py compiles
+PASS: /vaults/nvme0/qsb_tower_v1/src/dashboard/static/index.html exists
+
+---- 5. Boardroom port 8852 ----
+PASS: port 8852 listening
+LISTEN 1      5            0.0.0.0:8852       0.0.0.0:*    users:(("python3",pid=686137,fd=3))
+PASS: Boardroom HTTP responds and contains Boardroom
+
+---- 6. TP-Pip LAN heartbeat/proof ----
+PASS: TP heartbeat valid JSON
+PASS: TP node TP-Pip confirmed
+PASS: TP status alive
+PASS: TP model qwen2.5:14b
+PASS: TP Claude false
+PASS: TP proof valid JSON
+PASS: TP proof version v4 confirmed
+
+---- 7. TP-Pip HQ registry/card ----
+PASS: /vaults/nvme0/qsb_tower_v1/data/registries/qsb_live_worker_endpoints.jsonl exists
+PASS: /vaults/nvme0/qsb_tower_v1/data/registries/qsb_tp_pip_hq_ingest.jsonl exists
+PASS: /vaults/nvme0/qsb_tower_v1/data/registries/tp_pip_worker_card.json exists
+PASS: TP worker card valid JSON
+PASS: TP worker card title OK
+PASS: TP-Pip present in live worker registry
+
+---- 8. Ollama local and remote ----
+PASS: local Ollama reachable at 127.0.0.1:11434
+PASS: local Ollama has qwen2.5:14b
+PASS: remote Ollama reachable at 192.168.1.71:11434
+PASS: remote Ollama has qwen2.5:14b
+
+---- 9. Wren/Ren likely active files ----
+PASS: /vaults/nvme0/qsb_tower_v1/qsb_wren_dash.py exists
+PASS: /vaults/nvme0/qsb_tower_v1/qsb_wren_dash.py compiles
+PASS: /vaults/nvme0/qsb_tower_v1/floors/floor_46_wren_bench/qsb_wren_dash.py exists
+PASS: /vaults/nvme0/qsb_tower_v1/floors/floor_46_wren_bench/qsb_wren_dash.py compiles
+PASS: /vaults/nvme0/qsb_tower_v1/floors/floor_46_wren_bench/dashboards/qsb_wren_dash.py exists
+WARN: /vaults/nvme0/qsb_tower_v1/floors/floor_46_wren_bench/dashboards/qsb_wren_dash.py compile failed
+
+---- 10. Key logs / no last error checks ----
+WARN: old brain router startup error log exists: brain_router_startup_error_20260707_195352.log
+PASS: /vaults/nvme0/qsb_tower_v1/data/logs/hq_heartbeat.log exists
+PASS: /vaults/nvme0/qsb_tower_v1/data/logs/local_model_inference.jsonl exists
+PASS: /vaults/nvme0/qsb_tower_v1/data/registries/qsb_brain_router_calls.jsonl exists
+PASS: /vaults/nvme0/qsb_tower_v1/data/registries/qsb_boardroom_commentary.jsonl exists
+
+---- 11. Summary counts ----
+PASSES: 54
+WARNS:  2
+FAILS:  0
+
+============================================================
+ SMOKE RESULT: PASS WITH WARNINGS POSSIBLE
+ Report: /vaults/nvme0/qsb_tower_v1/data/registries/qsb_full_smoke_test_20260707_233604.txt
+============================================================

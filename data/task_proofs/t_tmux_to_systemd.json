@@ -1,0 +1,20 @@
+{
+  "task_id": "t_tmux_to_systemd",
+  "implemented_by": "claude_hq",
+  "verified_by": "claude_hq(systemctl+curl)",
+  "timestamp": "2026-07-09T12:52:57Z",
+  "files_changed": [
+    "/etc/systemd/system/qsb-boardroom.service",
+    "/etc/systemd/system/qsb-wren-dash.service",
+    "/etc/systemd/system/qsb-wren-loop.service"
+  ],
+  "smoke_results": {
+    "qsb-boardroom": "active+enabled",
+    "qsb-wren-dash": "active+enabled",
+    "qsb-wren-loop": "active+enabled",
+    "port_8852": 200,
+    "port_8851": 200,
+    "tmux_still_needed": false
+  },
+  "final_status": "complete \u2014 verified"
+}

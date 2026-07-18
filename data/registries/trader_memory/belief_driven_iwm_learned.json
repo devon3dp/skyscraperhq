@@ -1,0 +1,24 @@
+{
+  "trader_id": "belief_driven_iwm",
+  "trained_at": "2026-07-06T07:10:09.772302Z",
+  "closes_analyzed": 3,
+  "win_rate_current": 1.0,
+  "win_rate_target": 0.75,
+  "gap_to_target": -0.25,
+  "avg_win_pnl": 0.5146,
+  "avg_loss_pnl": 0.0,
+  "best_instrument": {
+    "name": "IWM",
+    "pnl": 1.5437
+  },
+  "worst_instrument": {
+    "name": "IWM",
+    "pnl": 1.5437
+  },
+  "learned_rules": [
+    "MAINTAIN \u2014 at or above 75% target \u00b7 protect the edge",
+    "AMP IWM \u00b7 winning +$1.54"
+  ],
+  "recommended_units": 500,
+  "verdict": "PASS"
+}

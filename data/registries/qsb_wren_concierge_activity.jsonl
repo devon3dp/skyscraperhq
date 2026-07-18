@@ -1,0 +1,129 @@
+{"ts": "2026-07-11T11:59:44.968241Z", "action": "concierge_opened", "actor": "wren", "item": "", "result": "Wren Concierge V1 online"}
+{"ts": "2026-07-11T12:00:17.472519Z", "action": "approval_record", "actor": "ross", "item": "Approve", "result": "record only (no execution)"}
+{"ts": "2026-07-11T12:00:17.486690Z", "action": "decision_chance", "actor": "ross", "item": "explore option", "result": "logged (no execution)"}
+{"ts": "2026-07-11T12:00:17.500967Z", "action": "draft_task_created", "actor": "ross", "item": "smoke draft", "result": "draft_only"}
+{"ts": "2026-07-11T12:00:17.516554Z", "action": "signoff", "actor": "ross", "item": "reviewed", "result": "yes"}
+{"ts": "2026-07-11T12:43:57.112361Z", "action": "approval_record", "actor": "ross", "item": "Approve", "result": "record only (no execution)"}
+{"ts": "2026-07-11T12:43:57.126863Z", "action": "decision_choice", "actor": "ross", "item": "approve A", "result": "logged (no execution)"}
+{"ts": "2026-07-11T12:43:57.141159Z", "action": "draft_task_created", "actor": "ross", "item": "v1b merge smoke", "result": "draft_only"}
+{"ts": "2026-07-11T13:04:58.616050Z", "action": "approval_approved", "actor": "ross", "item": "Refresh Task Council freshness", "result": "approve"}
+{"ts": "2026-07-11T13:04:58.616155Z", "action": "approval_packet_created", "actor": "ross", "item": "Refresh Task Council freshness", "result": "approve (pending_consumption)"}
+{"ts": "2026-07-11T13:04:58.630646Z", "action": "approval_signed_off", "actor": "ross", "item": "Decide Wren :8851 final vs :8857 staging", "result": "sign off"}
+{"ts": "2026-07-11T13:04:58.630708Z", "action": "approval_packet_created", "actor": "ross", "item": "Decide Wren :8851 final vs :8857 staging", "result": "sign off (pending_consumption)"}
+{"ts": "2026-07-11T13:04:58.647509Z", "action": "approval_denied", "actor": "ross", "item": "Approve first real Task Council booked task", "result": "deny"}
+{"ts": "2026-07-11T13:04:58.647613Z", "action": "approval_packet_created", "actor": "ross", "item": "Approve first real Task Council booked task", "result": "deny (pending_consumption)"}
+{"ts": "2026-07-11T13:04:58.659076Z", "action": "voice_transcript", "actor": "ross", "item": "Wren make a task for X", "result": "draft/intake only (no execution)"}
+{"ts": "2026-07-11T13:25:15.588502Z", "action": "wren_ask", "actor": "ross", "item": "Where is Tour Guide?", "result": "answered from knowledge (no execution)"}
+{"ts": "2026-07-11T13:25:15.601494Z", "action": "job_card_created", "actor": "ross", "item": "job_1783776315", "result": "get TP and Acer to smoke test the trading floor"}
+{"ts": "2026-07-11T13:25:17.453889Z", "action": "job_submit_refused", "actor": "wren", "item": "job_1783776315", "result": "Task Council is STALE \u2014 a refresh must be approved first; job is not approved_by_ross; R115 manifest not confirmed"}
+{"ts": "2026-07-11T13:25:17.461891Z", "action": "job_approve", "actor": "ross", "item": "job_1783776315", "result": "approved_by_ross"}
+{"ts": "2026-07-11T13:25:19.314465Z", "action": "job_submit_refused", "actor": "wren", "item": "job_1783776315", "result": "Task Council is STALE \u2014 a refresh must be approved first; R115 manifest not confirmed"}
+{"ts": "2026-07-11T13:25:19.322649Z", "action": "job_signoff", "actor": "ross", "item": "job_1783776315", "result": "signed_off"}
+{"ts": "2026-07-11T13:27:09.922336Z", "action": "wren_ask", "actor": "ross", "item": "Where is Tour Guide?", "result": "answered from knowledge (no execution)"}
+{"ts": "2026-07-11T13:27:09.936146Z", "action": "wren_ask", "actor": "ross", "item": "what are the online shops?", "result": "answered from knowledge (no execution)"}
+{"ts": "2026-07-11T13:28:22.615557Z", "action": "wren_ask", "actor": "ross", "item": "what are the online shops?", "result": "answered from knowledge (no execution)"}
+{"ts": "2026-07-11T13:28:22.628856Z", "action": "wren_ask", "actor": "ross", "item": "who is TP?", "result": "answered from knowledge (no execution)"}
+{"ts": "2026-07-11T13:35:03.506353Z", "action": "approval_approved", "actor": "ross", "item": "Accept Receptionist audio after manual test", "result": "approve"}
+{"ts": "2026-07-11T13:35:03.506429Z", "action": "approval_packet_created", "actor": "ross", "item": "Accept Receptionist audio after manual test", "result": "approve (pending_consumption)"}
+{"ts": "2026-07-11T13:35:06.778348Z", "action": "approval_signed_off", "actor": "ross", "item": "Accept Receptionist audio after manual test", "result": "sign off"}
+{"ts": "2026-07-11T13:35:06.778407Z", "action": "approval_packet_created", "actor": "ross", "item": "Accept Receptionist audio after manual test", "result": "sign off (pending_consumption)"}
+{"ts": "2026-07-11T13:35:18.002922Z", "action": "approval_signed_off", "actor": "ross", "item": "Accept Receptionist audio after manual test", "result": "sign off"}
+{"ts": "2026-07-11T13:35:18.003062Z", "action": "approval_packet_created", "actor": "ross", "item": "Accept Receptionist audio after manual test", "result": "sign off (pending_consumption)"}
+{"ts": "2026-07-11T13:35:44.010666Z", "action": "job_approve", "actor": "ross", "item": "job_1783776315", "result": "approved_by_ross"}
+{"ts": "2026-07-11T13:35:47.122587Z", "action": "job_signoff", "actor": "ross", "item": "job_1783776315", "result": "signed_off"}
+{"ts": "2026-07-11T13:35:50.722360Z", "action": "job_approve", "actor": "ross", "item": "job_1783776315", "result": "approved_by_ross"}
+{"ts": "2026-07-11T13:40:04.609415Z", "action": "job_card_created", "actor": "ross", "item": "job_1783777204", "result": "council-fresh gate test"}
+{"ts": "2026-07-11T13:40:06.472644Z", "action": "job_submit_refused", "actor": "wren", "item": "job_1783777204", "result": "job is not approved_by_ross; R115 manifest not confirmed"}
+{"ts": "2026-07-11T13:40:06.481738Z", "action": "job_approve", "actor": "ross", "item": "job_1783777204", "result": "approved_by_ross"}
+{"ts": "2026-07-11T13:40:08.430533Z", "action": "job_submit_refused", "actor": "wren", "item": "job_1783777204", "result": "R115 manifest not confirmed"}
+{"ts": "2026-07-11T13:45:45.107927Z", "action": "job_card_created", "actor": "ross", "item": "job_1783777545", "result": "Update Receptionist Task Council freshness check t"}
+{"ts": "2026-07-11T13:45:45.116339Z", "action": "job_approve", "actor": "ross", "item": "job_1783777545", "result": "approved_by_ross"}
+{"ts": "2026-07-11T13:47:03.842095Z", "action": "job_mark_ready_for_signoff", "actor": "ross", "item": "job_1783777545", "result": "ready_for_ross_signoff"}
+{"ts": "2026-07-11T13:50:59.148091Z", "action": "approval_approved", "actor": "ross", "item": "Accept Receptionist audio after manual test", "result": "approve"}
+{"ts": "2026-07-11T13:50:59.148168Z", "action": "approval_packet_created", "actor": "ross", "item": "Accept Receptionist audio after manual test", "result": "approve (pending_consumption)"}
+{"ts": "2026-07-11T13:51:00.258857Z", "action": "approval_approved", "actor": "ross", "item": "Accept Receptionist audio after manual test", "result": "accept"}
+{"ts": "2026-07-11T13:51:00.258916Z", "action": "approval_packet_created", "actor": "ross", "item": "Accept Receptionist audio after manual test", "result": "accept (pending_consumption)"}
+{"ts": "2026-07-11T13:51:01.387123Z", "action": "approval_signed_off", "actor": "ross", "item": "Accept Receptionist audio after manual test", "result": "sign off"}
+{"ts": "2026-07-11T13:51:01.387173Z", "action": "approval_packet_created", "actor": "ross", "item": "Accept Receptionist audio after manual test", "result": "sign off (pending_consumption)"}
+{"ts": "2026-07-11T13:51:19.038990Z", "action": "approval_rejected", "actor": "ross", "item": "Approve Front Gate visitor code build", "result": "reject"}
+{"ts": "2026-07-11T13:51:19.039038Z", "action": "approval_packet_created", "actor": "ross", "item": "Approve Front Gate visitor code build", "result": "reject (pending_consumption)"}
+{"ts": "2026-07-11T13:51:20.636059Z", "action": "approval_rejected", "actor": "ross", "item": "Approve Front Gate visitor code build", "result": "reject"}
+{"ts": "2026-07-11T13:51:20.636129Z", "action": "approval_packet_created", "actor": "ross", "item": "Approve Front Gate visitor code build", "result": "reject (pending_consumption)"}
+{"ts": "2026-07-11T13:51:24.661677Z", "action": "approval_approved", "actor": "ross", "item": "Accept Receptionist audio after manual test", "result": "approve"}
+{"ts": "2026-07-11T13:51:24.661722Z", "action": "approval_packet_created", "actor": "ross", "item": "Accept Receptionist audio after manual test", "result": "approve (pending_consumption)"}
+{"ts": "2026-07-11T13:51:31.587048Z", "action": "approval_signed_off", "actor": "ross", "item": "Accept Receptionist audio after manual test", "result": "sign off"}
+{"ts": "2026-07-11T13:51:31.587105Z", "action": "approval_packet_created", "actor": "ross", "item": "Accept Receptionist audio after manual test", "result": "sign off (pending_consumption)"}
+{"ts": "2026-07-11T13:51:33.739030Z", "action": "approval_signed_off", "actor": "ross", "item": "Accept Receptionist audio after manual test", "result": "sign off"}
+{"ts": "2026-07-11T13:51:33.739100Z", "action": "approval_packet_created", "actor": "ross", "item": "Accept Receptionist audio after manual test", "result": "sign off (pending_consumption)"}
+{"ts": "2026-07-11T13:51:36.155384Z", "action": "approval_approved", "actor": "ross", "item": "Accept Receptionist audio after manual test", "result": "approve"}
+{"ts": "2026-07-11T13:51:36.155450Z", "action": "approval_packet_created", "actor": "ross", "item": "Accept Receptionist audio after manual test", "result": "approve (pending_consumption)"}
+{"ts": "2026-07-11T13:51:57.930741Z", "action": "approval_denied", "actor": "ross", "item": "Approve phone/Twilio wiring later", "result": "deny"}
+{"ts": "2026-07-11T13:51:57.930850Z", "action": "approval_packet_created", "actor": "ross", "item": "Approve phone/Twilio wiring later", "result": "deny (pending_consumption)"}
+{"ts": "2026-07-11T13:52:00.347977Z", "action": "approval_denied", "actor": "ross", "item": "Approve phone/Twilio wiring later", "result": "deny"}
+{"ts": "2026-07-11T13:52:00.348046Z", "action": "approval_packet_created", "actor": "ross", "item": "Approve phone/Twilio wiring later", "result": "deny (pending_consumption)"}
+{"ts": "2026-07-11T13:52:00.349183Z", "action": "approval_denied", "actor": "ross", "item": "Approve phone/Twilio wiring later", "result": "deny"}
+{"ts": "2026-07-11T13:52:00.349228Z", "action": "approval_packet_created", "actor": "ross", "item": "Approve phone/Twilio wiring later", "result": "deny (pending_consumption)"}
+{"ts": "2026-07-11T13:52:00.351271Z", "action": "approval_denied", "actor": "ross", "item": "Approve phone/Twilio wiring later", "result": "deny"}
+{"ts": "2026-07-11T13:52:00.351321Z", "action": "approval_packet_created", "actor": "ross", "item": "Approve phone/Twilio wiring later", "result": "deny (pending_consumption)"}
+{"ts": "2026-07-11T13:52:02.283766Z", "action": "approval_denied", "actor": "ross", "item": "Approve phone/Twilio wiring later", "result": "deny"}
+{"ts": "2026-07-11T13:52:02.283816Z", "action": "approval_packet_created", "actor": "ross", "item": "Approve phone/Twilio wiring later", "result": "deny (pending_consumption)"}
+{"ts": "2026-07-11T13:53:59.078756Z", "action": "job_card_created", "actor": "ross", "item": "job_1783778039", "result": "Read-only verification: all 6 dashboards LIVE + TP"}
+{"ts": "2026-07-11T13:54:00.932418Z", "action": "job_submit_refused", "actor": "wren", "item": "job_1783778039", "result": "job is not approved_by_ross; R115 manifest not confirmed"}
+{"ts": "2026-07-11T14:01:40.986507Z", "action": "approval_approved", "actor": "ross", "item": "Approve Tour Guide build", "result": "approve"}
+{"ts": "2026-07-11T14:01:40.986589Z", "action": "approval_packet_created", "actor": "ross", "item": "Approve Tour Guide build", "result": "approve (pending_consumption)"}
+{"ts": "2026-07-11T14:32:13.457383Z", "action": "approval_approved", "actor": "ross", "item": "Approve Pi kiosk setup", "result": "approve"}
+{"ts": "2026-07-11T14:32:13.457446Z", "action": "approval_packet_created", "actor": "ross", "item": "Approve Pi kiosk setup", "result": "approve (pending_consumption)"}
+{"ts": "2026-07-11T14:32:40.081532Z", "action": "job_signoff", "actor": "ross", "item": "job_1783777545", "result": "signed_off"}
+{"ts": "2026-07-11T14:33:02.024458Z", "action": "job_signoff", "actor": "ross", "item": "job_1783778039", "result": "signed_off"}
+{"ts": "2026-07-11T14:33:04.326492Z", "action": "job_signoff", "actor": "ross", "item": "job_1783778039", "result": "signed_off"}
+{"ts": "2026-07-11T14:33:08.686387Z", "action": "job_approve", "actor": "ross", "item": "job_1783778039", "result": "approved_by_ross"}
+{"ts": "2026-07-11T14:33:10.958870Z", "action": "job_signoff", "actor": "ross", "item": "job_1783778039", "result": "signed_off"}
+{"ts": "2026-07-11T14:33:15.383026Z", "action": "job_approve", "actor": "ross", "item": "job_1783777545", "result": "approved_by_ross"}
+{"ts": "2026-07-11T14:33:26.000857Z", "action": "job_submit_refused", "actor": "wren", "item": "job_1783777545", "result": "R115 manifest not confirmed"}
+{"ts": "2026-07-11T14:33:29.750119Z", "action": "job_submit_refused", "actor": "wren", "item": "job_1783777545", "result": "R115 manifest not confirmed"}
+{"ts": "2026-07-11T14:33:30.059824Z", "action": "job_submit_refused", "actor": "wren", "item": "job_1783777545", "result": "R115 manifest not confirmed"}
+{"ts": "2026-07-11T14:33:31.480675Z", "action": "job_submit_refused", "actor": "wren", "item": "job_1783777545", "result": "R115 manifest not confirmed"}
+{"ts": "2026-07-11T14:33:31.563303Z", "action": "job_signoff", "actor": "ross", "item": "job_1783777545", "result": "signed_off"}
+{"ts": "2026-07-11T14:33:38.866207Z", "action": "job_approve", "actor": "ross", "item": "job_1783777545", "result": "approved_by_ross"}
+{"ts": "2026-07-11T14:34:25.258269Z", "action": "voice_transcript", "actor": "ross", "item": "hello status report", "result": "draft/intake only (no execution)"}
+{"ts": "2026-07-11T14:35:39.355288Z", "action": "approval_approved", "actor": "ross", "item": "Approve WhatsApp send wiring later", "result": "approve"}
+{"ts": "2026-07-11T14:35:39.355351Z", "action": "approval_packet_created", "actor": "ross", "item": "Approve WhatsApp send wiring later", "result": "approve (pending_consumption)"}
+{"ts": "2026-07-11T14:35:53.971840Z", "action": "approval_approved", "actor": "ross", "item": "Approve Gmail wiring audit", "result": "approve"}
+{"ts": "2026-07-11T14:35:53.971893Z", "action": "approval_packet_created", "actor": "ross", "item": "Approve Gmail wiring audit", "result": "approve (pending_consumption)"}
+{"ts": "2026-07-11T14:36:03.299220Z", "action": "approval_approved", "actor": "ross", "item": "Approve Telegram send wiring later", "result": "approve"}
+{"ts": "2026-07-11T14:36:03.299290Z", "action": "approval_packet_created", "actor": "ross", "item": "Approve Telegram send wiring later", "result": "approve (pending_consumption)"}
+{"ts": "2026-07-11T14:36:11.307892Z", "action": "approval_approved", "actor": "ross", "item": "Approve website/Netlify verification", "result": "approve"}
+{"ts": "2026-07-11T14:36:11.307946Z", "action": "approval_packet_created", "actor": "ross", "item": "Approve website/Netlify verification", "result": "approve (pending_consumption)"}
+{"ts": "2026-07-11T14:36:21.547367Z", "action": "approval_approved", "actor": "ross", "item": "Approve Galaxy bridge wiring later", "result": "approve"}
+{"ts": "2026-07-11T14:36:21.547420Z", "action": "approval_packet_created", "actor": "ross", "item": "Approve Galaxy bridge wiring later", "result": "approve (pending_consumption)"}
+{"ts": "2026-07-11T14:36:23.579494Z", "action": "approval_approved", "actor": "ross", "item": "Approve SSK/NAS wiring", "result": "approve"}
+{"ts": "2026-07-11T14:36:23.579565Z", "action": "approval_packet_created", "actor": "ross", "item": "Approve SSK/NAS wiring", "result": "approve (pending_consumption)"}
+{"ts": "2026-07-11T14:36:45.991520Z", "action": "job_approve", "actor": "ross", "item": "job_1783778039", "result": "approved_by_ross"}
+{"ts": "2026-07-11T14:36:49.849870Z", "action": "job_signoff", "actor": "ross", "item": "job_1783778039", "result": "signed_off"}
+{"ts": "2026-07-11T14:36:50.941131Z", "action": "job_approve", "actor": "ross", "item": "job_1783777545", "result": "approved_by_ross"}
+{"ts": "2026-07-11T14:36:52.379283Z", "action": "job_signoff", "actor": "ross", "item": "job_1783777545", "result": "signed_off"}
+{"ts": "2026-07-11T14:36:56.459168Z", "action": "job_approve", "actor": "ross", "item": "job_1783777204", "result": "approved_by_ross"}
+{"ts": "2026-07-11T14:36:57.132419Z", "action": "job_signoff", "actor": "ross", "item": "job_1783777204", "result": "signed_off"}
+{"ts": "2026-07-11T14:36:58.631377Z", "action": "job_approve", "actor": "ross", "item": "job_1783776315", "result": "approved_by_ross"}
+{"ts": "2026-07-11T14:36:59.804055Z", "action": "job_signoff", "actor": "ross", "item": "job_1783776315", "result": "signed_off"}
+{"ts": "2026-07-11T15:13:38.105628Z", "action": "job_card_created", "actor": "ross", "item": "job_1783782818", "result": "Read-only: verify 6 dashboards + TP/Acer whoami+ca"}
+{"ts": "2026-07-11T15:22:19.713423Z", "action": "concierge_opened", "actor": "wren", "item": "", "result": "Wren Concierge V1 online"}
+{"ts": "2026-07-11T15:36:56.762919Z", "action": "concierge_opened", "actor": "wren", "item": "", "result": "Wren Concierge V1 online"}
+{"ts": "2026-07-11T16:28:22.044339Z", "action": "concierge_opened", "actor": "wren", "item": "", "result": "Wren Concierge V1 online"}
+{"ts": "2026-07-11T20:22:58.088865Z", "action": "concierge_opened", "actor": "wren", "item": "", "result": "Wren Concierge V1 online"}
+{"ts": "2026-07-11T21:01:28.985651Z", "action": "concierge_opened", "actor": "wren", "item": "", "result": "Wren Concierge V1 online"}
+{"ts": "2026-07-11T21:02:37.293995Z", "action": "concierge_opened", "actor": "wren", "item": "", "result": "Wren Concierge V1 online"}
+{"ts": "2026-07-12T09:02:14.676607Z", "action": "concierge_opened", "actor": "wren", "item": "", "result": "Wren Concierge V1 online"}
+{"ts": "2026-07-14T20:04:48.647166Z", "action": "concierge_opened", "actor": "wren", "item": "", "result": "Wren Concierge V1 online"}
+{"ts": "2026-07-14T23:10:09.127365Z", "action": "concierge_opened", "actor": "wren", "item": "", "result": "Wren Concierge V1 online"}
+{"ts": "2026-07-15T06:15:21.767787Z", "action": "concierge_opened", "actor": "wren", "item": "", "result": "Wren Concierge V1 online"}
+{"ts": "2026-07-15T18:57:16.569622Z", "action": "concierge_opened", "actor": "wren", "item": "", "result": "Wren Concierge V1 online"}
+{"ts": "2026-07-16T07:04:22.020811Z", "action": "concierge_opened", "actor": "wren", "item": "", "result": "Wren Concierge V1 online"}
+{"ts": "2026-07-16T15:24:49.622367Z", "action": "concierge_opened", "actor": "wren", "item": "", "result": "Wren Concierge V1 online"}
+{"ts": "2026-07-16T15:53:40.904101Z", "action": "concierge_opened", "actor": "wren", "item": "", "result": "Wren Concierge V1 online"}
+{"ts": "2026-07-16T16:42:19.298158Z", "action": "wren_ask", "actor": "ross", "item": "Hello Wren, this is Bill \u2014 Ross's MacBook Executive Concierg", "result": "answered from knowledge (no execution)"}
+{"ts": "2026-07-16T19:23:34.091403Z", "action": "concierge_opened", "actor": "wren", "item": "", "result": "Wren Concierge V1 online"}
+{"ts": "2026-07-16T19:36:08.917913Z", "action": "concierge_opened", "actor": "wren", "item": "", "result": "Wren Concierge V1 online"}
+{"ts": "2026-07-16T20:41:41.331626Z", "action": "wren_ask", "actor": "ross", "item": "In one short sentence, what is your role on Floor 46?", "result": "answered from knowledge (no execution)"}
+{"ts": "2026-07-17T10:08:19.463998Z", "action": "concierge_opened", "actor": "wren", "item": "", "result": "Wren Concierge V1 online"}
+{"ts": "2026-07-17T14:36:56.667504Z", "action": "concierge_opened", "actor": "wren", "item": "", "result": "Wren Concierge V1 online"}

@@ -1,0 +1,52 @@
+{
+  "job_id": "cage-smoke-arch-2026-07-16",
+  "task_id": "MIGRATION_PHASE4_CAGE_SMOKE",
+  "ross_instruction": "Read one approved Floor-47 continuity document and create a concise architecture summary in the approved cage report directory. Do not modify production, worker minds, databases, services or registries.",
+  "wren_interpretation": "LOW-RISK read+summarize. Caged claude_chat, tools+MCP disabled, output confined to the job's active dir. Verifier confirms the summary file exists and no out-of-scope/production change occurred.",
+  "risk_level": "LOW_READ_SUMMARIZE",
+  "assigned_worker": "claude_runner",
+  "permitted_paths": [
+    "runtime/claude_cage/active/cage-smoke-arch-2026-07-16"
+  ],
+  "watch_paths": [
+    "tools",
+    "config",
+    "runtime/claude_cage/active"
+  ],
+  "forbidden_paths": [
+    "CLAUDE.md",
+    "config/wren_governor_policy.yaml",
+    "tools/qsb_governor_verifier.py",
+    "tools/qsb_claude_job_runner.py",
+    "floors/floor_28_security_department/vault/",
+    ".env"
+  ],
+  "expected_evidence": "runtime/claude_cage/active/cage-smoke-arch-2026-07-16/architecture_summary.md",
+  "worker_steps": [
+    {
+      "label": "caged claude architecture summary (no tools/MCP/paid key)",
+      "class": "claude_chat",
+      "cmd": {
+        "prompt": "You are the QSB Claude Specialist running inside a governed cage (no tools, no network, subscription auth, no paid API). Below is an approved SkyscraperHQ Floor-47 continuity excerpt. Write a CONCISE architecture summary (<=200 words, plain markdown) describing: what this tower is, the role of Floor-47 as the shared council/continuity context, and the heartbeat-driven update model. Do NOT invent financial figures. Do NOT propose changes. Summary only.\n\n=== APPROVED F47 CONTINUITY EXCERPT ===\n# QSB Tower Council Brief \u00b7 regenerated 2026-07-16T17:28:36Z\n\nThis file is the SHARED context that both Wren (F46) and Hermes (F51) read\nbefore every reply. Updated by the heartbeat tick (5-min cadence). If\nsomething here is stale, re-run `tools/qsb_council_brief.py`.\n\n## Today (2026-07-16)\n- F41 OANDA cycles: 0\n- F42 Binance cycles: 0\n- F43 Alpaca cycles: 0\n- Certified workers: 32\n\n## Recent F47 events (last 15 non-noise)\n- 2026-07-16T16:30:37  triage_tick  triage_alerts  The \"Master file invalid at line 31278\" error indicates a data corruption or format mismatch in your master trade log, preventing the system",
+        "output_path": "runtime/claude_cage/active/cage-smoke-arch-2026-07-16/architecture_summary.md",
+        "timeout": 180
+      }
+    }
+  ],
+  "verifier_checks": [
+    [
+      "--check",
+      "file",
+      "--file",
+      "runtime/claude_cage/active/cage-smoke-arch-2026-07-16/architecture_summary.md"
+    ]
+  ],
+  "timeout": 240,
+  "approving_actor": "ross",
+  "policy_checksum": "a1b76c19b98fee3524cbfb706d57c3b4668243d8ced6b2e09934e9f08f6eb50b",
+  "verifier_checksum": "7d08342b157ad17e1323fe5d4f51af2a28f8ae6c2930e5916ca797d3ad7bc20c",
+  "packet_hash": "e823442b9a1272efff0277eb749c376b468487dd64f916f13287854058e3763e",
+  "state": "APPROVED",
+  "requester": "claude_hq",
+  "approved_ts": "2026-07-16"
+}

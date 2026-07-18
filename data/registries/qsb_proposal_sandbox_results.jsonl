@@ -390,3 +390,7 @@
 {"ts": "2026-07-04T22:59:33.208379Z", "id": "wl_064af56d26", "verdict": "green", "sandbox_dir": "/vaults/ai/cache/tmp/qsb_sandbox_e3abc0a6a5", "smokes": [], "ok": true}
 {"ts": "2026-07-04T23:35:22.745691Z", "id": "wl_85c625c0a3", "verdict": "green", "sandbox_dir": "/vaults/ai/cache/tmp/qsb_sandbox_875ab15072", "smokes": [], "ok": true}
 {"ts": "2026-07-05T07:03:12.525513Z", "id": "wl_fd98958ce3", "verdict": "green", "sandbox_dir": "/tmp/qsb_sandbox_5c2c63a62b", "smokes": [], "ok": true}
+{"ts": "2026-07-06T14:54:55.262441Z", "id": "wl_7e45aba458", "verdict": "green", "sandbox_dir": "/vaults/ai/cache/tmp/qsb_sandbox_45690d027e", "smokes": [{"file": "qsb_router_ceo_mind.py", "check": "py_compile", "rc": 0, "stderr_tail": ""}], "ok": true}
+{"ts": "2026-07-10T12:01:08.115627Z", "id": "wl_334f22d7f9", "verdict": "green", "sandbox_dir": "/tmp/qsb_sandbox_eb21214bcc", "smokes": [{"file": "floors/floor_46_wren_bench/trading_annex_design.md", "check": "utf8_read", "rc": 0, "stderr_tail": ""}], "ok": true}
+{"ts": "2026-07-17T07:38:07.227959Z", "id": "wl_869cb76bff", "verdict": "green", "sandbox_dir": "/tmp/qsb_sandbox_a758230546", "smokes": [], "ok": true}
+{"ts": "2026-07-17T07:38:07.272505Z", "id": "wl_860a0b25cc", "verdict": "green", "sandbox_dir": "/tmp/qsb_sandbox_afac29eff4", "smokes": [], "ok": true}

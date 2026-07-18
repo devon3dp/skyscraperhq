@@ -1,0 +1,13 @@
+[Unit]
+Description=QSB Boardroom Hub (:8852) - task council, town square, boardroom, quad wall
+After=network-online.target
+Wants=network-online.target
+[Service]
+Type=simple
+User=ross
+WorkingDirectory=/vaults/nvme0/qsb_tower_v1
+ExecStart=/usr/bin/python3 /vaults/nvme0/qsb_tower_v1/tools/qsb_boardroom_hub.py --port 8852
+Restart=on-failure
+RestartSec=5
+[Install]
+WantedBy=multi-user.target

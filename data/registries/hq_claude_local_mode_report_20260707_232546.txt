@@ -1,0 +1,9 @@
+============================================================
+ HQ-CLAUDE LOCAL MODE PATCH
+ Claude-HQ role stays. Claude API blocked unless Ross override.
+============================================================
+time: 2026-07-07T23:25:46+01:00
+router: /vaults/nvme0/qsb_tower_v1/tools/qsb_brain_router.py
+backup: /vaults/nvme0/qsb_tower_v1/data/backups/hq_claude_local_mode_20260707_232546
+
+backup: OK

@@ -1,0 +1,588 @@
+{
+  "ts": "2026-07-08T13:58:30.690009+00:00",
+  "providers": {
+    "claude": {
+      "provider": "claude",
+      "label": "Claude",
+      "role": "deep reasoning / Claude HQ preferred",
+      "tier": "premium",
+      "key_count": 8,
+      "keys": [
+        {
+          "masked": "sk-ant-api...4YJDgAA",
+          "fingerprint": "901d172587bc29e7",
+          "sources": [
+            "/home/ross/.claude/file-history/abffeda1-e592-40d7-b539-4b41a879dfd9/626f81a8360b9f22@v3",
+            "/home/ross/.claude/file-history/abffeda1-e592-40d7-b539-4b41a879dfd9/626f81a8360b9f22@v3:ANTHROPIC_API_KEY",
+            "/home/ross/.claude/file-history/da899cbc-9d68-4b5c-928c-2c5667de3f39/626f81a8360b9f22@v3",
+            "/home/ross/.claude/file-history/da899cbc-9d68-4b5c-928c-2c5667de3f39/626f81a8360b9f22@v3:ANTHROPIC_API_KEY",
+            "/home/ross/.claude/history.jsonl",
+            "/home/ross/.skyscraper_secrets/anthropic_api.env"
+          ]
+        },
+        {
+          "masked": "sk-ant-api...ra4ZwAA",
+          "fingerprint": "8280982a420a2ea0",
+          "sources": [
+            "/home/ross/.claude/file-history/da899cbc-9d68-4b5c-928c-2c5667de3f39/626f81a8360b9f22@v2",
+            "/home/ross/.claude/file-history/da899cbc-9d68-4b5c-928c-2c5667de3f39/626f81a8360b9f22@v2:ANTHROPIC_API_KEY",
+            "/home/ross/.claude/history.jsonl"
+          ]
+        },
+        {
+          "masked": "sk-ant-api..._Be-wAA",
+          "fingerprint": "054520dd4e6941d9",
+          "sources": [
+            "/home/ross/.claude/file-history/da899cbc-9d68-4b5c-928c-2c5667de3f39/626f81a8360b9f22@v4",
+            "/home/ross/.claude/file-history/da899cbc-9d68-4b5c-928c-2c5667de3f39/626f81a8360b9f22@v4:ANTHROPIC_API_KEY",
+            "/home/ross/.claude/history.jsonl",
+            "/vaults/nvme0/qsb_tower_v1/floors/floor_28_security_department/vault/.env.anthropic.bak_20260707T150241Z_ross_new_key_paste",
+            "/vaults/nvme0/qsb_tower_v1/floors/floor_28_security_department/vault/.env.anthropic.bak_20260707T150241Z_ross_new_key_paste:ANTHROPIC_API_KEY"
+          ]
+        },
+        {
+          "masked": "sk-ant-api...PTXUQAA",
+          "fingerprint": "a156f6c5a5535d2f",
+          "sources": [
+            "/home/ross/.claude/history.jsonl"
+          ]
+        },
+        {
+          "masked": "your...here",
+          "fingerprint": "99d963c43cd75cce",
+          "sources": [
+            "/home/ross/.claude/plugins/marketplaces/claude-plugins-official/plugins/agent-sdk-dev/README.md:ANTHROPIC_API_KEY"
+          ]
+        },
+        {
+          "masked": "your...ere`",
+          "fingerprint": "e3863713c895c359",
+          "sources": [
+            "/home/ross/.claude/plugins/marketplaces/claude-plugins-official/plugins/agent-sdk-dev/commands/new-sdk-app.md:ANTHROPIC_API_KEY"
+          ]
+        },
+        {
+          "masked": "os.e...get(",
+          "fingerprint": "b0782cef1bb041f1",
+          "sources": [
+            "/home/ross/.claude/plugins/marketplaces/claude-plugins-official/plugins/security-guidance/hooks/llm.py:ANTHROPIC_API_KEY"
+          ]
+        },
+        {
+          "masked": "sk-ant-api...1pPogAA",
+          "fingerprint": "09fb9dd4e2cdbae7",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_council_mind_mirror_Acer-Cass.json",
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_council_mind_mirror_TP-Pip.json"
+          ]
+        }
+      ],
+      "status": "key_found"
+    },
+    "openai": {
+      "provider": "openai",
+      "label": "OpenAI",
+      "role": "structured reasoning / planning",
+      "tier": "medium",
+      "key_count": 5,
+      "keys": [
+        {
+          "masked": "QSB_...DEL=",
+          "fingerprint": "42630cea22b9965a",
+          "sources": [
+            "/home/ross/.claude/file-history/5bb8bba2-3a3b-440b-aa8a-54eaf55e9d98/53cecc1c0045bbf9@v2:OPENAI_API_KEY",
+            "/home/ross/.claude/file-history/cadd8fb9-3fa2-453e-9527-b1360c79812f/53cecc1c0045bbf9@v2:OPENAI_API_KEY",
+            "/home/ross/.claude/paste-cache/caf59e37c305e140.txt:OPENAI_API_KEY",
+            "/vaults/nvme0/qsb_tower_v1/config/model_floors/.env.model_floors.template:OPENAI_API_KEY"
+          ]
+        },
+        {
+          "masked": ".........",
+          "fingerprint": "ab5df625bc76dbd4",
+          "sources": [
+            "/home/ross/.claude/file-history/5bb8bba2-3a3b-440b-aa8a-54eaf55e9d98/d6eb7724ec80c073@v2:OPENAI_API_KEY",
+            "/home/ross/.claude/file-history/5bb8bba2-3a3b-440b-aa8a-54eaf55e9d98/dbae5286d52888b4@v2:OPENAI_API_KEY",
+            "/home/ross/.claude/file-history/cadd8fb9-3fa2-453e-9527-b1360c79812f/d6eb7724ec80c073@v2:OPENAI_API_KEY",
+            "/home/ross/.claude/file-history/cadd8fb9-3fa2-453e-9527-b1360c79812f/dbae5286d52888b4@v2:OPENAI_API_KEY",
+            "/home/ross/.claude/paste-cache/caf59e37c305e140.txt:OPENAI_API_KEY",
+            "/vaults/nvme0/qsb_tower_v1/config/model_floors/README_MODEL_FLOOR_KEYS.md:OPENAI_API_KEY"
+          ]
+        },
+        {
+          "masked": "$API..._KEY",
+          "fingerprint": "10dfb8ff013a0af8",
+          "sources": [
+            "/home/ross/.claude/file-history/081651ae-3864-4e03-9563-21265a04a7b5/ba4f1bfc4f33345c@v2:OPENAI_API_KEY",
+            "/home/ross/.claude/file-history/122d60db-38f7-4a12-b48c-a8068aa69887/ba4f1bfc4f33345c@v2:OPENAI_API_KEY",
+            "/home/ross/.claude/file-history/122fd666-0fea-4bda-99e9-af55015c040a/ba4f1bfc4f33345c@v2:OPENAI_API_KEY",
+            "/home/ross/.claude/file-history/1dd79188-0ddc-411c-8872-a14dd255f3b1/ba4f1bfc4f33345c@v2:OPENAI_API_KEY",
+            "/home/ross/.claude/file-history/227cbde5-8be6-4c0b-a50f-b7707ac291c7/ba4f1bfc4f33345c@v2:OPENAI_API_KEY",
+            "/home/ross/.claude/file-history/304d58ac-cddc-4c6c-bde2-bd919702fc9d/ba4f1bfc4f33345c@v2:OPENAI_API_KEY"
+          ]
+        },
+        {
+          "masked": ".+$|^QSB_D...KEY=.+$",
+          "fingerprint": "f25dab22f705562e",
+          "sources": [
+            "/home/ross/.claude/file-history/5bb8bba2-3a3b-440b-aa8a-54eaf55e9d98/ecab851fd48df2dd@v2:OPENAI_API_KEY",
+            "/home/ross/.claude/file-history/cadd8fb9-3fa2-453e-9527-b1360c79812f/ecab851fd48df2dd@v2:OPENAI_API_KEY"
+          ]
+        },
+        {
+          "masked": "sk-proj-1G...PJK8nUA",
+          "fingerprint": "e66b1bba1de8375a",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/floors/floor_28_security_department/vault/.env.openai",
+            "/vaults/nvme0/qsb_tower_v1/floors/floor_28_security_department/vault/.env.openai:OPENAI_API_KEY"
+          ]
+        }
+      ],
+      "status": "key_found"
+    },
+    "deepseek": {
+      "provider": "deepseek",
+      "label": "DeepSeek",
+      "role": "coding / cheap reasoning",
+      "tier": "low",
+      "key_count": 5,
+      "keys": [
+        {
+          "masked": "QSB_...DEL=",
+          "fingerprint": "211bfa994254fa97",
+          "sources": [
+            "/home/ross/.claude/file-history/5bb8bba2-3a3b-440b-aa8a-54eaf55e9d98/53cecc1c0045bbf9@v2:DEEPSEEK_API_KEY",
+            "/home/ross/.claude/file-history/cadd8fb9-3fa2-453e-9527-b1360c79812f/53cecc1c0045bbf9@v2:DEEPSEEK_API_KEY",
+            "/home/ross/.claude/paste-cache/caf59e37c305e140.txt:DEEPSEEK_API_KEY",
+            "/vaults/nvme0/qsb_tower_v1/config/model_floors/.env.model_floors.template:DEEPSEEK_API_KEY"
+          ]
+        },
+        {
+          "masked": ".........",
+          "fingerprint": "ab5df625bc76dbd4",
+          "sources": [
+            "/home/ross/.claude/file-history/5bb8bba2-3a3b-440b-aa8a-54eaf55e9d98/d6eb7724ec80c073@v2:DEEPSEEK_API_KEY",
+            "/home/ross/.claude/file-history/5bb8bba2-3a3b-440b-aa8a-54eaf55e9d98/dbae5286d52888b4@v2:DEEPSEEK_API_KEY",
+            "/home/ross/.claude/file-history/cadd8fb9-3fa2-453e-9527-b1360c79812f/d6eb7724ec80c073@v2:DEEPSEEK_API_KEY",
+            "/home/ross/.claude/file-history/cadd8fb9-3fa2-453e-9527-b1360c79812f/dbae5286d52888b4@v2:DEEPSEEK_API_KEY",
+            "/home/ross/.claude/paste-cache/caf59e37c305e140.txt:DEEPSEEK_API_KEY",
+            "/vaults/nvme0/qsb_tower_v1/config/model_floors/README_MODEL_FLOOR_KEYS.md:DEEPSEEK_API_KEY"
+          ]
+        },
+        {
+          "masked": "$API..._KEY",
+          "fingerprint": "10dfb8ff013a0af8",
+          "sources": [
+            "/home/ross/.claude/file-history/081651ae-3864-4e03-9563-21265a04a7b5/9a74d197407a74fc@v2:DEEPSEEK_API_KEY",
+            "/home/ross/.claude/file-history/122d60db-38f7-4a12-b48c-a8068aa69887/9a74d197407a74fc@v2:DEEPSEEK_API_KEY",
+            "/home/ross/.claude/file-history/122fd666-0fea-4bda-99e9-af55015c040a/9a74d197407a74fc@v2:DEEPSEEK_API_KEY",
+            "/home/ross/.claude/file-history/1dd79188-0ddc-411c-8872-a14dd255f3b1/9a74d197407a74fc@v2:DEEPSEEK_API_KEY",
+            "/home/ross/.claude/file-history/227cbde5-8be6-4c0b-a50f-b7707ac291c7/9a74d197407a74fc@v2:DEEPSEEK_API_KEY",
+            "/home/ross/.claude/file-history/304d58ac-cddc-4c6c-bde2-bd919702fc9d/9a74d197407a74fc@v2:DEEPSEEK_API_KEY"
+          ]
+        },
+        {
+          "masked": ".+$....+$",
+          "fingerprint": "e6619a63516ad47e",
+          "sources": [
+            "/home/ross/.claude/file-history/5bb8bba2-3a3b-440b-aa8a-54eaf55e9d98/ecab851fd48df2dd@v2:DEEPSEEK_API_KEY",
+            "/home/ross/.claude/file-history/cadd8fb9-3fa2-453e-9527-b1360c79812f/ecab851fd48df2dd@v2:DEEPSEEK_API_KEY"
+          ]
+        },
+        {
+          "masked": "sk-76c944f...facd57c",
+          "fingerprint": "b345e47bb4a10c0c",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/floors/floor_28_security_department/vault/.env.deepseek",
+            "/vaults/nvme0/qsb_tower_v1/floors/floor_28_security_department/vault/.env.deepseek:DEEPSEEK_API_KEY"
+          ]
+        }
+      ],
+      "status": "key_found"
+    },
+    "gemini": {
+      "provider": "gemini",
+      "label": "Gemini",
+      "role": "long context / broad reasoning",
+      "tier": "low-medium",
+      "key_count": 2,
+      "keys": [
+        {
+          "masked": "AQ.Ab8RN6K...Zg3lATQ",
+          "fingerprint": "259097b12facea3d",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/floors/floor_28_security_department/vault/.env.gemini:GEMINI_API_KEY"
+          ]
+        },
+        {
+          "masked": "<pas...ere>",
+          "fingerprint": "84d367e69c29c6b2",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/floors/floor_28_security_department/vault/.env.gemini.template:GEMINI_API_KEY"
+          ]
+        }
+      ],
+      "status": "key_found"
+    },
+    "cohere": {
+      "provider": "cohere",
+      "label": "Cohere",
+      "role": "retrieval / ranking / summaries",
+      "tier": "low-medium",
+      "key_count": 37,
+      "keys": [
+        {
+          "masked": "thinkpad_r..._HHMMSS",
+          "fingerprint": "a9bf78bccc91409d",
+          "sources": [
+            "/home/ross/.claude/paste-cache/dfe44744ac775c53.txt"
+          ]
+        },
+        {
+          "masked": "QSB_WORKFO...SONS_V1",
+          "fingerprint": "190f1ce7d84703ae",
+          "sources": [
+            "/home/ross/.claude/paste-cache/7d76eb2ebf49ed60.txt"
+          ]
+        },
+        {
+          "masked": "QSB_TOWER_...R_VOICE",
+          "fingerprint": "c7cba4dddb44c7c1",
+          "sources": [
+            "/home/ross/.claude/paste-cache/ee7be10b69014bca.txt"
+          ]
+        },
+        {
+          "masked": "feedback-l...6-07-06",
+          "fingerprint": "9bd3a874f5ad490b",
+          "sources": [
+            "/home/ross/.claude/file-history/c1faefb0-25b6-4979-ac7d-40233d759501/24acfed7090bf8fd@v2",
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/memory/feedback_demotion_to_worker_threat_2026-07-06.md"
+          ]
+        },
+        {
+          "masked": "feedback-r...6-07-06",
+          "fingerprint": "67dfd70da21c503a",
+          "sources": [
+            "/home/ross/.claude/file-history/c1faefb0-25b6-4979-ac7d-40233d759501/24acfed7090bf8fd@v2",
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/memory/feedback_demotion_to_worker_threat_2026-07-06.md"
+          ]
+        },
+        {
+          "masked": "feedback-i...6-07-06",
+          "fingerprint": "15d332c4706af04f",
+          "sources": [
+            "/home/ross/.claude/file-history/c1faefb0-25b6-4979-ac7d-40233d759501/24acfed7090bf8fd@v2",
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/memory/feedback_demotion_to_worker_threat_2026-07-06.md"
+          ]
+        },
+        {
+          "masked": "project_20...r_truth",
+          "fingerprint": "4869817e434ffb0c",
+          "sources": [
+            "/home/ross/.claude/file-history/11dca3e9-9d3b-483c-a20f-6f4d3673b39c/dcef92b19c4d6091@v2",
+            "/home/ross/.claude/file-history/1324ba65-8c9f-4039-bd04-be5c3afd5792/dcef92b19c4d6091@v2",
+            "/home/ross/.claude/file-history/231cac1d-4f7b-4f28-8a44-b30ee13907fe/dcef92b19c4d6091@v2",
+            "/home/ross/.claude/file-history/23780d9e-63f9-4a66-be4a-929abf1a67b7/dcef92b19c4d6091@v2",
+            "/home/ross/.claude/file-history/3b83d452-db73-47cb-b147-fd10ba48bbf1/dcef92b19c4d6091@v2",
+            "/home/ross/.claude/file-history/3e6de4f8-8cf0-43b8-83dc-ca584107937e/dcef92b19c4d6091@v2"
+          ]
+        },
+        {
+          "masked": "project_ro..._access",
+          "fingerprint": "a81a8b1298684681",
+          "sources": [
+            "/home/ross/.claude/file-history/11dca3e9-9d3b-483c-a20f-6f4d3673b39c/dcef92b19c4d6091@v2",
+            "/home/ross/.claude/file-history/1324ba65-8c9f-4039-bd04-be5c3afd5792/dcef92b19c4d6091@v2",
+            "/home/ross/.claude/file-history/231cac1d-4f7b-4f28-8a44-b30ee13907fe/dcef92b19c4d6091@v2",
+            "/home/ross/.claude/file-history/23780d9e-63f9-4a66-be4a-929abf1a67b7/dcef92b19c4d6091@v2",
+            "/home/ross/.claude/file-history/3b83d452-db73-47cb-b147-fd10ba48bbf1/dcef92b19c4d6091@v2",
+            "/home/ross/.claude/file-history/3e6de4f8-8cf0-43b8-83dc-ca584107937e/dcef92b19c4d6091@v2"
+          ]
+        },
+        {
+          "masked": "mcp__plugi...ication",
+          "fingerprint": "8a1fbce4973f1713",
+          "sources": [
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/2dff34de-d943-48bd-8227-a8ae040e7e9b/subagents/agent-a9fb2e982ca4f04ba.jsonl",
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/2dff34de-d943-48bd-8227-a8ae040e7e9b/subagents/agent-ad941be2b25ba6d09.jsonl",
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/2dff34de-d943-48bd-8227-a8ae040e7e9b/subagents/agent-ad9ed86b9d1412be4.jsonl",
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/66e4fe2e-3d00-4196-b8da-21f7653bc869/subagents/workflows/wf_f9601b61-b1a/agent-a32bc8f8fd64d38aa.jsonl",
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/66e4fe2e-3d00-4196-b8da-21f7653bc869/subagents/workflows/wf_f9601b61-b1a/agent-a5de0c1ba63408484.jsonl",
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/66e4fe2e-3d00-4196-b8da-21f7653bc869/subagents/workflows/wf_f9601b61-b1a/agent-a7eecb4c07460e323.jsonl"
+          ]
+        },
+        {
+          "masked": "hermes-age...setup-2",
+          "fingerprint": "097f27fd60f08967",
+          "sources": [
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/66e4fe2e-3d00-4196-b8da-21f7653bc869/subagents/workflows/wf_f9601b61-b1a/agent-a5de0c1ba63408484.jsonl"
+          ]
+        },
+        {
+          "masked": "sherpa-onn...6-03-06",
+          "fingerprint": "7654010843a280bc",
+          "sources": [
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/66e4fe2e-3d00-4196-b8da-21f7653bc869/subagents/workflows/wf_f9601b61-b1a/agent-a32bc8f8fd64d38aa.jsonl"
+          ]
+        },
+        {
+          "masked": "floor_47_e...artment",
+          "fingerprint": "759d24022fbb31cd",
+          "sources": [
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/2dff34de-d943-48bd-8227-a8ae040e7e9b/subagents/agent-ad941be2b25ba6d09.jsonl"
+          ]
+        },
+        {
+          "masked": "QSB_SKYSCR...TION_V1",
+          "fingerprint": "8831c9e84b5244e3",
+          "sources": [
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/2dff34de-d943-48bd-8227-a8ae040e7e9b/subagents/agent-ad941be2b25ba6d09.jsonl"
+          ]
+        },
+        {
+          "masked": "f47_op_202..._polish",
+          "fingerprint": "1df89a1e54b01e1f",
+          "sources": [
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/2dff34de-d943-48bd-8227-a8ae040e7e9b/subagents/agent-ad941be2b25ba6d09.jsonl"
+          ]
+        },
+        {
+          "masked": "nqsb_floor..._latest",
+          "fingerprint": "0f7dfff2fd8436b7",
+          "sources": [
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/2dff34de-d943-48bd-8227-a8ae040e7e9b/subagents/agent-ad941be2b25ba6d09.jsonl"
+          ]
+        },
+        {
+          "masked": "n---------...-------",
+          "fingerprint": "ab586223fd5a9fa0",
+          "sources": [
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/2dff34de-d943-48bd-8227-a8ae040e7e9b/subagents/agent-a9fb2e982ca4f04ba.jsonl",
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/2dff34de-d943-48bd-8227-a8ae040e7e9b/subagents/agent-ad9ed86b9d1412be4.jsonl"
+          ]
+        },
+        {
+          "masked": "nqsb_claud..._latest",
+          "fingerprint": "1e84dc738a655677",
+          "sources": [
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/2dff34de-d943-48bd-8227-a8ae040e7e9b/subagents/agent-a9fb2e982ca4f04ba.jsonl"
+          ]
+        },
+        {
+          "masked": "nqsb_every..._report",
+          "fingerprint": "0e7fc2326c72a6bf",
+          "sources": [
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/2dff34de-d943-48bd-8227-a8ae040e7e9b/subagents/agent-a9fb2e982ca4f04ba.jsonl"
+          ]
+        },
+        {
+          "masked": "n---------...-------",
+          "fingerprint": "f345965fd9d4b80e",
+          "sources": [
+            "/home/ross/.claude/projects/-vaults-nvme0-qsb-tower-v1/2dff34de-d943-48bd-8227-a8ae040e7e9b/subagents/agent-a9fb2e982ca4f04ba.jsonl"
+          ]
+        },
+        {
+          "masked": "cohere_aU8...42CsW7L",
+          "fingerprint": "42066e3d33c7d97d",
+          "sources": [
+            "/home/ross/.claude/file-history/abffeda1-e592-40d7-b539-4b41a879dfd9/58bbc67bf390c3be@v2",
+            "/home/ross/.claude/file-history/abffeda1-e592-40d7-b539-4b41a879dfd9/58bbc67bf390c3be@v2:COHERE_API_KEY",
+            "/home/ross/.claude/file-history/da899cbc-9d68-4b5c-928c-2c5667de3f39/58bbc67bf390c3be@v2",
+            "/home/ross/.claude/file-history/da899cbc-9d68-4b5c-928c-2c5667de3f39/58bbc67bf390c3be@v2:COHERE_API_KEY",
+            "/vaults/nvme0/qsb_tower_v1/floors/floor_28_security_department/vault/.env.cohere",
+            "/vaults/nvme0/qsb_tower_v1/floors/floor_28_security_department/vault/.env.cohere:COHERE_API_KEY"
+          ]
+        },
+        {
+          "masked": "EQSB_KERNE...CORE_V1",
+          "fingerprint": "9e5295e96f0052cb",
+          "sources": [
+            "/home/ross/.claude/file-history/5bb8bba2-3a3b-440b-aa8a-54eaf55e9d98/c9247d63e8a39360@v2",
+            "/home/ross/.claude/file-history/64f186cc-f4b0-454c-9fbf-d95072a89254/c9247d63e8a39360@v2",
+            "/home/ross/.claude/file-history/8ab0d80d-63fb-4d16-abcb-43cd545c454f/c9247d63e8a39360@v2",
+            "/home/ross/.claude/file-history/cadd8fb9-3fa2-453e-9527-b1360c79812f/c9247d63e8a39360@v2"
+          ]
+        },
+        {
+          "masked": "f47_op_202...t_pass2",
+          "fingerprint": "04797069db86e836",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/floors/floor_47_executive_operations_department/operation_records/2026-06-14_visitor_walking_tour_audit_pass2.json"
+          ]
+        },
+        {
+          "masked": "bak_202607...en_only",
+          "fingerprint": "c278d1c666c6ef6f",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/asa_node/asa_results.jsonl",
+            "/vaults/nvme0/qsb_tower_v1/data/asa_node/asa_tasks.jsonl"
+          ]
+        },
+        {
+          "masked": "bak_202607...oviders",
+          "fingerprint": "697fa2f6a1291a6b",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/asa_node/asa_results.jsonl",
+            "/vaults/nvme0/qsb_tower_v1/data/asa_node/asa_tasks.jsonl"
+          ]
+        },
+        {
+          "masked": "bak_202607...checker",
+          "fingerprint": "5ac4eb7c0693dc0b",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/asa_node/asa_results.jsonl",
+            "/vaults/nvme0/qsb_tower_v1/data/asa_node/asa_tasks.jsonl"
+          ]
+        },
+        {
+          "masked": "bak_202607...tp_wren",
+          "fingerprint": "fe9d64e949a5a5b4",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/asa_node/asa_results.jsonl",
+            "/vaults/nvme0/qsb_tower_v1/data/asa_node/asa_tasks.jsonl"
+          ]
+        },
+        {
+          "masked": "qsb_claude..._design",
+          "fingerprint": "1a70cff77364a563",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/asa_node/asa_results.jsonl",
+            "/vaults/nvme0/qsb_tower_v1/data/asa_node/asa_tasks.jsonl"
+          ]
+        },
+        {
+          "masked": "bak_202607...clarity",
+          "fingerprint": "16706cca6ebec711",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/asa_node/asa_results.jsonl",
+            "/vaults/nvme0/qsb_tower_v1/data/asa_node/asa_tasks.jsonl"
+          ]
+        },
+        {
+          "masked": "bak_202607...l_guard",
+          "fingerprint": "0c9754571a153aca",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/asa_node/asa_results.jsonl",
+            "/vaults/nvme0/qsb_tower_v1/data/asa_node/asa_tasks.jsonl"
+          ]
+        },
+        {
+          "masked": "qsb_three_...gnments",
+          "fingerprint": "34b3ddeb62aea990",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_three_model_embassy_floor_assignments.json"
+          ]
+        },
+        {
+          "masked": "QSB_THREE_...SEEK_V1",
+          "fingerprint": "15a488ecf7610613",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_three_model_embassy_floor_assignments.json"
+          ]
+        },
+        {
+          "masked": "generative...mapping",
+          "fingerprint": "08cd8bec1b15b43d",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/runtime/oci_venv/lib/python3.12/site-packages/oci/generative_ai_agent_runtime/generative_ai_agent_runtime_client.py"
+          ]
+        },
+        {
+          "masked": "client_lev...enabled",
+          "fingerprint": "b19a83695d32c4ad",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/runtime/oci_venv/lib/python3.12/site-packages/oci/generative_ai_agent_runtime/generative_ai_agent_runtime_client.py"
+          ]
+        },
+        {
+          "masked": "service_us...default",
+          "fingerprint": "03a0c20941af8f65",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/runtime/oci_venv/lib/python3.12/site-packages/oci/generative_ai_agent_runtime/generative_ai_agent_runtime_client.py"
+          ]
+        },
+        {
+          "masked": "client_lev...enabled",
+          "fingerprint": "fcb7a5f6590166fd",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/runtime/oci_venv/lib/python3.12/site-packages/oci/generative_ai_agent_runtime/generative_ai_agent_runtime_client.py"
+          ]
+        },
+        {
+          "masked": "generate-t...request",
+          "fingerprint": "c4e543fcfeae0dda",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/runtime/oci_venv/lib/python3.12/site-packages/oci_cli/help_text_producer/data_files/text/cmdref/generative-ai-inference.txt",
+            "/vaults/nvme0/qsb_tower_v1/data/runtime/oci_venv/lib/python3.12/site-packages/oci_cli/help_text_producer/data_files/text/cmdref/generative-ai-inference/generate-text-result.txt"
+          ]
+        },
+        {
+          "masked": "generate-t...request",
+          "fingerprint": "59b66805d2baaf83",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/data/runtime/oci_venv/lib/python3.12/site-packages/oci_cli/help_text_producer/data_files/text/cmdref/generative-ai-inference.txt",
+            "/vaults/nvme0/qsb_tower_v1/data/runtime/oci_venv/lib/python3.12/site-packages/oci_cli/help_text_producer/data_files/text/cmdref/generative-ai-inference/generate-text-result.txt"
+          ]
+        }
+      ],
+      "status": "key_found"
+    },
+    "kimi": {
+      "provider": "kimi",
+      "label": "Kimi",
+      "role": "long document reasoning",
+      "tier": "low-medium",
+      "key_count": 1,
+      "keys": [
+        {
+          "masked": "sk-9v0SBsd...bKh73US",
+          "fingerprint": "3a16823da16cca22",
+          "sources": [
+            "/home/ross/.claude/file-history/abffeda1-e592-40d7-b539-4b41a879dfd9/217ca103b0a02504@v2",
+            "/home/ross/.claude/file-history/abffeda1-e592-40d7-b539-4b41a879dfd9/217ca103b0a02504@v2:KIMI_API_KEY",
+            "/home/ross/.claude/file-history/da899cbc-9d68-4b5c-928c-2c5667de3f39/217ca103b0a02504@v2",
+            "/home/ross/.claude/file-history/da899cbc-9d68-4b5c-928c-2c5667de3f39/217ca103b0a02504@v2:KIMI_API_KEY",
+            "/vaults/nvme0/qsb_tower_v1/floors/floor_28_security_department/vault/.env.kimi",
+            "/vaults/nvme0/qsb_tower_v1/floors/floor_28_security_department/vault/.env.kimi:KIMI_API_KEY"
+          ]
+        }
+      ],
+      "status": "key_found"
+    },
+    "grok": {
+      "provider": "grok",
+      "label": "Grok / xAI",
+      "role": "alternate reasoning perspective",
+      "tier": "medium",
+      "key_count": 0,
+      "keys": [],
+      "status": "missing"
+    },
+    "groq": {
+      "provider": "groq",
+      "label": "Groq",
+      "role": "fast hosted inference",
+      "tier": "low",
+      "key_count": 2,
+      "keys": [
+        {
+          "masked": "<pas...ere>",
+          "fingerprint": "84d367e69c29c6b2",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/floors/floor_28_security_department/vault/.env.groq.template:GROQ_API_KEY"
+          ]
+        },
+        {
+          "masked": "gsk_bn5Dv1...aUvFC2g",
+          "fingerprint": "bea06de3db94be74",
+          "sources": [
+            "/vaults/nvme0/qsb_tower_v1/floors/floor_28_security_department/vault/.env.groq",
+            "/vaults/nvme0/qsb_tower_v1/floors/floor_28_security_department/vault/.env.groq:GROQ_API_KEY"
+          ]
+        }
+      ],
+      "status": "key_found"
+    }
+  }
+}

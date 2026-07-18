@@ -1,0 +1,24 @@
+{
+  "trader_id": "test_manual",
+  "trained_at": "2026-07-06T07:10:09.771004Z",
+  "closes_analyzed": 1,
+  "win_rate_current": 1.0,
+  "win_rate_target": 0.75,
+  "gap_to_target": -0.25,
+  "avg_win_pnl": 1.23,
+  "avg_loss_pnl": 0.0,
+  "best_instrument": {
+    "name": "TEST",
+    "pnl": 1.23
+  },
+  "worst_instrument": {
+    "name": "TEST",
+    "pnl": 1.23
+  },
+  "learned_rules": [
+    "MAINTAIN \u2014 at or above 75% target \u00b7 protect the edge",
+    "AMP TEST \u00b7 winning +$1.23"
+  ],
+  "recommended_units": 500,
+  "verdict": "PASS"
+}

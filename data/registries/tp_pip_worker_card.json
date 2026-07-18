@@ -1,0 +1,14 @@
+{
+  "title": "TP-Pip",
+  "subtitle": "ThinkPad-Command-Cathedral",
+  "status": "alive",
+  "dashboard_url": "http://192.168.1.91:9110/",
+  "heartbeat_url": "http://192.168.1.91:9110/heartbeat.json",
+  "proof_url": "http://192.168.1.91:9110/proof.json",
+  "model_used": "qwen2.5:14b",
+  "provider_route": "remote_ollama",
+  "claude_used": false,
+  "remote_ollama_up": true,
+  "brain_router_up": true,
+  "last_seen": "2026-07-07T23:12:22.633926"
+}

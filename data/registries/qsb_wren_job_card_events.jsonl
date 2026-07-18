@@ -1,0 +1,39 @@
+{"ts": "2026-07-11T13:25:15.601462Z", "job_id": "job_1783776315", "action": "created", "result": "draft (needs Ross review)", "actor": "ross"}
+{"ts": "2026-07-11T13:25:17.453854Z", "job_id": "job_1783776315", "action": "submit_refused", "result": "Task Council is STALE \u2014 a refresh must be approved first; job is not approved_by_ross; R115 manifest not confirmed", "actor": "ross"}
+{"ts": "2026-07-11T13:25:17.461865Z", "job_id": "job_1783776315", "action": "approve", "result": "approved_by_ross", "actor": "ross"}
+{"ts": "2026-07-11T13:25:19.314422Z", "job_id": "job_1783776315", "action": "submit_refused", "result": "Task Council is STALE \u2014 a refresh must be approved first; R115 manifest not confirmed", "actor": "ross"}
+{"ts": "2026-07-11T13:25:19.322624Z", "job_id": "job_1783776315", "action": "signoff", "result": "signed_off", "actor": "ross"}
+{"ts": "2026-07-11T13:35:44.010626Z", "job_id": "job_1783776315", "action": "approve", "result": "approved_by_ross", "actor": "ross"}
+{"ts": "2026-07-11T13:35:47.122563Z", "job_id": "job_1783776315", "action": "signoff", "result": "signed_off", "actor": "ross"}
+{"ts": "2026-07-11T13:35:50.722336Z", "job_id": "job_1783776315", "action": "approve", "result": "approved_by_ross", "actor": "ross"}
+{"ts": "2026-07-11T13:40:04.609380Z", "job_id": "job_1783777204", "action": "created", "result": "draft (needs Ross review)", "actor": "ross"}
+{"ts": "2026-07-11T13:40:06.472607Z", "job_id": "job_1783777204", "action": "submit_refused", "result": "job is not approved_by_ross; R115 manifest not confirmed", "actor": "ross"}
+{"ts": "2026-07-11T13:40:06.481706Z", "job_id": "job_1783777204", "action": "approve", "result": "approved_by_ross", "actor": "ross"}
+{"ts": "2026-07-11T13:40:08.430481Z", "job_id": "job_1783777204", "action": "submit_refused", "result": "R115 manifest not confirmed", "actor": "ross"}
+{"ts": "2026-07-11T13:40:10.260005Z", "job_id": "job_1783777204", "action": "ready_for_task_council", "result": "Wren prepared; actual submission still needs the R115-gated step", "actor": "ross"}
+{"ts": "2026-07-11T13:45:45.100201Z", "job_id": "job_1783777545", "action": "created", "result": "draft (needs Ross review)", "actor": "ross"}
+{"ts": "2026-07-11T13:45:45.116278Z", "job_id": "job_1783777545", "action": "approve", "result": "approved_by_ross", "actor": "ross"}
+{"ts": "2026-07-11T13:47:03.842067Z", "job_id": "job_1783777545", "action": "mark_ready_for_signoff", "result": "ready_for_ross_signoff", "actor": "ross"}
+{"ts": "2026-07-11T13:53:59.078729Z", "job_id": "job_1783778039", "action": "created", "result": "draft (needs Ross review)", "actor": "ross"}
+{"ts": "2026-07-11T13:54:00.932385Z", "job_id": "job_1783778039", "action": "submit_refused", "result": "job is not approved_by_ross; R115 manifest not confirmed", "actor": "ross"}
+{"ts": "2026-07-11T14:32:40.081497Z", "job_id": "job_1783777545", "action": "signoff", "result": "signed_off", "actor": "ross"}
+{"ts": "2026-07-11T14:33:02.024426Z", "job_id": "job_1783778039", "action": "signoff", "result": "signed_off", "actor": "ross"}
+{"ts": "2026-07-11T14:33:04.326467Z", "job_id": "job_1783778039", "action": "signoff", "result": "signed_off", "actor": "ross"}
+{"ts": "2026-07-11T14:33:08.686362Z", "job_id": "job_1783778039", "action": "approve", "result": "approved_by_ross", "actor": "ross"}
+{"ts": "2026-07-11T14:33:10.958840Z", "job_id": "job_1783778039", "action": "signoff", "result": "signed_off", "actor": "ross"}
+{"ts": "2026-07-11T14:33:15.381463Z", "job_id": "job_1783777545", "action": "approve", "result": "approved_by_ross", "actor": "ross"}
+{"ts": "2026-07-11T14:33:26.000819Z", "job_id": "job_1783777545", "action": "submit_refused", "result": "R115 manifest not confirmed", "actor": "ross"}
+{"ts": "2026-07-11T14:33:29.750079Z", "job_id": "job_1783777545", "action": "submit_refused", "result": "R115 manifest not confirmed", "actor": "ross"}
+{"ts": "2026-07-11T14:33:30.059781Z", "job_id": "job_1783777545", "action": "submit_refused", "result": "R115 manifest not confirmed", "actor": "ross"}
+{"ts": "2026-07-11T14:33:31.480611Z", "job_id": "job_1783777545", "action": "submit_refused", "result": "R115 manifest not confirmed", "actor": "ross"}
+{"ts": "2026-07-11T14:33:31.563281Z", "job_id": "job_1783777545", "action": "signoff", "result": "signed_off", "actor": "ross"}
+{"ts": "2026-07-11T14:33:38.866184Z", "job_id": "job_1783777545", "action": "approve", "result": "approved_by_ross", "actor": "ross"}
+{"ts": "2026-07-11T14:36:45.991495Z", "job_id": "job_1783778039", "action": "approve", "result": "approved_by_ross", "actor": "ross"}
+{"ts": "2026-07-11T14:36:49.849840Z", "job_id": "job_1783778039", "action": "signoff", "result": "signed_off", "actor": "ross"}
+{"ts": "2026-07-11T14:36:50.941104Z", "job_id": "job_1783777545", "action": "approve", "result": "approved_by_ross", "actor": "ross"}
+{"ts": "2026-07-11T14:36:52.379261Z", "job_id": "job_1783777545", "action": "signoff", "result": "signed_off", "actor": "ross"}
+{"ts": "2026-07-11T14:36:56.459144Z", "job_id": "job_1783777204", "action": "approve", "result": "approved_by_ross", "actor": "ross"}
+{"ts": "2026-07-11T14:36:57.132396Z", "job_id": "job_1783777204", "action": "signoff", "result": "signed_off", "actor": "ross"}
+{"ts": "2026-07-11T14:36:58.631350Z", "job_id": "job_1783776315", "action": "approve", "result": "approved_by_ross", "actor": "ross"}
+{"ts": "2026-07-11T14:36:59.803997Z", "job_id": "job_1783776315", "action": "signoff", "result": "signed_off", "actor": "ross"}
+{"ts": "2026-07-11T15:13:38.105595Z", "job_id": "job_1783782818", "action": "created", "result": "draft (needs Ross review)", "actor": "ross"}

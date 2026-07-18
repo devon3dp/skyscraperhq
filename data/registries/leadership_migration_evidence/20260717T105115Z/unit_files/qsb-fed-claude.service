@@ -1,0 +1,15 @@
+[Unit]
+Description=SkyscraperHQ federation heartbeat (qsb-fed-claude) - existing skyscraper_heartbeat_client, reports liveness only
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ross
+WorkingDirectory=/vaults/nvme0/qsb_tower_v1
+ExecStart=/usr/bin/python3 /vaults/nvme0/qsb_tower_v1/tools/skyscraper_heartbeat_client.py --node-id claude_specialist --display "Claude Specialist Caged Service" --role "governed specialist (separate from Wren)" --host MSI --pi http://skyscraper-pi.local:8890 --token-file /vaults/nvme0/qsb_tower_v1/data/runtime/federation.token --interval 20
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

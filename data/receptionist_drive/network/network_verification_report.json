@@ -1,0 +1,25 @@
+{
+ "generated_ts": "2026-07-11",
+ "router": {
+  "addr": "192.168.1.1",
+  "http": "302",
+  "model": "Netgear D86 (confirmed via Server header, no login)",
+  "nighthawk_confirmed": false
+ },
+ "pi": {
+  "host": "qsb-reception",
+  "addr": "192.168.1.24",
+  "ping": "UP",
+  "ports_open": [],
+  "status": "PARTIAL (up, no services)"
+ },
+ "ssk_nas": {
+  "addr": "10.10.10.254",
+  "http": "000 unreachable",
+  "status": "NEEDS WIRING"
+ },
+ "hq": "192.168.1.72 LIVE",
+ "tp": "192.168.1.74 LIVE",
+ "acer": "192.168.1.41 LIVE",
+ "wren": "LIVE"
+}

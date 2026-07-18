@@ -1,0 +1,16 @@
+# One-shot: top up on-screen keyboard + chromium on first online boot, then
+# self-disable. Guarantees the OSK arrives with no keyboard needed even if the
+# base image lacks it.
+[Unit]
+Description=QSB Receptionist first-boot package top-up
+After=network-online.target
+Wants=network-online.target
+ConditionPathExists=!/opt/skyscraper_receptionist/.pkgs_done
+
+[Service]
+Type=oneshot
+ExecStart=/opt/skyscraper_receptionist/firstboot_pkgs.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

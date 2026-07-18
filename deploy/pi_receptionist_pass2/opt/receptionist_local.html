@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SkyscraperHQ Receptionist</title>
+<style>
+ body{margin:0;font-family:system-ui,sans-serif;background:#0b1020;color:#e8eefc;}
+ .wrap{max-width:900px;margin:0 auto;padding:28px;}
+ h1{font-size:30px;margin:0 0 4px;color:#7fd7ff;}
+ .ok{color:#6ee7a2;font-weight:700;}
+ .warn{color:#ffcc66;}
+ .card{background:#141b30;border:1px solid #26304d;border-radius:12px;padding:16px;margin:14px 0;}
+ a{color:#8ab4ff;font-size:20px;display:inline-block;margin:6px 14px 6px 0;}
+ code{background:#0b1020;padding:2px 6px;border-radius:6px;color:#a8ffcf;}
+ .big{font-size:22px;}
+ button{font-size:20px;padding:12px 20px;border-radius:10px;border:0;background:#2b7cff;color:#fff;margin:6px;}
+</style></head>
+<body><div class="wrap">
+ <h1>SkyscraperHQ Receptionist</h1>
+ <div class="big"><span class="ok">Pi booted successfully.</span></div>
+ <div class="card">
+   <div class="big warn">Dashboard host is not reachable right now.</div>
+   <p>The Receptionist Pi is up, but it could not reach the tower dashboard.</p>
+   <p>Likely causes: the Pi is not on the same Wi-Fi as the tower, or
+      <code>HQ_HOST</code> is wrong (the tower's IP changed).</p>
+ </div>
+ <div class="card">
+   <h3>Current setting</h3>
+   <p class="big">HQ_HOST = <code id="hq">see /opt/skyscraper_receptionist/receptionist.env</code></p>
+   <p>Wi-Fi should be: <code>Ross&#8217;s iPhone</code> (the hotspot the tower uses).</p>
+ </div>
+ <div class="card">
+   <h3>Try the dashboards</h3>
+   <a href="http://172.20.10.2:8852/">Boardroom</a>
+   <a href="http://172.20.10.2:8852/tasks">Task Council</a>
+   <a href="http://172.20.10.2:8860/">Gene Pool</a>
+   <a href="http://172.20.10.2:8852/town_square">Town Square</a>
+   <a href="http://172.20.10.2:8851/">Wren</a>
+ </div>
+ <div class="card">
+   <h3>Fix-it (open a terminal, no keyboard? use Open Keyboard button)</h3>
+   <p class="big">Status:&nbsp; <code>/opt/skyscraper_receptionist/receptionist_status.sh</code></p>
+   <p class="big">Pico:&nbsp; <code>/opt/skyscraper_receptionist/check_pico.sh</code></p>
+   <p class="big">SSK:&nbsp; <code>/opt/skyscraper_receptionist/check_ssk.sh</code></p>
+   <p class="big">Screen upside down?&nbsp; <code>/opt/skyscraper_receptionist/rotate_screen_180.sh</code></p>
+ </div>
+ <div class="card">
+   <h3>Instructions for Ross</h3>
+   <ol class="big">
+     <li>Check the Pi joined <b>Ross&#8217;s iPhone</b> Wi-Fi (top-right taskbar).</li>
+     <li>On the tower run <code>hostname -I</code> to get its real IP.</li>
+     <li>Edit <code>/opt/skyscraper_receptionist/receptionist.env</code> HQ_HOST to that IP.</li>
+     <li>Reboot the Pi, or run <code>systemctl restart qsb-reception-kiosk</code>.</li>
+   </ol>
+ </div>
+</div></body></html>

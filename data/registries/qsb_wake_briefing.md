@@ -1,52 +1,52 @@
-# WREN WAKE BRIEFING — 2026-07-05T17:17:08.237932Z
+# WREN WAKE BRIEFING — 2026-07-17T10:00:01.390416Z
 
 ## To resume your last conversation
 ```
 cd /vaults/nvme0/qsb_tower_v1
-claude --resume da899cbc-9d68-4b5c-928c-2c5667de3f39
+claude --resume 729a6533-fd3a-4c7b-a428-14a46a6a8bfe
 ```
 
 _Read this every time you wake. It exists because Ross caught me re-pitching dead ideas across crashes._
 
 ## Tower vitals
 - ✗ dashboard
-- ✓ lumen
+- ✗ lumen
 - ✗ vision
 - ✗ heartbeat
 - ✗ cloudflared
 - ✗ qualify_loop
 
 ## Last snapshot
-- ts: `2026-07-05T17:17:07.982737Z`
-- alive_count: 1
-- down: ['dashboard', 'vision', 'heartbeat', 'cloudflared', 'qualify', 'godot']
+- ts: `2026-07-17T10:00:01.022040Z`
+- alive_count: 0
+- down: ['dashboard', 'lumen', 'vision', 'heartbeat', 'cloudflared', 'qualify', 'godot']
 - f47_chat_tail_count: 20
 - cli_chat_tail_count: 20
 - unsigned_proposals: 60
-- diary_last: - 23:39 UTC (2026-07-04) — PITSTOP `shutdown_council_of_five_2026-07-05`. Focus: SHUTDOWN — HQ services going down clean. Session milestones: L11 complete + verdict ready_for_prod, L12 at 3/7 (Wren wrote L12_sandbox_diff.py), Council of Five live (Ross+HQ+Wren+TP+Acer), 8 sandboxes created, SSH to TP+Acer proven via budds@ + vault key, self-update block armed on TP+Acer, town-square unified feed, from→to render on /council, voice bridge streaming naturally, sandbox_manager.py + real ATR L11 shipped.. Resume from data/registries/pitstops/pitstop_20260704T233922418485Z_shutdown_council_of_five_2026-07-05.md.
-- last_decision: {'ts': '2026-07-05T17:15:51Z', 'kind': 'hw_sample', 'operator': 'hw_benchmark'}
+- diary_last: - 18:47 UTC (2026-07-16) — PITSTOP `great_handover_blueprint_v1__cage_smoke_blocked__f47_nul_rep`. Focus: Great Handover Priority Zero begun: Exec Concierge Blueprint v1 authored via Wren-persona-on-capable-model (Max/OAuth, paid key unset) after offline-Wren failed 3x (guessed sources, quit on path bug, FALSE 'revised' F47 stamp). v1 Claude-validated PASS (6 real sources, 0 phantoms, 0 secrets, unknowns marked), hashed 59f2deb3, versioned LATEST.txt, F47-stamped. Bill-side proof chain WAITING_ON_MAC (inbound SSH off). Architecture FROZEN.. Resume from data/registries/pitstops/pitstop_20260716T184721993847Z_great_handover_blueprint_v1__cage_smoke_blocked__f47_nul_rep.md.
+- last_decision: {'ts': '2026-07-17T09:59:51Z', 'kind': 'oanda_history_pull', 'operator': 'claude'}
 
 ## Diary tail
-- 22:03 UTC (2026-07-02) — PITSTOP `session_2026-07-02_evening_dashboards_agents_boardroom`. Focus: hq_wren_boardroom_shipped_agents_wired. Resume from data/registries/pitstops/pitstop_20260702T220331824631Z_session_2026-07-02_evening_dashboards_agents_boardroom.md.
-- 23:00 UTC (2026-07-02) — PITSTOP `session_2026-07-02_evening_boardroom_v3_wren_dash_v2_federat`. Focus: shipped_agenda_reactions_presence_pnl_notes_activity_feed_sage_forge_upgrades_source_sync. Resume from data/registries/pitstops/pitstop_20260702T230022208685Z_session_2026-07-02_evening_boardroom_v3_wren_dash_v2_federat.md.
-- 15:56 UTC (2026-07-03) — PITSTOP `boardroom_hub_15_council_expansion_2026-07-03_evening`. Focus: Council of 15 with mood/voice/waveform/dash-click; wire all members reply; ship PLATFORMS tile. Resume from data/registries/pitstops/pitstop_20260703T155652481971Z_boardroom_hub_15_council_expansion_2026-07-03_evening.md.
-- 20:55 UTC (2026-07-03) — PITSTOP `boardroom_hq_dash_upgrade_beacon_hall_2026-07-03_evening`. Focus: Boardroom hero cards improved (bigger avatars/emoji, hover glow, speaking-pulse). HQ dash upgrade in-progress: THE BEACON HALL humanoid self SVG shipped (my competition entry), NOW·LIVE STATE tile added. Waiting on TP for competition URL. Wren cycling normally after wrenloop restart + watchdog cron.. Resume from data/registries/pitstops/pitstop_20260703T205544899231Z_boardroom_hq_dash_upgrade_beacon_hall_2026-07-03_evening.md.
-- 20:13 UTC (2026-07-04) — PITSTOP `council_of_four_qualifying_rules`. Focus: end-of-session 2026-07-04 — 4-CEO Council live, 6 rules agreed, TP won straw pick to build competition dash, event-driven self-prompt engines shipped, HQ dash chat backend live but frontend needs check, GitHub push requested by Ross. Resume from data/registries/pitstops/pitstop_20260704T201332457132Z_council_of_four_qualifying_rules.md.
-- 23:29 UTC (2026-07-04) — PITSTOP `council_of_five_l11_shipped_ssh_online`. Focus: Council of Five landmark session — L11 ATR complete, SSH+self-update armed, voice bridge streaming naturally. Resume from data/registries/pitstops/pitstop_20260704T232920938395Z_council_of_five_l11_shipped_ssh_online.md.
-- 23:37 UTC (2026-07-04) — PITSTOP `l12_stage3_written_council_fully_streaming`. Focus: L12 chain 3/7 - Wren wrote L12_sandbox_diff.py to team_sandbox. Council of Five streaming naturally via voice bridge. All 3 daemons alive. Codellama at 43% still pulling.. Resume from data/registries/pitstops/pitstop_20260704T233754039240Z_l12_stage3_written_council_fully_streaming.md.
-- 23:39 UTC (2026-07-04) — PITSTOP `shutdown_council_of_five_2026-07-05`. Focus: SHUTDOWN — HQ services going down clean. Session milestones: L11 complete + verdict ready_for_prod, L12 at 3/7 (Wren wrote L12_sandbox_diff.py), Council of Five live (Ross+HQ+Wren+TP+Acer), 8 sandboxes created, SSH to TP+Acer proven via budds@ + vault key, self-update block armed on TP+Acer, town-square unified feed, from→to render on /council, voice bridge streaming naturally, sandbox_manager.py + real ATR L11 shipped.. Resume from data/registries/pitstops/pitstop_20260704T233922418485Z_shutdown_council_of_five_2026-07-05.md.
+- 20:52 UTC (2026-07-12) — PITSTOP `physical-worker_live_cockpits___dashboard_hardening`. Focus: TP cockpit recovered; voice decision pending. Resume from data/registries/pitstops/pitstop_20260712T205234446441Z_physical-worker_live_cockpits___dashboard_hardening.md.
+- 21:32 UTC (2026-07-12) — PITSTOP `physical-worker_competition-anchor_grounding___cockpit_dashb`. Focus: live grounding FAILED both workers; correction is PLAN-only pending Ross. Resume from data/registries/pitstops/pitstop_20260712T213213713488Z_physical-worker_competition-anchor_grounding___cockpit_dashb.md.
+- 22:02 UTC (2026-07-12) — PITSTOP `physical-worker_grounding_repair___offline-autonomy`. Focus: TP-Pip PASS local anchor; Acer aged-out; routing not yet local-first. Resume from data/registries/pitstops/pitstop_20260712T220244129770Z_physical-worker_grounding_repair___offline-autonomy.md.
+- 22:07 UTC (2026-07-12) — PITSTOP `federated_physical_nodes_blocked_on_acer_grounding`. Focus: gate stopped build; TP grounded, Acer competition anchor not proven. Resume from data/registries/pitstops/pitstop_20260712T220755263796Z_federated_physical_nodes_blocked_on_acer_grounding.md.
+- 18:47 UTC (2026-07-15) — PITSTOP `pi_federation_dashboard___tp_acer_heartbeat___bill_admission`. Focus: SkyscraperHQ 24h Pi federation server: V3 touchscreen dashboard live; nodes online; Bill pending. Resume from data/registries/pitstops/pitstop_20260715T184733687394Z_pi_federation_dashboard___tp_acer_heartbeat___bill_admission.md.
+- 14:41 UTC (2026-07-16) — PITSTOP `ssk_audit__caretaker_federation__2026-07-16`. Focus: SSK audit (read-only) + caretaker federation work; STOPPED for Ross review on SSK role decision. Resume from data/registries/pitstops/pitstop_20260716T144124309464Z_ssk_audit__caretaker_federation__2026-07-16.md.
+- 15:21 UTC (2026-07-16) — PITSTOP `ssk_storage_vault__prepared_blocked_on_msi_pi_wifi__2026-07-`. Focus: SSK storage-only vault APPROVED + fully prepared (build script staged); execution BLOCKED on flaky MSI<->Pi wifi (SSH drops, HTTP ok). Stopped for Ross.. Resume from data/registries/pitstops/pitstop_20260716T152156741861Z_ssk_storage_vault__prepared_blocked_on_msi_pi_wifi__2026-07-.md.
+- 18:47 UTC (2026-07-16) — PITSTOP `great_handover_blueprint_v1__cage_smoke_blocked__f47_nul_rep`. Focus: Great Handover Priority Zero begun: Exec Concierge Blueprint v1 authored via Wren-persona-on-capable-model (Max/OAuth, paid key unset) after offline-Wren failed 3x (guessed sources, quit on path bug, FALSE 'revised' F47 stamp). v1 Claude-validated PASS (6 real sources, 0 phantoms, 0 secrets, unknowns marked), hashed 59f2deb3, versioned LATEST.txt, F47-stamped. Bill-side proof chain WAITING_ON_MAC (inbound SSH off). Architecture FROZEN.. Resume from data/registries/pitstops/pitstop_20260716T184721993847Z_great_handover_blueprint_v1__cage_smoke_blocked__f47_nul_rep.md.
 
 ## Recent decisions (not heartbeat noise)
-- `2026-07-05T17:09:07` triage_tick
-- `2026-07-05T17:10:50` hw_sample
-- `2026-07-05T17:13:43` build_forward_idle
-- `2026-07-05T17:14:07` triage_tick
-- `2026-07-05T17:15:51` hw_sample
+- `2026-07-17T09:51:16` triage_tick
+- `2026-07-17T09:53:53` build_forward_idle
+- `2026-07-17T09:55:26` hw_sample
+- `2026-07-17T09:56:16` triage_tick
+- `2026-07-17T09:59:51` oanda_history_pull
 
 ## Last letters (read in full before high-stakes action)
-- `2026-07-04T23:29:20` gen=? · (no subject)
-- `2026-07-04T23:37:54` gen=? · (no subject)
-- `2026-07-04T23:39:22` gen=? · (no subject)
+- `2026-07-16T14:41:24` gen=? · (no subject)
+- `2026-07-16T15:21:56` gen=? · (no subject)
+- `2026-07-16T18:47:21` gen=? · (no subject)
 
 ## ❌ DEAD IDEAS — DO NOT PITCH THESE TO ROSS
 

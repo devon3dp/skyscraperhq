@@ -1,0 +1,53 @@
+{
+  "schema": "qsb_claude_specialist_cage_v1",
+  "status": "PROPOSED",
+  "generated": "2026-07-18",
+  "service_id": "claude_specialist",
+  "display_name": "Claude Specialist Floor",
+  "governor": "wren",
+  "cage_status": "CAGED SPECIALIST SERVICE",
+  "note": "Integrates the EXISTING cage (systemd system-qsb-claude-cage.slice, qsb-claude-cage@.service, /etc/qsb-governor/, tools/qsb_claude_job_runner.py, tools/qsb_brain_cage_adapter.py). No new port/service invented.",
+  "existing_service_evidence": {
+    "systemd_slice": "system-qsb-claude-cage.slice (active)",
+    "systemd_template": "qsb-claude-cage@.service (static)",
+    "governor_dir": "/etc/qsb-governor/ (root-locked: qsb_governor_verifier.py, wren_governor_policy.yaml, claude_hq_identity.yaml)",
+    "runner": "tools/qsb_claude_job_runner.py",
+    "adapter": "tools/qsb_brain_cage_adapter.py"
+  },
+  "is_ceo": false,
+  "counts_for_quorum": false,
+  "may_vote": false,
+  "may_own_task": false,
+  "may_final_verify": false,
+  "output_label": "SPECIALIST ADVICE — NOT CEO APPROVAL",
+  "available_to": ["ross", "wren", "tp_pip", "acer_cass", "bill", "authorised_local_workers_via_workforce_router"],
+  "permitted_functions": [
+    "difficult technical analysis", "architecture review", "legacy Claude HQ retrieval",
+    "code review", "rule comparison", "specialist research", "technical recommendations",
+    "proposed patches", "technical evidence", "explanation of former Embassy systems"
+  ],
+  "may_not": [
+    "count toward quorum", "vote", "own tasks", "verify final completion", "mark tasks complete",
+    "activate governance", "override Ross", "override Wren", "control live trading",
+    "access secrets without explicit authorised scope", "rewrite another CEO's identity or private memory",
+    "become mandatory for ordinary work", "freeze Task Council when unavailable"
+  ],
+  "cage_boundaries": {
+    "authenticated_requests": true, "task_scoped_access": true, "read_only_default": true,
+    "propose_only_default": true, "no_unrestricted_shell": true, "no_unrestricted_fs_writes": true,
+    "no_unrestricted_network": true, "no_automatic_credential_access": true, "no_live_money_authority": true,
+    "no_task_council_completion_endpoint": true, "no_governance_activation": true,
+    "complete_audit_log": true, "token_and_cost_accounting": true, "timeout": true,
+    "rate_limits": true, "kill_switch": true, "process_supervision": true, "health_monitoring": true
+  },
+  "controlled_write_requires": [
+    "valid Task Council task", "listed paths", "backup", "before hash", "risk gate",
+    "Wren approval", "controlled execution", "after hash", "independent CEO verification"
+  ],
+  "endpoints": {
+    "note": "Use existing cage service where present; do not invent a new port.",
+    "GET /health": "cage health", "GET /status": "cage status", "GET /api/capabilities": "list",
+    "POST /api/request": "submit a specialist request (advisory)", "GET /api/request/<id>": "result",
+    "POST /api/cancel/<id>": "cancel a request"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "trader_id": "ensemble_ethusdt",
+  "trained_at": "2026-07-06T07:10:09.769898Z",
+  "closes_analyzed": 360,
+  "win_rate_current": 0.569,
+  "win_rate_target": 0.75,
+  "gap_to_target": 0.181,
+  "avg_win_pnl": 0.0026,
+  "avg_loss_pnl": -0.0024,
+  "best_instrument": {
+    "name": "ETHUSDT",
+    "pnl": 0.155
+  },
+  "worst_instrument": {
+    "name": "ETHUSDT",
+    "pnl": 0.155
+  },
+  "learned_rules": [
+    "IMPROVE \u2014 56% vs 75% target \u00b7 tighten stops, avoid worst-performing instrument"
+  ],
+  "recommended_units": 250,
+  "verdict": "TRAIN"
+}

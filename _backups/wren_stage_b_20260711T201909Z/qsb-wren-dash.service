@@ -1,0 +1,13 @@
+[Unit]
+Description=QSB Wren Dash (:8851) - HQ-coded to Wren spec (launcher only)
+After=network-online.target
+Wants=network-online.target
+[Service]
+Type=simple
+User=ross
+WorkingDirectory=/vaults/nvme0/qsb_tower_v1
+ExecStart=/usr/bin/python3 /vaults/nvme0/qsb_tower_v1/tools/qsb_wren_dash.py --port 8851
+Restart=on-failure
+RestartSec=5
+[Install]
+WantedBy=multi-user.target

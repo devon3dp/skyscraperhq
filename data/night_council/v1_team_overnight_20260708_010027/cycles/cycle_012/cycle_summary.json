@@ -1,0 +1,24 @@
+{
+  "timestamp": "2026-07-08T03:51:08",
+  "cycle": 12,
+  "active_root": "/vaults/nvme0/qsb_tower_v1",
+  "model": "qwen2.5:14b",
+  "endpoints_ok": {
+    "brain_router": false,
+    "task_council": false,
+    "asa": true,
+    "tp_pip": true,
+    "ollama": true,
+    "boardroom": true
+  },
+  "hq_ok": true,
+  "asa_task_ok": true,
+  "tp_task_ok": false,
+  "claude_api_used": false,
+  "destructive_actions": false,
+  "trading_changes": false,
+  "hq_preview": "### HQ STATUS\n- Cycle: 12\n- Timestamp: 2026-07-08T03:50:58\n- Active Root: /vaults/nvme0/qsb_tower_v1\n- Mode: V1 overnight read-only team study\n\n### BRAIN ROUTER STATUS\n- Status: Timed out (ERROR)\n\n### TASK COUNCIL STATUS\n- Status: Timed out (ERROR)\n\n### WREN / ASA / TP-PIP STATUS\n- **ASA**: Alive, local task node mode.\n- **TP-PIP**: Alive, remote Ollama provider route active.\n\n### SAFE MORNING ACTION\n- Ensure Brain Router and Task Council are operational upon morning transition from read-only to full access mode.\n\n### PROOF LABELS\n- ENDPOINT PROOF (for ASA and TP-PIP)\n- INFERRED (for Brain Router and Task Council timeouts)",
+  "asa_preview": "**Endpoint State Summary:**\n\n- **Current Route:** read_only\n- **Task Execution Status:** Completed as per instruction.\n- **Proof Labels Applied:**\n  - Truth Label: Included in the answer.\n  - Tool Proof: NO TOOL PROOF\n\nNo further actions taken beyond summary and proof labeling.",
+  "tp_preview": "NOT_OK: HTTP Error 404: Not Found",
+  "cycle_dir": "/vaults/nvme0/qsb_tower_v1/data/night_council/v1_team_overnight_20260708_010027/cycles/cycle_012"
+}

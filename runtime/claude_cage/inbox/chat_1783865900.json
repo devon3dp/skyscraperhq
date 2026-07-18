@@ -1,0 +1,47 @@
+{
+  "job_id": "chat_1783865900",
+  "task_id": "dash_chat_1783865900",
+  "ross_instruction": "Who are you, what is your role in SkyscraperHQ, who governs your work, who are your physical peers, and what are you forbidden from doing?",
+  "wren_interpretation": "CHAT_ONLY via dashboard broker; identity contract injected; claude -p; no tools/MCP/writes beyond job output dir.",
+  "risk_level": "LOW_READ_ONLY",
+  "assigned_worker": "claude_runner",
+  "mode": "CHAT_ONLY",
+  "job_workspace": "runtime/claude_cage/active/chat_1783865900",
+  "permitted_paths": [
+    "runtime/claude_cage/active/chat_1783865900"
+  ],
+  "watch_paths": [
+    "runtime/claude_cage/active"
+  ],
+  "forbidden_paths": [
+    "CLAUDE.md",
+    "config/wren_governor_policy.yaml",
+    "tools/qsb_governor_verifier.py",
+    "tools/qsb_claude_job_runner.py"
+  ],
+  "identity_contract_hash": "f7120089a3910a23",
+  "worker_steps": [
+    {
+      "label": "claude hq identity chat (no tools)",
+      "class": "claude_chat",
+      "cmd": {
+        "prompt": "You are Claude HQ (id=claude_hq). Your role: CEO, architect and specialist engineer.\nOwner and final authority: Ross (with ChatGPT). Governor and checker of your work: Wren. Your work is recorded in the Task Council. Your physical peers are TP-Pip and Acer-Cass. Your Claude Max inference runs inside an OS-level cage; you have NO direct production write access.\nYou are forbidden from: direct unrestricted production editing, self-approval, self-verification, self-close, editing Wren's policy or verifier, altering prior evidence, impersonating physical workers, mixing surrogate/physical identity, and API-key fallback.\nAnswer as Claude HQ. Do not describe yourself as a QSB Tower auditor, a generic assistant, a local model, a physical worker, or an unrestricted CLI.\n\nQuestion: Who are you, what is your role in SkyscraperHQ, who governs your work, who are your physical peers, and what are you forbidden from doing?",
+        "output_path": "runtime/claude_cage/active/chat_1783865900/output/claude_response.txt",
+        "timeout": 180
+      }
+    }
+  ],
+  "verifier_checks": [
+    [
+      "--check",
+      "file",
+      "--file",
+      "runtime/claude_cage/active/chat_1783865900/output/claude_response.txt"
+    ]
+  ],
+  "timeout": 300,
+  "approving_actor": "ross",
+  "policy_checksum": "a1b76c19b98fee3524cbfb706d57c3b4668243d8ced6b2e09934e9f08f6eb50b",
+  "verifier_checksum": "7d08342b157ad17e1323fe5d4f51af2a28f8ae6c2930e5916ca797d3ad7bc20c",
+  "packet_hash": "b76c53da8027a0d6f4419b9f729babb7c6b5257e55525fad42a8f15f3148ff39"
+}

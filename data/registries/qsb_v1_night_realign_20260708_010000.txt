@@ -1,0 +1,148 @@
+
+============================================================
+QSB V1 NIGHT OPS REALIGN
+============================================================
+Time: 2026-07-08T01:00:00+01:00
+Active V1 root: /vaults/nvme0/qsb_tower_v1
+Old small Skyscraper root: /vaults/nvme0/qsb_skyscraper
+Mode: move live night ops to V1, preserve old artifacts, restart existing V1 services only
+No trading changes.
+No memory overwrite.
+No deletion of old reports.
+
+============================================================
+1. Preserve wrong-folder night artifacts
+============================================================
+PRESERVED: /vaults/nvme0/qsb_skyscraper/data/night_council -> /vaults/nvme0/qsb_tower_v1/data/backups/v1_night_realign_20260708_010000/imported_skyscraper_night_council
+PRESERVED: /vaults/nvme0/qsb_skyscraper/data/wren_nightly -> /vaults/nvme0/qsb_tower_v1/data/backups/v1_night_realign_20260708_010000/imported_skyscraper_wren_nightly
+
+============================================================
+2. Stop only wrong-root night observers/viewers
+============================================================
+STOPPED old SKY Wren overnight PID 836537
+STOPPED old SKY team overnight PID 920834
+STOPPED old SKY animated dashboard PID 947598
+NO PIDFILE old V1 animated dashboard
+
+============================================================
+3. Restart existing V1 Brain Router / Task Council / Asa
+============================================================
+Brain Router V2 DOWN/SLOW. Restarting existing V1 router.
+Task Council already UP
+
+============================================================
+4. Write V1 overnight team worker
+============================================================
+
+============================================================
+5. Write V1 live dashboard on port 8866
+============================================================
+
+============================================================
+6. Start V1 overnight worker and V1 dashboard
+============================================================
+started V1 overnight team PID 987109
+Sending one V1 HQ pulse through Brain Router.
+HQ pulse: OK
+
+============================================================
+7. Final V1 proof
+============================================================
+GREEN http://127.0.0.1:8853/health.json
+GREEN http://127.0.0.1:8854/health.json
+GREEN http://127.0.0.1:9122/heartbeat.json
+GREEN http://192.168.1.91:9110/heartbeat.json
+GREEN http://127.0.0.1:11434/api/tags
+RED   http://127.0.0.1:8866/api/live
+
+V1 worker status:
+============================================================
+ QSB V1 OVERNIGHT TEAM STATUS
+============================================================
+PID: 987109
+STATUS: RUNNING
+RUN_FOLDER: /vaults/nvme0/qsb_tower_v1/data/night_council/v1_team_overnight_20260708_010027
+
+SUMMARY:
+QSB V1 TEAM OVERNIGHT LATEST SUMMARY
+timestamp: 2026-07-08T01:00:47
+active_root: /vaults/nvme0/qsb_tower_v1
+cycle: 1/48
+model: qwen2.5:14b
+mode: READ_ONLY_V1_TEAM_STUDY
+model_weight_learning: false
+destructive_actions: false
+trading_changes: false
+
+ENDPOINTS:
+  brain_router: UP
+  task_council: UP
+  asa: UP
+  tp_pip: UP
+  ollama: UP
+  boardroom: UP
+
+HQ:
+### HQ STATUS
+- Cycle: 1
+- Timestamp: 2026-07-08T01:00:39
+- Active Root: /vaults/nvme0/qsb_tower_v1
+
+### BRAIN ROUTER STATUS
+- Status: UP (Version: brain_router_v2)
+- Provider Policy: Claude API blocked/avoided, qwen models available locally and remotely.
+- Team Readiness: YES for HQ Claude, TP-Pip, Wren Ren; FOUND_NEEDS_ENDPOINT for ASA.
+
+### TASK COUNCIL STATUS
+- Status: alive
+- Task Gate Default Mode: read_only
+- Destructive Actions: false
+
+### WREN / ASA / TP-PIP STATUS
+- WREN: YES_WITH_PROOF_LIMITS (Inferred)
+- ASA: alive, mode local_task_node (ENDPOINT PROOF)
+- TP-Pip: alive, model_used qwen2.5:14b, remote_ollama_up true
+
+### SAFE MORNING ACTION
+- Ensure all endpoints are correctly configured and ready for morning operations.
+- Verify that no destructive actions or trading changes were attempted during the night cycle.
+
+### PROOF LABELS
+- ENDPOINT PRO
+
+ASA:
+**Task Summary:**
+
+- **Role:** Asa V1 Night Clerk
+- **Action Required:** Summarize the current endpoint state.
+- **Instructions Followed:**
+  - Use concise proof language.
+  - Do not claim access to tools or data that are not available.
+
+**Endpoint State Summary:**
+
+- No active destructive actions taken.
+- Current task is read-only, focusing on summarization and record-keeping.
+- Proof labels applied as required for transparency.
+
+**Proof Labels:**
+- READ_ONLY
+- NO_TOOL_PROOF
+
+TP:
+NOT_OK: HTTP Error 404: Not Found
+LEDGER TAIL:
+{"timestamp": "2026-07-08T01:00:47", "cycle": 1, "active_root": "/vaults/nvme0/qsb_tower_v1", "model": "qwen2.5:14b", "endpoints_ok": {"brain_router": true, "task_council": true, "asa": true, "tp_pip": true, "ollama": true, "boardroom": true}, "hq_ok": true, "asa_task_ok": true, "tp_task_ok": false, "claude_api_used": false, "destructive_actions": false, "trading_changes": false, "hq_preview": "### HQ STATUS\n- Cycle: 1\n- Timestamp: 2026-07-08T01:00:39\n- Active Root: /vaults/nvme0/qsb_tower_v1\n\n### BRAIN ROUTER STATUS\n- Status: UP (Version: brain_router_v2)\n- Provider Policy: Claude API blocked/avoided, qwen models available locally and remotely.\n- Team Readiness: YES for HQ Claude, TP-Pip, Wren Ren; FOUND_NEEDS_ENDPOINT for ASA.\n\n### TASK COUNCIL STATUS\n- Status: alive\n- Task Gate Default Mode: read_only\n- Destructive Actions: false\n\n### WREN / ASA / TP-PIP STATUS\n- WREN: YES_WITH_PROOF_LIMITS (Inferred)\n- ASA: alive, mode local_task_node (ENDPOINT PROOF)\n- TP-Pip: alive, model_used qwen2.5:14b, remote_ollama_up true\n\n### SAFE MORNING ACTION\n- Ensure all endpoints are correctly configured and ready for morning operations.\n- Verify that no destructive actions or trading changes were attempted during the night cycle.\n\n### PROOF LABELS\n- ENDPOINT PRO", "asa_preview": "**Task Summary:**\n\n- **Role:** Asa V1 Night Clerk\n- **Action Required:** Summarize the current endpoint state.\n- **Instructions Followed:**\n  - Use concise proof language.\n  - Do not claim access to tools or data that are not available.\n\n**Endpoint State Summary:**\n\n- No active destructive actions taken.\n- Current task is read-only, focusing on summarization and record-keeping.\n- Proof labels applied as required for transparency.\n\n**Proof Labels:**\n- READ_ONLY\n- NO_TOOL_PROOF", "tp_preview": "NOT_OK: HTTP Error 404: Not Found", "cycle_dir": "/vaults/nvme0/qsb_tower_v1/data/night_council/v1_team_overnight_20260708_010027/cycles/cycle_001"}
+
+Dashboard worker state:
+DASHBOARD_API: RED
+
+============================================================
+8. Done
+============================================================
+RESULT: V1_NIGHT_OPS_REALIGNED
+ACTIVE_ROOT: /vaults/nvme0/qsb_tower_v1
+DASHBOARD: http://127.0.0.1:8866/
+REPORT: /vaults/nvme0/qsb_tower_v1/data/registries/qsb_v1_night_realign_20260708_010000.txt
+BACKUP_OF_OLD_SKY_NIGHT_ARTIFACTS: /vaults/nvme0/qsb_tower_v1/data/backups/v1_night_realign_20260708_010000
+ACTION: Press Ctrl+F5 in the browser.

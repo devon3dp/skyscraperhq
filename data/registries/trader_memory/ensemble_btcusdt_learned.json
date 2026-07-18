@@ -1,0 +1,23 @@
+{
+  "trader_id": "ensemble_btcusdt",
+  "trained_at": "2026-07-06T07:10:09.773268Z",
+  "closes_analyzed": 295,
+  "win_rate_current": 0.641,
+  "win_rate_target": 0.75,
+  "gap_to_target": 0.109,
+  "avg_win_pnl": 0.0044,
+  "avg_loss_pnl": -0.0049,
+  "best_instrument": {
+    "name": "BTCUSDT",
+    "pnl": 0.3107
+  },
+  "worst_instrument": {
+    "name": "BTCUSDT",
+    "pnl": 0.3107
+  },
+  "learned_rules": [
+    "IMPROVE \u2014 64% vs 75% target \u00b7 tighten stops, avoid worst-performing instrument"
+  ],
+  "recommended_units": 250,
+  "verdict": "TRAIN"
+}

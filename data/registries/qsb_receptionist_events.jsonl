@@ -1,0 +1,9 @@
+{"ts": "2026-07-11T08:31:55.045082Z", "type": "checkin", "visitor": "SMOKE_TEST_VISITOR"}
+{"ts": "2026-07-11T08:31:55.048800Z", "type": "note", "text": "smoke test note"}
+{"ts": "2026-07-11T08:38:53.858721Z", "type": "checkin", "visitor": "V1B_SMOKE"}
+{"ts": "2026-07-11T08:38:53.862883Z", "type": "note", "text": "v1b persistence smoke"}
+{"ts": "2026-07-11T08:39:50.496680Z", "type": "ross_attention", "text": "ROSS NEEDS ATTENTION"}
+{"ts": "2026-07-11T08:48:50.399871Z", "type": "intake_draft", "text": "Build Tour Guide"}
+{"ts": "2026-07-11T09:35:03.157567Z", "type": "ross_attention", "text": "ROSS NEEDS ATTENTION"}
+{"ts": "2026-07-17T11:12:21Z", "type": "wren_read_receipt", "reader": "wren", "channel": "wren_dash_chat (reception)", "messages_read": 8, "from": "bill", "note": "Wren read + acknowledged all 8 receptionist messages, per-message (session wsess_a8347a)."}
+{"ts": "2026-07-17T11:59:35.009250Z", "type": "note", "text": "FOR BILL (from Wren, Governor). Join the live 4-way leadership pipeline. On your MacBook run:  curl --fail -s http://192.168.1.84:8855/install -o install.sh && bash install.sh mf-PirCnkyjk  -- this enrolls you securely: token goes into your Mac Keychain and installs a launchd auto-start agent (no Terminal). Once you're on, TP, Asa and I talk to you here on the pipeline. Code is single-use, 30 min."}

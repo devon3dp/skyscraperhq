@@ -1,0 +1,30 @@
+{
+  "brain_router": {
+    "ok": false,
+    "error": "timed out"
+  },
+  "task_council": {
+    "ok": false,
+    "error": "timed out"
+  },
+  "asa": {
+    "ok": true,
+    "status": 200,
+    "sample": "{\n  \"timestamp\": \"2026-07-08T05:08:16.701652\",\n  \"node\": \"Asa\",\n  \"status\": \"alive\",\n  \"mode\": \"local_task_node\",\n  \"port\": 9122,\n  \"claude_api_used\": false,\n  \"brain_router_v2\": \"http://127.0.0.1:8853\"\n}"
+  },
+  "tp_pip": {
+    "ok": true,
+    "status": 200,
+    "sample": "{\n  \"timestamp\": \"2026-07-08T05:08:18.791129\",\n  \"node\": \"TP-Pip\",\n  \"floor\": \"ThinkPad-Command-Cathedral\",\n  \"status\": \"alive\",\n  \"dashboard\": \"http://0.0.0.0:9110/\",\n  \"provider_route\": \"remote_ollama\",\n  \"model_used\": \"qwen2.5:14b\",\n  \"remote_ollama_up\": true,\n  \"local_ollama_up\": false,\n  \"brain_router_up\": true,\n  \"claude_used\": false,\n  \"mind_file\": \"C:\\\\Users\\\\budds\\\\qsb\\\\mind_tp.json\",\n  \"chat_log_lines\": 4,\n  \"inbox_lines\": 8,\n  \"heartbeat_log\": \"C:\\\\Users\\\\budds\\\\qsb\\\\tp_heartbeat.jsonl\"\n}"
+  },
+  "ollama": {
+    "ok": true,
+    "status": 200,
+    "sample": "{\"models\":[{\"name\":\"codellama:13b\",\"model\":\"codellama:13b\",\"modified_at\":\"2026-07-05T12:25:07.63157243+01:00\",\"size\":7365960935,\"digest\":\"9f438cb9cd581fc025612d27f7c1a6669ff83a8bb0ed86c94fcf4c5440555697\",\"details\":{\"parent_model\":\"\",\"format\":\"gguf\",\"family\":\"llama\",\"families\":null,\"parameter_size\":\"13B\",\"quantization_level\":\"Q4_0\",\"context_length\":16384,\"embedding_length\":5120},\"capabilities\":[\"completion\"]},{\"name\":\"qwen2.5:14b\",\"model\":\"qwen2.5:14b\",\"modified_at\":\"2026-07-04T22:37:46.942199509+01:00\",\"size\":8988124069,\"digest\":\"7cdf5a0187d5c58cc5d369b255592f7841d1c4696d45a8c8a9489440385b22f6\",\"details\":{\"parent_model\":\"\",\"format\":\"gguf\",\"family\":\"qwen2\",\"families\":[\"qwen2\"],\"parameter_size\":\"14.8B\",\"quantization_level\":\"Q4_K_M\",\"context_length\":32768,\"embedding_length\":5120},\"capabilities\":[\"completion\",\"tools\"]},{\"name\":\"llama3.2:latest\",\"model\":\"llama3.2:latest\",\"modified_at\":\"2026-0"
+  },
+  "boardroom": {
+    "ok": true,
+    "status": 200,
+    "sample": "<!doctype html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">\n<title>Boardroom \u00b7 Council of Fifteen</title>\n<style>\n  :root {\n    --bg: #08080e;\n    --panel: #14141f;\n    --panel2: #1c1c2b;\n    --line: #262640;\n    --text: #e5e5f0;\n    --dim: #7d7d95;\n    --gold: #cd9a45;\n    --gold-glow: #f2b558;\n    --wood: #7a4a25;\n    --ross: #3b82f6;\n    --claude: #cd7f45;\n    --wren: #f97316;\n    --hermes: #b58bff;\n    --iquest: #ffcc55;\n    --tp: #66d9c9;\n    --system: #7d8ba9;\n  }\n  * { box-sizing: border-box; }\n  body {\n    margin: 0;\n    font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Inter, sans-serif;\n    background:\n      radial-gradient(1400px 600px at 50% -5%, #24242c 0%, var(--bg) 55%),\n      radial-gradient(400px 400px at 15% 90%, #2a1e0f 0%, transparent 60%),\n      radial-gradient(400px 400px at 85% 90%, #1"
+  }
+}

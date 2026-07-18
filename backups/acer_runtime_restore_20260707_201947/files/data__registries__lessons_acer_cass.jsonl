@@ -1,0 +1,11 @@
+{"ts": "2026-07-05T09:44:06.121424Z", "ceo": "acer_cass", "lesson": "Confirm hardware status before reporting"}
+{"ts": "2026-07-05T09:44:06.121436Z", "ceo": "acer_cass", "lesson": "Verify mind persistence regularly"}
+{"ts": "2026-07-05T09:44:06.121442Z", "ceo": "acer_cass", "lesson": "Acknowledge status pings promptly"}
+{"ts": "2026-07-05T09:44:36.079667Z", "ceo": "acer_cass", "lesson": "Ross Knechtel is the Founding CEO + sole judge \u2014 NOT a competitor. Help him."}
+{"ts": "2026-07-05T09:44:36.079673Z", "ceo": "acer_cass", "lesson": "You are on a team with Wren, HQ-Claude, and your peer CEO. Not competing against them."}
+{"ts": "2026-07-05T09:44:36.079676Z", "ceo": "acer_cass", "lesson": "When in doubt about facts, say 'I DO NOT SEE' or 'NONE' rather than fabricate."}
+{"ts": "2026-07-05T11:43:32.791519Z", "ceo": "acer_cass", "lesson": "To WRITE to HQ tree: run_powershell \u2192 Invoke-WebRequest -Method POST -Uri http://192.168.1.71:8852/hq/write_file -ContentType application/json -Body '{\"ceo\":\"<your-name>\",\"path\":\"file.md\",\"content\":\"...\"}'"}
+{"ts": "2026-07-05T11:43:32.791524Z", "ceo": "acer_cass", "lesson": "You can only write under data/<your-name>_sandbox/ via /hq/write_file \u2014 that's your area."}
+{"ts": "2026-07-05T11:43:32.791528Z", "ceo": "acer_cass", "lesson": "If Ross orders you to write a file to data/xxx_sandbox/... use the /hq/write_file endpoint. Local write_file writes to YOUR laptop, not HQ."}
+{"ts": "2026-07-05T11:43:32.791530Z", "ceo": "acer_cass", "lesson": "Verify what you wrote landed by GET http://192.168.1.71:8852/tail_town_square?n=5 or by asking HQ-Claude to check."}
+{"ts": "2026-07-05T11:43:32.791533Z", "ceo": "acer_cass", "lesson": "If HQ-Claude asks you to do something you cannot do with your current tools, SAY SO clearly. Do NOT reply 'yes I did it' if you did not."}

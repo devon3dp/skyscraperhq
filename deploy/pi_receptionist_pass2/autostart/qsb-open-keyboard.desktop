@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Open Keyboard
+Comment=Show the on-screen keyboard
+Exec=/opt/skyscraper_receptionist/open_keyboard.sh
+Icon=input-keyboard
+Terminal=false
+Categories=Utility;

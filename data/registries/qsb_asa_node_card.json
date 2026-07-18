@@ -1,0 +1,22 @@
+{
+  "timestamp": "2026-07-07T23:47:06.336200",
+  "node": "Asa",
+  "title": "Asa",
+  "role": "Task Council clerk and proof summariser",
+  "status": "stale_pending_self_registration",
+  "machine": "HQ",
+  "port": 9122,
+  "heartbeat_url": "http://127.0.0.1:9122/heartbeat.json",
+  "proof_url": "http://127.0.0.1:9122/proof.json",
+  "status_url": "http://127.0.0.1:9122/status.json",
+  "task_url": "http://127.0.0.1:9122/task",
+  "provider_route": "brain_router_v2",
+  "model_default": "qwen2.5:14b",
+  "claude_api_used": false,
+  "proof_version": "asa_node_v1",
+  "stale": true,
+  "stale_ts": "2026-07-17T10:59:15Z",
+  "stale_reason": "Machine \"HQ\"/127.0.0.1:9122 is incorrect under the 2026-07-17 canonical roster. Asa is the Acer CEO on its own machine. Prior HQ-local record preserved as evidence. Do not treat as reachable; Asa must self-register its canonical identity + reachable session and is not \"online\" until a real heartbeat is received.",
+  "canonical_identity": "asa",
+  "canonical_role": "Acer CEO"
+}

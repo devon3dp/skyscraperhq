@@ -128,7 +128,7 @@ class Handler(BaseHTTPRequestHandler):
         return self._send_json(result)
 
 
-def run(port: int) -> int:
+def run(port: int, host: str = "0.0.0.0") -> int:
     PIDFILE.parent.mkdir(parents=True, exist_ok=True)
     persist_lumen_state()
     persist_tiers()
@@ -136,14 +136,14 @@ def run(port: int) -> int:
     persist_conversations()
 
     PIDFILE.write_text(str(os.getpid()))
-    server = HTTPServer(("127.0.0.1", port), Handler)
+    server = HTTPServer((host, port), Handler)
 
     def _stop(signum, frame):
         server.shutdown()
     signal.signal(signal.SIGTERM, _stop)
     signal.signal(signal.SIGINT, _stop)
 
-    print(f"[lumen_ai] serving http://127.0.0.1:{port}  pid={os.getpid()}")
+    print(f"[lumen_ai] serving http://{host}:{port}  pid={os.getpid()}")
     try:
         server.serve_forever()
     finally:

@@ -1,0 +1,16 @@
+{
+  "task_id": "t_d29804380b",
+  "implemented_by": "worker_executor",
+  "verified_by": "worker_verifier",
+  "ts": "2026-07-08T15:29:54.314750+00:00",
+  "doctrine": {
+    "worker_truth_gate": "implementation plus verification required before done",
+    "claude_hq_name": "Claude HQ",
+    "wren": "protected GPU guardian",
+    "ceos": "API Gene Pool only",
+    "no_local_fallback": true,
+    "no_key_changes": true,
+    "no_trading": true
+  },
+  "proof": "This controlled smoke task was actually implemented by writing this artifact, then verified by checking it exists and contains the correct task_id."
+}

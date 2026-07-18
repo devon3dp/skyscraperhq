@@ -31,20 +31,20 @@ TOWN = REG / "qsb_town_square.jsonl"
 
 CEOS = ["hq_claude", "wren", "tp_pip", "acer_cass"]
 HEARTBEAT_STALE_S = 180   # 3min silent → considered missing
-CHECK_EVERY_S = 30
+CHECK_EVERY_S = 5  # Ross 2026-07-05 #183: 5s scan
 ALERT_COOLDOWN_S = 300     # don't spam same alert; 5min between repeats
 LAST_ALERT = {}            # {ceo: ts_epoch} anti-spam
 HUB = "http://127.0.0.1:8852"
 
-# Ross rule #101 — SLA per task priority. Exceed = auto-release to open.
+# Ross rule #101 → #169 UNIFORM 10-min SLA on ALL tasks.
 SLA_BY_PRIORITY = {
-    "urgent": 15 * 60,
-    "high":   30 * 60,
-    "normal": 60 * 60,
-    "low":  4 * 60 * 60,
+    "urgent": 10 * 60,
+    "high":   10 * 60,
+    "normal": 10 * 60,
+    "low":    10 * 60,
 }
-IDLE_NOTE_GRACE_S = 15 * 60   # if task has a note in last 15min, it's still "moving"
-SIGNOFF_SLA_S = 30 * 60       # awaiting_peer_signoff > 30min → return to open
+IDLE_NOTE_GRACE_S = 5 * 60    # #169: 5-min silence = idle
+SIGNOFF_SLA_S = 10 * 60       # awaiting_peer_signoff > 10min → return to open
 
 def _iso_epoch(iso: str) -> float:
     try: return datetime.fromisoformat(iso.replace("Z","+00:00")).timestamp()
@@ -65,6 +65,60 @@ def _post(path: str, body: dict) -> None:
                 headers={"Content-Type":"application/json"}), timeout=5).read()
     except Exception as e:
         print(f"  [!] {path} failed: {e}")
+
+def scan_ceo_task_cap():
+    """Ross #128/#216 — max 3 in-flight per CEO. Over cap = release oldest.
+    Ross 2026-07-06 fix: must NULL the owner + set state=open explicitly,
+    else reopen keeps owner in 'in_progress' and task never leaves the CEO."""
+    tasks = _get_tasks()
+    if not tasks: return
+    by_owner = {}
+    for t in tasks:
+        if t.get("state") in ("claimed","in_progress","ready_to_ship","awaiting_peer_signoff") and t.get("owner"):
+            by_owner.setdefault(t["owner"], []).append(t)
+    released_total = 0
+    for owner, tlist in by_owner.items():
+        if len(tlist) <= 3: continue
+        tlist.sort(key=lambda t: t.get("claimed_at") or t.get("assigned_at") or t.get("created_at",""))
+        for t in tlist[3:]:
+            # Must clear owner + reset state — reopen alone keeps owner
+            _post("/tasks/update", {"id": t["id"], "actor": "council_watcher",
+                                     "owner": None, "state": "open"})
+            _post("/tasks/note", {
+                "id": t["id"], "actor": "council_watcher",
+                "text": f"🎯 3-TASK-CAP #216 — {owner} was at {len(tlist)} > cap 3. Released to open pool."
+            })
+            released_total += 1
+    if released_total:
+        try:
+            post_to_town_square("council_watcher",
+                f"🎯 3-CAP scan · released {released_total} surplus task(s) back to open pool",
+                to="council", src="watcher_ceo_cap")
+        except Exception: pass
+
+
+def scan_signoff_cap():
+    """Ross 2026-07-05 #141: max 5 tasks in awaiting_peer_signoff system-wide.
+    Over cap = urgency signal + auto-release oldest to open with SLA note."""
+    tasks = _get_tasks()
+    awaiting = [t for t in tasks if t.get("state") == "awaiting_peer_signoff"]
+    if len(awaiting) <= 5: return
+    over = len(awaiting) - 5
+    # Sort by sandbox_passed_at ASC — release the OLDEST first
+    awaiting.sort(key=lambda t: _iso_epoch(t.get("sandbox_passed_at") or t.get("started_at") or t.get("created_at","")))
+    to_release = awaiting[:over]
+    for t in to_release:
+        _post("/tasks/reopen", {"id": t["id"], "actor": "council_watcher"})
+        _post("/tasks/note", {
+            "id": t["id"], "actor": "council_watcher",
+            "text": f"🚨 SIGNOFF CAP #141 — {len(awaiting)} tasks awaiting > 5 cap. Released oldest to open for re-take/re-verify. Original owner @{t.get('owner','?')} may re-claim."
+        })
+    try:
+        post_to_town_square("council_watcher",
+            f"🚨 SIGNOFF-CAP #141 · queue {len(awaiting)} > 5 · released {len(to_release)} oldest back to open",
+            to="council", src="watcher_signoff_cap")
+    except Exception: pass
+
 
 def scan_slas():
     """Ross rule #101 — check every claimed/in-progress task against SLA.
@@ -186,6 +240,27 @@ def post_alert(missing: list[dict]):
         msg = (f"🚨 COUNCIL WATCHER · {m['ceo']} MISSING · silent {m['silent_s']}s "
                f"· all other CEOs PAUSE new claims until reunited · reason=heartbeat_stale")
         post_to_town_square("council_watcher", msg, to="council", src="watcher_alert")
+        # Ross 2026-07-05 #173: DISPATCH other 3 CEOs to investigate + fix
+        try:
+            other_ceos = [c for c in CEOS if c != m["ceo"]]
+            for helper in other_ceos:
+                probe_msg = (f"CEO OFFLINE ALERT: {m['ceo']} silent {m['silent_s']}s. "
+                             f"As {helper}, please: (1) probe your view of {m['ceo']}, "
+                             f"(2) report reachability, (3) suggest one concrete recovery step. "
+                             f"Reply in <100 chars.")
+                # Route via brain router for each helper
+                try:
+                    import urllib.request as _ur
+                    body = json.dumps({"prompt":probe_msg,"caller":helper,"task":"chat"}).encode()
+                    r = _ur.urlopen(_ur.Request("http://127.0.0.1:8852/brain/route",
+                        data=body, headers={"Content-Type":"application/json"}), timeout=15)
+                    d = json.loads(r.read())
+                    reply = d.get("reply","")[:120]
+                    post_to_town_square(helper,
+                        f"🔎 {helper} probing {m['ceo']}: {reply}",
+                        to="council", src="offline_helper_probe")
+                except Exception: pass
+        except Exception: pass
 
 def post_reunited():
     msg = "✅ COUNCIL WATCHER · all 4 CEOs present again · pause cleared · resume claims"
@@ -215,6 +290,10 @@ def main():
                     LAST_ALERT.clear()
             # Ross rule #101 — SLA scan runs every tick regardless of presence
             scan_slas()
+            # Ross rule #141 — signoff cap enforcement
+            scan_signoff_cap()
+            # Ross rule #128/#216 — per-CEO 3-task cap enforcement
+            scan_ceo_task_cap()
         except Exception as e:
             print(f"  [!] watcher error: {e}")
         time.sleep(CHECK_EVERY_S)

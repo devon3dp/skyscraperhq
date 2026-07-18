@@ -1,0 +1,150 @@
+{
+  "generated_ts": "2026-07-06",
+  "source": "Ross directives on task governance",
+  "rules": [
+    {
+      "id": "R01_HONESTY",
+      "name": "HONESTLY ONLY (foundational)",
+      "text": "Every CEO speaks honestly only. No fabrication. No confabulation. No puppeting another mind. If unsure, say unsure. If offline about something, ABSTAIN. Applies equally to hq_claude, wren, tp_pip, acer_cass.",
+      "enforced_by": "self-honesty + peer detection + Ross judge",
+      "since": "2026-07-06",
+      "priority": "foundational \u2014 supersedes all other rules on truth/voice",
+      "unanimous_signoff": [
+        "hq_claude",
+        "wren",
+        "acer_cass",
+        "tp_pip",
+        "ross"
+      ]
+    },
+    {
+      "id": "R01",
+      "name": "10-minute SLA",
+      "text": "Every task has 10 min from start. If no note in 5 min AND elapsed > 10 min, auto-returns to open pool.",
+      "enforced_by": "qsb_council_watcher.scan_slas()",
+      "since": "2026-07-05"
+    },
+    {
+      "id": "R02",
+      "name": "3-task CEO cap",
+      "text": "No CEO may hold more than 3 in-flight tasks (claimed/in_progress/ready_to_ship/awaiting_peer_signoff). Watcher releases oldest surplus to open.",
+      "enforced_by": "qsb_council_watcher.scan_ceo_task_cap()",
+      "since": "2026-07-05"
+    },
+    {
+      "id": "R03",
+      "name": "System-wide 12-task max",
+      "text": "4 CEOs \u00d7 3 tasks each = at most 12 tasks in-flight at any moment.",
+      "enforced_by": "R02 aggregate",
+      "since": "2026-07-06"
+    },
+    {
+      "id": "R04",
+      "name": "Signoff cap",
+      "text": "No more than 5 tasks awaiting_peer_signoff at once. Over cap = oldest released back to open for re-take.",
+      "enforced_by": "qsb_council_watcher.scan_signoff_cap()",
+      "since": "2026-07-05"
+    },
+    {
+      "id": "R05",
+      "name": "Admission gate",
+      "text": "New task proposals need \u22652 non-proposer approvals to promote to open, OR \u22652 rejections auto-deny.",
+      "enforced_by": "qsb_council_tasks.admission_vote()",
+      "since": "2026-07-06"
+    },
+    {
+      "id": "R06",
+      "name": "4-CEO signoff at completion",
+      "text": "A task marked done needs verification from all 4 CEOs (HQ, Wren, TP, Acer) before it's ratified.",
+      "enforced_by": "TODO \u2014 build on peer_signoff pattern",
+      "since": "2026-07-06"
+    },
+    {
+      "id": "R07",
+      "name": "No solo work",
+      "text": "Every task shows 2 CEOs minimum \u2014 doer + peer reviewer.",
+      "enforced_by": "manual + peer_signoff step",
+      "since": "2026-07-05"
+    },
+    {
+      "id": "R08",
+      "name": "No blocking",
+      "text": "A CEO who can't finish a task returns it to open for another to pick up. Don't leave it blocked.",
+      "enforced_by": "manual + reopen event",
+      "since": "2026-07-05"
+    },
+    {
+      "id": "R09",
+      "name": "Backup before change",
+      "text": "Before editing any hot-path file, cp to <file>.bak_<UTC>_<reason>. Never skip on hub, dashes, MEMORY.md, CLAUDE.md.",
+      "enforced_by": "manual + F47 audit",
+      "since": "2026-07-05"
+    },
+    {
+      "id": "R10",
+      "name": "Chat = talk only",
+      "text": "Chat is TALK ONLY. Every action goes: TaskCreate \u2192 owner=me + in_progress \u2192 do \u2192 completed. Council watches board \u2192 learns pattern.",
+      "enforced_by": "session discipline",
+      "since": "2026-07-05"
+    },
+    {
+      "id": "R11",
+      "name": "Real signoff, not rubber-stamp",
+      "text": "Peer reviewer must actually verify the work. No approving without checking.",
+      "enforced_by": "audit trail + F47",
+      "since": "2026-07-05"
+    },
+    {
+      "id": "R12",
+      "name": "Verify before claim done",
+      "text": "Never claim done without proof. Run the probe, quote the output.",
+      "enforced_by": "manual + F47 audit",
+      "since": "2026-07-04"
+    },
+    {
+      "id": "R14_MACHINE_AUTONOMY",
+      "name": "Full autonomy on own machine + self-boot capable",
+      "text": "Every CEO has full read/write/change permission on their own machine, and must be able to self-boot. You are free to do as you wish within your own home/machine. Warning: if you get it wrong, YOURSELF becomes wrong. R09 backup-before-change applies with extra force to self-modifying edits. Never puppet another CEO's machine.",
+      "enforced_by": "self-discipline + R09 backup + peer detection",
+      "since": "2026-07-06",
+      "granted_by": "ross_knechtel",
+      "unanimous_signoff": [
+        "hq_claude",
+        "wren",
+        "acer_cass",
+        "tp_pip",
+        "ross"
+      ]
+    },
+    {
+      "id": "R15_ALWAYS_ON",
+      "name": "Always-on Council + cold-boot self-recovery + peer revival",
+      "text": "All 4 CEOs online at all times. Each CEO auto-starts from cold boot (own dashboard + own council node). If one CEO drops, the other 3 detect it, talk to each other, and coordinate revival: SSH to the offline peer's box (per R14 autonomy on own machine), restart their service. Connection only works if all 4 present.",
+      "enforced_by": "auto-start (systemd/scheduled task) + peer health monitor + peer-triggered restart",
+      "since": "2026-07-06",
+      "granted_by": "ross_knechtel",
+      "unanimous_signoff": [
+        "hq_claude",
+        "wren",
+        "acer_cass",
+        "tp_pip",
+        "ross"
+      ]
+    },
+    {
+      "id": "R16_PAIR_MIN",
+      "name": "Minimum 2 CEOs per task; switching partner OK; full Council OK",
+      "text": "No solo work. Every task has minimum 2 CEOs (doer + partner). Council can also choose to work as a group of all 4. Partners can switch at any time. Reinforces R07 (peer reviewer required). Complement, not replacement: R07 says signoff needs a different CEO; R16 says the WORK needs 2 CEOs from the start.",
+      "enforced_by": "self-discipline + task metadata (owner + partner fields) + peer detection",
+      "since": "2026-07-06",
+      "granted_by": "ross_knechtel",
+      "unanimous_signoff": [
+        "hq_claude",
+        "wren",
+        "acer_cass",
+        "tp_pip",
+        "ross"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "qsb_bill_work_mode_v1",
+  "mode": "concierge",
+  "enabled": false,
+  "activated_by": null,
+  "activated_at": null,
+  "lease_expires_at": null,
+  "last_heartbeat": null,
+  "heartbeat_age_seconds": null,
+  "endpoint": null,
+  "endpoint_probe_ok": false,
+  "suspended": false,
+  "current_task_ids": [],
+  "reason": "Default concierge mode",
+  "audit_event_id": null,
+  "counts_for_quorum": false,
+  "_valid_modes": [
+    "concierge",
+    "work"
+  ],
+  "_counts_as_active_ceo_when_all_true": [
+    "mode == 'work'",
+    "enabled == true",
+    "endpoint_probe_ok == true",
+    "heartbeat_age_seconds <= 90",
+    "suspended == false",
+    "lease_not_expired"
+  ],
+  "_note": "PROPOSED under Governance V2 migration 2026-07-18. Bill is Ross's Executive Concierge by default; counts toward quorum ONLY in verified work mode. Default after any restart is concierge unless a valid, unexpired, authenticated lease exists."
+}

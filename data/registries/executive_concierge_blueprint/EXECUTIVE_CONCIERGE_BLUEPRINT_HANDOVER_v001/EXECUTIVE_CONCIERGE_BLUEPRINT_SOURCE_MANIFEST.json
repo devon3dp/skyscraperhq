@@ -1,0 +1,244 @@
+{
+  "kind": "executive_concierge_blueprint_source_manifest",
+  "version": "v001",
+  "generated_ts": "2026-07-16",
+  "author_of_record": "Wren (Governor L1 / builder-engineer, F46) \u2014 accepted 2026-07-16",
+  "assembled_by": "governed coordinator (HQ Claude)",
+  "access_policy": "READ-ONLY; Wren restricted to these sources only",
+  "hard_exclusions": [
+    "worker mind files",
+    "private memory",
+    "hidden reasoning",
+    "passwords",
+    "tokens",
+    "OAuth",
+    "API keys",
+    "private keys",
+    "full private conversations",
+    "unrestricted DB exports",
+    "visitor PII"
+  ],
+  "source_count": 23,
+  "sources": [
+    {
+      "path": "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_floor_interior_master_registry.json",
+      "source_type": "floor_interior_master_registry",
+      "exists": true,
+      "timestamp": "2026-06-12T23:20:30Z",
+      "sha256": "fee494904445c79bf0cc2f2b42600de18cadc99b33c1b800f84cf97362909489",
+      "classification": "AUTHORITATIVE_BUT_DATED_2026-06-13 (165 floors)",
+      "permitted_sections": "floor_id,floor_name,department,rooms,worker_count,workers,manager,watcher,interior_status",
+      "excluded_sensitive": "openclaw internals, any worker mind refs"
+    },
+    {
+      "path": "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_receptionist_floor_directory.json",
+      "source_type": "receptionist_floor_directory",
+      "exists": true,
+      "timestamp": "2026-07-11T08:53:39Z",
+      "sha256": "71522205dab63068a13dec5668afe082b5baaec64aa7e8cf6986d2e77107f4a6",
+      "classification": "AUTHORITATIVE_CURRENT_2026-07-11 (claims 170)",
+      "permitted_sections": "floor listing, names",
+      "excluded_sensitive": "visitor PII if any"
+    },
+    {
+      "path": "/vaults/nvme0/qsb_tower_v1/data/registries/floors.json",
+      "source_type": "floor_registry",
+      "exists": true,
+      "timestamp": "2026-06-14T16:21:13Z",
+      "sha256": "4a68117f67bd297ac0c22431cd62cc9fcbc0e3e275c509368c36934b69c7fade",
+      "classification": "SUPPORTING",
+      "permitted_sections": "floor list",
+      "excluded_sensitive": "-"
+    },
+    {
+      "path": "/vaults/nvme0/qsb_tower_v1/data/registries/vacant_floor_registry.json",
+      "source_type": "vacant_floor_registry",
+      "exists": true,
+      "timestamp": "2026-06-08T08:45:22Z",
+      "sha256": "dbe304fed5cbe21ba4b8d0f0552674e2682e7d3ba440477c2535abfe5b63a925",
+      "classification": "SUPPORTING",
+      "permitted_sections": "vacant/expansion floors",
+      "excluded_sensitive": "-"
+    },
+    {
+      "path": "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_model_floor_registry.json",
+      "source_type": "model_floor_registry",
+      "exists": true,
+      "timestamp": "2026-06-09T22:16:32Z",
+      "sha256": "dd6978c455631657366e5c550c6ad08eba6cd174b5f36dfe852441052c5844f2",
+      "classification": "SUPPORTING",
+      "permitted_sections": "AI/model floors",
+      "excluded_sensitive": "model creds"
+    },
+    {
+      "path": "/vaults/nvme0/qsb_tower_v1/data/registries/executive_floors.json",
+      "source_type": "executive_floor_registry",
+      "exists": true,
+      "timestamp": "2026-06-07T17:30:59Z",
+      "sha256": "e0d018fb4aec044bf41bd586f473d322db0771112b9cfe56283edf9523d0c8be",
+      "classification": "SUPPORTING",
+      "permitted_sections": "executive floors",
+      "excluded_sensitive": "-"
+    },
+    {
+      "path": "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_council_brief.md",
+      "source_type": "council_brief",
+      "exists": true,
+      "timestamp": "2026-07-16T18:28:50Z",
+      "sha256": "635423dc6d9d8abc884ea5dfaa870957fc439e6042185f483c7ef4b373abaa62",
+      "classification": "AUTHORITATIVE_CURRENT",
+      "permitted_sections": "council context, worker counts",
+      "excluded_sensitive": "-"
+    },
+    {
+      "path": "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_f47_team_records.jsonl",
+      "source_type": "f47_audit_ledger",
+      "exists": true,
+      "timestamp": "2026-07-16T18:53:03Z",
+      "sha256": "f02570e179002a1c9a1bb72b4498c19564dc44a306f2d6b5c8c4f7d6f203f47c",
+      "classification": "AUTHORITATIVE_APPEND_ONLY",
+      "permitted_sections": "event kinds, roles, subjects",
+      "excluded_sensitive": "hidden reasoning, any embedded secrets"
+    },
+    {
+      "path": "/vaults/nvme0/qsb_tower_v1/data/registries/pitstops",
+      "source_type": "pitstop_continuity",
+      "exists": true,
+      "timestamp": "2026-07-16T18:47:22Z",
+      "sha256": "(directory)",
+      "classification": "AUTHORITATIVE_HISTORICAL",
+      "permitted_sections": "resume pointers, focus, blockers",
+      "excluded_sensitive": "-",
+      "record_count": 144
+    },
+    {
+      "path": "/home/ross/Desktop/SKYSCRAPERHQ_RUNS/00_SEND_THIS_TO_CHATGPT",
+      "source_type": "reports_directory",
+      "exists": true,
+      "timestamp": "2026-07-16T18:41:07Z",
+      "sha256": "(directory)",
+      "classification": "AUTHORITATIVE_OUTBOUND",
+      "permitted_sections": "report summaries",
+      "excluded_sensitive": "any report containing creds",
+      "record_count": 348
+    },
+    {
+      "path": "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_council_tasks.jsonl",
+      "source_type": "task_council",
+      "exists": true,
+      "timestamp": "2026-07-16T15:53:35Z",
+      "sha256": "87ff9e0654c1395c4dd80a2b03fdd227e8045d37f7a0310cade998426c9ecd81",
+      "classification": "AUTHORITATIVE",
+      "permitted_sections": "task states",
+      "excluded_sensitive": "-"
+    },
+    {
+      "path": "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_boardroom_commentary.jsonl",
+      "source_type": "boardroom",
+      "exists": true,
+      "timestamp": "2026-07-16T18:54:41Z",
+      "sha256": "b52fb0f89df4606aa57d1cd60112183aa7e21bb008380fab07f6b13952bd57bd",
+      "classification": "AUTHORITATIVE",
+      "permitted_sections": "boardroom announcements",
+      "excluded_sensitive": "private deliberation"
+    },
+    {
+      "path": "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_boardroom_hub_activity.jsonl",
+      "source_type": "boardroom_hub",
+      "exists": true,
+      "timestamp": "2026-07-16T15:53:35Z",
+      "sha256": "bf90330c57056f23432f1b7b5a83257f61a2917093f080ae4fbcc782b53fe063",
+      "classification": "SUPPORTING",
+      "permitted_sections": "hub activity",
+      "excluded_sensitive": "-"
+    },
+    {
+      "path": "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_gene_pool_caged_providers.json",
+      "source_type": "gene_pool_capability",
+      "exists": true,
+      "timestamp": "2026-07-12T16:37:49Z",
+      "sha256": "03ac73236c937b047fa933195870541e325db65f12da6ac5cc29d96c663fe9b5",
+      "classification": "AUTHORITATIVE",
+      "permitted_sections": "provider capability names",
+      "excluded_sensitive": "API keys/counts"
+    },
+    {
+      "path": "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_model_floor_registry.json",
+      "source_type": "kernel_model_records",
+      "exists": true,
+      "timestamp": "2026-06-09T22:16:32Z",
+      "sha256": "dd6978c455631657366e5c550c6ad08eba6cd174b5f36dfe852441052c5844f2",
+      "classification": "SUPPORTING",
+      "permitted_sections": "model/kernel floors",
+      "excluded_sensitive": "-"
+    },
+    {
+      "path": "/vaults/nvme0/qsb_tower_v1/data/registries/future_department_blueprints.json",
+      "source_type": "expansion_plans",
+      "exists": true,
+      "timestamp": "2026-06-07T17:28:10Z",
+      "sha256": "fa8da8e4e495035ace58eb29d81a94aad4bc12bcbfd0a799734248ddea489c69",
+      "classification": "HISTORICAL_PLANNING",
+      "permitted_sections": "planned departments",
+      "excluded_sensitive": "-"
+    },
+    {
+      "path": "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_town_square.jsonl",
+      "source_type": "town_square",
+      "exists": true,
+      "timestamp": "2026-07-16T18:54:01Z",
+      "sha256": "c80767885ca172af35a41a8edc218490a3778ac94b10ce17d9c0b37ce2a9fc5b",
+      "classification": "AUTHORITATIVE_DISCOVERED",
+      "permitted_sections": "summary",
+      "excluded_sensitive": "secrets"
+    },
+    {
+      "path": "data/registries/*council*fifteen*",
+      "source_type": "council_of_fifteen",
+      "exists": false,
+      "classification": "NOT_FOUND",
+      "note": "category named in directive; no matching authoritative record found \u2014 floors/sections relying on it must be marked UNKNOWN"
+    },
+    {
+      "path": "data/registries/*seed*shop*",
+      "source_type": "seed_shops",
+      "exists": false,
+      "classification": "NOT_FOUND",
+      "note": "category named in directive; no matching authoritative record found \u2014 floors/sections relying on it must be marked UNKNOWN"
+    },
+    {
+      "path": "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_unreal_tiktok_reference_graphics_report.json",
+      "source_type": "tiktok_floors",
+      "exists": true,
+      "timestamp": "2026-06-28T14:51:38Z",
+      "sha256": "8e82d1c18ea6e7ba49d61ae9bcd9bc9fd5c27c49ff54a80c36972ec20f706517",
+      "classification": "AUTHORITATIVE_DISCOVERED",
+      "permitted_sections": "summary",
+      "excluded_sensitive": "secrets"
+    },
+    {
+      "path": "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_receptionist_website_directory.json",
+      "source_type": "website_registry",
+      "exists": true,
+      "timestamp": "2026-07-11T10:07:56Z",
+      "sha256": "c69957f62ed6071178e3d8c81bc822c618b77cadd87d175ee930ded2e746e433",
+      "classification": "AUTHORITATIVE_DISCOVERED",
+      "permitted_sections": "summary",
+      "excluded_sensitive": "secrets"
+    },
+    {
+      "path": "data/registries/*dashboard*registr*",
+      "source_type": "dashboard_registry",
+      "exists": false,
+      "classification": "NOT_FOUND",
+      "note": "category named in directive; no matching authoritative record found \u2014 floors/sections relying on it must be marked UNKNOWN"
+    },
+    {
+      "path": "data/registries/*story*federation*",
+      "source_type": "story_of_federation",
+      "exists": false,
+      "classification": "NOT_FOUND",
+      "note": "category named in directive; no matching authoritative record found \u2014 floors/sections relying on it must be marked UNKNOWN"
+    }
+  ]
+}

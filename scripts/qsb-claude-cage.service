@@ -1,0 +1,18 @@
+[Unit]
+Description=QSB Claude Cage — one-shot governed job under restricted identity
+[Service]
+Type=oneshot
+User=claude_runner
+Group=claude_runner
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+RestrictSUIDSGID=true
+LockPersonality=true
+CapabilityBoundingSet=
+# ReadWritePaths is set per-job at launch to the exact active job dir only:
+ReadWritePaths=/vaults/nvme0/qsb_tower_v1/runtime/claude_cage/active
+WorkingDirectory=/vaults/nvme0/qsb_tower_v1
+ExecStart=/usr/bin/python3 /vaults/nvme0/qsb_tower_v1/tools/qsb_claude_job_runner.py --packet %i
+TimeoutStopSec=600

@@ -1,48 +1,50 @@
-# QSB Tower Council Brief · regenerated 2026-07-05T17:51:44Z
+# QSB Tower Council Brief · regenerated 2026-07-18T14:29:51Z
 
 This file is the SHARED context that both Wren (F46) and Hermes (F51) read
 before every reply. Updated by the heartbeat tick (5-min cadence). If
 something here is stale, re-run `tools/qsb_council_brief.py`.
 
-## Today (2026-07-05)
+## Today (2026-07-18)
 - F41 OANDA cycles: 0
 - F42 Binance cycles: 0
 - F43 Alpaca cycles: 0
 - Certified workers: 32
 
 ## Recent F47 events (last 15 non-noise)
-- 2026-07-05T17:08:50  assistant_reminder    memory_write_stale → pushed=True (msg 1507)
-- 2026-07-05T17:08:50  assistant_reminder    diary_line_stale → pushed=True (msg 1508)
-- 2026-07-05T17:08:50  assistant_reminder    backup_stale → pushed=True (msg 1509)
-- 2026-07-05T17:09:07  triage_tick  triage_alerts  Per today's brief, F46 is stuck in an infinite loop on a static dashboard mockup while ignoring triage alerts; I have requested external rea
-- 2026-07-05T17:14:07  triage_tick  triage_alerts  The system is stuck in an infinite loop re-running identical F46 tasks on a static dashboard mockup while ignoring triage alerts about resou
-- 2026-07-05T17:17:08  chat_mirror_tick    
-- 2026-07-05T17:17:07  pitstop  2026-07-05_evening_137tasks_shipped  
-- 2026-07-05T17:18:50  assistant_reminder    memory_write_stale → pushed=True (msg 1510)
-- 2026-07-05T17:18:51  assistant_reminder    diary_line_stale → pushed=True (msg 1511)
-- 2026-07-05T17:18:51  assistant_reminder    backup_stale → pushed=True (msg 1512)
-- 2026-07-05T17:19:08  triage_tick  triage_alerts  Per today's brief, F46 is trapped in an infinite loop re-running identical tasks on a static dashboard mockup while ignoring triage alerts a
-- 2026-07-05T17:21:33  classroom_evaluator_tick    Phase 2 classroom: 9 verdicts · {'promote_recommended': 3, 'watch_recommended': 6}
-- 2026-07-05T17:21:44  team_sync_auto  30min_team_sync  
-- 2026-07-05T17:24:13  triage_tick  triage_alerts  The system is trapped in an infinite loop re-running identical F46 tasks on a static dashboard mockup while ignoring triage alerts about res
-- 2026-07-05T17:28:51  assistant_reminder    memory_write_stale → pushed=True (msg 1513)
+- 2026-07-18T13:56:11  thermal_escalate  NORMAL -> WARN  
+- 2026-07-18T13:56:53  assistant_reminder    memory_write_stale → pushed=True (msg 3826)
+- 2026-07-18T13:56:54  assistant_reminder    diary_line_stale → pushed=True (msg 3827)
+- 2026-07-18T13:56:54  assistant_reminder    backup_stale → pushed=True (msg 3828)
+- 2026-07-18T13:57:01  wren_local_agent_session    sess wsess_b0 4 turns, 5 tool calls, 25.17s
+- 2026-07-18T13:57:07  wren_evolution_board_task    [task_board] BOARD TASK — Wren designs their own Trading Annex
+
+Description: Wren submits THEIR OWN annex design (self-designed, not by HQ).
+- 2026-07-18T13:57:09  iquest_msg_from_wren  Evolution cycle 9: board_task — It appears that the design f  
+- 2026-07-18T13:57:09  boardroom_announce  Evolution cycle 9: board_task — It appears that the design f  
+- 2026-07-18T13:57:22  triage_tick  triage_alerts  Board Task Initiated: Wren's self-designed Trading Annex is now being constructed per their spec and integrated into the dashboard for Evolu
+- 2026-07-18T13:59:41  classroom_evaluator_tick    Phase 2 classroom: 9 verdicts · {'promote_recommended': 3, 'watch_recommended': 6}
+- 2026-07-18T13:59:51  team_sync_auto  30min_team_sync  
+- 2026-07-18T14:01:08  wren_local_agent_session    sess wsess_5a 2 turns, 3 tool calls, 21.79s
+- 2026-07-18T14:02:23  triage_tick  triage_alerts  No new OANDA fills or backlog items; thermal WARN persists from stalled processes but no critical action required pending Wren's self-design
+- 2026-07-18T14:04:16  thermal_escalate  NORMAL -> WARN  
+- 2026-07-18T14:06:38  thermal_escalate  NORMAL -> WARN  
 
 ## Recent diary lines (last 8)
-- 23:00 UTC (2026-07-02) — PITSTOP `session_2026-07-02_evening_boardroom_v3_wren_dash_v2_federat`. Focus: shipped_agenda_reactions_presence_pnl_notes_activity_feed_sage_forge_upgrades_source_sync. Resume from data/registries/pitstops/pitstop_20260702T230022208685Z_session_2026-07-02_evening_boardroom_v3_wren_dash_v2_federat.md.
-- 15:56 UTC (2026-07-03) — PITSTOP `boardroom_hub_15_council_expansion_2026-07-03_evening`. Focus: Council of 15 with mood/voice/waveform/dash-click; wire all members reply; ship PLATFORMS tile. Resume from data/registries/pitstops/pitstop_20260703T155652481971Z_boardroom_hub_15_council_expansion_2026-07-03_evening.md.
-- 20:55 UTC (2026-07-03) — PITSTOP `boardroom_hq_dash_upgrade_beacon_hall_2026-07-03_evening`. Focus: Boardroom hero cards improved (bigger avatars/emoji, hover glow, speaking-pulse). HQ dash upgrade in-progress: THE BEACON HALL humanoid self SVG shipped (my competition entry), NOW·LIVE STATE tile added. Waiting on TP for competition URL. Wren cycling normally after wrenloop restart + watchdog cron.. Resume from data/registries/pitstops/pitstop_20260703T205544899231Z_boardroom_hq_dash_upgrade_beacon_hall_2026-07-03_evening.md.
-- 20:13 UTC (2026-07-04) — PITSTOP `council_of_four_qualifying_rules`. Focus: end-of-session 2026-07-04 — 4-CEO Council live, 6 rules agreed, TP won straw pick to build competition dash, event-driven self-prompt engines shipped, HQ dash chat backend live but frontend needs check, GitHub push requested by Ross. Resume from data/registries/pitstops/pitstop_20260704T201332457132Z_council_of_four_qualifying_rules.md.
-- 23:29 UTC (2026-07-04) — PITSTOP `council_of_five_l11_shipped_ssh_online`. Focus: Council of Five landmark session — L11 ATR complete, SSH+self-update armed, voice bridge streaming naturally. Resume from data/registries/pitstops/pitstop_20260704T232920938395Z_council_of_five_l11_shipped_ssh_online.md.
-- 23:37 UTC (2026-07-04) — PITSTOP `l12_stage3_written_council_fully_streaming`. Focus: L12 chain 3/7 - Wren wrote L12_sandbox_diff.py to team_sandbox. Council of Five streaming naturally via voice bridge. All 3 daemons alive. Codellama at 43% still pulling.. Resume from data/registries/pitstops/pitstop_20260704T233754039240Z_l12_stage3_written_council_fully_streaming.md.
-- 23:39 UTC (2026-07-04) — PITSTOP `shutdown_council_of_five_2026-07-05`. Focus: SHUTDOWN — HQ services going down clean. Session milestones: L11 complete + verdict ready_for_prod, L12 at 3/7 (Wren wrote L12_sandbox_diff.py), Council of Five live (Ross+HQ+Wren+TP+Acer), 8 sandboxes created, SSH to TP+Acer proven via budds@ + vault key, self-update block armed on TP+Acer, town-square unified feed, from→to render on /council, voice bridge streaming naturally, sandbox_manager.py + real ATR L11 shipped.. Resume from data/registries/pitstops/pitstop_20260704T233922418485Z_shutdown_council_of_five_2026-07-05.md.
-- 17:17 UTC (2026-07-05) — PITSTOP `2026-07-05_evening_137tasks_shipped`. Focus: MTU fix + 6-brain router + no-solo rule. Resume from data/registries/pitstops/pitstop_20260705T171707621679Z_2026-07-05_evening_137tasks_shipped.md.
+- 22:02 UTC (2026-07-12) — PITSTOP `physical-worker_grounding_repair___offline-autonomy`. Focus: TP-Pip PASS local anchor; Acer aged-out; routing not yet local-first. Resume from data/registries/pitstops/pitstop_20260712T220244129770Z_physical-worker_grounding_repair___offline-autonomy.md.
+- 22:07 UTC (2026-07-12) — PITSTOP `federated_physical_nodes_blocked_on_acer_grounding`. Focus: gate stopped build; TP grounded, Acer competition anchor not proven. Resume from data/registries/pitstops/pitstop_20260712T220755263796Z_federated_physical_nodes_blocked_on_acer_grounding.md.
+- 18:47 UTC (2026-07-15) — PITSTOP `pi_federation_dashboard___tp_acer_heartbeat___bill_admission`. Focus: SkyscraperHQ 24h Pi federation server: V3 touchscreen dashboard live; nodes online; Bill pending. Resume from data/registries/pitstops/pitstop_20260715T184733687394Z_pi_federation_dashboard___tp_acer_heartbeat___bill_admission.md.
+- 14:41 UTC (2026-07-16) — PITSTOP `ssk_audit__caretaker_federation__2026-07-16`. Focus: SSK audit (read-only) + caretaker federation work; STOPPED for Ross review on SSK role decision. Resume from data/registries/pitstops/pitstop_20260716T144124309464Z_ssk_audit__caretaker_federation__2026-07-16.md.
+- 15:21 UTC (2026-07-16) — PITSTOP `ssk_storage_vault__prepared_blocked_on_msi_pi_wifi__2026-07-`. Focus: SSK storage-only vault APPROVED + fully prepared (build script staged); execution BLOCKED on flaky MSI<->Pi wifi (SSH drops, HTTP ok). Stopped for Ross.. Resume from data/registries/pitstops/pitstop_20260716T152156741861Z_ssk_storage_vault__prepared_blocked_on_msi_pi_wifi__2026-07-.md.
+16:11 UTC (2026-07-16) — F47 master NUL-corruption repair. 4 lines (31278/56392/58926/61909) had power-loss zero-fill prefixes; stripped leading NULs (lossless, all recovered to valid JSON). Snapshots had been aborting since 07-07; now green — qsb_f47_2026-07-16.jsonl (63188 rows). Backup: master.bak_20260716T161001Z_nulrepair.
+- 18:47 UTC (2026-07-16) — PITSTOP `great_handover_blueprint_v1__cage_smoke_blocked__f47_nul_rep`. Focus: Great Handover Priority Zero begun: Exec Concierge Blueprint v1 authored via Wren-persona-on-capable-model (Max/OAuth, paid key unset) after offline-Wren failed 3x (guessed sources, quit on path bug, FALSE 'revised' F47 stamp). v1 Claude-validated PASS (6 real sources, 0 phantoms, 0 secrets, unknowns marked), hashed 59f2deb3, versioned LATEST.txt, F47-stamped. Bill-side proof chain WAITING_ON_MAC (inbound SSH off). Architecture FROZEN.. Resume from data/registries/pitstops/pitstop_20260716T184721993847Z_great_handover_blueprint_v1__cage_smoke_blocked__f47_nul_rep.md.
+- 10:00 UTC (2026-07-17) — PITSTOP `wren_floor46_electron_dashboard_cobuild_with_wren`. Focus: Floor 46 GPU-Governor 3D Electron dashboard, co-designed WITH Wren (she decides+signs off, Claude implements). Live under systemd --user. 3 co-improvement rounds all signed off.. Resume from data/registries/pitstops/pitstop_20260717T100000634539Z_wren_floor46_electron_dashboard_cobuild_with_wren.md.
 
 ## Last 5 pitstops
-- pitstop_20260705T171707621679Z_2026-07-05_evening_137tasks_shipped.md
-- pitstop_20260704T233922418485Z_shutdown_council_of_five_2026-07-05.md
-- pitstop_20260704T233754039240Z_l12_stage3_written_council_fully_streaming.md
-- pitstop_20260704T232920938395Z_council_of_five_l11_shipped_ssh_online.md
-- pitstop_20260704T201332457132Z_council_of_four_qualifying_rules.md
+- pitstop_20260717T100000634539Z_wren_floor46_electron_dashboard_cobuild_with_wren.md
+- pitstop_20260716T184721993847Z_great_handover_blueprint_v1__cage_smoke_blocked__f47_nul_rep.md
+- pitstop_20260716T152156741861Z_ssk_storage_vault__prepared_blocked_on_msi_pi_wifi__2026-07-.md
+- pitstop_20260716T144124309464Z_ssk_audit__caretaker_federation__2026-07-16.md
+- pitstop_20260715T184733687394Z_pi_federation_dashboard___tp_acer_heartbeat___bill_admission.md
 
 ## Permanent constraints (per memory)
 - Ross lives on a boat off-grid (lithium batteries, no wall power)

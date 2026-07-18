@@ -1,0 +1,54 @@
+{
+  "task_id": "t_d919655bdd",
+  "repair": "team_live_identity",
+  "ts": "2026-07-08T15:56:25.945351+00:00",
+  "patch": {
+    "changed": false,
+    "before_hardcode_count": 0,
+    "after_hardcode_count": 0
+  },
+  "compile": {
+    "ok": true,
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "/vaults/nvme0/qsb_tower_v1/tools/qsb_boardroom_hub.py:542: SyntaxWarning: invalid escape sequence '\\/'\n  IPAD_HTML = \"\"\"<!doctype html><html lang=\"en\"><head>\n/vaults/nvme0/qsb_tower_v1/tools/qsb_boardroom_hub.py:4554: SyntaxWarning: invalid escape sequence '\\d'\n  TASKS_HTML = \"\"\"<!doctype html><html><head><meta charset=utf-8>\n"
+  },
+  "restart": {
+    "ok": true,
+    "http": 200
+  },
+  "verify": {
+    "ok": true,
+    "checks": {
+      "team_live_http": {
+        "ok": true,
+        "http": 200,
+        "url": "http://127.0.0.1:8852/team_live"
+      },
+      "ipad_http": {
+        "ok": true,
+        "http": 200,
+        "url": "http://127.0.0.1:8852/ipad"
+      },
+      "team_live_data_http": {
+        "ok": true,
+        "http": 200,
+        "url": "http://127.0.0.1:8852/team_live/data"
+      },
+      "source_hardcode_removed": true,
+      "dynamic_speaker_present": true
+    }
+  },
+  "doctrine": {
+    "worker": "dashboard_repair_worker",
+    "truth_gate": "patch + compile + restart + endpoint verification before done",
+    "claude_hq_name": "Claude HQ",
+    "wren": "protected GPU guardian",
+    "ceos": "API Gene Pool only",
+    "no_local_fallback": true,
+    "no_key_changes": true,
+    "no_trading": true
+  },
+  "boardroom_file": "/vaults/nvme0/qsb_tower_v1/tools/qsb_boardroom_hub.py",
+  "truth_gate": "done only if source patched/already clean, compile passed, Boardroom restarted, endpoints verified"
+}

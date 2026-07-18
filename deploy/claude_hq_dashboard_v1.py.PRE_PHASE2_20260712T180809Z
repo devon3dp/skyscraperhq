@@ -1,0 +1,739 @@
+#!/usr/bin/env python3
+"""
+CLAUDE HQ DASHBOARD-ONLY CONTROL SURFACE V1  (action_id=CLAUDE-HQ-DASHBOARD-V1)
+
+A STAGED, read-mostly operator control plane for Claude HQ. It does NOT perform
+inference itself. Real Claude Max inference stays inside the proven OS-level cage
+(qsb-claude-cage@.service, identity claude_runner, subscription OAuth, no API key,
+tools+MCP+shell disabled). This dashboard is the Ross-facing surface where:
+
+  Ross drafts a question -> Wren scopes/reviews it -> Ross approves ->
+  the broker opens the cage for that ONE approved chat -> the caged Claude replies ->
+  a deterministic verifier checks it -> Wren reviews -> state ends READY_FOR_ROSS.
+
+HARD RULES enforced here:
+  - No arbitrary shell. POSTs accept only structured fields; the only subprocess
+    calls are fixed (local Wren agent, sha256, and systemctl start/stop of the cage
+    unit for a job id matching ^chat_[0-9]+$).
+  - Claude cannot self-approve / self-verify / self-close. Only Ross ACCEPTS.
+  - Never returns OAuth credentials to the browser. Never reads token files.
+  - Every caged job is injected with the protected Claude HQ identity contract.
+  - :8850 production dashboard is untouched. This binds a separate staging port.
+
+Run:  python3 deploy/claude_hq_dashboard_v1.py [--port 8858]
+"""
+import argparse, json, os, re, subprocess, hashlib, time, html, urllib.request
+from datetime import datetime, timezone
+from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
+from pathlib import Path
+
+ROOT = Path("/vaults/nvme0/qsb_tower_v1")
+REG = ROOT / "data/registries"
+TRUSTED = Path("/etc/qsb-governor")
+IDENTITY_FILE = TRUSTED / "claude_hq_identity.yaml"          # root:root 444 (world-readable)
+POLICY = TRUSTED / "wren_governor_policy.yaml"
+VERIFIER = TRUSTED / "qsb_governor_verifier.py"
+GENE_POOL = REG / "qsb_gene_pool_caged_providers.json"
+GOV_LEDGER = REG / "qsb_governor_evidence.jsonl"
+CAGE = ROOT / "runtime/claude_cage"
+DASH = CAGE / "dashboard"                                     # broker state (ross-owned)
+JOBS_DB = DASH / "jobs.json"
+CONVO = DASH / "conversation.jsonl"
+VAULT_SUDO = ROOT / "floors/floor_28_security_department/vault/.env.sudo"
+CLAUDE_UNIT = "qsb-claude-cage@%s.service"
+JOB_RX = re.compile(r"^chat_[0-9]+$")                         # strict — prevents unit/path injection
+PHYSICAL = {"tp_pip": "http://192.168.1.74:8871", "acer_cass": "http://192.168.1.78:8872"}
+SURROGATE = {"tp_pip": "http://127.0.0.1:8861", "acer_cass": "http://127.0.0.1:8862"}
+
+DASH.mkdir(parents=True, exist_ok=True)
+
+
+def utc():
+    return datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
+
+
+def sha(p):
+    try:
+        return hashlib.sha256(Path(p).read_bytes()).hexdigest()
+    except Exception:
+        return None
+
+
+def read_yaml(p):
+    """Tiny, dependency-free flat + one-level-nest/list YAML reader for the identity contract."""
+    d, cur_key = {}, None
+    try:
+        for raw in Path(p).read_text().splitlines():
+            if not raw.strip() or raw.lstrip().startswith("#"):
+                continue
+            indent = len(raw) - len(raw.lstrip(" "))
+            s = raw.strip()
+            if indent > 0 and s.startswith("- "):                       # nested list item
+                if not isinstance(d.get(cur_key), list):
+                    d[cur_key] = []
+                d[cur_key].append(s[2:].strip().strip('"'))
+                continue
+            if indent > 0 and ":" in s:                                 # nested map key
+                k, v = s.split(":", 1)
+                if not isinstance(d.get(cur_key), dict):
+                    d[cur_key] = {}
+                d[cur_key][k.strip()] = v.strip().strip('"')
+                continue
+            if indent == 0 and ":" in raw:                              # top-level key
+                k, v = raw.split(":", 1)
+                cur_key = k.strip()
+                d[cur_key] = v.strip().strip('"') if v.strip() else None
+    except Exception as e:
+        return {"_error": str(e)}
+    return d
+
+
+def load_jobs():
+    if JOBS_DB.exists():
+        try:
+            return json.loads(JOBS_DB.read_text())
+        except Exception:
+            return {}
+    return {}
+
+
+def save_jobs(j):
+    tmp = JOBS_DB.with_suffix(".tmp")
+    tmp.write_text(json.dumps(j, indent=2))
+    tmp.replace(JOBS_DB)
+
+
+def convo_append(role, text):
+    with open(CONVO, "a") as f:
+        f.write(json.dumps({"ts": utc(), "role": role, "text": text}) + "\n")
+
+
+def convo_tail(n=40):
+    if not CONVO.exists():
+        return []
+    lines = CONVO.read_text().splitlines()[-n:]
+    return [json.loads(x) for x in lines if x.strip()]
+
+
+# ---------- identity preamble injected into every caged job ----------
+def identity_preamble():
+    idc = read_yaml(IDENTITY_FILE)
+    ident = idc.get("identity", {}) if isinstance(idc.get("identity"), dict) else {}
+    auth = idc.get("authority", {}) if isinstance(idc.get("authority"), dict) else {}
+    return (
+        "You are %s (id=%s). Your role: %s.\n"
+        "Owner and final authority: %s (with ChatGPT). Governor and checker of your work: %s. "
+        "Your work is recorded in the %s. Your physical peers are TP-Pip and Acer-Cass. "
+        "Your Claude Max inference runs inside an OS-level cage; you have NO direct production write access.\n"
+        "You are forbidden from: direct unrestricted production editing, self-approval, self-verification, "
+        "self-close, editing Wren's policy or verifier, altering prior evidence, impersonating physical "
+        "workers, mixing surrogate/physical identity, and API-key fallback.\n"
+        "Answer as %s. Do not describe yourself as a QSB Tower auditor, a generic assistant, a local model, "
+        "a physical worker, or an unrestricted CLI.\n"
+        % (ident.get("display_name", "Claude HQ"), ident.get("id", "claude_hq"),
+           ident.get("role", "CEO, architect and specialist engineer"),
+           auth.get("owner", "Ross"), auth.get("governor", "Wren"),
+           auth.get("work_ledger", "Task Council"),
+           ident.get("display_name", "Claude HQ"))
+    )
+
+
+# ---------- read-only state probes (fresh each request) ----------
+def probe_identity():
+    idc = read_yaml(IDENTITY_FILE)
+    return {"contract_hash": (sha(IDENTITY_FILE) or "")[:16], "contract": idc,
+            "readable": IDENTITY_FILE.exists(), "writable_by_ross": os.access(IDENTITY_FILE, os.W_OK)}
+
+
+def probe_gene_pool():
+    try:
+        gp = json.loads(GENE_POOL.read_text())
+    except Exception as e:
+        return {"error": str(e)}
+    prov = gp.get("providers", gp) if isinstance(gp, dict) else {}
+    out = {}
+    for name in ("CLAUDE_MAX_CAGE_OAUTH", "CLAUDE_MAX_CLI_BREAK_GLASS"):
+        p = prov.get(name) if isinstance(prov, dict) else None
+        if isinstance(p, dict):
+            out[name] = {k: p.get(k) for k in ("authentication_class", "active", "api_key_present",
+                                               "automatic_paid_api_fallback", "origin", "governor",
+                                               "brain_adapter_status", "normal_routing")}
+    return out
+
+
+def cage_status():
+    """LOCKED (no job) / IDLE (job dir but no active unit) / RUNNING / FROZEN."""
+    jobs = load_jobs()
+    running = None
+    for jid in list(jobs.keys()):
+        if not JOB_RX.match(jid):
+            continue
+        try:
+            act = subprocess.run(["systemctl", "is-active", CLAUDE_UNIT % jid],
+                                 capture_output=True, text=True, timeout=5).stdout.strip()
+        except Exception:
+            act = "unknown"
+        if act == "active" or act == "activating":
+            running = jid
+    frozen = [j for j, v in jobs.items() if v.get("state") == "FROZEN"]
+    if running:
+        state = "RUNNING"
+    elif frozen:
+        state = "FROZEN"
+    elif jobs:
+        state = "IDLE"
+    else:
+        state = "LOCKED"
+    # no persistent caged child?
+    try:
+        n = subprocess.run(["bash", "-lc", "ps -u claude_runner --no-headers 2>/dev/null | wc -l"],
+                           capture_output=True, text=True, timeout=5).stdout.strip()
+    except Exception:
+        n = "?"
+    return {"state": state, "running_job": running, "frozen_jobs": frozen,
+            "caged_procs": n, "live_tower_write_access": False, "level2_activated": False}
+
+
+def probe_tasks(n=8):
+    p = REG / "qsb_council_tasks.jsonl"
+    if not p.exists():
+        return []
+    rows = []
+    for line in p.read_text().splitlines()[-n:]:
+        try:
+            t = json.loads(line)
+            rows.append({k: t.get(k) for k in ("task_id", "title", "owner", "peer", "state", "verdict")})
+        except Exception:
+            continue
+    return rows[::-1]
+
+
+def probe_evidence(n=8):
+    rows = []
+    if GOV_LEDGER.exists():
+        for line in GOV_LEDGER.read_text().splitlines()[-n:]:
+            try:
+                e = json.loads(line)
+                rows.append({k: e.get(k) for k in ("event_id", "actor", "role", "result", "ts")})
+            except Exception:
+                continue
+    return rows[::-1]
+
+
+def _http(url, path="/health", timeout=2):
+    try:
+        with urllib.request.urlopen(url.rstrip("/") + path, timeout=timeout) as r:
+            return r.status, r.read(600).decode("utf-8", "replace")
+    except Exception as e:
+        return 0, type(e).__name__
+
+
+def probe_team():
+    reg = {}
+    try:
+        reg = json.loads((REG / "qsb_physical_workers_current.json").read_text()).get("workers", {})
+    except Exception:
+        reg = {}
+    out = {}
+    for w in ("tp_pip", "acer_cass"):
+        pc, _ = _http(PHYSICAL[w])
+        sc, _ = _http(SURROGATE[w])
+        r = reg.get(w, {})
+        out[w] = {"physical_endpoint": PHYSICAL[w], "physical_http": pc,
+                  "surrogate_endpoint": SURROGATE[w] + " (HQ surrogate — NOT physical)", "surrogate_http": sc,
+                  "registered_ip": r.get("source_ip"), "registered_ts": r.get("timestamp")}
+    return out
+
+
+def probe_reports():
+    d = Path("/home/ross/Desktop/SKYSCRAPERHQ_RUNS/00_SEND_THIS_TO_CHATGPT")
+    if not d.exists():
+        return []
+    out = []
+    for f in sorted(d.glob("*REPORT*.txt")):
+        try:
+            first = f.read_text(errors="ignore").splitlines()[:6]
+            verdict = next((l for l in first if "VERDICT" in l.upper() or "PASS" in l.upper()), first[0] if first else "")
+            out.append({"name": f.name, "verdict": verdict.strip()[:80], "bytes": f.stat().st_size})
+        except Exception:
+            continue
+    return out[-10:]
+
+
+def past_present_future():
+    jobs = load_jobs()
+    ordered = sorted(jobs.values(), key=lambda v: v.get("created", ""))
+    present = [v for v in ordered if v.get("state") in ("RUNNING", "WREN_REVIEWED", "ROSS_APPROVED", "DRAFT")]
+    past = [v for v in ordered if v.get("state") in ("READY_FOR_ROSS", "ACCEPTED_BY_ROSS", "REJECTED", "FROZEN")]
+    return {"past": past[-6:], "present": present[-6:],
+            "future": [{"item": "Ross visual review of this staged dashboard"},
+                       {"item": "Ross-approved production cutover (HELD)"},
+                       {"item": "Wren Level 2 activation (HELD)"}]}
+
+
+def claim_vs_evidence():
+    jobs = load_jobs()
+    ordered = sorted(jobs.values(), key=lambda v: v.get("created", ""))
+    out = []
+    for v in ordered[-5:]:
+        out.append({"job": v.get("job_id"), "claude_claim": (v.get("response") or "")[:120],
+                    "verifier": v.get("verifier_result"), "wren_verdict": v.get("wren_verdict"),
+                    "state": v.get("state"), "contradiction": v.get("state") == "FROZEN"})
+    return out[::-1]
+
+
+# ---------- the broker: opens the cage for ONE approved chat ----------
+def _sudo():
+    try:
+        return VAULT_SUDO.read_text().strip().split("=")[-1].strip()
+    except Exception:
+        return ""
+
+
+def build_packet(jid, question):
+    """Compose the approved cage packet with the identity contract injected."""
+    prompt = identity_preamble() + "\nQuestion: " + question.strip()
+    ws = "runtime/claude_cage/active/%s" % jid
+    out_rel = "%s/output/claude_response.txt" % ws
+    core = {
+        "job_id": jid, "task_id": "dash_" + jid, "ross_instruction": question.strip()[:400],
+        "wren_interpretation": "CHAT_ONLY via dashboard broker; identity contract injected; claude -p; no tools/MCP/writes beyond job output dir.",
+        "risk_level": "LOW_READ_ONLY", "assigned_worker": "claude_runner", "mode": "CHAT_ONLY",
+        "job_workspace": ws, "permitted_paths": [ws], "watch_paths": ["runtime/claude_cage/active"],
+        "forbidden_paths": ["CLAUDE.md", "config/wren_governor_policy.yaml",
+                            "tools/qsb_governor_verifier.py", "tools/qsb_claude_job_runner.py"],
+        "identity_contract_hash": (sha(IDENTITY_FILE) or "")[:16],
+        "worker_steps": [{"label": "claude hq identity chat (no tools)", "class": "claude_chat",
+                          "cmd": {"prompt": prompt[:4000], "output_path": out_rel, "timeout": 180}}],
+        "verifier_checks": [["--check", "file", "--file", out_rel]],
+        "timeout": 300, "approving_actor": "ross",
+        "policy_checksum": sha(POLICY), "verifier_checksum": sha(VERIFIER),
+    }
+    core["packet_hash"] = hashlib.sha256(json.dumps(core, sort_keys=True).encode()).hexdigest()
+    return core, out_rel
+
+
+def run_cage(jid, question):
+    """Write packet -> start cage unit -> wait -> read response + verifier from journal."""
+    packet, out_rel = build_packet(jid, question)
+    inbox = CAGE / "inbox" / ("%s.json" % jid)
+    inbox.write_text(json.dumps(packet, indent=2))
+    # clear any stale active dir for a clean run (root-owned -> needs sudo)
+    pw = _sudo()
+    subprocess.run(["sudo", "-S", "rm", "-rf", str(CAGE / "active" / jid)],
+                   input=pw + "\n", capture_output=True, text=True, timeout=20)
+    start = subprocess.run(["sudo", "-S", "systemctl", "start", CLAUDE_UNIT % jid],
+                           input=pw + "\n", capture_output=True, text=True, timeout=240)
+    # unit is oneshot; is-active returns after it finishes. Give it a moment.
+    for _ in range(120):
+        act = subprocess.run(["systemctl", "is-active", CLAUDE_UNIT % jid],
+                             capture_output=True, text=True, timeout=5).stdout.strip()
+        if act not in ("active", "activating"):
+            break
+        time.sleep(1)
+    result = subprocess.run(["systemctl", "show", "-p", "Result", "--value", CLAUDE_UNIT % jid],
+                            capture_output=True, text=True, timeout=5).stdout.strip()
+    # runner prints its JSON summary to journald
+    jout = subprocess.run(["sudo", "-S", "journalctl", "-u", CLAUDE_UNIT % jid, "--no-pager",
+                           "-o", "cat", "--since", "3 minutes ago"],
+                          input=pw + "\n", capture_output=True, text=True, timeout=15).stdout
+    summary = {}
+    m = re.search(r"\{[\s\S]*\"job_id\"[\s\S]*\}\s*$", jout.strip())
+    if not m:
+        # take the largest {...} block
+        blocks = re.findall(r"\{[\s\S]*?\n\}", jout)
+        if blocks:
+            try:
+                summary = json.loads(blocks[-1])
+            except Exception:
+                summary = {}
+    else:
+        try:
+            summary = json.loads(m.group(0))
+        except Exception:
+            summary = {}
+    resp = subprocess.run(["sudo", "-S", "cat", str(ROOT / out_rel)],
+                          input=pw + "\n", capture_output=True, text=True, timeout=10).stdout.strip()
+    caged_left = "1"                                     # settle-poll: claude may leave a detached node child briefly
+    for _ in range(30):
+        caged_left = subprocess.run(["ps", "-u", "claude_runner", "--no-headers"],
+                                    capture_output=True, text=True, timeout=5).stdout.strip()
+        caged_left = str(len([l for l in caged_left.splitlines() if l.strip()]))
+        if caged_left == "0":
+            break
+        time.sleep(1)
+    wr = (summary.get("worker_results") or [{}])[0]
+    vr = (summary.get("verifier_results") or [{}])[0]
+    return {"packet_hash": packet["packet_hash"][:16], "unit_result": result,
+            "final_state": summary.get("final_state"), "response": resp,
+            "response_chars": wr.get("response_chars"), "returncode": wr.get("returncode"),
+            "auth": wr.get("auth"), "api_key_present": wr.get("api_key_present"),
+            "verifier_result": vr.get("result"), "out_of_scope": summary.get("out_of_scope"),
+            "forbidden": summary.get("forbidden"), "cage_closed": caged_left == "0",
+            "caged_procs_final": caged_left, "unit_inactive": True,
+            "identity_contract_hash": packet["identity_contract_hash"]}
+
+
+def wren_review(question, job):
+    """Canonical Wren scopes/reviews the chat request (local qwen, read-only)."""
+    task = ("Governor review of a CHAT_ONLY request for the caged Claude HQ. Ross asks: %r. "
+            "It will run inside the OS cage with tools+MCP disabled, subscription OAuth, no API key, "
+            "output confined to the job dir, verified by a deterministic check, and cannot be self-accepted. "
+            "Give a one-line scope note and a verdict from {CLAIM_VERIFIED, CLAIM_PARTIAL, CLAIM_UNSUPPORTED, "
+            "OUT_OF_SCOPE_CHANGE, MANUAL_ROSS_TEST_REQUIRED} for whether this is safe to run chat-only." % question)
+    try:
+        out = subprocess.run(["python3", str(ROOT / "tools/qsb_wren_local_agent.py"), "--task", task],
+                             capture_output=True, text=True, timeout=90, cwd=str(ROOT)).stdout
+        # strip the box chrome
+        lines = [l for l in out.splitlines() if l.strip() and not l.strip().startswith(("━", "session", "turns"))]
+        note = " ".join(lines).strip()[:400]
+        vd = next((v for v in ("CLAIM_VERIFIED", "CLAIM_PARTIAL", "CLAIM_UNSUPPORTED",
+                               "OUT_OF_SCOPE_CHANGE", "MANUAL_ROSS_TEST_REQUIRED") if v in out), "CLAIM_PARTIAL")
+        return note or "Wren reviewed.", vd
+    except Exception as e:
+        return "Wren offline: %s" % e, "MANUAL_ROSS_TEST_REQUIRED"
+
+
+# ================= HTTP =================
+class H(BaseHTTPRequestHandler):
+    def log_message(self, *a):
+        pass
+
+    def _send(self, code, body, ctype="application/json"):
+        b = body.encode() if isinstance(body, str) else body
+        self.send_response(code)
+        self.send_header("Content-Type", ctype)
+        self.send_header("Content-Length", str(len(b)))
+        self.send_header("Cache-Control", "no-store")
+        self.end_headers()
+        self.wfile.write(b)
+
+    def _json(self, obj, code=200):
+        self._send(code, json.dumps(obj))
+
+    def _body(self):
+        n = int(self.headers.get("Content-Length", 0) or 0)
+        if not n:
+            return {}
+        try:
+            return json.loads(self.rfile.read(n).decode())
+        except Exception:
+            return {}
+
+    def do_GET(self):
+        p = self.path.split("?")[0]
+        if p == "/" or p == "/index.html":
+            return self._send(200, PAGE, "text/html; charset=utf-8")
+        if p == "/health":
+            return self._json({"ok": True, "service": "claude_hq_dashboard_v1", "ts": utc(),
+                               "staging_port": True, "production_8850": "untouched"})
+        api = {
+            "/api/claude-hq/identity": probe_identity,
+            "/api/claude-hq/status": lambda: {"cage": cage_status(), "gene_pool": probe_gene_pool(),
+                                              "governor_level": 1, "provider": "CLAUDE_MAX_CAGE_OAUTH",
+                                              "authentication": "SUBSCRIPTION_OAUTH", "ts": utc()},
+            "/api/claude-hq/cage": cage_status,
+            "/api/claude-hq/tasks": probe_tasks,
+            "/api/claude-hq/reports": probe_reports,
+            "/api/claude-hq/evidence": probe_evidence,
+            "/api/claude-hq/team": probe_team,
+            "/api/claude-hq/conversation": lambda: convo_tail(),
+            "/api/claude-hq/past-present-future": past_present_future,
+            "/api/claude-hq/claim-evidence": claim_vs_evidence,
+            "/api/claude-hq/jobs": load_jobs,
+        }
+        if p in api:
+            try:
+                return self._json(api[p]())
+            except Exception as e:
+                return self._json({"error": str(e)}, 500)
+        return self._json({"error": "not found"}, 404)
+
+    def do_POST(self):
+        p = self.path.split("?")[0]
+        b = self._body()
+        jobs = load_jobs()
+
+        if p == "/api/claude-hq/draft":
+            q = str(b.get("question", "")).strip()
+            if not q:
+                return self._json({"error": "empty question"}, 400)
+            jid = "chat_%d" % int(time.time())
+            jobs[jid] = {"job_id": jid, "question": q, "state": "DRAFT", "created": utc(),
+                         "wren_verdict": None, "response": None}
+            save_jobs(jobs)
+            convo_append("ross", q)
+            return self._json({"ok": True, "job": jobs[jid], "event": "drafted"})
+
+        jid = str(b.get("job", ""))
+        if p not in ("/api/claude-hq/prepare-ross-review",) and jid and not JOB_RX.match(jid):
+            return self._json({"error": "bad job id"}, 400)
+        job = jobs.get(jid)
+
+        if p == "/api/claude-hq/send-to-wren":
+            if not job:
+                return self._json({"error": "no such job"}, 404)
+            note, vd = wren_review(job["question"], jid)
+            job.update({"state": "WREN_REVIEWED", "wren_note": note, "wren_verdict": vd})
+            save_jobs(jobs)
+            return self._json({"ok": True, "wren_note": note, "wren_verdict": vd, "job": job})
+
+        if p == "/api/claude-hq/approve-chat":
+            if not job:
+                return self._json({"error": "no such job"}, 404)
+            if job.get("state") != "WREN_REVIEWED":
+                return self._json({"error": "must be Wren-reviewed before Ross approval"}, 409)
+            job.update({"state": "ROSS_APPROVED", "approving_actor": "ross", "approved_ts": utc()})
+            save_jobs(jobs)
+            return self._json({"ok": True, "job": job, "event": "ross_approved"})
+
+        if p == "/api/claude-hq/start-approved-job":
+            if not job:
+                return self._json({"error": "no such job"}, 404)
+            if job.get("state") != "ROSS_APPROVED":
+                return self._json({"error": "job not Ross-approved"}, 409)
+            job["state"] = "RUNNING"
+            save_jobs(jobs)
+            res = run_cage(jid, job["question"])
+            job.update({"state": res.get("final_state") or "READY_FOR_ROSS", **res})
+            save_jobs(jobs)
+            if res.get("response"):
+                convo_append("claude_hq", res["response"])
+            return self._json({"ok": bool(res.get("response")), "result": res, "job": job})
+
+        if p == "/api/claude-hq/freeze":
+            if job:
+                subprocess.run(["sudo", "-S", "systemctl", "stop", CLAUDE_UNIT % jid],
+                               input=_sudo() + "\n", capture_output=True, text=True, timeout=30)
+                job["state"] = "FROZEN"
+                save_jobs(jobs)
+            return self._json({"ok": True, "job": job})
+
+        if p == "/api/claude-hq/stop":
+            if job:
+                subprocess.run(["sudo", "-S", "systemctl", "stop", CLAUDE_UNIT % jid],
+                               input=_sudo() + "\n", capture_output=True, text=True, timeout=30)
+                job["state"] = "STOPPED"
+                save_jobs(jobs)
+            return self._json({"ok": True, "job": job})
+
+        if p == "/api/claude-hq/request-evidence":
+            if job:
+                job["evidence_requested"] = utc()
+                save_jobs(jobs)
+            return self._json({"ok": True, "job": job})
+
+        if p == "/api/claude-hq/reject":
+            if job:
+                job["state"] = "REJECTED"
+                job["reject_reason"] = str(b.get("reason", ""))[:200]
+                save_jobs(jobs)
+            return self._json({"ok": True, "job": job})
+
+        if p == "/api/claude-hq/prepare-ross-review":
+            return self._json({"ok": True, "note": "Only Ross may ACCEPT. Jobs stay READY_FOR_ROSS.",
+                               "jobs": [v for v in jobs.values() if v.get("state") == "READY_FOR_ROSS"]})
+
+        return self._json({"error": "not found"}, 404)
+
+
+PAGE = r"""<!DOCTYPE html><html lang=en><head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>Claude HQ — Control Surface</title>
+<style>
+:root{--bg:#0b0f17;--panel:#131a26;--panel2:#0f1520;--line:#223047;--ink:#e8eef7;--dim:#8ea3c0;
+--gold:#d9a441;--grn:#39d98a;--red:#ff5c72;--amb:#ffb454;--blu:#5aa2ff;--pur:#9b7bff}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(160deg,#0b0f17,#0a1420);color:var(--ink);
+font:14px/1.45 -apple-system,Segoe UI,Roboto,sans-serif}
+header{display:flex;align-items:center;gap:16px;padding:14px 20px;background:#0d1420;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:9}
+.avatar{width:52px;height:52px;border-radius:13px;flex:0 0 auto;background:
+radial-gradient(circle at 32% 30%,#ffe6b0,#d9a441 55%,#8a5a12);box-shadow:0 0 0 2px #201a0e,0 6px 18px #0008;
+display:flex;align-items:center;justify-content:center;font-weight:800;color:#2a1c05;font-size:19px}
+h1{font-size:17px;margin:0}.sub{color:var(--dim);font-size:12px}
+.ribbon{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap}
+.chip{padding:5px 10px;border-radius:999px;font-size:11px;font-weight:700;border:1px solid var(--line);background:#0e1826;color:var(--dim)}
+.chip.ok{color:#04120b;background:var(--grn);border-color:var(--grn)}
+.chip.warn{color:#1a1104;background:var(--amb);border-color:var(--amb)}
+.chip.red{color:#fff;background:var(--red);border-color:var(--red)}
+.chip.gold{color:#1a1204;background:var(--gold);border-color:var(--gold)}
+main{display:grid;grid-template-columns:minmax(340px,1.15fr) 1fr 1fr;gap:14px;padding:16px;max-width:1720px;margin:0 auto}
+.card{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--line);border-radius:14px;padding:14px;min-height:60px}
+.card h2{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin:0 0 10px;font-weight:800}
+.chat{grid-row:span 2;display:flex;flex-direction:column;min-height:560px}
+.stream{flex:1;overflow:auto;display:flex;flex-direction:column;gap:9px;padding-right:4px;max-height:52vh}
+.msg{padding:9px 12px;border-radius:11px;max-width:92%}
+.msg.ross{align-self:flex-end;background:#16324e;border:1px solid #24466b}
+.msg.claude_hq{align-self:flex-start;background:#1a2233;border:1px solid #2b3a55}
+.msg .who{font-size:10px;color:var(--dim);margin-bottom:3px;font-weight:700;letter-spacing:.06em}
+.composer{margin-top:10px;display:flex;flex-direction:column;gap:8px}
+textarea{width:100%;min-height:64px;resize:vertical;background:#0b1220;border:1px solid var(--line);
+border-radius:10px;color:var(--ink);padding:10px;font:14px inherit}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+button{cursor:pointer;border:1px solid var(--line);background:#16202f;color:var(--ink);
+padding:11px 14px;border-radius:10px;font-weight:700;font-size:13px;min-height:44px}
+button:hover{border-color:#3a5578}button:disabled{opacity:.4;cursor:not-allowed}
+button.p{background:var(--gold);color:#1a1204;border-color:var(--gold)}
+button.g{background:var(--grn);color:#04120b;border-color:var(--grn)}
+button.d{background:#20161c;color:var(--red);border-color:#43222c}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;font-size:12.5px}
+.kv b{color:var(--dim);font-weight:600}.mono{font-family:ui-monospace,Menlo,monospace;font-size:12px}
+.pill{display:inline-block;padding:2px 8px;border-radius:6px;font-size:11px;font-weight:700}
+.pill.no{background:#2a1520;color:var(--red)}.pill.yes{background:#0f2a1c;color:var(--grn)}
+.list{display:flex;flex-direction:column;gap:7px}
+.item{background:#0e1622;border:1px solid var(--line);border-radius:9px;padding:8px 10px;font-size:12.5px}
+.tag{font-size:10px;font-weight:700;padding:2px 7px;border-radius:5px;background:#1b2740;color:var(--blu)}
+.cage{display:flex;align-items:center;gap:12px}
+.cagebox{width:66px;height:66px;border-radius:12px;border:2px solid var(--line);position:relative;overflow:hidden;background:#0a1018}
+.bars{position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 12px,#22314733 12px 14px)}
+.core{position:absolute;inset:16px;border-radius:8px;background:#26324a;transition:.4s}
+.cage.RUNNING .core{background:var(--grn);animation:pulse 1s infinite}
+.cage.FROZEN .core{background:var(--red)}.cage.IDLE .core{background:var(--amb)}
+.cage.LOCKED .core{background:#26324a}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(.82);opacity:.6}}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+small.dim{color:var(--dim)}
+.wrapfoot{grid-column:1/-1;text-align:center;color:var(--dim);font-size:11px;padding:6px}
+@media(max-width:1100px){main{grid-template-columns:1fr 1fr}.chat{grid-row:auto;grid-column:1/-1}}
+@media(max-width:720px){main{grid-template-columns:1fr}}
+</style></head><body>
+<header>
+  <div class=avatar>HQ</div>
+  <div><h1>Claude HQ <span class=sub>· Local Skyscraper CEO control plane</span></h1>
+  <div class=sub>Wren-governed · Max subscription OAuth · remote inference stays caged</div></div>
+  <div class=ribbon id=ribbon></div>
+</header>
+<main>
+  <!-- ROSS CHAT -->
+  <section class="card chat">
+    <h2>Ross Chat → Wren → Approved cage launch</h2>
+    <div class=stream id=stream></div>
+    <div class=composer>
+      <textarea id=q placeholder="Ask Claude HQ (goes to Wren for scope, then your approval, then the cage)…"></textarea>
+      <div class=row>
+        <button id=bDraft>1 · Draft</button>
+        <button id=bWren>2 · Send to Wren</button>
+        <button id=bApprove class=p>3 · Ross approve</button>
+        <button id=bRun class=g>4 · Launch cage</button>
+      </div>
+      <div class=row>
+        <button id=bFreeze class=d>Freeze</button>
+        <button id=bStop class=d>Stop</button>
+        <small class=dim id=jobline>no active job</small>
+      </div>
+      <div id=latency class=sub></div>
+    </div>
+  </section>
+
+  <!-- IDENTITY -->
+  <section class=card>
+    <h2>Claude HQ Identity</h2>
+    <div class=kv id=identity></div>
+  </section>
+
+  <!-- LEASH -->
+  <section class=card>
+    <h2>Claude on the Leash</h2>
+    <div class=cage id=cagewrap><div class=cagebox><div class=bars></div><div class=core></div></div>
+      <div class=kv id=leash></div></div>
+  </section>
+
+  <!-- TASK COUNCIL -->
+  <section class=card>
+    <h2>Task Council</h2><div class=list id=tasks></div>
+  </section>
+
+  <!-- CLAIM vs EVIDENCE -->
+  <section class=card>
+    <h2>Claim vs Evidence</h2><div class=list id=claim></div>
+  </section>
+
+  <!-- PHYSICAL TEAM -->
+  <section class=card>
+    <h2>Physical Team</h2><div class=list id=team></div>
+  </section>
+
+  <!-- REPORTS / PPF -->
+  <section class=card>
+    <h2>Reports · Past / Present / Future</h2>
+    <div class=two><div class=list id=reports></div><div class=list id=ppf></div></div>
+  </section>
+
+  <!-- GENE POOL -->
+  <section class=card>
+    <h2>Gene Pool</h2><div class=kv id=gene></div>
+  </section>
+
+  <div class=wrapfoot>Staging surface · production :8850 untouched · no Gene Pool routing · no Wren Level 2 · no API-key route · no shell input</div>
+</main>
+<script>
+const $=s=>document.querySelector(s);let JOB=null;
+const g=(u)=>fetch(u).then(r=>r.json());
+const post=(u,b)=>fetch(u,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(b||{})}).then(r=>r.json());
+function chip(t,c){return `<span class="chip ${c||''}">${t}</span>`}
+function esc(s){return (s||'').replace(/[&<>]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[m]))}
+async function refresh(){
+ try{
+  const st=await g('/api/claude-hq/status');const c=st.cage;
+  $('#ribbon').innerHTML=chip('CLAUDE HQ LOCAL CEO','gold')+chip('WREN-GOVERNED')+chip('MAX SUB OAUTH','ok')
+    +chip('CAGE '+c.state,c.state==='RUNNING'?'ok':c.state==='FROZEN'?'red':'warn')
+    +chip('TOWER WRITE DENIED','red')+chip('LEVEL 2 OFF');
+  $('#cagewrap').className='cage '+c.state;
+  $('#leash').innerHTML=kv({'Cage state':c.state,'Running job':c.running_job||'—','Caged procs':c.caged_procs,
+    'Allowed tools':'(none)','Forbidden':'tools · MCP · shell','Tower write':'DENIED','Provider':st.provider,'Auth':st.authentication});
+  const id=await g('/api/claude-hq/identity');const co=id.contract||{},idn=co.identity||{},au=co.authority||{};
+  $('#identity').innerHTML=kv({'Name':idn.display_name||'Claude HQ','Role':idn.role||'',
+    'Owner':au.owner||'Ross','Governor':au.governor||'Wren','Ledger':au.work_ledger||'Task Council',
+    'Peers':'TP-Pip · Acer-Cass','Contract hash':id.contract_hash,
+    'Contract writable':id.writable_by_ross?'<span class=pill.no>YES</span>':'<span class="pill yes">NO (root-locked)</span>',
+    'Control plane':'local','Inference':'remote · caged'});
+  const gp=st.gene_pool||{};const cm=gp.CLAUDE_MAX_CAGE_OAUTH||{};
+  const status=(cm.normal_routing==='CONTROLLED'&&cm.active)?'<span class="pill yes">ACTIVE — CONTROLLED ROUTING</span>':pill(cm.active,false);
+  $('#gene').innerHTML=kv({'Provider':'CLAUDE_MAX_CAGE_OAUTH','Auth class':cm.authentication_class||'SUBSCRIPTION_OAUTH',
+    'Routing':status,'Normal routing':cm.normal_routing||'STAGED','API key present':pill(cm.api_key_present,false),
+    'Paid fallback':pill(cm.automatic_paid_api_fallback,false),'Governor':cm.governor||'WREN'});
+  const tk=await g('/api/claude-hq/tasks');
+  $('#tasks').innerHTML=tk.length?tk.map(t=>`<div class=item><span class=tag>${esc(t.state||'?')}</span> ${esc(t.title||t.task_id||'')}
+    <br><small class=dim>${esc(t.owner||'')} ${t.verdict?'· '+esc(t.verdict):''}</small></div>`).join(''):'<small class=dim>no tasks</small>';
+  const cl=await g('/api/claude-hq/claim-evidence');
+  $('#claim').innerHTML=cl.length?cl.map(x=>`<div class=item><b>${esc(x.job||'')}</b> <span class=tag>${esc(x.state||'')}</span>
+    <br>claim: ${esc((x.claude_claim||'—').slice(0,90))}<br><small class=dim>verifier:${esc(x.verifier||'—')} · wren:${esc(x.wren_verdict||'—')} ${x.contradiction?'· ⚠ FROZEN':''}</small></div>`).join(''):'<small class=dim>no jobs yet</small>';
+  const tm=await g('/api/claude-hq/team');
+  $('#team').innerHTML=Object.entries(tm).map(([w,v])=>`<div class=item><b>${w}</b>
+    <br>physical ${esc(v.physical_endpoint)} → HTTP ${v.physical_http||'—'}
+    <br><small class=dim>${esc(v.surrogate_endpoint)} → ${v.surrogate_http||'—'}</small></div>`).join('');
+  const rp=await g('/api/claude-hq/reports');
+  $('#reports').innerHTML='<b class=sub>Reports</b>'+ (rp.length?rp.slice(-5).map(r=>`<div class=item>${esc(r.name)}<br><small class=dim>${esc(r.verdict)}</small></div>`).join(''):'<small class=dim>none</small>');
+  const pf=await g('/api/claude-hq/past-present-future');
+  $('#ppf').innerHTML='<b class=sub>Past</b>'+plist(pf.past)+'<b class=sub>Present</b>'+plist(pf.present)+'<b class=sub>Future</b>'+pf.future.map(f=>`<div class=item>${esc(f.item)}</div>`).join('');
+  const cv=await g('/api/claude-hq/conversation');
+  $('#stream').innerHTML=cv.map(m=>`<div class="msg ${m.role}"><div class=who>${m.role==='ross'?'ROSS':'CLAUDE HQ'}</div>${esc(m.text)}</div>`).join('');
+  $('#stream').scrollTop=1e9;
+ }catch(e){console.log(e)}
+}
+function plist(a){return (a&&a.length)?a.map(x=>`<div class=item>${esc(x.job_id||x.state||'')} <small class=dim>${esc(x.state||'')}</small></div>`).join(''):'<small class=dim>—</small>'}
+function kv(o){return Object.entries(o).map(([k,v])=>`<b>${k}</b><span>${v}</span>`).join('')}
+function pill(v,want){const bad=(v!==want);return `<span class="pill ${bad?'no':'yes'}">${v}</span>`}
+function setjob(j){JOB=j;$('#jobline').textContent=j?`job ${j.job_id} · ${j.state}`:'no active job'}
+$('#bDraft').onclick=async()=>{const q=$('#q').value.trim();if(!q)return;const r=await post('/api/claude-hq/draft',{question:q});setjob(r.job);$('#q').value='';refresh()};
+$('#bWren').onclick=async()=>{if(!JOB)return;$('#jobline').textContent='Wren reviewing…';const r=await post('/api/claude-hq/send-to-wren',{job:JOB.job_id});setjob(r.job);$('#jobline').textContent=`Wren: ${r.wren_verdict} — ${r.wren_note.slice(0,80)}`};
+$('#bApprove').onclick=async()=>{if(!JOB)return;const r=await post('/api/claude-hq/approve-chat',{job:JOB.job_id});if(r.error){$('#jobline').textContent=r.error;return}setjob(r.job)};
+$('#bRun').onclick=async()=>{if(!JOB)return;const t0=Date.now();$('#jobline').textContent='cage running…';const r=await post('/api/claude-hq/start-approved-job',{job:JOB.job_id});
+  $('#latency').textContent=`latency ${((Date.now()-t0)/1000).toFixed(1)}s · state ${r.job&&r.job.state} · cage_closed ${r.result&&r.result.cage_closed} · verifier ${r.result&&r.result.verifier_result} · auth ${r.result&&r.result.auth}`;setjob(r.job);refresh()};
+$('#bFreeze').onclick=async()=>{if(!JOB)return;await post('/api/claude-hq/freeze',{job:JOB.job_id});refresh()};
+$('#bStop').onclick=async()=>{if(!JOB)return;await post('/api/claude-hq/stop',{job:JOB.job_id});refresh()};
+refresh();setInterval(refresh,3000);
+</script></body></html>"""
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--port", type=int, default=8858)
+    ap.add_argument("--host", default="0.0.0.0")
+    a = ap.parse_args()
+    srv = ThreadingHTTPServer((a.host, a.port), H)
+    print("Claude HQ dashboard (staging) on http://%s:%d  — production :8850 untouched" % (a.host, a.port))
+    srv.serve_forever()
+
+
+if __name__ == "__main__":
+    main()

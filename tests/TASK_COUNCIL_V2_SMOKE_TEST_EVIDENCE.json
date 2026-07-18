@@ -1,0 +1,139 @@
+{
+  "task_id": "TC2_SMOKE_18b7345eaa",
+  "test_token": "SMOKE_0a3836a4381848c4",
+  "policy_version": "governance_v2",
+  "policy_sha256": "9e0092a7813d792741647e36ea3745227d5275b6d8cc56992d08ccae46c62462",
+  "created_at": "2026-07-18T12:44:31.999734Z",
+  "stages": {
+    "INTAKE": {
+      "ok": true,
+      "detail": "task TC2_SMOKE_18b7345eaa from direct Ross instruction"
+    },
+    "RISK_CLASSIFICATION": {
+      "ok": true,
+      "detail": "NORMAL"
+    },
+    "ADMITTED": {
+      "ok": true,
+      "detail": "Ross direct instruction auto-admitted + recorded"
+    },
+    "OWNER_ASSIGNED": {
+      "ok": true,
+      "detail": "Wren direct reply='READY'"
+    },
+    "PARTNER_ASSIGNED": {
+      "ok": false,
+      "detail": "NO eligible independent CEO reachable (Pip down, Asa no chat endpoint, Bill concierge)"
+    },
+    "RESEARCH": {
+      "ok": true,
+      "detail": "workforce registry consulted"
+    },
+    "BACKUP_GATE": {
+      "ok": true,
+      "detail": "harmless create-only task; no file overwritten"
+    },
+    "SAFETY_GATE": {
+      "ok": true,
+      "detail": "no protected path, no money, no destructive op"
+    },
+    "EXECUTION": {
+      "ok": true,
+      "detail": "worker wrote task_council_smoke_20260718_124431.txt"
+    },
+    "EVIDENCE_CAPTURE": {
+      "ok": true,
+      "detail": "sha256=2b6f15a1d1b45217 size=419"
+    },
+    "AWAITING_INDEPENDENT_VERIFICATION": {
+      "ok": true,
+      "detail": "evidence sent to partner"
+    },
+    "VERIFIED": {
+      "ok": false,
+      "detail": "BLOCKED \u2014 no reachable independent CEO"
+    },
+    "COMPLETED": {
+      "ok": false,
+      "detail": "held \u2014 independent verification not obtained (no fabricated quorum)"
+    }
+  },
+  "negative_tests": {
+    "A_owner_self_verify": {
+      "result": "REJECTED",
+      "pass": true
+    },
+    "B_dispatcher_complete": {
+      "result": "REJECTED",
+      "response": "BLOCKED: dispatcher 'auto_dispatcher' attempted completion/close (action=complet",
+      "pass": true
+    },
+    "C_claude_specialist_quorum": {
+      "result": "REJECTED",
+      "pass": true
+    },
+    "D_bill_concierge_quorum": {
+      "result": "REJECTED",
+      "pass": true
+    }
+  },
+  "town_square_events": [
+    {
+      "type": "TASK_CREATED",
+      "event_id": "EVT_e73581f8c570",
+      "truth": "OBSERVED"
+    },
+    {
+      "type": "TASK_ADMITTED",
+      "event_id": "EVT_3fc5498ee766",
+      "truth": "OBSERVED"
+    },
+    {
+      "type": "TASK_OWNER_ASSIGNED",
+      "event_id": "EVT_c91f043f73f5",
+      "truth": "OBSERVED"
+    },
+    {
+      "type": "WORK_PACKAGE_ASSIGNED",
+      "event_id": "EVT_58d6e54b9f27",
+      "truth": "OBSERVED"
+    },
+    {
+      "type": "WORK_STARTED",
+      "event_id": "EVT_c62b7dc4b5b2",
+      "truth": "OBSERVED"
+    },
+    {
+      "type": "EVIDENCE_ADDED",
+      "event_id": "EVT_40b064135463",
+      "truth": "OBSERVED"
+    },
+    {
+      "type": "VERIFICATION_REQUESTED",
+      "event_id": "EVT_2ee9bac78313",
+      "truth": "OBSERVED"
+    }
+  ],
+  "workers": {
+    "id": "wren_resident/qwen2.5:7b",
+    "model": "qwen2.5:7b",
+    "endpoint": "http://127.0.0.1:11434",
+    "local_or_cloud": "local",
+    "output": "Task Council V2 harmless full-cycle proof",
+    "proof_path": "/vaults/nvme0/qsb_tower_v1/tests/task_council_smoke_20260718_124431.txt",
+    "file_size": 419,
+    "sha256": "2b6f15a1d1b45217192f96faf7bd32393b8569338d7aa2f04ea23778c0791edc"
+  },
+  "owner": {
+    "id": "wren",
+    "direct_reply": "READY"
+  },
+  "partner_probe": {
+    "tp_pip": null,
+    "acer_cass": null
+  },
+  "partner": null,
+  "blocker": "NO ELIGIBLE INDEPENDENT CEO reachable for direct verification (Pip .74 unreachable; Asa .78:8872 has no chat/verify endpoint; Bill in concierge mode). Central machinery + all negative gates PROVEN. No quorum fabricated.",
+  "verdict": "BLOCKED",
+  "negative_all_pass": true
+}

@@ -1,0 +1,51 @@
+{
+  "ts": "2026-07-18T14:46:47.338173Z",
+  "workers": {
+    "tp_pip": {
+      "worker_id": "tp_pip",
+      "name": "tp_pip",
+      "hostname": "DESKTOP-9RBVKSM",
+      "source_ip": "192.168.1.74",
+      "runtime_port": 8871,
+      "dashboard_port": "9110",
+      "dashboard_scope": "LAN",
+      "physical_independent": true,
+      "hq_hosted": false,
+      "capabilities": [
+        "can_receive_task",
+        "can_run_readonly",
+        "can_write_report"
+      ],
+      "active_adapter": "WiFi",
+      "connection_type": "Wi-Fi",
+      "timestamp": "2026-07-17T10:05:55.213140Z",
+      "expires_at": "2026-07-17T10:08:55.213154Z",
+      "last_success": "2026-07-17T10:05:55.213140Z",
+      "last_failure": null,
+      "registration_source": "heartbeat"
+    },
+    "acer_cass": {
+      "worker_id": "acer_cass",
+      "name": "acer_cass",
+      "hostname": "DESKTOP-1E2FB5N",
+      "source_ip": "192.168.1.78",
+      "runtime_port": 8872,
+      "dashboard_port": "9000",
+      "dashboard_scope": "LAN",
+      "physical_independent": true,
+      "hq_hosted": false,
+      "capabilities": [
+        "can_receive_task",
+        "can_run_readonly",
+        "can_write_report"
+      ],
+      "active_adapter": "Wi-Fi",
+      "connection_type": "Wi-Fi",
+      "timestamp": "2026-07-18T14:46:47.338094Z",
+      "expires_at": "2026-07-18T14:49:47.338103Z",
+      "last_success": "2026-07-18T14:46:47.338094Z",
+      "last_failure": null,
+      "registration_source": "heartbeat"
+    }
+  }
+}

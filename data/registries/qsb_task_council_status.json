@@ -1,0 +1,21 @@
+{
+  "timestamp": "2026-07-08T06:25:14.178973",
+  "node": "QSB Task Council",
+  "status": "alive",
+  "port": 8854,
+  "brain_router_v2": {
+    "url": "http://127.0.0.1:8853",
+    "reachable": false
+  },
+  "asa": {
+    "url": "http://127.0.0.1:9122",
+    "reachable": true
+  },
+  "tp_pip": {
+    "heartbeat_url": "http://192.168.1.91:9110/heartbeat.json",
+    "reachable": true
+  },
+  "claude_api_used": false,
+  "task_gate_default": "read_only",
+  "destructive_actions": false
+}

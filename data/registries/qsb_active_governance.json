@@ -1,0 +1,14 @@
+{
+  "schema": "qsb_active_governance_pointer_v1",
+  "active_version": "governance_v1_legacy",
+  "proposed_version": "governance_v2",
+  "policy_json": "data/registries/qsb_governance_v2.json",
+  "policy_markdown": "SKYSCRAPERHQ_POLICY_V2.md",
+  "status": "PROPOSED",
+  "activated_by": null,
+  "activated_at": null,
+  "proposed_by": "Ross (direct order 2026-07-18); prepared by Claude Specialist under Wren",
+  "proposed_at": "2026-07-18T12:12:04Z",
+  "sha256": "9e0092a7813d792741647e36ea3745227d5275b6d8cc56992d08ccae46c62462",
+  "activation_blocked_until": "Section 25 gates pass (tests + 4 node acks + rollback + reports)"
+}

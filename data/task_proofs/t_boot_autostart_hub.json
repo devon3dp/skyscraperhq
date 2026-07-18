@@ -1,0 +1,16 @@
+{
+  "task_id": "t_boot_autostart_hub",
+  "implemented_by": "claude_hq",
+  "verified_by": "claude_hq(smoke)",
+  "timestamp": "2026-07-09T12:35:00Z",
+  "files_changed": [
+    "(verified existing) deploy/qsb_tower_boot.sh + crontab @reboot + 5min watchdog"
+  ],
+  "smoke_results": {
+    "cron_active": true,
+    "boot_watchdog_log": "boot done 12:30:10Z",
+    "hub_8852_up": true,
+    "note": "hub autostarts in tmux via cron @reboot + watchdog"
+  },
+  "final_status": "complete \u2014 verified"
+}

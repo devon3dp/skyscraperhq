@@ -1,0 +1,23 @@
+{
+  "trader_id": "belief_driven_gld",
+  "trained_at": "2026-07-06T07:10:09.772873Z",
+  "closes_analyzed": 1,
+  "win_rate_current": 1.0,
+  "win_rate_target": 0.75,
+  "gap_to_target": -0.25,
+  "avg_win_pnl": 0.28,
+  "avg_loss_pnl": 0.0,
+  "best_instrument": {
+    "name": "GLD",
+    "pnl": 0.28
+  },
+  "worst_instrument": {
+    "name": "GLD",
+    "pnl": 0.28
+  },
+  "learned_rules": [
+    "MAINTAIN \u2014 at or above 75% target \u00b7 protect the edge"
+  ],
+  "recommended_units": 500,
+  "verdict": "PASS"
+}

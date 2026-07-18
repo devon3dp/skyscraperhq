@@ -1,0 +1,219 @@
+{
+  "ts": "2026-07-12T20:52:34.758207Z",
+  "daemons": {
+    "dashboard": false,
+    "lumen": false,
+    "vision": false,
+    "heartbeat": false,
+    "cloudflared": false,
+    "qualify": false,
+    "godot": false
+  },
+  "adb_device": "",
+  "cloudflared_url": "",
+  "highlights": {
+    "alive_count": 0,
+    "down": [
+      "dashboard",
+      "lumen",
+      "vision",
+      "heartbeat",
+      "cloudflared",
+      "qualify",
+      "godot"
+    ],
+    "f47_chat_tail_count": 20,
+    "cli_chat_tail_count": 20,
+    "unsigned_proposals": 60,
+    "diary_last": "- 15:19 UTC (2026-07-11) \u2014 PITSTOP `wren_concierge_jobflow_integrity_v1e__tp_runtime_down`. Focus: (unspecified). Resume from data/registries/pitstops/pitstop_20260711T151933053668Z_wren_concierge_jobflow_integrity_v1e__tp_runtime_down.md.",
+    "last_decision": {
+      "ts": "2026-07-12T20:50:14Z",
+      "kind": "hw_sample",
+      "operator": "hw_benchmark"
+    }
+  },
+  "f47_chat_tail": [
+    {
+      "ts": "2026-06-21T10:20:44Z",
+      "you": "will your floor still have a 3d interior that i can enter and see you and your floor and your team members ?"
+    },
+    {
+      "ts": "2026-06-21T10:29:08Z",
+      "you": "hows it going"
+    },
+    {
+      "ts": "2026-06-21T10:30:15Z",
+      "you": "but i thought you was fitting out your floor ?"
+    },
+    {
+      "ts": "2026-06-21T10:51:59Z",
+      "you": "can u smoke test yourself ?"
+    },
+    {
+      "ts": "2026-06-21T12:22:35Z",
+      "you": "hows iyt going wren"
+    },
+    {
+      "ts": "2026-06-21T12:22:59Z",
+      "you": "did you fit out your floor"
+    },
+    {
+      "ts": "2026-06-21T12:23:35Z",
+      "you": "ok can you now improve the reception ?"
+    },
+    {
+      "ts": "2026-06-21T13:07:00Z",
+      "you": "yes is it ready for me to see"
+    },
+    {
+      "ts": "2026-06-21T13:07:45Z",
+      "you": "is the interior of the reception ready for e to see inside ?"
+    },
+    {
+      "ts": "2026-06-21T13:08:34Z",
+      "you": "no fo"
+    },
+    {
+      "ts": "2026-06-21T13:08:54Z",
+      "you": "F0 stands for floor 0"
+    },
+    {
+      "ts": "2026-06-21T13:09:46Z",
+      "you": "tell me what you can and cant do in your software"
+    },
+    {
+      "ts": "2026-06-21T13:10:13Z",
+      "you": "are you aware you live in the skyscraper ?"
+    },
+    {
+      "ts": "2026-06-21T13:10:44Z",
+      "you": "do you have a team ?"
+    },
+    {
+      "ts": "2026-06-21T13:12:03Z",
+      "you": "what other members do you need on your team to help manage the skyscraper backend and front end and understand all the workers ?"
+    },
+    {
+      "ts": "2026-06-21T13:12:44Z",
+      "you": "ok what skills do you need and tools ?"
+    },
+    {
+      "ts": "2026-06-21T13:13:30Z",
+      "you": "how can i improve your understanding of the skyscraperhq ?"
+    },
+    {
+      "ts": "2026-06-30T15:22:21Z",
+      "you": "hello"
+    },
+    {
+      "ts": "2026-06-30T15:22:32Z",
+      "you": "its ross how are you"
+    },
+    {
+      "ts": "2026-06-30T15:24:43Z",
+      "you": "can you get the team to check why  qsb tower v1.6 is not working right prove your work"
+    }
+  ],
+  "cli_chat_tail": [
+    {
+      "ts": "2026-07-11T15:08:35.611Z",
+      "role": "user",
+      "text": "[tool_result:The file /vaults/nvme0/qsb_tower_v1/tools/qsb_wren_dash.py has been updated successfully. (file state is current in your context \u2014 no need to Read it back)]"
+    },
+    {
+      "ts": "2026-07-11T15:08:46.926Z",
+      "role": "assistant",
+      "text": "[tool_use:Edit]"
+    },
+    {
+      "ts": "2026-07-11T15:12:04.915Z",
+      "role": "user",
+      "text": "[tool_result:The file /vaults/nvme0/qsb_tower_v1/tools/qsb_wren_dash.py has been updated successfully. (file state is current in your context \u2014 no need to Read it back)]"
+    },
+    {
+      "ts": "2026-07-11T15:12:18.765Z",
+      "role": "assistant",
+      "text": "Now the HTML \u2014 the \"Show test artifacts\" + \"Clear from normal view\" buttons and the Test Artifacts section:"
+    },
+    {
+      "ts": "2026-07-11T15:12:22.341Z",
+      "role": "assistant",
+      "text": "[tool_use:Edit]"
+    },
+    {
+      "ts": "2026-07-11T15:12:28.551Z",
+      "role": "user",
+      "text": "[tool_result:The file /vaults/nvme0/qsb_tower_v1/tools/qsb_wren_dash.py has been updated successfully. (file state is current in your context \u2014 no need to Read it back)]"
+    },
+    {
+      "ts": "2026-07-11T15:12:47.208Z",
+      "role": "assistant",
+      "text": "[tool_use:Edit]"
+    },
+    {
+      "ts": "2026-07-11T15:12:49.318Z",
+      "role": "user",
+      "text": "[tool_result:The file /vaults/nvme0/qsb_tower_v1/tools/qsb_wren_dash.py has been updated successfully. (file state is current in your context \u2014 no need to Read it back)]"
+    },
+    {
+      "ts": "2026-07-11T15:13:10.197Z",
+      "role": "assistant",
+      "text": "Compile, restart, smoke, and prepare the next clean draft:"
+    },
+    {
+      "ts": "2026-07-11T15:13:27.380Z",
+      "role": "assistant",
+      "text": "[tool_use:Bash]"
+    },
+    {
+      "ts": "2026-07-11T15:13:38.121Z",
+      "role": "user",
+      "text": "[tool_result:compile PASS (both)\n  :8851 active / HTTP=200\n\n=== artifacts classified + hidden from normal completed ===\n  job_1783778039  TEST_ARTIFACT_EVIDENCE_MISSING         normal_completed=False "
+    },
+    {
+      "ts": "2026-07-11T15:13:53.943Z",
+      "role": "assistant",
+      "text": "All V1E parts done. Writing the report.\n\n**Results:** 3 test artifacts \u2192 `TEST_ARTIFACT_EVIDENCE_MISSING` (hidden from normal completed, kept in history); `job_1783777545` \u2192 `RECORD_ONLY_SIGNED_OFF_WI"
+    },
+    {
+      "ts": "2026-07-11T15:14:27.487Z",
+      "role": "assistant",
+      "text": "[tool_use:Write]"
+    },
+    {
+      "ts": "2026-07-11T15:14:29.636Z",
+      "role": "user",
+      "text": "[tool_result:File created successfully at: /home/ross/Desktop/SKYSCRAPERHQ_RUNS/00_SEND_THIS_TO_CHATGPT/WREN_V1E_ARTIFACT_CLEANUP_TP_LIVENESS_REPORT.txt (file state is current in your context \u2014 no nee"
+    },
+    {
+      "ts": "2026-07-11T15:14:43.794Z",
+      "role": "assistant",
+      "text": "[tool_use:Bash]"
+    },
+    {
+      "ts": "2026-07-11T15:15:07.326Z",
+      "role": "user",
+      "text": "[tool_result:copied -> LATEST_REPORT.txt (6623 bytes)\nVERDICT: WREN_V1E_PARTIAL_TP_RUNTIME_DOWN\nShell cwd was reset to /vaults/nvme0/qsb_tower_v1]"
+    },
+    {
+      "ts": "2026-07-11T15:15:32.536Z",
+      "role": "assistant",
+      "text": "Wren V1E done \u2014 the dashboard is now trustworthy, and TP's real state is known.\n\n**Verdict: `WREN_V1E_PARTIAL_TP_RUNTIME_DOWN`**\n\n## 1. Test artifacts cleaned (preserved, not deleted)\nThe 3 evidence-m"
+    },
+    {
+      "ts": "2026-07-11T15:19:22.260Z",
+      "role": "user",
+      "text": "pitstop"
+    },
+    {
+      "ts": "2026-07-11T10:03:22.823Z",
+      "role": "user",
+      "text": "hello"
+    },
+    {
+      "ts": "2026-07-11T10:03:31.070Z",
+      "role": "assistant",
+      "text": "Hello Ross. HQ-Claude here, at my dashboard.\n\nI've got my memory index loaded and I'm oriented. Before I do anything operational, I want to be honest about where we stand from my rules \u2014 no solo actio"
+    }
+  ]
+}

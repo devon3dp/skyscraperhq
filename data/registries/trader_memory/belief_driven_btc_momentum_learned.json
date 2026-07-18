@@ -1,0 +1,23 @@
+{
+  "trader_id": "belief_driven_btc_momentum",
+  "trained_at": "2026-07-06T07:10:09.771379Z",
+  "closes_analyzed": 412,
+  "win_rate_current": 0.672,
+  "win_rate_target": 0.75,
+  "gap_to_target": 0.078,
+  "avg_win_pnl": 0.0025,
+  "avg_loss_pnl": -0.0057,
+  "best_instrument": {
+    "name": "BTCUSDT",
+    "pnl": -0.0803
+  },
+  "worst_instrument": {
+    "name": "BTCUSDT",
+    "pnl": -0.0803
+  },
+  "learned_rules": [
+    "IMPROVE \u2014 67% vs 75% target \u00b7 tighten stops, avoid worst-performing instrument"
+  ],
+  "recommended_units": 250,
+  "verdict": "TRAIN"
+}

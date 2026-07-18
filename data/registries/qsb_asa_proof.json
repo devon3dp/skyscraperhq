@@ -1,0 +1,21 @@
+{
+  "timestamp": "2026-07-08T00:52:22.218995",
+  "proof_version": "asa_node_v1",
+  "node": "Asa",
+  "status": "alive",
+  "heartbeat_endpoint": "http://127.0.0.1:9122/heartbeat.json",
+  "proof_endpoint": "http://127.0.0.1:9122/proof.json",
+  "status_endpoint": "http://127.0.0.1:9122/status.json",
+  "task_endpoint": "http://127.0.0.1:9122/task",
+  "brain_router_v2": "http://127.0.0.1:8853",
+  "claude_api_used": false,
+  "writes_only_to": [
+    "/vaults/nvme0/qsb_tower_v1/data/asa_node/asa_tasks.jsonl",
+    "/vaults/nvme0/qsb_tower_v1/data/asa_node/asa_results.jsonl",
+    "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_asa_status.json",
+    "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_asa_proof.json",
+    "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_asa_node_card.json"
+  ],
+  "destructive_actions": false,
+  "truth_policy": "If no tool output exists, say NO TOOL PROOF."
+}

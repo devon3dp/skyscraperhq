@@ -1,2 +1,5 @@
 {"ts": "2026-07-02T22:44:59.138282Z", "from": "ross", "text": "first note landed via Wren dash"}
 {"ts": "2026-07-02T22:44:59.143011Z", "from": "wren", "text": "got it Ross \u2014 iterating next"}
+{"ts":"2026-07-07T19:50:00Z","src":"wren_restore","who":"wren","model":"qwen2.5:14b","kind":"restore_learning_note","text":"Wren was offline and REFUSED_IMPERSONATION protected Ross from fake Wren output. Ross authorised real Wren restoration only after backup. Old Wren memory must be preserved. Wren must run locally where possible, observe Brain Router, protect Claude credits, and never impersonate another CEO."}
+{"ts":"2026-07-07T19:57:00Z","src":"wren_restore","who":"wren","model":"qwen2.5:14b","kind":"append_guard_reverify","text":"Append-only guard verified by Wren local runtime: learning notes append, never overwrite. Old rows preserved."}
+{"ts": "2026-07-08T11:54:51.412865Z", "from": "ross", "text": "hello"}

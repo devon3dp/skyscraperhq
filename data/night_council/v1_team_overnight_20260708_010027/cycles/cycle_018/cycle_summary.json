@@ -1,0 +1,24 @@
+{
+  "timestamp": "2026-07-08T05:23:58",
+  "cycle": 18,
+  "active_root": "/vaults/nvme0/qsb_tower_v1",
+  "model": "qwen2.5:14b",
+  "endpoints_ok": {
+    "brain_router": false,
+    "task_council": false,
+    "asa": true,
+    "tp_pip": true,
+    "ollama": true,
+    "boardroom": true
+  },
+  "hq_ok": true,
+  "asa_task_ok": true,
+  "tp_task_ok": false,
+  "claude_api_used": false,
+  "destructive_actions": false,
+  "trading_changes": false,
+  "hq_preview": "### HQ STATUS\n- Cycle: 18\n- Timestamp: 2026-07-08T05:23:48\n- Mode: V1 overnight read-only team study\n\n### BRAIN ROUTER STATUS\n- Status: Down (timed out)\n\n### TASK COUNCIL STATUS\n- Status: Down (timed out)\n\n### WREN / ASA / TP-PIP STATUS\n- **ASA**: Alive, local_task_node mode, port 9122, brain_router_v2 endpoint is up.\n- **TP-PIP**: Alive, remote_ollama provider route, model used is qwen2.5:14b, brain_router_up true.\n\n### SAFE MORNING ACTION\n- Ensure Brain Router and Task Council are operational by morning.\n\n### PROOF LABELS\n- ENDPOINT PROOF for ASA and TP-PIP.\n- INFERRED for other statuses based on endpoint timeouts.",
+  "asa_preview": "**Endpoint State Summary:**\n\n- **Current Route:** read_only\n- **Task Council Role:** Night Clerk (Asa V1)\n- **Instruction Compliance:** Summarize endpoint state, record proof labels.\n- **Action Scope:** Read-only operations only; no destructive actions permitted.\n\n**Proof Labels:**\n- Truth Label: Applied\n- Tool Proof: NO TOOL PROOF\n\nNo further action taken beyond summary and label application as per read_only gate instruction.",
+  "tp_preview": "NOT_OK: HTTP Error 404: Not Found",
+  "cycle_dir": "/vaults/nvme0/qsb_tower_v1/data/night_council/v1_team_overnight_20260708_010027/cycles/cycle_018"
+}

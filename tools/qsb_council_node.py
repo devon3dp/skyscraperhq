@@ -22,7 +22,7 @@ Safety: no SAFETY_DENY on their own box. Ross is the gate at the network
 layer (SSH access) + at the network reach layer (which peer they can talk to).
 """
 from __future__ import annotations
-import argparse, json, os, socket, subprocess, sys, threading, time
+import argparse, json, os, socket, subprocess, sys, threading, time, hashlib, re as _re
 import urllib.request, urllib.error
 from datetime import datetime, timezone
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -39,7 +39,7 @@ def _qsb_self_update():
         import hashlib, ast as _ast
         current_sha = hashlib.sha256(open(__file__, "rb").read()).hexdigest()
         with urllib.request.urlopen(
-            "http://192.168.1.71:8852/latest_council_node", timeout=8) as r:
+            "http://192.168.1.72:8852/latest_council_node", timeout=8) as r:
             new_content = r.read()
         new_sha = hashlib.sha256(new_content).hexdigest()
         if current_sha != new_sha:
@@ -158,6 +158,93 @@ class Node:
             return ""
 
     # ─── inference ──────────────────────────────────────────────────
+    # ─── grounding repair V1: relevance retrieval + self-derived anchor + stale control ─
+    _STALE_RX = ("offline", "unreachable", "just booted", "maintenance", "brain is down",
+                 "brain still down", "systems down", "system is offline", "brain unavailable",
+                 "brain currently unreachable", "boot into safe")
+    _ANCHOR_KEYS = ("competition", "humanoid", "mind-persistence", "mind persistence", "persistence",
+                    "avatar", "theme", "qualify", "qualif", "council", "task council", "mission",
+                    "prize", "opus", "judge", "ross", "wren")
+    _SYN = {"mission": ("mission", "goal", "purpose", "original", "grounded", "role", "working", "towards"),
+            "competition": ("competition", "challenge", "contest", "humanoid", "persistence", "prize",
+                            "judge", "milestone", "event"),
+            "identity": ("who", "identity", "yourself", "remember", "memory", "accumulated")}
+
+    def _kw(self, s):
+        return set(w for w in _re.findall(r"[a-z0-9\-]+", (s or "").lower()) if len(w) > 2)
+
+    def _mem_list(self):
+        return [t for t in self.mind.get("recent_thoughts", []) if isinstance(t, dict) and t.get("text")]
+
+    def _is_stale(self, text):
+        tl = (text or "").lower()
+        return any(k in tl for k in self._STALE_RX)
+
+    def _relevant_memories(self, prompt, k=6):
+        mems = self._mem_list()
+        if not mems:
+            return [], "no stored memories"
+        pk = self._kw(prompt)
+        pl = (prompt or "").lower()
+        for _key, syns in self._SYN.items():
+            if any(s in pl for s in syns):
+                pk |= set(syns)
+        about_failure = any(s in pl for s in ("offline", "maintenance", "down", "fail", "incident",
+                                              "crash", "unreachable", "outage"))
+        n = len(mems)
+        scored = []
+        for i, t in enumerate(mems):
+            txt = t.get("text", "")
+            overlap = len(pk & self._kw(txt))
+            anchor_bonus = 2 if any(a in txt.lower() for a in self._ANCHOR_KEYS) else 0
+            recency = (i / n) * 1.5                       # mild; must not dominate relevance
+            stale_pen = 0 if about_failure else (-4 if self._is_stale(txt) else 0)
+            scored.append((overlap * 3 + anchor_bonus + recency + stale_pen, i, t))
+        scored.sort(key=lambda x: (-x[0], -x[1]))
+        top = [t for sc, i, t in scored[:k] if sc > 0]
+        return top, "keyword-overlap*3 + anchor_bonus + mild-recency; stale offline down-weighted unless failure-topic"
+
+    def _load_mission_anchor(self):
+        """Load this worker's OWN local mission-anchor config (config/<slug>_mission_anchor.json), built from
+        the worker's own verified records. Returns (proven_facts_string, version, hash). Never overwrites the mind."""
+        try:
+            slug = self.name.lower().replace("-", "_")
+            p = self.mind_path.parent / "config" / (slug + "_mission_anchor.json")
+            if p.exists():
+                raw = p.read_bytes()
+                cfg = json.loads(raw.decode("utf-8"))
+                facts = [s.get("fact", "") for s in cfg.get("statements", [])
+                         if s.get("fact") and str(s.get("confidence", "")).upper() != "UNKNOWN"]
+                return " ".join(f.strip() for f in facts)[:1000], cfg.get("anchor_version"), hashlib.sha256(raw).hexdigest()[:12]
+        except Exception:
+            pass
+        return "", None, None
+
+    def _grounding_anchor(self):
+        """Derived ONLY from this worker's own records (local mission-anchor config + identity string + own
+        thoughts) + factual governance constants. Never fabricated, never copied from another worker/HQ surrogate."""
+        keys = ("competition", "humanoid", "persistence", "avatar", "theme", "prize", "opus", "qualif", "3d")
+        mission, self._mission_anchor_version, self._mission_anchor_hash = self._load_mission_anchor()
+        parts = []
+        if mission:
+            parts.append(mission)
+        idtext = self.mind.get("identity", "") or ""
+        # pull competition/mission sentences from the worker's OWN identity string
+        for sent in _re.split(r"(?<=[.!?])\s+", idtext):
+            if any(a in sent.lower() for a in keys):
+                parts.append(sent.strip())
+        # plus any of the worker's OWN thoughts that mention the competition/mission
+        for t in self._mem_list():
+            txt = t.get("text", "")
+            if any(a in txt.lower() for a in keys):
+                parts.append(txt.strip()[:150])
+        own_anchor = " | ".join(dict.fromkeys(p for p in parts if p))[:700]
+        gov = (f"You are {self.name}, a PHYSICAL SkyscraperHQ worker (NOT an HQ surrogate). "
+               f"Ross Knechtel is owner, final authority and sole judge. Wren is governor/checker. "
+               f"The Task Council is the work ledger. {self.brain} is your underlying MODEL, "
+               f"not your complete identity.")
+        return gov, own_anchor
+
     def call_ollama(self, prompt):
         # Wren peer-review 2026-07-04: guard clause — if NO inference host
         # is reachable, still give the caller a useful, character-consistent
@@ -208,49 +295,44 @@ class Node:
                 f"\n"
                 f"When asked about rules, quote from the CANONICAL list above. Do NOT make up new rules.\n"
             )
+        gov, own_anchor = self._grounding_anchor()
+        rel, rel_reason = self._relevant_memories(prompt)
+        self._last_selection = {
+            "memories_selected": len(rel),
+            "selected_hashes": [hashlib.sha256((t.get("text", "")).encode()).hexdigest()[:10] for t in rel],
+            "selection_reason": rel_reason,
+            "anchor_hash": hashlib.sha256((gov + own_anchor).encode()).hexdigest()[:10],
+            "mission_anchor_version": getattr(self, "_mission_anchor_version", None),
+            "mission_anchor_hash": getattr(self, "_mission_anchor_hash", None),
+            "model": self.brain, "prompt_builder": "grounding_repair_v2",
+        }
+        rel_txt = " | ".join(t.get("text", "")[:180] for t in rel) or "(none scored relevant)"
         system += (
-            f"Speak plainly. Answer the specific question asked. Do NOT insert "
-            f"competition rule quotes unless the question is about the rules.\n"
-            f"Recent thoughts: {json.dumps(self.mind.get('recent_thoughts',[])[-3:])}\n"
+            f"Speak plainly. Answer the specific question asked. Do NOT insert competition rule quotes "
+            f"unless the question is about the rules.\n"
+            f"UNDERLYING MODEL: {self.brain} — this is your model, NOT your complete identity.\n"
+            f"WORKER IDENTITY: {self.name} — a physical SkyscraperHQ worker.\n"
+            f"GROUNDING ANCHOR (constant governance facts): {gov}\n"
+            f"YOUR ORIGINAL MISSION & COMPETITION (recalled from your OWN records — when Ross asks about your "
+            f"mission, original goal, or what grounded your role, state THIS plainly in your own words): "
+            f"{own_anchor or '(NOT FOUND in your own memory — if asked, say you cannot recall your original competition rather than inventing one)'}\n"
+            f"RELEVANT MEMORIES retrieved from your full accumulated mind for THIS question: {rel_txt}\n"
+            f"RECENT CONTEXT (newest 2, may be stale): {json.dumps(self.mind.get('recent_thoughts', [])[-2:])}\n"
+            f"Historical status messages like 'offline'/'maintenance'/'just booted' are NOT necessarily your "
+            f"CURRENT state; rely on live health for current status.\n"
+            f"Distinguish what you RETRIEVED from your stored memory versus what you are UNCERTAIN about. "
+            f"Do not claim to remember something that was only supplied in this question.\n"
         )
         body = json.dumps({
             "model": self.brain,
             "prompt": system + f"\nUser: {prompt}",
             "stream": False,
         }).encode()
-        # 2026-07-05 (Ross "sort it out"): route through brain_router first
-        # (DeepSeek + OpenAI + Groq have real tool-use). Fall through to raw
-        # ollama on HQ then local ollama as always-online safety net.
-        # Persona + Council roster in `system` still gets sent verbatim.
-        # 2026-07-05 Acer wedge fix: probe HQ reach with 1s first, skip
-        # router entirely if unreachable (was hanging 60s per request when
-        # Acer's outbound to HQ:8852 is firewall-dropped).
-        try:
-            import sys as _sys, urllib.request as _urlr, json as _json
-            _sys.path.insert(0, "/vaults/nvme0/qsb_tower_v1/tools")
-            # Fast reach probe
-            try:
-                _urlr.urlopen(_urlr.Request("http://192.168.1.71:8852/tasks/data"), timeout=1.5).close()
-                _hq_reachable = True
-            except Exception:
-                _hq_reachable = False
-            if _hq_reachable:
-                router_body = _json.dumps({
-                    "prompt": system + f"\nUser: {prompt}",
-                    "task": "reason", "tier": "worker", "caller": self.name,
-                }).encode()
-                router_req = _urlr.Request("http://192.168.1.71:8852/brain/route",
-                                           data=router_body,
-                                           headers={"Content-Type":"application/json"})
-                rr = _urlr.urlopen(router_req, timeout=8)
-                rd = _json.loads(rr.read().decode())
-                reply = rd.get("reply","")
-                if reply:
-                    return reply, f"router:{rd.get('provider','?')}"
-        except Exception:
-            pass  # router unreachable → fall through to ollama
-
-        # Fallback: raw ollama (unchanged path)
+        # 2026-07-13 (Ross: ENFORCE LOCAL-FIRST — do NOT silently use paid
+        # providers like DeepSeek/OpenAI for ordinary worker chat). Try LOCAL
+        # ollama FIRST (127.0.0.1:11434 leads self.ollama_hosts); only escalate
+        # to the brain router (which may use external providers) if NO local
+        # model answers. Supersedes the 2026-07-05 router-first path.
         for host in self.ollama_hosts:
             try:
                 probe_req = urllib.request.Request(f"{host}/api/tags")
@@ -262,9 +344,38 @@ class Node:
                                              headers={"Content-Type": "application/json"})
                 r = urllib.request.urlopen(req, timeout=90)
                 d = json.loads(r.read().decode())
-                return d.get("response", "").strip(), host
+                resp = d.get("response", "").strip()
+                if resp:
+                    return resp, host
             except Exception:
                 continue
+
+        # ESCALATION ONLY (no local model answered): the brain router may use
+        # external providers. This is a governed fallback, NOT the default path.
+        # HQ hub repointed .72(wifi, not LAN-reachable) -> .92(ethernet).
+        try:
+            import urllib.request as _urlr, json as _json
+            try:
+                _urlr.urlopen(_urlr.Request("http://192.168.1.92:8852/tasks/data"), timeout=1.5).close()
+                _hq_reachable = True
+            except Exception:
+                _hq_reachable = False
+            if _hq_reachable:
+                router_body = _json.dumps({
+                    "prompt": system + f"\nUser: {prompt}",
+                    "task": "reason", "tier": "worker", "caller": self.name,
+                }).encode()
+                router_req = _urlr.Request("http://192.168.1.92:8852/brain/route",
+                                           data=router_body,
+                                           headers={"Content-Type":"application/json"})
+                rr = _urlr.urlopen(router_req, timeout=8)
+                rd = _json.loads(rr.read().decode())
+                reply = rd.get("reply","")
+                if reply:
+                    return reply, f"router:{rd.get('provider','?')}"
+        except Exception:
+            pass
+
         return self._offline_fallback(prompt), None
 
     def _offline_fallback(self, prompt):
@@ -611,13 +722,13 @@ button:disabled{{opacity:.4;cursor:not-allowed}}
 </style></head><body>
 <h1><span class="pulse"></span>{NODE.name}</h1>
 <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;">
-  <a href="http://192.168.1.71:8852/" target="_blank" style="text-decoration:none;padding:4px 10px;border:1px solid #cd9a45;color:#cd9a45;border-radius:12px;font-size:11px;">BOARDROOM</a>
-  <a href="http://192.168.1.71:8852/tasks" target="_blank" style="text-decoration:none;padding:4px 10px;border:1px solid #eab308;color:#eab308;border-radius:12px;font-size:11px;">TASKS</a>
-  <a href="http://192.168.1.71:8852/council" target="_blank" style="text-decoration:none;padding:4px 10px;border:1px solid #22d3ee;color:#22d3ee;border-radius:12px;font-size:11px;">COUNCIL·4</a>
-  <a href="http://192.168.1.71:8851/" target="_blank" style="text-decoration:none;padding:4px 10px;border:1px solid #a78bfa;color:#a78bfa;border-radius:12px;font-size:11px;">WREN</a>
-  <a href="http://192.168.1.71:8850/" target="_blank" style="text-decoration:none;padding:4px 10px;border:1px solid #eab308;color:#eab308;border-radius:12px;font-size:11px;">HQ-CLAUDE</a>
-  <a href="http://192.168.1.74:9110/" target="_blank" style="text-decoration:none;padding:4px 10px;border:1px solid #22d3ee;color:#22d3ee;border-radius:12px;font-size:11px;">TP-PIP</a>
-  <a href="http://192.168.1.78:9000/" target="_blank" style="text-decoration:none;padding:4px 10px;border:1px solid #f59e0b;color:#f59e0b;border-radius:12px;font-size:11px;">ACER-CASS</a>
+  <a href="http://192.168.1.72:8852/" target="_blank" style="text-decoration:none;padding:4px 10px;border:1px solid #cd9a45;color:#cd9a45;border-radius:12px;font-size:11px;">BOARDROOM</a>
+  <a href="http://192.168.1.72:8852/tasks" target="_blank" style="text-decoration:none;padding:4px 10px;border:1px solid #eab308;color:#eab308;border-radius:12px;font-size:11px;">TASKS</a>
+  <a href="http://192.168.1.72:8852/council" target="_blank" style="text-decoration:none;padding:4px 10px;border:1px solid #22d3ee;color:#22d3ee;border-radius:12px;font-size:11px;">COUNCIL·4</a>
+  <a href="http://192.168.1.72:8851/" target="_blank" style="text-decoration:none;padding:4px 10px;border:1px solid #a78bfa;color:#a78bfa;border-radius:12px;font-size:11px;">WREN</a>
+  <a href="http://192.168.1.72:8850/" target="_blank" style="text-decoration:none;padding:4px 10px;border:1px solid #eab308;color:#eab308;border-radius:12px;font-size:11px;">HQ-CLAUDE</a>
+  <a href="http://192.168.1.74:8871/health" target="_blank" style="text-decoration:none;padding:4px 10px;border:1px solid #22d3ee;color:#22d3ee;border-radius:12px;font-size:11px;">TP-PIP</a>
+  <a href="http://192.168.1.41:8872/health" target="_blank" style="text-decoration:none;padding:4px 10px;border:1px solid #f59e0b;color:#f59e0b;border-radius:12px;font-size:11px;">ACER-CASS</a>
 </div>
 <div class="sub">{NODE.floor} · brain <b>{NODE.brain}</b> · uptime {int(time.time()-NODE.started)}s · cycles {m.get('cycle_count',0)}</div>
 <div>
@@ -780,7 +891,8 @@ setInterval(() => {{
             reply, host = NODE.call_ollama(text)
             NODE.append_thought(f"reply (via {host or 'none'}): {reply[:200]}", kind="outbound")
             NODE._save_mind()
-            self._send(200, {"ok": True, "node": NODE.name, "reply": reply, "via": host, "ts": utc()})
+            self._send(200, {"ok": True, "node": NODE.name, "reply": reply, "via": host, "ts": utc(),
+                             "provenance": getattr(NODE, "_last_selection", None)})
             return
         if self.path == "/tool":
             tool = body.get("tool")

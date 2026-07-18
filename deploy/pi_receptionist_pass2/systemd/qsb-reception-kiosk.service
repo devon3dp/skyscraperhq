@@ -1,0 +1,20 @@
+# QSB Receptionist kiosk — USER service (alternative to the desktop autostart).
+# The PRIMARY launcher is /etc/xdg/autostart/qsb-reception-kiosk.desktop, which
+# is the reliable path on Raspberry Pi OS Wayland (labwc/wayfire). This user
+# service is provided so Ross can `systemctl --user enable qsb-reception-kiosk`
+# if he prefers a service. The launcher has a single-instance guard so running
+# both is safe.
+[Unit]
+Description=QSB Receptionist Kiosk (dashboard full-screen)
+After=graphical-session.target network-online.target
+Wants=graphical-session.target
+
+[Service]
+Type=simple
+ExecStartPre=/bin/sleep 5
+ExecStart=/opt/skyscraper_receptionist/kiosk_launch.sh
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=graphical-session.target

@@ -1,0 +1,34 @@
+{
+ "generated_ts": "2026-07-11",
+ "gmail": {
+  "status": "PARTIAL",
+  "proc_running": false,
+  "log": "qsb_email_triage_log.jsonl stale 2026-06-11",
+  "send": false,
+  "read_body": false,
+  "note": "receiver NOT running (earlier pid 717837 was a transient false match). postfix MTA up but no live Gmail sync."
+ },
+ "whatsapp": {
+  "status": "LIVE",
+  "proc": "qsb_wa_inbound.js running (pid 16216)",
+  "send": false,
+  "reply_mode": "DRAFT_ONLY"
+ },
+ "telegram": {
+  "status": "LIVE",
+  "proc": "qsb_telegram_receptionist.py running (pid 5476)",
+  "log_rows": 1255,
+  "send": false,
+  "reply_mode": "DRAFT_ONLY"
+ },
+ "phone_twilio": {
+  "status": "NEEDS WIRING",
+  "proc_running": false,
+  "note": "script+config present; not running; no calls placed/answered"
+ },
+ "galaxy": {
+  "status": "NEEDS WIRING",
+  "proc_running": false,
+  "note": "config present; bridge not running"
+ }
+}

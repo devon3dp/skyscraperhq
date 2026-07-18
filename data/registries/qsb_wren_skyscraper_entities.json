@@ -1,0 +1,61 @@
+{
+ "generated_ts": "2026-07-11",
+ "entities": [
+  {
+   "id": "claude_hq",
+   "name": "Claude HQ",
+   "endpoint": "192.168.1.72:8850",
+   "role": "CEO/engineer R115",
+   "status": "LIVE"
+  },
+  {
+   "id": "wren",
+   "name": "Wren",
+   "endpoint": "192.168.1.72:8851",
+   "role": "concierge/guardian draft-only",
+   "status": "LIVE"
+  },
+  {
+   "id": "boardroom",
+   "name": "Boardroom",
+   "endpoint": "192.168.1.72:8852",
+   "role": "town square/council",
+   "status": "LIVE"
+  },
+  {
+   "id": "receptionist",
+   "name": "Receptionist",
+   "endpoint": "192.168.1.72:8856",
+   "role": "front desk",
+   "status": "LIVE"
+  },
+  {
+   "id": "brain_v4",
+   "name": "Brain Module V4",
+   "endpoint": "192.168.1.72:8860",
+   "role": "gene-pool router",
+   "status": "LIVE"
+  },
+  {
+   "id": "tp_pip",
+   "name": "TP-Pip",
+   "endpoint": "192.168.1.74:8871",
+   "role": "physical worker",
+   "status": "LIVE"
+  },
+  {
+   "id": "acer_cass",
+   "name": "Acer-Cass",
+   "endpoint": "192.168.1.41:8872",
+   "role": "physical worker",
+   "status": "LIVE"
+  },
+  {
+   "id": "task_council",
+   "name": "Task Council",
+   "endpoint": "qsb_council_tasks.jsonl",
+   "role": "booking/proof",
+   "status": "STALE"
+  }
+ ]
+}

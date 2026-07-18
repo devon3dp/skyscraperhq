@@ -1,0 +1,24 @@
+{
+  "timestamp": "2026-07-08T01:00:47",
+  "cycle": 1,
+  "active_root": "/vaults/nvme0/qsb_tower_v1",
+  "model": "qwen2.5:14b",
+  "endpoints_ok": {
+    "brain_router": true,
+    "task_council": true,
+    "asa": true,
+    "tp_pip": true,
+    "ollama": true,
+    "boardroom": true
+  },
+  "hq_ok": true,
+  "asa_task_ok": true,
+  "tp_task_ok": false,
+  "claude_api_used": false,
+  "destructive_actions": false,
+  "trading_changes": false,
+  "hq_preview": "### HQ STATUS\n- Cycle: 1\n- Timestamp: 2026-07-08T01:00:39\n- Active Root: /vaults/nvme0/qsb_tower_v1\n\n### BRAIN ROUTER STATUS\n- Status: UP (Version: brain_router_v2)\n- Provider Policy: Claude API blocked/avoided, qwen models available locally and remotely.\n- Team Readiness: YES for HQ Claude, TP-Pip, Wren Ren; FOUND_NEEDS_ENDPOINT for ASA.\n\n### TASK COUNCIL STATUS\n- Status: alive\n- Task Gate Default Mode: read_only\n- Destructive Actions: false\n\n### WREN / ASA / TP-PIP STATUS\n- WREN: YES_WITH_PROOF_LIMITS (Inferred)\n- ASA: alive, mode local_task_node (ENDPOINT PROOF)\n- TP-Pip: alive, model_used qwen2.5:14b, remote_ollama_up true\n\n### SAFE MORNING ACTION\n- Ensure all endpoints are correctly configured and ready for morning operations.\n- Verify that no destructive actions or trading changes were attempted during the night cycle.\n\n### PROOF LABELS\n- ENDPOINT PRO",
+  "asa_preview": "**Task Summary:**\n\n- **Role:** Asa V1 Night Clerk\n- **Action Required:** Summarize the current endpoint state.\n- **Instructions Followed:**\n  - Use concise proof language.\n  - Do not claim access to tools or data that are not available.\n\n**Endpoint State Summary:**\n\n- No active destructive actions taken.\n- Current task is read-only, focusing on summarization and record-keeping.\n- Proof labels applied as required for transparency.\n\n**Proof Labels:**\n- READ_ONLY\n- NO_TOOL_PROOF",
+  "tp_preview": "NOT_OK: HTTP Error 404: Not Found",
+  "cycle_dir": "/vaults/nvme0/qsb_tower_v1/data/night_council/v1_team_overnight_20260708_010027/cycles/cycle_001"
+}

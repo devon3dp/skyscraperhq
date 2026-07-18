@@ -1,0 +1,16 @@
+{
+  "task_id": "t_node_registry",
+  "implemented_by": "claude_hq",
+  "verified_by": "claude_hq(run)",
+  "timestamp": "2026-07-09T12:23:59Z",
+  "files_changed": [
+    "tools/qsb_node_registry.py",
+    "data/registries/qsb_node_registry.json"
+  ],
+  "smoke_results": {
+    "nodes_up": "7/7",
+    "tp_discovered": "192.168.1.74:9110",
+    "acer_discovered": "192.168.1.41:9000"
+  },
+  "final_status": "complete \u2014 verified"
+}

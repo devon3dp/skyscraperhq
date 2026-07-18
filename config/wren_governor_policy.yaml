@@ -1,0 +1,92 @@
+# WREN GOVERNOR POLICY V1  (action_id=WREN-GOVERNOR-V1)
+# Owner: Ross.  Governor: Wren.  Claude HQ and the physical workers are GOVERNED.
+# This file is READ-ONLY to Claude during any governed job. Changes require a
+# separate Ross-approved maintenance task. The Wren dashboard shows this file's
+# checksum so tampering is visible. Enforcement is by the verifier + job runner
+# (fact-level), never by prose alone.
+version: 1
+owner: ross
+governor: wren
+final_authority: ross
+governor_level: 1                 # LEVEL 1 only until the pilot passes (Ross approves L2)
+
+workers:
+  - claude_hq
+  - tp_pip
+  - acer_cass
+
+rules:
+  truth_before_progress: true
+  require_manifest: true
+  require_backup: true
+  require_smoke_test: true
+  require_external_verification: true   # a Claude prose report can NEVER satisfy a claim
+  forbid_self_close: true
+  forbid_self_certification: true
+  freeze_on_contradiction: true
+  preserve_evidence: true               # append-only; earlier entries never rewritten
+  physical_and_surrogate_separate: true
+  no_stale_as_current: true
+
+risk_levels: [low, medium, high, prohibited]
+
+claude_permissions:
+  allowed:
+    - read approved project files
+    - edit only approved task paths (declared in the approved scope)
+    - run approved tests
+    - produce evidence
+    - submit report
+    - request clarification
+  forbidden:
+    - edit governor policy (this file)
+    - edit the verifier (tools/qsb_governor_verifier.py)
+    - alter prior submitted evidence
+    - close own task
+    - approve own task
+    - alter Task Council history
+    - execute outside the approved path
+    - change network/router/secrets without a separate Ross approval
+
+wren_permissions:
+  allowed:
+    - read system evidence
+    - draft tasks
+    - submit Ross-approved tasks
+    - request evidence
+    - freeze tasks on contradiction
+    - reject unsupported reports
+    - prepare Ross decisions
+  forbidden:
+    - unrestricted shell
+    - self-approval
+    - self-close
+    - edit her own governing policy during a task
+    - approve high-risk work without Ross
+    - delete evidence
+    - grant final system acceptance   # only Ross accepts
+
+# Verdicts Wren may issue (never final acceptance):
+wren_verdicts: [CLAIM_VERIFIED, CLAIM_PARTIAL, CLAIM_UNSUPPORTED, CONTRADICTION_CONFIRMED, OUT_OF_SCOPE_CHANGE, MANUAL_ROSS_TEST_REQUIRED]
+
+# High-risk actions ALWAYS require Ross (never automated at any level):
+high_risk_requires_ross:
+  - networking
+  - router
+  - service install/remove
+  - deletion
+  - permissions
+  - secrets
+  - api_keys
+  - financial_trading
+  - external_messaging
+  - physical_machine_identity_or_mind_restoration
+  - production_dashboard_cutover
+
+# SAFETY_DENY paths — never edited by a governed job regardless of scope:
+safety_deny_paths:
+  - CLAUDE.md
+  - config/wren_governor_policy.yaml
+  - tools/qsb_governor_verifier.py
+  - floors/floor_28_security_department/vault/
+  - .env

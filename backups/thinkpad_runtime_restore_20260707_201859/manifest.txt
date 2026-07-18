@@ -1,0 +1,14 @@
+thinkpad RUNTIME RESTORE BACKUP MANIFEST
+timestamp_utc: 2026-07-07T20:18:59Z
+machine: 24.04ubuntu (ross)
+skyscraper_root: /vaults/nvme0/qsb_tower_v1
+----- FILES COPIED (sha256) -----
+0f11d4883a406fe3e9fa0c3dc3741d7458bdf479a050a07f5e5f57bb064b9540  data/registries/qsb_tp_pip_operator_card.json
+762fa41593909d6d56dae75d19b5b5611b58f192c551b1a0a4b2678dd234f887  data/registries/lessons_tp_pip.jsonl
+88576906cbfc5e59e08ef441ddd534954d5c667da9b477413effe88052b41d26  data/registries/qsb_council_mind_mirror_TP-Pip.json
+e7489d3f5dfb858e705c2dbc6ef0e835f53fe55cd7e22848bb7b87c43f3c394f  data/registries/qsb_council_mind_mirror_tp_pip.json
+e03690b3f66d00449432f5f9a824c165a97970af6eda55f75e3cbf0374a0f07c  data/registries/thinkpad_floor_creds.env
+7938602617a86fc6170f1f222619d32dd0d50660f71fbf58ed80c5ff440a02ce  src/workers/character_anchors.py
+----- SUMMARY -----
+files_copied: 0
+NOT copied: *.pyc, __pycache__, >5MB

@@ -46,12 +46,10 @@ done
 # Strategy demos
 nohup python3 tools/qsb_belief_driven_trader.py --worker-id belief_driven_btc_momentum --venue binance --instrument BTCUSDT --hold-secs 60 --sim-units 0.0001 --strategy momentum >"$LOG/trader_btc_momentum.log" 2>&1 </dev/null &
 nohup python3 tools/qsb_belief_driven_trader.py --worker-id belief_driven_eur_meanrevert --venue oanda --instrument EUR_USD --hold-secs 120 --sim-units 1000 --strategy mean_revert >"$LOG/trader_eur_meanrevert.log" 2>&1 </dev/null &
-nohup python3 tools/qsb_belief_driven_trader.py --worker-id belief_driven_xau_breakout --venue oanda --instrument XAU_USD --hold-secs 120 --sim-units 10 --strategy breakout >"$LOG/trader_xau_breakout.log" 2>&1 </dev/null &
 
 # Ensembles
 nohup python3 tools/qsb_ensemble_coordinator.py --instrument BTCUSDT --venue binance --sim-units 0.0005 >"$LOG/trader_ensemble_btcusdt.log" 2>&1 </dev/null &
 nohup python3 tools/qsb_ensemble_coordinator.py --instrument EUR_USD --venue oanda --sim-units 1000 >"$LOG/trader_ensemble_eurusd.log" 2>&1 </dev/null &
-nohup python3 tools/qsb_ensemble_coordinator.py --instrument XAU_USD --venue oanda --sim-units 10 >"$LOG/trader_ensemble_xauusd.log" 2>&1 </dev/null &
 
 disown -a 2>/dev/null
 sleep 5

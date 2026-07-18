@@ -1,0 +1,12 @@
+{
+  "title": "Trading Annex",
+  "metrics": [
+    {"type": "real_time_market_data", "fields": ["price", "volume"]},
+    {"type": "order_book_snapshot"},
+    {"type": "customizable_trading_indicators", "indicators": ["MACD", "RSI"]}
+  ],
+  "quick_trade_buttons": [
+    {"label": "Buy", "action": "buy_order"},
+    {"label": "Sell", "action": "sell_order"}
+  ]
+}

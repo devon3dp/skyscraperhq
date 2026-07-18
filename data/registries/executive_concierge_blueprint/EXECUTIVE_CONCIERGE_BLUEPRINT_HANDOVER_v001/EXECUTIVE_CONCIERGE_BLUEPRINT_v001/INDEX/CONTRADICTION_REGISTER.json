@@ -1,0 +1,26 @@
+[
+ {
+  "id": "C1",
+  "type": "floor_count",
+  "detail": "Authoritative interior registry has 165 records covering floor numbers 1-164; there are 170 floor directories and the receptionist directory (2026-07-11) claims 170. Floors 165-170 have NO authoritative interior data.",
+  "resolution": "NOT resolved \u2014 registered; floors 165-170 marked UNKNOWN."
+ },
+ {
+  "id": "C2",
+  "type": "duplicate_floor_number",
+  "detail": "Registry duplicate floor numbers: [44]",
+  "resolution": "registered"
+ },
+ {
+  "id": "C3",
+  "type": "name_mismatch",
+  "detail": "Floor directory names (e.g. floors/floor_47_executive_operations_department) differ from registry floor_name (F47='Claude Embassy (Wren)'). Directory name != authoritative interior name.",
+  "resolution": "registered; registry floor_name treated as authoritative interior name; NOT auto-merged."
+ },
+ {
+  "id": "C4",
+  "type": "floor47_domains",
+  "detail": "SkyscraperHQ Floor 47 (registry: 'Claude Embassy') is a DIFFERENT thing from Bill's separate Mac Floor 47 (Executive Concierge home). Kept separate per directive Stage 5.7.",
+  "resolution": "kept separate."
+ }
+]

@@ -1,0 +1,16 @@
+[Unit]
+Description=Wren Observer - watches council feeds and appends her own observations (qsb_wren_watcher.py)
+After=network.target
+
+[Service]
+Type=simple
+User=ross
+WorkingDirectory=/vaults/nvme0/qsb_tower_v1
+ExecStart=/usr/bin/python3 -u /vaults/nvme0/qsb_tower_v1/tools/qsb_wren_watcher.py
+Restart=always
+RestartSec=3
+StandardOutput=append:/vaults/nvme0/qsb_tower_v1/logs/wren_watcher.log
+StandardError=append:/vaults/nvme0/qsb_tower_v1/logs/wren_watcher.log
+
+[Install]
+WantedBy=multi-user.target

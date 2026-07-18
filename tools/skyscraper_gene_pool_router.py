@@ -1,0 +1,1787 @@
+#!/usr/bin/env python3
+import os, re, json, time, hashlib, random, threading
+from pathlib import Path
+from datetime import datetime, timezone
+from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
+from urllib.parse import urlparse
+
+PROJECT = Path("/vaults/nvme0/qsb_tower_v1")
+PORT = int(os.environ.get("GENE_POOL_ROUTER_PORT", "8860"))
+HOST = os.environ.get("GENE_POOL_ROUTER_HOST", "0.0.0.0")
+
+DATA = PROJECT / "data" / "registries"
+VAULT = PROJECT / "vaults" / "gene_pool"
+SECURE_STORE = VAULT / "gene_pool_keys.secure.env"
+PUBLIC_STORE = DATA / "gene_pool_keys_public.json"
+STATE = DATA / "gene_pool_router_state.json"
+LOG = DATA / "gene_pool_router_live_events.jsonl"
+
+SCAN_INTERVAL = 120
+ROUTE_INTERVAL = 4
+
+PROVIDERS = {
+    "claude": {
+        "label": "Claude",
+        "env": ["ANTHROPIC_API_KEY", "CLAUDE_API_KEY"],
+        "patterns": [r"sk-ant-[A-Za-z0-9_\-]{20,}"],
+        "hints": ["anthropic", "claude", "sk-ant"],
+        "tier": "premium",
+        "role": "deep reasoning / Claude HQ preferred when funded"
+    },
+    "openai": {
+        "label": "OpenAI",
+        "env": ["OPENAI_API_KEY"],
+        "patterns": [r"sk-proj-[A-Za-z0-9_\-]{20,}", r"\bsk-[A-Za-z0-9_\-]{32,}\b"],
+        "hints": ["openai", "chatgpt", "gpt", "sk-proj"],
+        "tier": "medium",
+        "role": "structured reasoning / planning"
+    },
+    "deepseek": {
+        "label": "DeepSeek",
+        "env": ["DEEPSEEK_API_KEY"],
+        "patterns": [r"\bsk-[A-Za-z0-9_\-]{32,}\b"],
+        "hints": ["deepseek"],
+        "tier": "low",
+        "role": "coding / cheap reasoning"
+    },
+    "gemini": {
+        "label": "Gemini",
+        "env": ["GEMINI_API_KEY", "GOOGLE_API_KEY", "GOOGLE_GENERATIVE_AI_API_KEY"],
+        "patterns": [r"AIza[A-Za-z0-9_\-]{20,}"],
+        "hints": ["gemini", "google_api", "generative", "google"],
+        "tier": "low-medium",
+        "role": "long context / broad reasoning"
+    },
+    "cohere": {
+        "label": "Cohere",
+        "env": ["COHERE_API_KEY"],
+        "patterns": [r"\b[A-Za-z0-9_\-]{40,}\b"],
+        "hints": ["cohere"],
+        "tier": "low-medium",
+        "role": "retrieval / ranking / summaries"
+    },
+    "kimi": {
+        "label": "Kimi / Moonshot",
+        "env": ["KIMI_API_KEY", "MOONSHOT_API_KEY"],
+        "patterns": [r"\bsk-[A-Za-z0-9_\-]{32,}\b"],
+        "hints": ["kimi", "moonshot"],
+        "tier": "low-medium",
+        "role": "long document reasoning"
+    },
+    "grok": {
+        "label": "Grok / xAI",
+        "env": ["GROK_API_KEY", "XAI_API_KEY", "X_API_KEY"],
+        "patterns": [r"xai-[A-Za-z0-9_\-]{20,}", r"\bsk-[A-Za-z0-9_\-]{32,}\b"],
+        "hints": ["grok", "xai", "x.ai", "twitter"],
+        "tier": "medium",
+        "role": "alternate reasoning perspective"
+    },
+    "groq": {
+        "label": "Groq",
+        "env": ["GROQ_API_KEY"],
+        "patterns": [r"gsk_[A-Za-z0-9_\-]{20,}"],
+        "hints": ["groq", "gsk_"],
+        "tier": "low",
+        "role": "fast hosted inference"
+    }
+}
+
+ROOTS = [
+    Path("/home/ross/.skyscraper_secrets"),
+    Path("/home/ross/.claude"),
+    PROJECT / "vaults",
+    PROJECT / "floors",
+    PROJECT / "config",
+    PROJECT / "data",
+    PROJECT / "tools",
+    PROJECT / "backups",
+]
+
+SKIP = {
+    ".git", ".venv", "venv", "node_modules", "__pycache__", ".cache",
+    "cache", "models", "model", "ollama", "huggingface", "external_oss",
+    "datasets", "downloads", "site-packages"
+}
+
+POLICY = {
+    "architecture": ["claude", "openai", "kimi", "gemini", "deepseek", "grok", "groq", "cohere"],
+    "coding": ["deepseek", "openai", "claude", "kimi", "groq", "gemini", "grok", "cohere"],
+    "summary": ["cohere", "gemini", "kimi", "openai", "deepseek", "groq", "claude", "grok"],
+    "cheap": ["groq", "deepseek", "gemini", "cohere", "kimi", "openai", "claude", "grok"],
+    "default": ["openai", "deepseek", "kimi", "gemini", "claude", "groq", "grok", "cohere"]
+}
+
+CEOS = ["wren", "tp_pip", "acer_cass", "bill"]  # 2026-07-18 Ross: canonical roster (Claude HQ retired -> Bill); matches caller tags in the log so ceo_panels() actually fills
+TASKS = ["architecture", "coding", "summary", "cheap", "default"]
+
+JOB_PROMPTS = {
+    "architecture": "Review the current SkyscraperHQ Brain Router architecture and decide the best API engine for executive reasoning.",
+    "coding": "Inspect the latest system route and decide which API engine should handle a coding or repair task.",
+    "summary": "Summarise the latest live router state, provider availability, and CEO activity.",
+    "cheap": "Choose the cheapest suitable API provider without using Wren/local GPU fallback.",
+    "default": "Handle the CEO request using the API Gene Pool and preserve the SkyscraperHQ routing doctrine."
+}
+
+
+LOCK = threading.Lock()
+BOOT_TS = time.time()
+KEYS = {p: [] for p in PROVIDERS}
+PUBLIC = {}
+EVENTS = []
+PROVIDER_STATS = {}
+AUTONOMY = {
+    "enabled": True,
+    "last_scan": None,
+    "last_route": None,
+    "scan_count": 0,
+    "route_count": 0,
+    "stored_key_count": 0,
+    "active_provider_count": 0
+}
+
+def now():
+    return datetime.now(timezone.utc).isoformat()
+
+def sha16(s):
+    return hashlib.sha256(s.encode("utf-8", "ignore")).hexdigest()[:16]
+
+def mask(k):
+    if len(k) > 22:
+        return k[:12] + "..." + k[-8:]
+    return k[:5] + "..." + k[-4:]
+
+def clean_secret(k):
+    k = (k or "").strip().strip("'\"")
+    k = k.split()[0] if k.split() else k
+    return k.strip()
+
+def safe(s, n=800):
+    s = str(s or "")
+    for rx in [
+        r"sk-ant-[A-Za-z0-9_\-]{20,}",
+        r"sk-proj-[A-Za-z0-9_\-]{20,}",
+        r"gsk_[A-Za-z0-9_\-]{20,}",
+        r"xai-[A-Za-z0-9_\-]{20,}",
+        r"AIza[A-Za-z0-9_\-]{20,}",
+        r"\bsk-[A-Za-z0-9_\-]{32,}\b"
+    ]:
+        s = re.sub(rx, lambda m: mask(m.group(0)), s)
+    return s.replace("\n", " ")[:n]
+
+def event(obj):
+    obj["ts"] = now()
+    with LOCK:
+        EVENTS.append(obj)
+        del EVENTS[:-300]
+    DATA.mkdir(parents=True, exist_ok=True)
+    with LOG.open("a", encoding="utf-8") as f:
+        f.write(json.dumps(obj, ensure_ascii=False) + "\n")
+
+def worth_scanning(path):
+    low = str(path).lower()
+    return any(x in low for x in [
+        "env", "key", "secret", "vault", "token", "credential", "credentials",
+        "claude", "anthropic", "openai", "deepseek", "gemini", "google",
+        "cohere", "kimi", "moonshot", "grok", "groq", "xai", "api"
+    ])
+
+def provider_from_env_name(name):
+    u = name.upper()
+    for provider, cfg in PROVIDERS.items():
+        if u in cfg["env"]:
+            return provider
+    return None
+
+def add(found, provider, key, source):
+    key = clean_secret(key)
+    if not key or len(key) < 16:
+        return
+    found.setdefault(provider, {}).setdefault(key, set()).add(source)
+
+def scan_process_env(found):
+    proc = Path("/proc")
+    for d in proc.glob("[0-9]*"):
+        try:
+            cmd = (d / "cmdline").read_bytes().replace(b"\0", b" ").decode("utf-8", "ignore").lower()
+            env = (d / "environ").read_bytes().replace(b"\0", b"\n").decode("utf-8", "ignore")
+        except Exception:
+            continue
+
+        if not any(x in cmd for x in ["qsb", "skyscraper", "claude", "python", "node", "uvicorn"]):
+            continue
+
+        for line in env.splitlines():
+            if "=" not in line:
+                continue
+            name, val = line.split("=", 1)
+            provider = provider_from_env_name(name.strip())
+            if provider:
+                add(found, provider, val, f"process_env:pid={d.name}:{name.strip()}")
+
+def scan_files(found, max_files=180000):
+    scanned = 0
+    for root in ROOTS:
+        if not root.exists():
+            continue
+        for p in root.rglob("*"):
+            if scanned >= max_files:
+                return scanned
+            try:
+                if not p.is_file():
+                    continue
+                if any(part in SKIP for part in p.parts):
+                    continue
+                if p.stat().st_size > 4_000_000:
+                    continue
+                if not worth_scanning(p):
+                    continue
+                txt = p.read_text(errors="ignore")
+                scanned += 1
+            except Exception:
+                continue
+
+            # Exact env assignment extraction is trusted.
+            for line in txt.splitlines():
+                if "=" not in line:
+                    continue
+                m = re.match(r"\s*(?:export\s+)?([A-Za-z_][A-Za-z0-9_]*)\s*=\s*['\"]?([^'\"\r\n#]+)", line)
+                if not m:
+                    continue
+                name, val = m.group(1).strip(), clean_secret(m.group(2))
+                provider = provider_from_env_name(name)
+                if provider:
+                    add(found, provider, val, f"{p}:{name}")
+
+            # Provider-hinted pattern extraction catches history/backups.
+            lowp = str(p).lower()
+            lowt = txt[:8000].lower()
+            for provider, cfg in PROVIDERS.items():
+                hinted = any(h in lowp or h in lowt for h in cfg["hints"])
+                if not hinted:
+                    continue
+                for pat in cfg["patterns"]:
+                    for m in re.finditer(pat, txt):
+                        add(found, provider, m.group(0), str(p))
+
+    return scanned
+
+def merge_existing_secure(found):
+    if not SECURE_STORE.exists():
+        return
+    txt = SECURE_STORE.read_text(errors="ignore")
+    for provider in PROVIDERS:
+        rx = re.compile(rf'GENE_POOL_{provider.upper()}_(\d+)="([^"]+)"')
+        for m in rx.finditer(txt):
+            add(found, provider, m.group(2), "previous_secure_store")
+
+def scan_all():
+    found = {p: {} for p in PROVIDERS}
+
+    # First explicit process env.
+    for provider, cfg in PROVIDERS.items():
+        for env_name in cfg["env"]:
+            val = os.environ.get(env_name, "").strip()
+            if val:
+                add(found, provider, val, f"router_process_env:{env_name}")
+
+    scan_process_env(found)
+    merge_existing_secure(found)
+    files_scanned = scan_files(found)
+
+    return found, files_scanned
+
+def write_store(found):
+    VAULT.mkdir(parents=True, exist_ok=True)
+    DATA.mkdir(parents=True, exist_ok=True)
+
+    secure_lines = [
+        "# SkyscraperHQ Brain Router API Gene Pool secure store",
+        "# Full keys stay local. Do not paste this file into chat.",
+        "# Generated: " + now(),
+        ""
+    ]
+
+    public = {}
+    total = 0
+    active = 0
+
+    for provider, cfg in PROVIDERS.items():
+        public[provider] = {
+            "provider": provider,
+            "label": cfg["label"],
+            "role": cfg["role"],
+            "tier": cfg["tier"],
+            "key_count": 0,
+            "keys": [],
+            "status": "missing"
+        }
+
+        keymap = found.get(provider, {})
+        idx = 0
+        for key, sources in keymap.items():
+            idx += 1
+            total += 1
+            var = f"GENE_POOL_{provider.upper()}_{idx}"
+            secure_lines.append(f'{var}="{key}"')
+            secure_lines.append(f'# {var}_FINGERPRINT="{sha16(key)}"')
+            secure_lines.append(f'# {var}_MASKED="{mask(key)}"')
+            secure_lines.append("")
+
+            public[provider]["keys"].append({
+                "masked": mask(key),
+                "fingerprint": sha16(key),
+                "sources": sorted(list(sources))[:12]
+            })
+
+        public[provider]["key_count"] = len(public[provider]["keys"])
+        if public[provider]["key_count"] > 0:
+            public[provider]["status"] = "stored"
+            active += 1
+
+    SECURE_STORE.write_text("\n".join(secure_lines) + "\n", encoding="utf-8")
+    os.chmod(SECURE_STORE, 0o600)
+
+    PUBLIC_STORE.write_text(json.dumps({
+        "ts": now(),
+        "secure_store": str(SECURE_STORE),
+        "full_keys_printed": False,
+        "providers": public
+    }, indent=2), encoding="utf-8")
+
+    return public, total, active
+
+def load_store():
+    global KEYS, PUBLIC
+    KEYS = {p: [] for p in PROVIDERS}
+    PUBLIC = {}
+
+    if PUBLIC_STORE.exists():
+        try:
+            PUBLIC = json.loads(PUBLIC_STORE.read_text(errors="ignore")).get("providers", {})
+        except Exception:
+            PUBLIC = {}
+
+    if not PUBLIC:
+        for p, cfg in PROVIDERS.items():
+            PUBLIC[p] = {
+                "provider": p,
+                "label": cfg["label"],
+                "role": cfg["role"],
+                "tier": cfg["tier"],
+                "key_count": 0,
+                "keys": [],
+                "status": "missing"
+            }
+
+    if SECURE_STORE.exists():
+        txt = SECURE_STORE.read_text(errors="ignore")
+        for provider in PROVIDERS:
+            rx = re.compile(rf'GENE_POOL_{provider.upper()}_(\d+)="([^"]+)"')
+            for m in rx.finditer(txt):
+                KEYS[provider].append(m.group(2))
+
+def auto_scan():
+    found, scanned = scan_all()
+    public, total, active = write_store(found)
+    load_store()
+
+    AUTONOMY["last_scan"] = now()
+    AUTONOMY["scan_count"] += 1
+    AUTONOMY["stored_key_count"] = total
+    AUTONOMY["active_provider_count"] = active
+
+    event({
+        "event": "auto_scan",
+        "from": "Linux vault scanner",
+        "to": "Brain Router secure store",
+        "provider": "all",
+        "status": "stored",
+        "detail": f"scanned {scanned} candidate files; stored {total} key entries across {active} providers"
+    })
+
+def choose_provider(task):
+    load_store()
+    for p in POLICY.get(task, POLICY["default"]):
+        if KEYS.get(p):
+            return p
+    return None
+
+
+def auto_route_once():
+    # Ross 2026-07-09: SIMULATION DISABLED. The dash shows ONLY real routing from the
+    # Brain Router journal now (real_flow / real_rev / latest_decision). No fake events.
+    return
+    ceo = CEOS[AUTONOMY["route_count"] % len(CEOS)]
+    task = TASKS[AUTONOMY["route_count"] % len(TASKS)]
+    ask = JOB_PROMPTS.get(task, JOB_PROMPTS["default"])
+    provider = choose_provider(task)
+
+    event({
+        "event": "request",
+        "from": ceo,
+        "to": "Brain Router",
+        "provider": provider or "none",
+        "task": task,
+        "status": "received",
+        "ask": ask,
+        "detail": "CEO submitted autonomous job to Brain Router",
+        "job": {
+            "ceo": ceo,
+            "task": task,
+            "ask": ask,
+            "stage": "submitted"
+        }
+    })
+
+    if provider:
+        label = PROVIDERS[provider]["label"]
+        reason = f"{task} policy selected {label}; CEO uses API Gene Pool only; Wren/local GPU fallback blocked by doctrine"
+        latency = None  # BRAIN-V4A: synthetic decision path — no real provider call made here, so latency is NOT measured (was random.randint sim). UI renders None as "-".
+        reply = (
+            f"{label} route selected for {ceo}. "
+            f"Task class: {task}. "
+            f"Decision: use API Gene Pool provider {label}; keep Wren protected; no local CEO fallback. "
+            f"Next action: return structured guidance to {ceo} and log the route."
+        )
+
+        st = PROVIDER_STATS.setdefault(provider, {"calls": 0, "success": 0, "fail": 0, "last_task": "", "last_ceo": "", "last_ts": "", "last_reason": "", "latency_ms": 0})
+        st["calls"] += 1
+        st["success"] += 1
+        st["last_task"] = task
+        st["last_ceo"] = ceo
+        st["last_ts"] = now()
+        st["latency_ms"] = latency
+        st["last_reason"] = reason
+
+        decision = {
+            "ceo": ceo,
+            "task": task,
+            "ask": ask,
+            "selected_provider": provider,
+            "selected_label": label,
+            "reason": reason,
+            "latency_ms": latency,
+            "wren_fallback": "blocked",
+            "provider_reply": reply,
+            "stage": "selected"
+        }
+
+        event({
+            "event": "dispatch",
+            "from": "Brain Router",
+            "to": label,
+            "provider": provider,
+            "task": task,
+            "status": "selected",
+            "ask": ask,
+            "reply": reply,
+            "detail": reason,
+            "decision": decision,
+            "job": {
+                "ceo": ceo,
+                "task": task,
+                "ask": ask,
+                "provider": label,
+                "stage": "dispatched"
+            }
+        })
+
+        event({
+            "event": "return",
+            "from": label,
+            "to": ceo,
+            "provider": provider,
+            "task": task,
+            "status": "visual_live",
+            "ask": ask,
+            "reply": reply,
+            "detail": "provider response returned to CEO window",
+            "decision": decision,
+            "job": {
+                "ceo": ceo,
+                "task": task,
+                "ask": ask,
+                "provider": label,
+                "reply": reply,
+                "stage": "returned"
+            }
+        })
+    else:
+        reply = "No API Gene Pool provider key is available. CEO route blocked. Wren/local GPU fallback remains blocked by doctrine."
+        event({
+            "event": "blocked",
+            "from": "Brain Router",
+            "to": ceo,
+            "provider": "none",
+            "task": task,
+            "status": "blocked",
+            "ask": ask,
+            "reply": reply,
+            "detail": reply,
+            "decision": {
+                "ceo": ceo,
+                "task": task,
+                "ask": ask,
+                "selected_provider": "none",
+                "selected_label": "none",
+                "reason": reply,
+                "latency_ms": None,
+                "wren_fallback": "blocked",
+                "provider_reply": reply,
+                "stage": "blocked"
+            },
+            "job": {
+                "ceo": ceo,
+                "task": task,
+                "ask": ask,
+                "reply": reply,
+                "stage": "blocked"
+            }
+        })
+
+    AUTONOMY["route_count"] += 1
+    AUTONOMY["last_route"] = now()
+
+
+def external_submit_job(payload):
+    ceo = payload.get("ceo") or payload.get("from") or payload.get("speaker") or "Claude HQ"
+    task = payload.get("task") or payload.get("task_type") or "default"
+    ask = payload.get("ask") or payload.get("prompt") or payload.get("message") or payload.get("text") or "External CEO submitted a job to the API Gene Pool."
+    if task not in POLICY:
+        task = "default"
+
+    provider = choose_provider(task)
+
+    event({
+        "event": "request",
+        "from": ceo,
+        "to": "Brain Router",
+        "provider": provider or "none",
+        "task": task,
+        "status": "received",
+        "ask": ask,
+        "detail": "external CEO job submitted through iPad/Boardroom wiring",
+        "job": {
+            "ceo": ceo,
+            "task": task,
+            "ask": ask,
+            "stage": "submitted_external"
+        }
+    })
+
+    if not provider:
+        reply = "No API Gene Pool provider key available. CEO route blocked. Wren/local GPU fallback remains blocked by doctrine."
+        decision = {
+            "ceo": ceo,
+            "task": task,
+            "ask": ask,
+            "selected_provider": "none",
+            "selected_label": "none",
+            "reason": reply,
+            "latency_ms": None,
+            "wren_fallback": "blocked",
+            "provider_reply": reply,
+            "stage": "blocked"
+        }
+        event({
+            "event": "blocked",
+            "from": "Brain Router",
+            "to": ceo,
+            "provider": "none",
+            "task": task,
+            "status": "blocked",
+            "ask": ask,
+            "reply": reply,
+            "detail": reply,
+            "decision": decision,
+            "job": {
+                "ceo": ceo,
+                "task": task,
+                "ask": ask,
+                "reply": reply,
+                "stage": "blocked"
+            }
+        })
+        return {"ok": False, "decision": decision, "reply": reply}
+
+    label = PROVIDERS[provider]["label"]
+    reason = f"{task} policy selected {label}; CEO uses API Gene Pool only; Wren/local GPU fallback blocked by doctrine"
+    latency = None  # BRAIN-V4A: synthetic decision path — no real provider call made here, so latency is NOT measured (was random.randint sim). UI renders None as "-".
+    reply = (
+        f"{label} route selected for {ceo}. "
+        f"Task class: {task}. "
+        f"Decision: use API Gene Pool provider {label}; keep Wren protected; no local CEO fallback. "
+        f"External wiring smoke route accepted."
+    )
+
+    st = PROVIDER_STATS.setdefault(provider, {"calls": 0, "success": 0, "fail": 0, "last_task": "", "last_ceo": "", "last_ts": "", "last_reason": "", "latency_ms": 0})
+    st["calls"] += 1
+    st["success"] += 1
+    st["last_task"] = task
+    st["last_ceo"] = ceo
+    st["last_ts"] = now()
+    st["latency_ms"] = latency
+    st["last_reason"] = reason
+
+    decision = {
+        "ceo": ceo,
+        "task": task,
+        "ask": ask,
+        "selected_provider": provider,
+        "selected_label": label,
+        "reason": reason,
+        "latency_ms": latency,
+        "wren_fallback": "blocked",
+        "provider_reply": reply,
+        "stage": "selected_external"
+    }
+
+    event({
+        "event": "dispatch",
+        "from": "Brain Router",
+        "to": label,
+        "provider": provider,
+        "task": task,
+        "status": "selected",
+        "ask": ask,
+        "reply": reply,
+        "detail": reason,
+        "decision": decision,
+        "job": {
+            "ceo": ceo,
+            "task": task,
+            "ask": ask,
+            "provider": label,
+            "stage": "dispatched_external"
+        }
+    })
+
+    event({
+        "event": "return",
+        "from": label,
+        "to": ceo,
+        "provider": provider,
+        "task": task,
+        "status": "visual_live",
+        "ask": ask,
+        "reply": reply,
+        "detail": "external CEO route returned to CEO window",
+        "decision": decision,
+        "job": {
+            "ceo": ceo,
+            "task": task,
+            "ask": ask,
+            "provider": label,
+            "reply": reply,
+            "stage": "returned_external"
+        }
+    })
+
+    return {"ok": True, "decision": decision, "reply": reply}
+
+
+def recent(n=200):
+    if LOG.exists():
+        rows = []
+        for line in LOG.read_text(errors="ignore").splitlines()[-n:]:
+            try:
+                rows.append(json.loads(line))
+            except Exception:
+                pass
+        return rows
+    return EVENTS[-n:]
+
+
+def provider_dashboard_stats():
+    load_store()
+    out = {}
+    logs = real_event_log(320)  # REAL per-provider activity (was the sim log)
+    last_selected = None
+    for e in reversed(logs):
+        if e.get("event") in ("dispatch", "return") and e.get("provider") not in (None, "all", "none"):
+            last_selected = e.get("provider")
+            break
+
+    for provider, pdata in PUBLIC.items():
+        key_fps = set()
+        sightings = 0
+        for k in pdata.get("keys", []):
+            fpv = k.get("fingerprint")
+            if fpv:
+                key_fps.add(fpv)
+            sightings += max(1, len(k.get("sources", [])))
+
+        _pl = str(provider).lower()
+        route_hits = [e for e in logs if _pl and _pl in str(e.get("provider","")).lower()]
+        selected_hits = route_hits
+        returns = route_hits
+
+        stat = PROVIDER_STATS.get(provider, {})
+        out[provider] = {
+            "provider": provider,
+            "label": pdata.get("label", provider),
+            "role": pdata.get("role", ""),
+            "tier": pdata.get("tier", ""),
+            "key_count": pdata.get("key_count", 0),
+            "unique_keys": len(key_fps),
+            "sightings": sightings,
+            "status": "selected_now" if provider == last_selected else ("ready" if pdata.get("key_count", 0) > 0 else "missing_key"),
+            "status_reason": "selected by latest router decision" if provider == last_selected else ("key stored in local gene-pool vault" if pdata.get("key_count", 0) > 0 else "no key found by scanner"),
+            "calls": len(selected_hits),
+            "returns": len(returns),
+            "failures": len([e for e in route_hits if e.get("status") in ("blocked", "error", "failed")]),
+            "latency_ms": stat.get("latency_ms"),  # real or None — no fake latency
+            "last_task": stat.get("last_task", ""),
+            "last_ceo": stat.get("last_ceo", ""),
+            "last_reason": stat.get("last_reason", ""),
+            "keys": pdata.get("keys", [])[:3],
+        }
+    return out
+
+def latest_decision():
+    # Ross 2026-07-09: REAL last routing decision from the Brain Router journal (no sim).
+    calls = _real_calls(60)
+    if calls:
+        r = calls[-1]
+        prov = r.get("provider_used") or "?"
+        return {
+            "ceo": r.get("caller", "?"),
+            "task": r.get("task", ""),
+            "selected_provider": prov,
+            "selected_label": (prov or "?").title(),
+            "reason": ("Claude avoided — gene pool" if r.get("claude_avoided") else "routed via gene pool"),
+            "latency_ms": int((r.get("latency_s") or 0) * 1000),
+            "wren_fallback": "blocked"
+        }
+    return {
+        "ceo": "—", "task": "idle", "selected_provider": "none", "selected_label": "none",
+        "reason": "no real calls in the journal yet", "latency_ms": None, "wren_fallback": "blocked"
+    }
+
+
+
+def ceo_panels():
+    # 2026-07-18 Ross: fill from the REAL caller-tagged events (from=caller=tp_pip/acer_cass/wren),
+    # not the internal gene-pool event log which carries no caller tags (panels stayed idle otherwise).
+    logs = real_event_log(360)
+    panels = {}
+    for ceo in CEOS:
+        panels[ceo] = {
+            "ceo": ceo,
+            "task": "waiting",
+            "ask": "Waiting for next autonomous job.",
+            "reply": "No reply yet.",
+            "provider": "none",
+            "provider_label": "none",
+            "ts": "",
+            "status": "idle"
+        }
+
+    for e in logs:
+        target = e.get("to")
+        source = e.get("from")
+        ceo = None
+        if source in CEOS:
+            ceo = source
+        if target in CEOS:
+            ceo = target
+        if not ceo:
+            continue
+
+        provider = e.get("provider", "none")
+        panels[ceo].update({
+            "ceo": ceo,
+            "task": e.get("task", panels[ceo]["task"]),
+            "ask": e.get("ask") or e.get("job", {}).get("ask") or panels[ceo]["ask"],
+            "reply": e.get("reply") or e.get("job", {}).get("reply") or panels[ceo]["reply"],
+            "provider": provider,
+            "provider_label": PROVIDERS.get(provider, {}).get("label", provider),
+            "ts": e.get("ts", ""),
+            "status": e.get("status", "live")
+        })
+    return panels
+
+def real_event_log(n=120):
+    """REAL rolling transcript from all CEO sources, in the dash's event shape (no sim)."""
+    out = []
+    for e in _all_ceo_events():
+        prov = e.get("provider", "")
+        out.append({
+            "ts": e.get("ts", ""), "event": "return",
+            "from": e.get("caller", "?"), "to": "Brain Router",
+            "provider": prov, "task": e.get("task", "reasoning"),
+            "detail": ("Claude avoided — gene pool" if e.get("claude_avoided") else "routed via gene pool"),
+            "status": "ok",
+        })
+    return out[-n:]
+
+def job_board():
+    # Ross 2026-07-09: REAL jobs from the journal (was the stale sim log with fake "architecture").
+    jobs = []
+    for e in reversed(_all_ceo_events()):
+        jobs.append({
+            "ts": e.get("ts", ""), "event": "return",
+            "from": e.get("caller", "?"), "to": "Brain Router",
+            "provider": e.get("provider", ""), "task": e.get("task", "reasoning"),
+            "ask": "", "reply": "",
+            "detail": ("Claude avoided — gene pool" if e.get("claude_avoided") else "routed via gene pool"),
+        })
+        if len(jobs) >= 16:
+            break
+    return jobs
+
+_SYS_CACHE = {"ts": 0.0, "data": None}
+def live_systems():
+    """REAL live systems telemetry for the V5 Mission Control tiles — systemctl unit
+    status + real file counts. NO sims/stubs. Cached 10s so the 1s dash poll stays cheap."""
+    import subprocess
+    if _SYS_CACHE["data"] and (time.time() - _SYS_CACHE["ts"] < 10):
+        return _SYS_CACHE["data"]
+    def _sc(unit, verb):
+        try:
+            return subprocess.run(["systemctl", verb, unit], capture_output=True, text=True, timeout=3).stdout.strip()
+        except Exception:
+            return "unknown"
+    units = {
+        "wren_eyes": "qsb-wren-watcher.service", "wren_mind": "qsb-wren-mind.service",
+        "brain_router_v4": "qsb-brain-router-v4.service", "tp_pip": "qsb-tp.service",
+        "acer_cass": "qsb-acer.service", "hq_dash": "qsb-hq-dash.service",
+    }
+    stack = {k: {"active": _sc(u, "is-active"), "enabled": _sc(u, "is-enabled")} for k, u in units.items()}
+    def _lc(p):
+        try:
+            return sum(1 for _ in open(p, errors="ignore"))
+        except Exception:
+            return 0
+    data = {
+        "crash_proof_stack": stack,
+        "heartbeat_timer": _sc("qsb-wren-heartbeat.timer", "is-active"),
+        "manuscripts_saved": _lc("/vaults/nvme0/qsb_tower_v1/data/registries/manuscripts/qsb_hq_manuscripts.jsonl"),
+        "wren_observed_events": _lc("/vaults/nvme0/qsb_tower_v1/data/registries/qsb_wren_observed_events.jsonl"),
+        "boot_chain": "Wren → skyscraper → HQ",
+        "hq_jackets": ["account:claude_subscription", "gene_pool:local+fallback"],
+        "ceos_route": {"hq_claude": "account + gene-pool jackets", "tp_pip": "gene-pool only",
+                       "acer_cass": "gene-pool only", "wren": "local qwen"},
+        "ts": now(),
+    }
+    _SYS_CACHE["ts"] = time.time(); _SYS_CACHE["data"] = data
+    return data
+
+
+_REAL_JOURNAL = "/vaults/nvme0/qsb_tower_v1/data/registries/qsb_brain_router_calls.jsonl"
+
+def _real_calls(n=400):
+    """Read the REAL Brain Router journal (no sims). Ross 2026-07-09."""
+    from pathlib import Path as _P
+    jp = _P(_REAL_JOURNAL); rows = []
+    if jp.exists():
+        try:
+            for l in jp.read_text(errors="ignore").splitlines()[-n:]:
+                try: rows.append(json.loads(l))
+                except Exception: pass
+        except Exception: pass
+    return rows
+
+def _age_s(r):
+    import datetime as _dt
+    try:
+        return (_dt.datetime.now(_dt.timezone.utc) -
+                _dt.datetime.fromisoformat((r.get("ts","") or "").replace("Z","+00:00"))).total_seconds()
+    except Exception:
+        return 9e9
+
+def _read_jsonl(path, n):
+    from pathlib import Path as _P
+    p = _P(path); rows = []
+    if p.exists():
+        try:
+            for l in p.read_text(errors="ignore").splitlines()[-n:]:
+                try: rows.append(json.loads(l))
+                except Exception: pass
+        except Exception: pass
+    return rows
+
+def _all_ceo_events(each=160):
+    """Aggregate REAL activity from EVERY CEO source (Ross 2026-07-09 — everyone shows,
+    not just TP/Acer heartbeats): TP+Acer via brain journal, HQ via manuscripts, Wren via chat."""
+    ev = []
+    for r in _real_calls(each):  # tp_pip, acer_cass (gene pool)
+        ev.append({"ts": r.get("ts",""), "caller": r.get("caller","?"),
+                   "provider": r.get("provider_used") or "?",
+                   "model": r.get("model_used") or r.get("model") or "?",
+                   "latency_s": r.get("latency_s"),
+                   "claude_avoided": bool(r.get("claude_avoided")), "blocked": bool(r.get("claude_blocked"))})
+    for r in _read_jsonl("/vaults/nvme0/qsb_tower_v1/data/registries/manuscripts/qsb_hq_manuscripts.jsonl", 90):
+        mind = (r.get("mind") or ""); acct = ("account" in mind or "subscription" in mind or "cli" in mind)
+        ev.append({"ts": r.get("ts",""), "caller": "hq_claude",
+                   "provider": ("account" if acct else "gene_pool"),
+                   "model": mind.split(":")[-1] if ":" in mind else (mind or "?"),
+                   "latency_s": r.get("latency_s"), "claude_avoided": (not acct), "blocked": False})
+    for r in _read_jsonl("/vaults/nvme0/qsb_tower_v1/data/registries/qsb_wren_dash_chat.jsonl", 70):
+        if r.get("reply") or (r.get("role") or r.get("from") or "").lower() == "wren":
+            ev.append({"ts": r.get("ts",""), "caller": "wren",
+                       "provider": "local", "model": "qwen2.5:14b",
+                       "latency_s": r.get("latency_s"), "claude_avoided": True, "blocked": False})
+    ev.sort(key=lambda e: e.get("ts",""))
+    return ev
+
+# MASTER PHASE 1 — flow-origin truth. The journal does NOT record whether a call
+# came from a physical box or an HQ surrogate, so surrogate-origin is asserted ONLY
+# when the physical box is confirmed unreachable by a fresh (cached ~15s) probe.
+_P1_PHYS_GP = {"tp_pip": "http://192.168.1.74:8871", "acer_cass": "http://192.168.1.41:8872"}
+_P1_PHYS_CACHE = {"ts": 0.0, "state": {}}
+
+def _p1_phys_live():
+    import urllib.request as _u
+    if time.time() - _P1_PHYS_CACHE["ts"] < 15 and _P1_PHYS_CACHE["state"]:
+        return _P1_PHYS_CACHE["state"]
+    st = {}
+    for caller, url in _P1_PHYS_GP.items():
+        ok = False
+        for path in ("/health", "/whoami"):
+            try:
+                with _u.urlopen(url + path, timeout=2) as r:
+                    ok = (200 <= r.status < 400)
+                if ok:
+                    break
+            except Exception:
+                continue
+        st[caller] = ok
+    _P1_PHYS_CACHE["ts"] = time.time(); _P1_PHYS_CACHE["state"] = st
+    return st
+
+def _flow_origin(caller):
+    phys = _p1_phys_live()
+    if caller == "hq_claude": return ("CLAUDE_HQ", "HQ Claude manuscripts")
+    if caller == "wren":      return ("WREN", "Wren local chat")
+    if caller == "tp_pip":
+        return ("HQ_TP_SURROGATE", "physical TP unreachable — only HQ surrogate present") if not phys.get("tp_pip") \
+               else ("UNKNOWN_TP", "physical TP live AND surrogate present — journal does not record which")
+    if caller == "acer_cass":
+        return ("HQ_ACER_SURROGATE", "physical Acer unreachable — only HQ surrogate present") if not phys.get("acer_cass") \
+               else ("UNKNOWN_ACER", "physical Acer live AND surrogate present — journal does not record which")
+    return ("UNKNOWN", "unclassified caller")
+
+def real_flow(n=30):
+    """Unified REAL flow across ALL CEOs for the flow diagram: caller -> brain -> provider -> back.
+    MASTER PHASE 1: each entry now carries origin runtime, event age, and a current/stale flag."""
+    out = []
+    for e in _all_ceo_events()[-n:]:
+        e2 = dict(e)
+        age = _age_s(e)
+        e2["age_s"] = int(age) if age < 8e9 else None
+        e2["current"] = bool(age < 120)
+        org, note = _flow_origin(e.get("caller", ""))
+        e2["origin"] = org; e2["origin_note"] = note
+        e2["ts_full"] = e.get("ts", "")
+        e2["ts"] = (e.get("ts", "") or "")[11:19]
+        out.append(e2)
+    return out
+
+def flow_truth():
+    """Top-level truth banner for the flow panel — routing freshness + origin + cosmetic note."""
+    ev = _all_ceo_events()
+    newest_age = _age_s(ev[-1]) if ev else 9e9
+    has_surr = any("SURROGATE" in _flow_origin(e.get("caller", ""))[0] for e in ev[-30:])
+    return {
+        "routing_status": "LIVE_ROUTING" if newest_age < 120 else "NO_CURRENT_ROUTING_LAST_RECORDED",
+        "newest_age_s": int(newest_age) if newest_age < 8e9 else None,
+        "surrogate_origin_present": has_surr,
+        "banner": ("REAL PROVIDER TRAFFIC — HQ SURROGATE ORIGIN" if has_surr else "REAL PROVIDER TRAFFIC"),
+        "animation_note": "COSMETIC — beams/pulses are CSS animation, not live packet flow.",
+        "freshness_note": ("LIVE — newest event < 120s old" if newest_age < 120
+                           else "STALE — DISPLAYING LAST RECORDED EVENT, no current routing"),
+    }
+
+def real_rev():
+    """Gauges from REAL activity across ALL CEO sources — independent signals, not one shared tick."""
+    rows = _all_ceo_events()
+    last5m = [r for r in rows if _age_s(r) < 300]
+    last1m = [r for r in rows if _age_s(r) < 60]
+    callers5 = len({r.get("caller") for r in last5m if r.get("caller")})
+    provs5 = len({r.get("provider") for r in last5m if r.get("provider")})
+    lats = [r.get("latency_s") for r in last5m if isinstance(r.get("latency_s"), (int, float))]
+    return {
+        "router": min(100, 18 + len(last1m) * 9),
+        "api_pool": min(100, provs5 * 16),
+        "ceo_load": min(100, callers5 * 24),
+        "wren_guard": 100,
+        "calls_1m": len(last1m), "calls_5m": len(last5m),
+        "active_ceos": callers5,
+        "avg_latency_s": round(sum(lats)/len(lats), 2) if lats else 0,
+    }
+
+def metrics():
+    logs = recent(260)
+    load_store()
+    active = sum(1 for p in PUBLIC.values() if p.get("key_count", 0) > 0)
+    total = sum(p.get("key_count", 0) for p in PUBLIC.values())
+    AUTONOMY["stored_key_count"] = total
+    AUTONOMY["active_provider_count"] = active
+    return {
+        "uptime_s": int(time.time() - BOOT_TS),
+        "events": len(logs),
+        "autonomy": AUTONOMY,
+        "stored_key_count": total,
+        "active_provider_count": active,
+        "active": logs[-1] if logs else {},
+        "rev": real_rev(),   # REAL journal-derived gauges (was random/route_count sim)
+    }
+
+def save_state():
+    DATA.mkdir(parents=True, exist_ok=True)
+    STATE.write_text(json.dumps({
+        "ts": now(),
+        "doctrine": {
+            "brain_router": "inside SkyscraperHQ",
+            "ceos": "API Gene Pool only",
+            "wren": "owns/protects local GPU; no CEO local fallback",
+            "claude_hq": "correct visible name"
+        },
+        "metrics": metrics(),
+        "providers": PUBLIC
+    }, indent=2), encoding="utf-8")
+
+def background():
+    time.sleep(1)
+
+    try:
+        auto_scan()
+    except Exception as e:
+        event({"event": "scan_error", "from": "Linux vault scanner", "to": "Brain Router", "provider": "all", "status": "error", "detail": safe(e)})
+
+    last_scan = time.time()
+
+    while True:
+        try:
+            auto_route_once()
+            save_state()
+        except Exception as e:
+            event({"event": "route_error", "from": "Autonomy", "to": "Brain Router", "provider": "all", "status": "error", "detail": safe(e)})
+
+        if time.time() - last_scan > SCAN_INTERVAL:
+            try:
+                auto_scan()
+            except Exception as e:
+                event({"event": "scan_error", "from": "Linux vault scanner", "to": "Brain Router", "provider": "all", "status": "error", "detail": safe(e)})
+            last_scan = time.time()
+
+        time.sleep(ROUTE_INTERVAL)
+
+HTML = r'''<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>SkyscraperHQ · Brain Router V4 Mission Control</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+:root{
+  --bg:#020610;--panel:#071426;--panel2:#0c2035;--line:#1e4566;--text:#e8f7ff;--muted:#8ca9bd;
+  --cyan:#42d9ff;--green:#45f59b;--amber:#ffc857;--red:#ff5d7d;--purple:#b987ff;--blue:#2a8cff;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;color:var(--text);font-family:system-ui,Segoe UI,Arial,sans-serif;overflow-x:hidden;
+  background:
+    radial-gradient(circle at 12% 0,rgba(66,217,255,.22),transparent 30%),
+    radial-gradient(circle at 82% 8%,rgba(185,135,255,.20),transparent 32%),
+    radial-gradient(circle at 50% 0,#173655 0,#06101d 50%,#02050b 100%);
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;opacity:.13;
+  background-image:
+    linear-gradient(rgba(66,217,255,.16) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(66,217,255,.16) 1px,transparent 1px);
+  background-size:46px 46px;animation:gridDrift 22s linear infinite;
+}
+@keyframes gridDrift{to{background-position:46px 46px}}
+header{
+  padding:14px 20px;border-bottom:1px solid var(--line);background:rgba(0,0,0,.48);
+  position:sticky;top:0;z-index:20;backdrop-filter:blur(12px)
+}
+h1{margin:0;font-size:23px;letter-spacing:.3px}
+.sub{color:var(--muted);font-size:13px;margin-top:4px}
+.layout{display:grid;grid-template-columns:1.08fr .92fr;gap:14px;padding:14px}
+.lower{display:grid;grid-template-columns:.95fr 1.05fr;gap:14px;padding:0 14px 42px}
+.card{
+  background:linear-gradient(180deg,rgba(13,32,54,.94),rgba(4,12,23,.94));
+  border:1px solid var(--line);border-radius:22px;padding:14px;
+  box-shadow:0 14px 42px rgba(0,0,0,.42),inset 0 0 34px rgba(66,217,255,.025);
+}
+.flow{height:720px;position:relative;overflow:hidden}
+.flow:after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 50% 50%,transparent 0,transparent 62%,rgba(2,6,16,.70) 100%)}
+svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
+.line{stroke:#2b86bd;stroke-width:2.2;opacity:.5;stroke-dasharray:7 8;animation:dash 1.05s linear infinite;filter:drop-shadow(0 0 3px rgba(66,217,255,.35))}
+.ceoline{stroke:#42d9ff;opacity:.62}
+.providerline{stroke:#8aa2ff;opacity:.5}
+.wrenline{stroke:#45f59b;opacity:.58}
+.line.ceoline{stroke:rgba(66,217,255,.64)}.line.providerline{stroke:rgba(185,135,255,.52)}.line.wrenline{stroke:#246b49;opacity:.38}
+@keyframes dash{to{stroke-dashoffset:-30}}
+.hotbeam{stroke:var(--cyan);stroke-width:4;opacity:.96;filter:drop-shadow(0 0 8px var(--cyan));stroke-dasharray:12 10;animation:dash .75s linear infinite,fadeBeam 1.55s ease-out forwards}
+@keyframes fadeBeam{to{opacity:0}}
+.node{
+  position:absolute;width:174px;height:116px;border:1px solid var(--line);border-radius:24px;
+  background:linear-gradient(180deg,rgba(7,24,42,.96),rgba(2,9,18,.94));
+  text-align:center;box-shadow:0 0 24px rgba(66,217,255,.08),inset 0 0 20px rgba(255,255,255,.025);
+  z-index:3;overflow:hidden;padding-top:12px;
+}
+.node:before{content:"";position:absolute;inset:-2px;border-radius:26px;opacity:.20;background:conic-gradient(from var(--a,0deg),transparent,var(--cyan),transparent 35%,transparent);animation:ring 4s linear infinite}
+.node>*{position:relative;z-index:2}.node b{display:block;font-size:15px;margin-top:4px}.node small{color:var(--muted);font-size:11px}
+@property --a{syntax:"<angle>";initial-value:0deg;inherits:false}@keyframes ring{to{--a:360deg}}
+.avatar{
+  width:46px;height:46px;border-radius:50%;margin:0 auto;
+  background:radial-gradient(circle at 35% 30%,#fff,var(--cyan) 20%,#09304b 58%,#020812 100%);
+  border:1px solid rgba(66,217,255,.65);box-shadow:0 0 18px rgba(66,217,255,.45);
+  position:relative;animation:avatarBob 2.2s ease-in-out infinite;
+}
+.avatar:before,.avatar:after{content:"";position:absolute;inset:-7px;border-radius:50%;border:1px solid rgba(66,217,255,.30);animation:avatarRing 2.4s linear infinite}
+.avatar:after{inset:-13px;opacity:.45;animation-duration:3.4s}
+@keyframes avatarBob{50%{transform:translateY(-4px)}}@keyframes avatarRing{to{transform:rotate(360deg)}}
+.claude .avatar{background:radial-gradient(circle at 35% 30%,#fff,#42d9ff 20%,#0a4166 58%,#020812 100%)}
+.ceo2 .avatar{background:radial-gradient(circle at 35% 30%,#fff,#b987ff 20%,#3b1d66 58%,#020812 100%)}
+.ceo3 .avatar{background:radial-gradient(circle at 35% 30%,#fff,#ffc857 20%,#61420a 58%,#020812 100%)}
+.claude{left:34px;top:55px}.ceo2{left:34px;top:295px}.ceo3{left:34px;top:535px}
+.provider{
+  position:absolute;right:34px;width:166px;height:76px;border:1px solid var(--line);border-radius:22px;
+  background:linear-gradient(180deg,rgba(7,24,42,.96),rgba(2,9,18,.94));
+  text-align:center;z-index:3;padding-top:9px;box-shadow:0 0 20px rgba(66,217,255,.07);overflow:hidden;
+}
+.provider b{display:block}.provider small{color:var(--muted);font-size:11px}
+.provider .miniMeter{position:absolute;left:12px;right:12px;bottom:9px;height:5px;border-radius:999px;background:#10263a;overflow:hidden}
+.provider .miniMeter i{display:block;height:100%;width:30%;background:linear-gradient(90deg,var(--cyan),var(--green));opacity:.4}/* BRAIN-V4A: meterFlow animation removed — static & cosmetic, NOT live load */
+@keyframes meterFlow{50%{width:92%}}
+.provider.active{border-color:var(--green);box-shadow:0 0 30px rgba(69,245,155,.28),inset 0 0 18px rgba(69,245,155,.06)}
+.provider.selectedNow{border-color:var(--amber);box-shadow:0 0 38px rgba(255,200,87,.38),inset 0 0 22px rgba(255,200,87,.10)}
+.provider.missing{border-color:rgba(255,93,125,.50);opacity:.70}
+.p0{top:18px}.p1{top:100px}.p2{top:182px}.p3{top:264px}.p4{top:346px}.p5{top:428px}.p6{top:510px}.p7{top:592px}
+.router{
+  position:absolute;left:50%;top:278px;transform:translateX(-50%);
+  width:238px;height:178px;border:1px solid rgba(66,217,255,.70);border-radius:34px;
+  background:radial-gradient(circle at center,rgba(66,217,255,.12),rgba(2,9,18,.95) 62%);
+  z-index:4;text-align:center;padding-top:18px;
+  box-shadow:0 0 50px rgba(66,217,255,.42),inset 0 0 34px rgba(66,217,255,.08);
+  overflow:hidden;
+}
+.router b{font-size:18px;position:relative;z-index:3}.router small{color:var(--muted);position:relative;z-index:3}
+.brainCore{
+  width:96px;height:96px;border-radius:50%;margin:12px auto 6px;position:relative;z-index:2;
+  background:radial-gradient(circle at 50% 50%,rgba(255,255,255,.85),rgba(66,217,255,.55) 16%,rgba(10,65,102,.50) 38%,rgba(2,8,18,.92) 68%);
+  border:1.5px solid rgba(66,217,255,.9);box-shadow:0 0 48px rgba(66,217,255,.7),inset 0 0 22px rgba(66,217,255,.35);animation:brainPulse 1.25s ease-in-out infinite;
+}
+.brainCore.analysing{animation:brainPulse .7s ease-in-out infinite;box-shadow:0 0 62px rgba(124,255,178,.85),inset 0 0 26px rgba(124,255,178,.4)}
+.brainCore:before{content:"";position:absolute;inset:-14px;border-radius:50%;border:2px dashed rgba(66,217,255,.55);animation:spin 4.5s linear infinite}
+.brainCore:after{content:"";position:absolute;inset:-27px;border-radius:50%;border:1px solid rgba(185,135,255,.5);animation:spin 8s linear reverse infinite}
+.orbitDot{position:absolute;width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 14px var(--green);left:50%;top:50%;transform-origin:-34px -34px;animation:orbit 3s linear infinite}
+.orbitDot.d2{background:var(--purple);box-shadow:0 0 14px var(--purple);animation-duration:4.2s}
+.orbitDot.d3{background:var(--amber);box-shadow:0 0 14px var(--amber);animation-duration:5.4s}
+@keyframes brainPulse{50%{transform:scale(1.12);filter:brightness(1.5) saturate(1.3)}}@keyframes spin{to{transform:rotate(360deg)}}@keyframes orbit{to{rotate:360deg}}
+.wren{
+  position:absolute;right:220px;bottom:24px;width:208px;height:94px;border:1px solid var(--green);border-radius:24px;
+  background:linear-gradient(180deg,rgba(8,38,24,.90),rgba(2,12,9,.95));text-align:center;z-index:3;padding-top:12px;
+  box-shadow:0 0 34px rgba(69,245,155,.25),inset 0 0 28px rgba(69,245,155,.08);
+}
+.wren b{display:block}.wren small{color:#a8dbc1}
+.shield{width:38px;height:42px;margin:0 auto 3px;background:linear-gradient(180deg,var(--green),#0a6c40);clip-path:polygon(50% 0,92% 16%,82% 76%,50% 100%,18% 76%,8% 16%);box-shadow:0 0 20px rgba(69,245,155,.55);animation:shieldPulse 1.8s ease-in-out infinite}
+@keyframes shieldPulse{50%{filter:brightness(1.3);transform:scale(1.05)}}
+.routeLabel{
+  position:absolute;z-index:9;left:50%;top:222px;transform:translateX(-50%);
+  background:rgba(0,0,0,.66);border:1px solid rgba(66,217,255,.58);border-radius:999px;
+  padding:8px 14px;font-family:ui-monospace,monospace;font-size:12px;color:var(--cyan);
+  box-shadow:0 0 22px rgba(66,217,255,.20)
+}
+.packet{position:absolute;width:12px;height:12px;border-radius:50%;background:var(--cyan);box-shadow:0 0 18px var(--cyan);opacity:0;z-index:8}
+.packet:after{content:"";position:absolute;inset:-8px;border-radius:50%;border:1px solid rgba(66,217,255,.36)}
+.packet.go{animation:move 1.15s linear forwards}
+@keyframes move{0%{opacity:0;transform:translate(var(--x1),var(--y1)) scale(.45)}12%{opacity:1}100%{opacity:0;transform:translate(var(--x2),var(--y2)) scale(1.25)}}
+.panelGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.statGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.stat{background:#061426;border:1px solid var(--line);border-radius:16px;padding:10px;position:relative;overflow:hidden}
+.stat:after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:linear-gradient(90deg,var(--cyan),var(--green));opacity:.8}
+.big{font-size:25px;font-weight:900}
+.gaugeGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.gauge{height:108px;display:grid;place-items:center;border-radius:18px;background:linear-gradient(180deg,#061426,#030a13);border:1px solid var(--line);position:relative;overflow:hidden}
+.dial{width:76px;height:76px;border-radius:50%;background:conic-gradient(var(--green) calc(var(--v)*1%),#10263a 0);display:grid;place-items:center;transition:.45s;box-shadow:0 0 20px rgba(69,245,155,.14)}
+.dial:after{content:attr(data-v) '%';width:52px;height:52px;border-radius:50%;background:#061426;display:grid;place-items:center;font-weight:900;font-size:13px}
+.gauge span{position:absolute;bottom:7px;color:var(--muted);font-size:11px}
+.box{
+  background:#040b14;border:1px solid var(--line);border-radius:16px;padding:11px;
+  font-family:ui-monospace,monospace;font-size:12px;line-height:1.45;overflow:auto;
+}
+.decision{height:176px}
+.jobbox{height:170px}
+.providerReply{height:150px}
+.ceoReplies{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.ceoBox{height:224px}
+.ceoBox h4{margin:0 0 7px;color:var(--cyan)}
+.ceoBox .ask{color:var(--amber)}
+.ceoBox .reply{color:var(--green)}
+.providers{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.prov{padding:10px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(180deg,#061426,#030a13);min-height:142px;position:relative;overflow:hidden}
+.prov.ok{border-color:rgba(69,245,155,.75);box-shadow:0 0 14px rgba(69,245,155,.08)}
+.prov.selected{border-color:rgba(255,200,87,.95);box-shadow:0 0 22px rgba(255,200,87,.18)}
+.prov.bad{border-color:rgba(255,93,125,.55);opacity:.75}
+.prov b{display:block}.prov small{color:var(--muted)}
+.pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:2px 7px;font-size:11px;margin-top:5px}
+.pill.ok{border-color:rgba(69,245,155,.6)}.pill.warn{border-color:rgba(255,200,87,.6)}.pill.bad{border-color:rgba(255,93,125,.6)}
+.stream{height:312px}
+.event{padding:7px;border-bottom:1px solid rgba(255,255,255,.05);animation:eventIn .35s ease-out}
+@keyframes eventIn{from{opacity:0;transform:translateY(8px)}}.ok{color:var(--green)}.warn{color:var(--amber)}.bad{color:var(--red)}.muted{color:var(--muted)}
+.pulse{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--green);box-shadow:0 0 16px var(--green);animation:pulse 1s infinite}
+@keyframes pulse{50%{opacity:.25;transform:scale(.65)}}
+.ticker{position:fixed;left:0;right:0;bottom:0;z-index:20;background:rgba(0,0,0,.68);border-top:1px solid var(--line);color:var(--cyan);font-family:ui-monospace,monospace;white-space:nowrap;overflow:hidden;height:28px;display:flex;align-items:center}
+.ticker span{display:inline-block;padding-left:100%;animation:ticker 34s linear infinite}
+@keyframes ticker{to{transform:translateX(-100%)}}
+@media(max-width:1250px){.layout,.lower{grid-template-columns:1fr}.providers,.gaugeGrid,.statGrid{grid-template-columns:repeat(2,1fr)}.ceoReplies{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+<h1>🧠 SkyscraperHQ Brain Router V4 · Mission Control <span class="pulse"></span></h1>
+<div class="sub">Shows who submits the job, what they ask, what the router chooses, and what reply returns to each CEO. Wren/GPU protected.</div>
+<div id="staleBadge" style="display:none;margin:6px 14px;padding:8px 14px;border-radius:8px;background:#3a0d0d;color:#ff6b6b;border:1px solid #ff6b6b;font-weight:800;letter-spacing:.5px;box-shadow:0 0 14px rgba(255,60,60,.4);animation:stalePulse 1s ease-in-out infinite">⚠ DISCONNECTED — router unreachable, data may be stale</div>
+<style>@keyframes stalePulse{0%,100%{opacity:1}50%{opacity:.55}}
+.sysgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:8px;margin-top:8px}
+.syscell{background:linear-gradient(180deg,#061426,#030a13);border:1px solid var(--line);border-radius:12px;padding:10px;position:relative;overflow:hidden}
+.syscell .dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;vertical-align:middle}
+.dot.up{background:#45f59b;box-shadow:0 0 8px #45f59b;animation:sysPulse 1.6s ease-in-out infinite}
+.dot.down{background:#ef4444;box-shadow:0 0 8px #ef4444}
+.syscell b{font-size:12px}.syscell small{color:#7b93ad;font-size:10px}
+.sysmeta{display:flex;flex-wrap:wrap;gap:16px;margin-top:12px;font-size:12px;color:#9fb4c9}
+.sysmeta .m b{color:#42d9ff;font-size:17px;display:block}
+@keyframes sysPulse{0%,100%{opacity:1}50%{opacity:.45}}</style>
+</header>
+
+<div class="layout">
+<section class="card flow" id="flow">
+<svg id="wires"></svg>
+<div class="routeLabel" id="routeLabel">waiting for autonomous route...</div>
+<div class="flowLegend" style="position:absolute;left:10px;bottom:8px;z-index:5;font-size:10px;color:#8aa2b8;background:rgba(6,16,28,.78);padding:4px 9px;border-radius:6px;line-height:1.55;pointer-events:none;max-width:64%">🔵 bright packets = LIVE journal events&nbsp;·&nbsp;◦ faint drift = ambient COSMETIC (not real traffic)&nbsp;·&nbsp;▂ provider meter = COSMETIC (real usage → Credit Protection below)</div>
+
+<div class="node claude" data-node="Claude HQ"><div class="avatar"></div><b>Claude HQ</b><small id="claudeStatus">waiting</small></div>
+<div class="node ceo2" data-node="CEO 2"><div class="avatar"></div><b>TP-Pip</b><small id="ceo2Status">waiting</small></div>
+<div class="node ceo3" data-node="CEO 3"><div class="avatar"></div><b>Acer-Cass</b><small id="ceo3Status">waiting</small></div>
+
+<div class="router" data-node="Brain Router">
+  <b>Brain Router</b>
+  <div class="brainCore"><i class="orbitDot"></i><i class="orbitDot d2"></i><i class="orbitDot d3"></i></div>
+  <small>autonomous gene selector</small>
+</div>
+
+<div class="provider p0" data-provider="claude"><b>Claude</b><small>provider</small><div class="miniMeter"><i></i></div></div>
+<div class="provider p1" data-provider="openai"><b>OpenAI</b><small>provider</small><div class="miniMeter"><i></i></div></div>
+<div class="provider p2" data-provider="deepseek"><b>DeepSeek</b><small>provider</small><div class="miniMeter"><i></i></div></div>
+<div class="provider p3" data-provider="gemini"><b>Gemini</b><small>provider</small><div class="miniMeter"><i></i></div></div>
+<div class="provider p4" data-provider="cohere"><b>Cohere</b><small>provider</small><div class="miniMeter"><i></i></div></div>
+<div class="provider p5" data-provider="kimi"><b>Kimi</b><small>provider</small><div class="miniMeter"><i></i></div></div>
+<div class="provider p6" data-provider="grok"><b>Grok/xAI</b><small>provider</small><div class="miniMeter"><i></i></div></div>
+<div class="provider p7" data-provider="groq"><b>Groq</b><small>provider</small><div class="miniMeter"><i></i></div></div>
+
+<div class="wren" data-node="Wren"><div class="shield"></div><b>Wren</b><small>GPU guardian · protected</small></div>
+</section>
+
+<section class="card">
+<div class="gaugeGrid">
+<div class="gauge"><div class="dial" id="g_router" style="--v:0" data-v="0"></div><span>Router rev</span></div>
+<div class="gauge"><div class="dial" id="g_pool" style="--v:0" data-v="0"></div><span>API pool</span></div>
+<div class="gauge"><div class="dial" id="g_ceo" style="--v:0" data-v="0"></div><span>CEO load</span></div>
+<div class="gauge"><div class="dial" id="g_wren" style="--v:100" data-v="100"></div><span>Wren guard · doctrine (not live)</span></div>
+</div>
+<br>
+<div class="statGrid">
+<div class="stat"><small>Unique keys</small><div class="big" id="uniqueKeys">0</div></div>
+<div class="stat"><small>Duplicate sightings</small><div class="big" id="sightings">0</div></div>
+<div class="stat"><small>Active providers</small><div class="big" id="providerscount">0</div></div>
+<div class="stat"><small>Routes</small><div class="big" id="routecount">0</div></div>
+</div>
+<br>
+<div class="panelGrid">
+  <div>
+    <h3>Current submitted job</h3>
+    <div class="box jobbox" id="jobBox">Waiting for job...</div>
+  </div>
+  <div>
+    <h3>Brain Router decision</h3>
+    <div class="box decision" id="decisionBox">Waiting for decision...</div>
+  </div>
+</div>
+<br>
+<h3>Selected API reply preview</h3>
+<div class="box providerReply" id="providerReply">Waiting for provider reply...</div>
+</section>
+</div>
+
+<div class="card" style="margin:0 14px 14px">
+<h3>CEO live ask / reply windows</h3>
+<div class="ceoReplies" id="ceoReplies"></div>
+</div>
+
+<section class="card" style="margin:0 14px 14px">
+<h3>🛡️ CRASH-PROOF STACK · LIVE <span class="pulse"></span></h3>
+<div class="sub" style="margin-bottom:6px">Real systemd status + live counts — no sims. Wren→skyscraper→HQ, all auto-restart + boot.</div>
+<div class="sysgrid" id="sysStack"></div>
+<div class="sysmeta" id="sysMeta"></div>
+</section>
+<section class="card" style="margin:0 14px 14px">
+<h3>🛡️ Credit Protection &amp; Routing · who used which brain <span class="pulse"></span></h3>
+<div class="sub" style="margin-bottom:6px">Ross 2026-07-07 order — real provider_used, model, requesting CEO, claude_avoided/blocked, latency, cost. Live from the Brain Router journal. <b>Totals are CUMULATIVE / all-time unless filtered.</b></div>
+<div id="cpSummary" class="sub" style="margin-bottom:8px">loading…</div>
+<div class="box" id="cpFeed" style="max-height:280px;overflow:auto;font-family:ui-monospace,monospace;font-size:12px;line-height:1.55"></div>
+</section>
+<div class="lower">
+<section class="card"><h3>API Gene Pool provider states</h3><div class="providers" id="providers"></div></section>
+<section class="card"><h3>Rolling live transcript</h3><div class="box stream" id="stream"></div></section>
+</div>
+
+<div class="ticker"><span id="tickerText">SkyscraperHQ Brain Router V4 online · job/reply windows active · Claude HQ active identity · Wren protected · CEOs API Gene Pool only...</span></div>
+
+<script>
+const $=q=>document.querySelector(q);
+let lastSeen=0;
+
+function centre(el){const f=$("#flow").getBoundingClientRect(),r=el.getBoundingClientRect();return{x:r.left-f.left+r.width/2,y:r.top-f.top+r.height/2};}
+function lineBetween(a,b,cls){const l=document.createElementNS("http://www.w3.org/2000/svg","line");l.setAttribute("x1",a.x);l.setAttribute("y1",a.y);l.setAttribute("x2",b.x);l.setAttribute("y2",b.y);l.setAttribute("class",cls);return l;}
+function drawWires(){
+  const svg=$("#wires");svg.innerHTML="";
+  const router=centre($('[data-node="Brain Router"]'));
+  [...document.querySelectorAll(".claude,.ceo2,.ceo3")].forEach(n=>svg.appendChild(lineBetween(centre(n),router,"line ceoline")));
+  [...document.querySelectorAll(".provider")].forEach(n=>svg.appendChild(lineBetween(centre(n),router,"line providerline")));
+  svg.appendChild(lineBetween(centre($('[data-node="Wren"]')),router,"line wrenline"));
+}
+function hotBeam(aSel,bSel){const a=$(aSel),b=$(bSel);if(!a||!b)return;const svg=$("#wires");const l=lineBetween(centre(a),centre(b),"hotbeam");svg.appendChild(l);setTimeout(()=>l.remove(),1700);}
+function packet(aSel,bSel,color){
+  const aEl=$(aSel),bEl=$(bSel);if(!aEl||!bEl)return;
+  hotBeam(aSel,bSel);
+  const a=centre(aEl),b=centre(bEl);
+  for(let i=0;i<4;i++){
+    const p=document.createElement("div");p.className="packet";
+    if(color){p.style.background=color;p.style.boxShadow=`0 0 18px ${color}`;}
+    p.style.setProperty("--x1",(a.x-5)+"px");p.style.setProperty("--y1",(a.y-5)+"px");
+    p.style.setProperty("--x2",(b.x-5)+"px");p.style.setProperty("--y2",(b.y-5)+"px");
+    $("#flow").appendChild(p);setTimeout(()=>p.classList.add("go"),20+i*105);setTimeout(()=>p.remove(),1700+i*105);
+  }
+}
+function ceoSel(n){return n==="Claude HQ"?".claude":n==="CEO 2"?".ceo2":".ceo3";}
+function ceoLabel(n){return n==="CEO 2"?"TP-Pip":n==="CEO 3"?"Acer-Cass":n;}
+function provSel(p){return `[data-provider="${p}"]`;}
+function ceoStatusId(n){return n==="Claude HQ"?"#claudeStatus":n==="CEO 2"?"#ceo2Status":"#ceo3Status";}
+function setGauge(id,v){v=Math.max(0,Math.min(100,Math.round(v||0)));const e=$(id);e.style.setProperty("--v",v);e.setAttribute("data-v",v);}
+function apiPath(u){
+  if(location.pathname.startsWith("/proxy/gene_pool")) return "/proxy/gene_pool" + u;
+  return u;
+}
+async function getJSON(u){const r=await fetch(apiPath(u));return await r.json();}
+function esc(x){return String(x??"").replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));}
+
+function renderProviders(ps,stats,selected){
+  document.querySelectorAll(".provider").forEach(n=>{n.classList.remove("active","missing","selectedNow")});
+  let unique=0,sight=0;
+  const source=stats&&Object.keys(stats).length?stats:ps;
+  $("#providers").innerHTML=Object.values(source||{}).map(p=>{
+    const ok=(p.key_count||0)>0;
+    const isSel=p.provider===selected;
+    unique+=p.unique_keys??p.key_count??0;
+    sight+=p.sightings??p.key_count??0;
+    const node=document.querySelector(`[data-provider="${p.provider}"]`);
+    if(node){if(isSel)node.classList.add("selectedNow");else if(ok)node.classList.add("active");else node.classList.add("missing");}
+    const cls=isSel?"selected":ok?"ok":"bad";
+    const pill=isSel?"SELECTED NOW":ok?(p.status||"READY").toUpperCase():"MISSING KEY";
+    const pillCls=isSel?"warn":ok?"ok":"bad";
+    return `<div class="prov ${cls}">
+      <b>${esc(p.label)}</b>
+      <small>${esc(p.role||"")}</small><br>
+      <span class="pill ${pillCls}">${esc(pill)}</span><br>
+      <small>unique: ${p.unique_keys??p.key_count??0} · sightings: ${p.sightings??p.key_count??0}</small><br>
+      <small>calls: ${p.calls||0} · fails: ${p.failures||0}</small><br>
+      <small>latency: ${p.latency_ms??"-"}ms · last: ${esc(p.last_task||"-")}</small><br>
+      <small>${esc(p.status_reason||"")}</small>
+    </div>`;
+  }).join("");
+  $("#uniqueKeys").textContent=unique;
+  $("#sightings").textContent=sight;
+}
+function renderMission(decision, jobs){
+  const j=(jobs&&jobs[0])||{};
+  $("#jobBox").innerHTML =
+    `<b class="ok">From:</b> ${esc(ceoLabel(j.from||decision.ceo)||"waiting")}<br>`+
+    `<b class="ok">To:</b> ${esc(j.to||"Brain Router")}<br>`+
+    `<b class="ok">Task:</b> ${esc(j.task||decision.task||"waiting")}<br><br>`+
+    `<b class="warn">Asking:</b><br>${esc(j.ask||decision.ask||"Waiting for next job.")}`;
+
+  $("#decisionBox").innerHTML =
+    `<b>CEO:</b> ${esc(ceoLabel(decision.ceo)||"waiting")}<br>`+
+    `<b>Task:</b> ${esc(decision.task||"waiting")}<br>`+
+    `<b>Selected API:</b> ${esc(decision.selected_label||decision.selected_provider||"none")}<br>`+
+    `<b>Latency:</b> ${decision.latency_ms??"-"} ms<br>`+
+    `<b>Wren fallback:</b> ${esc(decision.wren_fallback||"blocked")}<br>`+
+    `<b>Reason:</b> ${esc(decision.reason||"waiting for route")}`;
+
+  $("#providerReply").innerHTML =
+    `<b class="ok">Reply preview:</b><br>${esc(decision.provider_reply||j.reply||"Waiting for provider reply.")}`;
+
+  $("#routeLabel").textContent=`${ceoLabel(decision.ceo)||"CEO"} → Brain Router → ${decision.selected_label||decision.selected_provider||"provider"} · ${decision.task||"task"}`;
+
+  if(decision.ceo){
+    const el=$(ceoStatusId(decision.ceo));
+    if(el) el.textContent=`${decision.task||"task"} → ${decision.selected_label||decision.selected_provider||"API"}`;
+  }
+}
+function renderCEOReplies(panels){
+  const order=["Claude HQ","CEO 2","CEO 3"];
+  $("#ceoReplies").innerHTML=order.map(name=>{
+    const p=(panels||{})[name]||{};
+    return `<div class="box ceoBox">
+      <h4>${esc(ceoLabel(name))}</h4>
+      <div class="muted">Task: ${esc(p.task||"waiting")} · Provider: ${esc(p.provider_label||p.provider||"none")}</div>
+      <br>
+      <div class="ask">ASK:</div>
+      <div>${esc(p.ask||"Waiting for next job.")}</div>
+      <br>
+      <div class="reply">REPLY:</div>
+      <div>${esc(p.reply||"No reply yet.")}</div>
+    </div>`;
+  }).join("");
+}
+function renderSystems(s){
+  if(!s)return;
+  const stack=s.crash_proof_stack||{};
+  const labels={wren_eyes:'👁️ Wren Eyes',wren_mind:'🧠 Wren Mind',brain_router_v4:'🧬 Brain Router V4',tp_pip:'💻 TP-Pip',acer_cass:'🖥️ Acer-Cass',hq_dash:'🏛️ HQ Dash'};
+  let html=Object.keys(stack).map(k=>{
+    const u=stack[k]||{}; const up=(u.active==='active');
+    return `<div class="syscell"><div><span class="dot ${up?'up':'down'}"></span><b>${labels[k]||k}</b></div><small>${esc(u.active)} · ${esc(u.enabled)}</small></div>`;
+  }).join("");
+  const hb=(s.heartbeat_timer==='active');
+  html+=`<div class="syscell"><div><span class="dot ${hb?'up':'down'}"></span><b>💓 Wren Heartbeat</b></div><small>${esc(s.heartbeat_timer||'?')} · timer</small></div>`;
+  $("#sysStack").innerHTML=html;
+  $("#sysMeta").innerHTML=
+    `<div class="m">📜 Manuscripts<b>${s.manuscripts_saved||0}</b></div>`+
+    `<div class="m">👁️ Wren observations<b>${s.wren_observed_events||0}</b></div>`+
+    `<div class="m">🧥 HQ jackets<b>${(s.hq_jackets||[]).length}</b></div>`+
+    `<div class="m">🔗 Boot chain<b style="font-size:12px">${esc(s.boot_chain||'')}</b></div>`;
+}
+function renderEvents(logs){
+  $("#stream").innerHTML=(logs||[]).slice(-110).reverse().map(e=>{
+    const cls=e.status==="blocked"||e.status==="error"?"bad":e.status==="selected"||e.status==="stored"?"ok":"warn";
+    return `<div class="event">
+      <span class="${cls}">●</span> ${esc(e.ts||"")}<br>
+      ${esc(e.from||"?")} → ${esc(e.to||"?")} · ${esc(e.provider||"")} · ${esc(e.task||"")}<br>
+      <small>${esc(e.ask||e.detail||"")}</small>
+      ${e.reply?`<br><small class="ok">↳ ${esc(e.reply)}</small>`:""}
+    </div>`;
+  }).join("");
+}
+function animate(e){
+  if(!e)return;
+  if(e.event==="request")packet(ceoSel(e.from),'[data-node="Brain Router"]',"#42d9ff");
+  if(e.event==="dispatch"&&e.provider&&e.provider!=="none")packet('[data-node="Brain Router"]',provSel(e.provider),"#b987ff");
+  if(e.event==="return"&&e.provider&&e.provider!=="none"){
+    packet(provSel(e.provider),'[data-node="Brain Router"]',"#45f59b");
+    setTimeout(()=>packet('[data-node="Brain Router"]',ceoSel(e.to),"#45f59b"),500);
+  }
+  if(e.event==="auto_scan")packet('[data-node="Wren"]','[data-node="Brain Router"]',"#45f59b");
+}
+let lastOkTs=Date.now();
+function setStale(on){const b=$("#staleBadge");if(b)b.style.display=on?"block":"none";}
+async function live(){
+  let d;
+  try{
+    d=await getJSON("/api/live");
+    if(!d||d.ok===false)throw new Error("bad payload");
+    lastOkTs=Date.now();setStale(false);
+  }catch(err){
+    if(Date.now()-lastOkTs>5000)setStale(true);
+    return;
+  }
+  const m=d.metrics||{},rev=m.rev||{},decision=d.latest_decision||{};
+  setGauge("#g_router",rev.router);setGauge("#g_pool",rev.api_pool);setGauge("#g_ceo",rev.ceo_load);setGauge("#g_wren",rev.wren_guard);
+  $("#providerscount").textContent=m.active_provider_count||0;
+  $("#routecount").textContent=(m.autonomy&&m.autonomy.route_count)||0;
+  renderMission(decision,d.job_board||[]);
+  renderCEOReplies(d.ceo_panels||{});
+  renderProviders(d.providers||{},d.provider_stats||{},decision.selected_provider);
+  renderEvents(d.logs||[]);
+  renderSystems(d.live_systems);
+  $("#tickerText").textContent=`SkyscraperHQ live · ${decision.ceo||"CEO"} asks: ${decision.ask||"job"} · route: Brain Router → ${decision.selected_label||"API"} · Wren protected · CEOs API Gene Pool only`;
+  const logs=d.logs||[];
+  if(logs.length>lastSeen){logs.slice(lastSeen).forEach((e,i)=>setTimeout(()=>animate(e),i*150));lastSeen=logs.length;}
+}
+async function renderCredit(){
+  try{
+    const d=await getJSON("/api/credit_protection"); const cp=(d&&d.cp)||{};
+    const pct=cp.gene_pool_pct||0;
+    $("#cpSummary").innerHTML =
+      `<b style="color:#7CFFB2">${pct}% gene-pool</b> &middot; calls ${cp.total||0} &middot; `+
+      `<span style="color:#7CFFB2">claude_avoided ${cp.claude_avoided||0}</span> &middot; `+
+      `<span style="color:#ffd479">blocked ${cp.claude_blocked||0}</span> &middot; `+
+      `<span style="color:${(cp.claude_used||0)?'#ff6b6b':'#7CFFB2'}">claude_used ${cp.claude_used||0}</span> &middot; `+
+      `est cost $${cp.cost_usd||0}`;
+    // Ross 2026-07-09: flash red if Claude usage climbs (a credit leak)
+    if(window._lastCU!=null && (cp.claude_used||0) > window._lastCU){
+      const s=$("#cpSummary"); s.style.transition='none'; s.style.background='rgba(255,80,80,.4)'; s.style.padding='4px 8px'; s.style.borderRadius='6px';
+      setTimeout(()=>{s.style.transition='background 1.6s'; s.style.background='transparent';},80);
+    }
+    window._lastCU=(cp.claude_used||0);
+    const rows=(cp.feed||[]).map(r=>{
+      const badge = r.claude_blocked ? '<span style="color:#ff6b6b">&#9940; blocked</span>'
+                  : r.claude_avoided ? '<span style="color:#7CFFB2">&#10003; avoided</span>'
+                  : '<span style="color:#ffd479">claude</span>';
+      const lat = (typeof r.latency_s==='number')? r.latency_s.toFixed(2)+'s' : '';
+      return `<div style="display:flex;gap:10px;padding:2px 0;border-bottom:1px solid rgba(255,255,255,0.05)">`+
+             `<span style="color:#8892a6;min-width:58px">${r.ts}</span>`+
+             `<b style="min-width:86px">${r.caller}</b>`+
+             `<span style="min-width:170px;color:#9fd0ff">${r.provider} / ${r.model}</span>`+
+             `<span style="min-width:82px">${badge}</span>`+
+             `<span style="color:#8892a6">${lat}</span></div>`;
+    }).join("");
+    $("#cpFeed").innerHTML = rows || '<div style="color:#8892a6">no calls yet</div>';
+  }catch(e){}
+}
+// --- lighter one-shot packet for continuous ambient flow (no beam, single dot) ---
+function ambientPacket(aSel,bSel,color){
+  const aEl=$(aSel),bEl=$(bSel);if(!aEl||!bEl)return;
+  const a=centre(aEl),b=centre(bEl);
+  const p=document.createElement("div");p.className="packet";
+  p.style.background=color;p.style.boxShadow="0 0 14px "+color;
+  p.style.setProperty("--x1",(a.x-5)+"px");p.style.setProperty("--y1",(a.y-5)+"px");
+  p.style.setProperty("--x2",(b.x-5)+"px");p.style.setProperty("--y2",(b.y-5)+"px");
+  $("#flow").appendChild(p);setTimeout(()=>p.classList.add("go"),20);setTimeout(()=>p.remove(),1400);
+}
+// Ross 2026-07-09: particles were EVENT-ONLY -> froze after the ~12s buffered-log burst.
+// The brain router is always live: continuous ambient flow along every link, real routing rides on top.
+function ambientFlow(){
+  const router='[data-node="Brain Router"]';
+  const provs=[...document.querySelectorAll('.provider')].map(n=>'[data-provider="'+n.getAttribute('data-provider')+'"]').filter(Boolean);
+  const ceos=['.claude','.ceo2','.ceo3'].filter(s=>$(s));
+  const r=Math.random();
+  if(r<0.4 && ceos.length){ ambientPacket(ceos[(Math.random()*ceos.length)|0],router,"#42d9ff"); }
+  else if(provs.length){
+    const pv=provs[(Math.random()*provs.length)|0];
+    if(Math.random()<0.5) ambientPacket(router,pv,"#b987ff"); else ambientPacket(pv,router,"#45f59b");
+  }
+  // BRAIN-V4A: ambient-triggered "analysing" pulse REMOVED. The core now pulses ONLY on real
+  // routing/journal events (see realFlow). Ambient motion stays purely cosmetic — no thinking signal.
+}
+// extra orbit dots so the brain core reads as a busy processor
+(function seedOrbit(){
+  const core=document.querySelector('.brainCore'); if(!core) return;
+  ['d4','d5'].forEach((c,i)=>{ const d=document.createElement('i'); d.className='orbitDot '+c;
+    d.style.animationDuration=(3.6+i*1.3)+'s'; d.style.animationDirection=i?'reverse':'normal';
+    d.style.background=i?'#42d9ff':'#7CFFB2'; d.style.boxShadow='0 0 14px '+(i?'#42d9ff':'#7CFFB2');
+    d.style.transformOrigin=(-28-i*10)+'px '+(-28-i*10)+'px'; core.appendChild(d); });
+})();
+drawWires();
+window.addEventListener("resize",drawWires);
+live();
+setInterval(live,1000);
+renderCredit();
+setInterval(renderCredit,3000);
+setInterval(ambientFlow,480);
+// --- REAL routing flow (Ross 2026-07-09): each real journal call animates who -> brain -> provider -> back ---
+function callerSelR(c){c=(c||'').toLowerCase();
+  if(c.indexOf('hq')>=0||c.indexOf('claude')>=0)return '.claude';
+  if(c.indexOf('tp')>=0||c.indexOf('pip')>=0)return '.ceo2';
+  if(c.indexOf('acer')>=0||c.indexOf('cass')>=0)return '.ceo3';
+  if(c.indexOf('wren')>=0)return '[data-node="Wren"]';
+  return '.claude';}
+function provSelR(p){p=(p||'').toLowerCase();
+  const ns=[...document.querySelectorAll('.provider')];
+  for(const n of ns){const dp=(n.getAttribute('data-provider')||'').toLowerCase(); if(dp&&(dp.indexOf(p)>=0||p.indexOf(dp)>=0))return '[data-provider="'+n.getAttribute('data-provider')+'"]';}
+  return null;}
+let flowSeen=new Set();
+async function realFlow(){
+  let d; try{ d=await getJSON('/api/flow'); }catch(e){ return; }
+  // MASTER PHASE 1 — truth banner: origin + freshness + cosmetic label.
+  if(d&&d.truth){ let b=document.getElementById('flowTruthBanner');
+    if(!b){ b=document.createElement('div'); b.id='flowTruthBanner';
+      b.style.cssText='position:fixed;left:8px;bottom:8px;z-index:9999;max-width:52vw;padding:7px 11px;border-radius:8px;font:600 11.5px/1.45 -apple-system,Segoe UI,sans-serif;background:rgba(8,12,20,.92);border:1px solid #223';
+      document.body.appendChild(b); }
+    const t=d.truth; const live=(t.routing_status==='LIVE_ROUTING'); const col=live?'#45f59b':'#ffd479';
+    b.style.borderColor=t.surrogate_origin_present?'#f59e0b':'#223';
+    b.innerHTML='<span style="color:'+col+'">&#9679;</span> <b style="color:#cfe0f2">'+t.banner+'</b>'
+      +'<br><span style="color:'+col+'">'+t.freshness_note+(t.newest_age_s!=null?(' ('+t.newest_age_s+'s old)'):'')+'</span>'
+      +'<br><span style="color:#8892a6">'+t.animation_note+'</span>';
+  }
+  for(const f of (d&&d.flow)||[]){
+    const key=f.ts+'|'+f.caller+'|'+f.provider;
+    if(flowSeen.has(key)) continue; flowSeen.add(key);
+    const cs=callerSelR(f.caller), ps=provSelR(f.provider);
+    packet(cs,'[data-node="Brain Router"]','#42d9ff');
+    if(ps){ setTimeout(()=>packet('[data-node="Brain Router"]',ps,'#b987ff'),350);
+            setTimeout(()=>packet(ps,'[data-node="Brain Router"]','#45f59b'),900); }
+    setTimeout(()=>packet('[data-node="Brain Router"]',cs,'#45f59b'),1300);
+    const core=document.querySelector('.brainCore'); if(core){core.classList.add('analysing');setTimeout(()=>core.classList.remove('analysing'),500);}
+  }
+  if(flowSeen.size>500) flowSeen=new Set([...flowSeen].slice(-250));
+}
+realFlow(); setInterval(realFlow,2200);
+</script>
+</body>
+</html>'''
+
+
+def body(h):
+    n = int(h.headers.get("Content-Length", "0") or "0")
+    raw = h.rfile.read(n) if n else b"{}"
+    try:
+        return json.loads(raw.decode("utf-8", "replace"))
+    except Exception:
+        return {}
+
+def send_json(h, obj, status=200):
+    raw = json.dumps(obj, indent=2, ensure_ascii=False).encode()
+    h.send_response(status)
+    h.send_header("Content-Type", "application/json; charset=utf-8")
+    h.send_header("Access-Control-Allow-Origin", "*")
+    h.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
+    h.send_header("Access-Control-Allow-Headers", "Content-Type")
+    h.send_header("Content-Length", str(len(raw)))
+    h.end_headers()
+    h.wfile.write(raw)
+
+def send_html(h):
+    raw = HTML.encode()
+    h.send_response(200)
+    h.send_header("Content-Type", "text/html; charset=utf-8")
+    h.send_header("Access-Control-Allow-Origin", "*")
+    h.send_header("Content-Length", str(len(raw)))
+    h.end_headers()
+    h.wfile.write(raw)
+
+class H(BaseHTTPRequestHandler):
+    def log_message(self, *args):
+        pass
+
+    def do_OPTIONS(self):
+        self.send_response(204)
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
+        self.send_header("Access-Control-Allow-Headers", "Content-Type")
+        self.end_headers()
+
+    def do_POST(self):
+        p = urlparse(self.path).path
+        if p == "/api/submit_job":
+            try:
+                return send_json(self, external_submit_job(body(self)))
+            except Exception as e:
+                return send_json(self, {"ok": False, "error": safe(e)}, 500)
+
+        if p == "/api/rescan":
+            try:
+                auto_scan()
+                return send_json(self, {"ok": True, "metrics": metrics(), "providers": PUBLIC})
+            except Exception as e:
+                return send_json(self, {"ok": False, "error": safe(e)}, 500)
+
+        return send_json(self, {"ok": False, "error": "not found", "path": p}, 404)
+
+
+    def do_GET(self):
+        p = urlparse(self.path).path
+        if p in ["/", "/dashboard"]:
+            return send_html(self)
+        if p == "/health":
+            return send_json(self, {
+                "ok": True,
+                "service": "SkyscraperHQ Autonomous Brain Router Gene Pool",
+                "port": PORT,
+                "claude_hq": "correct",
+                "wren": "protected",
+                "ceos": "api_gene_pool_only",
+                "secure_store": str(SECURE_STORE),
+                "ts": now()
+            })
+        if p == "/api/live":
+            load_store()
+            return send_json(self, {
+                "ok": True,
+                "metrics": metrics(),
+                "providers": PUBLIC,
+                "provider_stats": provider_dashboard_stats(),
+                "latest_decision": latest_decision(),
+                "ceo_panels": ceo_panels(),
+                "job_board": job_board(),
+                "live_systems": live_systems(),
+                "logs": real_event_log(220)
+            })
+        if p == "/api/credit_protection":
+            return send_json(self, {"ok": True, "cp": credit_protection()})
+        if p == "/api/flow":
+            return send_json(self, {"ok": True, "flow": real_flow(), "rev": real_rev(), "truth": flow_truth()})
+        if p == "/api/providers":
+            load_store()
+            return send_json(self, {"ok": True, "providers": PUBLIC})
+        if p == "/api/rescan":
+            try:
+                auto_scan()
+                return send_json(self, {"ok": True, "metrics": metrics(), "providers": PUBLIC})
+            except Exception as e:
+                return send_json(self, {"ok": False, "error": safe(e)}, 500)
+        if p == "/api/state":
+            if STATE.exists():
+                try:
+                    return send_json(self, json.loads(STATE.read_text(errors="ignore")))
+                except Exception:
+                    pass
+            return send_json(self, {"ok": False, "error": "state not ready"}, 404)
+        if p == "/api/submit_job":
+            try:
+                return send_json(self, external_submit_job(body(self)))
+            except Exception as e:
+                return send_json(self, {"ok": False, "error": safe(e)}, 500)
+
+        return send_json(self, {"ok": False, "error": "not found", "path": p}, 404)
+
+def credit_protection(n=45):
+    """Ross 2026-07-07 order — surface real routing + credit protection from the
+    Brain Router journal: requesting CEO, provider_used, model, claude_avoided/blocked,
+    latency, cost. NO sims — reads data/registries/qsb_brain_router_calls.jsonl."""
+    from pathlib import Path as _P
+    jp = _P("/vaults/nvme0/qsb_tower_v1/data/registries/qsb_brain_router_calls.jsonl")
+    rows = []
+    if jp.exists():
+        try:
+            for l in jp.read_text(errors="ignore").splitlines()[-800:]:
+                try: rows.append(json.loads(l))
+                except Exception: pass
+        except Exception: pass
+    total = len(rows)
+    avoided = sum(1 for r in rows if r.get("claude_avoided"))
+    blocked = sum(1 for r in rows if r.get("claude_blocked"))
+    claude_used = sum(1 for r in rows if (str(r.get("provider_used","")).lower() == "claude"
+                                          or "claude" in str(r.get("model_used","")).lower())
+                      and not r.get("claude_avoided"))
+    cost = 0.0
+    for r in rows:
+        try: cost += float(r.get("cost_usd_est") or 0)
+        except Exception: pass
+    by_ceo = {}
+    for r in rows:
+        c = r.get("caller", "?"); e = by_ceo.setdefault(c, {"calls": 0, "providers": {}})
+        e["calls"] += 1
+        pv = r.get("provider_used") or "?"; e["providers"][pv] = e["providers"].get(pv, 0) + 1
+    feed = [{
+        "ts": (r.get("ts", "") or "")[11:19], "caller": r.get("caller", "?"),
+        "provider": r.get("provider_used") or "?",
+        "model": r.get("model_used") or r.get("model") or "?",
+        "claude_avoided": bool(r.get("claude_avoided")), "claude_blocked": bool(r.get("claude_blocked")),
+        "latency_s": r.get("latency_s"), "cost": r.get("cost_usd_est") or 0, "task": r.get("task", ""),
+    } for r in rows[-n:][::-1]]
+    return {"total": total, "claude_avoided": avoided, "claude_blocked": blocked,
+            "claude_used": claude_used,
+            "gene_pool_pct": round(100 * avoided / total) if total else 0,
+            "cost_usd": round(cost, 4), "by_ceo": by_ceo, "feed": feed}
+
+
+def main():
+    DATA.mkdir(parents=True, exist_ok=True)
+    VAULT.mkdir(parents=True, exist_ok=True)
+    print(f"[BOOT] improved autonomous Gene Pool Router on {HOST}:{PORT}", flush=True)
+    print("[BOOT] Wren/GPU protected. CEOs use API Gene Pool only.", flush=True)
+    print(f"[SECURE_STORE] {SECURE_STORE}", flush=True)
+    load_store()
+    threading.Thread(target=background, daemon=True).start()
+    print(f"[READY] http://127.0.0.1:{PORT}", flush=True)
+    ThreadingHTTPServer((HOST, PORT), H).serve_forever()
+
+if __name__ == "__main__":
+    main()

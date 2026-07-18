@@ -1,0 +1,29 @@
+EXECUTIVE CONCIERGE BLUEPRINT v001 — DETERMINISTIC VALIDATION REPORT
+========================================================================
+Scope: STRUCTURAL CORE (170 floors + indexes + registers + README + manifest).
+Narrative docs 00-13 = DEFERRED to next increment (Ross decision 2026-07-16).
+Total files: 180   Floor files: 170
+
+  [PASS    ] 1. exactly 170 floor files  — 170
+  [PASS    ] 2. floor numbers 001-170 continuous
+  [PASS    ] 3. no duplicate floor file
+  [PASS    ] 4. every claim has provenance or UNKNOWN  — all floors carry provenance+UNKNOWN
+  [PASS    ] 5. source paths exist or labelled historical/missing  — manifest classifies 4 NOT_FOUND
+  [PASS    ] 6. contradictions registered, not silently resolved  — 4 registered
+  [PASS    ] 7. two Floor-47 domains kept separate
+  [DEFERRED] 8. Ross remains final authority  — narrative doc 01_ROSS_AND_AUTHORITY (next increment); README does reference Ross as escalation target
+  [DEFERRED] 9. Wren = Governor L1  — narrative doc 05 (next increment)
+  [DEFERRED] 10. Governor L2 OFF  — narrative doc 05; no active GovL2 flag found
+  [PASS    ] 11. Bill Executive Concierge not CEO/Governor
+  [DEFERRED] 12. TP-Pip & Acer-Cass independent CEOs  — narrative doc 06 (next increment)
+  [DEFERRED] 13. Claude Specialist governed+caged  — narrative doc 06 (next increment)
+  [PASS    ] 14. no secrets present  — 0 hits
+  [PASS    ] 15. no private mind/memory present  — 0 hits
+  [PASS    ] 16. no invented floor content  — deterministic registry projection only
+  [PASS    ] 17. all indexes parse  — 9 index files
+  [PASS    ] 18. internal links resolve
+  [PASS    ] 19. package size + file count recorded  — 180 files
+  [PASS    ] 20. sha256 manifest covers every file
+
+RESULT: 15 PASS, 5 DEFERRED (narrative), 0 FAIL
+VERDICT: STRUCTURAL_CORE_VALIDATED (narrative-dependent checks deferred)

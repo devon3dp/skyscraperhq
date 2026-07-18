@@ -49,30 +49,46 @@ log "═══ QSB Tower boot — $(date -u +%FT%TZ) ═══"
 log "user=$(whoami)  cwd=$(pwd)"
 
 # 1. Boardroom Hub — port 8852
-log "─ boardroom hub (:8852) ─"
-start_tmux_if_missing "br" \
-  "exec python3 tools/qsb_boardroom_hub.py --port 8852" \
-  "8852"
+# 2026-07-17 Wren leadership-comms migration: canonical owner is systemd
+# qsb-boardroom.service (enabled). The tmux 'br' launcher below is DISABLED to end
+# the tmux/systemd :8852 port-fight that left the hub crash-looping (Errno 98) after
+# reboot, which broke Bill↔Wren. Rollback: uncomment the start_tmux_if_missing "br" block.
+log "─ boardroom hub (:8852) — owned by systemd qsb-boardroom.service ─"
+# start_tmux_if_missing "br" \
+#   "exec python3 tools/qsb_boardroom_hub.py --port 8852" \
+#   "8852"
 
 # 2. Wren dash — port 8851
-log "─ wren dash (:8851) ─"
-start_tmux_if_missing "wd" \
-  "exec python3 tools/qsb_wren_dash.py --port 8851" \
-  "8851"
+# 2026-07-11 Wren Stage B: canonical owner is systemd qsb-wren-dash.service (enabled).
+# The tmux 'wd' launcher below is DISABLED to end tmux/systemd :8851 port-fighting.
+# Rollback: uncomment the start_tmux_if_missing "wd" block.
+log "─ wren dash (:8851) — owned by systemd qsb-wren-dash.service ─"
+# start_tmux_if_missing "wd" \
+#   "exec python3 tools/qsb_wren_dash.py --port 8851" \
+#   "8851"
 
-# 3. HQ dash — port 8850 (if present)
-if [ -f tools/qsb_hq_dash.py ]; then
-  log "─ hq dash (:8850) ─"
-  start_tmux_if_missing "hq" \
-    "exec python3 tools/qsb_hq_dash.py --port 8850" \
-    "8850"
-fi
+# 3. HQ dash — port 8850  ── RETIRED 2026-07-17 (Ross canonical correction) ──
+# "Claude HQ is retired. Claude is a governed specialist service caged under Wren."
+# The Claude HQ dashboard is removed from the ACTIVE runtime roster. The tool file and
+# systemd unit are preserved as legacy/provenance (NOT deleted); the unit is stopped +
+# disabled separately. This launcher stays OFF so 8850 is never re-squatted at boot.
+# Rollback: uncomment the block below (not advised — Claude HQ is retired).
+# if [ -f tools/qsb_hq_claude_dash.py ]; then
+#   log "─ hq dash (:8850) ─"
+#   start_tmux_if_missing "hq" \
+#     "exec python3 tools/qsb_hq_claude_dash.py --port 8850" \
+#     "8850"
+# fi
 
 # 4. Wren evolution loop (headless — no port)
-log "─ wren evolution loop ─"
-start_tmux_if_missing "wrenloop" \
-  "exec python3 tools/qsb_wren_evolution_loop.py --sleep 90" \
-  ""
+# 2026-07-11 Wren Stage B: canonical owner is systemd qsb-wren-mind.service (enabled).
+# The tmux 'wrenloop' launcher below is DISABLED to keep exactly ONE evolution loop.
+# (qsb-wren-loop.service was also stopped+disabled as a duplicate.)
+# Rollback: uncomment the start_tmux_if_missing "wrenloop" block.
+log "─ wren evolution loop — owned by systemd qsb-wren-mind.service ─"
+# start_tmux_if_missing "wrenloop" \
+#   "exec python3 tools/qsb_wren_evolution_loop.py --sleep 90" \
+#   ""
 
 # 5. Voice server — port 8795 (if present)
 if [ -f tools/qsb_voice_server.py ]; then

@@ -1,0 +1,16 @@
+{
+  "task_id": "t_boot_browser_open",
+  "implemented_by": "claude_hq",
+  "verified_by": "claude_hq(smoke)",
+  "timestamp": "2026-07-09T12:35:00Z",
+  "files_changed": [
+    "~/.config/autostart/qsb-dashboard-wall.desktop",
+    "deploy/qsb_open_dashboards.sh"
+  ],
+  "smoke_results": {
+    "opener_opens_wall": "YES (window detected)",
+    "autostart_desktop_present": true,
+    "opener_executable": true
+  },
+  "final_status": "complete \u2014 verified"
+}

@@ -1,0 +1,12 @@
+[Unit]
+Description=QSB Wren Evolution Loop (launcher only - no logic change, R71)
+After=network-online.target
+[Service]
+Type=simple
+User=ross
+WorkingDirectory=/vaults/nvme0/qsb_tower_v1
+ExecStart=/usr/bin/python3 /vaults/nvme0/qsb_tower_v1/tools/qsb_wren_evolution_loop.py --sleep 90
+Restart=on-failure
+RestartSec=10
+[Install]
+WantedBy=multi-user.target
