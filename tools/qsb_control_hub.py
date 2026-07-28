@@ -6,36 +6,51 @@ qsb_control_hub.py — SkyscraperHQ CONTROL landing page (:8888).
 front-and-centre." Shows the live Underground embedded, plus a card per dashboard with
 its live up/down status. Read-only. systemd qsb-control-hub.service (boot-persistent).
 """
-import json, argparse, socket, time
+import json, argparse, urllib.request, time
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 VER = str(int(time.time()))
-# name, port, path, emoji, blurb
+# section, name, port, path, emoji, blurb
 DASHES = [
-    ("Underground", 8875, "/", "🚆", "Live tower-wide tube map — every train, every line"),
-    ("Task Council", 8864, "/", "🏛️", "Train-track pipeline + Accept/Reject + Wren decisions"),
-    ("Codex Floor", 8870, "/", "🤖", "Codex full-circle + terminal"),
-    ("Gene Pool", 8873, "/", "🧬", "Providers, keys, routing, override controls"),
-    ("Floor Planner", 8871, "/", "📋", "Every floor · click to open"),
-    ("Floor 53 · Command", 8874, "/", "🗼", "Whole-tower structure + new floors"),
-    ("Tower Reorganizer", 8872, "/", "🔧", "Guided floor moves (live apply)"),
-    ("Agentic Traders", 8863, "/", "📈", "Live trading fleet"),
-    ("Boardroom Hub", 8852, "/", "🗣️", "Task council + town square"),
-    ("Gene Pool · Mission Control", 8852, "/proxy/gene_pool", "🧬", "The REAL Brain Router V4 — live provider routing"),
+    # Maps & pipelines
+    ("Maps & Ops", "Underground", 8875, "/", "🚆", "Live tower-wide tube map — every train, every line"),
+    ("Maps & Ops", "Task Council", 8864, "/", "🏛️", "Train-track pipeline + Accept/Reject + Wren decisions"),
+    ("Maps & Ops", "Agentic Traders", 8863, "/", "📈", "Live trading fleet (real broker truth)"),
+    # Chat & people
+    ("Chat & People", "Talk to Wren", 8865, "/", "💬", "Primary chat surface — Wren's mind"),
+    ("Chat & People", "Wren · Concierge", 8857, "/", "🛎️", "Concierge desk"),
+    ("Chat & People", "Wren · Bench", 8851, "/", "🛠️", "Wren's workbench"),
+    ("Chat & People", "Tour Guide", 8854, "/", "🧭", "Guided tour of the tower"),
+    ("Chat & People", "Receptionist", 8856, "/", "📇", "Front-desk receptionist"),
+    ("Chat & People", "Codex Floor", 8870, "/", "🤖", "Codex full-circle + terminal"),
+    # Routing & gene pool
+    ("Routing & Gene Pool", "Gene Pool · Router (canonical)", 8860, "/", "🧬", "Brain Router V4 — the REAL live provider routing"),
+    ("Routing & Gene Pool", "Gene Pool · Controls", 8873, "/", "🎛️", "Provider force/disable overrides"),
+    ("Routing & Gene Pool", "Boardroom Hub", 8852, "/", "🗣️", "Task council + town square"),
+    # Floors & structure
+    ("Floors & Structure", "Floor Planner", 8871, "/", "📋", "Every floor · click to open"),
+    ("Floors & Structure", "Floor 53 · Command", 8874, "/", "🗼", "Whole-tower structure + new floors"),
+    ("Floors & Structure", "Tower Reorganizer", 8872, "/", "🔧", "Guided floor moves (live apply)"),
 ]
 
 
-def _up(port):
+def _up(port, path="/"):
+    """Real HTTP health check — a 2xx/3xx is 'live'. A bound-but-404 port (e.g. :8850) reads DOWN,
+    unlike the old raw TCP connect which false-greened anything merely listening."""
     try:
-        with socket.create_connection(("127.0.0.1", port), timeout=0.4):
-            return True
+        req = urllib.request.Request(f"http://127.0.0.1:{port}{path}", method="GET")
+        with urllib.request.urlopen(req, timeout=0.8) as r:
+            return 200 <= r.status < 400
+    except urllib.error.HTTPError as e:
+        return 200 <= e.code < 400
     except Exception:
         return False
 
 
 def build():
-    return {"ver": VER, "dashes": [{"name": n, "port": p, "path": pa, "emoji": e, "blurb": b, "up": _up(p)}
-                                    for n, p, pa, e, b in DASHES]}
+    return {"ver": VER, "dashes": [{"section": s, "name": n, "port": p, "path": pa, "emoji": e,
+                                     "blurb": b, "up": _up(p, pa)}
+                                    for s, n, p, pa, e, b in DASHES]}
 
 
 PAGE = r"""<!doctype html><html><head><meta charset=utf-8><title>SkyscraperHQ · Control</title>
@@ -49,7 +64,9 @@ h1{margin:0;font-size:24px}h1 span{color:var(--acc)}
 .feature{border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-bottom:16px;background:var(--card)}
 .feature .bar{display:flex;justify-content:space-between;align-items:center;padding:10px 16px;border-bottom:1px solid var(--line)}
 .feature .bar b{font-size:16px}.feature iframe{width:100%;height:560px;border:0;background:#080c14}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.sec{margin-bottom:18px}
+.sec h2{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);margin:0 0 8px;border-bottom:1px solid var(--line);padding-bottom:5px}
+.secgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
 .dash{display:block;text-decoration:none;color:var(--txt);background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;transition:border-color .2s,transform .1s}
 .dash:hover{border-color:var(--acc);transform:translateY(-2px)}
 .dash .top{display:flex;align-items:center;gap:10px}
@@ -76,12 +93,15 @@ document.getElementById("ugopen").href="http://"+HOST+":8875/";
 async function tick(){
   let d;try{d=await(await fetch("/api/data")).json()}catch(e){return}
   if(window.__v&&window.__v!==d.ver){location.reload();return}window.__v=d.ver;
-  document.getElementById("grid").innerHTML=(d.dashes||[]).map(x=>
-    `<a class=dash href="http://${HOST}:${x.port}${x.path}" target=_blank>
-       <div class=top><span class=em>${x.emoji}</span><span class=nm>${x.name}</span></div>
-       <div class=bl>${x.blurb}</div>
-       <div class=st><span class="dot ${x.up?'up':'down'}"></span>${x.up?'live':'down'} · :${x.port} · <span class=open>open ↗</span></div>
-     </a>`).join("");
+  const secs=[];const bySec={};
+  (d.dashes||[]).forEach(x=>{if(!bySec[x.section]){bySec[x.section]=[];secs.push(x.section)}bySec[x.section].push(x)});
+  document.getElementById("grid").innerHTML=secs.map(sec=>
+    `<div class=sec><h2>${sec}</h2><div class=secgrid>`+bySec[sec].map(x=>
+      `<a class=dash href="http://${HOST}:${x.port}${x.path}" target=_blank>
+         <div class=top><span class=em>${x.emoji}</span><span class=nm>${x.name}</span></div>
+         <div class=bl>${x.blurb}</div>
+         <div class=st><span class="dot ${x.up?'up':'down'}"></span>${x.up?'live':'down'} · :${x.port} · <span class=open>open ↗</span></div>
+       </a>`).join("")+`</div></div>`).join("");
   document.getElementById("ts").textContent=new Date().toLocaleTimeString();
 }
 tick();setInterval(tick,5000);
