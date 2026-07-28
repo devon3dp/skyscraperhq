@@ -1,0 +1,82 @@
+{
+  "ts": "2026-07-28T14:29:13Z",
+  "providers": {
+    "openai": {
+      "status": "LIVE",
+      "detail": "'OK' via gpt-4o-mini",
+      "latency_ms": 971
+    },
+    "deepseek": {
+      "status": "LIVE",
+      "detail": "'OK' via deepseek-chat",
+      "latency_ms": 1107
+    },
+    "nvidia_nim": {
+      "status": "LIVE",
+      "detail": "'OK' via meta/llama-3.1-8b-instruct",
+      "latency_ms": 536
+    },
+    "groq": {
+      "status": "BLOCKED",
+      "detail": "HTTP 403 on llama-3.3-70b-versatile"
+    },
+    "openrouter": {
+      "status": "NO_CREDIT",
+      "detail": "HTTP 402 on meta-llama/llama-3.1-8b-instruct"
+    },
+    "sambanova": {
+      "status": "ENDPOINT_GONE",
+      "detail": "HTTP 410 on Meta-Llama-3.1-8B-Instruct"
+    },
+    "cerebras": {
+      "status": "BLOCKED",
+      "detail": "HTTP 403 on llama-3.3-70b"
+    },
+    "kimi": {
+      "status": "QUOTA",
+      "detail": "HTTP 429 on moonshot-v1-8k"
+    },
+    "cohere": {
+      "status": "LIVE",
+      "detail": "'OK.' via command-r-08-2024",
+      "latency_ms": 552
+    },
+    "gemini": {
+      "status": "LIVE",
+      "detail": "'OK' via gemini-flash-latest",
+      "latency_ms": 1718
+    },
+    "claude": {
+      "status": "NO_KEY",
+      "detail": "no funded key in vault"
+    },
+    "grok": {
+      "status": "NO_KEY",
+      "detail": "no funded key in vault"
+    }
+  },
+  "harvested_store_counts": {
+    "claude": 73,
+    "openai": 38,
+    "deepseek": 35,
+    "gemini": 3,
+    "cohere": 422,
+    "kimi": 2,
+    "groq": 3
+  },
+  "live": [
+    "cohere",
+    "deepseek",
+    "gemini",
+    "nvidia_nim",
+    "openai"
+  ],
+  "needs_new_key": [
+    "cerebras",
+    "claude",
+    "grok",
+    "groq",
+    "kimi",
+    "openrouter"
+  ]
+}
