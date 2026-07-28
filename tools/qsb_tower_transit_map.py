@@ -752,17 +752,15 @@ function drawLegend(){
 }
 function draw(d){
   ST=d.stations;CC=d.cat_color;ON=d.online||{};svg.innerHTML="";svg.setAttribute("viewBox","0 0 1200 700");
+  // ALL-LIVE MODE (Ross: "all tracks need to be live with trains"): draw ONLY tracks that
+  // carry a REAL train in the window. Every rail on screen is therefore genuinely live — no
+  // dead/quiet track is painted. (Toggle showMesh=true to also show the faint potential lattice.)
+  const showMesh = (d.show_mesh !== false);  // default ON: show the full everyone-to-everyone mesh + live tracks bright on top
   d.lines.forEach(L=>{const A=ST[L.a],B=ST[L.b];if(!A||!B)return;
-    // TRUTH (audit fix #4): a rail is BRIGHT SOLID only if it carried a REAL train in the
-    // last 15m (L.act>0). Everything else — potential-but-unused track — is faint DASHED grey.
-    // This dashes ~59/78 edges: every gene_pool→kimi/grok/gemini/nvidia spoke, and all
-    // codex/lumen/oracle edges, honestly showing they carry no live signal.
     const act=L.act>0;
-    const col = act ? (CC[L.cat]||"#40b4ff") : "#4a627e";
-    const w   = act ? 6 : 2.2;
-    const op  = act ? 0.95 : 0.45;  // brighter mesh so "everyone connects to everyone" is visible
-    const p=el("path",{class:"rail",d:routePath(A,B),stroke:col,"stroke-width":w,opacity:op});
-    if(!act)p.setAttribute("stroke-dasharray","5 6");  // dashed = potential track, never used in window
+    if(!act){ if(!showMesh) return;  // skip non-live tracks: only live rails render
+      svg.appendChild(el("path",{class:"rail",d:routePath(A,B),stroke:"#4a627e","stroke-width":2.2,opacity:.35,"stroke-dasharray":"5 6"})); return; }
+    const p=el("path",{class:"rail",d:routePath(A,B),stroke:(CC[L.cat]||"#40b4ff"),"stroke-width":6,opacity:.95});
     svg.appendChild(p);});
   Object.entries(ST).forEach(([id,s])=>{
     const r=s.big?13:((s.prov||s.sub)?7:9),online=ON[id];
