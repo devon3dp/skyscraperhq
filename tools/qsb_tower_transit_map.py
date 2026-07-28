@@ -157,9 +157,20 @@ for a, b, c in LINES:
     elif to_council and c == "council":
         _L2[_seen2[k]][2] = "council"  # upgrade an existing task_council edge to bright council
 LINES = [tuple(x) for x in _L2]
+# ── COMPLETE MESH (Ross: "everyone needs to connect to everything and everyone") ──
+# After the meaningful categorized tracks, add a direct track between EVERY remaining pair
+# of stations, so every node connects DIRECTLY to every other (graph diameter = 1). These
+# render as the faint dashed "mesh" lattice; real traffic still lights the bright tracks on top.
+_have = {tuple(sorted((a, b))) for a, b, *_ in LINES}
+_all_st = list(STATIONS)
+for _i, _a in enumerate(_all_st):
+    for _b in _all_st[_i + 1:]:
+        if tuple(sorted((_a, _b))) not in _have:
+            LINES.append((_a, _b, "mesh"))
 # NOTE: no "liveprobe" colour — health-probe passes are a RING, never a train (audit fix #2).
 CAT_COLOR = {"route": "#40b4ff", "provider": "#45f59b", "council": "#b98bff",
-             "comms": "#ffc24b", "hub": "#6d7f98", "c15": "#2dd4bf", "wrensub": "#c4a3ff"}
+             "comms": "#ffc24b", "hub": "#6d7f98", "c15": "#2dd4bf", "wrensub": "#c4a3ff",
+             "mesh": "#33465f"}
 # TRUNK LINES: the meaningful backbone drawn as proper coloured tube lines even when idle.
 # Everything else in LINES is the faint "everyone-connects" mesh web (dim grey lattice).
 #   - hub spine (town_square→boardroom→task_council→council15)
