@@ -392,24 +392,35 @@ def build():
         # SUB-TRACK trains
         if ev == "tool_selected":
             spec = _tool_station(r.get("text"))
+            # ROUND TRIP: the specialist is wielded (send) AND returns its result (reply) — both legs real
             trains.append({"from": "council15", "to": spec, "ts": r.get("ts"), "cat": "c15",
                            "label": "Council of 15 → " + spec})
+            trains.append({"from": spec, "to": "council15", "ts": r.get("ts"), "cat": "c15",
+                           "label": spec + " → Council of 15 (result)"})
             trains.append({"from": "wren", "to": spec, "ts": r.get("ts"), "cat": "wrensub",
                            "label": "Wren wields " + spec})
+            trains.append({"from": spec, "to": "wren", "ts": r.get("ts"), "cat": "wrensub",
+                           "label": spec + " → Wren (result)"})
         elif ev in ("sandbox_passed", "sandbox_rejected"):
-            # attribute to the REAL submitter if the event records one, so a worker who genuinely
-            # runs code through the sandbox shows its own track to it (not just task_council)
+            # ROUND TRIP: submitter runs code through the sandbox (send) AND the sandbox returns
+            # its pass/fail verdict (reply) — both are real events. Attribute to the real submitter.
             _sub = _sid(r.get("submitter")) or "task_council"
+            _who = _sub if _sub != "task_council" else "council"
             trains.append({"from": _sub, "to": "tc_sandbox", "ts": r.get("ts"), "cat": "council",
-                           "label": (_sub if _sub != "task_council" else "council") + " → sandbox " + (ev or "")})
+                           "label": _who + " → sandbox " + (ev or "")})
+            trains.append({"from": "tc_sandbox", "to": _sub, "ts": r.get("ts"), "cat": "council",
+                           "label": "sandbox → " + _who + " verdict: " + (ev or "")})
         elif ev == "done":
             trains.append({"from": "task_council", "to": "wren", "ts": r.get("ts"), "cat": "council",
                            "label": "Wren gate: done " + (tid or "")})
     # Wren's own brain (her local qwen replies)
     for r in _tail(REG / "qsb_wren_dash_chat.jsonl", 20):
         if r.get("reply") or (r.get("role") or r.get("from") or "").lower() == "wren":
+            # ROUND TRIP: Wren asks her local brain (send) and the thought returns (reply)
             trains.append({"from": "wren", "to": "wren_brain", "ts": r.get("ts", ""), "cat": "wrensub",
                            "label": "Wren thinking · qwen14b"})
+            trains.append({"from": "wren_brain", "to": "wren", "ts": r.get("ts", ""), "cat": "wrensub",
+                           "label": "qwen14b → Wren (thought)"})
     # 3) comms mesh: room -> town square, acks between members, DMs member<->member
     for r in _tail(ROOM, 60):
         frm = _sid(r.get("from") or r.get("sender")) or "boardroom"
