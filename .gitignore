@@ -103,3 +103,12 @@ data/checkpoints/
 .secrets/
 floors/floor_43_alpaca_paper_floor/mcp_v2/server/
 floors/floor_43_alpaca_paper_floor/mcp_v2/.venv/
+
+# ---- SECRETS remediation 2026-07-28 (gitignore MISSED these; keys were tracked) ----
+# `**/vault/` (singular) missed `vaults/` (plural); `**/.env*` missed `*.env` files.
+vaults/
+**/*.env
+**/*_creds*
+**/*secret*.json
+scripts/qsb_set_*_keys.sh
+check_all_vault_claude_keys.sh
