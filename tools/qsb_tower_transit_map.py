@@ -663,9 +663,9 @@ function draw(d){
     // This dashes ~59/78 edges: every gene_pool→kimi/grok/gemini/nvidia spoke, and all
     // codex/lumen/oracle edges, honestly showing they carry no live signal.
     const act=L.act>0;
-    const col = act ? (CC[L.cat]||"#40b4ff") : "#33465f";
-    const w   = act ? 6 : 1.6;
-    const op  = act ? 0.95 : 0.30;
+    const col = act ? (CC[L.cat]||"#40b4ff") : "#4a627e";
+    const w   = act ? 6 : 2.2;
+    const op  = act ? 0.95 : 0.45;  // brighter mesh so "everyone connects to everyone" is visible
     const p=el("path",{class:"rail",d:routePath(A,B),stroke:col,"stroke-width":w,opacity:op});
     if(!act)p.setAttribute("stroke-dasharray","5 6");  // dashed = potential track, never used in window
     svg.appendChild(p);});
