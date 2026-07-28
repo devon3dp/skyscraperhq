@@ -126,7 +126,7 @@ def next_open_task():
         opens = [t for t in tasks if t.get("state") == "open" and not t.get("owner") and real(t)
                  and not _cooling(t)]
         stalled = [t for t in tasks
-                   if t.get("state") in ("assigned", "acknowledged", "in_progress",
+                   if t.get("state") in ("claimed", "assigned", "acknowledged", "in_progress",
                                          "awaiting_peer_signoff", "awaiting_verification", "needs_rework")
                    and real(t) and _is_stale(t)]
         cand = opens + stalled
