@@ -1,0 +1,12 @@
+[Unit]
+Description=QSB Gene-Pool Provider Key-Health Probe (writes qsb_gene_pool_key_health.json)
+After=network.target
+
+[Service]
+Type=oneshot
+User=ross
+WorkingDirectory=/vaults/nvme0/qsb_tower_v1
+ExecStart=/usr/bin/python3 /vaults/nvme0/qsb_tower_v1/tools/qsb_gene_pool_key_health.py
+
+[Install]
+WantedBy=multi-user.target

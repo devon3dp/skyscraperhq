@@ -20,7 +20,7 @@ INTERACTIVE (all hit REAL targets):
   - "Rescan keys"     -> POST :8860/api/rescan.
 Additive service on :8873.  Run: python3 tools/qsb_gene_pool_dash.py --port 8873
 """
-import json, argparse, socket, urllib.request, urllib.error
+import json, argparse, socket, subprocess, urllib.request, urllib.error
 from collections import deque, Counter
 from datetime import datetime, timezone
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -35,7 +35,25 @@ PARTICIPANTS = REG / "qsb_gene_pool_participants.json"
 CALLS = REG / "qsb_brain_router_calls.jsonl"
 SPEND = REG / "qsb_provider_spend_ledger.jsonl"
 CONTROL = REG / "qsb_gene_pool_control.json"
+KEY_HEALTH = REG / "qsb_gene_pool_key_health.json"
+VAULT = ROOT / "floors" / "floor_28_security_department" / "vault"
+KEY_HEALTH_TOOL = ROOT / "tools" / "qsb_gene_pool_key_health.py"
 ROUTER = "http://127.0.0.1:8860"
+
+# provider -> (vault .env filename, VAR name). Localhost-only paste-to-change writes these.
+PROVIDER_VAULT_MAP = {
+    "openai":     (".env.openai",     "OPENAI_API_KEY"),
+    "deepseek":   (".env.deepseek",   "DEEPSEEK_API_KEY"),
+    "cohere":     (".env.cohere",     "QSB_COHERE_API_KEY"),
+    "gemini":     (".env.gemini",     "GEMINI_API_KEY"),
+    "groq":       (".env.groq",       "GROQ_API_KEY"),
+    "kimi":       (".env.kimi",       "QSB_KIMI_API_KEY"),
+    "openrouter": (".env.openrouter", "OPENROUTER_API_KEY"),
+    "sambanova":  (".env.sambanova",  "SAMBANOVA_API_KEY"),
+    "cerebras":   (".env.cerebras",   "CEREBRAS_API_KEY"),
+    "nvidia_nim": (".env.nvidia_nim", "NVIDIA_API_KEY"),
+    "grok":       (".env.grok",       "XAI_API_KEY"),
+}
 
 PROVIDERS_ALL = ["openai", "deepseek", "claude", "gemini", "kimi", "groq", "grok", "cohere"]
 DEFAULT_CONTROL = {"enabled": False, "forced_provider": None, "disabled_providers": [],
@@ -169,6 +187,36 @@ def build_data():
         "control": load_control(),
         "routers": {"central_8860": _port_up(8860), "msi_8890": _port_up(8890)},
         "providers_all": PROVIDERS_ALL,
+        "key_health": build_key_health(),
+    }
+
+
+def build_key_health():
+    """Provider key health from qsb_gene_pool_key_health.json (written by the health tool)."""
+    kh = _load(KEY_HEALTH, {}) or {}
+    providers = kh.get("providers", {}) or {}
+    stores = kh.get("harvested_store_counts", {}) or {}
+    live = kh.get("live", []) or []
+    needs = kh.get("needs_new_key", []) or []
+    rows = []
+    for name, v in providers.items():
+        if not isinstance(v, dict):
+            v = {}
+        status = v.get("status", "UNKNOWN")
+        rows.append({
+            "name": name,
+            "status": status,
+            "detail": v.get("detail", ""),
+            "latency_ms": v.get("latency_ms"),
+            "store_keys": stores.get(name, 0),
+            "editable": (status != "LIVE") and (name in PROVIDER_VAULT_MAP),
+        })
+    rows.sort(key=lambda r: (r["status"] != "LIVE", r["name"]))
+    return {
+        "ts": kh.get("ts"),
+        "providers": rows,
+        "live_count": len(live),
+        "needs_count": len(needs),
     }
 
 
@@ -210,6 +258,56 @@ def rescan():
     return _router_post("/api/rescan", {})
 
 
+def set_key(provider, key):
+    """LOCALHOST-ONLY (caller enforces 127.0.0.1). Write ONE var into the provider's
+    vault .env file, backing it up first. Never returns or logs the key. Re-probes after."""
+    if provider not in PROVIDER_VAULT_MAP:
+        return {"ok": False, "error": "unknown provider"}
+    key = (key or "").strip()
+    if not key:
+        return {"ok": False, "error": "empty key"}
+    fname, var = PROVIDER_VAULT_MAP[provider]
+    envp = VAULT / fname
+    # back up existing file first
+    stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    if envp.exists():
+        try:
+            (VAULT / (fname + f".bak_keychange_{stamp}")).write_bytes(envp.read_bytes())
+        except Exception as e:
+            return {"ok": False, "error": f"backup failed: {str(e)[:120]}"}
+        old_lines = envp.read_text(encoding="utf-8", errors="ignore").splitlines()
+    else:
+        old_lines = []
+    # replace/add just the one VAR= line, preserve all other lines
+    new_lines, replaced = [], False
+    for ln in old_lines:
+        if ln.split("=", 1)[0].strip() == var and not replaced:
+            new_lines.append(f"{var}={key}")
+            replaced = True
+        else:
+            new_lines.append(ln)
+    if not replaced:
+        new_lines.append(f"{var}={key}")
+    try:
+        envp.write_text("\n".join(new_lines) + "\n", encoding="utf-8")
+        try:
+            envp.chmod(0o600)
+        except Exception:
+            pass
+    except Exception as e:
+        return {"ok": False, "error": f"write failed: {str(e)[:120]}"}
+    # kick a re-probe so the panel updates (never logs the key)
+    new_status = None
+    try:
+        subprocess.run(["python3", str(KEY_HEALTH_TOOL)], cwd=str(ROOT),
+                       timeout=120, capture_output=True)
+        kh = _load(KEY_HEALTH, {}) or {}
+        new_status = ((kh.get("providers", {}) or {}).get(provider, {}) or {}).get("status")
+    except Exception:
+        pass
+    return {"ok": True, "provider": provider, "new_status": new_status}
+
+
 PAGE = r"""<!doctype html><html><head><meta charset=utf-8><title>Gene Pool Control · #24</title>
 <meta name=viewport content="width=device-width,initial-scale=1">
 <style>
@@ -243,6 +341,20 @@ th{color:var(--dim);text-transform:uppercase;font-size:9px;position:sticky;top:0
 .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px}.up{background:var(--ok)}.down{background:var(--bad)}
 .pill{font-size:11px;color:var(--dim)}
 footer{color:var(--dim);margin-top:12px;font-size:11px}
+.khsum{color:var(--dim);font-size:11px;margin-bottom:8px}
+.khrow{display:grid;grid-template-columns:110px 74px 1fr auto;gap:8px;align-items:center;padding:6px 4px;border-bottom:1px solid var(--line)}
+.khrow .khname{font-weight:600}
+.khrow .khdet{color:var(--dim);font-size:11px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.khrow .khmeta{color:var(--dim);font-size:10px;white-space:nowrap}
+.spill{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.03em;padding:2px 8px;border-radius:999px;text-align:center}
+.s-live{background:rgba(57,217,138,.16);color:var(--ok);border:1px solid var(--ok)}
+.s-amber{background:rgba(245,196,81,.16);color:var(--warn);border:1px solid var(--warn)}
+.s-red{background:rgba(255,107,107,.16);color:var(--bad);border:1px solid var(--bad)}
+.s-grey{background:rgba(125,141,166,.16);color:var(--dim);border:1px solid var(--line)}
+.khedit{grid-column:1/-1;display:flex;gap:6px;align-items:center;margin-top:4px}
+.khedit input{flex:1;font-size:12px}
+.khedit .b-set{padding:6px 11px}
+.khnote{color:var(--dim);font-size:10px;font-style:italic}
 </style></head><body><div class=wrap>
 <h1>Gene Pool <span class=n>· Control Room · #24</span></h1>
 <div class=sub>Live routing — who's asking, who's serving, where it flows. Every number real.</div>
@@ -282,6 +394,11 @@ footer{color:var(--dim);margin-top:12px;font-size:11px}
         <button class=b-scan onclick=doRescan()>Rescan keys</button>
       </div>
       <div id=jobout class=state>—</div>
+    </div>
+    <div class=card><h2>🔑 Provider Key Health</h2>
+      <div class=khsum id=khsum>—</div>
+      <div id=khrows></div>
+      <div class=khnote style="margin-top:8px">paste-to-change writes the vault .env · localhost only (403 from LAN)</div>
     </div>
     <div class=card><h2>Providers · Participants · Routers</h2>
       <div id=provlist></div>
@@ -346,7 +463,56 @@ async function tick(){
   provlist.innerHTML='<b class=pill>PROVIDERS</b> '+d.providers.map(p=>`<span class=pill>${p.name}:${p.keys}</span>`).join(' ');
   partlist.innerHTML='<b class=pill>PARTICIPANTS</b> '+d.participants.map(p=>`<span class=pill>${esc(p.id)}·#${esc(p.floor)}·${esc(p.provider)}</span>`).join(' ')||'';
   routerlist.innerHTML=`<b class=pill>ROUTERS</b> <span class=pill><span class="dot ${d.routers.central_8860?'up':'down'}"></span>:8860</span> <span class=pill><span class="dot ${d.routers.msi_8890?'up':'down'}"></span>:8890</span>`;
+  drawKeyHealth(d.key_health);
   ts.textContent=(d.ts||'').replace('T',' ');
+}
+function pillClass(s){
+  if(s==='LIVE')return's-live';
+  if(s==='NO_CREDIT'||s==='QUOTA')return's-amber';
+  if(s==='NO_KEY')return's-grey';
+  return's-red'; // BLOCKED / ENDPOINT_GONE / BAD_KEY / UNKNOWN
+}
+function agoMin(ts){
+  if(!ts)return'?';
+  const t=Date.parse(ts.endsWith('Z')||ts.includes('+')?ts:ts+'Z');
+  if(isNaN(t))return'?';
+  const m=Math.max(0,Math.round((Date.now()-t)/60000));
+  return m<1?'just now':(m+' min ago');
+}
+function drawKeyHealth(kh){
+  if(!kh){document.getElementById('khrows').innerHTML='<div class=khnote>no key-health data yet</div>';return}
+  document.getElementById('khsum').textContent=
+    `checked ${agoMin(kh.ts)} · ${kh.live_count} live · ${kh.needs_count} need a new key`;
+  const rows=(kh.providers||[]).map(p=>{
+    const lat=(p.latency_ms==null?'':p.latency_ms+'ms');
+    const meta=`${p.store_keys} keys${lat?' · '+lat:''}`;
+    let html=`<div class=khrow>`+
+      `<span class=khname>${esc(p.name)}</span>`+
+      `<span class="spill ${pillClass(p.status)}">${esc(p.status)}</span>`+
+      `<span class=khdet title="${esc(p.detail)}">${esc(p.detail)}</span>`+
+      `<span class=khmeta>${esc(meta)}</span>`;
+    if(p.editable){
+      html+=`<div class=khedit>`+
+        `<input type=password autocomplete=off placeholder="paste new key (localhost only)" id="kh_${esc(p.name)}">`+
+        `<button class=b-set onclick="saveKey('${esc(p.name)}')">Save</button>`+
+        `<span class=khnote id="khmsg_${esc(p.name)}"></span></div>`;
+    }
+    return html+`</div>`;
+  }).join('');
+  document.getElementById('khrows').innerHTML=rows||'<div class=khnote>no providers</div>';
+}
+async function saveKey(prov){
+  const inp=document.getElementById('kh_'+prov);
+  const msg=document.getElementById('khmsg_'+prov);
+  const key=(inp&&inp.value||'').trim();
+  if(!key){if(msg)msg.textContent='enter a key';return}
+  if(msg)msg.textContent='saving + probing…';
+  let r;
+  try{r=await (await fetch('/api/set_key',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({provider:prov,key:key})})).json()}
+  catch(e){if(msg)msg.textContent='error';return}
+  if(inp)inp.value='';
+  if(msg)msg.textContent=r.ok?('saved → '+(r.new_status||'re-probing')):('error: '+esc(r.error||''));
+  tick();
 }
 async function applyControl(enabled){
   const forced=document.getElementById('force').value;
@@ -377,6 +543,7 @@ class H(BaseHTTPRequestHandler):
     def _send(self, obj, code=200):
         b = json.dumps(obj).encode()
         self.send_response(code); self.send_header("Content-Type", "application/json")
+        self.send_header("Cache-Control", "no-store")
         self.send_header("Content-Length", str(len(b))); self.end_headers(); self.wfile.write(b)
 
     def do_GET(self):
@@ -385,6 +552,7 @@ class H(BaseHTTPRequestHandler):
         else:
             b = PAGE.encode()
             self.send_response(200); self.send_header("Content-Type", "text/html; charset=utf-8")
+            self.send_header("Cache-Control", "no-store")
             self.send_header("Content-Length", str(len(b))); self.end_headers(); self.wfile.write(b)
 
     def do_POST(self):
@@ -399,6 +567,12 @@ class H(BaseHTTPRequestHandler):
             self._send(submit_job(payload))
         elif self.path.startswith("/api/rescan"):
             self._send(rescan())
+        elif self.path.startswith("/api/set_key"):
+            # LOCALHOST-ONLY: the key-write surface must never be reachable from LAN/hotspot.
+            if self.client_address[0] != "127.0.0.1":
+                self._send({"ok": False, "error": "localhost only"}, 403)
+                return
+            self._send(set_key(payload.get("provider"), payload.get("key")))
         else:
             self._send({"ok": False, "error": "not found"}, 404)
 

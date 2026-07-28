@@ -29,7 +29,15 @@ COUNCIL = REG / "qsb_council_tasks.jsonl"
 ROOM = LC / "room.jsonl"
 ACKS = LC / "acks.jsonl"
 PRESENCE = LC / "presence.json"
+KEY_HEALTH = REG / "qsb_gene_pool_key_health.json"
 VER = str(int(time.time()))
+
+# provider live/dead status buckets (from qsb_gene_pool_key_health.json)
+STATUS_LIVE = {"LIVE"}
+STATUS_AMBER = {"NO_CREDIT", "QUOTA"}
+STATUS_DEAD = {"BLOCKED", "ENDPOINT_GONE", "NO_KEY", "BAD_KEY"}
+# health-file key -> map station key (health uses nvidia_nim; station fan has no nvidia_nim)
+HEALTH_ALIAS = {"nvidia_nim": "nvidia_nim"}
 
 STATIONS = {
     # ── CENTRAL SPINE (hubs) — single column x=600, evenly stacked on 40px grid ──
@@ -43,7 +51,8 @@ STATIONS = {
     "acer_cass":    {"x": 140, "y": 360, "label": "Asa"},
     "codex":        {"x": 140, "y": 480, "label": "Codex · 40"},
     "wren":         {"x": 300, "y": 240, "label": "Wren", "big": True},
-    "lumen":        {"x": 300, "y": 480, "label": "Lumen · 48"},
+    "lumen":        {"x": 300, "y": 480, "label": "Lumen · 48", "offline": True,
+                     "offline_reason": ":8848 down — service offline"},
     # ── WREN / C15 SPECIALIST CLUSTER — around Wren + bottom-left cluster ──
     "wren_brain":   {"x": 300, "y": 120, "label": "Wren·qwen14b", "sub": True},
     "f46_bench":    {"x": 440, "y": 160, "label": "F46 Bench",    "sub": True},
@@ -64,12 +73,14 @@ STATIONS = {
     "groq":         {"x": 1120, "y": 500, "label": "groq",     "prov": True},
     "grok":         {"x": 1060, "y": 580, "label": "grok",     "prov": True},
     "claude":       {"x": 1000, "y": 640, "label": "claude",   "prov": True},
+    "nvidia_nim":   {"x": 980,  "y": 200, "label": "nvidia",   "prov": True},
 }
-PROV = {"openai", "deepseek", "cohere", "gemini", "groq", "kimi", "grok", "claude", "ollama_lan", "ollama_local"}
+PROV = {"openai", "deepseek", "cohere", "gemini", "groq", "kimi", "grok", "claude",
+        "nvidia_nim", "ollama_lan", "ollama_local"}
 
 CORE = ["wren", "tp_pip", "acer_cass", "bill", "codex", "lumen"]
 HUBS = ["boardroom", "town_square", "task_council", "council15", "gene_pool"]
-PROVIDERS = ["openai", "deepseek", "cohere", "gemini", "groq", "kimi", "grok", "claude"]
+PROVIDERS = ["openai", "deepseek", "cohere", "gemini", "groq", "kimi", "grok", "claude", "nvidia_nim"]
 LINES = []
 # EVERYONE connects with EVERYONE — full mesh among the AIs/CEOs
 for i, a in enumerate(CORE):
@@ -106,8 +117,31 @@ LINES += [
     ("oracle", "boardroom", "hub"), ("oracle", "gene_pool", "route"),
     ("oracle", "town_square", "comms"), ("oracle", "wren", "comms"),
 ]
-CAT_COLOR = {"route": "#40b4ff", "provider": "#45f59b", "council": "#b98bff", "comms": "#ffc24b",
-             "hub": "#6d7f98", "c15": "#2dd4bf", "wrensub": "#c4a3ff"}
+# ── EVERYONE → TASK COUNCIL (Ross: "everyone needs a track to the task council") ──
+# Explicit, bright council spurs so no station is more than one hop from task_council.
+# CEOs/AIs + gene_pool go direct; providers reach it via gene_pool→task_council;
+# the sub-specialists reach it via council15→task_council.
+_COUNCIL_SPUR = [
+    "wren", "tp_pip", "acer_cass", "bill", "codex", "lumen",
+    "boardroom", "town_square", "council15", "gene_pool", "oracle",
+]
+for _s in _COUNCIL_SPUR:
+    LINES.append((_s, "task_council", "council"))
+# provider-facing obviousness: gene_pool is the on-ramp; make gene_pool→task_council a council spur
+# (dedupe below keeps first category; force it council so it draws as a bright council track)
+LINES.append(("gene_pool", "task_council", "council"))
+# re-dedupe after adding council spurs, but PREFER the council category for any task_council edge
+_seen2 = {}; _L2 = []
+for a, b, c in LINES:
+    k = tuple(sorted((a, b)))
+    to_council = "task_council" in (a, b)
+    if k not in _seen2:
+        _seen2[k] = len(_L2); _L2.append([a, b, c])
+    elif to_council and c == "council":
+        _L2[_seen2[k]][2] = "council"  # upgrade an existing task_council edge to bright council
+LINES = [tuple(x) for x in _L2]
+CAT_COLOR = {"route": "#40b4ff", "provider": "#45f59b", "liveprobe": "#2ffb8f", "council": "#b98bff",
+             "comms": "#ffc24b", "hub": "#6d7f98", "c15": "#2dd4bf", "wrensub": "#c4a3ff"}
 # TRUNK LINES: the meaningful backbone drawn as proper coloured tube lines even when idle.
 # Everything else in LINES is the faint "everyone-connects" mesh web (dim grey lattice).
 #   - hub spine (town_square→boardroom→task_council→council15)
@@ -120,11 +154,13 @@ _TRUNK = [
     ("bill", "boardroom"), ("codex", "boardroom"), ("lumen", "boardroom"),
     ("gene_pool", "openai"), ("gene_pool", "deepseek"), ("gene_pool", "cohere"),
     ("gene_pool", "gemini"), ("gene_pool", "groq"), ("gene_pool", "kimi"),
-    ("gene_pool", "grok"), ("gene_pool", "claude"),
+    ("gene_pool", "grok"), ("gene_pool", "claude"), ("gene_pool", "nvidia_nim"),
     ("council15", "iquest_40b"), ("council15", "qwen_worker"),
     ("council15", "hermes"), ("council15", "claude_acct"), ("council15", "gene_pool"),
     ("oracle", "council15"), ("boardroom", "gene_pool"),
 ]
+# every EVERYONE→TASK COUNCIL spur is a trunk line — always visible, never buried in the mesh
+_TRUNK += [(s, "task_council") for s in _COUNCIL_SPUR] + [("gene_pool", "task_council")]
 TRUNK_SET = {tuple(sorted(e)) for e in _TRUNK}
 PRES_MAP = {"wren": "wren", "tp": "tp_pip", "asa": "acer_cass", "bill": "bill", "pip": "tp_pip"}
 # comms logs use short names (asa/tp/pip); stations are keyed acer_cass/tp_pip. Resolve so
@@ -166,8 +202,64 @@ def _tool_station(text):
     return "qwen_worker"
 
 
+def _parse_ts(ts):
+    """Best-effort parse of an ISO-ish ts to epoch seconds; None on failure."""
+    if not ts:
+        return None
+    try:
+        s = str(ts).replace("Z", "+00:00")
+        return datetime.fromisoformat(s).timestamp()
+    except Exception:
+        return None
+
+
+def _provider_status():
+    """Map station-key -> {status, detail} from qsb_gene_pool_key_health.json."""
+    h = _load(KEY_HEALTH, {}) or {}
+    provs = h.get("providers", {}) if isinstance(h, dict) else {}
+    out = {}
+    if isinstance(provs, dict):
+        for name, info in provs.items():
+            sid = HEALTH_ALIAS.get(name, name)
+            if isinstance(info, dict):
+                out[sid] = {"status": (info.get("status") or "UNKNOWN").upper(),
+                            "detail": info.get("detail") or ""}
+    return out
+
+
+def _connectivity():
+    """PROVE everyone reaches everyone: BFS the track graph; report full reachability + diameter."""
+    nodes = set(STATIONS)
+    adj = {}
+    for a, b, *_ in LINES:
+        if a in nodes and b in nodes:
+            adj.setdefault(a, set()).add(b)
+            adj.setdefault(b, set()).add(a)
+    diam = 0
+    reach_ok = True
+    for s in nodes:
+        d = {s: 0}
+        q = deque([s])
+        while q:
+            x = q.popleft()
+            for y in adj.get(x, ()):
+                if y not in d:
+                    d[y] = d[x] + 1
+                    q.append(y)
+        if len(d) < len(nodes):
+            reach_ok = False
+        if d:
+            diam = max(diam, max(d.values()))
+    edges = len({tuple(sorted((a, b))) for a, b, *_ in LINES if a in nodes and b in nodes})
+    isolated = [n for n in nodes if not adj.get(n)]
+    return {"stations": len(nodes), "edges": edges,
+            "connected": reach_ok and not isolated, "diameter": diam,
+            "isolated": isolated}
+
+
 def build():
     trains = []
+    prov_status = _provider_status()
     # 1) gene-pool routing: caller -> gene_pool AND gene_pool -> provider (the sub-track)
     for r in _tail(CALLS, 70):
         caller = r.get("caller")
@@ -232,12 +324,24 @@ def build():
                 to = nm[1] if frm == nm[0] else nm[0]
                 trains.append({"from": frm, "to": to, "ts": r.get("ts", ""), "cat": "comms",
                                "label": frm + " ↔ " + to + " DM"})
-    # balance categories so routing traffic doesn't DROWN the comms mesh — show EVERYONE talking
+    # 4) LIVE-PROVIDER PROOF (no lies) — the key-health timer REALLY calls each provider every
+    #    15 min. Emit one honest Gene Pool -> provider train per LIVE provider (real call, real ts),
+    #    so EVERY working AI carries a train, not just the two the router happens to route to.
+    _h = _load(KEY_HEALTH, {}) or {}
+    _hts = _h.get("ts")
+    for _name, _info in (_h.get("providers", {}) or {}).items():
+        _sidp = HEALTH_ALIAS.get(_name, _name)
+        if _sidp in STATIONS and isinstance(_info, dict) and (_info.get("status") or "").upper() == "LIVE":
+            trains.append({"from": "gene_pool", "to": _sidp, "ts": _hts, "cat": "liveprobe",
+                           "label": "Gene Pool → " + _sidp + "  ✓ live probe: " + (_info.get("detail") or "OK")})
+    # balance categories so routing traffic doesn't DROWN the comms mesh — show EVERYONE talking.
+    # liveprobe is uncapped-ish (only ~5 live providers) so every working AI ALWAYS carries a train.
     _bc = {}
     for t in trains:
         _bc.setdefault(t["cat"], []).append(t)
     trains = []
-    for cat, K in (("route", 12), ("provider", 12), ("comms", 24), ("council", 12), ("c15", 8), ("wrensub", 8)):
+    for cat, K in (("route", 12), ("provider", 12), ("liveprobe", 12), ("comms", 24),
+                   ("council", 12), ("c15", 8), ("wrensub", 8)):
         trains += _bc.get(cat, [])[-K:]
     trains.sort(key=lambda t: t.get("ts") or "")
 
@@ -251,11 +355,40 @@ def build():
                 online[sid] = True
 
     act = Counter((t["from"], t["to"]) for t in trains)
+
+    # attach LIVE/DEAD provider status to each provider station (item 1)
+    stations = {}
+    for sid, s in STATIONS.items():
+        s2 = dict(s)
+        if s.get("prov"):
+            ps = prov_status.get(sid)
+            if ps:
+                st = ps["status"]
+                s2["status"] = st
+                s2["status_detail"] = ps["detail"]
+                s2["status_band"] = ("live" if st in STATUS_LIVE
+                                     else "amber" if st in STATUS_AMBER
+                                     else "dead" if st in STATUS_DEAD else "unknown")
+            else:
+                s2["status"] = "NO_KEY"; s2["status_detail"] = "not in key-health report"
+                s2["status_band"] = "dead"
+        stations[sid] = s2
+
+    # HONEST LIVE badge (item 4): count only trains within the last ~15 minutes
+    now = time.time()
+    recent = 0
+    for t in trains:
+        te = _parse_ts(t.get("ts"))
+        if te is not None and (now - te) <= 900:
+            recent += 1
+
     return {"ver": VER, "ts": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-            "stations": STATIONS, "online": online,
+            "stations": stations, "online": online,
             "lines": [{"a": a, "b": b, "cat": c, "act": act.get((a, b), 0) + act.get((b, a), 0),
                        "trunk": tuple(sorted((a, b))) in TRUNK_SET} for a, b, c in LINES],
             "trains": trains, "cat_color": CAT_COLOR, "moving": len(trains),
+            "recent15": recent, "proof": _connectivity(),
+            "live_ais": sorted([sid for sid, s in stations.items() if s.get("status_band") == "live"]),
             "bill_gp": sum(1 for t in trains if t["from"] == "bill" and t["to"] == "gene_pool")}
 
 
@@ -274,20 +407,35 @@ h1{margin:0;font-size:20px}.sub{color:var(--dim);margin:2px 0 8px}
 .roundel{fill:#0a0e16;stroke:#e8f1ff;stroke-width:3}
 .roundel.big{stroke-width:4}.roundel.prov{stroke-width:2}
 .on{stroke:#45f59b}
+/* provider status roundels (item 1) */
+.roundel.p-live{stroke:#45f59b;filter:drop-shadow(0 0 6px #45f59b)}
+.roundel.p-amber{stroke:#ffb020}
+.roundel.p-dead{stroke:#5a6577;fill:#161b26}
+.roundel.p-unknown{stroke:#5a6577}
+/* offline dead station (item 5) */
+.roundel.off{stroke:#5a6577;stroke-dasharray:3 3;fill:#12161f;opacity:.6}
+.stlabel.off{fill:#6a778c}
 .stlabel{fill:#e8f1ff;font-size:11px;font-weight:600}
 .stlabel.big{font-size:13px;font-weight:700}.stlabel.prov{fill:#8fe6b5;font-size:10px}
 .train{filter:drop-shadow(0 0 6px currentColor)}
 .legend{display:flex;gap:14px;color:var(--dim);font-size:12px;margin-top:8px;flex-wrap:wrap;align-items:center}
 .k{display:inline-block;width:22px;height:5px;border-radius:3px;margin-right:6px;vertical-align:middle}
+.kd{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:5px;vertical-align:middle;border:2px solid}
 </style></head><body><div class=wrap>
 <h1>SkyscraperHQ · Underground <span style="color:#40b4ff">· :8875</span><span id=health class="hp ok">—</span></h1>
-<div class=sub>Carriages run on lines with REAL activity. Gene-Pool sub-tracks show which provider it routes to. Green ring = online.</div>
+<div class=sub><span id=proof style="color:#45f59b;font-weight:700"></span> · <span id=liveais style="color:#8fe6b5"></span> · every train is a REAL event — no demo motion.</div>
 <svg id=map></svg>
 <div class=legend>
   <span><span class=k style="background:#40b4ff"></span>routing → Gene Pool</span>
   <span><span class=k style="background:#45f59b"></span>Gene-Pool → provider (sub-track)</span>
-  <span><span class=k style="background:#b98bff"></span>council (tasks)</span>
+  <span><span class=k style="background:#b98bff"></span>council (task-council spurs)</span>
   <span><span class=k style="background:#ffc24b"></span>comms mesh</span>
+  <span><span class=k style="background:#6d7f98"></span>hub</span>
+  <span><span class=k style="background:#2dd4bf"></span>Council-15</span>
+  <span><span class=k style="background:#c4a3ff"></span>Wren sub</span>
+  <span style="border-left:1px solid #233146;padding-left:12px"><span class=kd style="border-color:#45f59b"></span>provider LIVE</span>
+  <span><span class=kd style="border-color:#ffb020"></span>amber (no-credit/quota)</span>
+  <span><span class=kd style="border-color:#5a6577"></span>dead (blocked/gone/no-key)</span>
   <span id=movetxt></span>
   <span style="color:#8ba0ba">· click any station to command it</span>
 </div>
@@ -340,30 +488,78 @@ function routeMid(A,B){
   if(Math.abs(dx)>Math.abs(dy))return {x:B.x - s(dx)*k, y:A.y};
   return {x:A.x, y:B.y - s(dy)*k};
 }
+// on-canvas legend, bottom-left corner (item 3): line categories + provider status colours
+function drawLegend(){
+  const rows=[
+    ["line","#40b4ff","route → Gene Pool"],
+    ["line","#2ffb8f","LIVE AI probe train (real call)"],
+    ["line","#45f59b","Gene-Pool → provider"],
+    ["line","#b98bff","council (→ Task Council)"],
+    ["line","#ffc24b","comms mesh"],
+    ["line","#6d7f98","hub"],
+    ["line","#2dd4bf","Council-15 sub"],
+    ["line","#c4a3ff","Wren sub"],
+    ["dot","#45f59b","provider LIVE"],
+    ["dot","#ffb020","provider amber (no-credit/quota)"],
+    ["dot","#5a6577","provider dead (blocked/gone/no-key)"],
+  ];
+  const x0=18, y0=700-rows.length*17-30, w=250, h=rows.length*17+26;
+  const g=el("g",{});
+  g.appendChild(el("rect",{x:x0-8,y:y0-6,width:w,height:h,rx:8,fill:"#0b1220",stroke:"#233146","stroke-width":1,opacity:.92}));
+  const ttl=el("text",{x:x0,y:y0+8,class:"stlabel",fill:"#cfe0f5"});ttl.textContent="LEGEND";g.appendChild(ttl);
+  rows.forEach((rw,i)=>{
+    const y=y0+24+i*17;
+    if(rw[0]==="line"){g.appendChild(el("rect",{x:x0,y:y-4,width:22,height:5,rx:2,fill:rw[1]}));}
+    else{g.appendChild(el("circle",{cx:x0+8,cy:y-1,r:6,fill:"#0a0e16",stroke:rw[1],"stroke-width":3}));}
+    const t=el("text",{x:x0+30,y:y+2,class:"stlabel",fill:"#9db3cc","font-size":10});t.textContent=rw[2];g.appendChild(t);
+  });
+  svg.appendChild(g);
+}
 function draw(d){
   ST=d.stations;CC=d.cat_color;ON=d.online||{};svg.innerHTML="";svg.setAttribute("viewBox","0 0 1200 700");
   d.lines.forEach(L=>{const A=ST[L.a],B=ST[L.b];if(!A||!B)return;
-    const act=L.act>0, trunk=L.trunk;
-    const col = act ? (CC[L.cat]||"#40b4ff") : trunk ? (CC[L.cat]||"#6d7f98") : "#233146";
-    const w   = act ? 6 : trunk ? 3.5 : 1.5;
-    const op  = act ? 0.95 : trunk ? 0.55 : 0.10;
+    // provider lines: only a LIVE provider gets a bright rail; dead/amber providers stay faint
+    const pv = A.prov?A:(B.prov?B:null);
+    const deadProv = pv && pv.status_band && pv.status_band!=="live";
+    let act=L.act>0, trunk=L.trunk;
+    if(deadProv){act=false;trunk=false;}
+    // idle interconnect mesh is drawn in its OWN category colour (faint) so you can SEE that
+    // everyone connects to everyone — not hidden. active = bright, trunk = bold, mesh = visible.
+    const col = act ? (CC[L.cat]||"#40b4ff") : trunk ? (CC[L.cat]||"#6d7f98") : (CC[L.cat]||"#33465f");
+    const w   = act ? 6 : trunk ? 3.5 : 2;
+    const op  = act ? 0.95 : trunk ? 0.6 : (deadProv?0.12:0.28);
     svg.appendChild(el("path",{class:"rail",d:routePath(A,B),stroke:col,"stroke-width":w,opacity:op}));});
   Object.entries(ST).forEach(([id,s])=>{
     const r=s.big?13:((s.prov||s.sub)?7:9),online=ON[id];
-    if(online)svg.appendChild(el("circle",{cx:s.x,cy:s.y,r:r+5,fill:"none",stroke:"#45f59b","stroke-width":2,opacity:.8,id:"on_"+id}));
-    const stc=el("circle",{cx:s.x,cy:s.y,r:r,class:"roundel"+(s.big?" big":"")+(s.prov?" prov":"")+(online?" on":""),id:"st_"+id});
-    stc.style.cursor="pointer";stc.addEventListener("click",()=>openCmd(id,s.label));svg.appendChild(stc);
+    if(online&&!s.offline)svg.appendChild(el("circle",{cx:s.x,cy:s.y,r:r+5,fill:"none",stroke:"#45f59b","stroke-width":2,opacity:.8,id:"on_"+id}));
+    // provider status band -> roundel colour (item 1); offline station -> dashed dim (item 5)
+    let cls="roundel"+(s.big?" big":"")+(s.prov?" prov":"")+(online&&!s.offline?" on":"");
+    if(s.offline)cls+=" off";
+    else if(s.prov)cls+=" p-"+(s.status_band||"unknown");
+    const stc=el("circle",{cx:s.x,cy:s.y,r:r,class:cls,id:"st_"+id});
+    stc.style.cursor="pointer";stc.addEventListener("click",()=>openCmd(id,s.label));
+    // tooltip: provider live/dead reason, or offline reason
+    const ti=el("title");
+    if(s.offline)ti.textContent=s.label+" — offline · "+(s.offline_reason||"service down");
+    else if(s.prov)ti.textContent=s.label+" — "+(s.status||"?")+(s.status_detail?" · "+s.status_detail:"");
+    else ti.textContent=s.label;
+    stc.appendChild(ti);svg.appendChild(stc);
     // provider fan on the right: label to the RIGHT of the roundel so the fan stays clean.
     // everything else: label above the roundel, centred.
     let t;
     if(s.prov){t=el("text",{x:s.x+r+7,y:s.y+3,"text-anchor":"start",class:"stlabel prov"});}
-    else{t=el("text",{x:s.x,y:s.y-(s.big?22:18),"text-anchor":"middle",class:"stlabel"+(s.big?" big":"")});}
-    t.textContent=s.label;svg.appendChild(t);
+    else{t=el("text",{x:s.x,y:s.y-(s.big?22:18),"text-anchor":"middle",class:"stlabel"+(s.big?" big":"")+(s.offline?" off":"")});}
+    t.textContent=s.label+(s.offline?" · offline":"");svg.appendChild(t);
   });
+  drawLegend();
   TR=d.trains||[];
 }
 function launch(tr){
-  const A=ST[tr.from],B=ST[tr.to];if(!A||!B)return;const col=CC[tr.cat]||"#40b4ff";
+  const A=ST[tr.from],B=ST[tr.to];if(!A||!B)return;
+  // don't run carriages to a dead/amber provider — only LIVE provider lines carry trains
+  const pv=A.prov?A:(B.prov?B:null);
+  if(pv&&pv.status_band&&pv.status_band!=="live")return;
+  const col=CC[tr.cat]||"#40b4ff";
   const g=el("g",{class:"train"});g.style.color=col;
   g.appendChild(el("rect",{x:A.x-12,y:A.y-5,width:11,height:10,rx:3,fill:col}));
   g.appendChild(el("rect",{x:A.x+1,y:A.y-5,width:11,height:10,rx:3,fill:col,opacity:.85}));
@@ -383,9 +579,16 @@ async function tick(){
   if(window.__v&&window.__v!==d.ver){location.reload();return}window.__v=d.ver;
   draw(d);
   const h=document.getElementById("health");
-  if(d.moving>0){h.className="hp ok";h.textContent="● LIVE · "+d.moving+" trains"}
-  else{h.className="hp dead";h.textContent="○ NO MOVEMENT"}
-  document.getElementById("movetxt").textContent=d.moving+" real events · Bill→GenePool trains: "+d.bill_gp;
+  const n=d.recent15||0;
+  if(n>0){h.className="hp ok";h.textContent="● LIVE · "+n+" trains (last 15m)"}
+  else{h.className="hp dead";h.textContent="○ IDLE"}
+  document.getElementById("movetxt").textContent=d.moving+" events on map · "+n+" in last 15m · Bill→GenePool: "+d.bill_gp;
+  const pf=d.proof||{};
+  document.getElementById("proof").textContent = pf.connected
+     ? ("✓ EVERYONE CONNECTED: "+pf.stations+" stations · "+pf.edges+" tracks · every station reaches every other in ≤"+pf.diameter+" hops")
+     : ("⚠ NOT fully connected — isolated: "+(pf.isolated||[]).join(", "));
+  const la=d.live_ais||[];
+  document.getElementById("liveais").textContent = la.length+" live AIs carrying trains: "+la.join(", ");
 }
 tick();setInterval(tick,2500);
 </script></body></html>"""
