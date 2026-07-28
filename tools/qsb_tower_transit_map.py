@@ -91,6 +91,24 @@ STATIONS = {
 PROV = {"openai", "deepseek", "cohere", "gemini", "groq", "kimi", "grok", "claude",
         "nvidia_nim", "ollama_lan", "ollama_local"}
 
+# ── STATION VALIDITY (item 1) ─────────────────────────────────────────────────
+# A station is VALID (operational — can send/receive real traffic) or INVALID
+# (honestly cannot). Rule (best-effort, no fabrication):
+#   VALID if  (provider whose key-health status is LIVE)
+#         OR  (not a provider AND not in the known-dead set)
+#   INVALID otherwise:
+#     - provider with a NON-LIVE key-health status (dead/amber/no-key) -> blocked
+#     - a known-dead non-provider node {oracle, lumen, f46_bench} -> no live event source
+# NOTE: a station also counts VALID if it has EVER appeared as a real train endpoint
+# in the current window (computed at build()-time), so anything that lights becomes
+# valid even if the static rule missed it (e.g. iquest_40b once it carries traffic).
+KNOWN_DEAD = {"oracle", "lumen", "f46_bench"}
+KNOWN_DEAD_REASON = {
+    "oracle": "dead VM — no event source",
+    "lumen": ":8848 offline — no event source",
+    "f46_bench": "no event source",
+}
+
 CORE = ["wren", "tp_pip", "acer_cass", "bill", "codex", "lumen"]
 HUBS = ["boardroom", "town_square", "task_council", "council15", "gene_pool"]
 PROVIDERS = ["openai", "deepseek", "cohere", "gemini", "groq", "kimi", "grok", "claude", "nvidia_nim"]
@@ -493,6 +511,29 @@ def build():
             s2["reachable"] = (s2["status_band"] == "live")
         # real recent routing/comms traffic (drives train motion + bright rails)
         s2["has_traffic"] = sid in traffic_stations
+        # ── VALIDITY (item 1): honest can-it-carry-real-traffic classification ──
+        # VALID if (LIVE-keyed provider) OR (non-provider not in known-dead set)
+        #          OR (ever appeared as a real train endpoint this window).
+        # INVALID otherwise, with an honest reason.
+        if s.get("prov"):
+            band = s2.get("status_band", "unknown")
+            if band == "live":
+                s2["valid"] = True; s2["invalid_reason"] = ""
+            else:
+                st = s2.get("status", "?")
+                s2["valid"] = False
+                s2["invalid_reason"] = ("dead-key provider (" + str(st) + ")"
+                                        + (" · " + s2["status_detail"] if s2.get("status_detail") else ""))
+        elif sid in KNOWN_DEAD:
+            s2["valid"] = False
+            s2["invalid_reason"] = KNOWN_DEAD_REASON.get(sid, "known-dead node — no event source")
+        else:
+            s2["valid"] = True; s2["invalid_reason"] = ""
+        # a station that carried a real train this window is VALID no matter what
+        # the static rule said (it demonstrably sent/received real traffic).
+        if s2["has_traffic"] and not s2["valid"]:
+            s2["valid"] = True
+            s2["invalid_reason"] = ""
         # audit fix #6: bill heartbeats on the comms relay but carries ~0 tower traffic.
         # Mark comms-online distinctly from a CEO actually carrying trains.
         if online.get(sid) and not s2["has_traffic"]:
@@ -506,10 +547,38 @@ def build():
     # so recent == the animated set. No inflation.
     recent = len(trains)
 
-    return {"ver": VER, "ts": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+    # ── THE 8 REAL-TELEMETRY COUNTERS (item 2) ──────────────────────────────────
+    # Every number is derived from the SAME real, age-gated, de-duped `trains` and
+    # the drawn `LINES`/`STATIONS`. No inflation: total_real_trains == len(trains),
+    # tracks_proven == count of lines whose act>0 (both computed here, not restated).
+    lines_out = [{"a": a, "b": b, "cat": c, "act": act.get((a, b), 0) + act.get((b, a), 0),
+                  "trunk": tuple(sorted((a, b))) in TRUNK_SET} for a, b, c in LINES]
+    # directed leg presence for two-way detection: (a,b) present AND (b,a) present.
+    directed = {(t["from"], t["to"]) for t in trains}
+    twoway = {tuple(sorted((a, b))) for (a, b) in directed if (b, a) in directed and a != b}
+    # VALID / INVALID partitions from the classified `stations` dict above.
+    invalid_ids = sorted(sid for sid, s in stations.items() if not s.get("valid", True))
+    valid_ids = [sid for sid, s in stations.items() if s.get("valid", True)]
+    # isolated = VALID stations that carried ZERO real trains (invalid ones excluded
+    # here — they're reported separately under failed_routes).
+    isolated_valid = sorted(sid for sid in valid_ids if sid not in traffic_stations)
+    telemetry = {
+        "total_stations":    len(STATIONS),
+        "active_stations":   len(traffic_stations),
+        "total_tracks":      len(lines_out),
+        "tracks_proven":     sum(1 for L in lines_out if L["act"] > 0),
+        "total_real_trains": len(trains),
+        "isolated_stations": len(isolated_valid),
+        "isolated_list":     isolated_valid,
+        "failed_routes":     len(invalid_ids),
+        "failed_list":       [{"id": i, "reason": stations[i].get("invalid_reason", "")} for i in invalid_ids],
+        "twoway_routes":     len(twoway),
+        "twoway_list":       ["↔".join(e) for e in sorted(twoway)],
+    }
+
+    return {"ver": VER, "telemetry": telemetry, "ts": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
             "stations": stations, "online": online,
-            "lines": [{"a": a, "b": b, "cat": c, "act": act.get((a, b), 0) + act.get((b, a), 0),
-                       "trunk": tuple(sorted((a, b))) in TRUNK_SET} for a, b, c in LINES],
+            "lines": lines_out,
             "trains": trains, "cat_color": CAT_COLOR, "moving": len(trains),
             "recent15": recent, "proof": _connectivity(),
             "observed": _observed_connectivity(trains),
@@ -546,6 +615,15 @@ h1{margin:0;font-size:20px}.sub{color:var(--dim);margin:2px 0 8px}
 .roundel.off{stroke:#5a6577;stroke-dasharray:3 3;fill:#12161f;opacity:.6}
 /* truly-silent station: drawn but no live signal (audit fix #4) */
 .roundel.silent{stroke:#4a566b;stroke-dasharray:3 3;fill:#0d121c;opacity:.5}
+/* INVALID station (item 1): decommissioned / blocked — cannot carry real traffic */
+.roundel.invalid{stroke:#ff5d7d;stroke-dasharray:4 3;fill:#1a0e14;opacity:.7}
+.stlabel.invalid{fill:#ff8fa3}
+/* telemetry strip (item 2) */
+#telem{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0}
+#telem .tc{background:#0f1726;border:1px solid #233146;border-radius:10px;padding:6px 12px;min-width:96px}
+#telem .tc .v{font-size:20px;font-weight:800;line-height:1}
+#telem .tc .l{color:#8ba0ba;font-size:10px;text-transform:uppercase;letter-spacing:.4px;margin-top:3px}
+#telem .tc.warn .v{color:#ffb020}#telem .tc.bad .v{color:#ff5d7d}#telem .tc.good .v{color:#45f59b}
 .stlabel.silent{fill:#5c6a80}
 .stlabel.off{fill:#6a778c}
 .stlabel{fill:#e8f1ff;font-size:11px;font-weight:600}
@@ -559,6 +637,7 @@ h1{margin:0;font-size:20px}.sub{color:var(--dim);margin:2px 0 8px}
 <div class=sub><b style="color:#7f93ad">STRUCTURAL:</b> <span id=proof style="color:#9db3cc"></span></div>
 <div class=sub><b style="color:#45f59b">OBSERVED (last 15m):</b> <span id=observed style="color:#8fe6b5;font-weight:600"></span></div>
 <div class=sub><span id=liveais style="color:#8fe6b5"></span> · every animated train is a REAL event ≤15m old — a quiet line stays still.</div>
+<div id=telem></div>
 <svg id=map></svg>
 <div class=legend>
   <span><span class=k style="background:#40b4ff"></span>routing ⇄ Gene Pool (request+reply)</span>
@@ -638,6 +717,7 @@ function drawLegend(){
     ["ring","#45f59b","provider RING = reachable (probed, NOT routing)"],
     ["dot","#ffb020","provider amber (no-credit / quota)"],
     ["dot","#5a6577","provider dead / silent (no traffic)"],
+    ["inval","#ff5d7d","INVALID / decommissioned — cannot carry real traffic"],
   ];
   const x0=18, y0=700-rows.length*17-30, w=278, h=rows.length*17+26;
   const g=el("g",{});
@@ -650,6 +730,7 @@ function drawLegend(){
     else if(rw[0]==="ring"){g.appendChild(el("circle",{cx:x0+8,cy:y-1,r:7,fill:"none",stroke:rw[1],"stroke-width":2,"stroke-dasharray":"2 3"}));}
     else if(rw[0]==="solid"){g.appendChild(el("circle",{cx:x0+8,cy:y-1,r:7,fill:"none",stroke:rw[1],"stroke-width":2}));}
     else if(rw[0]==="ringd"){g.appendChild(el("circle",{cx:x0+8,cy:y-1,r:7,fill:"none",stroke:rw[1],"stroke-width":2,"stroke-dasharray":"3 4"}));}
+    else if(rw[0]==="inval"){g.appendChild(el("circle",{cx:x0+8,cy:y-1,r:6,fill:"#1a0e14",stroke:rw[1],"stroke-width":3,"stroke-dasharray":"4 3"}));}
     else{g.appendChild(el("circle",{cx:x0+8,cy:y-1,r:6,fill:"#0a0e16",stroke:rw[1],"stroke-width":3}));}
     const t=el("text",{x:x0+30,y:y+2,class:"stlabel",fill:"#9db3cc","font-size":10});t.textContent=rw[2];g.appendChild(t);
   });
@@ -683,16 +764,20 @@ function draw(d){
     } else if(s.reachable){  // provider probed-reachable but not routing work
       svg.appendChild(el("circle",{cx:s.x,cy:s.y,r:r+4,fill:"none",stroke:"#45f59b","stroke-width":1.6,opacity:.55,"stroke-dasharray":"2 3",id:"rc_"+id}));
     }
-    // roundel base class: offline / silent / provider-band / online-solid
+    // roundel base class: invalid / offline / silent / provider-band / online-solid
+    // INVALID (item 1) wins: a decommissioned/blocked node draws as a red-dashed
+    // roundel so it's visibly NOT part of the live network, even if it's a provider.
     let cls="roundel"+(s.big?" big":"")+(s.prov?" prov":"")+(online&&!s.offline&&s.has_traffic?" on":"");
-    if(s.offline)cls+=" off";
+    if(s.valid===false)cls+=" invalid";
+    else if(s.offline)cls+=" off";
     else if(s.prov)cls+=" p-"+(s.status_band||"unknown");
     else if(s.silent)cls+=" silent";
     const stc=el("circle",{cx:s.x,cy:s.y,r:r,class:cls,id:"st_"+id});
     stc.style.cursor="pointer";stc.addEventListener("click",()=>openCmd(id,s.label));
     // HONEST tooltips
     const ti=el("title");
-    if(s.offline)ti.textContent=s.label+" — offline · "+(s.offline_reason||"service down");
+    if(s.valid===false)ti.textContent=s.label+" — DECOMMISSIONED / BLOCKED · "+(s.invalid_reason||"cannot carry real traffic")+" (NOT part of the live network)";
+    else if(s.offline)ti.textContent=s.label+" — offline · "+(s.offline_reason||"service down");
     else if(s.comms_online)ti.textContent=s.label+" — comms-online (relay heartbeat) · no tower traffic";
     else if(s.prov)ti.textContent=s.label+" — "+(s.status||"?")+(s.status_detail?" · "+s.status_detail:"")+(s.reachable&&!s.has_traffic?" · reachable (probed), NOT routing work":"")+(s.has_traffic?" · routing real work":"");
     else if(s.silent)ti.textContent=s.label+" — no live signal (track drawn, no traffic in last 15m)";
@@ -700,10 +785,10 @@ function draw(d){
     stc.appendChild(ti);svg.appendChild(stc);
     // provider fan on the right: label to the RIGHT of the roundel so the fan stays clean.
     // everything else: label above the roundel, centred.
-    let t;
-    if(s.prov){t=el("text",{x:s.x+r+7,y:s.y+3,"text-anchor":"start",class:"stlabel prov"});}
-    else{t=el("text",{x:s.x,y:s.y-(s.big?22:18),"text-anchor":"middle",class:"stlabel"+(s.big?" big":"")+(s.offline?" off":"")});}
-    t.textContent=s.label+(s.offline?" · offline":"");svg.appendChild(t);
+    let t;const inv=s.valid===false;
+    if(s.prov){t=el("text",{x:s.x+r+7,y:s.y+3,"text-anchor":"start",class:"stlabel prov"+(inv?" invalid":"")});}
+    else{t=el("text",{x:s.x,y:s.y-(s.big?22:18),"text-anchor":"middle",class:"stlabel"+(s.big?" big":"")+(s.offline?" off":"")+(inv?" invalid":"")});}
+    t.textContent=s.label+(inv?" · blocked":(s.offline?" · offline":""));svg.appendChild(t);
   });
   drawLegend();
   TR=d.trains||[];
@@ -741,6 +826,25 @@ async function tick(){
   if(n>0){h.className="hp ok";h.textContent="● LIVE · "+n+" real trains (≤15m)"}
   else{h.className="hp dead";h.textContent="○ IDLE — no live signal"}
   document.getElementById("movetxt").textContent=n+" real trains moving · Bill→GenePool: "+d.bill_gp;
+  // ── REAL-TELEMETRY STRIP (item 2): the 8 counters, all from real data ──
+  const tm=d.telemetry||{};
+  const isoTel=(tm.isolated_list||[]).join(", ")||"none";
+  const fail=(tm.failed_list||[]).map(f=>f.id+" ("+f.reason+")").join("; ")||"none";
+  const tw=(tm.twoway_list||[]).join(", ")||"none";
+  const cards=[
+    ["total_stations","Total Stations","",""],
+    ["active_stations","Active Stations","real train endpoint ≥1","good"],
+    ["total_tracks","Total Tracks","drawn mesh",""],
+    ["tracks_proven","Tracks Proven","carried a real train (15m)","good"],
+    ["total_real_trains","Real Trains","age-gated ≤15m == animated","good"],
+    ["isolated_stations","Isolated (valid)","valid, 0 trains: "+isoTel,(tm.isolated_stations>0?"warn":"")],
+    ["failed_routes","Failed Routes","blocked/decommissioned: "+fail,(tm.failed_routes>0?"bad":"")],
+    ["twoway_routes","Two-way Routes","both directions ran: "+tw,"good"],
+  ];
+  document.getElementById("telem").innerHTML=cards.map(c=>{
+    const v=(tm[c[0]]!=null?tm[c[0]]:"—");
+    return `<div class="tc ${c[3]||''}" title="${(c[2]||'').replace(/"/g,'&quot;')}"><div class=v>${v}</div><div class=l>${c[1]}</div></div>`;
+  }).join("");
   // STRUCTURAL: the drawn lattice (true of the drawing, not a talk-claim)
   const pf=d.proof||{};
   document.getElementById("proof").textContent =

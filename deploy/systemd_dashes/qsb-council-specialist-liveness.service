@@ -1,0 +1,12 @@
+[Unit]
+Description=QSB Council Specialist Liveness Driver (keeps :8875 map specialist stations lit with REAL local-model work)
+After=network.target
+
+[Service]
+Type=oneshot
+User=ross
+WorkingDirectory=/vaults/nvme0/qsb_tower_v1
+ExecStart=/usr/bin/python3 /vaults/nvme0/qsb_tower_v1/tools/qsb_council_specialist_liveness.py
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,10 @@
+[Unit]
+Description=QSB Underground Dispatcher Timer (every 3 min so real traffic keeps flowing across the tube map)
+
+[Timer]
+OnBootSec=90sec
+OnUnitActiveSec=3min
+Persistent=true
+
+[Install]
+WantedBy=timers.target
