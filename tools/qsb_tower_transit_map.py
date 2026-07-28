@@ -397,8 +397,11 @@ def build():
             trains.append({"from": "wren", "to": spec, "ts": r.get("ts"), "cat": "wrensub",
                            "label": "Wren wields " + spec})
         elif ev in ("sandbox_passed", "sandbox_rejected"):
-            trains.append({"from": "task_council", "to": "tc_sandbox", "ts": r.get("ts"), "cat": "council",
-                           "label": "sandbox " + (ev or "")})
+            # attribute to the REAL submitter if the event records one, so a worker who genuinely
+            # runs code through the sandbox shows its own track to it (not just task_council)
+            _sub = _sid(r.get("submitter")) or "task_council"
+            trains.append({"from": _sub, "to": "tc_sandbox", "ts": r.get("ts"), "cat": "council",
+                           "label": (_sub if _sub != "task_council" else "council") + " → sandbox " + (ev or "")})
         elif ev == "done":
             trains.append({"from": "task_council", "to": "wren", "ts": r.get("ts"), "cat": "council",
                            "label": "Wren gate: done " + (tid or "")})
