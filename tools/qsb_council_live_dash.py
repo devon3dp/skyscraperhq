@@ -113,6 +113,44 @@ def build():
             base -= 2
         return max(0, min(10, base))
 
+    # ── PER-MEMBER LANES ── each member's tasks parked at their current stage ──
+    LANE_MEMBERS = ["wren", "tp_pip", "acer_cass", "bill", "codex"]
+    lanes = {m: {c: [] for c in COLS} for m in LANE_MEMBERS}
+    lanes["pool"] = {c: [] for c in COLS}
+
+    def lane_for(t):
+        own = t.get("owner") or t.get("assignee")
+        if own in LANE_MEMBERS:
+            return own
+        cb = t.get("created_by")
+        if cb in LANE_MEMBERS:          # e.g. bill/codex/acer_cass created their own
+            return cb
+        return "pool"                   # unowned / ross-origin / anything else
+
+    lane_stats = {m: {"tasks": 0, "done": 0, "rework": 0, "rating": 0} for m in lanes}
+    for t in snap.get("tasks", []):
+        col = STAGE.get((t.get("state") or "").lower())
+        if col not in COLS:             # skip intake/blocked from the 7-station lanes
+            continue
+        m = lane_for(t)
+        tok = {"id": t["id"], "title": (t.get("title") or t["id"])[:40],
+               "owner": (t.get("owner") or t.get("assignee") or t.get("created_by") or ""),
+               "rework": t.get("rework_rounds", 0), "rating": rate(t)}
+        if len(lanes[m][col]) < 20:
+            lanes[m][col].append(tok)
+        s = lane_stats[m]
+        s["tasks"] += 1
+        s["rework"] += (t.get("rework_rounds") or 0)
+        s["rating"] += rate(t)
+        if col == "done":
+            s["done"] += 1
+
+    lane_summary = {m: {
+        "tasks": s["tasks"], "done": s["done"],
+        "rating": round(s["rating"] / s["tasks"], 1) if s["tasks"] else 0.0,
+        "avg_rework": round(s["rework"] / s["tasks"], 1) if s["tasks"] else 0.0,
+    } for m, s in lane_stats.items()}
+
     awaiting_signoff, wstat = [], {}
     for t in snap.get("tasks", []):
         st = (t.get("state") or "").lower()
@@ -170,6 +208,9 @@ def build():
         "worker_stats": worker_stats,
         "codex_feed": codex_feed,
         "wren_actions": wren_actions,
+        "lanes": lanes,
+        "lane_members": LANE_MEMBERS + ["pool"],
+        "lane_summary": lane_summary,
     }
 
 
@@ -219,6 +260,7 @@ h1{margin:0;font-size:20px}h1 .n{color:var(--wren)}
 .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:12px}
 .card h2{margin:0 0 8px;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--dim)}
 #flow{width:100%;height:400px}
+#lanes{width:100%}
 .beam{fill:none;stroke:var(--line);stroke-width:2;stroke-dasharray:6 10;animation:march var(--spd,4s) linear infinite;opacity:.4}
 @keyframes march{to{stroke-dashoffset:-160}}
 .bay{fill:#0d1420;stroke:var(--line);stroke-width:1.5}
@@ -249,6 +291,7 @@ h1{margin:0;font-size:20px}h1 .n{color:var(--wren)}
 </div>
 <div class=auto id=auto>—</div>
 <div class=card><h2>Live pipeline — Open → Claimed → Sandbox → Quorum → Wren Gate → Done</h2><svg id=flow></svg></div>
+<div class=card><h2>🛤️ Per-member swim-lanes — where each member's work is parked</h2><svg id=lanes></svg></div>
 <div class=card><h2>✅ Awaiting YOUR sign-off — tick to keep the council moving</h2><div id=signoff></div></div>
 <div class=card><h2>Worker ratings /10 — real, from corrections &amp; rework</h2><div id=wstats></div></div>
 <div class=card><h2>🟣 What Wren's doing — live gatekeeper decisions</h2><div id=wren></div></div>
@@ -263,7 +306,8 @@ h1{margin:0;font-size:20px}h1 .n{color:var(--wren)}
 const NS="http://www.w3.org/2000/svg";
 const COLS=["open","claimed","working","sandbox","quorum","wren_gate","done"];
 const LABEL={open:"Open",claimed:"Claimed",working:"Working",sandbox:"Sandbox",quorum:"Quorum Verify",wren_gate:"Wren Gate",done:"Done"};
-const ACTORC={wren:"#8a5cf6",tp_pip:"#5aa9ff",acer_cass:"#39d98a",bill:"#f5c451",codex:"#ff9d5c",sandbox_gate:"#ff6b6b",ross:"#cfd6e2"};
+const ACTORC={wren:"#8a5cf6",tp_pip:"#5aa9ff",acer_cass:"#39d98a",bill:"#f5c451",codex:"#ff9d5c",sandbox_gate:"#ff6b6b",ross:"#cfd6e2",pool:"#7d8da6"};
+const LANE_LABEL={wren:"Wren",tp_pip:"TP-Pip",acer_cass:"Asa / Acer",bill:"Bill",codex:"Codex",pool:"Pool"};
 function el(t,a){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e}
 function esc(s){return (''+(s==null?'':s)).replace(/</g,'&lt;')}
 const svg=document.getElementById("flow");let bayX={},seen=new Set(),first=true;
@@ -321,6 +365,44 @@ function pulse(d){
   });
   if(seen.size>3000)seen=new Set([...seen].slice(-1500));
 }
+// ── per-member swim-lanes (ADDITIVE — own SVG, own state, does not touch draw()/pulse()) ──
+const laneSvg=document.getElementById("lanes");let laneBayX={};
+function lrc(r){return r>=8?'#39d98a':r>=5?'#f5c451':'#ff6b6b';}
+function drawLanes(d){
+  laneSvg.innerHTML="";
+  const members=d.lane_members||["wren","tp_pip","acer_cass","bill","codex","pool"];
+  const W=laneSvg.clientWidth||1200,LGUT=150,pad=40,rg=7,laneH=92,topPad=20;
+  const H=topPad+members.length*laneH+16;
+  laneSvg.setAttribute("viewBox",`0 0 ${W} ${H}`);laneSvg.setAttribute("height",H);
+  const gap=(W-LGUT-2*pad)/(COLS.length-1);
+  COLS.forEach((c,i)=>laneBayX[c]=LGUT+pad+i*gap);
+  const x0=laneBayX[COLS[0]]-24,x1=laneBayX[COLS[COLS.length-1]]+24;
+  // shared station headers (one row at the top)
+  COLS.forEach(c=>{const hx=laneBayX[c];const lb=el("text",{x:hx,y:topPad-4,"text-anchor":"middle",class:"baylabel"});lb.textContent=LABEL[c];laneSvg.appendChild(lb);});
+  members.forEach((m,k)=>{
+    const cY=topPad+k*laneH+26,col=ACTORC[m]||"#7d8da6";
+    const S=(d.lanes&&d.lanes[m])||{},sum=(d.lane_summary&&d.lane_summary[m])||{tasks:0,done:0,rating:0,avg_rework:0};
+    if(k>0)laneSvg.appendChild(el("line",{x1:8,y1:cY-laneH/2+4,x2:W-8,y2:cY-laneH/2+4,stroke:"#1a2740","stroke-width":1}));
+    // sleepers + two rails = this member's track
+    for(let x=x0;x<=x1;x+=15)laneSvg.appendChild(el("line",{x1:x,y1:cY-rg,x2:x,y2:cY+rg,stroke:"#2a3a52","stroke-width":2}));
+    [cY-rg,cY+rg].forEach(ry=>laneSvg.appendChild(el("line",{x1:x0,y1:ry,x2:x1,y2:ry,stroke:col,"stroke-width":2,opacity:.55})));
+    // left gutter: member label + count + rating chip (right-aligned stat)
+    const nm=el("text",{x:12,y:cY-2,fill:col,"font-size":14,"font-weight":700});nm.textContent=LANE_LABEL[m]||m;laneSvg.appendChild(nm);
+    const ct=el("text",{x:12,y:cY+14,fill:"#7d8da6","font-size":10});ct.textContent=`${sum.tasks} tasks · ${sum.done} done`;laneSvg.appendChild(ct);
+    const rt=el("text",{x:LGUT-14,y:cY-2,"text-anchor":"end",fill:lrc(sum.rating),"font-size":12,"font-weight":700});rt.textContent=`${sum.rating}/10`;laneSvg.appendChild(rt);
+    const rw=el("text",{x:LGUT-14,y:cY+14,"text-anchor":"end",fill:"#7d8da6","font-size":9});rw.textContent=`rework ${sum.avg_rework}`;laneSvg.appendChild(rw);
+    // stations + this member's carriages parked at each stage
+    COLS.forEach(c=>{
+      const x=laneBayX[c],toks=(S[c]||[]);
+      laneSvg.appendChild(el("circle",{cx:x,cy:cY,r:4,fill:"#0d1420",stroke:col,"stroke-width":1.5,opacity:.7}));
+      if(toks.length){const cn=el("text",{x:x,y:cY-11,"text-anchor":"middle",fill:"#dce6f5","font-size":11,"font-weight":700});cn.textContent=toks.length;laneSvg.appendChild(cn);}
+      toks.slice(0,3).forEach((t,i)=>laneSvg.appendChild(carriage(x,cY+14+i*13,ACTORC[t.owner]||col,t.id+" · "+t.title+(t.rework?` (rework ${t.rework})`:"")+` · ${t.rating}/10`)));
+      if(toks.length>3){const mo=el("text",{x:x,y:cY+14+3*13+7,"text-anchor":"middle",fill:"#7d8da6","font-size":8});mo.textContent="+"+(toks.length-3);laneSvg.appendChild(mo);}
+    });
+    // Wren gate arch on Wren's lane only (she is the gate)
+    if(m==="wren"){const wx=laneBayX.wren_gate;laneSvg.appendChild(el("path",{fill:"none",stroke:"#8a5cf6","stroke-width":2.5,d:`M ${wx-15} ${cY-3} L ${wx-15} ${cY-16} Q ${wx} ${cY-27}, ${wx+15} ${cY-16} L ${wx+15} ${cY-3}`}));}
+  });
+}
 async function tick(){
   let d;try{d=await(await fetch("/api/data")).json()}catch(e){return}
   if(window.__ver&&window.__ver!==d.ver){location.reload();return}window.__ver=d.ver;
@@ -330,6 +412,7 @@ async function tick(){
   ae.innerHTML=a.stalled?`⚠ <b>AUTONOMOUS VERIFY STALLED</b> — last tick <b>${esc(a.tick)}</b>: ${esc(a.reason)} <span class=pill>${esc((a.ts||'').slice(11,19))}</span> · gate enabled=${a.enabled}`
     :`✓ autorunner ${esc(a.tick||'')} · gate enabled=${a.enabled} <span class=pill>${esc((a.ts||'').slice(11,19))}</span>`;
   draw(d);
+  drawLanes(d);
   document.getElementById("ticker").innerHTML=(d.ticker||[]).map((r,i)=>{
     const col=ACTORC[r.actor]||"#7d8da6";
     const vd=r.verdict?` <b style="color:${r.verdict==='approve'?'#39d98a':'#ff6b6b'}">${esc(r.verdict)}</b>`:"";

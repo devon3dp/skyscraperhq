@@ -32,37 +32,38 @@ PRESENCE = LC / "presence.json"
 VER = str(int(time.time()))
 
 STATIONS = {
-    # hubs
-    "boardroom":    {"x": 560, "y": 300, "label": "Boardroom Hub", "big": True},
-    "town_square":  {"x": 560, "y": 92,  "label": "Town Square · 74", "big": True},
-    "task_council": {"x": 560, "y": 520, "label": "Task Council · 77", "big": True},
-    "council15":    {"x": 330, "y": 540, "label": "Council of 15 · 75"},
-    "gene_pool":    {"x": 820, "y": 300, "label": "Gene Pool · 24", "big": True},
-    # AIs / floors
-    "codex":        {"x": 110, "y": 360, "label": "Codex · 40"},
-    "lumen":        {"x": 150, "y": 540, "label": "Lumen · 48"},
-    "wren":         {"x": 380, "y": 300, "label": "Wren"},
-    "tp_pip":       {"x": 200, "y": 150, "label": "TP-Pip"},
-    "acer_cass":    {"x": 200, "y": 470, "label": "Asa"},
-    "bill":         {"x": 380, "y": 110, "label": "Bill · Mac"},
-    # gene-pool provider sub-stations (far right fan)
-    "openai":       {"x": 1050, "y": 130, "label": "openai", "prov": True},
-    "deepseek":     {"x": 1080, "y": 220, "label": "deepseek", "prov": True},
-    "cohere":       {"x": 1095, "y": 305, "label": "cohere", "prov": True},
-    "gemini":       {"x": 1080, "y": 388, "label": "gemini", "prov": True},
-    "groq":         {"x": 1050, "y": 470, "label": "groq", "prov": True},
-    "kimi":         {"x": 970,  "y": 150, "label": "kimi", "prov": True},
-    "grok":         {"x": 970,  "y": 455, "label": "grok", "prov": True},
-    "claude":       {"x": 940,  "y": 300, "label": "claude", "prov": True},
-    # Council-of-15 + Wren shared specialist sub-stations
-    "iquest_40b":   {"x": 230, "y": 235, "label": "iQuest-40B", "sub": True},
-    "qwen_worker":  {"x": 255, "y": 605, "label": "qwen worker", "sub": True},
-    "hermes":       {"x": 430, "y": 612, "label": "Hermes", "sub": True},
-    "claude_acct":  {"x": 150, "y": 300, "label": "Claude", "sub": True},
-    "wren_brain":   {"x": 375, "y": 205, "label": "Wren·qwen14b", "sub": True},
-    "f46_bench":    {"x": 480, "y": 235, "label": "F46 Bench", "sub": True},
-    "tc_sandbox":   {"x": 660, "y": 600, "label": "Sandbox", "sub": True},
-    "oracle":       {"x": 760, "y": 110, "label": "Oracle · Cloud VM", "big": True},
+    # ── CENTRAL SPINE (hubs) — single column x=600, evenly stacked on 40px grid ──
+    "town_square":  {"x": 600, "y": 80,  "label": "Town Square · 74",  "big": True},
+    "boardroom":    {"x": 600, "y": 240, "label": "Boardroom Hub",      "big": True},
+    "task_council": {"x": 600, "y": 400, "label": "Task Council · 77",  "big": True},
+    "council15":    {"x": 600, "y": 560, "label": "Council of 15 · 75", "big": True},
+    # ── LEFT BLOCK: CEOs / AIs — two tidy columns (x=140, x=300) ──
+    "bill":         {"x": 140, "y": 120, "label": "Bill · Mac"},
+    "tp_pip":       {"x": 140, "y": 240, "label": "TP-Pip"},
+    "acer_cass":    {"x": 140, "y": 360, "label": "Asa"},
+    "codex":        {"x": 140, "y": 480, "label": "Codex · 40"},
+    "wren":         {"x": 300, "y": 240, "label": "Wren", "big": True},
+    "lumen":        {"x": 300, "y": 480, "label": "Lumen · 48"},
+    # ── WREN / C15 SPECIALIST CLUSTER — around Wren + bottom-left cluster ──
+    "wren_brain":   {"x": 300, "y": 120, "label": "Wren·qwen14b", "sub": True},
+    "f46_bench":    {"x": 440, "y": 160, "label": "F46 Bench",    "sub": True},
+    "iquest_40b":   {"x": 300, "y": 620, "label": "iQuest-40B",   "sub": True},
+    "qwen_worker":  {"x": 420, "y": 620, "label": "qwen worker",  "sub": True},
+    "hermes":       {"x": 540, "y": 660, "label": "Hermes",       "sub": True},
+    "claude_acct":  {"x": 180, "y": 620, "label": "Claude",       "sub": True},
+    "tc_sandbox":   {"x": 460, "y": 460, "label": "Sandbox",      "sub": True},
+    # ── ORACLE — distinct node, tunnels up the spine ──
+    "oracle":       {"x": 600, "y": 660, "label": "Oracle · Cloud VM", "big": True},
+    # ── GENE POOL — interchange node, then an 8-way fan on the right ──
+    "gene_pool":    {"x": 880,  "y": 320, "label": "Gene Pool · 24", "big": True},
+    "kimi":         {"x": 1060, "y": 100, "label": "kimi",     "prov": True},
+    "openai":       {"x": 1120, "y": 180, "label": "openai",   "prov": True},
+    "deepseek":     {"x": 1140, "y": 260, "label": "deepseek", "prov": True},
+    "cohere":       {"x": 1160, "y": 340, "label": "cohere",   "prov": True},
+    "gemini":       {"x": 1140, "y": 420, "label": "gemini",   "prov": True},
+    "groq":         {"x": 1120, "y": 500, "label": "groq",     "prov": True},
+    "grok":         {"x": 1060, "y": 580, "label": "grok",     "prov": True},
+    "claude":       {"x": 1000, "y": 640, "label": "claude",   "prov": True},
 }
 PROV = {"openai", "deepseek", "cohere", "gemini", "groq", "kimi", "grok", "claude", "ollama_lan", "ollama_local"}
 
@@ -107,6 +108,24 @@ LINES += [
 ]
 CAT_COLOR = {"route": "#40b4ff", "provider": "#45f59b", "council": "#b98bff", "comms": "#ffc24b",
              "hub": "#6d7f98", "c15": "#2dd4bf", "wrensub": "#c4a3ff"}
+# TRUNK LINES: the meaningful backbone drawn as proper coloured tube lines even when idle.
+# Everything else in LINES is the faint "everyone-connects" mesh web (dim grey lattice).
+#   - hub spine (town_square→boardroom→task_council→council15)
+#   - each CEO/AI → Boardroom (home hub)
+#   - Gene Pool → each provider (the right-hand fan)
+#   - Council-15 → its specialists ; Oracle tunnels up the spine
+_TRUNK = [
+    ("town_square", "boardroom"), ("boardroom", "task_council"), ("task_council", "council15"),
+    ("wren", "boardroom"), ("tp_pip", "boardroom"), ("acer_cass", "boardroom"),
+    ("bill", "boardroom"), ("codex", "boardroom"), ("lumen", "boardroom"),
+    ("gene_pool", "openai"), ("gene_pool", "deepseek"), ("gene_pool", "cohere"),
+    ("gene_pool", "gemini"), ("gene_pool", "groq"), ("gene_pool", "kimi"),
+    ("gene_pool", "grok"), ("gene_pool", "claude"),
+    ("council15", "iquest_40b"), ("council15", "qwen_worker"),
+    ("council15", "hermes"), ("council15", "claude_acct"), ("council15", "gene_pool"),
+    ("oracle", "council15"), ("boardroom", "gene_pool"),
+]
+TRUNK_SET = {tuple(sorted(e)) for e in _TRUNK}
 PRES_MAP = {"wren": "wren", "tp": "tp_pip", "asa": "acer_cass", "bill": "bill", "pip": "tp_pip"}
 # comms logs use short names (asa/tp/pip); stations are keyed acer_cass/tp_pip. Resolve so
 # TP↔Asa room posts, acks, and DM lines actually become trains ("everyone talking").
@@ -234,7 +253,8 @@ def build():
     act = Counter((t["from"], t["to"]) for t in trains)
     return {"ver": VER, "ts": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
             "stations": STATIONS, "online": online,
-            "lines": [{"a": a, "b": b, "cat": c, "act": act.get((a, b), 0) + act.get((b, a), 0)} for a, b, c in LINES],
+            "lines": [{"a": a, "b": b, "cat": c, "act": act.get((a, b), 0) + act.get((b, a), 0),
+                       "trunk": tuple(sorted((a, b))) in TRUNK_SET} for a, b, c in LINES],
             "trains": trains, "cat_color": CAT_COLOR, "moving": len(trains),
             "bill_gp": sum(1 for t in trains if t["from"] == "bill" and t["to"] == "gene_pool")}
 
@@ -249,7 +269,7 @@ h1{margin:0;font-size:20px}.sub{color:var(--dim);margin:2px 0 8px}
 .hp{display:inline-block;padding:3px 10px;border-radius:999px;font-weight:700;font-size:12px;margin-left:8px}
 .hp.ok{background:rgba(69,245,155,.15);color:#45f59b;border:1px solid #45f59b}
 .hp.dead{background:rgba(255,93,125,.15);color:#ff5d7d;border:1px solid #ff5d7d}
-#map{width:100%;height:680px;background:radial-gradient(circle at 62% 44%,#0f1a2c,#080c14 72%);border:1px solid var(--line);border-radius:16px}
+#map{width:100%;height:700px;background:radial-gradient(circle at 62% 44%,#0f1a2c,#080c14 72%);border:1px solid var(--line);border-radius:16px}
 .rail{fill:none;stroke-linecap:round;stroke-linejoin:round}
 .roundel{fill:#0a0e16;stroke:#e8f1ff;stroke-width:3}
 .roundel.big{stroke-width:4}.roundel.prov{stroke-width:2}
@@ -302,16 +322,42 @@ async function sendCmd(station,action){
 const NS="http://www.w3.org/2000/svg";
 function el(t,a){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e}
 const svg=document.getElementById("map");let ST={},TR=[],CC={},ON={},qi=0;
+// Orthogonal / 45° router — replaces raw diagonals so tracks read like a tube map.
+// straight when horiz/vert or a clean 45°; otherwise a single L-elbow (long axis first, 45° corner into B).
+function routePath(A,B){
+  const dx=B.x-A.x, dy=B.y-A.y;
+  if(Math.abs(dx)<2||Math.abs(dy)<2) return `M ${A.x} ${A.y} L ${B.x} ${B.y}`;      // pure H or V
+  if(Math.abs(Math.abs(dx)-Math.abs(dy))<8) return `M ${A.x} ${A.y} L ${B.x} ${B.y}`; // 45° diagonal
+  const s=Math.sign, k=Math.min(Math.abs(dx),Math.abs(dy));
+  if(Math.abs(dx)>Math.abs(dy)){const mx=B.x - s(dx)*k; return `M ${A.x} ${A.y} L ${mx} ${A.y} L ${B.x} ${B.y}`;}
+  const my=B.y - s(dy)*k; return `M ${A.x} ${A.y} L ${A.x} ${my} L ${B.x} ${B.y}`;
+}
+// midpoint of a routed edge (the elbow) so carriages follow the same track, not a raw diagonal.
+function routeMid(A,B){
+  const dx=B.x-A.x, dy=B.y-A.y;
+  if(Math.abs(dx)<2||Math.abs(dy)<2||Math.abs(Math.abs(dx)-Math.abs(dy))<8) return null;
+  const s=Math.sign, k=Math.min(Math.abs(dx),Math.abs(dy));
+  if(Math.abs(dx)>Math.abs(dy))return {x:B.x - s(dx)*k, y:A.y};
+  return {x:A.x, y:B.y - s(dy)*k};
+}
 function draw(d){
-  ST=d.stations;CC=d.cat_color;ON=d.online||{};svg.innerHTML="";svg.setAttribute("viewBox","0 0 1200 680");
-  d.lines.forEach(L=>{const A=ST[L.a],B=ST[L.b];if(!A||!B)return;const col=CC[L.cat]||"#6d7f98",act=L.act>0;
-    svg.appendChild(el("path",{class:"rail",d:`M ${A.x} ${A.y} L ${B.x} ${B.y}`,stroke:col,"stroke-width":act?6:4,opacity:act?0.95:0.22}));});
+  ST=d.stations;CC=d.cat_color;ON=d.online||{};svg.innerHTML="";svg.setAttribute("viewBox","0 0 1200 700");
+  d.lines.forEach(L=>{const A=ST[L.a],B=ST[L.b];if(!A||!B)return;
+    const act=L.act>0, trunk=L.trunk;
+    const col = act ? (CC[L.cat]||"#40b4ff") : trunk ? (CC[L.cat]||"#6d7f98") : "#233146";
+    const w   = act ? 6 : trunk ? 3.5 : 1.5;
+    const op  = act ? 0.95 : trunk ? 0.55 : 0.10;
+    svg.appendChild(el("path",{class:"rail",d:routePath(A,B),stroke:col,"stroke-width":w,opacity:op}));});
   Object.entries(ST).forEach(([id,s])=>{
     const r=s.big?13:((s.prov||s.sub)?7:9),online=ON[id];
     if(online)svg.appendChild(el("circle",{cx:s.x,cy:s.y,r:r+5,fill:"none",stroke:"#45f59b","stroke-width":2,opacity:.8,id:"on_"+id}));
     const stc=el("circle",{cx:s.x,cy:s.y,r:r,class:"roundel"+(s.big?" big":"")+(s.prov?" prov":"")+(online?" on":""),id:"st_"+id});
     stc.style.cursor="pointer";stc.addEventListener("click",()=>openCmd(id,s.label));svg.appendChild(stc);
-    const t=el("text",{x:s.x,y:s.y-(s.big?21:s.prov?13:17),"text-anchor":"middle",class:"stlabel"+(s.big?" big":"")+(s.prov?" prov":"")});
+    // provider fan on the right: label to the RIGHT of the roundel so the fan stays clean.
+    // everything else: label above the roundel, centred.
+    let t;
+    if(s.prov){t=el("text",{x:s.x+r+7,y:s.y+3,"text-anchor":"start",class:"stlabel prov"});}
+    else{t=el("text",{x:s.x,y:s.y-(s.big?22:18),"text-anchor":"middle",class:"stlabel"+(s.big?" big":"")});}
     t.textContent=s.label;svg.appendChild(t);
   });
   TR=d.trains||[];
@@ -322,8 +368,12 @@ function launch(tr){
   g.appendChild(el("rect",{x:A.x-12,y:A.y-5,width:11,height:10,rx:3,fill:col}));
   g.appendChild(el("rect",{x:A.x+1,y:A.y-5,width:11,height:10,rx:3,fill:col,opacity:.85}));
   const ti=el("title");ti.textContent=tr.label;g.appendChild(ti);svg.appendChild(g);
-  g.animate([{transform:"translate(0,0)"},{transform:`translate(${B.x-A.x}px,${B.y-A.y}px)`}],
-    {duration:1700,easing:"cubic-bezier(.35,0,.3,1)"}).onfinish=()=>{g.remove();
+  // follow the routed track: through the elbow midpoint if the edge bends, else straight.
+  const M=routeMid(A,B);
+  const frames = M ? [{transform:"translate(0,0)"},{transform:`translate(${M.x-A.x}px,${M.y-A.y}px)`},
+                      {transform:`translate(${B.x-A.x}px,${B.y-A.y}px)`}]
+                   : [{transform:"translate(0,0)"},{transform:`translate(${B.x-A.x}px,${B.y-A.y}px)`}];
+  g.animate(frames,{duration:1700,easing:"cubic-bezier(.35,0,.3,1)"}).onfinish=()=>{g.remove();
       const dst=document.getElementById("st_"+tr.to);if(dst){const rr=+dst.getAttribute("r");dst.animate([{r:rr},{r:rr*1.5},{r:rr}],{duration:450})}};
 }
 // fire several trains per tick so MANY carriages move at once (everyone talking, visibly)
