@@ -1,0 +1,12 @@
+[Unit]
+Description=QSB Floor Planner (:8871, audit + plan board)
+After=network.target
+[Service]
+Type=simple
+User=ross
+WorkingDirectory=/vaults/nvme0/qsb_tower_v1
+ExecStart=/usr/bin/python3 /vaults/nvme0/qsb_tower_v1/tools/qsb_floor_directory_dash.py --port 8871
+Restart=always
+RestartSec=5
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,13 @@
+[Unit]
+Description=QSB Tower Transit Map (:8875, live tower-wide train map)
+After=qsb-boardroom.service network-online.target
+Wants=network-online.target
+[Service]
+Type=simple
+User=ross
+WorkingDirectory=/vaults/nvme0/qsb_tower_v1
+ExecStart=/usr/bin/python3 /vaults/nvme0/qsb_tower_v1/tools/qsb_tower_transit_map.py --port 8875
+Restart=always
+RestartSec=5
+[Install]
+WantedBy=multi-user.target
