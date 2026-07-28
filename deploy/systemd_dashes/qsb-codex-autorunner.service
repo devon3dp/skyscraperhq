@@ -1,0 +1,16 @@
+[Unit]
+Description=QSB Codex Autorunner (OpenAI worker — gated, kill-switchable, non-self-verifying)
+After=network.target qsb-task-council-autorunner.service qsb-boardroom.service
+
+[Service]
+Type=simple
+User=ross
+WorkingDirectory=/vaults/nvme0/qsb_tower_v1
+Environment=CODEX_INTERVAL=300
+Environment=CODEX_MODEL=gpt-4o-mini
+ExecStart=/usr/bin/python3 /vaults/nvme0/qsb_tower_v1/tools/qsb_codex_autorunner.py
+Restart=on-failure
+RestartSec=15
+
+[Install]
+WantedBy=multi-user.target
