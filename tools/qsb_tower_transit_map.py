@@ -9,11 +9,23 @@ to show what it's doing with who."
 Stations = hubs/floors + the gene pool's PROVIDER sub-stations. Trains = real tasks /
 routing / messages. A busy line works; a still line doesn't. No demo motion.
 
+TRUTH RULES (2026-07-28, after 3 adversarial audits proved the map faked motion):
+  - AGE-GATE: every animated train is <=900s old. Stale events do NOT move. When
+    nothing real is happening on a line it stays STILL.
+  - NO liveprobe fabrication: a health-probe pass gives a provider a green
+    "reachable" RING only — NOT a train. Only providers with REAL recent routing
+    jobs (from qsb_brain_router_calls.jsonl) get moving trains.
+  - HONEST connectivity: two separate numbers — STRUCTURAL (the drawn lattice) and
+    OBSERVED (only edges that carried a real train in the last 15m). Isolated
+    stations are reported truthfully (codex/lumen/oracle/f46_bench show isolated).
+  - DE-DUPE: identical (from,to,label) trains collapse to one before animating.
+
 REAL sources:
   - gene-pool routing : qsb_brain_router_calls.jsonl  (caller -> Gene Pool -> provider)
   - council flow       : qsb_council_tasks.jsonl
   - comms mesh         : leadership_comms/room.jsonl + acks.jsonl + dm/*.jsonl
   - presence (online)  : leadership_comms/presence.json
+  - provider reachable : qsb_gene_pool_key_health.json  (ring only, NOT a train)
 Read-only. systemd qsb-transit-map.service.
 """
 import json, argparse, time, glob
@@ -31,6 +43,7 @@ ACKS = LC / "acks.jsonl"
 PRESENCE = LC / "presence.json"
 KEY_HEALTH = REG / "qsb_gene_pool_key_health.json"
 VER = str(int(time.time()))
+AGE_MAX = 900  # seconds — trains older than this NEVER animate (honest stillness)
 
 # provider live/dead status buckets (from qsb_gene_pool_key_health.json)
 STATUS_LIVE = {"LIVE"}
@@ -140,7 +153,8 @@ for a, b, c in LINES:
     elif to_council and c == "council":
         _L2[_seen2[k]][2] = "council"  # upgrade an existing task_council edge to bright council
 LINES = [tuple(x) for x in _L2]
-CAT_COLOR = {"route": "#40b4ff", "provider": "#45f59b", "liveprobe": "#2ffb8f", "council": "#b98bff",
+# NOTE: no "liveprobe" colour — health-probe passes are a RING, never a train (audit fix #2).
+CAT_COLOR = {"route": "#40b4ff", "provider": "#45f59b", "council": "#b98bff",
              "comms": "#ffc24b", "hub": "#6d7f98", "c15": "#2dd4bf", "wrensub": "#c4a3ff"}
 # TRUNK LINES: the meaningful backbone drawn as proper coloured tube lines even when idle.
 # Everything else in LINES is the faint "everyone-connects" mesh web (dim grey lattice).
@@ -227,14 +241,10 @@ def _provider_status():
     return out
 
 
-def _connectivity():
-    """PROVE everyone reaches everyone: BFS the track graph; report full reachability + diameter."""
-    nodes = set(STATIONS)
-    adj = {}
-    for a, b, *_ in LINES:
-        if a in nodes and b in nodes:
-            adj.setdefault(a, set()).add(b)
-            adj.setdefault(b, set()).add(a)
+def _bfs_diameter(nodes, adj):
+    """Return (all_reachable, diameter) for an undirected graph over `nodes`/`adj`.
+    Diameter is measured over the connected component(s) that exist (unreachable
+    pairs are ignored for the max-distance, but flagged via all_reachable)."""
     diam = 0
     reach_ok = True
     for s in nodes:
@@ -250,11 +260,56 @@ def _connectivity():
             reach_ok = False
         if d:
             diam = max(diam, max(d.values()))
+    return reach_ok, diam
+
+
+def _connectivity():
+    """STRUCTURAL connectivity: BFS over the hardcoded LINES lattice (the DRAWING).
+    This is true of the drawn graph — NOT a claim that parties actually talk."""
+    nodes = set(STATIONS)
+    adj = {}
+    for a, b, *_ in LINES:
+        if a in nodes and b in nodes:
+            adj.setdefault(a, set()).add(b)
+            adj.setdefault(b, set()).add(a)
+    reach_ok, diam = _bfs_diameter(nodes, adj)
     edges = len({tuple(sorted((a, b))) for a, b, *_ in LINES if a in nodes and b in nodes})
     isolated = [n for n in nodes if not adj.get(n)]
     return {"stations": len(nodes), "edges": edges,
             "connected": reach_ok and not isolated, "diameter": diam,
             "isolated": isolated}
+
+
+def _observed_connectivity(trains):
+    """OBSERVED connectivity: BFS over ONLY the edges that carried a REAL (age-gated)
+    train in the window. Reports how much of the tower is actually talking, which
+    tracks carried traffic, how many CEO/hub pairs actually spoke, and which
+    stations are genuinely isolated (codex/lumen/oracle/f46_bench WILL show up)."""
+    nodes = set(STATIONS)
+    structural = {tuple(sorted((a, b))) for a, b, *_ in LINES if a in nodes and b in nodes}
+    adj = {}
+    live_edges = set()
+    active_stations = set()
+    for t in trains:
+        a, b = t.get("from"), t.get("to")
+        if a in nodes and b in nodes and a != b:
+            e = tuple(sorted((a, b)))
+            live_edges.add(e)
+            adj.setdefault(a, set()).add(b)
+            adj.setdefault(b, set()).add(a)
+            active_stations.add(a); active_stations.add(b)
+    reach_ok, diam = _bfs_diameter(active_stations or nodes, adj)
+    isolated = sorted(n for n in nodes if n not in active_stations)
+    # CEO/hub pairs actually talking: both endpoints are a CEO/AI or a hub (not a
+    # degree-1 provider leaf) and the edge carried a real train.
+    peers = set(CORE) | set(HUBS) | {"wren_brain", "task_council", "council15", "oracle"}
+    talking_pairs = sorted(e for e in live_edges if e[0] in peers and e[1] in peers)
+    tracks_used = len(live_edges & structural)
+    return {"stations_total": len(nodes), "stations_active": len(active_stations),
+            "tracks_drawn": len(structural), "tracks_used": tracks_used,
+            "talking_pairs": len(talking_pairs), "diameter": diam,
+            "all_active_reach": reach_ok, "isolated": isolated,
+            "talking_pairs_list": ["↔".join(e) for e in talking_pairs]}
 
 
 def build():
@@ -324,25 +379,44 @@ def build():
                 to = nm[1] if frm == nm[0] else nm[0]
                 trains.append({"from": frm, "to": to, "ts": r.get("ts", ""), "cat": "comms",
                                "label": frm + " ↔ " + to + " DM"})
-    # 4) LIVE-PROVIDER PROOF (no lies) — the key-health timer REALLY calls each provider every
-    #    15 min. Emit one honest Gene Pool -> provider train per LIVE provider (real call, real ts),
-    #    so EVERY working AI carries a train, not just the two the router happens to route to.
-    _h = _load(KEY_HEALTH, {}) or {}
-    _hts = _h.get("ts")
-    for _name, _info in (_h.get("providers", {}) or {}).items():
-        _sidp = HEALTH_ALIAS.get(_name, _name)
-        if _sidp in STATIONS and isinstance(_info, dict) and (_info.get("status") or "").upper() == "LIVE":
-            trains.append({"from": "gene_pool", "to": _sidp, "ts": _hts, "cat": "liveprobe",
-                           "label": "Gene Pool → " + _sidp + "  ✓ live probe: " + (_info.get("detail") or "OK")})
-    # balance categories so routing traffic doesn't DROWN the comms mesh — show EVERYONE talking.
-    # liveprobe is uncapped-ish (only ~5 live providers) so every working AI ALWAYS carries a train.
+    # 4) NO liveprobe trains (audit fix #2). A health-probe pass is NOT routed work.
+    #    Providers that pass the probe get a green "reachable" RING (station attribute,
+    #    attached below), never a fabricated train. Only real routing jobs (step 1)
+    #    produce provider trains.
+
+    # balance categories so routing traffic doesn't DROWN the comms mesh.
     _bc = {}
     for t in trains:
         _bc.setdefault(t["cat"], []).append(t)
     trains = []
-    for cat, K in (("route", 12), ("provider", 12), ("liveprobe", 12), ("comms", 24),
+    for cat, K in (("route", 12), ("provider", 12), ("comms", 24),
                    ("council", 12), ("c15", 8), ("wrensub", 8)):
         trains += _bc.get(cat, [])[-K:]
+
+    # ── AGE-GATE (audit fix #1): drop any train missing a ts or older than AGE_MAX.
+    #    This is what makes a quiet line STILL. Attach age_s to every survivor. ──
+    now = time.time()
+    gated = []
+    for t in trains:
+        te = _parse_ts(t.get("ts"))
+        if te is None:
+            continue  # no ts -> cannot prove recency -> never animate
+        age = now - te
+        if age > AGE_MAX or age < -60:  # too old, or absurd future ts
+            continue
+        t["age_s"] = int(max(0, age))
+        gated.append(t)
+    trains = gated
+
+    # ── DE-DUPLICATE (audit fix #5): collapse identical (from,to,label) to one,
+    #    keeping the freshest instance, so a week-old DM can't fire ×7. ──
+    _best = {}
+    for t in trains:
+        key = (t["from"], t["to"], t.get("label", ""))
+        prev = _best.get(key)
+        if prev is None or t.get("age_s", 1e9) < prev.get("age_s", 1e9):
+            _best[key] = t
+    trains = list(_best.values())
     trains.sort(key=lambda t: t.get("ts") or "")
 
     # presence -> online glow
@@ -354,9 +428,14 @@ def build():
             if sid in STATIONS and (time.time() - v["last_heartbeat_epoch"]) < 120:
                 online[sid] = True
 
+    # `act` is now sourced ONLY from real, age-gated, de-duped trains (audit fix #4).
     act = Counter((t["from"], t["to"]) for t in trains)
+    # stations that actually carried a real train in the window
+    traffic_stations = set()
+    for t in trains:
+        traffic_stations.add(t["from"]); traffic_stations.add(t["to"])
 
-    # attach LIVE/DEAD provider status to each provider station (item 1)
+    # attach LIVE/DEAD provider status + honest reachable/traffic flags to each station
     stations = {}
     for sid, s in STATIONS.items():
         s2 = dict(s)
@@ -372,15 +451,22 @@ def build():
             else:
                 s2["status"] = "NO_KEY"; s2["status_detail"] = "not in key-health report"
                 s2["status_band"] = "dead"
+            # audit fix #2: probe-pass => green "reachable" RING, NOT a train.
+            s2["reachable"] = (s2["status_band"] == "live")
+        # real recent routing/comms traffic (drives train motion + bright rails)
+        s2["has_traffic"] = sid in traffic_stations
+        # audit fix #6: bill heartbeats on the comms relay but carries ~0 tower traffic.
+        # Mark comms-online distinctly from a CEO actually carrying trains.
+        if online.get(sid) and not s2["has_traffic"]:
+            s2["comms_online"] = True
+        # audit fix #4: truly-silent station (no train, not online) -> dim/dashed roundel.
+        if not s2["has_traffic"] and not online.get(sid) and not s.get("offline"):
+            s2["silent"] = True
         stations[sid] = s2
 
-    # HONEST LIVE badge (item 4): count only trains within the last ~15 minutes
-    now = time.time()
-    recent = 0
-    for t in trains:
-        te = _parse_ts(t.get("ts"))
-        if te is not None and (now - te) <= 900:
-            recent += 1
+    # HONEST LIVE badge (audit fix #3): all `trains` are already age-gated to AGE_MAX,
+    # so recent == the animated set. No inflation.
+    recent = len(trains)
 
     return {"ver": VER, "ts": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
             "stations": stations, "online": online,
@@ -388,7 +474,10 @@ def build():
                        "trunk": tuple(sorted((a, b))) in TRUNK_SET} for a, b, c in LINES],
             "trains": trains, "cat_color": CAT_COLOR, "moving": len(trains),
             "recent15": recent, "proof": _connectivity(),
-            "live_ais": sorted([sid for sid, s in stations.items() if s.get("status_band") == "live"]),
+            "observed": _observed_connectivity(trains),
+            # AIs actually doing routing WORK (real trains), distinct from merely reachable
+            "routed_ais": sorted({t["to"] for t in trains if t["cat"] == "provider"}),
+            "reachable_ais": sorted([sid for sid, s in stations.items() if s.get("reachable")]),
             "bill_gp": sum(1 for t in trains if t["from"] == "bill" and t["to"] == "gene_pool")}
 
 
@@ -414,6 +503,9 @@ h1{margin:0;font-size:20px}.sub{color:var(--dim);margin:2px 0 8px}
 .roundel.p-unknown{stroke:#5a6577}
 /* offline dead station (item 5) */
 .roundel.off{stroke:#5a6577;stroke-dasharray:3 3;fill:#12161f;opacity:.6}
+/* truly-silent station: drawn but no live signal (audit fix #4) */
+.roundel.silent{stroke:#4a566b;stroke-dasharray:3 3;fill:#0d121c;opacity:.5}
+.stlabel.silent{fill:#5c6a80}
 .stlabel.off{fill:#6a778c}
 .stlabel{fill:#e8f1ff;font-size:11px;font-weight:600}
 .stlabel.big{font-size:13px;font-weight:700}.stlabel.prov{fill:#8fe6b5;font-size:10px}
@@ -423,7 +515,9 @@ h1{margin:0;font-size:20px}.sub{color:var(--dim);margin:2px 0 8px}
 .kd{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:5px;vertical-align:middle;border:2px solid}
 </style></head><body><div class=wrap>
 <h1>SkyscraperHQ · Underground <span style="color:#40b4ff">· :8875</span><span id=health class="hp ok">—</span></h1>
-<div class=sub><span id=proof style="color:#45f59b;font-weight:700"></span> · <span id=liveais style="color:#8fe6b5"></span> · every train is a REAL event — no demo motion.</div>
+<div class=sub><b style="color:#7f93ad">STRUCTURAL:</b> <span id=proof style="color:#9db3cc"></span></div>
+<div class=sub><b style="color:#45f59b">OBSERVED (last 15m):</b> <span id=observed style="color:#8fe6b5;font-weight:600"></span></div>
+<div class=sub><span id=liveais style="color:#8fe6b5"></span> · every animated train is a REAL event ≤15m old — a quiet line stays still.</div>
 <svg id=map></svg>
 <div class=legend>
   <span><span class=k style="background:#40b4ff"></span>routing → Gene Pool</span>
@@ -491,17 +585,16 @@ function routeMid(A,B){
 // on-canvas legend, bottom-left corner (item 3): line categories + provider status colours
 function drawLegend(){
   const rows=[
-    ["line","#40b4ff","route → Gene Pool"],
-    ["line","#2ffb8f","LIVE AI probe train (real call)"],
-    ["line","#45f59b","Gene-Pool → provider"],
+    ["line","#40b4ff","route → Gene Pool (real train)"],
+    ["line","#45f59b","Gene-Pool → provider (real routed work)"],
     ["line","#b98bff","council (→ Task Council)"],
     ["line","#ffc24b","comms mesh"],
-    ["line","#6d7f98","hub"],
     ["line","#2dd4bf","Council-15 sub"],
     ["line","#c4a3ff","Wren sub"],
-    ["dot","#45f59b","provider LIVE"],
+    ["dash","#4a566b","track drawn · no live signal (dashed)"],
+    ["ring","#45f59b","green RING = reachable (probed, NOT routing)"],
     ["dot","#ffb020","provider amber (no-credit/quota)"],
-    ["dot","#5a6577","provider dead (blocked/gone/no-key)"],
+    ["dot","#5a6577","provider dead / silent (no traffic)"],
   ];
   const x0=18, y0=700-rows.length*17-30, w=250, h=rows.length*17+26;
   const g=el("g",{});
@@ -510,6 +603,8 @@ function drawLegend(){
   rows.forEach((rw,i)=>{
     const y=y0+24+i*17;
     if(rw[0]==="line"){g.appendChild(el("rect",{x:x0,y:y-4,width:22,height:5,rx:2,fill:rw[1]}));}
+    else if(rw[0]==="dash"){g.appendChild(el("line",{x1:x0,y1:y-1,x2:x0+22,y2:y-1,stroke:rw[1],"stroke-width":2,"stroke-dasharray":"3 3"}));}
+    else if(rw[0]==="ring"){g.appendChild(el("circle",{cx:x0+8,cy:y-1,r:7,fill:"none",stroke:rw[1],"stroke-width":2}));}
     else{g.appendChild(el("circle",{cx:x0+8,cy:y-1,r:6,fill:"#0a0e16",stroke:rw[1],"stroke-width":3}));}
     const t=el("text",{x:x0+30,y:y+2,class:"stlabel",fill:"#9db3cc","font-size":10});t.textContent=rw[2];g.appendChild(t);
   });
@@ -518,30 +613,44 @@ function drawLegend(){
 function draw(d){
   ST=d.stations;CC=d.cat_color;ON=d.online||{};svg.innerHTML="";svg.setAttribute("viewBox","0 0 1200 700");
   d.lines.forEach(L=>{const A=ST[L.a],B=ST[L.b];if(!A||!B)return;
-    // provider lines: only a LIVE provider gets a bright rail; dead/amber providers stay faint
-    const pv = A.prov?A:(B.prov?B:null);
-    const deadProv = pv && pv.status_band && pv.status_band!=="live";
-    let act=L.act>0, trunk=L.trunk;
-    if(deadProv){act=false;trunk=false;}
-    // idle interconnect mesh is drawn in its OWN category colour (faint) so you can SEE that
-    // everyone connects to everyone — not hidden. active = bright, trunk = bold, mesh = visible.
-    const col = act ? (CC[L.cat]||"#40b4ff") : trunk ? (CC[L.cat]||"#6d7f98") : (CC[L.cat]||"#33465f");
-    const w   = act ? 6 : trunk ? 3.5 : 2;
-    const op  = act ? 0.95 : trunk ? 0.6 : (deadProv?0.12:0.28);
-    svg.appendChild(el("path",{class:"rail",d:routePath(A,B),stroke:col,"stroke-width":w,opacity:op}));});
+    // TRUTH (audit fix #4): a rail is BRIGHT SOLID only if it carried a REAL train in the
+    // last 15m (L.act>0). Everything else — potential-but-unused track — is faint DASHED grey.
+    // This dashes ~59/78 edges: every gene_pool→kimi/grok/gemini/nvidia spoke, and all
+    // codex/lumen/oracle edges, honestly showing they carry no live signal.
+    const act=L.act>0;
+    const col = act ? (CC[L.cat]||"#40b4ff") : "#33465f";
+    const w   = act ? 6 : 1.6;
+    const op  = act ? 0.95 : 0.30;
+    const p=el("path",{class:"rail",d:routePath(A,B),stroke:col,"stroke-width":w,opacity:op});
+    if(!act)p.setAttribute("stroke-dasharray","5 6");  // dashed = potential track, never used in window
+    svg.appendChild(p);});
   Object.entries(ST).forEach(([id,s])=>{
     const r=s.big?13:((s.prov||s.sub)?7:9),online=ON[id];
-    if(online&&!s.offline)svg.appendChild(el("circle",{cx:s.x,cy:s.y,r:r+5,fill:"none",stroke:"#45f59b","stroke-width":2,opacity:.8,id:"on_"+id}));
-    // provider status band -> roundel colour (item 1); offline station -> dashed dim (item 5)
-    let cls="roundel"+(s.big?" big":"")+(s.prov?" prov":"")+(online&&!s.offline?" on":"");
+    // RING semantics (audit fix #2 & #6):
+    //  - green solid ring = presence heartbeat AND actually carrying tower trains
+    //  - green dashed ring = comms-online only (relay heartbeat, NO tower traffic) — e.g. Bill
+    //  - provider "reachable" = passed the 15-min health probe: green ring = responds,
+    //    but that is NOT routed work (only a real train means real work).
+    if(online&&!s.offline&&s.has_traffic){
+      svg.appendChild(el("circle",{cx:s.x,cy:s.y,r:r+5,fill:"none",stroke:"#45f59b","stroke-width":2,opacity:.8,id:"on_"+id}));
+    } else if(s.comms_online&&!s.offline){
+      svg.appendChild(el("circle",{cx:s.x,cy:s.y,r:r+5,fill:"none",stroke:"#3fbf8f","stroke-width":2,opacity:.7,"stroke-dasharray":"3 4",id:"on_"+id}));
+    } else if(s.reachable){  // provider probed-reachable but not routing work
+      svg.appendChild(el("circle",{cx:s.x,cy:s.y,r:r+4,fill:"none",stroke:"#45f59b","stroke-width":1.6,opacity:.55,"stroke-dasharray":"2 3",id:"rc_"+id}));
+    }
+    // roundel base class: offline / silent / provider-band / online-solid
+    let cls="roundel"+(s.big?" big":"")+(s.prov?" prov":"")+(online&&!s.offline&&s.has_traffic?" on":"");
     if(s.offline)cls+=" off";
     else if(s.prov)cls+=" p-"+(s.status_band||"unknown");
+    else if(s.silent)cls+=" silent";
     const stc=el("circle",{cx:s.x,cy:s.y,r:r,class:cls,id:"st_"+id});
     stc.style.cursor="pointer";stc.addEventListener("click",()=>openCmd(id,s.label));
-    // tooltip: provider live/dead reason, or offline reason
+    // HONEST tooltips
     const ti=el("title");
     if(s.offline)ti.textContent=s.label+" — offline · "+(s.offline_reason||"service down");
-    else if(s.prov)ti.textContent=s.label+" — "+(s.status||"?")+(s.status_detail?" · "+s.status_detail:"");
+    else if(s.comms_online)ti.textContent=s.label+" — comms-online (relay heartbeat) · no tower traffic";
+    else if(s.prov)ti.textContent=s.label+" — "+(s.status||"?")+(s.status_detail?" · "+s.status_detail:"")+(s.reachable&&!s.has_traffic?" · reachable (probed), NOT routing work":"")+(s.has_traffic?" · routing real work":"");
+    else if(s.silent)ti.textContent=s.label+" — no live signal (track drawn, no traffic in last 15m)";
     else ti.textContent=s.label;
     stc.appendChild(ti);svg.appendChild(stc);
     // provider fan on the right: label to the RIGHT of the roundel so the fan stays clean.
@@ -554,8 +663,12 @@ function draw(d){
   drawLegend();
   TR=d.trains||[];
 }
+const AGE_MAX=900; // seconds — client-side guard: never animate a stale/undated train (audit fix #1)
 function launch(tr){
   const A=ST[tr.from],B=ST[tr.to];if(!A||!B)return;
+  // AGE GUARD (audit fix #1): a train with no age_s, or older than 15m, NEVER moves.
+  // build() already age-gates, but guard here too so a quiet line is provably still.
+  if(tr.age_s==null||tr.age_s>AGE_MAX)return;
   // don't run carriages to a dead/amber provider — only LIVE provider lines carry trains
   const pv=A.prov?A:(B.prov?B:null);
   if(pv&&pv.status_band&&pv.status_band!=="live")return;
@@ -579,16 +692,27 @@ async function tick(){
   if(window.__v&&window.__v!==d.ver){location.reload();return}window.__v=d.ver;
   draw(d);
   const h=document.getElementById("health");
-  const n=d.recent15||0;
-  if(n>0){h.className="hp ok";h.textContent="● LIVE · "+n+" trains (last 15m)"}
-  else{h.className="hp dead";h.textContent="○ IDLE"}
-  document.getElementById("movetxt").textContent=d.moving+" events on map · "+n+" in last 15m · Bill→GenePool: "+d.bill_gp;
+  const n=d.recent15||0;  // == animated train count (all age-gated ≤15m)
+  if(n>0){h.className="hp ok";h.textContent="● LIVE · "+n+" real trains (≤15m)"}
+  else{h.className="hp dead";h.textContent="○ IDLE — no live signal"}
+  document.getElementById("movetxt").textContent=n+" real trains moving · Bill→GenePool: "+d.bill_gp;
+  // STRUCTURAL: the drawn lattice (true of the drawing, not a talk-claim)
   const pf=d.proof||{};
-  document.getElementById("proof").textContent = pf.connected
-     ? ("✓ EVERYONE CONNECTED: "+pf.stations+" stations · "+pf.edges+" tracks · every station reaches every other in ≤"+pf.diameter+" hops")
-     : ("⚠ NOT fully connected — isolated: "+(pf.isolated||[]).join(", "));
-  const la=d.live_ais||[];
-  document.getElementById("liveais").textContent = la.length+" live AIs carrying trains: "+la.join(", ");
+  document.getElementById("proof").textContent =
+     pf.stations+" stations · "+pf.edges+" tracks drawn · graph diameter ≤"+pf.diameter+" hops (all paths transit the Gene Pool hub)";
+  // OBSERVED: only what real recent trains prove
+  const ob=d.observed||{};
+  const iso=(ob.isolated||[]);
+  document.getElementById("observed").textContent =
+     (ob.stations_active||0)+"/"+(ob.stations_total||0)+" stations active · "
+     +(ob.tracks_used||0)+"/"+(ob.tracks_drawn||0)+" tracks carried a real train · "
+     +(ob.talking_pairs||0)+" CEO/hub pairs actually talking"
+     +(iso.length?("  ·  isolated: "+iso.join(", ")):"");
+  // routed vs merely reachable (audit fix #2)
+  const ra=d.routed_ais||[], rc=d.reachable_ais||[];
+  document.getElementById("liveais").textContent =
+     ra.length+" AI(s) doing real routing work: "+(ra.join(", ")||"—")
+     +"  ·  "+rc.length+" reachable (probed, green ring, NOT routing): "+(rc.join(", ")||"—");
 }
 tick();setInterval(tick,2500);
 </script></body></html>"""
