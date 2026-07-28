@@ -59,11 +59,11 @@ STATIONS = {
     "task_council": {"x": 600, "y": 400, "label": "Task Council · 77",  "big": True},
     "council15":    {"x": 600, "y": 560, "label": "Council of 15 · 75", "big": True},
     # ── LEFT BLOCK: CEOs / AIs — two tidy columns (x=140, x=300) ──
-    "bill":         {"x": 140, "y": 120, "label": "Bill · Mac"},
+    "bill":         {"x": 140, "y": 120, "label": "Bill · Mac F47"},
     "tp_pip":       {"x": 140, "y": 240, "label": "TP-Pip"},
     "acer_cass":    {"x": 140, "y": 360, "label": "Asa"},
     "codex":        {"x": 140, "y": 480, "label": "Codex · 40"},
-    "wren":         {"x": 300, "y": 240, "label": "Wren", "big": True},
+    "wren":         {"x": 300, "y": 240, "label": "Wren · 46", "big": True},
     "lumen":        {"x": 300, "y": 480, "label": "Lumen · 48", "offline": True,
                      "offline_reason": ":8848 down — service offline"},
     # ── WREN / C15 SPECIALIST CLUSTER — around Wren + bottom-left cluster ──
@@ -125,6 +125,10 @@ LINES += [
     ("council15", "hermes", "c15"), ("council15", "claude_acct", "c15"), ("council15", "gene_pool", "c15"),
     ("wren", "wren_brain", "wrensub"), ("wren", "f46_bench", "wrensub"),
     ("wren", "hermes", "wrensub"), ("wren", "iquest_40b", "wrensub"),
+    # Wren can wield ANY specialist _tool_station() may return (qwen_worker / claude_acct),
+    # so give those a rail too — otherwise a "Wren wields qwen_worker" train animates over a
+    # blank edge with no drawn track under it (bug #2 coherence: train edge with no line).
+    ("wren", "qwen_worker", "wrensub"), ("wren", "claude_acct", "wrensub"),
     ("task_council", "tc_sandbox", "council"), ("task_council", "council15", "council"),
     # Oracle Cloud VM — tunnels into the tower
     ("oracle", "boardroom", "hub"), ("oracle", "gene_pool", "route"),
@@ -342,7 +346,8 @@ def build():
     for r in _tail(COUNCIL, 90):
         ev, actor, tid = r.get("event"), r.get("actor"), r.get("task_id")
         seg = None
-        if ev == "created" and actor == "codex":
+        if actor == "codex" and ev in ("created", "claimed", "assigned", "noted", "updated", "recycled", "done"):
+            # codex does real work every tick (claim/note) — light his station like Wren's (fix: was created-only)
             seg = ("codex", "task_council")
         elif ev == "tool_selected":
             seg = ("task_council", "council15")
@@ -396,18 +401,13 @@ def build():
     #    attached below), never a fabricated train. Only real routing jobs (step 1)
     #    produce provider trains.
 
-    # balance categories so routing traffic doesn't DROWN the comms mesh.
-    _bc = {}
-    for t in trains:
-        _bc.setdefault(t["cat"], []).append(t)
-    trains = []
-    # route/provider now carry BOTH request and reply legs — bigger cap so both directions show
-    for cat, K in (("route", 24), ("provider", 24), ("comms", 24),
-                   ("council", 12), ("c15", 8), ("wrensub", 8)):
-        trains += _bc.get(cat, [])[-K:]
-
     # ── AGE-GATE (audit fix #1): drop any train missing a ts or older than AGE_MAX.
-    #    This is what makes a quiet line STILL. Attach age_s to every survivor. ──
+    #    This is what makes a quiet line STILL. Attach age_s to every survivor.
+    #    MUST run BEFORE the category balancer — otherwise the balancer's raw
+    #    list-position slice throws away FRESH trains from a source that was
+    #    appended early (room posts are built before acks/DMs, so a naive [-K:]
+    #    kept 24 stale DMs and sliced off every recent Bill→town_square post
+    #    before the age-gate ever saw it). Gate on real recency first. ──
     now = time.time()
     gated = []
     for t in trains:
@@ -430,6 +430,20 @@ def build():
         if prev is None or t.get("age_s", 1e9) < prev.get("age_s", 1e9):
             _best[key] = t
     trains = list(_best.values())
+
+    # balance categories so routing traffic doesn't DROWN the comms mesh.
+    # Cap by FRESHNESS (smallest age_s first), NOT list position, so a genuinely
+    # recent room post always beats an older DM when the cap bites (bug #1 fix).
+    _bc = {}
+    for t in trains:
+        _bc.setdefault(t["cat"], []).append(t)
+    trains = []
+    # route/provider now carry BOTH request and reply legs — bigger cap so both directions show
+    for cat, K in (("route", 24), ("provider", 24), ("comms", 24),
+                   ("council", 12), ("c15", 8), ("wrensub", 8)):
+        bucket = sorted(_bc.get(cat, []), key=lambda t: t.get("age_s", 1e9))
+        trains += bucket[:K]
+
     trains.sort(key=lambda t: t.get("ts") or "")
 
     # presence -> online glow
@@ -488,8 +502,11 @@ def build():
             "trains": trains, "cat_color": CAT_COLOR, "moving": len(trains),
             "recent15": recent, "proof": _connectivity(),
             "observed": _observed_connectivity(trains),
-            # AIs actually doing routing WORK (real trains), distinct from merely reachable
-            "routed_ais": sorted({t["to"] for t in trains if t["cat"] == "provider"}),
+            # AIs actually doing routing WORK (real trains), distinct from merely reachable.
+            # Exclude gene_pool itself — it's the interchange HUB, not a routed provider AI
+            # (the provider→gene_pool reply leg would otherwise mislabel the hub as an "AI").
+            "routed_ais": sorted({t["to"] for t in trains
+                                  if t["cat"] == "provider" and t["to"] != "gene_pool"}),
             "reachable_ais": sorted([sid for sid, s in stations.items() if s.get("reachable")]),
             "bill_gp": sum(1 for t in trains if t["from"] == "bill" and t["to"] == "gene_pool")}
 
@@ -533,8 +550,8 @@ h1{margin:0;font-size:20px}.sub{color:var(--dim);margin:2px 0 8px}
 <div class=sub><span id=liveais style="color:#8fe6b5"></span> · every animated train is a REAL event ≤15m old — a quiet line stays still.</div>
 <svg id=map></svg>
 <div class=legend>
-  <span><span class=k style="background:#40b4ff"></span>routing → Gene Pool</span>
-  <span><span class=k style="background:#45f59b"></span>Gene-Pool → provider (sub-track)</span>
+  <span><span class=k style="background:#40b4ff"></span>routing ⇄ Gene Pool (request+reply)</span>
+  <span><span class=k style="background:#45f59b"></span>Gene-Pool ⇄ provider (2-way sub-track)</span>
   <span><span class=k style="background:#b98bff"></span>council (task-council spurs)</span>
   <span><span class=k style="background:#ffc24b"></span>comms mesh</span>
   <span><span class=k style="background:#6d7f98"></span>hub</span>
@@ -598,18 +615,20 @@ function routeMid(A,B){
 // on-canvas legend, bottom-left corner (item 3): line categories + provider status colours
 function drawLegend(){
   const rows=[
-    ["line","#40b4ff","route → Gene Pool (real train)"],
-    ["line","#45f59b","Gene-Pool → provider (real routed work)"],
+    ["line","#40b4ff","route ⇄ Gene Pool (request + reply, both legs)"],
+    ["line","#45f59b","Gene-Pool ⇄ provider (real routed work, 2-way)"],
     ["line","#b98bff","council (→ Task Council)"],
-    ["line","#ffc24b","comms mesh"],
+    ["line","#ffc24b","comms mesh (room / acks / DMs)"],
     ["line","#2dd4bf","Council-15 sub"],
     ["line","#c4a3ff","Wren sub"],
-    ["dash","#4a566b","track drawn · no live signal (dashed)"],
-    ["ring","#45f59b","green RING = reachable (probed, NOT routing)"],
-    ["dot","#ffb020","provider amber (no-credit/quota)"],
+    ["dash","#4a566b","track drawn · no live signal (dashed, dim)"],
+    ["solid","#45f59b","solid green RING = online + carrying trains"],
+    ["ringd","#3fbf8f","dashed green ring = comms-online, no traffic"],
+    ["ring","#45f59b","provider RING = reachable (probed, NOT routing)"],
+    ["dot","#ffb020","provider amber (no-credit / quota)"],
     ["dot","#5a6577","provider dead / silent (no traffic)"],
   ];
-  const x0=18, y0=700-rows.length*17-30, w=250, h=rows.length*17+26;
+  const x0=18, y0=700-rows.length*17-30, w=278, h=rows.length*17+26;
   const g=el("g",{});
   g.appendChild(el("rect",{x:x0-8,y:y0-6,width:w,height:h,rx:8,fill:"#0b1220",stroke:"#233146","stroke-width":1,opacity:.92}));
   const ttl=el("text",{x:x0,y:y0+8,class:"stlabel",fill:"#cfe0f5"});ttl.textContent="LEGEND";g.appendChild(ttl);
@@ -617,7 +636,9 @@ function drawLegend(){
     const y=y0+24+i*17;
     if(rw[0]==="line"){g.appendChild(el("rect",{x:x0,y:y-4,width:22,height:5,rx:2,fill:rw[1]}));}
     else if(rw[0]==="dash"){g.appendChild(el("line",{x1:x0,y1:y-1,x2:x0+22,y2:y-1,stroke:rw[1],"stroke-width":2,"stroke-dasharray":"3 3"}));}
-    else if(rw[0]==="ring"){g.appendChild(el("circle",{cx:x0+8,cy:y-1,r:7,fill:"none",stroke:rw[1],"stroke-width":2}));}
+    else if(rw[0]==="ring"){g.appendChild(el("circle",{cx:x0+8,cy:y-1,r:7,fill:"none",stroke:rw[1],"stroke-width":2,"stroke-dasharray":"2 3"}));}
+    else if(rw[0]==="solid"){g.appendChild(el("circle",{cx:x0+8,cy:y-1,r:7,fill:"none",stroke:rw[1],"stroke-width":2}));}
+    else if(rw[0]==="ringd"){g.appendChild(el("circle",{cx:x0+8,cy:y-1,r:7,fill:"none",stroke:rw[1],"stroke-width":2,"stroke-dasharray":"3 4"}));}
     else{g.appendChild(el("circle",{cx:x0+8,cy:y-1,r:6,fill:"#0a0e16",stroke:rw[1],"stroke-width":3}));}
     const t=el("text",{x:x0+30,y:y+2,class:"stlabel",fill:"#9db3cc","font-size":10});t.textContent=rw[2];g.appendChild(t);
   });
