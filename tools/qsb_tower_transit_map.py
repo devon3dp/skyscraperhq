@@ -697,7 +697,7 @@ async function sendCmd(station,action){
 }
 const NS="http://www.w3.org/2000/svg";
 function el(t,a){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e}
-const svg=document.getElementById("map");let ST={},TR=[],CC={},ON={},qi=0;
+const svg=document.getElementById("map");let ST={},TR=[],CC={},ON={},qi=0,launched=new Set(),queue=[];
 // Orthogonal / 45° router — replaces raw diagonals so tracks read like a tube map.
 // straight when horiz/vert or a clean 45°; otherwise a single L-elbow (long axis first, 45° corner into B).
 function routePath(A,B){
@@ -804,6 +804,11 @@ function draw(d){
   });
   drawLegend();
   TR=d.trains||[];
+  // NO-LOOP (Ross: "live results only, no loops"): each REAL event fires ONCE then the line goes
+  // still. Queue only trains not launched before (stable id). Nothing replays; quiet == still.
+  (d.trains||[]).forEach(t=>{const id=t.from+"|"+t.to+"|"+(t.ts||"")+"|"+(t.label||"");
+    if(!launched.has(id)){launched.add(id);queue.push(t);}});
+  if(launched.size>5000)launched=new Set();  // bound memory
 }
 const AGE_MAX=900; // seconds — client-side guard: never animate a stale/undated train (audit fix #1)
 function launch(tr){
@@ -827,8 +832,8 @@ function launch(tr){
   g.animate(frames,{duration:1700,easing:"cubic-bezier(.35,0,.3,1)"}).onfinish=()=>{g.remove();
       const dst=document.getElementById("st_"+tr.to);if(dst){const rr=+dst.getAttribute("r");dst.animate([{r:rr},{r:rr*1.5},{r:rr}],{duration:450})}};
 }
-// fire several trains per tick so MANY carriages move at once (everyone talking, visibly)
-setInterval(()=>{ if(!TR.length)return; for(let n=0;n<3;n++){ launch(TR[qi%TR.length]); qi++; } }, 300);
+// NO-LOOP launcher: drain the queue of NEW real events, firing each ONCE. Empty queue => STILL.
+setInterval(()=>{ let n=0; while(queue.length && n<4){ launch(queue.shift()); n++; } }, 250);
 async function tick(){
   let d;try{d=await(await fetch("/api/data")).json()}catch(e){return}
   if(window.__v&&window.__v!==d.ver){location.reload();return}window.__v=d.ver;
@@ -875,7 +880,7 @@ async function tick(){
      ra.length+" AI(s) doing real routing work: "+(ra.join(", ")||"—")
      +"  ·  "+rc.length+" reachable (probed, green ring, NOT routing): "+(rc.join(", ")||"—");
 }
-tick();setInterval(tick,3000);  // Ross: 3-second refresh so trains stay current
+tick();setInterval(tick,1000);  // Ross: 1-second refresh — pull fresh real events every second
 </script></body></html>"""
 
 
