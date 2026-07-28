@@ -1,0 +1,8 @@
+[Unit]
+Description=QSB Gene-Pool Diversity Prober Timer (every 6 min so live AIs keep real trains)
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=6min
+Persistent=true
+[Install]
+WantedBy=timers.target

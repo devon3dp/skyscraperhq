@@ -315,17 +315,29 @@ def _observed_connectivity(trains):
 def build():
     trains = []
     prov_status = _provider_status()
-    # 1) gene-pool routing: caller -> gene_pool AND gene_pool -> provider (the sub-track)
+    # 1) gene-pool routing: a real call is a ROUND TRIP — request goes out, the reply comes
+    #    back (reply_head proves a real answer returned). Draw BOTH legs so tracks flow BOTH
+    #    ways, not one-way blips: caller→gene_pool→provider (request) and provider→gene_pool→caller (reply).
     for r in _tail(CALLS, 70):
         caller = r.get("caller")
         frm = _sid(caller) or "boardroom"
         prov = (r.get("provider_used") or r.get("provider") or "").lower()
         ts = r.get("ts")
-        trains.append({"from": frm, "to": "gene_pool", "ts": ts, "cat": "route",
-                       "label": (caller or "?") + " → Gene Pool"})
+        got_reply = bool(r.get("reply_head"))
+        # outbound request
+        if frm != "gene_pool":
+            trains.append({"from": frm, "to": "gene_pool", "ts": ts, "cat": "route",
+                           "label": (caller or "?") + " → Gene Pool  (request)"})
         if prov in STATIONS:
             trains.append({"from": "gene_pool", "to": prov, "ts": ts, "cat": "provider",
-                           "label": "Gene Pool → " + prov + "  (" + (caller or "?") + ")"})
+                           "label": "Gene Pool → " + prov + "  (request)"})
+            # return: the provider genuinely answered (reply_head) — reply travels back
+            if got_reply:
+                trains.append({"from": prov, "to": "gene_pool", "ts": ts, "cat": "provider",
+                               "label": prov + " → Gene Pool  (reply)"})
+        if got_reply and frm != "gene_pool":
+            trains.append({"from": "gene_pool", "to": frm, "ts": ts, "cat": "route",
+                           "label": "Gene Pool → " + (caller or "?") + "  (reply)"})
     # 2) council flow
     for r in _tail(COUNCIL, 90):
         ev, actor, tid = r.get("event"), r.get("actor"), r.get("task_id")
@@ -389,7 +401,8 @@ def build():
     for t in trains:
         _bc.setdefault(t["cat"], []).append(t)
     trains = []
-    for cat, K in (("route", 12), ("provider", 12), ("comms", 24),
+    # route/provider now carry BOTH request and reply legs — bigger cap so both directions show
+    for cat, K in (("route", 24), ("provider", 24), ("comms", 24),
                    ("council", 12), ("c15", 8), ("wrensub", 8)):
         trains += _bc.get(cat, [])[-K:]
 
@@ -714,7 +727,7 @@ async function tick(){
      ra.length+" AI(s) doing real routing work: "+(ra.join(", ")||"—")
      +"  ·  "+rc.length+" reachable (probed, green ring, NOT routing): "+(rc.join(", ")||"—");
 }
-tick();setInterval(tick,2500);
+tick();setInterval(tick,3000);  // Ross: 3-second refresh so trains stay current
 </script></body></html>"""
 
 

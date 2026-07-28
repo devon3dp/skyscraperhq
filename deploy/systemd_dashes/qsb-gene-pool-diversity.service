@@ -1,0 +1,8 @@
+[Unit]
+Description=QSB Gene-Pool Diversity Prober (real routed work to every live provider)
+After=network.target
+[Service]
+Type=oneshot
+User=ross
+WorkingDirectory=/vaults/nvme0/qsb_tower_v1
+ExecStart=/usr/bin/python3 /vaults/nvme0/qsb_tower_v1/tools/qsb_gene_pool_diversity_prober.py
