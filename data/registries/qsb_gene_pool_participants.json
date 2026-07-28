@@ -1,0 +1,58 @@
+{
+  "schema": "qsb_gene_pool_participants_v1",
+  "updated_ts": "2026-07-28T13:31:57Z",
+  "note": "Gene-pool participant roster — named minds the tower can consult / cross-reference. A participant's pool is NEVER used as another AI's brain (Ross directive 2026-07-26).",
+  "participants": {
+    "codex": {
+      "identity": "codex",
+      "display_name": "Codex",
+      "floor": 40,
+      "floor_name": "Codex Floor",
+      "kind": "external_cloud_tenant",
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "lane": "dedicated",
+      "route": "bounded via tools/qsb_consult_external.py (advisory, $1/day + per-call caps, fully audited)",
+      "cross_reference": true,
+      "brain_of_another_ai": false,
+      "rule": "one AI's gene pool must never become another AI's brain",
+      "added_ts": "2026-07-28T10:41:34Z",
+      "added_by": "Ross Knechtel — 'add the codex floor to the gene pool ... yes 2' (2026-07-28)",
+      "status": "live"
+    },
+    "bill": {
+      "identity": "bill",
+      "display_name": "Bill",
+      "kind": "mac_concierge",
+      "host": "MacBook",
+      "reachable_addr": "192.168.1.49",
+      "role": "MacBook Executive Concierge AI",
+      "floor": 47,
+      "provider": "local",
+      "model": "qwen2.5:14b",
+      "lane": "comms",
+      "route": "leadership relay :8855 (comms) — consultable, not gene-pool-routed",
+      "cross_reference": true,
+      "brain_of_another_ai": false,
+      "rule": "one AI's gene pool must never become another AI's brain",
+      "added_ts": "2026-07-28T13:31:57Z",
+      "added_by": "Ross Knechtel — 'find bill ... add him to the team ... on the team forever' (2026-07-28)",
+      "status": "live",
+      "worker_agent": "tools/qsb_bill_agent.py",
+      "tools_whitelist": [
+        "qsb_read_registry",
+        "qsb_read_floor_card",
+        "qsb_grep_repo",
+        "qsb_propose_patch",
+        "qsb_council_task",
+        "qsb_sandbox_run",
+        "qsb_tower_health",
+        "qsb_read_briefing",
+        "qsb_leadership_message"
+      ],
+      "tools_note": "Bill's governed worker/skill layer. WORK/DEV tools mirror Codex (read_registry, read_floor_card, grep_repo, propose_patch bench-gated, council_task actor=bill, sandbox_run). CONCIERGE skills fit his Executive Concierge role (tower_health snapshot, read_briefing, leadership_message via relay :8855 with his vault token). Bill's Mac mind (qwen2.5:14b via relay) does the REASONING; the tower runs the TOOLS. Non-self-verifying — Wren's 2-CEO quorum verifies. Acts only when qsb_bill_work_mode.json mode=work + lease valid.",
+      "tools_added_ts": "2026-07-28T17:28:33Z",
+      "tools_added_by": "Ross Knechtel — 'give Bill MORE SKILLS AND TOOLS ... modeled on Codex' (2026-07-28)"
+    }
+  }
+}

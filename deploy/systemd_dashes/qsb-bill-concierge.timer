@@ -1,0 +1,10 @@
+[Unit]
+Description=QSB Bill Concierge Tick Timer (every 30min + 5min after boot; posts only in a valid work lease)
+
+[Timer]
+OnBootSec=5min
+OnUnitActiveSec=30min
+Persistent=true
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,10 @@
+[Unit]
+Description=QSB CEO Task Worker Timer (every ~2min — keeps tp_pip/acer_cass/bill claiming + doing real council tasks)
+
+[Timer]
+OnBootSec=3min
+OnUnitActiveSec=2min
+Persistent=true
+
+[Install]
+WantedBy=timers.target
