@@ -11,3 +11,7 @@ LOG=data/registries/qsb_council_verify_tick.log
 echo "=== tick $(date -u +%Y-%m-%dT%H:%M:%SZ) ===" >> "$LOG"
 /usr/bin/python3 tools/qsb_council_verify_signoff.py --limit 3 >> "$LOG" 2>&1 || echo "verify rc=$?" >> "$LOG"
 /usr/bin/python3 tools/qsb_proposal_applier.py           >> "$LOG" 2>&1 || echo "apply rc=$?"  >> "$LOG"
+# Autonomous TASK sign-off (Ross 2026-08-03): Wren + Bill independently verify
+# tasks waiting on a human accept; BOTH approve → the task advances with no Ross
+# gate. Same kill switch. Bounded to 2/tick so a slow Bill round-trip never piles up.
+/usr/bin/python3 tools/qsb_council_verify_signoff.py --tasks --limit 2 >> "$LOG" 2>&1 || echo "tasks rc=$?" >> "$LOG"

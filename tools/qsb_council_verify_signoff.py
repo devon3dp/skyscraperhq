@@ -47,6 +47,16 @@ GATE = REG / "qsb_proposal_autoapply_gate.json"
 VERIFY_AUDIT = REG / "qsb_verify_signoff_audit.jsonl"
 F47_REC = REG / "qsb_f47_team_records.jsonl"
 
+# ── autonomous TASK sign-off (--tasks mode) ────────────────────────────────
+# Ross 2026-08-03: task sign-off moves off Ross onto the council. For each task
+# waiting on a human accept, Wren and Bill each INDEPENDENTLY verify the work;
+# only when BOTH approve does the task advance (peer_signoff → done) with no
+# Ross gate. Same kill switch (gate.enabled) and same "unreachable mind never
+# signs" honesty as the proposal path above.
+TASK_SNAP = REG / "qsb_council_tasks_snapshot.json"
+TASK_SIGNOFF_AUDIT = REG / "qsb_council_task_signoff_audit.jsonl"
+TASK_WAIT_STATES = ("awaiting_peer_signoff", "awaiting_verification")
+
 SIG_THRESHOLD = 3
 
 
@@ -281,6 +291,147 @@ def verify_one(p: dict, *, dry_run: bool) -> dict:
     return audit
 
 
+# ══════════════════════════════════════════════════════════════════════════
+#  AUTONOMOUS TASK SIGN-OFF  (--tasks)
+#  Wren + Bill independently verify a task's result → BOTH approve → the task
+#  advances (peer_signoff → done) with NO Ross gate. Neither mind's verdict is
+#  ever fabricated: an unreachable/UNCLEAR mind simply does not approve, and the
+#  task stays exactly where it is, logged honestly.
+# ══════════════════════════════════════════════════════════════════════════
+def load_task_snapshot() -> dict:
+    try:
+        return json.loads(TASK_SNAP.read_text(errors="ignore"))
+    except Exception:
+        return {"tasks": []}
+
+
+def task_candidates(limit: int) -> list[dict]:
+    snap = load_task_snapshot()
+    out = [t for t in snap.get("tasks", [])
+           if (t.get("state") or "").lower() in TASK_WAIT_STATES]
+    # highest-rework first — the ones that have been churning longest get eyes first
+    out.sort(key=lambda t: -(t.get("rework_rounds") or 0))
+    return out[:limit]
+
+
+def build_task_prompt(t: dict) -> str:
+    tid = t.get("id")
+    title = t.get("title") or tid
+    desc = (t.get("description") or "").strip()[:1800]
+    owner = t.get("owner") or t.get("assignee") or "?"
+    sandbox_by = t.get("sandbox_passed_by") or "(none)"
+    notes = t.get("notes") or []
+    note_lines = "\n".join(f"  - {n.get('by','?')}: {str(n.get('text',''))[:200]}"
+                           for n in notes[-6:]) or "  (no notes)"
+    return (
+        "You are a strict TASK VERIFIER for the QSB Task Council. A worker has "
+        "finished a task and it is waiting for sign-off. If you AND one other "
+        "council mind both approve, the task is marked complete automatically with "
+        "NO further human check. Approve ONLY if the described work is genuinely "
+        "complete, correct and evidenced. If the result is thin, unproven, unclear, "
+        "or still needs work -> REJECT so it goes back to the pool.\n\n"
+        f"TASK ID     : {tid}\n"
+        f"TITLE       : {title}\n"
+        f"OWNER       : {owner}\n"
+        f"STATE       : {t.get('state')}\n"
+        f"SANDBOX BY  : {sandbox_by}\n"
+        f"REWORK RNDS : {t.get('rework_rounds', 0)}\n\n"
+        "----- TASK DESCRIPTION / RESULT -----\n"
+        f"{desc or '(no description recorded)'}\n"
+        "----- RECENT NOTES -----\n"
+        f"{note_lines}\n"
+        "----- END -----\n\n"
+        "Answer with EXACTLY the single word APPROVE or REJECT on the first line, "
+        "then ONE line explaining why."
+    )
+
+
+def signoff_task_one(t: dict, *, dry_run: bool) -> dict:
+    tid = t.get("id")
+    prompt = build_task_prompt(t)
+    wv, wr, w_raw = ask_wren(prompt)
+    bv, br, b_raw = ask_bill(prompt)
+    both_approve = (wv == "APPROVE" and bv == "APPROVE")
+
+    signed = False
+    signed_actor = None
+    advanced_to = t.get("state")
+    err = ""
+    if both_approve and not dry_run:
+        try:
+            import qsb_council_tasks as C
+        except Exception as e:                                       # pragma: no cover
+            err = f"import qsb_council_tasks failed: {e}"
+        else:
+            comment = f"Autonomous council sign-off — Wren: {wr[:120]} | Bill: {br[:120]}"
+            # peer_signoff must come from a CEO who is NOT the task's taker; the
+            # reducer enforces that, so we try each approver and take the first
+            # the reducer accepts (Bill preferred as signer, Wren is often owner).
+            for a in ("bill", "wren"):
+                try:
+                    r = C.peer_signoff(tid, a, "approve", comment=comment)
+                except Exception as e:
+                    err = f"peer_signoff error: {e}"
+                    r = {"ok": False}
+                if r.get("ok"):
+                    signed, signed_actor = True, a
+                    break
+                err = r.get("error", err)
+            if signed:
+                try:
+                    # complete it — this is the autonomous replacement for the old
+                    # Ross 'accept'. sandbox_passed_by + approve = verified complete.
+                    C.note(tid, "council_autonomous",
+                           f"COUNCIL AUTONOMOUS SIGN-OFF: Wren APPROVE + Bill APPROVE. "
+                           f"signed_by={signed_actor}. No Ross gate.")
+                    C.update(tid, signed_actor, state="done")
+                    advanced_to = "done"
+                except Exception as e:
+                    err = f"advance-to-done error: {e}"
+
+    audit = {
+        "ts": utcnow(),
+        "task_id": tid,
+        "title": (t.get("title") or tid)[:120],
+        "owner": t.get("owner") or t.get("assignee"),
+        "state_before": t.get("state"),
+        "wren_verdict": wv, "wren_reason": wr,
+        "bill_verdict": bv, "bill_reason": br,
+        "both_approve": both_approve,
+        "signed": signed, "signed_by": signed_actor,
+        "advanced_to": advanced_to,
+        "dry_run": bool(dry_run),
+        "error": err,
+    }
+    with TASK_SIGNOFF_AUDIT.open("a") as f:
+        f.write(json.dumps(audit) + "\n")
+    try:
+        with F47_REC.open("a") as f:
+            f.write(json.dumps({
+                "ts": utcnow(), "kind": "council_task_signoff",
+                "operator": "task_signoff_engine", "task_id": tid,
+                "summary": f"wren={wv} bill={bv} both={both_approve} "
+                           f"signed={signed}->{advanced_to}",
+            }) + "\n")
+    except Exception:
+        pass
+    audit["wren_raw"] = (w_raw or "")[:600]
+    audit["bill_raw"] = (b_raw or "")[:600]
+    return audit
+
+
+def run_tasks(limit: int, dry_run: bool) -> int:
+    picks = task_candidates(limit)
+    results = [signoff_task_one(t, dry_run=dry_run) for t in picks]
+    print(json.dumps({"engine": "council_task_signoff",
+                      "candidates": len(picks),
+                      "processed": len(results),
+                      "dry_run": bool(dry_run),
+                      "advanced": sum(1 for r in results if r.get("signed")),
+                      "results": results}, indent=2))
+    return 0
+
+
 # ── driver ──────────────────────────────────────────────────────────────
 def main() -> int:
     ap = argparse.ArgumentParser()
@@ -289,8 +440,11 @@ def main() -> int:
     ap.add_argument("--limit", type=int, default=None,
                     help="max proposals to process this run")
     ap.add_argument("--proposal", default=None, help="target a specific proposal_id")
+    ap.add_argument("--tasks", action="store_true",
+                    help="autonomous TASK sign-off: Wren+Bill verify awaiting tasks "
+                         "and advance them (peer_signoff→done) with no Ross gate")
     ap.add_argument("--dry-run", action="store_true",
-                    help="verify + log but do NOT write sigs")
+                    help="verify + log but do NOT write sigs / advance tasks")
     a = ap.parse_args()
 
     if not gate_enabled():
@@ -299,6 +453,10 @@ def main() -> int:
         return 0
 
     limit = a.limit if a.limit is not None else (1 if a.once else 3)
+
+    if a.tasks:                       # autonomous TASK sign-off path (Wren + Bill)
+        return run_tasks(limit, a.dry_run)
+
     queue = read_queue_latest()
 
     if a.proposal:

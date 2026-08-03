@@ -24,6 +24,9 @@ SNAP = REG / "qsb_council_tasks_snapshot.json"
 LOG = REG / "qsb_council_tasks.jsonl"
 AUTO_LOG = REG / "qsb_autorunner_activity.jsonl"
 AUTO_GATE = REG / "qsb_autorunner_gate.json"
+# Autonomous council task sign-off audit (Wren + Bill independently verify). The
+# dash reads it READ-ONLY to show each awaiting task's two-mind verdict honestly.
+TASK_SIGNOFF_AUDIT = REG / "qsb_council_task_signoff_audit.jsonl"
 import time as _time
 VER = str(int(_time.time()))  # bumps on every service restart -> clients auto-reload
 
@@ -213,6 +216,19 @@ def build():
         "avg_rework": round(s["rework"] / s["tasks"], 1) if s["tasks"] else 0.0,
     } for m, s in lane_stats.items()}
 
+    # Latest AUTONOMOUS council verdict per task (Wren + Bill), read from the
+    # task-signoff engine's audit. Lets the sign-off card show which of the two
+    # minds has approved — the honest "which sigs it has", never a Ross tick.
+    council_verdicts, council_signed = {}, 0
+    for a in _tail(TASK_SIGNOFF_AUDIT, 400):
+        tid = a.get("task_id")
+        if not tid:
+            continue
+        council_verdicts[tid] = {"wren": a.get("wren_verdict"), "bill": a.get("bill_verdict"),
+                                 "signed": bool(a.get("signed")), "ts": a.get("ts"),
+                                 "advanced_to": a.get("advanced_to")}
+    council_signed = sum(1 for v in council_verdicts.values() if v.get("signed"))
+
     awaiting_signoff, wstat = [], {}
     for t in snap.get("tasks", []):
         st = (t.get("state") or "").lower()
@@ -220,6 +236,8 @@ def build():
             awaiting_signoff.append({"id": t["id"], "title": (t.get("title") or t["id"])[:64], "state": st,
                                      "owner": t.get("owner"), "rework": t.get("rework_rounds") or 0,
                                      "signoff_by": t.get("peer_signoff_by"), "verdict": t.get("peer_signoff_verdict"),
+                                     "sandbox_by": t.get("sandbox_passed_by"),
+                                     "council": council_verdicts.get(t["id"]),
                                      "rating": rate(t), "created_by": t.get("created_by")})
         who = _visible_principal(t.get("owner") or t.get("created_by"))
         if who:
@@ -447,6 +465,7 @@ def build():
         "autorunner": auto,
         "ticker": list(reversed(ticker[-30:])),
         "awaiting_signoff": awaiting_signoff[:14],
+        "council_signed": council_signed,
         "worker_stats": worker_stats,
         "codex_feed": codex_feed,
         "team_actions": team_actions,
@@ -538,10 +557,41 @@ h1{margin:0;font-size:20px}h1 .n{color:var(--wren)}
 .rail{overflow:hidden;border:1px solid var(--line);border-radius:9px;background:#090d14;margin-bottom:12px;white-space:nowrap}.rail-track{display:inline-flex;min-width:max-content;animation:railscroll var(--rail-speed,45s) linear infinite}.rail:hover .rail-track{animation-play-state:paused}@keyframes railscroll{to{transform:translateX(-50%)}}
 .rail-item{display:inline-flex;gap:7px;align-items:center;padding:8px 18px;border-right:1px solid var(--line);font:11px ui-monospace,monospace}.rail-empty{padding:8px 14px;color:var(--dim)}
 .source-note{font-size:10px;color:var(--dim);margin-top:8px}.progress-number{font-size:26px;font-weight:800;color:var(--ok)}
+/* ── EVOLVING motifs (ported from the Evolution Monitor :8869 look) ── */
+/* animated DNA double-helix beside the header = "the council is evolving" */
+.helix{vertical-align:middle;margin-left:12px;overflow:visible}
+.helix .strand{fill:none;stroke-width:2.2;stroke-linecap:round;stroke-dasharray:5 7;animation:helixflow 3.1s linear infinite}
+.helix .strand.a{stroke:var(--wren)}.helix .strand.b{stroke:var(--tp);animation-direction:reverse}
+.helix .rung{stroke:var(--asa);stroke-width:1.7;transform-box:fill-box;transform-origin:center;animation:helixtwist 2.6s ease-in-out infinite}
+@keyframes helixflow{to{stroke-dashoffset:-24}}
+@keyframes helixtwist{0%,100%{transform:scaleY(1);opacity:.65}50%{transform:scaleY(.12);opacity:.12}}
+/* KPI flash when a value climbs between polls (real increase = brief green pulse) */
+.kpi.bump{animation:kpibump 1.15s ease-out}
+@keyframes kpibump{0%{transform:scale(1)}22%{transform:scale(1.07);border-color:var(--ok);box-shadow:0 0 16px 2px rgba(57,217,138,.55)}100%{transform:scale(1);box-shadow:0 0 0 0 rgba(57,217,138,0)}}
+.signhead{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.signcount{font-size:11px;padding:2px 9px;border-radius:999px;border:1px solid var(--wren);color:var(--wren)}
+.signcount.bump{animation:kpibump 1.15s ease-out}
+/* heartbeat dot that ticks ONCE per /api/data refresh, beside the LIVE indicator */
+.beat{width:8px;height:8px;border-radius:50%;background:var(--wren);box-shadow:0 0 8px var(--wren);opacity:.5}
+.beat.on{animation:beatpulse .85s ease-out}
+@keyframes beatpulse{0%{transform:scale(.6);opacity:1}60%{transform:scale(1.8);opacity:.35}100%{transform:scale(1);opacity:.5}}
+@media(prefers-reduced-motion:reduce){.helix .strand,.helix .rung,.kpi.bump,.signcount.bump,.beat.on{animation:none!important}}
 </style></head><body><div class=wrap>
-<h1>Task Council <span class=n>· Live Flow · :8864</span></h1>
-<div class=sub>Every pulse is a real event from qsb_council_tasks.jsonl. No demo motion.</div>
-<div class=livehead><span class=live-dot id=liveDot></span><b id=liveState>CONNECTING</b><span class=dim id=freshness>waiting for source freshness…</span></div>
+<h1>Task Council <span class=n>· Live Flow · :8864</span><svg class=helix viewBox="0 0 132 30" width=132 height=30 aria-label="evolving">
+  <path class="strand a" d="M2 15 C 15 1,28 1,41 15 S 67 29,80 15 S 106 1,130 15"/>
+  <path class="strand b" d="M2 15 C 15 29,28 29,41 15 S 67 1,80 15 S 106 29,130 15"/>
+  <line class=rung x1=12 y1=8 x2=12 y2=22 style="animation-delay:0s"/>
+  <line class=rung x1=27 y1=6 x2=27 y2=24 style="animation-delay:-.35s"/>
+  <line class=rung x1=41 y1=9 x2=41 y2=21 style="animation-delay:-.7s"/>
+  <line class=rung x1=54 y1=6 x2=54 y2=24 style="animation-delay:-1.05s"/>
+  <line class=rung x1=67 y1=9 x2=67 y2=21 style="animation-delay:-1.4s"/>
+  <line class=rung x1=80 y1=6 x2=80 y2=24 style="animation-delay:-1.75s"/>
+  <line class=rung x1=93 y1=9 x2=93 y2=21 style="animation-delay:-2.1s"/>
+  <line class=rung x1=106 y1=6 x2=106 y2=24 style="animation-delay:-2.45s"/>
+  <line class=rung x1=120 y1=8 x2=120 y2=22 style="animation-delay:-2.8s"/>
+</svg></h1>
+<div class=sub>Every pulse is a real event from qsb_council_tasks.jsonl. No demo motion. Sign-off is autonomous — Wren + Bill, not Ross.</div>
+<div class=livehead><span class=live-dot id=liveDot></span><b id=liveState>CONNECTING</b><span class=beat id=beatDot title="one pulse per live refresh"></span><span class=dim id=freshness>waiting for source freshness…</span></div>
 <div class=kpis>
   <div class=kpi><div class=v id=kTotal>—</div><div class=l>tasks total</div></div>
   <div class=kpi><div class=v id=kActive>—</div><div class=l id=kActiveL>active board</div></div>
@@ -564,7 +614,7 @@ h1{margin:0;font-size:20px}h1 .n{color:var(--wren)}
 <div class=card><h2>⚡ Now working — each member's live active task (real snapshot, not counts)</h2><div id=nowWorking></div></div>
 <div class=card id=genePoolCard><h2>🧬 Gene Pool — box providers (live)</h2><div id=genePool></div><div class=source-note>Source: live /health poll of each box gene pool on :8770 (20s cached). Providers self-heal — a box shown DOWN is genuinely unreachable.</div></div>
 <div class=card><h2>🛤️ Per-member swim-lanes — where each member's work is parked</h2><svg id=lanes></svg></div>
-<div class=card><h2>✅ Awaiting YOUR sign-off — tick to keep the council moving</h2><div id=signoff></div></div>
+<div class=card><div class=signhead><h2 style="margin:0">🤝 Council sign-off — Wren + Bill (autonomous)</h2><span class=signcount id=signCount>—</span></div><div class=sub style="margin:4px 0 10px">Verified independently by Wren (her local mind) and Bill (his Mac) — a task advances only when BOTH approve. Ross is no longer the gate.</div><div id=signoff></div></div>
 <div class=card><h2>Worker ratings /10 — real, from corrections &amp; rework</h2><div id=wstats></div></div>
 <div class=card><h2>🟣 What the Council is doing — Wren, Bill, Codex, TP-Pip &amp; Acer-Cass live</h2><div id=teamActions></div></div>
 <div class=cols2>
@@ -844,6 +894,13 @@ async function tick(){
   const k=d.kpis;kTotal.textContent=k.total;kOpen.textContent=k.open;kVerify.textContent=k.awaiting_verify;kBlocked.textContent=k.blocked;kDone.textContent=k.done;
   kActive.textContent=(k.active_board==null?'—':k.active_board);kActiveL.textContent='active board'+(k.active_board_cap?(' (cap '+k.active_board_cap+')'):'');
   kReserve.textContent=(k.reserved==null?'—':k.reserved);kDropped.textContent=(k.dropped==null?'—':k.dropped);kVerified.textContent=(k.verified==null?'—':k.verified);
+  // ── flash a KPI card when its value CLIMBED since the previous poll (real increase only) ──
+  (function(){const pk=window.__prevKpi||{};const chk={kTotal:k.total,kDone:k.done,kVerified:k.verified};
+    for(const id in chk){const nv=Number(chk[id]),el=document.getElementById(id),card=el&&el.parentElement;
+      if(card&&pk[id]!==undefined&&!isNaN(nv)&&nv>pk[id]){card.classList.remove('bump');void card.offsetWidth;card.classList.add('bump');}}
+    window.__prevKpi=chk;})();
+  // ── heartbeat: pulse the LIVE-indicator companion dot ONCE per live refresh ──
+  {const bd=document.getElementById('beatDot');if(bd){bd.classList.remove('on');void bd.offsetWidth;bd.classList.add('on');}}
   const p=d.progress||{},isLive=!!p.live,hasMotion=(p.recent_events_5m||0)>0;
   const prow=document.getElementById('principalRow');const pr=p.principals||{};const pk=Object.keys(pr);
   prow.innerHTML=pk.length?pk.map(n=>{const on=pr[n].online;const st=esc(pr[n].state||'?');return `<div class=kpi style="border-color:${on?'var(--ok)':'var(--bad)'}"><div class=v style="font-size:12px;color:${on?'var(--ok)':'var(--bad)'}">${on?'● ONLINE':'○ '+st}</div><div class=l>${esc(LANE_LABEL[n]||n)}</div></div>`}).join(''):'';
@@ -893,7 +950,22 @@ async function tick(){
   document.getElementById("await").innerHTML=(d.awaiting||[]).map(t=>`<div class=av><b class=mono>${esc(t.id)}</b> ${esc(t.title)}<br><span class=pill>owner ${esc(t.owner||'—')} · sandbox ${esc(t.sandbox_by||'—')} · signoff ${esc(t.signoff_by||'—')} ${t.verdict?('· '+esc(t.verdict)):''}${t.rework?(' · rework '+t.rework):''}</span></div>`).join('')||'<span class=pill>none awaiting</span>';
   document.getElementById("actors").innerHTML=Object.entries(d.actors||{}).map(([a,n])=>`<span class=badge style="color:${ACTORC[a]||'#7d8da6'};border-color:${ACTORC[a]||'#233146'};margin:2px;display:inline-block">${esc(a)} ${n}</span>`).join('');
   const rc=r=>r>=8?'var(--ok)':r>=5?'var(--warn)':'var(--bad)';
-  document.getElementById("signoff").innerHTML=(d.awaiting_signoff||[]).map(t=>`<div style="border:1px solid var(--line);border-radius:8px;padding:8px;margin-bottom:6px;font-size:12px"><b class=mono>${esc(t.id)}</b> ${esc(t.title)}<br><span class=pill>${esc(t.state)} · owner ${esc(t.owner||t.created_by||'—')} · rework ${t.rework} · rating <b style="color:${rc(t.rating)}">${t.rating}/10</b></span><div style="margin-top:5px"><button onclick="act('${esc(t.id)}','accept')" style="background:var(--ok);color:#04120d;border:0;border-radius:6px;padding:5px 12px;font-weight:700;cursor:pointer">✓ Accept</button> <button onclick="act('${esc(t.id)}','reject')" style="background:transparent;border:1px solid var(--bad);color:var(--bad);border-radius:6px;padding:5px 12px;cursor:pointer">✕ Reject</button></div></div>`).join('')||'<span class=pill>nothing awaiting your sign-off</span>';
+  // ── autonomous council sign-off card — Wren + Bill two-mind status, NOT a Ross tick ──
+  const vColor=v=>v==='APPROVE'?'var(--ok)':(v==='REJECT'?'var(--bad)':'var(--dim)');
+  const vLabel=v=>v?({APPROVE:'✓ approve',REJECT:'✕ reject',UNREACHABLE:'○ unreachable',UNCLEAR:'? unclear'}[v]||esc(v)):'· pending';
+  const mindChip=(nm,v)=>`<span class=badge style="color:${vColor(v)};border-color:${vColor(v)};margin-right:5px">${nm}: ${vLabel(v)}</span>`;
+  const aw=d.awaiting_signoff||[];
+  document.getElementById("signoff").innerHTML=aw.map(t=>{
+    const c=t.council||{},wren=c.wren||null,bill=c.bill||null,both=(wren==='APPROVE'&&bill==='APPROVE');
+    const status=both?`<span style="color:var(--ok);font-weight:700">✓ both approved — advancing autonomously (no Ross gate)</span>`
+      :`<span class=dim>pending council two-mind sign-off${c.ts?(' · last checked '+esc((c.ts||'').slice(11,19))+' UTC'):' · not yet verified'}</span>`;
+    return `<div style="border:1px solid ${both?'var(--ok)':'var(--line)'};border-radius:8px;padding:8px;margin-bottom:6px;font-size:12px"><b class=mono>${esc(t.id)}</b> ${esc(t.title)}<br><span class=pill>${esc(t.state)} · owner ${esc(t.owner||t.created_by||'—')} · sandbox ${esc(t.sandbox_by||'—')} · rework ${t.rework} · rating <b style="color:${rc(t.rating)}">${t.rating}/10</b></span><div style="margin-top:6px">${mindChip('Wren',wren)}${mindChip('Bill',bill)}</div><div style="margin-top:4px;font-size:11px">${status}</div><details style="margin-top:5px"><summary class=dim style="cursor:pointer;font-size:11px">Ross override (not required — council signs autonomously)</summary><div style="margin-top:5px"><button onclick="act('${esc(t.id)}','accept')" style="background:transparent;border:1px solid var(--ok);color:var(--ok);border-radius:6px;padding:4px 10px;cursor:pointer">✓ Accept</button> <button onclick="act('${esc(t.id)}','reject')" style="background:transparent;border:1px solid var(--bad);color:var(--bad);border-radius:6px;padding:4px 10px;cursor:pointer">✕ Reject</button></div></details></div>`;
+  }).join('')||'<span class=pill>nothing awaiting council sign-off</span>';
+  // header live count + flash when the autonomous-signed total climbs
+  const sc=document.getElementById('signCount');
+  if(sc){sc.textContent=aw.length+' awaiting · '+(d.council_signed||0)+' council-signed';
+    if(window.__prevSigned!==undefined&&(d.council_signed||0)>window.__prevSigned){sc.classList.remove('bump');void sc.offsetWidth;sc.classList.add('bump');}
+    window.__prevSigned=d.council_signed||0;}
   document.getElementById("wstats").innerHTML=(d.worker_stats||[]).map(w=>`<div style="display:flex;align-items:center;gap:8px;padding:4px 0;font-size:12px"><span style="color:${ACTORC[w.actor]||'#7d8da6'};font-weight:700;width:96px">${esc(w.actor)}</span><div style="flex:1;height:8px;background:#0d1420;border-radius:6px;overflow:hidden"><div class="rating-fill${hasMotion?' live':''}" style="width:${w.avg_rating*10}%;background:${rc(w.avg_rating)}"></div></div><span class=pill>${w.avg_rating}/10 · ${w.tasks} tasks · ${w.done} done · avg rework ${w.avg_rework}</span></div>`).join('')||'<span class=pill>—</span>';
   document.getElementById("teamActions").innerHTML=(d.team_actions||[]).map(a=>`<div style="padding:3px 4px;border-bottom:1px solid var(--line);font-size:11px;display:grid;grid-template-columns:64px 92px 130px 1fr;gap:8px"><span class=dim>${esc((a.ts||'').slice(11,19))}</span><span style="color:${ACTORC[a.actor]||'#7d8da6'};font-weight:700">${esc(LANE_LABEL[a.actor]||a.actor)}</span><span>${esc(a.label)}</span><span class=dim>${esc(a.task||'')}</span></div>`).join('')||'<span class=pill>no recent council actions in the live ledger window</span>';
   first=false;
