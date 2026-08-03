@@ -1,8 +1,8 @@
 [Unit]
-Description=QSB autonomous evolution loop — Wren+Bill verify-sign+apply every 20 min
+Description=QSB autonomous evolution loop — Wren+Bill verify-sign+apply every 5 min
 [Timer]
-OnBootSec=8min
-OnUnitActiveSec=20min
+OnBootSec=3min
+OnUnitActiveSec=5min
 Persistent=true
 [Install]
 WantedBy=timers.target
