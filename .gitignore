@@ -112,3 +112,7 @@ vaults/
 **/*secret*.json
 scripts/qsb_set_*_keys.sh
 check_all_vault_claude_keys.sh
+
+# Secrets / key-bearing runtime files — never commit (Ross 2026-08-03: stop the leak)
+data/registries/qsb_chat_log.jsonl
+tools/gene_pool_keys.json
