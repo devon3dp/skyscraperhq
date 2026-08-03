@@ -1,0 +1,12 @@
+[Unit]
+Description=QSB Lumen F48 chat (:8848)
+After=network-online.target
+[Service]
+Type=simple
+User=ross
+WorkingDirectory=/vaults/nvme0/qsb_tower_v1
+ExecStart=/usr/bin/python3 /vaults/nvme0/qsb_tower_v1/tools/qsb_lumen_serve.py --port 8848
+Restart=always
+RestartSec=5
+[Install]
+WantedBy=multi-user.target

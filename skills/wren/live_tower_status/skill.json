@@ -1,0 +1,10 @@
+{
+  "name": "live_tower_status",
+  "description": "Pull the LIVE tower telemetry snapshot on demand: services up/down, event bus, traders alive, disk, load, and the Task Council board counts. Grounded from qsb_tower_health_snapshot.json (falls back to a fresh qsb_tower_health.py snapshot if stale). Use BEFORE answering any 'how is the tower / are we healthy / what's running' question so Wren speaks from real telemetry, never guesses.",
+  "params": {"type": "object", "properties": {"max_age_s": {"type": "integer", "default": 180}}, "required": []},
+  "safety_class": "read",
+  "entrypoint": "skill:run",
+  "authored_by": "Claude for Wren (additive skill upgrade)",
+  "authored_ts": "2026-07-29",
+  "tags": ["situational-awareness", "health", "key-player"]
+}

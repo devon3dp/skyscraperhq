@@ -1,0 +1,8 @@
+[Unit]
+Description=QSB Floor 42 Binance TESTNET honest status/snapshot refresh (PREVIEW-ONLY, placement blocked, public market data)
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 /vaults/nvme0/qsb_tower_v1/tools/qsb_f42_binance_status_refresh.py --quiet
+User=ross
+Nice=10

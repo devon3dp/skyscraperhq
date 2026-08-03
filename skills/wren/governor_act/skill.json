@@ -1,0 +1,14 @@
+{
+  "name": "governor_act",
+  "description": "Wren's PROACTIVE control loop (R01, gate-respecting) — survey -> DECIDE -> DELEGATE -> FOLLOW-UP, not survey -> observe. In one call it reads the deep command_deck (per-CEO load, global WIP, backlog, blocked, stale), follows up her own outstanding delegations so none are forgotten, then DECIDES what a governor should actually do given the real state and acts on it through delegate_task. If the council is SATURATED at the WIP ceiling it does NOT pile on new work — it earmarks the highest-value work as pending and reports the finish-first / unblock / reap recommendation. If there is FREE WIP capacity it delegates real work into the slot(s): first an unowned OPEN backlog task (drives completion, no new sprawl), else a fresh governor_scan finding turned into a new assigned task with a verifier and a relay ping to the least-loaded online worker. Every action runs through delegate_task so the per-CEO cap and global WIP ceiling are respected and every handoff is logged. Params: max_actions (default 1), dry_run (plan only), notify. It flips no gate and forces nothing onto a jammed board.",
+  "params": {"type": "object", "properties": {
+    "max_actions": {"type": "integer", "default": 1},
+    "dry_run": {"type": "boolean", "default": false},
+    "notify": {"type": "boolean", "default": true}
+  }, "required": []},
+  "safety_class": "act",
+  "entrypoint": "skill:run",
+  "authored_by": "Claude for Wren (governor upgrade — proactive control loop; additive, touches no mind/persona file)",
+  "authored_ts": "2026-07-30",
+  "tags": ["governor", "proactive", "delegation", "control-loop", "wip-respecting", "R01-honest"]
+}

@@ -1,0 +1,10 @@
+{
+  "name": "worker_needs_digest",
+  "description": "Read the real worker-needs queue (qsb_worker_needs_queue.json) and return the top N distinct needs across the tower, each with floor, lead, room, how many workers reported it, and its evidence source. This is the queue Wren's heartbeat wakes her on. Use it to ACT on what workers actually need instead of only noticing the wake event. Every need is verbatim from a real worker report row (R01 honest).",
+  "params": {"type": "object", "properties": {"n": {"type": "integer", "default": 8}, "floor": {"type": "integer"}}, "required": []},
+  "safety_class": "read",
+  "entrypoint": "skill:run",
+  "authored_by": "Claude for Wren (additive skill upgrade)",
+  "authored_ts": "2026-07-29",
+  "tags": ["worker-needs", "leadership", "key-player"]
+}

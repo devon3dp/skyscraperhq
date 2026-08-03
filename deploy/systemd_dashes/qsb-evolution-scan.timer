@@ -1,0 +1,10 @@
+[Unit]
+Description=QSB Evolution Scan Timer (every ~30min + 5min after boot) — propose-only self-evolution scan
+
+[Timer]
+OnBootSec=5min
+OnUnitActiveSec=30min
+Persistent=true
+
+[Install]
+WantedBy=timers.target

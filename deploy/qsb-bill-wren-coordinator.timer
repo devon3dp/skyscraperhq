@@ -1,0 +1,10 @@
+[Unit]
+Description=QSB Bill<->Wren Coordinator tick (answers Bill's DMs + pushes Wren's grounded update every 10 min; boot-proof)
+
+[Timer]
+OnBootSec=3min
+OnUnitActiveSec=10min
+Persistent=true
+
+[Install]
+WantedBy=timers.target

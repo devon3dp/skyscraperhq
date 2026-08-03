@@ -1,0 +1,8 @@
+[Unit]
+Description=Run TP+Asa workers every 2 minutes (continuous live work)
+[Timer]
+OnBootSec=100sec
+OnUnitActiveSec=2min
+Persistent=true
+[Install]
+WantedBy=timers.target

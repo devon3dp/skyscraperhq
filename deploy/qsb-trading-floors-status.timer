@@ -1,0 +1,10 @@
+[Unit]
+Description=Refresh unified trading-floors status every 60s (folds F41/F42/F43 into qsb_trading_floors_status.json)
+
+[Timer]
+OnBootSec=60
+OnUnitActiveSec=60
+AccuracySec=10
+
+[Install]
+WantedBy=timers.target

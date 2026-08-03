@@ -129,6 +129,7 @@ STATIONS = {
     "tc_sandbox":   {"x": 720, "y": 400, "label": "Sandbox",    "sub": True},
     "iquest_40b":   {"x": 720, "y": 500, "label": "iQuest-40B", "sub": True},
     "qwen_worker":  {"x": 720, "y": 570, "label": "qwen worker","sub": True},
+    "claude_acct":  {"x": 720, "y": 640, "label": "Claude",     "sub": True},
     "hermes":       {"x": 720, "y": 710, "label": "Hermes",     "sub": True},
     # ── COL 5 · GENE POOL interchange (x=920) — sole on-ramp to the provider fan ──
     "gene_pool":    {"x": 920, "y": 320, "label": "Gene Pool · 24", "big": True},
@@ -394,7 +395,7 @@ CURATED_ZONE = {
     "hq": "Executive & Council", "ross": "Executive & Council",
     # R&D / Labs — the specialist/bench/sandbox cluster
     "wren_brain": "R&D / Labs", "f46_bench": "R&D / Labs", "tc_sandbox": "R&D / Labs",
-    "iquest_40b": "R&D / Labs", "qwen_worker": "R&D / Labs",
+    "iquest_40b": "R&D / Labs", "qwen_worker": "R&D / Labs", "claude_acct": "R&D / Labs",
     "hermes": "R&D / Labs", "forge": "R&D / Labs",
     # STAGING3: the worker-needs roll-up sits with core operations/monitoring
     "worker_needs": "Core Operations",
@@ -683,13 +684,13 @@ LINES = _L
 # SUB-TRACKS: Council of 15, Wren, and Task Council each get their own internal lines
 LINES += [
     ("council15", "iquest_40b", "c15"), ("council15", "qwen_worker", "c15"),
-    ("council15", "hermes", "c15"), ("council15", "gene_pool", "c15"),
+    ("council15", "hermes", "c15"), ("council15", "claude_acct", "c15"), ("council15", "gene_pool", "c15"),
     ("wren", "wren_brain", "wrensub"), ("wren", "f46_bench", "wrensub"),
     ("wren", "hermes", "wrensub"), ("wren", "iquest_40b", "wrensub"),
-    # Wren can wield any active specialist _tool_station() may return,
+    # Wren can wield ANY specialist _tool_station() may return (qwen_worker / claude_acct),
     # so give those a rail too — otherwise a "Wren wields qwen_worker" train animates over a
     # blank edge with no drawn track under it (bug #2 coherence: train edge with no line).
-    ("wren", "qwen_worker", "wrensub"),
+    ("wren", "qwen_worker", "wrensub"), ("wren", "claude_acct", "wrensub"),
     ("task_council", "tc_sandbox", "council"), ("task_council", "council15", "council"),
     # Oracle Cloud VM — tunnels into the tower
     ("oracle", "boardroom", "hub"), ("oracle", "gene_pool", "route"),
@@ -768,7 +769,7 @@ _TRUNK = [
     ("gene_pool", "gemini"), ("gene_pool", "groq"), ("gene_pool", "kimi"),
     ("gene_pool", "grok"), ("gene_pool", "openrouter"), ("gene_pool", "nvidia_nim"),
     ("council15", "iquest_40b"), ("council15", "qwen_worker"),
-    ("council15", "hermes"), ("council15", "gene_pool"),
+    ("council15", "hermes"), ("council15", "claude_acct"), ("council15", "gene_pool"),
     ("oracle", "council15"), ("boardroom", "gene_pool"),
     # specialist / bench / sandbox connectors — dim backbone so these nodes never look
     # stranded even when idle (they're structurally one hop off the spine).
@@ -790,11 +791,11 @@ PRES_MAP = {"wren": "wren", "tp": "tp_pip", "asa": "acer_cass", "bill": "bill", 
 ALIAS = {"asa": "acer_cass", "tp": "tp_pip", "pip": "tp_pip", "tp_pip": "tp_pip",
          "acer_cass": "acer_cass", "wren": "wren", "bill": "bill",
          # STAGING3 (2026-07-30): boardroom-dialogue + delivery-receipt actor names.
-         # Historical retired-seat traffic is attributed to successor Bill.
+         # claude/iquest reuse their existing specialist stations; hq/forge/ross/
          # worker_needs_queue resolve to the new stations added above. Actors that
          # can't map to a real station (system, iris, chain_reporting) are left OUT
          # here so _sid() drops them — honest: no station, no train.
-         ("cl" + "aude"): "bill", "iquest": "iquest_40b", "hq": "hq",
+         "claude": "claude_acct", "iquest": "iquest_40b", "hq": "hq",
          "forge": "forge", "ross": "ross", "worker_needs_queue": "worker_needs"}
 
 
@@ -857,7 +858,7 @@ def _tool_station(text):
     if "oracle" in t: return "oracle"   # "owner uses Oracle Cloud VM …" -> real oracle trains
     if "iquest" in t: return "iquest_40b"
     if "hermes" in t: return "hermes"
-    if ("cl" + "aude") in t: return "bill"  # retired historical text -> successor seat
+    if "claude" in t: return "claude_acct"
     if "bill" in t: return "bill"
     if "tp-pip" in t or "tp_pip" in t or "pip" in t: return "tp_pip"
     if "acer" in t or "asa" in t: return "acer_cass"
@@ -931,53 +932,6 @@ def _http_up(url, ttl=15, timeout=1.2):
         up = False
     _PROBE_CACHE[url] = (now, up)
     return up
-
-
-import threading as _gene_threading
-
-# ── Live box gene-pool HUD feed (ADDITIVE · own cache · NEVER touches build()/the SVG) ──
-# The two Windows boxes each run a standalone multi-provider gene pool on :8770.
-# Poll ONLY /health and surface exactly what each box reports; an unreachable box is
-# shown DOWN with zero providers — never invented. Served on its own /api/gene_pool
-# endpoint so the fragile train-map data path and SVG routing are left untouched.
-_GENE_BOXES = {
-    "TP":   "http://DESKTOP-9RBVKSM.local:8770/health",
-    "Acer": "http://DESKTOP-1E2FB5N.local:8770/health",
-}
-_GENE_HUD_CACHE = {"ts": 0.0, "data": None}
-_GENE_HUD_TTL = 15.0
-
-
-def _gene_box_probe(url):
-    try:
-        req = _probe_req.Request(url, method="GET")
-        with _probe_req.urlopen(req, timeout=2.5) as r:
-            j = json.loads(r.read().decode("utf-8", "ignore"))
-        provs = j.get("providers_available") or []
-        if not isinstance(provs, list):
-            provs = []
-        return {"online": bool(j.get("ok")), "providers": [str(p) for p in provs]}
-    except Exception:
-        return {"online": False, "providers": []}
-
-
-def _gene_pool_hud():
-    now = time.time()
-    c = _GENE_HUD_CACHE
-    if c["data"] is not None and (now - c["ts"]) < _GENE_HUD_TTL:
-        return c["data"]
-    out = {}
-    threads = []
-    for name, url in _GENE_BOXES.items():
-        t = _gene_threading.Thread(
-            target=lambda n=name, u=url: out.__setitem__(n, _gene_box_probe(u)), daemon=True)
-        t.start(); threads.append(t)
-    for t in threads:
-        t.join(timeout=3.0)
-    for name in _GENE_BOXES:
-        out.setdefault(name, {"online": False, "providers": []})
-    c["ts"] = now; c["data"] = out
-    return out
 
 
 def _provider_status():
@@ -1313,7 +1267,7 @@ def build():
     #     tower's MAIN conversation stream (231k rows, appended every few seconds) and the live
     #     map never read it. Each row {ts, who, kind, text} is a real post BY `who` INTO the
     #     boardroom — a directional who -> boardroom train, age-gated + de-duped like the rest.
-    #     Only speakers that resolve to a real station ride;
+    #     Only speakers that resolve to a real station ride (wren/ross/hq/claude/iquest/forge);
     #     unmappable speakers (system, iris, …) are DROPPED by _sid — never faked (R01).
     for r in _tail(BOARDROOM_COMMENTARY, 400):
         who = _sid(r.get("who") or r.get("speaker") or r.get("from"))
@@ -1462,9 +1416,9 @@ def build():
     trains = []
     # route/provider now carry BOTH request and reply legs — bigger cap so both directions show.
     # 2026-07-29 (hermes/iquest dark bug): c15/wrensub raised 8 -> 24. The specialist-liveness
-    # daemon writes tool_selected for active specialists,
+    # daemon writes tool_selected for ~7 specialists (iquest/hermes/qwen_worker/claude_acct/…),
     # each a 2-leg round trip = ~14-18 real trains. The old cap of 8 kept only the 4 freshest
-    # specialists and sliced off active stations even when events were fresh
+    # specialists and SLICED OFF hermes/iquest/claude_acct even though their events were fresh
     # (<900s) and real — making them look dark/isolated. All survivors are still age-gated, so
     # nothing fabricated enters; the cap now just stops crowding out real specialists.
     # PER-EDGE FAIRNESS: within c15/wrensub, keep the freshest train for EACH distinct edge
@@ -1492,12 +1446,7 @@ def build():
                    ("council", 12), ("c15", 24), ("wrensub", 24), ("trade", 60),
                    ("boardroom", 30), ("delivered", 60)):
         bucket = _bc.get(cat, [])
-        # Preserve one freshest row per directed edge for every conversational/route
-        # category. Previously only specialist/boardroom buckets were edge-fair, so a
-        # busy provider or comms bucket could retain A→B rows while evicting B→A rows,
-        # hiding real two-way evidence before classification.
-        if cat in ("route", "provider", "comms", "council", "c15", "wrensub",
-                   "trade", "boardroom", "delivered"):
+        if cat in ("c15", "wrensub", "boardroom", "delivered"):
             trains += _cap_fair(bucket, K)
         else:
             trains += sorted(bucket, key=lambda t: t.get("age_s", 1e9))[:K]
@@ -1920,7 +1869,7 @@ def build():
             # clean; the full everyone-to-everyone lattice is still in `lines` (cat=="mesh")
             # and returns instantly if a client sets show_mesh true. Real connectivity data
             # is untouched — this only hides the faint dashed web from the default draw.
-            "show_mesh": True,
+            "show_mesh": False,
             "lines": lines_out,
             # honest per-track direction detail (STAGING, UG-02) for the track/station panels
             "pair_dir": pair_dir,
@@ -2042,8 +1991,7 @@ h1{margin:0;font-size:20px}.sub{color:var(--dim);margin:2px 0 8px}
 .ibtn{background:#40b4ff;color:#04101f;border:0;border-radius:8px;padding:8px 12px;font-weight:700;cursor:pointer;font-size:12px;margin-top:12px}
 .ibtn.sec{background:#1b2536;color:#cfe0f5;border:1px solid #2c3a52}
 </style></head><body><div class=wrap>
-<div id=genePoolHud style="position:fixed;left:12px;bottom:12px;z-index:9000;background:rgba(9,14,22,.92);border:1px solid #233146;border-radius:10px;padding:8px 12px;font:12px ui-monospace,monospace;color:#cfe0f5;box-shadow:0 4px 18px rgba(0,0,0,.5);pointer-events:none;max-width:340px">🧬 <b>Gene Pool</b> <span style="color:#7d8da6">· connecting…</span></div>
-<h1>SkyscraperHQ · Underground <span style="color:#40b4ff">· :8875</span><span id=health class="hp ok">—</span><span id=meshstate class="hp ok">· FULL MESH</span></h1>
+<h1>SkyscraperHQ · Underground <span style="color:#40b4ff">· :8875</span><span id=health class="hp ok">—</span></h1>
 <div class=sub><b style="color:#7f93ad">STRUCTURAL:</b> <span id=proof style="color:#9db3cc"></span></div>
 <div class=sub><b style="color:#45f59b">OBSERVED (last 15m):</b> <span id=observed style="color:#8fe6b5;font-weight:600"></span></div>
 <div class=sub><span id=liveais style="color:#8fe6b5"></span> · every animated train is a REAL event ≤15m old — a quiet line stays still. Click any station · track · train to inspect.</div>
@@ -2061,15 +2009,6 @@ h1{margin:0;font-size:20px}.sub{color:var(--dim);margin:2px 0 8px}
   <span class="chip on" id=tglDept style="border-color:#6366f1" title="trace each department's stations as a coloured line through the uniform grid">department lines</span>
   <span class="chip on" id=tglNamed style="border-color:#40b4ff" title="show the named metro lines (Gene Pool / Provider / Council / Comms / Council-15 / Wren / Trading) threading each subsystem's real stations">named lines</span>
   <span class=chip id=clrsel style="border-color:#3a4a63">clear selection</span>
-</div>
-<div id=vmbar style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin:4px 0 2px 0">
-  <span style="color:#7d8da0;font-size:11px;font-weight:700;letter-spacing:.04em">VIEW</span>
-  <span class="chip vm on" data-vm=normal style="border-color:#40b4ff" title="primary routes, active tracks, trunk backbone, proven two-way + interchanges">Normal</span>
-  <span class="chip vm" data-vm=allvalid style="border-color:#45f59b" title="every valid track incl. idle ones brought up dim (hidden structural valid tracks made available)">All valid tracks</span>
-  <span class="chip vm" data-vm=structural style="border-color:#8b9bb4" title="show every structural route, including the full internal mesh">Structural · full mesh</span>
-  <span class="chip vm" data-vm=active style="border-color:#ffc24b" title="only tracks carrying a real train in the window">Active traffic</span>
-  <span class="chip vm" data-vm=twoway style="border-color:#c4b5fd" title="confirmed two-way vs one-way vs missing/degraded return paths">Two-way</span>
-  <span class="chip vm" data-vm=failed style="border-color:#ef4444" title="failed tracks, blocked/dead endpoints, stale routes">Failed / blocked</span>
 </div>
 <div id=mapwrap style="position:relative">
   <svg id=map></svg>
@@ -2184,100 +2123,27 @@ document.getElementById("zfit").addEventListener("click",_fitView);
 svg.addEventListener("wheel",e=>{e.preventDefault(); if(!VIEW)return;
   const p=_toVB(e.clientX,e.clientY); zoomAt(e.deltaY<0?1.15:1/1.15,p.x,p.y);
 },{passive:false});
-// click-drag = pan — BUT a plain CLICK must reach station/track/train hit targets. So we (1)
-// never start a pan when the press began on an interactive target, and (2) DEFER pan-start +
-// pointer capture until the pointer actually moves >4px. A click (no drag) therefore never
-// captures the pointer and passes straight through to the hit target. (Ross 2026-07-31 fix:
-// "still not interactive" — the old code captured the pointer on every pointerdown, swallowing
-// every click before it could select a station.)
-let _pan=null,_panPending=null;
-svg.addEventListener("pointerdown",e=>{ if(!VIEW)return;
-  if(e.target.closest && e.target.closest("#hitLayer, .rail, .train, .roundel, button, input, .chip, .vm")) return;
-  _panPending={sx:e.clientX,sy:e.clientY,ox:VIEW.x,oy:VIEW.y,pid:e.pointerId}; });
-svg.addEventListener("pointermove",e=>{
-  if(_panPending&&!_pan){
-    if(Math.abs(e.clientX-_panPending.sx)+Math.abs(e.clientY-_panPending.sy)>4){
-      _pan=_panPending; svg.classList.add("panning");
-      try{svg.setPointerCapture(_pan.pid);}catch(_){}   // capture ONLY once a real drag begins
-    } else return;
-  }
-  if(!_pan||!VIEW)return;
+// click-drag = pan
+let _pan=null;
+svg.addEventListener("pointerdown",e=>{ if(!VIEW)return; _pan={sx:e.clientX,sy:e.clientY,ox:VIEW.x,oy:VIEW.y};
+  svg.classList.add("panning"); svg.setPointerCapture(e.pointerId); });
+svg.addEventListener("pointermove",e=>{ if(!_pan||!VIEW)return;
   const r=svg.getBoundingClientRect();
   VIEW.x=_pan.ox-((e.clientX-_pan.sx)/r.width)*VIEW.w;
   VIEW.y=_pan.oy-((e.clientY-_pan.sy)/r.height)*VIEW.h;
   applyView(); });
-function _endPan(e){ _panPending=null; if(_pan){_pan=null; svg.classList.remove("panning"); try{svg.releasePointerCapture(e.pointerId);}catch(_){}} }
+function _endPan(e){ if(_pan){_pan=null; svg.classList.remove("panning"); try{svg.releasePointerCapture(e.pointerId);}catch(_){}} }
 svg.addEventListener("pointerup",_endPan); svg.addEventListener("pointercancel",_endPan);
 // ── LAYERED SVG (2026-07-29 FINAL): the map is redrawn every second WITHOUT wiping
 // in-flight trains. Two persistent <g> layers: #railLayer (rails+roundels+labels,
 // rebuilt each tick) and #trainLayer (moving carriages, NEVER cleared by a redraw).
 // This removes the flicker/teleport the old svg.innerHTML="" caused every tick. ──
-let railLayer=null, trainLayer=null, hitLayer=null;
+let railLayer=null, trainLayer=null;
 function ensureLayers(){
   if(!railLayer){railLayer=el("g",{id:"railLayer"});svg.appendChild(railLayer);}
   if(!trainLayer){trainLayer=el("g",{id:"trainLayer"});svg.appendChild(trainLayer);}
-  // ── STATION HIT-TARGET LAYER (Ross 2026-07-31 correction #1) ─────────────────────────────
-  // PROVEN CAUSE of "can't click stations": the interactive trainLayer sat ON TOP of the
-  // station roundels (which live in railLayer), so the 300+ flowing train <g>'s intercepted
-  // pointer events over stations. FIX: a dedicated hit layer ABOVE trains holds invisible,
-  // generously-sized hit circles per station — trains can never steal a station click again.
-  if(!hitLayer){hitLayer=el("g",{id:"hitLayer"});svg.appendChild(hitLayer);}
-  // strict stack (bottom→top): rails → trains → station hit targets
-  if(svg.lastChild!==hitLayer){svg.appendChild(trainLayer);svg.appendChild(hitLayer);}
-}
-// ── HOVER TOOLTIP + INVISIBLE HIT TARGETS (Ross 2026-07-31 correction #1) ──────────────────
-let _hovTip=null,_hovTimer=null,_hovId=null;
-function _ensureHovTip(){
-  if(_hovTip)return _hovTip;
-  _hovTip=document.createElement("div");_hovTip.id="hovtip";
-  _hovTip.style.cssText="position:fixed;z-index:120;max-width:330px;pointer-events:none;display:none;"
-    +"background:rgba(8,14,24,.97);border:1px solid #2a3a52;border-radius:9px;padding:9px 11px;"
-    +"font:12px/1.5 -apple-system,Segoe UI,Roboto,sans-serif;color:#cfe0f5;box-shadow:0 6px 26px rgba(0,0,0,.6)";
-  document.body.appendChild(_hovTip);return _hovTip;
-}
-function _hovHtml(id){
-  const s=(D&&D.stations[id])||{},idc=idColor(id);
-  const pairs=(typeof _pairsFor==="function")?_pairsFor(id):[];
-  const inb=pairs.filter(p=>p.inLeg&&p.inLeg.count>0).length,outb=pairs.filter(p=>p.outLeg&&p.outLeg.count>0).length;
-  const tw=pairs.filter(p=>p.status==="confirmed").length;
-  const recent=((D&&D.trains)||[]).filter(t=>t.from===id||t.to===id).sort((a,b)=>(a.age_s||1e9)-(b.age_s||1e9));
-  const last=recent[0];
-  let st="quiet (no live signal)";
-  if(s.valid===false)st="INVALID · "+(s.invalid_reason||"blocked");
-  else if(s.offline)st="offline";
-  else if(s.has_traffic)st="ACTIVE · carrying trains";
-  else if(s.ghost)st="idle · "+(s.last_active_label||"recent");
-  else if(s.reachable)st="reachable (probed)";
-  else if(s.comms_online)st="comms-online";
-  const row=(k,v)=>(v==null||v==="")?"":`<div style="display:flex;justify-content:space-between;gap:14px"><span style="color:#8595ab">${k}</span><span style="color:#e6eefb;font-weight:600;text-align:right">${v}</span></div>`;
-  return `<div style="font-weight:800;color:${idc};margin-bottom:4px">${_esc(s.label||id)}</div>`
-    +row("id",id)+row("kind",(typeof _kindOf==="function")?_kindOf(s):"")+row("owner/family",idKey(id))
-    +row("zone",s.zone||"")+row("status",st)
-    +(s.prov?row("provider",(s.status||"")+(s.status_detail?(" · "+s.status_detail):"")):"")
-    +row("inbound tracks",inb)+row("outbound tracks",outb)+row("confirmed two-way",tw)
-    +row("live trains",recent.length)+(last?row("latest event",(last.cat||"")+" · "+_ageTxt(last.age_s)):"")
-    +`<div style="color:#6d7f98;margin-top:5px;font-size:11px">click to pin details · inspection only</div>`;
-}
-function _showHov(id,ev){
-  const tip=_ensureHovTip();tip.innerHTML=_hovHtml(id);tip.style.display="block";
-  const pad=14,vw=innerWidth,vh=innerHeight,r=tip.getBoundingClientRect();
-  let x=ev.clientX+pad,y=ev.clientY+pad;
-  if(x+r.width+pad>vw)x=ev.clientX-r.width-pad;
-  if(y+r.height+pad>vh)y=ev.clientY-r.height-pad;
-  tip.style.left=Math.max(6,x)+"px";tip.style.top=Math.max(6,y)+"px";
-}
-function _hideHov(){if(_hovTimer){clearTimeout(_hovTimer);_hovTimer=null;}if(_hovTip)_hovTip.style.display="none";_hovId=null;}
-// hitR: 30 = AI home / interchange · 24 = major hub · 18 = ordinary station (Ross's spec)
-function _hitR(s,id){ if(s.big){const k=idKey(id);return /^(wren|bill|tp|asa|boardroom)$/.test(k)?30:24;} return 18; }
-function addHitTarget(id,s){
-  if(!hitLayer)return;
-  const h=el("circle",{cx:s.x,cy:s.y,r:_hitR(s,id),fill:"transparent","pointer-events":"all",class:"hit",id:"hit_"+id});
-  h.style.cursor="pointer";
-  h.addEventListener("click",(e)=>{e.stopPropagation();selectStation(id);});
-  h.addEventListener("mousemove",(e)=>{if(_hovId===id)_showHov(id,e);});
-  h.addEventListener("mouseenter",(e)=>{if(_hovTimer)clearTimeout(_hovTimer);const ee={clientX:e.clientX,clientY:e.clientY};_hovTimer=setTimeout(()=>{_hovId=id;_showHov(id,ee);},250);});
-  h.addEventListener("mouseleave",_hideHov);
-  hitLayer.appendChild(h);
+  // keep trains ON TOP of freshly-rebuilt rails
+  if(trainLayer!==svg.lastChild)svg.appendChild(trainLayer);
 }
 // LIVE-STREAM engine: every edge that carries a real (age-gated) train is registered
 // as a continuously-flowing "route". A carriage is spawned on each live route on a
@@ -2334,17 +2200,6 @@ function octoPolyline(A,B){
   const dx=bx-ax, dy=by-ay, adx=Math.abs(dx), ady=Math.abs(dy);
   if(adx<0.5) return [{x:ax,y:ay},{x:bx,y:by}];                       // pure vertical
   if(ady<0.5) return [{x:ax,y:ay},{x:bx,y:by}];                       // pure horizontal
-  // Long cross-zone routes used to share the exact same vertical corridor, which
-  // made several real rails look like one thick line. Give each edge a stable,
-  // wider corridor slot; the route still uses only horizontal/vertical segments
-  // and returns to the real destination station.
-  if(adx>250 && ady>40){
-    const key=String(A.id||A.label||"")+"|"+String(B.id||B.label||"");
-    let h=0; for(let i=0;i<key.length;i++) h=((h<<5)-h+key.charCodeAt(i))|0;
-    const slot=((Math.abs(h)%11)-5)*10;
-    const cx=ax+slot;
-    if(Math.abs(cx-bx)>28) return [{x:ax,y:ay},{x:cx,y:ay},{x:cx,y:by},{x:bx,y:by}];
-  }
   // PURE RIGHT-ANGLE (Manhattan) route — NO 45° dogleg, NO diagonal of ANY angle. Run down
   // A's column to B's row, then one horizontal jog into B; rounded corners smooth the 90°
   // bend into a tube curve. (Ross: "no diagonals like the underground · or curves" — every
@@ -2375,87 +2230,6 @@ function routePath(A,B){ return roundedPathFromPts(octoPolyline(A,B),OCTO_R); }
 function routeMid(A,B){
   const p=octoPolyline(A,B);
   return p.length<=2 ? null : {x:p[1].x,y:p[1].y};
-}
-// ══ IDENTITY COLOUR SYSTEM (Ross 2026-07-31: "colour must follow the identity or source") ══
-// Each major AI home / system family gets ONE permanent identity colour. A station inherits
-// its owner/family colour; a track gradients from its origin identity to its destination
-// identity; a train carries its SENDER's colour. All derived from REAL fields (id / zone /
-// prov / sub / trade / connected-line category) — never invented ownership.
-const IDC = {
-  wren:"#22d3ee",       // electric cyan   — Wren
-  bill:"#f5b301",       // gold / amber    — Bill
-  tp:"#a855f7",         // violet / purple — TP / Pip
-  asa:"#34d399",        // emerald         — Asa
-  council:"#c4b5fd",    // white-violet    — Task Council
-  boardroom:"#3b82f6",  // royal blue      — Boardroom
-  townsquare:"#2dd4bf", // turquoise       — Town Square
-  reception:"#7dd3fc",  // soft aqua       — Reception
-  reports:"#cbd5e1",    // silver          — Reports & Evidence
-  monitoring:"#a3e635", // lime            — Monitoring / R&D
-  security:"#fb7185",   // red-orange      — Security
-  recovery:"#2563eb",   // deep blue       — Recovery & Backup / Infra
-  trading:"#b5c94a",    // green-gold      — Trading
-  media:"#f472b6",      // rose            — Media & Creative
-  provider:"#e879f9",   // magenta family  — external providers (distinct from the 4 homes)
-  legacy:"#9d8ec9",     // muted purple    — legacy / provenance
-  failed:"#ef4444",     // red             — failed / dead / blocked
-  unknown:"#7c8794",    // grey            — unknown
-  planned:"#64748b"     // dashed grey-blue— planned
-};
-// zone → family fallback (used when a station is not itself a named home/provider/worker)
-const _ID_ZONE = {
-  "Trading Floors":"trading","Executive & Council":"council",
-  "Providers & Integration":"provider","Security & Governance":"security",
-  "Infrastructure & Ops":"recovery","R&D / Labs":"monitoring",
-  "Amenities & Culture":"townsquare","Media & Creative":"media",
-  "Commerce & Retail":"trading","Core Operations":"boardroom",
-  "Penthouse / Kernel":"legacy"
-};
-// OWNER_CAT: station id → identity key derived from the CATEGORY of lines that touch it
-// (wrensub ⇒ a Wren specialist, c15/council ⇒ council, trade ⇒ trading, provider ⇒ provider).
-// Rebuilt each layout tick from the real line list — honest owner-by-real-traffic.
-let OWNER_CAT = {};
-const _CAT_ID = {wrensub:"wren", c15:"council", council:"council", trade:"trading", provider:"provider"};
-function computeOwnerCat(d){
-  OWNER_CAT={};
-  (d.lines||[]).forEach(L=>{
-    const fam=_CAT_ID[L.cat]; if(!fam) return;
-    [L.a,L.b].forEach(id=>{ if(OWNER_CAT[id]==null) OWNER_CAT[id]=fam; });
-  });
-}
-// idKey: a station id → its identity family key, from real fields only.
-function idKey(id){
-  const s=ST[id]||{}; const L=String(id||"").toLowerCase(); const z=s.zone||"";
-  if(s.valid===false) return "failed";
-  if(L==="wren"||L.indexOf("wren")===0) return "wren";
-  if(L==="bill"||L.indexOf("bill")===0) return "bill";
-  if(L==="tp"||L==="tp_pip"||L==="pip"||L.indexOf("tp_")===0||L.indexOf("pip")===0) return "tp";
-  if(L==="asa"||L.indexOf("asa")===0) return "asa";
-  if(L==="boardroom") return "boardroom";
-  if(L.indexOf("town")>=0) return "townsquare";
-  if(L.indexOf("reception")>=0) return "reception";
-  if(L.indexOf("council")>=0) return "council";
-  if(s.prov) return "provider";
-  if(s.trade) return "trading";
-  if(OWNER_CAT[id]) return OWNER_CAT[id];   // worker/floor owned by a real traffic family
-  return _ID_ZONE[z] || "unknown";
-}
-function idColor(id){ return IDC[idKey(id)] || IDC.unknown; }
-// per-track gradient origin→destination identity colour (userSpaceOnUse so it runs A→B along
-// the real geometry). Cached by (colA|colB|Ax|Ay|Bx|By) so redraws reuse defs.
-let _defs=null, _gradCache={};
-// VIEW MODE (Ross 2026-07-31): normal | allvalid | structural | active | twoway | failed
-let VIEW_MODE="normal";
-function ensureDefs(){ if(!_defs){ _defs=el("defs",{}); svg.insertBefore(_defs, svg.firstChild); } return _defs; }
-function gradId(colA,colB,A,B){
-  if(colA===colB) return null;                       // same identity → solid colour, no gradient
-  const k=colA+"|"+colB+"|"+(A.x|0)+","+(A.y|0)+"|"+(B.x|0)+","+(B.y|0);
-  if(_gradCache[k]) return _gradCache[k];
-  const gid="g"+Object.keys(_gradCache).length;
-  const g=el("linearGradient",{id:gid,gradientUnits:"userSpaceOnUse",x1:A.x,y1:A.y,x2:B.x,y2:B.y});
-  g.appendChild(el("stop",{offset:"0%","stop-color":colA}));
-  g.appendChild(el("stop",{offset:"100%","stop-color":colB}));
-  ensureDefs().appendChild(g); _gradCache[k]=gid; return gid;
 }
 // ── NAMED METRO LINES (2026-07-31, Ross: "a real METRO SYSTEM WITH NAMED LINES like the
 //    London Underground's Circle / District line — but for SkyscraperHQ") ──────────────
@@ -2541,8 +2315,6 @@ function namedLineSpine(d,def,laneIdx,laneN){
 // draw ALL named metro lines as continuous octolinear curved routes (underlay backbone).
 function drawNamedLines(d,R){
   if(!SHOW_NAMED)return;
-  // focused modes hide the always-on backbone so ONLY the mode's tracks read (Ross 2026-07-31).
-  if(VIEW_MODE==="active"||VIEW_MODE==="twoway"||VIEW_MODE==="failed")return;
   const N=NAMED_LINES.length;
   NAMED_LINES.forEach((def,i)=>{
     const sp=namedLineSpine(d,def,i,N); if(!sp)return;
@@ -2579,26 +2351,6 @@ function dirArrow(R,A,B,L){
   }else{                                        // one-way: single chevron the ONE proven way
     R.appendChild(_chev(cx,cy, dir==="ba"?ab+Math.PI:ab, col));
   }
-}
-
-// Draw a confirmed/co-active pair as two visibly separated rails.  The API still
-// decides whether a pair is truly bidirectional; this is presentation only, so it
-// cannot manufacture traffic.  Keeping the lane offset identical to the carriage
-// offset makes the moving trains sit on the rails instead of disappearing into a
-// shared centreline.
-function drawTwoWayLanes(R,A,B,L,mkRail){
-  const st=L.dir_status||"idle";
-  if(st!=="confirmed"&&st!=="coactive") return;
-  const dx=B.x-A.x, dy=B.y-A.y, len=Math.hypot(dx,dy)||1;
-  const px=-dy/len, py=dx/len;
-  const gap=LANE_OFF||6.5;
-  const lane=(sx,sy,col,opacity)=>mkRail({
-    stroke:col,"stroke-width":1.8,opacity,
-    transform:`translate(${(px*sx*gap).toFixed(2)} ${(py*sy*gap).toFixed(2)})`,
-    "pointer-events":"none"
-  },false);
-  const col=st==="confirmed"?"#45f59b":"#ffb020";
-  lane(1,1,col,.78); lane(-1,-1,col,.56);
 }
 // on-canvas legend, bottom-left corner (item 3): line categories + provider status colours
 function drawLegend(){
@@ -2655,7 +2407,6 @@ let SHOW_DEPT=true, SHOW_LIFT=false;   // SHOW_LIFT retired (no lifts); kept fal
 // so the station roundels underneath stay clickable. Drawn under rails + stations.
 function drawDeptLines(d,R){
   if(!SHOW_DEPT)return;
-  if(VIEW_MODE==="active"||VIEW_MODE==="twoway"||VIEW_MODE==="failed")return;   // focused modes: no backbone
   const dl=d.dept_lines||[]; if(!dl.length)return;
   dl.forEach(z=>{
     const raw=z.pts||[]; if(raw.length<2)return;
@@ -2713,10 +2464,6 @@ function draw(d){
   // zoom engine below, NOT reset every poll tick — so a zoomed/panned view survives the
   // 1s data refresh (only re-fit on first load or when the user hits the fit button).
   const vb=(d.viewbox||"0 0 2380 800").split(/\s+/).map(Number);
-  // BOTTOM PAD (Ross 2026-07-31): add ~half a row of headroom below the bottom row so the
-  // bottom-row station hit targets clear the SVG clip edge and are reliably clickable
-  // (elementFromPoint returned null exactly at the edge before this pad). Topology unchanged.
-  const VPAD=80; vb[3]=vb[3]+VPAD;
   BASE_VIEW={x:vb[0],y:vb[1],w:vb[2],h:vb[3]};
   // keep the SVG box aspect-ratio matched to the server viewBox so the zone-organised grid is
   // never vertically squashed (the layout width changes as zones/floors change).
@@ -2730,9 +2477,6 @@ function draw(d){
   if(_sig!==_lastSig){
   _lastSig=_sig;
   railLayer.innerHTML="";           // rebuild rails/roundels only — trains persist
-  ensureLayers(); if(hitLayer)hitLayer.innerHTML="";   // rebuild station hit-targets in lockstep
-  if(_defs){_defs.innerHTML="";} _gradCache={};   // reset per-rebuild identity-gradient defs
-  computeOwnerCat(d);               // derive worker/floor ownership from real line categories
   const R=railLayer;                // rails/roundels/legend draw into the rail layer (not the whole svg)
   // ── ZONE BLOCKS (2026-07-29 v2): a tinted backdrop + header label over each department's
   //    columns, so the map reads as organised, findable blocks (trading / governance / R&D /
@@ -2752,59 +2496,47 @@ function draw(d){
   // even when idle), (3) bright live rails on top where a real train ran. This keeps the
   // primary category lines legible while the 300+ mesh edges stay hidden by default.
   const _z=_curZoom();                       // LOD: strengthen trunks / hide detail by zoom
-  const VM=VIEW_MODE;                          // selected view mode gates which tracks render
-  // ── IDENTITY-COLOURED RAILS + VIEW MODES (Ross 2026-07-31) ────────────────────────────────
-  // Every rail is coloured by its endpoints' IDENTITY (gradient origin→destination), brighter
-  // when it carries a real train, dimmer (but VISIBLE) when it's a valid idle track. The six
-  // view modes decide WHICH tracks are surfaced. Routing is orthogonal now, so cross-column
-  // ("bent") structural tracks can be brought up as clean L-rails — no diagonal slash.
   d.lines.forEach(L=>{const A=ST[L.a],B=ST[L.b];if(!A||!B)return;
-    if(L.cat==="lift") return;                 // no lifts on a 2D metro map
     const act=L.act>0, mesh=(L.cat==="mesh"), pk=L.id||pkOf(L.a,L.b);
-    const ds=L.dir_status||"idle";
-    // blocked/failed = a CATEGORISED (non-mesh) track to a dead/offline endpoint. Mesh edges to
-    // dead providers are structural noise, NOT failed routes — excluded so Failed view stays clean.
-    const dead=!mesh && (A.valid===false||B.valid===false||A.offline||B.offline);
-    const isTwoway=(ds==="confirmed"||ds==="coactive");
-    const isValid=!mesh && !dead;              // a real categorised, non-broken structural track
+    const bent=octoPolyline(A,B).length>2;   // true = edge needs a 45° dogleg (cross-column/row)
+    // one helper attaches data-pk + a click→INSPECT (viewing-only, no command) to every rail
     const mkRail=(attrs,clickable)=>{
       const p=el("path",{class:"rail",d:routePath(A,B),"data-pk":pk,...attrs});
       if(clickable!==false){p.style.cursor="pointer";p.addEventListener("click",(e)=>{e.stopPropagation();selectTrack(pk);});}
       R.appendChild(p);return p;
     };
-    // decide visibility + emphasis per the selected mode
-    let show=false, base=0, w=3, dash=null;
-    if(VM==="active"){ show=act; base=.85; w=4; }
-    else if(VM==="failed"){ show=dead||ds==="failed"||ds==="blocked"; base=.82; w=3; dash="2 4"; }
-    else if(VM==="twoway"){ show=isValid||act; base=act?.85:(isTwoway?.55:.20); w=isTwoway?4.5:3; dash=(ds==="oneway"&&!act)?"6 6":null; }
-    else if(VM==="structural"){ show=true; base=act?.85:(mesh?.045:.22); w=act?4:(mesh?.7:2); dash=mesh?"2 9":null; }
-    else if(VM==="allvalid"){ show=act||isValid; base=act?.85:.30; w=act?4:2.2; dash=(!act&&!L.trunk)?"4 7":null; }
-    else { /* NORMAL: complete valid network + light full mesh + active/trunk/two-way emphasis.
-             Quiet valid routes remain faint/dashed so they are never mistaken for
-             missing infrastructure; the full mesh remains a light dotted underlay. */
-           show=mesh?showMesh:(isValid||act||L.trunk||isTwoway);
-           base=mesh?(act?.46:.075):(act?.85:(L.trunk?.24:.10));
-           w=mesh?(act?1.3:.85):(act?(L.trunk?6:4):(L.trunk?2.2:1.4));
-           dash=mesh?"2 8":((!act&&!L.trunk)?"4 8":null); }
-    if(!show) return;
-    if(dead){   // failed / blocked / missing-endpoint track: red, dashed, still visible
-      mkRail({stroke:IDC.failed,"stroke-width":Math.max(2,w),opacity:Math.max(.55,base),"stroke-dasharray":"2 4"});
-      if(act&&_z>=0.9)dirArrow(R,A,B,L); return; }
-    if(mesh){   // internal structural mesh: identity-gradient when carrying a train, else faint grey
-      if(act){ const gid=gradId(idColor(L.a),idColor(L.b),A,B);
-               mkRail({stroke:gid?("url(#"+gid+")"):idColor(L.a),"stroke-width":3,opacity:.72});
-               if(_z>=0.9)dirArrow(R,A,B,L); }
-      else   { mkRail({stroke:"#6c849e","stroke-width":.85,opacity:base,...(dash?{"stroke-dasharray":dash}:{})},false); }
+    // LIFTS REMOVED (2026-07-31, Ross: "NO LIFTS — it's a 2D map"): the lift-shaft tracks
+    // were the diagonal mess and don't belong on a 2D metro map. Any lift edge is dropped.
+    if(L.cat==="lift") return;
+    // ── TUBE-MAP CLEAN-UP (2026-07-31): a cross-column/row edge would draw a long 45° dogleg
+    //    "slash". Those are NOT painted as individual static rails — the NAMED-LINE spines are
+    //    the backbone for cross-corridor structure, and live TRAINS still ride the octolinear
+    //    route to the correct destination. Only pure horizontal/vertical edges draw as static
+    //    rails (clean tube lanes) — so the map reads as named lines, never a fan of diagonals. ──
+    if(bent){
+      if(act && _z>=0.9) dirArrow(R,A,B,L);   // keep the honest two-way chevron on the routed track
+      return;
+    }
+    if(mesh){
+      // a MESH edge carrying a REAL train (floor-to-floor feed) draws bright; idle mesh hidden.
+      if(act){ mkRail({stroke:(CC.route||"#40b4ff"),"stroke-width":4,opacity:.82});
+        if(_z>=0.9)dirArrow(R,A,B,L); return; }
+      if(showMesh) mkRail({stroke:"#2b3c52","stroke-width":1.2,opacity:.12,"stroke-dasharray":"4 7"},false);
       return; }
-    // categorised VALID track → identity gradient origin→destination
-    const gid=gradId(idColor(L.a),idColor(L.b),A,B);
-    const stroke=gid?("url(#"+gid+")"):idColor(L.a);
-    mkRail({stroke,"stroke-width":w,opacity:base,...(dash?{"stroke-dasharray":dash}:{})});
-    // Confirmed/co-active pairs get two parallel rails so the return leg remains
-    // legible at a glance even when no carriage is exactly at mid-edge.
-    if(isTwoway) drawTwoWayLanes(R,A,B,L,mkRail);
-    if(act&&_z>=0.9)dirArrow(R,A,B,L);
-  });
+    if(act){
+      // TRUNK EMPHASIS (item 3): primary trunk lines render visibly STRONGER than secondary.
+      // POLISH (UG-02b): thinner + slightly lower opacity so dense clusters read as distinct
+      // lines/dots rather than a solid bright slab of colour.
+      const w=L.trunk?6:4;
+      mkRail({stroke:(CC[L.cat]||"#40b4ff"),"stroke-width":w,opacity:.82});
+      if(_z>=0.9)dirArrow(R,A,B,L);   // explicit static direction arrow(s) — honest per dir_status
+    } else if(L.trunk){  // idle TRUNK backbone: dim coloured line so the network shape reads
+      // POLISH (UG-02b): idle infra pulled back (.30 -> .18) so idle structure is a faint
+      // guide, not a competing glow.
+      mkRail({stroke:(CC[L.cat]||"#40b4ff"),"stroke-width":2.4,opacity:.18});
+    } else {  // idle non-trunk categorised track: reduced idle-infra brightness (item 6)
+      mkRail({stroke:"#33465f","stroke-width":1.2,opacity:.10,"stroke-dasharray":"3 6"});
+    }});
   Object.entries(ST).forEach(([id,s])=>{
     // ── ELEVATION FLOOR STATION (2026-07-29): a small roundel in the right-hand building
     //    elevation. DIM/idle by default (honest: quiet floors show quiet); lit only when the
@@ -2812,7 +2544,7 @@ function draw(d){
     //    colour (or warm amber) with an "Xm ago" tag. No trains, no rings, no provider logic. ──
     if(s.floor){
       const fr=UNIT_R;                              // uniform floor roundel (same size as every node)
-      const zc=idColor(id);                         // IDENTITY: floor inherits its family colour (Ross 2026-07-31)
+      const zc=s.zone_color||"#8fb4e6";             // zone colour if the zones registry provided one
       const lit=!!s.floor_active;
       if(lit){  // POLISH (UG-02b): tighter, dimmer lit halo (r+2, .45) — active floor still
                 // pops out of the dim elevation but its ring no longer blooms into neighbours.
@@ -2838,7 +2570,6 @@ function draw(d){
       const ft=el("text",{x:s.x+fr+5,y:s.y+4,"text-anchor":"start",class:"stlabel",id:"lb_"+id,
         "font-size":11, fill: lit ? (s.zone_color||"#cfe0f5") : "#7d8da0", opacity: lit?1:.78});
       ft.textContent=s.label;R.appendChild(ft);
-      addHitTarget(id,s);   // invisible click/hover target ABOVE trains (correction #1)
       return;   // floor stations are fully rendered here — skip all curated-node logic below
     }
     // UNIFORM STATION SIZE (2026-07-29, Ross: "the network map needs to be all one size").
@@ -2879,13 +2610,7 @@ function draw(d){
     if(s.ghost&&!s.has_traffic&&!s.offline){
       R.appendChild(el("circle",{cx:s.x,cy:s.y,r:r+3,fill:"none",stroke:"#c98a2a","stroke-width":1.3,opacity:.38,"stroke-dasharray":"2 4",id:"gh_"+id}));
     }
-    // IDENTITY FILL (Ross 2026-07-31): homes / workers / services / hubs carry their family
-    // colour in the node body; providers keep their status-band colour + dead/invalid stay red,
-    // so identity and live status are BOTH legible (status shown by the ring drawn above).
-    const idc=idColor(id);
-    const useId = !s.prov && s.valid!==false && !s.offline;
-    const stc=el("circle",{cx:s.x,cy:s.y,r:r,class:cls,id:"st_"+id,
-      ...(useId?{fill:idc,stroke:idc,"fill-opacity":(s.has_traffic?0.95:0.55)}:{})});
+    const stc=el("circle",{cx:s.x,cy:s.y,r:r,class:cls,id:"st_"+id});
     stc.style.cursor="pointer";stc.addEventListener("click",(e)=>{e.stopPropagation();selectStation(id);});
     // HONEST tooltips
     const ti=el("title");
@@ -2910,13 +2635,12 @@ function draw(d){
     // Non-provider dead nodes (oracle) show "dead"; offline services (lumen) show "offline".
     let tag="";
     if(s.offline)tag=" · offline";                         // lumen (:8848 service down) — offline, not decommissioned
-    else if(inv&&s.prov)tag=" · "+(s.status||"DEAD");
+    else if(inv&&s.prov)tag=" · "+(s.status||"DEAD");      // e.g. claude · NO_KEY, kimi · QUOTA
     else if(inv)tag=" · dead";                             // oracle (dead Cloud VM)
     else if(s.market_closed)tag=" · closed";               // f43 stocks — market closed (waiting, item 2)
     else if(s.ghost)tag=" · "+(s.last_active_label||"idle");  // idle-ghost — last active Xm ago (item 1)
     t.setAttribute("id","lb_"+id);t.setAttribute("data-kind",(s.big||s.prov||s.trade)?"primary":"secondary");
     t.textContent=s.label+tag;R.appendChild(t);
-    addHitTarget(id,s);   // invisible click/hover target ABOVE trains (correction #1)
   });
   // LIFTS REMOVED (2026-07-31): no lift interchange rings — it's a 2D metro map, no shafts.
   refreshView();   // apply LOD (label collision by zoom) + any active search/filter dimming
@@ -2943,7 +2667,7 @@ function draw(d){
     const pv=A.prov?A:(B.prov?B:null);                        // never flow to a dead provider
     if(pv&&pv.status_band&&pv.status_band!=="live")return;
     const key=t.from+"|"+t.to;seen.add(key);
-    const col=idColor(t.from);   // IDENTITY: a train carries its SENDER's colour (Ross 2026-07-31)
+    const col=CC[t.cat]||"#40b4ff";
     const cur=liveRoutes.get(key);
     if(cur){cur.tr=t;cur.col=col;}                            // refresh label/ts, keep cadence
     else{liveRoutes.set(key,{tr:t,col,nextSpawn:_clk+Math.random()*STREAM_GAP});}
@@ -2957,8 +2681,8 @@ function draw(d){
 const UNIT_R=14;
 const AGE_MAX=900;    // seconds — client-side guard: never animate a stale/undated train
 const TRADE_AGE_MAX=3600; // trade floor: slower-cadence real fleet ticks get the 1h window (server matches)
-const STREAM_GAP=1500; // ms between carriages on ONE live route (denser live stream)
-const RUN_MS=2100;     // ms a carriage takes to travel its edge (smooth, continuous)
+const STREAM_GAP=2200; // ms between carriages on ONE live route (steady stream cadence)
+const RUN_MS=1800;     // ms a carriage takes to travel its edge (smooth, continuous)
 // ── TWO-WAY LANE OFFSET (2026-07-29, Ross: "i dont see two way traffic to all floors") ──
 // When a pair {a,b} carries BOTH an up-leg (from→to) and a down-leg / return (to→from),
 // the two carriages must NOT ride the exact same line or they overlap into one and 2-way is
@@ -3098,8 +2822,6 @@ async function tick(){
   if(window.__v&&window.__v!==d.ver){location.reload();return}window.__v=d.ver;
   if(_wasDown){_wasDown=false;}   // came back — normal rendering resumes below
   draw(d);
-  const ms=document.getElementById("meshstate");
-  if(ms){const mc=(d.telemetry||{}).mesh_tracks||0;ms.textContent=(d.show_mesh===true?"· FULL MESH · "+mc+" structural edges":"· MESH AVAILABLE IN STRUCTURAL VIEW");}
   const h=document.getElementById("health");
   const n=d.recent15||0;  // == animated train count (all age-gated ≤15m)
   const flowing=liveRoutes.size;  // live tracks continuously streaming carriages
@@ -3117,8 +2839,8 @@ async function tick(){
     ["floors_total","Tower Floors","all 170 canonical floors on the map (curated + elevation)","good"],
     ["floors_lit","Floors Lit","floors with REAL recent activity (rest are idle/dim, honest): "+flit,(tm.floors_lit>0?"good":"")],
     ["active_stations","Active Stations","real train endpoint ≥1","good"],
-    ["meaningful_tracks","Named Tracks","the named/trunk/category ROUTES drawn on the map (structural mesh floor-feeds NOT counted here — those number "+(tm.mesh_tracks||0)+"). This is the backbone-route count.",""],
-    ["tracks_proven","Live Tracks","tracks carrying a real train in the last 15m — INCLUDES floor-to-floor mesh feeds, which is why this can exceed Named Tracks (they measure different sets: Named = backbone routes, Live = any edge with a train).","good"],
+    ["meaningful_tracks","Tracks","meaningful routes (trunk + category lines) that can carry a train — "+(tm.mesh_tracks||0)+" hidden structural mesh edges NOT counted",""],
+    ["tracks_proven","Tracks Proven","carried a real train (15m)","good"],
     ["total_real_trains","Real Trains","age-gated ≤15m == animated","good"],
     ["isolated_stations","Isolated (valid)","valid, 0 trains: "+isoTel,(tm.isolated_stations>0?"warn":"")],
     ["failed_routes","Failed Routes","blocked/decommissioned: "+fail,(tm.failed_routes>0?"bad":"")],
@@ -3140,10 +2862,9 @@ async function tick(){
   const pf=d.proof||{};
   const meaningful=(tm.meaningful_tracks!=null?tm.meaningful_tracks:pf.edges);
   const mesh=(tm.mesh_tracks||0), proven=(tm.tracks_proven||0);
-  const meshShown=(D&&D.show_mesh===true);
   document.getElementById("proof").textContent =
      pf.stations+" stations · "+meaningful+" meaningful tracks / "+proven+" carrying a train"
-     +" ("+mesh+" structural mesh edges "+(meshShown?"shown as dotted underlay":"available in Structural view")+") · graph diameter ≤"+pf.diameter+" hops (all paths transit the Gene Pool hub)";
+     +" ("+mesh+" more structural mesh edges hidden) · graph diameter ≤"+pf.diameter+" hops (all paths transit the Gene Pool hub)";
   // OBSERVED: only what real recent trains prove
   const ob=d.observed||{};
   const iso=(ob.isolated||[]);
@@ -3235,22 +2956,6 @@ function selectStation(id){
   html+=`<button class="ibtn sec" onclick="focusStation('${id}')">◎ Center on map</button>`;
   _showInsp(s.label,_kindOf(s)+(s.floor_num?(" · F"+s.floor_num):""),html);
   highlightStations([id,...tw.map(p=>p.other)]);
-  highlightConnectedTracks(id);        // light this station's tracks in its identity colour (correction #1)
-  const hh=document.getElementById("hit_"+id); if(hh)hh.parentNode.appendChild(hh);  // raise its hit target
-}
-// highlight every rail touching `id` in the station's identity colour; dim the rest. Reset on
-// clear or next rebuild (rails are recreated fresh each layout tick, so this never leaks).
-function highlightConnectedTracks(id){
-  if(!D)return; const col=idColor(id), pks=new Set();
-  (D.lines||[]).forEach(L=>{ if(L.a===id||L.b===id) pks.add(L.id||pkOf(L.a,L.b)); });
-  document.querySelectorAll('#railLayer .rail').forEach(r=>{
-    const pk=r.getAttribute('data-pk');
-    if(pk&&pks.has(pk)){ r.style.stroke=col; r.style.strokeWidth="5"; r.style.opacity="1"; }
-    else { r.style.opacity="0.09"; }
-  });
-}
-function resetTrackHighlight(){
-  document.querySelectorAll('#railLayer .rail').forEach(r=>{ r.style.stroke=""; r.style.strokeWidth=""; r.style.opacity=""; });
 }
 function selectTrack(pk){
   if(!D)return;
@@ -3343,7 +3048,7 @@ function _matchFilter(id,s){
   if(FILTER==="active")return !!s.has_traffic||!!s.floor_active;
   if(FILTER==="failed")return s.valid===false||s.offline||(s.prov&&s.status_band&&s.status_band!=="live");
   if(FILTER==="provider")return !!s.prov;
-  if(FILTER==="ai")return ["wren","bill","tp_pip","acer_cass","codex","oracle","gene_pool","council15","task_council","hermes","iquest_40b","qwen_worker","wren_brain"].includes(id);
+  if(FILTER==="ai")return ["wren","bill","tp_pip","acer_cass","codex","oracle","gene_pool","council15","task_council","claude_acct","hermes","iquest_40b","qwen_worker","wren_brain"].includes(id);
   // two-way / co-active / one-way: station participates in a pair of that status
   const want={twoway:"confirmed",coactive:"coactive",oneway:"oneway"}[FILTER];
   if(want)return _pairsFor(id).some(p=>p.status===want);
@@ -3394,8 +3099,6 @@ function counterAction(key){
 }
 function clearSel(keepPanel){
   SEL=null;
-  resetTrackHighlight();            // undo connected-track highlight/dim (correction #1)
-  _hideHov();
   document.querySelectorAll('.selglow').forEach(e=>e.classList.remove('selglow'));
   document.querySelectorAll('.dimmed').forEach(e=>e.classList.remove('dimmed'));
   document.querySelectorAll('#telem .tc.sel').forEach(e=>e.classList.remove('sel'));
@@ -3417,84 +3120,10 @@ function _wireOverlayToggle(id,get,set){const c=document.getElementById(id);if(!
   c.addEventListener("click",()=>{set(!get());c.classList.toggle("on",get());_lastSig=null;if(D)draw(D);});}
 _wireOverlayToggle("tglDept",()=>SHOW_DEPT,v=>SHOW_DEPT=v);
 _wireOverlayToggle("tglNamed",()=>SHOW_NAMED,v=>SHOW_NAMED=v);
-// VIEW-MODE selector (Ross 2026-07-31): switch which tracks are surfaced, force a rebuild.
-document.querySelectorAll("#vmbar .vm").forEach(b=>{
-  b.addEventListener("click",()=>{
-    VIEW_MODE=b.getAttribute("data-vm")||"normal";
-    document.querySelectorAll("#vmbar .vm").forEach(x=>x.classList.toggle("on", x===b));
-    _lastSig=null;                 // invalidate layout signature → next draw rebuilds rails
-    if(D) draw(D);                 // redraw immediately with the current real data
-  });
-});
-// #view=active|structural|twoway|failed|allvalid|normal presets the mode on load (shareable link)
-(function(){
-  const m=(location.hash.match(/view=([a-z]+)/)||[])[1];
-  if(m && ["normal","allvalid","structural","active","twoway","failed"].indexOf(m)>=0){
-    VIEW_MODE=m;
-    document.querySelectorAll("#vmbar .vm").forEach(x=>x.classList.toggle("on", x.getAttribute("data-vm")===m));
-  }
-})();
-// ── AUTOMATED STATION-INTERACTION SELF-TEST (Ross correction #11) — #selftest to run ──
-if(/selftest/i.test(location.hash)){
-  setTimeout(()=>{
-    const out=document.createElement("div");out.id="selftestout";
-    out.style.cssText="position:fixed;left:10px;top:10px;z-index:99999;background:#04101f;color:#8fe6b5;"
-      +"font:13px/1.55 ui-monospace,monospace;padding:12px 16px;border:1px solid #2a3a52;border-radius:8px;max-width:560px";
-    document.body.appendChild(out);
-    const ids=Object.keys((D&&D.stations)||{});
-    let hitOk=0,panelOk=0,cleanOk=0,topOk=0,blockers={},fail=[];
-    const stackOk=(svg.lastChild&&svg.lastChild.id==="hitLayer");
-    ids.forEach(id=>{
-      const hit=document.getElementById("hit_"+id); const h=!!hit; if(h)hitOk++;
-      // REAL hit-test: is the hit target the TOPMOST element at its own on-screen centre?
-      if(h){ const r=hit.getBoundingClientRect(), cx=r.left+r.width/2, cy=r.top+r.height/2;
-        const top=document.elementFromPoint(cx,cy);
-        if(top===hit || (top&&top.id==="hit_"+id)) topOk++;
-        else { const key=top?(top.tagName+(top.id?("#"+top.id):(top.className&&top.className.baseVal?("."+top.className.baseVal):""))):"null"; blockers[key]=(blockers[key]||0)+1; }
-      }
-      try{ selectStation(id);
-        const p=document.getElementById("insp").classList.contains("open"); if(p)panelOk++;
-        cleanOk++; clearSel(false);
-        if(!h||!p)fail.push(id);
-      }catch(e){ fail.push(id+"!"+e.message); }
-    });
-    const blk=Object.entries(blockers).map(([k,v])=>k+"×"+v).join(", ")||"none";
-    // geometry diagnostic: svg screen box + sample st-vs-hit rects (alignment vs viewport)
-    const sr=svg.getBoundingClientRect();
-    const samp=["wren","bill","boardroom"].map(id=>{const st=document.getElementById("st_"+id),hi=document.getElementById("hit_"+id);
-      if(!st||!hi)return id+":missing"; const a=st.getBoundingClientRect(),b=hi.getBoundingClientRect();
-      return id+" st("+(a.left|0)+","+(a.top|0)+") hit("+(b.left|0)+","+(b.top|0)+")";}).join(" · ");
-    console.log("GEOM svg="+(sr.width|0)+"x"+(sr.height|0)+" win="+innerWidth+"x"+innerHeight+" | "+samp);
-    const gdiag="svg "+(sr.width|0)+"×"+(sr.height|0)+" · win "+innerWidth+"×"+innerHeight+"<br>"+samp;
-    out.innerHTML="<b>STATION INTERACTION SELF-TEST</b><br>"
-      +"hit-layer above trains: "+(stackOk?"YES ✓":"NO ✗")+"<br>"
-      +"stations tested: "+ids.length+"<br>"
-      +"hit target present: "+hitOk+"/"+ids.length+"<br>"
-      +"REAL click reaches target (elementFromPoint): "+topOk+"/"+ids.length+"<br>"
-      +"blockers on top: "+blk+"<br>"
-      +"GEOM: "+gdiag+"<br>"
-      +"click opens panel: "+panelOk+"/"+ids.length+"<br>"
-      +"select ran clean: "+cleanOk+"/"+ids.length+"<br>"
-      +"FAILED: "+(fail.length?fail.slice(0,12).join(", ")+(fail.length>12?" …+"+(fail.length-12):""):"0 ✓");
-    console.log("SELFTEST "+JSON.stringify({stackOk,n:ids.length,hitOk,panelOk,cleanOk,failed:fail.length}));
-  },2800);
-}
 // clicking empty map space clears a selection
 svg.addEventListener("click",e=>{if(e.target===svg||e.target.id==="railLayer")clearSel(false);});
 
 tick();  // self-scheduling loop (item 4): 1s on success, backoff-and-retry on failure
-
-// ── 🧬 Gene Pool HUD badge · additive · own 15s fetch · NEVER touches the SVG ──
-// Fixed overlay (pointer-events:none) so it cannot interfere with map clicks/routing.
-async function geneHud(){
-  const el=document.getElementById('genePoolHud'); if(!el)return;
-  let g; try{g=await(await fetch('/api/gene_pool',{cache:'no-store'})).json()}catch(e){return}
-  const box=(name,d)=>{const on=d&&d.online,c=name==='TP'?'#a855f7':'#34d399',
-    n=(d&&Array.isArray(d.providers))?d.providers.length:0;
-    return `<b style="color:${c}">${name}</b> <span style="color:${on?'#45f59b':'#ff6b6b'}">${on?'●':'○'}</span> <span style="color:#9db3cc">${on?(n+' providers'):'DOWN'}</span>`;};
-  el.innerHTML='🧬 <b style="color:#cfe0f5">Gene Pool</b> · '+box('TP',g&&g.TP)+' &nbsp;·&nbsp; '+box('Acer',g&&g.Acer);
-}
-geneHud(); setInterval(geneHud,15000);
 </script></body></html>"""
 
 
@@ -3552,11 +3181,7 @@ class H(BaseHTTPRequestHandler):
             self.send_response(404); self.end_headers()
 
     def do_GET(self):
-        if self.path.startswith("/api/gene_pool"):
-            b = json.dumps(_gene_pool_hud()).encode()
-            self.send_response(200); self.send_header("Cache-Control", "no-store"); self.send_header("Content-Type", "application/json")
-            self.send_header("Content-Length", str(len(b))); self.end_headers(); self.wfile.write(b)
-        elif self.path.startswith("/api/data"):
+        if self.path.startswith("/api/data"):
             b = json.dumps(build()).encode()
             self.send_response(200); self.send_header("Cache-Control", "no-store"); self.send_header("Content-Type", "application/json")
             self.send_header("Content-Length", str(len(b))); self.end_headers(); self.wfile.write(b)

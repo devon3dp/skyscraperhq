@@ -1,0 +1,16 @@
+[Unit]
+Description=QSB Wren Governor tick — Wren MANAGES the whole tower: survey all floors -> detect what needs doing -> create real council tasks (or LEARN a floor when idle). Non-autonomous re real-world actions; books council tasks + studies floors only, never executes or flips gates.
+After=network-online.target qsb-wren-dash.service qsb-task-council-autorunner.service
+Wants=qsb-task-council-autorunner.service
+
+[Service]
+Type=oneshot
+User=ross
+WorkingDirectory=/vaults/nvme0/qsb_tower_v1
+# One governor tick: tower_survey -> governor_scan -> Wren's real model books
+# real council tasks for NEW findings, or studies one floor when there is
+# nothing new to manage. Kill switch: data/registries/qsb_wren_governor_gate.json
+ExecStart=/usr/bin/python3 /vaults/nvme0/qsb_tower_v1/tools/qsb_wren_governor_loop.py --once --model qwen2.5:14b
+
+[Install]
+WantedBy=multi-user.target

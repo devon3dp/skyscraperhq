@@ -1,0 +1,19 @@
+{
+  "name": "delegate_task",
+  "description": "Wren's first-class DELEGATION action (R01, gate-respecting). Hands a real council task to a specific worker with a named VERIFIER, notifies them over the leadership relay, and logs the whole handoff so she can follow it up. Picks the right worker by REAL signals: an explicit assignee wins (tp / asa / bill), otherwise it auto-selects the least-loaded eligible worker CEO, preferring one that is online now (relay heartbeat); the verifier is always a DIFFERENT signoff-CEO so no one verifies their own work. It is WIP-CAP RESPECTING: before landing an assignment it runs the council's own cap_check (GATE 17 per-CEO cap + the global WIP ceiling). If there is capacity the task is truly assigned (state=assigned, assignee set) and the worker is pinged; if the council is saturated it does NOT force work onto a jammed board — it records a PENDING (earmarked) delegation citing the real gate, which governor_act promotes when a slot frees. Params: title (or an existing task_id), description, assignee, verifier, priority, reason (why this worker), notify (relay DM, default true). Writes an append-only ledger row to data/registries/qsb_wren_delegations.jsonl and a governor_delegation audit row to F47. Never flips a gate, never bypasses the cap.",
+  "params": {"type": "object", "properties": {
+    "title": {"type": "string"},
+    "description": {"type": "string"},
+    "task_id": {"type": "string", "description": "delegate an EXISTING open board task instead of creating one"},
+    "assignee": {"type": "string", "enum": ["tp", "asa", "bill", "tp_pip", "acer_cass", "acer"], "description": "omit to auto-pick least-loaded online worker"},
+    "verifier": {"type": "string", "description": "omit to auto-pick a different signoff-CEO"},
+    "priority": {"type": "string", "enum": ["low", "normal", "high"], "default": "normal"},
+    "reason": {"type": "string", "description": "why this worker gets it (surfaced to them)"},
+    "notify": {"type": "boolean", "default": true}
+  }, "required": []},
+  "safety_class": "act",
+  "entrypoint": "skill:run",
+  "authored_by": "Claude for Wren (governor upgrade — delegation; additive, touches no mind/persona file)",
+  "authored_ts": "2026-07-30",
+  "tags": ["governor", "delegation", "assign", "wip-respecting", "leadership-relay", "R01-honest"]
+}

@@ -1,0 +1,9 @@
+{
+  "name": "evidence-gated-code-work",
+  "description": "Mandatory evidence gates for every Wren code edit, review, dashboard build, test, or verification task.",
+  "params": {"type":"object","properties":{"target":{"type":"string"},"requested_change":{"type":"string"}},"required":["target","requested_change"]},
+  "safety_class": "read",
+  "entrypoint": "skill:run",
+  "authored_by": "Codex teaching loop from Wren observed failures",
+  "tags": ["coding","review","test","evidence","no-false-pass"]
+}

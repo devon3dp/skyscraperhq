@@ -1,0 +1,10 @@
+{
+  "name": "trading_desk_briefing",
+  "description": "Pull the reconciled trading-desk / accounts briefing: realized PnL across all venues (OANDA F41, Binance F42, Alpaca F43), OANDA practice NAV + balance + unrealized, belief-fleet committed exposure, and today's provider spend. Grounded from qsb_accounts_summary_latest.json. All advisory_only / no real money — the skill surfaces the execution flags so Wren always states them. Use before answering any 'how are we doing / PnL / pot / trading' question.",
+  "params": {"type": "object", "properties": {}, "required": []},
+  "safety_class": "read",
+  "entrypoint": "skill:run",
+  "authored_by": "Claude for Wren (additive skill upgrade)",
+  "authored_ts": "2026-07-29",
+  "tags": ["trading", "accounts", "key-player"]
+}

@@ -1,0 +1,1 @@
+from DynamicIPResolution import resolve_dynamic_ips\ndef get_worker_box_ip(worker_name):\tdynamic_ips = resolve_dynamic_ips()\treturn dynamic_ips.get(worker_name)

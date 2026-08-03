@@ -1,0 +1,10 @@
+[Unit]
+Description=QSB Evolution Heartbeat - one honest step of audit->queue->sandbox->ready_for_sig->learn (coordinate-only, never signs/applies)
+After=network.target
+
+[Service]
+Type=oneshot
+User=ross
+WorkingDirectory=/vaults/nvme0/qsb_tower_v1
+ExecStart=/usr/bin/python3 /vaults/nvme0/qsb_tower_v1/tools/qsb_evolution_heartbeat.py --limit 25
+Nice=10

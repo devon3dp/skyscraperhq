@@ -1,0 +1,10 @@
+{
+  "name": "governor_scan",
+  "description": "Wren's MANAGEMENT DETECTION engine. Scans the whole live tower and returns a RANKED agenda of concrete things that need doing right now: cold floors (idle >24h needing a wake), skeleton floor cards (needing fit-out), loud unmet worker needs (many workers reporting the same thing), blocked council tasks, and stalled in-progress tasks (SLA drift). Each finding carries a suggested_task_title and an already_on_board flag (de-duped against the current council board). Use this to DECIDE what management tasks to create: pick the top findings where already_on_board=false and create a real council task for each via wren_create_council_task. This is how Wren governs from real state instead of guessing.",
+  "params": {"type": "object", "properties": {"max_findings": {"type": "integer", "default": 10}}, "required": []},
+  "safety_class": "read",
+  "entrypoint": "skill:run",
+  "authored_by": "Claude for Wren (governor upgrade)",
+  "authored_ts": "2026-07-30",
+  "tags": ["governor", "management", "detection", "key-player"]
+}

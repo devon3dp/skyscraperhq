@@ -1,0 +1,8 @@
+[Unit]
+Description=Route real worker information every 60s (only NEW per-floor worker activity via qsb_worker_info_router_cursor.json; worker->floor lead, floor->zone head, NEED->wren+codex; append-only to the shared map feed; directional traffic radiating from every active floor toward the governance hubs)
+[Timer]
+OnBootSec=100
+OnUnitActiveSec=60
+AccuracySec=10
+[Install]
+WantedBy=timers.target

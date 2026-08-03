@@ -1,0 +1,10 @@
+[Unit]
+Description=Wren Governor tick cadence — every 15 min she surveys + manages the tower (paced so it does not hammer the GPU). Flip qsb_wren_governor_gate.json enabled=false to pause without touching the timer.
+
+[Timer]
+OnBootSec=300
+OnUnitActiveSec=900
+Unit=qsb-wren-governor.service
+
+[Install]
+WantedBy=timers.target

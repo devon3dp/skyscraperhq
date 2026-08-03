@@ -1,0 +1,26 @@
+{
+  "name": "feedback",
+  "description": "Governed feedback module for Wren (improvement doc A5). Records Ross's feedback about a Wren message/answer into an append-only registry (data/registries/qsb_wren_feedback.jsonl) as REVIEWABLE evidence only. Two actions: 'record' appends one feedback row; 'digest' shows recent feedback grouped by category. HARD GUARDRAIL: this NEVER retrains, rewrites, or edits Wren's mind/persona/memory. It only accumulates evidence a human reviews later. Categories: correct, incorrect, helpful, misunderstood, too_slow, identity_error, memory_error, relay_corruption.",
+  "params": {
+    "type": "object",
+    "properties": {
+      "action": {"type": "string", "enum": ["record", "digest"], "default": "digest", "description": "'record' appends a feedback row; 'digest' groups recent feedback by category."},
+      "category": {"type": "string", "enum": ["correct", "incorrect", "helpful", "misunderstood", "too_slow", "identity_error", "memory_error", "relay_corruption"], "description": "Required for action=record. The feedback category."},
+      "target": {"type": "string", "description": "For action=record: which Wren message/answer this feedback is about (id, quote, or short reference)."},
+      "note": {"type": "string", "description": "For action=record: free-text detail from Ross about what was right/wrong."},
+      "n": {"type": "integer", "default": 50, "description": "For action=digest: how many recent rows to summarise."}
+    },
+    "required": []
+  },
+  "safety_class": "stamp",
+  "entrypoint": "skill:run",
+  "authored_by": "Claude for Wren (A5 governed feedback module)",
+  "authored_ts": "2026-07-30",
+  "governance": {
+    "auto_retrain": false,
+    "auto_rewrite": false,
+    "touches_wren_mind": false,
+    "effect": "append-only reviewable evidence; human review required for any improvement"
+  },
+  "tags": ["feedback", "governance", "A5", "reviewable-evidence", "no-retrain"]
+}

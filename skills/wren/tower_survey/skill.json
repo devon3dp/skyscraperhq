@@ -1,0 +1,10 @@
+{
+  "name": "tower_survey",
+  "description": "GOVERNOR'S EYES over the WHOLE tower. Call with no args for a tower-wide survey: active vs idle floor counts, stale floors (idle >1h), cold floors (idle >24h) with their labels, skeleton/fit-out-pending floor cards, the Council board counts (open/in_progress/blocked/done), and open worker-needs count. Call with {floor: N} for a deep dive on ONE floor: its label, active state, last-activity age, live signal, and card status. Grounded verbatim from qsb_floor_activity_index.json + floor cards + the board snapshot. Use this BEFORE answering ANY 'what's the state of floor N / the whole tower / what's idle / what needs doing' question so Wren governs from real per-floor data, never a guess.",
+  "params": {"type": "object", "properties": {"floor": {"type": "integer"}, "list_stale": {"type": "integer", "default": 12}}, "required": []},
+  "safety_class": "read",
+  "entrypoint": "skill:run",
+  "authored_by": "Claude for Wren (governor upgrade)",
+  "authored_ts": "2026-07-30",
+  "tags": ["governor", "situational-awareness", "all-floors", "key-player"]
+}

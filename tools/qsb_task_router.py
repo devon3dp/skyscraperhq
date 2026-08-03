@@ -1,0 +1,1 @@
+import json\ndef get_worker_ips():\n    with open('floors/floor_46_wren_bench/vault/presence.json', 'r') as f:\n        presence = json.load(f)\n    return {worker['hostname']: worker['ip'] for worker in presence}\n\nif __name__ == """__main__""":\n    worker_ips = get_worker_ips()\n    print(worker_ips)

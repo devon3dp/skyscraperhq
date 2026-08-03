@@ -1,0 +1,10 @@
+[Unit]
+Description=QSB Proposal-Advance Timer (every ~2.5min + 90s after boot)
+
+[Timer]
+OnBootSec=90s
+OnUnitActiveSec=150s
+Persistent=true
+
+[Install]
+WantedBy=timers.target

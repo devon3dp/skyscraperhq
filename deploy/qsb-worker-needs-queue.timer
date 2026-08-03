@@ -1,0 +1,8 @@
+[Unit]
+Description=Rebuild + deliver the QSB worker needs queue every 2min (receives what the ~2000 floor workers are telling Wren + Codex; only re-notifies NEW top needs via a delivery cursor)
+[Timer]
+OnBootSec=150
+OnUnitActiveSec=120
+AccuracySec=10
+[Install]
+WantedBy=timers.target

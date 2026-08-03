@@ -1,0 +1,8 @@
+[Unit]
+Description=QSB Worker Needs Queue (RECEIVING side: folds real per-worker `need` reports -> deduped needs queue registry, delivers top needs to Wren self-schedule wake + leadership inbox and to Codex via a Task Council task; advisory-only, no exec, no LLM, no mind edits)
+After=network.target qsb-worker-activation.service qsb-floor-activity.service qsb-leadership-relay.service
+[Service]
+Type=oneshot
+User=ross
+WorkingDirectory=/vaults/nvme0/qsb_tower_v1
+ExecStart=/vaults/nvme0/qsb_tower_v1/.venv/bin/python3 /vaults/nvme0/qsb_tower_v1/tools/qsb_worker_needs_queue.py --top 5

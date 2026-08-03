@@ -1,0 +1,1 @@
+from presence import get_worker_ip\ndef resolve_dynamic_ips():\ttp_pip_ip = get_worker_ip('TP-Pip')\	acer_cass_ip = get_worker_ip('Acer-Cass')\treturn {'tp_pip': tp_pip_ip, 'acer_cass': acer_cass_ip}

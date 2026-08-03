@@ -1,0 +1,10 @@
+{
+  "name": "council_board_digest",
+  "description": "Read the Task Council board (qsb_council_tasks_snapshot.json): totals by state, and the top open/claimed tasks with owner, age, priority and any SLA-breach flag. Lets Wren actually DRIVE the council — see what's stuck, who owns it, what's breaching SLA — instead of being blind to the board. Read-only; to create/claim tasks Wren still uses tools/qsb_council_tasks.py (this skill tells her WHAT to act on).",
+  "params": {"type": "object", "properties": {"n": {"type": "integer", "default": 10}, "state": {"type": "string"}}, "required": []},
+  "safety_class": "read",
+  "entrypoint": "skill:run",
+  "authored_by": "Claude for Wren (additive skill upgrade)",
+  "authored_ts": "2026-07-29",
+  "tags": ["council", "leadership", "key-player"]
+}

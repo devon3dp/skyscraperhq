@@ -1,0 +1,8 @@
+[Unit]
+Description=Refresh F44/102 accounts summary every 300s from live registries (honest reconciled ledger for dashboards)
+[Timer]
+OnBootSec=120
+OnUnitActiveSec=300
+AccuracySec=30
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,10 @@
+[Unit]
+Description=QSB Tower Self-Audit Timer (every ~15min + 4min after boot)
+
+[Timer]
+OnBootSec=4min
+OnUnitActiveSec=15min
+Persistent=true
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,12 @@
+[Unit]
+Description=QSB Tower Evolution Monitor (:8869, read-only — is it evolving as a whole?)
+After=network.target
+[Service]
+Type=simple
+User=ross
+WorkingDirectory=/vaults/nvme0/qsb_tower_v1
+ExecStart=/usr/bin/python3 /vaults/nvme0/qsb_tower_v1/tools/qsb_evolution_dash.py
+Restart=always
+RestartSec=5
+[Install]
+WantedBy=multi-user.target

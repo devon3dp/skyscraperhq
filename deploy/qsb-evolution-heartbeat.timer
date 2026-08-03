@@ -1,0 +1,10 @@
+[Unit]
+Description=QSB Evolution Heartbeat pulse (nudges the tower evolution loop forward one step, every 4 min)
+
+[Timer]
+OnBootSec=180
+OnUnitActiveSec=240
+AccuracySec=15s
+
+[Install]
+WantedBy=timers.target

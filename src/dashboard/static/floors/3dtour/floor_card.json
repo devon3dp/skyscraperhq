@@ -1,0 +1,15 @@
+{
+  "title": "3D Tour",
+  "description": "Explore the tower in a dynamic and interactive 3D environment.",
+  "interactive_elements": [
+    {
+      "type": "cockpit3d_panel",
+      "id": "tour_guide_3d",
+      "options": {
+        "mode": "navigation",
+        "controls": true,
+        "camera": {"position": [0, 1.5, -2], "target": [0, 0, 0]}
+      }
+    }
+  ]
+}

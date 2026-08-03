@@ -1,0 +1,10 @@
+[Unit]
+Description=Run the Bill worker every 2 minutes (continuous live work)
+
+[Timer]
+OnBootSec=90sec
+OnUnitActiveSec=2min
+Persistent=true
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,22 @@
+{
+  "name": "personalisation",
+  "description": "Wren's PERSONALISATION engine (improvement doc A3). Given a work context, returns which EXPLICIT, CITED Ross preferences apply and WHY (the exact source Ross stated it + which context tokens matched). Reads ONLY Wren's own store data/registries/qsb_wren_ross_preferences.json — never touches Wren's mind and never silently learns. Guardrails: explicit+verified only, inspectable, correctable by Ross, records why, no sensitive learning, preserves Ross's authority. Unknown preferences come back honestly as 'unset' (never guessed). Actions: apply (default, match a context), inspect (list every stored preference + source), correct (Ross-only, cited, appends a correction and preserves history).",
+  "params": {
+    "type": "object",
+    "properties": {
+      "action":     {"type": "string", "enum": ["apply", "inspect", "correct"], "default": "apply"},
+      "context":    {"type": "string", "description": "For action=apply: the work context/topic to personalise (e.g. 'about to place a trader order' or 'notify Ross that build finished')."},
+      "id":         {"type": "string", "description": "For action=correct: the preference id to correct."},
+      "new_preference": {"type": "string", "description": "For action=correct: Ross's corrected preference text."},
+      "source":     {"type": "string", "description": "For action=correct: the real Ross message/citation authorizing the correction. REQUIRED — corrections without a cited source are refused."},
+      "corrected_by": {"type": "string", "description": "For action=correct: must be 'ross' (only Ross may correct — preserves his authority)."},
+      "retire":     {"type": "boolean", "default": false, "description": "For action=correct: mark the preference retired instead of changing its text."}
+    },
+    "required": []
+  },
+  "safety_class": "read",
+  "entrypoint": "skill:run",
+  "authored_by": "Claude for Wren (personalisation A3)",
+  "authored_ts": "2026-07-30",
+  "tags": ["personalisation", "preferences", "ross", "inspectable", "correctable", "no-sensitive-learning"]
+}

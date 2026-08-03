@@ -1,0 +1,7 @@
+[Unit]
+Description=QSB Floor 44/102 accounts reconciliation — honest paper/practice/testnet PnL + pot exposure + provider spend (advisory-only, read-only, no orders)
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 /vaults/nvme0/qsb_tower_v1/tools/qsb_accounts_ledger_refresh.py --quiet
+User=ross
+Nice=10

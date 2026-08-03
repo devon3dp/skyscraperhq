@@ -1,0 +1,11 @@
+[Unit]
+Description=QSB Worker Information Router (routes REAL worker output where it needs to go: worker->floor lead, floor lead->zone/department head, NEED->wren+codex governance hubs, all from the real chain of command + needs queue; R01 honest, cursor-gated to only NEW worker activity, append-only to the shared map feed; visualization/topology only, executes nothing, flips no gate)
+After=network.target qsb-worker-activation.service qsb-worker-needs-queue.service
+[Service]
+Type=oneshot
+User=ross
+WorkingDirectory=/vaults/nvme0/qsb_tower_v1
+ExecStart=/vaults/nvme0/qsb_tower_v1/.venv/bin/python3 /vaults/nvme0/qsb_tower_v1/tools/qsb_worker_info_router.py --once
+Nice=10
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,15 @@
+[Unit]
+Description=QSB Box Grinder - ThinkPad/tp_pip (PRODUCE + ANALYZE, continuous 24/7, honest R01)
+After=network-online.target qsb-leadership-relay.service
+
+[Service]
+Type=simple
+User=ross
+WorkingDirectory=/vaults/nvme0/qsb_tower_v1
+Environment=GRIND_CYCLE_SLEEP=8
+ExecStart=/usr/bin/python3 /vaults/nvme0/qsb_tower_v1/tools/qsb_box_grinder.py --box tp_pip --lane produce_analyze
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

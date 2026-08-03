@@ -1,0 +1,18 @@
+{
+  "title": "Interactive 3D Tour",
+  "description": "Explore the tower in a fully interactive 3D environment.",
+  "interactive": true,
+  "elements": [
+    {
+      "type": "button",
+      "label": "Start Tour",
+      "action": "startTour()"
+    },
+    {
+      "type": "canvas",
+      "id": "3dCanvas",
+      "width": 600,
+      "height": 400
+    }
+  ]
+}

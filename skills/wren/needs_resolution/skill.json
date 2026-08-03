@@ -1,0 +1,17 @@
+{
+  "name": "needs_resolution",
+  "description": "CLOSE-THE-LOOP tracker for real worker needs. Reads the honest worker-needs queue (qsb_worker_needs_queue.json) and the Task Council board, and for each OPEN need shows: the real need, its source floor, whether a real council task already addresses it, and its resolution state (open / in-progress / resolved). action=digest is read-only. action=resolve marks a need resolved in Wren's OWN append-only registry data/registries/qsb_wren_needs_resolution.jsonl, but ONLY with real cited evidence (a matching council task that is done, or a real booked/dispatched fix task) — it REFUSES to resolve a need without a real task id on the live board. R01 honest: nothing is invented, every resolution cites a real task id + its real state.",
+  "params": {"type": "object", "properties": {
+    "action": {"type": "string", "enum": ["digest", "resolve"], "default": "digest"},
+    "n": {"type": "integer", "default": 20},
+    "floor": {"type": "integer"},
+    "need_id": {"type": "string"},
+    "task_id": {"type": "string"},
+    "note": {"type": "string"}
+  }, "required": []},
+  "safety_class": "act",
+  "entrypoint": "skill:run",
+  "authored_by": "Claude for Wren (additive close-the-loop skill; touches no mind/persona file)",
+  "authored_ts": "2026-07-30",
+  "tags": ["worker-needs", "close-the-loop", "resolution", "leadership", "R01-honest"]
+}

@@ -1,0 +1,14 @@
+[Unit]
+Description=QSB Evolution Scan — reads REAL tower signals (chronic healer restarts, persistent audit findings, worker-needs backlog) and DRAFTS improvement proposals into the bench queue. PROPOSE-ONLY: never signs, never applies, never restarts/fixes, never flips a gate.
+After=network.target
+
+[Service]
+Type=oneshot
+User=ross
+WorkingDirectory=/vaults/nvme0/qsb_tower_v1
+ExecStart=/usr/bin/python3 /vaults/nvme0/qsb_tower_v1/tools/qsb_evolution_scan.py
+# Propose-only + idempotent (cooldown de-dup). The >=3-sig + Ross human gate is untouched.
+Nice=10
+
+[Install]
+WantedBy=multi-user.target

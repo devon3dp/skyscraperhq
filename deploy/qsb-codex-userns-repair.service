@@ -1,0 +1,11 @@
+[Unit]
+Description=Restore unprivileged user namespaces required by Codex Bubblewrap
+After=apparmor.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

@@ -129,6 +129,7 @@ STATIONS = {
     "tc_sandbox":   {"x": 720, "y": 400, "label": "Sandbox",    "sub": True},
     "iquest_40b":   {"x": 720, "y": 500, "label": "iQuest-40B", "sub": True},
     "qwen_worker":  {"x": 720, "y": 570, "label": "qwen worker","sub": True},
+    "claude_acct":  {"x": 720, "y": 640, "label": "Claude",     "sub": True},
     "hermes":       {"x": 720, "y": 710, "label": "Hermes",     "sub": True},
     # ── COL 5 · GENE POOL interchange (x=920) — sole on-ramp to the provider fan ──
     "gene_pool":    {"x": 920, "y": 320, "label": "Gene Pool · 24", "big": True},
@@ -394,7 +395,7 @@ CURATED_ZONE = {
     "hq": "Executive & Council", "ross": "Executive & Council",
     # R&D / Labs — the specialist/bench/sandbox cluster
     "wren_brain": "R&D / Labs", "f46_bench": "R&D / Labs", "tc_sandbox": "R&D / Labs",
-    "iquest_40b": "R&D / Labs", "qwen_worker": "R&D / Labs",
+    "iquest_40b": "R&D / Labs", "qwen_worker": "R&D / Labs", "claude_acct": "R&D / Labs",
     "hermes": "R&D / Labs", "forge": "R&D / Labs",
     # STAGING3: the worker-needs roll-up sits with core operations/monitoring
     "worker_needs": "Core Operations",
@@ -683,13 +684,13 @@ LINES = _L
 # SUB-TRACKS: Council of 15, Wren, and Task Council each get their own internal lines
 LINES += [
     ("council15", "iquest_40b", "c15"), ("council15", "qwen_worker", "c15"),
-    ("council15", "hermes", "c15"), ("council15", "gene_pool", "c15"),
+    ("council15", "hermes", "c15"), ("council15", "claude_acct", "c15"), ("council15", "gene_pool", "c15"),
     ("wren", "wren_brain", "wrensub"), ("wren", "f46_bench", "wrensub"),
     ("wren", "hermes", "wrensub"), ("wren", "iquest_40b", "wrensub"),
-    # Wren can wield any active specialist _tool_station() may return,
+    # Wren can wield ANY specialist _tool_station() may return (qwen_worker / claude_acct),
     # so give those a rail too — otherwise a "Wren wields qwen_worker" train animates over a
     # blank edge with no drawn track under it (bug #2 coherence: train edge with no line).
-    ("wren", "qwen_worker", "wrensub"),
+    ("wren", "qwen_worker", "wrensub"), ("wren", "claude_acct", "wrensub"),
     ("task_council", "tc_sandbox", "council"), ("task_council", "council15", "council"),
     # Oracle Cloud VM — tunnels into the tower
     ("oracle", "boardroom", "hub"), ("oracle", "gene_pool", "route"),
@@ -768,7 +769,7 @@ _TRUNK = [
     ("gene_pool", "gemini"), ("gene_pool", "groq"), ("gene_pool", "kimi"),
     ("gene_pool", "grok"), ("gene_pool", "openrouter"), ("gene_pool", "nvidia_nim"),
     ("council15", "iquest_40b"), ("council15", "qwen_worker"),
-    ("council15", "hermes"), ("council15", "gene_pool"),
+    ("council15", "hermes"), ("council15", "claude_acct"), ("council15", "gene_pool"),
     ("oracle", "council15"), ("boardroom", "gene_pool"),
     # specialist / bench / sandbox connectors — dim backbone so these nodes never look
     # stranded even when idle (they're structurally one hop off the spine).
@@ -790,11 +791,11 @@ PRES_MAP = {"wren": "wren", "tp": "tp_pip", "asa": "acer_cass", "bill": "bill", 
 ALIAS = {"asa": "acer_cass", "tp": "tp_pip", "pip": "tp_pip", "tp_pip": "tp_pip",
          "acer_cass": "acer_cass", "wren": "wren", "bill": "bill",
          # STAGING3 (2026-07-30): boardroom-dialogue + delivery-receipt actor names.
-         # Historical retired-seat traffic is attributed to successor Bill.
+         # claude/iquest reuse their existing specialist stations; hq/forge/ross/
          # worker_needs_queue resolve to the new stations added above. Actors that
          # can't map to a real station (system, iris, chain_reporting) are left OUT
          # here so _sid() drops them — honest: no station, no train.
-         ("cl" + "aude"): "bill", "iquest": "iquest_40b", "hq": "hq",
+         "claude": "claude_acct", "iquest": "iquest_40b", "hq": "hq",
          "forge": "forge", "ross": "ross", "worker_needs_queue": "worker_needs"}
 
 
@@ -857,7 +858,7 @@ def _tool_station(text):
     if "oracle" in t: return "oracle"   # "owner uses Oracle Cloud VM …" -> real oracle trains
     if "iquest" in t: return "iquest_40b"
     if "hermes" in t: return "hermes"
-    if ("cl" + "aude") in t: return "bill"  # retired historical text -> successor seat
+    if "claude" in t: return "claude_acct"
     if "bill" in t: return "bill"
     if "tp-pip" in t or "tp_pip" in t or "pip" in t: return "tp_pip"
     if "acer" in t or "asa" in t: return "acer_cass"
@@ -931,53 +932,6 @@ def _http_up(url, ttl=15, timeout=1.2):
         up = False
     _PROBE_CACHE[url] = (now, up)
     return up
-
-
-import threading as _gene_threading
-
-# ── Live box gene-pool HUD feed (ADDITIVE · own cache · NEVER touches build()/the SVG) ──
-# The two Windows boxes each run a standalone multi-provider gene pool on :8770.
-# Poll ONLY /health and surface exactly what each box reports; an unreachable box is
-# shown DOWN with zero providers — never invented. Served on its own /api/gene_pool
-# endpoint so the fragile train-map data path and SVG routing are left untouched.
-_GENE_BOXES = {
-    "TP":   "http://DESKTOP-9RBVKSM.local:8770/health",
-    "Acer": "http://DESKTOP-1E2FB5N.local:8770/health",
-}
-_GENE_HUD_CACHE = {"ts": 0.0, "data": None}
-_GENE_HUD_TTL = 15.0
-
-
-def _gene_box_probe(url):
-    try:
-        req = _probe_req.Request(url, method="GET")
-        with _probe_req.urlopen(req, timeout=2.5) as r:
-            j = json.loads(r.read().decode("utf-8", "ignore"))
-        provs = j.get("providers_available") or []
-        if not isinstance(provs, list):
-            provs = []
-        return {"online": bool(j.get("ok")), "providers": [str(p) for p in provs]}
-    except Exception:
-        return {"online": False, "providers": []}
-
-
-def _gene_pool_hud():
-    now = time.time()
-    c = _GENE_HUD_CACHE
-    if c["data"] is not None and (now - c["ts"]) < _GENE_HUD_TTL:
-        return c["data"]
-    out = {}
-    threads = []
-    for name, url in _GENE_BOXES.items():
-        t = _gene_threading.Thread(
-            target=lambda n=name, u=url: out.__setitem__(n, _gene_box_probe(u)), daemon=True)
-        t.start(); threads.append(t)
-    for t in threads:
-        t.join(timeout=3.0)
-    for name in _GENE_BOXES:
-        out.setdefault(name, {"online": False, "providers": []})
-    c["ts"] = now; c["data"] = out
-    return out
 
 
 def _provider_status():
@@ -1313,7 +1267,7 @@ def build():
     #     tower's MAIN conversation stream (231k rows, appended every few seconds) and the live
     #     map never read it. Each row {ts, who, kind, text} is a real post BY `who` INTO the
     #     boardroom — a directional who -> boardroom train, age-gated + de-duped like the rest.
-    #     Only speakers that resolve to a real station ride;
+    #     Only speakers that resolve to a real station ride (wren/ross/hq/claude/iquest/forge);
     #     unmappable speakers (system, iris, …) are DROPPED by _sid — never faked (R01).
     for r in _tail(BOARDROOM_COMMENTARY, 400):
         who = _sid(r.get("who") or r.get("speaker") or r.get("from"))
@@ -1462,9 +1416,9 @@ def build():
     trains = []
     # route/provider now carry BOTH request and reply legs — bigger cap so both directions show.
     # 2026-07-29 (hermes/iquest dark bug): c15/wrensub raised 8 -> 24. The specialist-liveness
-    # daemon writes tool_selected for active specialists,
+    # daemon writes tool_selected for ~7 specialists (iquest/hermes/qwen_worker/claude_acct/…),
     # each a 2-leg round trip = ~14-18 real trains. The old cap of 8 kept only the 4 freshest
-    # specialists and sliced off active stations even when events were fresh
+    # specialists and SLICED OFF hermes/iquest/claude_acct even though their events were fresh
     # (<900s) and real — making them look dark/isolated. All survivors are still age-gated, so
     # nothing fabricated enters; the cap now just stops crowding out real specialists.
     # PER-EDGE FAIRNESS: within c15/wrensub, keep the freshest train for EACH distinct edge
@@ -1492,12 +1446,7 @@ def build():
                    ("council", 12), ("c15", 24), ("wrensub", 24), ("trade", 60),
                    ("boardroom", 30), ("delivered", 60)):
         bucket = _bc.get(cat, [])
-        # Preserve one freshest row per directed edge for every conversational/route
-        # category. Previously only specialist/boardroom buckets were edge-fair, so a
-        # busy provider or comms bucket could retain A→B rows while evicting B→A rows,
-        # hiding real two-way evidence before classification.
-        if cat in ("route", "provider", "comms", "council", "c15", "wrensub",
-                   "trade", "boardroom", "delivered"):
+        if cat in ("c15", "wrensub", "boardroom", "delivered"):
             trains += _cap_fair(bucket, K)
         else:
             trains += sorted(bucket, key=lambda t: t.get("age_s", 1e9))[:K]
@@ -1920,7 +1869,7 @@ def build():
             # clean; the full everyone-to-everyone lattice is still in `lines` (cat=="mesh")
             # and returns instantly if a client sets show_mesh true. Real connectivity data
             # is untouched — this only hides the faint dashed web from the default draw.
-            "show_mesh": True,
+            "show_mesh": False,
             "lines": lines_out,
             # honest per-track direction detail (STAGING, UG-02) for the track/station panels
             "pair_dir": pair_dir,
@@ -2042,8 +1991,7 @@ h1{margin:0;font-size:20px}.sub{color:var(--dim);margin:2px 0 8px}
 .ibtn{background:#40b4ff;color:#04101f;border:0;border-radius:8px;padding:8px 12px;font-weight:700;cursor:pointer;font-size:12px;margin-top:12px}
 .ibtn.sec{background:#1b2536;color:#cfe0f5;border:1px solid #2c3a52}
 </style></head><body><div class=wrap>
-<div id=genePoolHud style="position:fixed;left:12px;bottom:12px;z-index:9000;background:rgba(9,14,22,.92);border:1px solid #233146;border-radius:10px;padding:8px 12px;font:12px ui-monospace,monospace;color:#cfe0f5;box-shadow:0 4px 18px rgba(0,0,0,.5);pointer-events:none;max-width:340px">🧬 <b>Gene Pool</b> <span style="color:#7d8da6">· connecting…</span></div>
-<h1>SkyscraperHQ · Underground <span style="color:#40b4ff">· :8875</span><span id=health class="hp ok">—</span><span id=meshstate class="hp ok">· FULL MESH</span></h1>
+<h1>SkyscraperHQ · Underground <span style="color:#40b4ff">· :8875</span><span id=health class="hp ok">—</span></h1>
 <div class=sub><b style="color:#7f93ad">STRUCTURAL:</b> <span id=proof style="color:#9db3cc"></span></div>
 <div class=sub><b style="color:#45f59b">OBSERVED (last 15m):</b> <span id=observed style="color:#8fe6b5;font-weight:600"></span></div>
 <div class=sub><span id=liveais style="color:#8fe6b5"></span> · every animated train is a REAL event ≤15m old — a quiet line stays still. Click any station · track · train to inspect.</div>
@@ -2066,7 +2014,7 @@ h1{margin:0;font-size:20px}.sub{color:var(--dim);margin:2px 0 8px}
   <span style="color:#7d8da0;font-size:11px;font-weight:700;letter-spacing:.04em">VIEW</span>
   <span class="chip vm on" data-vm=normal style="border-color:#40b4ff" title="primary routes, active tracks, trunk backbone, proven two-way + interchanges">Normal</span>
   <span class="chip vm" data-vm=allvalid style="border-color:#45f59b" title="every valid track incl. idle ones brought up dim (hidden structural valid tracks made available)">All valid tracks</span>
-  <span class="chip vm" data-vm=structural style="border-color:#8b9bb4" title="show every structural route, including the full internal mesh">Structural · full mesh</span>
+  <span class="chip vm" data-vm=structural style="border-color:#8b9bb4" title="the full structural network incl. internal mesh edges, dim + organised">Structural</span>
   <span class="chip vm" data-vm=active style="border-color:#ffc24b" title="only tracks carrying a real train in the window">Active traffic</span>
   <span class="chip vm" data-vm=twoway style="border-color:#c4b5fd" title="confirmed two-way vs one-way vs missing/degraded return paths">Two-way</span>
   <span class="chip vm" data-vm=failed style="border-color:#ef4444" title="failed tracks, blocked/dead endpoints, stale routes">Failed / blocked</span>
@@ -2334,17 +2282,6 @@ function octoPolyline(A,B){
   const dx=bx-ax, dy=by-ay, adx=Math.abs(dx), ady=Math.abs(dy);
   if(adx<0.5) return [{x:ax,y:ay},{x:bx,y:by}];                       // pure vertical
   if(ady<0.5) return [{x:ax,y:ay},{x:bx,y:by}];                       // pure horizontal
-  // Long cross-zone routes used to share the exact same vertical corridor, which
-  // made several real rails look like one thick line. Give each edge a stable,
-  // wider corridor slot; the route still uses only horizontal/vertical segments
-  // and returns to the real destination station.
-  if(adx>250 && ady>40){
-    const key=String(A.id||A.label||"")+"|"+String(B.id||B.label||"");
-    let h=0; for(let i=0;i<key.length;i++) h=((h<<5)-h+key.charCodeAt(i))|0;
-    const slot=((Math.abs(h)%11)-5)*10;
-    const cx=ax+slot;
-    if(Math.abs(cx-bx)>28) return [{x:ax,y:ay},{x:cx,y:ay},{x:cx,y:by},{x:bx,y:by}];
-  }
   // PURE RIGHT-ANGLE (Manhattan) route — NO 45° dogleg, NO diagonal of ANY angle. Run down
   // A's column to B's row, then one horizontal jog into B; rounded corners smooth the 90°
   // bend into a tube curve. (Ross: "no diagonals like the underground · or curves" — every
@@ -2580,26 +2517,6 @@ function dirArrow(R,A,B,L){
     R.appendChild(_chev(cx,cy, dir==="ba"?ab+Math.PI:ab, col));
   }
 }
-
-// Draw a confirmed/co-active pair as two visibly separated rails.  The API still
-// decides whether a pair is truly bidirectional; this is presentation only, so it
-// cannot manufacture traffic.  Keeping the lane offset identical to the carriage
-// offset makes the moving trains sit on the rails instead of disappearing into a
-// shared centreline.
-function drawTwoWayLanes(R,A,B,L,mkRail){
-  const st=L.dir_status||"idle";
-  if(st!=="confirmed"&&st!=="coactive") return;
-  const dx=B.x-A.x, dy=B.y-A.y, len=Math.hypot(dx,dy)||1;
-  const px=-dy/len, py=dx/len;
-  const gap=LANE_OFF||6.5;
-  const lane=(sx,sy,col,opacity)=>mkRail({
-    stroke:col,"stroke-width":1.8,opacity,
-    transform:`translate(${(px*sx*gap).toFixed(2)} ${(py*sy*gap).toFixed(2)})`,
-    "pointer-events":"none"
-  },false);
-  const col=st==="confirmed"?"#45f59b":"#ffb020";
-  lane(1,1,col,.78); lane(-1,-1,col,.56);
-}
 // on-canvas legend, bottom-left corner (item 3): line categories + provider status colours
 function drawLegend(){
   const rows=[
@@ -2777,15 +2694,10 @@ function draw(d){
     if(VM==="active"){ show=act; base=.85; w=4; }
     else if(VM==="failed"){ show=dead||ds==="failed"||ds==="blocked"; base=.82; w=3; dash="2 4"; }
     else if(VM==="twoway"){ show=isValid||act; base=act?.85:(isTwoway?.55:.20); w=isTwoway?4.5:3; dash=(ds==="oneway"&&!act)?"6 6":null; }
-    else if(VM==="structural"){ show=true; base=act?.85:(mesh?.045:.22); w=act?4:(mesh?.7:2); dash=mesh?"2 9":null; }
+    else if(VM==="structural"){ show=true; base=act?.85:(mesh?.10:.22); w=act?4:(mesh?1:2); dash=mesh?"3 7":null; }
     else if(VM==="allvalid"){ show=act||isValid; base=act?.85:.30; w=act?4:2.2; dash=(!act&&!L.trunk)?"4 7":null; }
-    else { /* NORMAL: complete valid network + light full mesh + active/trunk/two-way emphasis.
-             Quiet valid routes remain faint/dashed so they are never mistaken for
-             missing infrastructure; the full mesh remains a light dotted underlay. */
-           show=mesh?showMesh:(isValid||act||L.trunk||isTwoway);
-           base=mesh?(act?.46:.075):(act?.85:(L.trunk?.24:.10));
-           w=mesh?(act?1.3:.85):(act?(L.trunk?6:4):(L.trunk?2.2:1.4));
-           dash=mesh?"2 8":((!act&&!L.trunk)?"4 8":null); }
+    else { /* NORMAL: primary + active + trunk backbone + proven two-way + interchanges */
+           show=act||L.trunk||isTwoway; base=act?.85:(L.trunk?.24:.18); w=act?(L.trunk?6:4):2.2; dash=(!act&&!L.trunk)?"4 8":null; }
     if(!show) return;
     if(dead){   // failed / blocked / missing-endpoint track: red, dashed, still visible
       mkRail({stroke:IDC.failed,"stroke-width":Math.max(2,w),opacity:Math.max(.55,base),"stroke-dasharray":"2 4"});
@@ -2794,15 +2706,12 @@ function draw(d){
       if(act){ const gid=gradId(idColor(L.a),idColor(L.b),A,B);
                mkRail({stroke:gid?("url(#"+gid+")"):idColor(L.a),"stroke-width":3,opacity:.72});
                if(_z>=0.9)dirArrow(R,A,B,L); }
-      else   { mkRail({stroke:"#6c849e","stroke-width":.85,opacity:base,...(dash?{"stroke-dasharray":dash}:{})},false); }
+      else   { mkRail({stroke:"#2b3c52","stroke-width":1.1,opacity:base,...(dash?{"stroke-dasharray":dash}:{})},false); }
       return; }
     // categorised VALID track → identity gradient origin→destination
     const gid=gradId(idColor(L.a),idColor(L.b),A,B);
     const stroke=gid?("url(#"+gid+")"):idColor(L.a);
     mkRail({stroke,"stroke-width":w,opacity:base,...(dash?{"stroke-dasharray":dash}:{})});
-    // Confirmed/co-active pairs get two parallel rails so the return leg remains
-    // legible at a glance even when no carriage is exactly at mid-edge.
-    if(isTwoway) drawTwoWayLanes(R,A,B,L,mkRail);
     if(act&&_z>=0.9)dirArrow(R,A,B,L);
   });
   Object.entries(ST).forEach(([id,s])=>{
@@ -2910,7 +2819,7 @@ function draw(d){
     // Non-provider dead nodes (oracle) show "dead"; offline services (lumen) show "offline".
     let tag="";
     if(s.offline)tag=" · offline";                         // lumen (:8848 service down) — offline, not decommissioned
-    else if(inv&&s.prov)tag=" · "+(s.status||"DEAD");
+    else if(inv&&s.prov)tag=" · "+(s.status||"DEAD");      // e.g. claude · NO_KEY, kimi · QUOTA
     else if(inv)tag=" · dead";                             // oracle (dead Cloud VM)
     else if(s.market_closed)tag=" · closed";               // f43 stocks — market closed (waiting, item 2)
     else if(s.ghost)tag=" · "+(s.last_active_label||"idle");  // idle-ghost — last active Xm ago (item 1)
@@ -2957,8 +2866,8 @@ function draw(d){
 const UNIT_R=14;
 const AGE_MAX=900;    // seconds — client-side guard: never animate a stale/undated train
 const TRADE_AGE_MAX=3600; // trade floor: slower-cadence real fleet ticks get the 1h window (server matches)
-const STREAM_GAP=1500; // ms between carriages on ONE live route (denser live stream)
-const RUN_MS=2100;     // ms a carriage takes to travel its edge (smooth, continuous)
+const STREAM_GAP=2200; // ms between carriages on ONE live route (steady stream cadence)
+const RUN_MS=1800;     // ms a carriage takes to travel its edge (smooth, continuous)
 // ── TWO-WAY LANE OFFSET (2026-07-29, Ross: "i dont see two way traffic to all floors") ──
 // When a pair {a,b} carries BOTH an up-leg (from→to) and a down-leg / return (to→from),
 // the two carriages must NOT ride the exact same line or they overlap into one and 2-way is
@@ -3098,8 +3007,6 @@ async function tick(){
   if(window.__v&&window.__v!==d.ver){location.reload();return}window.__v=d.ver;
   if(_wasDown){_wasDown=false;}   // came back — normal rendering resumes below
   draw(d);
-  const ms=document.getElementById("meshstate");
-  if(ms){const mc=(d.telemetry||{}).mesh_tracks||0;ms.textContent=(d.show_mesh===true?"· FULL MESH · "+mc+" structural edges":"· MESH AVAILABLE IN STRUCTURAL VIEW");}
   const h=document.getElementById("health");
   const n=d.recent15||0;  // == animated train count (all age-gated ≤15m)
   const flowing=liveRoutes.size;  // live tracks continuously streaming carriages
@@ -3140,10 +3047,9 @@ async function tick(){
   const pf=d.proof||{};
   const meaningful=(tm.meaningful_tracks!=null?tm.meaningful_tracks:pf.edges);
   const mesh=(tm.mesh_tracks||0), proven=(tm.tracks_proven||0);
-  const meshShown=(D&&D.show_mesh===true);
   document.getElementById("proof").textContent =
      pf.stations+" stations · "+meaningful+" meaningful tracks / "+proven+" carrying a train"
-     +" ("+mesh+" structural mesh edges "+(meshShown?"shown as dotted underlay":"available in Structural view")+") · graph diameter ≤"+pf.diameter+" hops (all paths transit the Gene Pool hub)";
+     +" ("+mesh+" more structural mesh edges hidden) · graph diameter ≤"+pf.diameter+" hops (all paths transit the Gene Pool hub)";
   // OBSERVED: only what real recent trains prove
   const ob=d.observed||{};
   const iso=(ob.isolated||[]);
@@ -3343,7 +3249,7 @@ function _matchFilter(id,s){
   if(FILTER==="active")return !!s.has_traffic||!!s.floor_active;
   if(FILTER==="failed")return s.valid===false||s.offline||(s.prov&&s.status_band&&s.status_band!=="live");
   if(FILTER==="provider")return !!s.prov;
-  if(FILTER==="ai")return ["wren","bill","tp_pip","acer_cass","codex","oracle","gene_pool","council15","task_council","hermes","iquest_40b","qwen_worker","wren_brain"].includes(id);
+  if(FILTER==="ai")return ["wren","bill","tp_pip","acer_cass","codex","oracle","gene_pool","council15","task_council","claude_acct","hermes","iquest_40b","qwen_worker","wren_brain"].includes(id);
   // two-way / co-active / one-way: station participates in a pair of that status
   const want={twoway:"confirmed",coactive:"coactive",oneway:"oneway"}[FILTER];
   if(want)return _pairsFor(id).some(p=>p.status===want);
@@ -3483,18 +3389,6 @@ if(/selftest/i.test(location.hash)){
 svg.addEventListener("click",e=>{if(e.target===svg||e.target.id==="railLayer")clearSel(false);});
 
 tick();  // self-scheduling loop (item 4): 1s on success, backoff-and-retry on failure
-
-// ── 🧬 Gene Pool HUD badge · additive · own 15s fetch · NEVER touches the SVG ──
-// Fixed overlay (pointer-events:none) so it cannot interfere with map clicks/routing.
-async function geneHud(){
-  const el=document.getElementById('genePoolHud'); if(!el)return;
-  let g; try{g=await(await fetch('/api/gene_pool',{cache:'no-store'})).json()}catch(e){return}
-  const box=(name,d)=>{const on=d&&d.online,c=name==='TP'?'#a855f7':'#34d399',
-    n=(d&&Array.isArray(d.providers))?d.providers.length:0;
-    return `<b style="color:${c}">${name}</b> <span style="color:${on?'#45f59b':'#ff6b6b'}">${on?'●':'○'}</span> <span style="color:#9db3cc">${on?(n+' providers'):'DOWN'}</span>`;};
-  el.innerHTML='🧬 <b style="color:#cfe0f5">Gene Pool</b> · '+box('TP',g&&g.TP)+' &nbsp;·&nbsp; '+box('Acer',g&&g.Acer);
-}
-geneHud(); setInterval(geneHud,15000);
 </script></body></html>"""
 
 
@@ -3552,11 +3446,7 @@ class H(BaseHTTPRequestHandler):
             self.send_response(404); self.end_headers()
 
     def do_GET(self):
-        if self.path.startswith("/api/gene_pool"):
-            b = json.dumps(_gene_pool_hud()).encode()
-            self.send_response(200); self.send_header("Cache-Control", "no-store"); self.send_header("Content-Type", "application/json")
-            self.send_header("Content-Length", str(len(b))); self.end_headers(); self.wfile.write(b)
-        elif self.path.startswith("/api/data"):
+        if self.path.startswith("/api/data"):
             b = json.dumps(build()).encode()
             self.send_response(200); self.send_header("Cache-Control", "no-store"); self.send_header("Content-Type", "application/json")
             self.send_header("Content-Length", str(len(b))); self.end_headers(); self.wfile.write(b)

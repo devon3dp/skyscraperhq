@@ -1,0 +1,20 @@
+{
+  "name": "multilingual_check",
+  "description": "Translate text into another language (or respond in it) using Wren's OWN local model (qwen2.5:14b via localhost Ollama) — fully offline, no external provider, zero cost. Returns an HONEST confidence tier plus a fallback note when the model is out of its depth. Confidence tiers are grounded in a real measured assessment (2026-07-30): HIGH for French/Spanish/German/Russian/Chinese/Japanese/English (+documented it/pt/ko), MEDIUM for Arabic/Hebrew/Dutch/Polish/Turkish/Vietnamese/Thai/Indonesian (usable but verify), LOW for Hindi/Welsh/Swahili/Zulu and any untested language (measured failure -> do NOT ship as authoritative, route to gene pool or a human). Use whenever Wren must read, translate, or reply to non-English text so she states honestly what her model can and cannot handle.",
+  "params": {
+    "type": "object",
+    "properties": {
+      "text": {"type": "string", "description": "Source text to translate, or the request to answer when mode=respond."},
+      "target_language": {"type": "string", "description": "Language name or ISO code, e.g. 'French' or 'fr'."},
+      "mode": {"type": "string", "enum": ["translate", "respond"], "default": "translate"},
+      "timeout": {"type": "number", "default": 300, "description": "Wedge-aware: the local model may cold-load or be mid wedge-heal restart."},
+      "retries": {"type": "integer", "default": 3}
+    },
+    "required": ["text", "target_language"]
+  },
+  "safety_class": "read",
+  "entrypoint": "skill:run",
+  "authored_by": "Claude for Wren (additive skill — Ross A4 multilingual capability, 2026-07-30)",
+  "authored_ts": "2026-07-30",
+  "tags": ["multilingual", "translation", "local-model", "offline", "honest-confidence", "key-player"]
+}

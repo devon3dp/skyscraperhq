@@ -1,0 +1,4 @@
+interface:
+  display_name: "Wren Evidence-Gated Code Work"
+  short_description: "Build and verify code without false completion"
+  default_prompt: "Use $evidence-gated-code-work to implement and prove this bounded code change."

@@ -1,0 +1,10 @@
+{
+  "name": "command_deck",
+  "description": "Wren's DEEP governor eyes (read-only, R01). Reports the command-and-control numbers a governor actually manages by — the things her floor-level eyes (tower_health / governor_scan) did NOT show: per-CEO load (active in-flight tasks vs the per-CEO cap), global WIP (total concurrent in-flight vs the GLOBAL_WIP_CAP ceiling + free slots), backlog depth (open + unowned-open counts), completion rate (done vs live — the real throughput), the full state histogram, blocked tasks + stale claims that are holding WIP slots (who is stuck), which CEOs are online right now (leadership relay heartbeats), and the outcomes of Wren's OWN delegations (where each handoff landed). Ends with a one-line briefing + an honest headline recommendation (e.g. when the council is saturated: drive existing work to done, do not start more). Use this FIRST to know the real state of control before deciding what to delegate. Read-only: writes nothing.",
+  "params": {"type": "object", "properties": {}, "required": []},
+  "safety_class": "read",
+  "entrypoint": "skill:run",
+  "authored_by": "Claude for Wren (governor upgrade — deep eyes; additive, touches no mind/persona file)",
+  "authored_ts": "2026-07-30",
+  "tags": ["governor", "command", "situational-awareness", "wip", "backlog", "load", "R01-honest"]
+}

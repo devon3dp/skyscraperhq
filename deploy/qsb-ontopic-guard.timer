@@ -1,0 +1,11 @@
+[Unit]
+Description=Run the QSB On-Topic Guard every 60s over new room rows
+
+[Timer]
+OnBootSec=90
+OnUnitActiveSec=60
+AccuracySec=10
+Unit=qsb-ontopic-guard.service
+
+[Install]
+WantedBy=timers.target

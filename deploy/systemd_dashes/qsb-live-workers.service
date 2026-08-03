@@ -1,0 +1,14 @@
+[Unit]
+Description=QSB Live Workers (Bill+TP+Asa continuous parallel real work -> live Underground trains; honest)
+After=network-online.target qsb-leadership-relay.service
+
+[Service]
+Type=simple
+User=ross
+WorkingDirectory=/vaults/nvme0/qsb_tower_v1
+ExecStart=/usr/bin/python3 /vaults/nvme0/qsb_tower_v1/tools/qsb_live_workers.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

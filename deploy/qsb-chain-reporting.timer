@@ -1,0 +1,11 @@
+[Unit]
+Description=Run QSB chain-of-command reporting every 5 minutes (bounded per-floor roll-up to Wren + Codex)
+
+[Timer]
+OnBootSec=180
+OnUnitActiveSec=300
+AccuracySec=15
+Persistent=true
+
+[Install]
+WantedBy=timers.target

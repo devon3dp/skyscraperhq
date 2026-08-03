@@ -1,0 +1,9 @@
+[Unit]
+Description=QSB CEO Workers (TP + Asa do real cockpit work -> live Underground trains; honest, non-self-verifying)
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=ross
+WorkingDirectory=/vaults/nvme0/qsb_tower_v1
+ExecStart=/usr/bin/python3 /vaults/nvme0/qsb_tower_v1/tools/qsb_ceo_workers.py

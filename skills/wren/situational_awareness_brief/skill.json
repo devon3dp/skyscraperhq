@@ -1,0 +1,10 @@
+{
+  "name": "situational_awareness_brief",
+  "description": "ONE grounded key-player briefing that fuses live tower health + top worker needs + trading-desk PnL/exposure + council board state into a single read. Use this at the start of any leadership turn ('what's the state of the tower', 'brief me', 'what should I do next') so Wren speaks and acts from the whole real picture at once. Composes the live_tower_status, worker_needs_digest, trading_desk_briefing and council_board_digest skills. All read-only, all R01-honest.",
+  "params": {"type": "object", "properties": {"needs_n": {"type": "integer", "default": 5}, "council_n": {"type": "integer", "default": 5}}, "required": []},
+  "safety_class": "read",
+  "entrypoint": "skill:run",
+  "authored_by": "Claude for Wren (additive skill upgrade)",
+  "authored_ts": "2026-07-29",
+  "tags": ["situational-awareness", "leadership", "key-player", "briefing"]
+}

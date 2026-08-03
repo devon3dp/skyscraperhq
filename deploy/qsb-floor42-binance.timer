@@ -1,0 +1,10 @@
+[Unit]
+Description=Refresh Floor 42 Binance testnet status/snapshot every 120s (honest crypto preview live dash)
+
+[Timer]
+OnBootSec=90
+OnUnitActiveSec=120
+AccuracySec=15
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,32 @@
+{
+  "name": "sentiment_context",
+  "description": "ADVISORY conversational TONE + URGENCY context for a single message (improvement doc A1 / P2-01). Deterministic keyword+punctuation heuristics with a CONFIDENCE score, no model required. Returns {tone, urgency, confidence, basis:direct|inferred, correctable}. HARD GUARDRAILS: classifies the message's tone/urgency ONLY; never claims to know Ross's private mental state; never makes medical/psychological diagnoses; always records confidence (never 1.0); distinguishes DIRECT statements from INFERENCE; Ross can CORRECT any call (action='correct'); NEVER alters Wren's persona — it is context she READS. Appends every call to data/registries/qsb_wren_sentiment_log.jsonl (append-only, with a correction field). action='infer_mental_state'|'diagnose'|'read_mind' is REFUSED by design.",
+  "params": {
+    "type": "object",
+    "properties": {
+      "action":  {"type": "string", "enum": ["classify", "correct", "recent"], "default": "classify", "description": "classify a message | record a Ross correction | tail recent log rows"},
+      "message": {"type": "string", "description": "classify: the message text to classify (tone/urgency only)"},
+      "source":  {"type": "string", "description": "classify: optional provenance tag (e.g. 'room', 'whatsapp', 'dash_chat')"},
+      "classification_id": {"type": "string", "description": "correct: id of the classification being corrected"},
+      "corrected_tone":    {"type": "string", "description": "correct: Ross's corrected tone label"},
+      "corrected_urgency": {"type": "string", "description": "correct: Ross's corrected urgency tier"},
+      "note":    {"type": "string", "description": "correct: one-line reason from Ross"},
+      "limit":   {"type": "integer", "default": 10, "description": "recent: how many rows to tail"}
+    },
+    "required": []
+  },
+  "safety_class": "stamp",
+  "entrypoint": "skill:run",
+  "authored_by": "Claude for Wren (additive advisory skill, A1/P2-01)",
+  "authored_ts": "2026-07-30",
+  "guardrails": [
+    "tone+urgency of the MESSAGE only",
+    "no private-mental-state claims",
+    "no medical/psychological diagnosis",
+    "confidence recorded on every call, never 1.0",
+    "direct vs inferred basis distinguished",
+    "Ross-correctable",
+    "advisory-only, never mutates Wren's persona"
+  ],
+  "tags": ["sentiment", "tone", "urgency", "advisory", "read-the-room", "A1", "P2-01"]
+}

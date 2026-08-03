@@ -13,6 +13,8 @@ No demo motion — a token only glides when a real event newer than last-seen ap
 Read-only. systemd qsb-council-live-dash.service.
 """
 import json
+import threading as _threading
+import urllib.request as _urlreq
 from collections import Counter, deque
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -71,6 +73,49 @@ def _tail(path, n):
             return [json.loads(x) for x in deque(f, maxlen=n) if x.strip()]
     except Exception:
         return []
+
+
+# ── Live box gene-pool providers (REAL /health polls, 20s in-process cache) ──
+# The two Windows boxes each run a standalone multi-provider gene pool on :8770.
+# We poll ONLY /health (fast, read-only) and show exactly what each box reports —
+# a box that can't be reached is shown offline with no providers, never invented.
+_GENE_BOXES = {
+    "tp_pip":    "http://DESKTOP-9RBVKSM.local:8770/health",
+    "acer_cass": "http://DESKTOP-1E2FB5N.local:8770/health",
+}
+_GENE_CACHE = {"ts": 0.0, "data": None}
+_GENE_TTL = 20.0
+
+
+def _gene_box_probe(url):
+    try:
+        with _urlreq.urlopen(url, timeout=2.5) as r:
+            j = json.loads(r.read().decode("utf-8", "ignore"))
+        provs = j.get("providers_available") or []
+        if not isinstance(provs, list):
+            provs = []
+        return {"online": bool(j.get("ok")), "providers": [str(p) for p in provs]}
+    except Exception:
+        return {"online": False, "providers": []}
+
+
+def _gene_pool():
+    now = _time.time()
+    c = _GENE_CACHE
+    if c["data"] is not None and (now - c["ts"]) < _GENE_TTL:
+        return c["data"]
+    out = {}
+    threads = []
+    for name, url in _GENE_BOXES.items():
+        t = _threading.Thread(target=lambda n=name, u=url: out.__setitem__(n, _gene_box_probe(u)),
+                              daemon=True)
+        t.start(); threads.append(t)
+    for t in threads:
+        t.join(timeout=3.0)
+    for name in _GENE_BOXES:            # a hung thread still yields an honest offline box
+        out.setdefault(name, {"online": False, "providers": []})
+    c["ts"] = now; c["data"] = out
+    return out
 
 
 def build():
@@ -396,6 +441,7 @@ def build():
         "segments": segments,
         "lane_segments": lane_seg,
         "now_working": now_working,
+        "gene_pool": _gene_pool(),
     }
 
 
@@ -500,6 +546,7 @@ h1{margin:0;font-size:20px}h1 .n{color:var(--wren)}
 <div class=rail aria-label="Live scrolling council events"><div class=rail-track id=liveRail><span class=rail-empty>Waiting for real council events…</span></div></div>
 <div class=card><h2>Live pipeline — Open → Claimed → Sandbox → Quorum → Wren Gate → Done</h2><svg id=flow></svg></div>
 <div class=card><h2>⚡ Now working — each member's live active task (real snapshot, not counts)</h2><div id=nowWorking></div></div>
+<div class=card id=genePoolCard><h2>🧬 Gene Pool — box providers (live)</h2><div id=genePool></div><div class=source-note>Source: live /health poll of each box gene pool on :8770 (20s cached). Providers self-heal — a box shown DOWN is genuinely unreachable.</div></div>
 <div class=card><h2>🛤️ Per-member swim-lanes — where each member's work is parked</h2><svg id=lanes></svg></div>
 <div class=card><h2>✅ Awaiting YOUR sign-off — tick to keep the council moving</h2><div id=signoff></div></div>
 <div class=card><h2>Worker ratings /10 — real, from corrections &amp; rework</h2><div id=wstats></div></div>
@@ -808,6 +855,20 @@ async function tick(){
     const last=w.last_event?`<span style="color:${col}">${esc(w.last_event)}</span>${w.last_to?(' → '+esc(w.last_to)):''}${age?(' <span class=dim>'+age+'</span>'):''}`:'<span class=dim>—</span>';
     return `<div style="display:grid;grid-template-columns:120px 84px 1fr 210px;gap:10px;padding:5px 4px;border-bottom:1px solid var(--line);font-size:12px;align-items:center"><span style="color:${col};font-weight:700">${lbl}</span><span class=badge style="color:${col};border-color:${col}">${st}</span><span><b class=mono>${esc(w.id)}</b> ${esc(w.title)}</span><span class=dim>${last}</span></div>`;
   }).join('');
+  // ── 🧬 Gene Pool — live box providers (defensive: no data → honest fallback) ──
+  const gpEl=document.getElementById("genePool");
+  if(gpEl){
+    const GP_COL={tp_pip:'var(--tp)',acer_cass:'var(--asa)'};
+    const gp=d.gene_pool||{};const gpKeys=Object.keys(gp);
+    gpEl.innerHTML=gpKeys.length?gpKeys.map(kk=>{
+      const box=gp[kk]||{},on=!!box.online,col=GP_COL[kk]||'#7d8da6',lbl=esc(LANE_LABEL[kk]||kk);
+      const provs=Array.isArray(box.providers)?box.providers:[];
+      const pill=on?`<span class=badge style="color:var(--ok);border-color:var(--ok)">● ONLINE</span>`
+                   :`<span class=badge style="color:var(--bad);border-color:var(--bad)">○ DOWN</span>`;
+      const chips=on?(provs.length?provs.map(pv=>`<span class=badge style="color:${col};border-color:${col};margin:2px;display:inline-block">${esc(pv)}</span>`).join(''):'<span class=pill>no providers reported</span>'):'';
+      return `<div style="padding:6px 2px;border-bottom:1px solid var(--line)"><div style="display:flex;align-items:center;gap:9px;margin-bottom:5px"><b style="color:${col}">${lbl}</b>${pill}<span class=dim>${on?(provs.length+' live provider'+(provs.length===1?'':'s')):'unreachable :8770'}</span></div><div>${chips}</div></div>`;
+    }).join(''):'<span class=pill>gene-pool boxes not reporting</span>';
+  }
   document.getElementById("ticker").innerHTML=(d.ticker||[]).map((r,i)=>{
     const col=ACTORC[r.actor]||"#7d8da6";
     const vd=r.verdict?` <b style="color:${r.verdict==='approve'?'#39d98a':'#ff6b6b'}">${esc(r.verdict)}</b>`:"";

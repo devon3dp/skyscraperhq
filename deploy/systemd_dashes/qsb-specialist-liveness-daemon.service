@@ -1,0 +1,14 @@
+[Unit]
+Description=QSB Specialist Liveness Daemon (hermes/iquest/qwen/claude/sandbox/f46 continuous -> stay lit; honest)
+After=network-online.target ollama.service
+
+[Service]
+Type=simple
+User=ross
+WorkingDirectory=/vaults/nvme0/qsb_tower_v1
+ExecStart=/usr/bin/python3 /vaults/nvme0/qsb_tower_v1/tools/qsb_council_specialist_liveness.py --loop
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

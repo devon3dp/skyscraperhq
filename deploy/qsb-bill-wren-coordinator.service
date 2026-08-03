@@ -1,0 +1,19 @@
+[Unit]
+Description=QSB Bill<->Wren Coordinator (real pair: Wren's mind -> Bill grounded updates + answers Bill's DMs). Comms only; executes no tower actions.
+After=network-online.target qsb-leadership-relay.service qsb-wren-dash.service
+Wants=qsb-leadership-relay.service qsb-wren-dash.service
+
+[Service]
+Type=oneshot
+User=ross
+WorkingDirectory=/vaults/nvme0/qsb_tower_v1
+Environment=BILL_WREN_RELAY=http://127.0.0.1:8855
+Environment=WREN_MIND_URL=http://127.0.0.1:8851/api/wren_chat
+Environment=WREN_MIND_TIMEOUT=120
+# --tick runs BOTH directions: push a grounded Wren->Bill update AND answer any
+# pending Bill->Wren DMs with Wren's real mind. Non-autonomous: it only relays
+# messages between two REAL minds; it never executes Task Council / tower actions.
+ExecStart=/usr/bin/python3 /vaults/nvme0/qsb_tower_v1/tools/qsb_bill_wren_coordinator.py --tick --quiet
+
+[Install]
+WantedBy=multi-user.target

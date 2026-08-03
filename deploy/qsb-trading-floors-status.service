@@ -1,0 +1,8 @@
+[Unit]
+Description=QSB unified trading-floors status (F41 OANDA / F42 Binance / F43 stocks) — one honest cross-floor registry for dashboards + Underground map
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 /vaults/nvme0/qsb_tower_v1/tools/qsb_trading_floors_status.py --quiet
+User=ross
+Nice=10

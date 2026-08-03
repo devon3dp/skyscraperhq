@@ -1,0 +1,15 @@
+[Unit]
+Description=QSB Box Grinder - Acer/acer_cass (VERIFY + KB-GRIND, continuous 24/7, honest R01)
+After=network-online.target qsb-leadership-relay.service
+
+[Service]
+Type=simple
+User=ross
+WorkingDirectory=/vaults/nvme0/qsb_tower_v1
+Environment=GRIND_CYCLE_SLEEP=10
+ExecStart=/usr/bin/python3 /vaults/nvme0/qsb_tower_v1/tools/qsb_box_grinder.py --box acer_cass --lane verify_kb
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

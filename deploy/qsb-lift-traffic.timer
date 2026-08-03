@@ -1,0 +1,8 @@
+[Unit]
+Description=Emit real inter-zone lift traffic every 60s (only NEW sourced info movements via qsb_lift_traffic_cursor.json; real needs+chain reports+leadership comms along real lift shafts; append-only)
+[Timer]
+OnBootSec=90
+OnUnitActiveSec=60
+AccuracySec=10
+[Install]
+WantedBy=timers.target
