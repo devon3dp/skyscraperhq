@@ -13,12 +13,18 @@ Supported concrete_change operations (v1, conservative):
 Anything else: refuses to apply. Logs reason.
 """
 from __future__ import annotations
-import json, sys, hashlib, subprocess
+import json, sys, hashlib, subprocess, shutil
 from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path("/vaults/nvme0/qsb_tower_v1")
 PROPOSALS = ROOT / "data/registries/qsb_code_proposals.jsonl"
+# 2026-08-03: the CEO/Wren/provider evolution proposals (raw patch_body + target_files)
+# live in the QUEUE, not in qsb_code_proposals.jsonl. The applier now ALSO drains the
+# queue — but ONLY proposals already carrying the full 3-unique-class signature set
+# (see the queue pass in main()). Everything else in the queue is ignored, so a plain
+# run never sweeps unsigned proposals.
+PROPOSAL_QUEUE = ROOT / "data/registries/qsb_proposal_queue.jsonl"
 APPLY_AUDIT = ROOT / "data/registries/qsb_code_apply_audit.jsonl"
 SANDBOX_RES = ROOT / "data/registries/qsb_proposal_sandbox_results.jsonl"
 GATE = ROOT / "data/registries/qsb_proposal_autoapply_gate.json"
@@ -71,6 +77,37 @@ def read_proposals() -> list[dict]:
 
 def write_proposals(rows: list[dict]) -> None:
     PROPOSALS.write_text("\n".join(json.dumps(r) for r in rows) + "\n")
+
+
+def read_queue_latest() -> dict[str, dict]:
+    """Latest row per proposal_id from the evolution queue (latest-wins)."""
+    out: dict[str, dict] = {}
+    if not PROPOSAL_QUEUE.exists():
+        return out
+    for ln in PROPOSAL_QUEUE.read_text().splitlines():
+        ln = ln.strip()
+        if not ln:
+            continue
+        try:
+            r = json.loads(ln)
+        except Exception:
+            continue
+        pid = r.get("proposal_id") or r.get("id")
+        if pid:
+            out[pid] = r
+    return out
+
+
+def mark_queue_applied(p: dict, detail: str) -> None:
+    """Append an applied-marker row (full proposal + applied flag) so latest-wins
+    reconstruction sees it as applied — never rewrites the 1000+-line queue file."""
+    row = dict(p)
+    row["applied"] = True
+    row["applied_ts"] = utcnow()
+    row["applied_by"] = "qsb_proposal_applier"
+    row["apply_detail"] = detail
+    with PROPOSAL_QUEUE.open("a") as f:
+        f.write(json.dumps(row) + "\n")
 
 
 def is_safety_flagged(p: dict) -> bool:
@@ -166,8 +203,61 @@ def op_set_css_var(p: dict) -> tuple[bool, str]:
     return True, f"appended :root {{ {var}: {to}; }} to {css_target.name}"
 
 
+def op_write_files(p: dict) -> tuple[bool, str]:
+    """Apply a raw-content proposal (queue shape): write patch_body into its
+    target file(s), or file_replacements {relpath: content}. Each file is
+    backed up if it exists; .py targets are py_compile-checked and rolled back
+    on failure. Per-file safety re-check (defence in depth on top of the
+    is_safety_flagged gate in apply_one)."""
+    repl = p.get("file_replacements")
+    if not isinstance(repl, dict) or not repl:
+        pb = p.get("patch_body")
+        tfs = p.get("target_files") or ([p.get("target_file")] if p.get("target_file") else [])
+        if not pb or not tfs:
+            return False, "no_patch_body_or_target"
+        # single-target raw patch_body → full new-file content
+        repl = {tfs[0]: pb}
+    ts = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    written: list[str] = []
+    for rel, content in repl.items():
+        rel = (rel or "").lstrip("/")
+        # per-file safety re-check — never write a safety path even if the
+        # proposal-level gate somehow missed it.
+        for sp in SAFETY_PATHS:
+            if sp in rel:
+                return False, f"safety_path:{rel}"
+        if ".." in rel:
+            return False, f"bad_path:{rel}"
+        target = ROOT / rel
+        if not str(target.resolve()).startswith(str(ROOT.resolve())):
+            return False, f"escapes_root:{rel}"
+        target.parent.mkdir(parents=True, exist_ok=True)
+        existed = target.exists()
+        before = target.read_text(errors="replace") if existed else ""
+        if existed and before == content:
+            continue  # no-op for this file
+        bak = None
+        if existed:
+            bak = target.with_name(target.name + f".bak_{ts}_applier")
+            shutil.copy2(target, bak)
+        target.write_text(content)
+        if rel.endswith(".py"):
+            r = subprocess.run(["python3", "-m", "py_compile", str(target)],
+                               capture_output=True, text=True, timeout=30)
+            if r.returncode != 0:
+                if existed and bak:
+                    shutil.copy2(bak, target)  # roll back
+                else:
+                    target.unlink(missing_ok=True)  # remove new broken file
+                return False, f"post_apply_py_compile_failed:{r.stderr[-160:]}"
+        written.append(rel)
+    if not written:
+        return False, "no_change"
+    return True, f"wrote {written}"
+
+
 def apply_one(p: dict) -> dict:
-    pid = p.get("id") or p.get("ts")
+    pid = p.get("id") or p.get("proposal_id") or p.get("ts")
     if p.get("applied"):
         return {"applied": False, "reason": "already_applied"}
     if not gate_on():
@@ -178,6 +268,12 @@ def apply_one(p: dict) -> dict:
         return {"applied": False, "reason": f"insufficient_sigs:{count_sigs(p)}"}
     if not sandbox_green_for(pid):
         return {"applied": False, "reason": "sandbox_not_green"}
+
+    # Queue-shaped proposals carry raw content (patch_body / file_replacements)
+    # rather than a concrete_change op. Apply them by writing the file(s).
+    if p.get("patch_body") or p.get("file_replacements"):
+        ok, detail = op_write_files(p)
+        return {"applied": ok, "reason": detail}
 
     kind = p.get("kind")
     cc = p.get("concrete_change", {})
@@ -235,6 +331,44 @@ def main():
 
     if applied:
         write_proposals(rows)
+
+    # ── QUEUE PASS ──────────────────────────────────────────────────────
+    # Drain the evolution queue, but ONLY proposals already carrying the full
+    # 3-unique-class signature set. This is the gate that keeps a plain run from
+    # sweeping the ~1000 unsigned/green proposals: unsigned ones are never even
+    # considered here, so the verify-signoff engine (Wren+Bill sigs) is the sole
+    # thing that promotes a queue proposal to appliable.
+    queue = read_queue_latest()
+    for pid, p in queue.items():
+        if p.get("applied"):
+            continue
+        if count_sigs(p) < SIG_THRESHOLD:
+            continue  # not yet signed by Wren(2)+Bill(1) — ignore silently
+        targets = p.get("target_files") or ([p.get("target_file")] if p.get("target_file") else [])
+        sha_before = {t: file_sha(ROOT / t) for t in targets}
+        verdict = apply_one(p)
+        sha_after = {t: file_sha(ROOT / t) for t in targets}
+        rec = {
+            "ts": utcnow(),
+            "proposal_id": pid,
+            "source": p.get("source"),
+            "target_files": targets,
+            "sigs": [s.get("approver_class") for s in p.get("sigs", [])],
+            "sandbox_green": sandbox_green_for(pid),
+            "applier": "qsb_proposal_applier",
+            "queue": True,
+            "sha_before": sha_before,
+            "sha_after": sha_after,
+            **verdict,
+        }
+        with APPLY_AUDIT.open("a") as f:
+            f.write(json.dumps(rec) + "\n")
+        if verdict["applied"]:
+            mark_queue_applied(p, verdict["reason"])
+            applied.append({"id": pid, "source": p.get("source"),
+                            "detail": verdict["reason"]})
+        else:
+            refused.append({"id": pid, "reason": verdict["reason"]})
 
     rec = {
         "ts": utcnow(),
