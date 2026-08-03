@@ -1,0 +1,9 @@
+[Unit]
+Description=QSB autonomous evolution tick — Wren+Bill verify-sign + apply (bounded)
+After=network-online.target
+[Service]
+Type=oneshot
+User=ross
+WorkingDirectory=/vaults/nvme0/qsb_tower_v1
+ExecStart=/bin/bash /vaults/nvme0/qsb_tower_v1/deploy/qsb_council_verify_tick.sh
+TimeoutStartSec=900
