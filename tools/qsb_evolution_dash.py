@@ -39,12 +39,19 @@ import json
 import os
 import subprocess
 import time
+import urllib.request
 from datetime import datetime, timezone, timedelta
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 PORT = 8869
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 REG = os.path.join(ROOT, "data", "registries")
+
+# per-AI block caches the (partly remote) result ~20s so the dash never blocks
+# every HTTP request on the two box /state calls. Mirrors how a liveness cache
+# would work: refresh at most once per window, serve the cached block otherwise.
+_PERAI_CACHE = {"ts": 0.0, "data": None}
+_PERAI_TTL = 20.0
 
 
 # ----------------------------------------------------------------------------
@@ -533,6 +540,243 @@ def panel_live_cadence():
 
 
 # ----------------------------------------------------------------------------
+# PER-AI EVOLUTION — how EACH named AI (not just the tower) is evolving
+# ----------------------------------------------------------------------------
+def _fetch_json(url, timeout=2.0):
+    """GET a remote JSON with a SHORT timeout. (None, False) on any failure —
+    an unreachable box must show honestly, never a decorative constant."""
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": "qsb-evolution-dash"})
+        with urllib.request.urlopen(req, timeout=timeout) as r:
+            return json.loads(r.read().decode("utf-8", "replace")), True
+    except Exception:
+        return None, False
+
+
+def _council_done_by_actor():
+    """Aggregate real 'done' events from qsb_council_tasks.jsonl by actor.
+    Returns ({actor: {all, today, last_ts}}, present)."""
+    rows, present = iter_jsonl("qsb_council_tasks.jsonl")
+    agg = {}
+    td = today_str()
+    for r in rows:
+        if r.get("event") != "done":
+            continue
+        a = r.get("actor")
+        d = agg.setdefault(a, {"all": 0, "today": 0, "last_ts": None})
+        d["all"] += 1
+        ts = str(r.get("ts", ""))
+        if ts[:10] == td:
+            d["today"] += 1
+        dt = parse_ts(ts)
+        if dt is not None:
+            prev = parse_ts(d["last_ts"]) if d["last_ts"] else None
+            if prev is None or dt > prev:
+                d["last_ts"] = ts
+    return agg, present
+
+
+def _fresh(dt, hours=2):
+    return dt is not None and 0 <= (now_utc() - dt).total_seconds() < hours * 3600
+
+
+def _newest(*tss):
+    """Return the most-recent parseable ts string among the args (or None)."""
+    best = None
+    best_dt = None
+    for ts in tss:
+        dt = parse_ts(ts)
+        if dt is not None and (best_dt is None or dt > best_dt):
+            best_dt, best = dt, ts
+    return best
+
+
+def panel_per_ai():
+    """One evolution record per canonical AI principal. REAL sources only.
+    Cached ~20s (two of the reads are remote box /state calls)."""
+    now = time.time()
+    cached = _PERAI_CACHE.get("data")
+    if cached is not None and (now - _PERAI_CACHE["ts"]) < _PERAI_TTL:
+        return cached
+
+    done_agg, _dp = _council_done_by_actor()
+
+    def _done(actor):
+        d = done_agg.get(actor) or {}
+        return d.get("all", 0), d.get("today", 0), d.get("last_ts")
+
+    ais = []
+
+    # --- WREN — governor evolution cycles (MSI) -----------------------------
+    try:
+        rows, present = iter_jsonl("qsb_wren_evolution_cycles.jsonl")
+        d_all, d_today, d_last = _done("wren")
+        if present:
+            c_all = len(rows)
+            c_today = 0
+            last_cyc = None
+            for r in rows:
+                ts = str(r.get("ts", ""))
+                if ts[:10] == today_str():
+                    c_today += 1
+                if last_cyc is None or ts > str(last_cyc):
+                    last_cyc = ts
+            last_ts = _newest(last_cyc, d_last)
+            last_dt = parse_ts(last_ts)
+            ais.append({
+                "key": "wren", "name": "Wren", "role": "Governor",
+                "host": "MSI", "cycles": c_all, "cycles_today": c_today,
+                "mood": None, "thoughts": None,
+                "done_all": d_all, "done_today": d_today,
+                "last_activity_ts": last_ts, "last_activity_age": ago(last_dt),
+                "evolving_now": bool(_fresh(last_cyc and parse_ts(last_cyc))
+                                     or _fresh(parse_ts(d_last))),
+                "reachable": True,
+                "source": "qsb_wren_evolution_cycles.jsonl + council",
+            })
+        else:
+            ais.append({
+                "key": "wren", "name": "Wren", "role": "Governor", "host": "MSI",
+                "cycles": "UNREACHABLE", "cycles_today": None, "mood": None,
+                "thoughts": None, "done_all": d_all, "done_today": d_today,
+                "last_activity_ts": d_last, "last_activity_age": ago(parse_ts(d_last)),
+                "evolving_now": bool(_fresh(parse_ts(d_last))), "reachable": False,
+                "source": "qsb_wren_evolution_cycles.jsonl (missing) + council",
+            })
+    except Exception:
+        ais.append({"key": "wren", "name": "Wren", "role": "Governor",
+                    "host": "MSI", "cycles": "UNREACHABLE", "mood": None,
+                    "thoughts": None, "done_all": 0, "done_today": 0,
+                    "last_activity_ts": None, "last_activity_age": "—",
+                    "evolving_now": False, "reachable": False})
+
+    # --- BILL — MacBook concierge work-mode ---------------------------------
+    try:
+        bm, present = read_json("qsb_bill_work_mode.json")
+        d_all, d_today, d_last = _done("bill")
+        if present and isinstance(bm, dict):
+            hb = bm.get("last_heartbeat")
+            hb_dt = parse_ts(hb)
+            last_ts = _newest(hb, d_last)
+            ais.append({
+                "key": "bill", "name": "Bill", "role": "Concierge",
+                "host": "MacBook", "cycles": None, "mood": bm.get("mode"),
+                "thoughts": None, "done_all": d_all, "done_today": d_today,
+                "last_activity_ts": last_ts, "last_activity_age": ago(parse_ts(last_ts)),
+                "evolving_now": bool(_fresh(hb_dt) or _fresh(parse_ts(d_last))),
+                "reachable": True,
+                "note": "learn-mode lessons are Mac-local",
+                "source": "qsb_bill_work_mode.json + council",
+            })
+        else:
+            ais.append({
+                "key": "bill", "name": "Bill", "role": "Concierge",
+                "host": "MacBook", "cycles": None, "mood": "UNREACHABLE",
+                "thoughts": None, "done_all": d_all, "done_today": d_today,
+                "last_activity_ts": d_last, "last_activity_age": ago(parse_ts(d_last)),
+                "evolving_now": bool(_fresh(parse_ts(d_last))), "reachable": False,
+                "note": "learn-mode lessons are Mac-local",
+                "source": "qsb_bill_work_mode.json (missing) + council",
+            })
+    except Exception:
+        ais.append({"key": "bill", "name": "Bill", "role": "Concierge",
+                    "host": "MacBook", "cycles": None, "mood": "UNREACHABLE",
+                    "thoughts": None, "done_all": 0, "done_today": 0,
+                    "last_activity_ts": None, "last_activity_age": "—",
+                    "evolving_now": False, "reachable": False})
+
+    # --- TP / Pip and Acer / Cass — remote box /state (SHORT timeout) --------
+    for key, name, role, host, actor, url in (
+        ("tp", "TP / Pip", "ThinkPad mind", "DESKTOP-9RBVKSM",
+         "tp_pip", "http://DESKTOP-9RBVKSM.local:9110/state"),
+        ("acer", "Acer / Cass", "Acer mind", "DESKTOP-1E2FB5N",
+         "acer_cass", "http://DESKTOP-1E2FB5N.local:9000/state"),
+    ):
+        d_all, d_today, d_last = _done(actor)
+        st, ok = _fetch_json(url, timeout=2.0)
+        if ok and isinstance(st, dict):
+            thoughts = st.get("recent_thoughts") or []
+            t_count = len(thoughts) if isinstance(thoughts, list) else None
+            thought_ts = None
+            if isinstance(thoughts, list):
+                for th in thoughts:
+                    if isinstance(th, dict):
+                        thought_ts = _newest(thought_ts, th.get("ts"))
+            hb = st.get("ts")           # box's own live heartbeat timestamp
+            last_ts = _newest(thought_ts, d_last, hb)
+            ais.append({
+                "key": key, "name": name, "role": role, "host": host,
+                "cycles": st.get("cycle_count"), "mood": st.get("mood"),
+                "thoughts": t_count,
+                "done_all": d_all, "done_today": d_today,
+                "last_activity_ts": last_ts, "last_activity_age": ago(parse_ts(last_ts)),
+                # box reachable with a fresh heartbeat = its mind loop is turning
+                "evolving_now": bool(_fresh(parse_ts(hb)) or _fresh(parse_ts(thought_ts))
+                                     or _fresh(parse_ts(d_last))),
+                "reachable": True, "source": url + " + council",
+            })
+        else:
+            ais.append({
+                "key": key, "name": name, "role": role, "host": host,
+                "cycles": "UNREACHABLE", "mood": "—", "thoughts": None,
+                "done_all": d_all, "done_today": d_today,
+                "last_activity_ts": d_last, "last_activity_age": ago(parse_ts(d_last)),
+                "evolving_now": bool(_fresh(parse_ts(d_last))),
+                "reachable": False,
+                "source": url + " (unreachable) + council",
+            })
+
+    # --- CODEX — applied code patches (OpenAI floor) ------------------------
+    try:
+        rows, present = iter_jsonl("qsb_code_apply_audit.jsonl")
+        d_all, d_today, d_last = _done("codex")
+        if present:
+            p_all = 0
+            p_today = 0
+            last_patch = None
+            for r in rows:
+                if r.get("applied") is True:
+                    p_all += 1
+                    ts = str(r.get("ts", ""))
+                    if ts[:10] == today_str():
+                        p_today += 1
+                    if last_patch is None or ts > str(last_patch):
+                        last_patch = ts
+            last_ts = _newest(last_patch, d_last)
+            ais.append({
+                "key": "codex", "name": "Codex", "role": "OpenAI floor",
+                "host": "provider", "cycles": None, "mood": None, "thoughts": None,
+                "patches_all": p_all, "patches_today": p_today,
+                "done_all": d_all, "done_today": d_today,
+                "last_activity_ts": last_ts, "last_activity_age": ago(parse_ts(last_ts)),
+                "evolving_now": bool(_fresh(parse_ts(last_patch)) or _fresh(parse_ts(d_last))),
+                "reachable": True,
+                "source": "qsb_code_apply_audit.jsonl + council",
+            })
+        else:
+            ais.append({
+                "key": "codex", "name": "Codex", "role": "OpenAI floor",
+                "host": "provider", "cycles": None, "mood": None, "thoughts": None,
+                "patches_all": "UNREACHABLE", "patches_today": None,
+                "done_all": d_all, "done_today": d_today,
+                "last_activity_ts": d_last, "last_activity_age": ago(parse_ts(d_last)),
+                "evolving_now": bool(_fresh(parse_ts(d_last))), "reachable": False,
+                "source": "qsb_code_apply_audit.jsonl (missing) + council",
+            })
+    except Exception:
+        ais.append({"key": "codex", "name": "Codex", "role": "OpenAI floor",
+                    "host": "provider", "cycles": None, "mood": None,
+                    "thoughts": None, "patches_all": "UNREACHABLE",
+                    "done_all": 0, "done_today": 0, "last_activity_ts": None,
+                    "last_activity_age": "—", "evolving_now": False,
+                    "reachable": False})
+
+    _PERAI_CACHE["data"] = ais
+    _PERAI_CACHE["ts"] = now
+    return ais
+
+
+# ----------------------------------------------------------------------------
 # TOP-LINE honest state
 # ----------------------------------------------------------------------------
 def build_state():
@@ -617,6 +861,7 @@ def build_state():
         "signals_live": turning,
         "signals_total": len(loop_signals),
         "live_cadence": cadence,
+        "per_ai": panel_per_ai(),
         "self_fixing": sf,
         "learning": ln,
         "working": wk,
@@ -634,7 +879,8 @@ PAGE = """<!doctype html><html><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <style>
 :root{--bg:#0a0e14;--panel:#111823;--edge:#1e2a3a;--txt:#cfe3ff;--dim:#7f95b3;
---good:#37d67a;--warn:#ffcf5c;--bad:#ff6b6b;--acc:#5cc8ff;}
+--good:#37d67a;--warn:#ffcf5c;--bad:#ff6b6b;--acc:#5cc8ff;
+--id-wren:#5cc8ff;--id-bill:#ffcf5c;--id-tp:#b98cff;--id-acer:#37d67a;--id-codex:#ff9a4d;}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--txt);
 font:14px/1.5 -apple-system,Segoe UI,Roboto,sans-serif}
@@ -692,7 +938,34 @@ code{color:var(--dim);font-size:10px}
 @keyframes heartbeat{0%,100%{transform:scale(.82);opacity:.7}22%{transform:scale(1.3);opacity:1}38%{transform:scale(.95)}}
 .hb.tick{animation:hbtick .6s ease-out}
 @keyframes hbtick{0%{transform:scale(1.7);box-shadow:0 0 18px rgba(55,214,122,.95)}100%{transform:scale(1);box-shadow:0 0 9px rgba(55,214,122,.75)}}
-@media (prefers-reduced-motion:reduce){.helixmove,.verdict.evolving,.hb,.hb.tick,.cad-val.flash,.scrolltrack{animation:none!important}}
+/* ---- per-AI evolution band ---- */
+.perai{margin:12px 22px 0;padding:14px 16px;background:var(--panel);border:1px solid var(--edge);border-radius:10px}
+.perai h2{margin:0 0 4px;font-size:13px;text-transform:uppercase;letter-spacing:1px;color:var(--acc)}
+.perai .sub2{color:var(--dim);font-size:11px;margin-bottom:10px}
+.ai-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(228px,1fr));gap:12px}
+.ai-card{background:#0a1018;border:1px solid var(--edge);border-left:3px solid var(--edge);border-radius:9px;padding:11px 13px}
+.ai-card.wren{border-left-color:var(--id-wren)}
+.ai-card.bill{border-left-color:var(--id-bill)}
+.ai-card.tp{border-left-color:var(--id-tp)}
+.ai-card.acer{border-left-color:var(--id-acer)}
+.ai-card.codex{border-left-color:var(--id-codex)}
+.ai-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.ai-name{font-weight:700;font-size:15px}
+.ai-card.wren .ai-name{color:var(--id-wren)}
+.ai-card.bill .ai-name{color:var(--id-bill)}
+.ai-card.tp .ai-name{color:var(--id-tp)}
+.ai-card.acer .ai-name{color:var(--id-acer)}
+.ai-card.codex .ai-name{color:var(--id-codex)}
+.ai-role{color:var(--dim);font-size:11px}
+.ai-pill{display:inline-flex;align-items:center;gap:5px;padding:2px 9px;border-radius:20px;font-size:11px;font-weight:600;border:1px solid var(--edge);color:var(--dim);white-space:nowrap}
+.ai-pill.on{color:var(--good);border-color:var(--good);background:rgba(55,214,122,.12);box-shadow:0 0 0 rgba(55,214,122,0);animation:vglow 2.6s ease-in-out infinite}
+.ai-stats{margin-top:9px}
+.ai-stat{display:flex;justify-content:space-between;gap:8px;padding:3px 0;border-bottom:1px dashed var(--edge);font-size:12px}
+.ai-stat span{color:var(--dim)}
+.ai-stat b{color:var(--txt);font-size:13px}
+.ai-stat b.flash{animation:flashUp 1s ease-out}
+.ai-last{margin-top:8px;font-size:11px;color:var(--dim)}
+@media (prefers-reduced-motion:reduce){.helixmove,.verdict.evolving,.hb,.hb.tick,.cad-val.flash,.scrolltrack,.ai-pill.on,.ai-stat b.flash{animation:none!important}}
 </style></head><body>
 <header>
   <h1 style="display:flex;align-items:center">🏢 Tower Evolution Monitor<span id="helix" class="helixwrap"></span></h1>
@@ -706,6 +979,11 @@ code{color:var(--dim);font-size:10px}
   <div class="cad-head"><span class="hb" id="hbDot"></span> <b>⚡ Live evolution today</b>
   <span class="small" id="cadWhen"></span></div>
   <div class="cad-grid" id="cadGrid"></div>
+</div>
+<div class="perai" id="perai">
+  <h2>🧬 How each AI is evolving</h2>
+  <div class="sub2">Per-principal, real sources only · box minds polled live (2s timeout, ~20s cache) · honest "—" when unreachable</div>
+  <div class="ai-grid" id="aiGrid"><div class="small">loading…</div></div>
 </div>
 <div class="loopmeter"><div style="display:flex;justify-content:space-between"><b>Evolution loop completion</b><span id="loopPct" class="small">—</span></div><div class="looptrack"><div id="loopFill" class="loopfill" style="width:0"></div></div><div id="loopNote" class="small" style="margin-top:6px">Measured from live council, proposal, learning, worker, and training signals.</div></div>
 <div class="scrollline"><div id="activityRail" class="scrolltrack">Waiting for real evolution activity…</div></div>
@@ -777,6 +1055,48 @@ function renderCadence(c){
   if(hb){hb.classList.remove('tick');void hb.offsetWidth;hb.classList.add('tick');}
 }
 
+// --- per-AI evolution band: card per principal, flash a stat on increase ---
+let aiPrev={};
+function aiStat(key,label,val,statid){
+  const v=(val==null?'—':val);
+  return `<div class="ai-stat"><span>${esc(label)}</span><b${statid?` id="${statid}"`:''}>${esc(v)}</b></div>`;
+}
+function flashIf(id,prevMap,key,val){
+  if(typeof val!=='number')return;
+  const el=document.getElementById(id);
+  const pv=prevMap[key];
+  if(el&&pv!==undefined&&val>pv){el.classList.remove('flash');void el.offsetWidth;el.classList.add('flash');}
+  prevMap[key]=val;
+}
+function renderPerAI(list){
+  const grid=document.getElementById('aiGrid');
+  if(!grid)return;
+  if(!list||!list.length){grid.innerHTML='<div class="small">no per-AI data</div>';return;}
+  grid.innerHTML=list.map(a=>{
+    const k=esc(a.key);
+    const on=a.evolving_now===true;
+    const pill=`<span class="ai-pill ${on?'on':''}">${on?'●':'○'} ${on?'EVOLVING':'idle'}</span>`;
+    let stats='';
+    if(a.cycles!=null)stats+=aiStat(k,'cycles'+(a.cycles_today!=null?' (today '+esc(a.cycles_today)+')':''),a.cycles,'aist_'+k+'_cycles');
+    if(a.patches_all!=null)stats+=aiStat(k,'patches applied'+(a.patches_today!=null?' (today '+esc(a.patches_today)+')':''),a.patches_all,'aist_'+k+'_patches');
+    if(a.mood!=null)stats+=aiStat(k,'mood',a.mood);
+    if(a.thoughts!=null)stats+=aiStat(k,'recent thoughts',a.thoughts);
+    stats+=aiStat(k,'council done (today / all)',esc(a.done_today)+' / '+esc(a.done_all),'aist_'+k+'_done');
+    const note=a.note?`<div class="ai-last">📎 ${esc(a.note)}</div>`:'';
+    const unr=a.reachable===false?' <span class="badge dead">source down</span>':'';
+    return `<div class="ai-card ${k}"><div class="ai-top"><div><span class="ai-name">${esc(a.name)}</span> <span class="ai-role">${esc(a.role)} · ${esc(a.host)}</span>${unr}</div>${pill}</div>`
+      +`<div class="ai-stats">${stats}</div>`
+      +`<div class="ai-last">last active ${esc(a.last_activity_age)}</div>${note}</div>`;
+  }).join('');
+  // flash counters that grew since last poll (mirror the cadence flash)
+  list.forEach(a=>{
+    const k=a.key;
+    flashIf('aist_'+k+'_cycles',aiPrev,k+'_cycles',a.cycles);
+    flashIf('aist_'+k+'_patches',aiPrev,k+'_patches',a.patches_all);
+    flashIf('aist_'+k+'_done',aiPrev,k+'_done',a.done_all);
+  });
+}
+
 async function tick(){
   let s;
   try{s=await (await fetch('/api/state')).json()}catch(e){document.getElementById('verdict').textContent='fetch error';return}
@@ -787,6 +1107,7 @@ async function tick(){
   v.style.borderColor=col; v.style.color=col;
   if(s.loop_signals&&s.loop_signals.cadence_live){v.classList.add('evolving');}else{v.classList.remove('evolving');}
   renderCadence(s.live_cadence);
+  renderPerAI(s.per_ai);
   document.getElementById('headline').textContent=s.headline;
   const sig=s.loop_signals||{};
   document.getElementById('signals').innerHTML=Object.keys(sig).map(k=>
