@@ -32,6 +32,10 @@ SAFETY_PATHS = (
     "CLAUDE.md",
     "floors/floor_28_security_department/vault/",
     "tools/qsb_consult_external.py",
+    "tools/qsb_oanda.py",
+    "src/tower/qsb_floor41_oanda",
+    "oanda",  # 2026-08-03: broaden — ANY oanda path (real-money broker) refused,
+              # and align this list with the applier's (was missing the oanda paths).
     ".env",
     "data/registries/qsb_proposal_autoapply_gate.json",
 )
@@ -101,8 +105,11 @@ def _coders_team_ok(p: dict) -> tuple[bool, str]:
     kind = p.get("kind")
     cc = p.get("concrete_change", {}) or {}
     targets = p.get("target_files", []) or []
-    if kind in REVIEW_ONLY_KINDS and not targets:
-        return True, f"review_only_no_targets:{kind}"
+    # Review/trigger proposals are non-mutating even when they carry a target
+    # registry for attribution. They are safe for the third review signature;
+    # the applier only records them as completed and performs no file change.
+    if kind in REVIEW_ONLY_KINDS:
+        return True, f"review_only:{kind}"
     if kind == "registry_extension_proposal":
         vals = cc.get("values", {})
         if isinstance(vals, dict) and len(vals) > 0:

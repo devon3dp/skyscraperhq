@@ -30,6 +30,8 @@ SAFETY_PATHS = (
     "tools/qsb_consult_external.py",
     "tools/qsb_oanda.py",
     "src/tower/qsb_floor41_oanda",
+    "oanda",  # 2026-08-03: broaden — ANY oanda path (real-money broker) is refused,
+              # incl. src/tower_ops/oanda_practice_trading.py which slipped the list before.
     ".env",
     "data/registries/qsb_proposal_autoapply_gate.json",
 )
