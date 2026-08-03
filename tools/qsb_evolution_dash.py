@@ -462,6 +462,77 @@ def _recent_activity():
 
 
 # ----------------------------------------------------------------------------
+# LIVE CADENCE — the real evolution heartbeat the monitor was ignoring
+# ----------------------------------------------------------------------------
+def panel_live_cadence():
+    """Today's REAL live-evolution cadence.
+
+    The tower runs an evolution heartbeat (audit->queue->sandbox->learn) plus a
+    Wren governor loop all day. Those signals are honest, timestamped, and were
+    being ignored — so the headline read "0 today" and the tower looked dead
+    even while 100s of ticks/sandbox verdicts landed. This block counts them.
+
+    "today" is matched robustly on the date prefix (first 10 chars YYYY-MM-DD)
+    so mixed ts formats (…Z vs …+00:00) all count. Every read is guarded → 0
+    on a missing/unreadable file; nothing here is invented.
+
+    Note: autonomous *applies* are still 0/day by design — applying a patch is
+    human-gated (>=3 sigs + Ross). Live cadence != auto-apply; this shows the
+    loop is turning without pretending the gate is open.
+    """
+    td = today_str()
+
+    def _scan(name, pred=None):
+        """Return (count_today, most_recent_dt_today, present)."""
+        rows, present = iter_jsonl(name)
+        if not present:
+            return 0, None, False
+        n = 0
+        last = None
+        for r in rows:
+            ts = str(r.get("ts", ""))
+            if ts[:10] != td:
+                continue
+            if pred is not None and not pred(r):
+                continue
+            n += 1
+            dt = parse_ts(ts)
+            if dt and (last is None or dt > last):
+                last = dt
+        return n, last, True
+
+    ticks, last_tick, ticks_present = _scan(
+        "qsb_evolution_log.jsonl", lambda r: r.get("event") == "evolution_tick")
+    sb_total, last_sb, sb_present = _scan("qsb_proposal_sandbox_results.jsonl")
+    sb_green, last_green, _ = _scan(
+        "qsb_proposal_sandbox_results.jsonl",
+        lambda r: r.get("verdict") == "green")
+    cycles, last_cycle, cyc_present = _scan("qsb_wren_evolution_cycles.jsonl")
+    commentary, _lc, com_present = _scan("qsb_boardroom_commentary.jsonl")
+
+    return {
+        "wired": bool(ticks_present or sb_present or cyc_present),
+        "today": td,
+        "evolution_ticks_today": ticks,
+        "sandbox_verdicts_today": sb_total,
+        "sandbox_green_today": sb_green,
+        "governor_cycles_today": cycles,
+        "boardroom_commentary_today": commentary,
+        "last_tick_ts": last_tick.isoformat() if last_tick else None,
+        "last_tick_ago": ago(last_tick),
+        "last_green_ts": last_green.isoformat() if last_green else None,
+        "last_green_ago": ago(last_green),
+        "last_cycle_ago": ago(last_cycle),
+        "sources": {
+            "ticks": "qsb_evolution_log.jsonl",
+            "sandbox": "qsb_proposal_sandbox_results.jsonl",
+            "cycles": "qsb_wren_evolution_cycles.jsonl",
+            "commentary": "qsb_boardroom_commentary.jsonl",
+        },
+    }
+
+
+# ----------------------------------------------------------------------------
 # TOP-LINE honest state
 # ----------------------------------------------------------------------------
 def build_state():
@@ -488,17 +559,38 @@ def build_state():
     live_workers = leadership.get("live_count", 0) if leadership.get("wired") else 0
     trains = training.get("real_trains_placed", 0) if training.get("wired") else 0
 
-    # Honest headline. If everything real is zero, say so plainly.
-    parts = []
-    parts.append(f"{done_today} autonomous completions today")
-    parts.append(f"{applied} patches applied (all-time), {applied_today} today")
-    parts.append(f"{sandbox_green} proposals sandbox-green & waiting")
-    parts.append(f"{learnings} knowledge items")
-    parts.append(f"{live_workers} live workers")
-    headline = "Loop status — " + " · ".join(parts)
+    # LIVE CADENCE — today's real evolution heartbeat (was being ignored)
+    cadence = panel_live_cadence()
+    ticks_today = cadence.get("evolution_ticks_today", 0)
+    green_today = cadence.get("sandbox_green_today", 0)
+    cycles_today = cadence.get("governor_cycles_today", 0)
+    cadence_live = ticks_today > 0 or green_today > 0
+
+    done_total = council.get("done_total", 0) if council.get("wired") else 0
+    waiting = sandbox_green  # proposals sandbox-green & waiting for signatures
+
+    # Headline: lead with live cadence when the loop is turning, but stay
+    # honest that auto-APPLIES are 0/day (human-gated) — no hiding the gate.
+    if cadence_live:
+        headline = (
+            f"Evolving now — {ticks_today} evolution ticks today · "
+            f"{green_today} sandbox-green today · {cycles_today} governor "
+            f"cycles today · {waiting} proposals waiting · {done_total} "
+            f"council-done all-time ({applied_today} auto-applied today: "
+            f"apply is human-gated)"
+        )
+    else:
+        parts = []
+        parts.append(f"{done_today} autonomous completions today")
+        parts.append(f"{applied} patches applied (all-time), {applied_today} today")
+        parts.append(f"{sandbox_green} proposals sandbox-green & waiting")
+        parts.append(f"{learnings} knowledge items")
+        parts.append(f"{live_workers} live workers")
+        headline = "Loop status — " + " · ".join(parts)
 
     # loop-closing verdict: is the full audit->fix->learn loop actually turning?
     loop_signals = {
+        "cadence_live": cadence_live,
         "council_completing": done_today > 0,
         "proposals_flowing": sandbox_green > 0 or applied_today > 0,
         "learning_growing": learnings > 0,
@@ -506,7 +598,9 @@ def build_state():
         "training_real": trains > 0,
     }
     turning = sum(1 for v in loop_signals.values() if v)
-    if turning >= 4:
+    if cadence_live:
+        verdict = "EVOLVING — live cadence + proposals + learning"
+    elif turning >= 4:
         verdict = "LOOP CLOSING — multiple evolution signals live"
     elif turning >= 2:
         verdict = "LOOP PARTIAL — some signals live, some idle"
@@ -522,6 +616,7 @@ def build_state():
         "loop_signals": loop_signals,
         "signals_live": turning,
         "signals_total": len(loop_signals),
+        "live_cadence": cadence,
         "self_fixing": sf,
         "learning": ln,
         "working": wk,
@@ -575,15 +670,43 @@ border-bottom:1px dashed var(--edge)}
 .bar{flex:1;background:var(--acc);min-height:2px;border-radius:1px 1px 0 0;opacity:.8}
 code{color:var(--dim);font-size:10px}
 .loopmeter{margin:0 22px 2px;padding:12px 14px;background:var(--panel);border:1px solid var(--edge);border-radius:10px}.looptrack{height:13px;background:#0a1018;border-radius:9px;overflow:hidden;margin-top:8px}.loopfill{height:100%;background:linear-gradient(90deg,#5cc8ff,#37d67a);transition:width .8s ease}.sourcegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:6px}.src{font-size:11px;padding:7px 8px;border:1px solid var(--edge);border-radius:7px;display:flex;justify-content:space-between;gap:8px}.src b{font-size:10px}.src.live b{color:var(--good)}.src.stale b{color:var(--warn)}.src.missing b{color:var(--dim)}.activity{max-height:250px;overflow:auto}.activity .row{display:grid;grid-template-columns:75px 90px 1fr;gap:8px}.scrollline{margin:10px 22px 0;overflow:hidden;white-space:nowrap;border:1px solid var(--edge);border-radius:8px;padding:8px;color:var(--dim)}.scrolltrack{display:inline-flex;gap:34px;animation:scroll 28s linear infinite}.scrolltrack span{color:var(--txt)}@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-45%)}}
+/* ---- evolution motion (real-data-driven, self-contained) ---- */
+.helixwrap{display:inline-flex;vertical-align:middle;margin-left:10px}
+.helix path{fill:none;stroke:var(--acc);stroke-width:1.6;opacity:.9}
+.helix .rungs line{stroke:var(--good);stroke-width:1.2;opacity:.55}
+.helixmove{animation:helixslide 3s linear infinite}
+@keyframes helixslide{from{transform:translateX(0)}to{transform:translateX(-72px)}}
+.verdict.evolving{background:linear-gradient(90deg,#0d1f18,#12331f,#0d1f18);background-size:200% 100%;animation:vshimmer 5s linear infinite,vglow 2.6s ease-in-out infinite}
+@keyframes vshimmer{from{background-position:0 0}to{background-position:200% 0}}
+@keyframes vglow{0%,100%{box-shadow:0 0 0 rgba(55,214,122,0)}50%{box-shadow:0 0 20px rgba(55,214,122,.32)}}
+.cadence{margin:12px 22px 0;padding:14px 16px;background:var(--panel);border:1px solid var(--edge);border-radius:10px}
+.cad-head{display:flex;align-items:center;gap:9px;font-size:13px}
+.cad-head b{color:var(--acc);text-transform:uppercase;letter-spacing:1px;font-size:13px}
+.cad-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-top:10px}
+.cad-cell{padding:8px 10px;border:1px solid var(--edge);border-radius:8px;background:#0a1018;text-align:center}
+.cad-val{font-size:28px;font-weight:700;line-height:1;color:var(--txt);transition:color .3s}
+.cad-cell.green .cad-val{color:var(--good)}
+.cad-val.flash{animation:flashUp 1s ease-out}
+@keyframes flashUp{0%{color:var(--good);text-shadow:0 0 16px rgba(55,214,122,.85);transform:scale(1.22)}100%{text-shadow:none;transform:scale(1)}}
+.hb{display:inline-block;width:11px;height:11px;border-radius:50%;background:var(--good);box-shadow:0 0 9px rgba(55,214,122,.75);animation:heartbeat 1.6s ease-in-out infinite}
+@keyframes heartbeat{0%,100%{transform:scale(.82);opacity:.7}22%{transform:scale(1.3);opacity:1}38%{transform:scale(.95)}}
+.hb.tick{animation:hbtick .6s ease-out}
+@keyframes hbtick{0%{transform:scale(1.7);box-shadow:0 0 18px rgba(55,214,122,.95)}100%{transform:scale(1);box-shadow:0 0 9px rgba(55,214,122,.75)}}
+@media (prefers-reduced-motion:reduce){.helixmove,.verdict.evolving,.hb,.hb.tick,.cad-val.flash,.scrolltrack{animation:none!important}}
 </style></head><body>
 <header>
-  <h1>🏢 Tower Evolution Monitor</h1>
+  <h1 style="display:flex;align-items:center">🏢 Tower Evolution Monitor<span id="helix" class="helixwrap"></span></h1>
   <div class="sub">Is it evolving as a whole? &nbsp;·&nbsp; real registries only ·
   honest zeros · read-only ·&nbsp;<span id="gen"></span></div>
 </header>
 <div class="verdict" id="verdict">loading…</div>
 <div class="headline" id="headline"></div>
 <div class="signals" id="signals"></div>
+<div class="cadence" id="cadence">
+  <div class="cad-head"><span class="hb" id="hbDot"></span> <b>⚡ Live evolution today</b>
+  <span class="small" id="cadWhen"></span></div>
+  <div class="cad-grid" id="cadGrid"></div>
+</div>
 <div class="loopmeter"><div style="display:flex;justify-content:space-between"><b>Evolution loop completion</b><span id="loopPct" class="small">—</span></div><div class="looptrack"><div id="loopFill" class="loopfill" style="width:0"></div></div><div id="loopNote" class="small" style="margin-top:6px">Measured from live council, proposal, learning, worker, and training signals.</div></div>
 <div class="scrollline"><div id="activityRail" class="scrolltrack">Waiting for real evolution activity…</div></div>
 <div class="grid" id="grid"></div>
@@ -598,6 +721,62 @@ function bars(trend){
 function metric(label,val,sub){return `<div class="metric"><span>${esc(label)}${sub?` <span class="small">${esc(sub)}</span>`:''}</span><b>${esc(val)}</b></div>`}
 function card(title,html){return `<div class="card"><h2>${title}</h2>${html}</div>`}
 
+// --- animated DNA double-helix header motif (self-contained SVG) ---
+function buildHelix(){
+  const W=216,period=72,H=26,mid=H/2,amp=8.5,N=72;
+  let s1='',s2='',rungs='';
+  for(let i=0;i<=N;i++){
+    const x=i/N*W, a=x/period*Math.PI*2;
+    const y1=(mid+Math.sin(a)*amp).toFixed(1), y2=(mid-Math.sin(a)*amp).toFixed(1);
+    const xs=x.toFixed(1);
+    s1+=(i?'L':'M')+xs+' '+y1+' ';
+    s2+=(i?'L':'M')+xs+' '+y2+' ';
+    if(i%4===0)rungs+=`<line x1="${xs}" y1="${y1}" x2="${xs}" y2="${y2}"/>`;
+  }
+  const strand=`<path d="${s1}"/><path d="${s2}"/><g class="rungs">${rungs}</g>`;
+  return `<svg class="helix" width="72" height="26" viewBox="0 0 72 26" aria-hidden="true">`
+    +`<defs><clipPath id="hc"><rect width="72" height="26"/></clipPath></defs>`
+    +`<g clip-path="url(#hc)"><g class="helixmove">${strand}</g></g></svg>`;
+}
+
+// --- live cadence panel: count-up on load, flash a counter that increases ---
+const CAD_ITEMS=[['evolution ticks','evolution_ticks_today',false],
+                 ['sandbox verdicts','sandbox_verdicts_today',false],
+                 ['sandbox GREEN','sandbox_green_today',true],
+                 ['governor cycles','governor_cycles_today',false]];
+let cadPrev={}, cadInit=false;
+function countUp(el,to,dur){
+  const start=performance.now(),from=0;
+  (function step(t){
+    const p=Math.min(1,(t-start)/dur);
+    el.textContent=Math.round(from+(to-from)*(0.5-0.5*Math.cos(p*Math.PI)));
+    if(p<1)requestAnimationFrame(step);
+  })(performance.now());
+}
+function renderCadence(c){
+  if(!c)return;
+  document.getElementById('cadWhen').textContent=
+    '('+esc(c.today)+' UTC · last tick '+esc(c.last_tick_ago)
+    +' · last green '+esc(c.last_green_ago)+' · '+esc(c.governor_cycles_today)+' cycles)';
+  const grid=document.getElementById('cadGrid');
+  if(!cadInit){
+    grid.innerHTML=CAD_ITEMS.map(([lab,key,g])=>
+      `<div class="cad-cell${g?' green':''}"><div class="cad-val" id="cad_${key}">0</div>`
+      +`<div class="small">${esc(lab)}</div></div>`).join('');
+  }
+  CAD_ITEMS.forEach(([lab,key])=>{
+    const el=document.getElementById('cad_'+key); if(!el)return;
+    const nv=c[key]||0, pv=cadPrev[key];
+    if(!cadInit){countUp(el,nv,900);}
+    else if(pv!==undefined&&nv>pv){el.textContent=nv;el.classList.remove('flash');void el.offsetWidth;el.classList.add('flash');}
+    else{el.textContent=nv;}
+    cadPrev[key]=nv;
+  });
+  cadInit=true;
+  const hb=document.getElementById('hbDot'); // heartbeat pulse on every refresh
+  if(hb){hb.classList.remove('tick');void hb.offsetWidth;hb.classList.add('tick');}
+}
+
 async function tick(){
   let s;
   try{s=await (await fetch('/api/state')).json()}catch(e){document.getElementById('verdict').textContent='fetch error';return}
@@ -606,6 +785,8 @@ async function tick(){
   v.textContent=s.verdict+`  (${s.signals_live}/${s.signals_total} signals live)`;
   const col=s.signals_live>=4?'var(--good)':s.signals_live>=2?'var(--warn)':'var(--bad)';
   v.style.borderColor=col; v.style.color=col;
+  if(s.loop_signals&&s.loop_signals.cadence_live){v.classList.add('evolving');}else{v.classList.remove('evolving');}
+  renderCadence(s.live_cadence);
   document.getElementById('headline').textContent=s.headline;
   const sig=s.loop_signals||{};
   document.getElementById('signals').innerHTML=Object.keys(sig).map(k=>
@@ -706,6 +887,7 @@ async function tick(){
 
   document.getElementById('grid').innerHTML=g.join('');
 }
+document.getElementById('helix').innerHTML=buildHelix();
 tick(); setInterval(tick,4000);
 </script></body></html>"""
 

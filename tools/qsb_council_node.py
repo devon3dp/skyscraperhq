@@ -59,6 +59,18 @@ def utc():
     return datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
 
 
+def _getj(url, timeout=2.5):
+    """Fetch JSON from a URL server-side with a short timeout. Returns None on
+    any failure (offline-safe). Used by the /genepool + /council dash routes so
+    the browser is never blocked by CORS and never sees a decorative constant."""
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": "qsb-council-node"})
+        with urllib.request.urlopen(req, timeout=timeout) as r:
+            return json.loads(r.read().decode())
+    except Exception:
+        return None
+
+
 class Node:
     def __init__(self, name, floor, brain, hq, ollama_hosts, mind_path):
         self.name = name
@@ -250,7 +262,7 @@ class Node:
         # is reachable, still give the caller a useful, character-consistent
         # reply from mind rather than a dead error string.
         if not self.ollama_hosts:
-            return self._offline_fallback(prompt), None
+            return (("PIP" if "pip" in self.name.lower() or self.name.lower().startswith("tp") else "ASA") + " LOCAL PRIMARY UNAVAILABLE\nREMOTE PRIMARY FORBIDDEN\n" + ("PIP" if "pip" in self.name.lower() or self.name.lower().startswith("tp") else "ASA") + " DEGRADED"), None
 
         # Ross 2026-07-04: "why are acer and thinkpad stuck on the compotion" —
         # canonical rules were force-injected on EVERY prompt, so TP + Acer
@@ -333,7 +345,7 @@ class Node:
         # ollama FIRST (127.0.0.1:11434 leads self.ollama_hosts); only escalate
         # to the brain router (which may use external providers) if NO local
         # model answers. Supersedes the 2026-07-05 router-first path.
-        for host in self.ollama_hosts:
+        for host in [h for h in self.ollama_hosts if h in ("http://127.0.0.1:11434", "http://localhost:11434")]:
             try:
                 probe_req = urllib.request.Request(f"{host}/api/tags")
                 urllib.request.urlopen(probe_req, timeout=2).close()
@@ -360,7 +372,7 @@ class Node:
                 _hq_reachable = True
             except Exception:
                 _hq_reachable = False
-            if _hq_reachable:
+            if False and _hq_reachable:  # remote primary forbidden
                 router_body = _json.dumps({
                     "prompt": system + f"\nUser: {prompt}",
                     "task": "reason", "tier": "worker", "caller": self.name,
@@ -376,7 +388,7 @@ class Node:
         except Exception:
             pass
 
-        return self._offline_fallback(prompt), None
+        return (("PIP" if "pip" in self.name.lower() or self.name.lower().startswith("tp") else "ASA") + " LOCAL PRIMARY UNAVAILABLE\nREMOTE PRIMARY FORBIDDEN\n" + ("PIP" if "pip" in self.name.lower() or self.name.lower().startswith("tp") else "ASA") + " DEGRADED"), None
 
     def _offline_fallback(self, prompt):
         """Wren-suggested: reply from mind identity instead of a dead
@@ -727,7 +739,7 @@ button:disabled{{opacity:.4;cursor:not-allowed}}
   <a href="http://192.168.1.72:8852/council" target="_blank" style="text-decoration:none;padding:4px 10px;border:1px solid #22d3ee;color:#22d3ee;border-radius:12px;font-size:11px;">COUNCIL·4</a>
   <a href="http://192.168.1.72:8851/" target="_blank" style="text-decoration:none;padding:4px 10px;border:1px solid #a78bfa;color:#a78bfa;border-radius:12px;font-size:11px;">WREN</a>
   <a href="http://192.168.1.72:8850/" target="_blank" style="text-decoration:none;padding:4px 10px;border:1px solid #eab308;color:#eab308;border-radius:12px;font-size:11px;">HQ-CLAUDE</a>
-  <a href="http://192.168.1.74:8871/health" target="_blank" style="text-decoration:none;padding:4px 10px;border:1px solid #22d3ee;color:#22d3ee;border-radius:12px;font-size:11px;">TP-PIP</a>
+  <a href="http://192.168.1.76:8871/health" target="_blank" style="text-decoration:none;padding:4px 10px;border:1px solid #22d3ee;color:#22d3ee;border-radius:12px;font-size:11px;">TP-PIP</a>
   <a href="http://192.168.1.41:8872/health" target="_blank" style="text-decoration:none;padding:4px 10px;border:1px solid #f59e0b;color:#f59e0b;border-radius:12px;font-size:11px;">ACER-CASS</a>
 </div>
 <div class="sub">{NODE.floor} · brain <b>{NODE.brain}</b> · uptime {int(time.time()-NODE.started)}s · cycles {m.get('cycle_count',0)}</div>
@@ -770,6 +782,21 @@ button:disabled{{opacity:.4;cursor:not-allowed}}
     <div class="card tall">{thoughts_html or '<div style="color:#64748b">no thoughts yet</div>'}</div>
     <h2>Observed from HQ</h2>
     <div class="card">{hq_html or '<div style="color:#64748b">watcher polling HQ — no HQ posts seen yet</div>'}</div>
+  </div>
+</div>
+<h2 style="margin-top:22px;color:#eab308">▮ LIVE WORKER PANELS</h2>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:4px">
+  <div>
+    <h2>🛠️ Worker Mode</h2>
+    <div class="card" id="wm-card"><div style="color:#64748b">loading…</div></div>
+  </div>
+  <div>
+    <h2>🧬 Gene Pool</h2>
+    <div class="card" id="gp-card"><div style="color:#64748b">loading…</div></div>
+  </div>
+  <div>
+    <h2>📋 Task Council</h2>
+    <div class="card tall" id="tc-card"><div style="color:#64748b">loading…</div></div>
   </div>
 </div>
 <script>
@@ -863,6 +890,66 @@ setInterval(() => {{
   if (active && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA')) return;
   location.reload();
 }}, 4000);
+
+// ─── LIVE WORKER PANELS (3 live cards) ───
+// Server-side proxied via /genepool + /council so no CORS block; real data only.
+function wpEsc(s){{ return (s==null?'':s.toString()).replace(/</g,'&lt;'); }}
+function renderGenePool(d){{
+  const el = document.getElementById('gp-card'); if(!el) return;
+  if(!d || d.reachable===false){{
+    el.innerHTML = '<span class="chip" style="background:#7f1d1d;color:#fff">OFFLINE</span> <span style="color:#94a3b8">genepool :8770 unreachable</span>';
+    return;
+  }}
+  const provs = d.providers || [];
+  const chips = provs.map(p => '<span class="chip good" style="margin:2px 6px 2px 0">'+wpEsc(p)+'</span>').join('');
+  el.innerHTML = '<div><span class="chip" style="background:#10b981;color:#fff">ONLINE</span> '
+    + '<span style="color:#94a3b8">'+provs.length+' providers'+(d.results_logged!=null?(' · '+d.results_logged+' logged'):'')+'</span></div>'
+    + '<div style="margin-top:8px">'+(chips || '<span style="color:#64748b">no providers</span>')+'</div>';
+}}
+function renderCouncil(d){{
+  const tc = document.getElementById('tc-card');
+  const wm = document.getElementById('wm-card');
+  const nwId = (d && d.now_working) ? d.now_working.id : null;
+  if(tc){{
+    if(!d || d.reachable===false){{
+      tc.innerHTML = '<span class="chip" style="background:#7f1d1d;color:#fff">UNREACHABLE</span> <span style="color:#94a3b8">council :8864 unreachable</span>';
+    }} else {{
+      let tasks = (d.tasks || []).slice();
+      tasks.sort((a,b) => ((b.id===nwId)?1:0) - ((a.id===nwId)?1:0));  // now_working first
+      if(!tasks.length){{
+        tc.innerHTML = '<div style="color:#64748b">no owned tasks on the board</div>';
+      }} else {{
+        tc.innerHTML = tasks.map(t => {{
+          const hot = (t.id===nwId);
+          return '<div class="thought" style="'+(hot?'border-left:3px solid #10b981;padding-left:6px;background:rgba(16,185,129,0.08)':'')+'">'
+            + '<span class="kind">'+wpEsc(t.state)+'</span>'
+            + (hot?'<span class="chip good" style="margin-right:6px">▶ NOW</span>':'')
+            + '<span class="text">'+wpEsc(t.title)+'</span></div>';
+        }}).join('');
+      }}
+    }}
+  }}
+  if(wm){{
+    const brain = d && d.brain_up;
+    const nw = d && d.now_working;
+    const count = d ? (d.count||0) : 0;
+    let mode, mc;
+    if(nw){{ mode='WORKING'; mc='#10b981'; }}
+    else if(!d || d.reachable===false){{ mode='UNKNOWN'; mc='#f59e0b'; }}
+    else {{ mode='IDLE'; mc='#64748b'; }}
+    let h = '<div><span class="chip" style="background:'+mc+';color:#fff;font-weight:700">'+mode+'</span></div>';
+    if(nw) h += '<div style="margin-top:8px;color:#cbd5e1"><b>on:</b> '+wpEsc(nw.title)+'</div>';
+    h += '<div style="margin-top:8px"><span class="chip">'+count+' owned active</span> '
+       + '<span class="chip" style="background:'+(brain?'#10b981':'#7f1d1d')+';color:#fff">brain '+(brain?'UP':'DOWN')+'</span></div>';
+    wm.innerHTML = h;
+  }}
+}}
+async function refreshWorkerPanels(){{
+  const g = await fetch('/genepool').then(r=>r.json()).catch(()=>null); renderGenePool(g);
+  const c = await fetch('/council').then(r=>r.json()).catch(()=>null); renderCouncil(c);
+}}
+refreshWorkerPanels();
+setInterval(refreshWorkerPanels, 7000);
 </script>
 </body></html>"""
             self._send_html(200, html)
@@ -878,6 +965,45 @@ setInterval(() => {{
                 "tool_call_count": len(m.get("tool_calls", [])),
                 "latest_thought": (m.get("recent_thoughts") or [{}])[-1].get("text", "") if m.get("recent_thoughts") else "",
                 "capabilities": ["run_powershell", "read_file", "write_file", "run_process", "install", "net_probe"],
+            })
+            return
+        if self.path == "/genepool":
+            # Proxy this box's local gene-pool health (localhost:8770) server-side.
+            d = _getj("http://localhost:8770/health", timeout=2.5)
+            if not d:
+                self._send(200, {"ok": False, "reachable": False,
+                                 "service": "box_gene_pool", "providers": []})
+                return
+            self._send(200, {
+                "ok": True, "reachable": True,
+                "service": d.get("service", "box_gene_pool"),
+                "providers": d.get("providers_available", []),
+                "results_logged": d.get("results_logged"),
+            })
+            return
+        if self.path == "/council":
+            # Fetch the Task Council board server-side + filter to THIS node's owner.
+            owner = NODE.name.lower().replace("-", "_")   # Acer-Cass->acer_cass, TP-Pip->tp_pip
+            d = _getj("http://192.168.1.71:8864/api/data", timeout=3.0)
+            brain = _getj("http://localhost:11434/api/tags", timeout=2.0)
+            brain_up = bool(brain and brain.get("models") is not None)
+            if not d:
+                self._send(200, {"ok": False, "reachable": False, "owner": owner,
+                                 "brain_up": brain_up, "tasks": [], "count": 0,
+                                 "now_working": None})
+                return
+            tasks = []
+            for sname, sv in (d.get("stages") or {}).items():
+                for tok in (sv.get("tokens") or []):
+                    if str(tok.get("owner", "")).lower() == owner:
+                        tasks.append({"id": tok.get("id"),
+                                      "title": tok.get("title", ""),
+                                      "state": sname})
+            nw = (d.get("now_working") or {}).get(owner)
+            self._send(200, {
+                "ok": True, "reachable": True, "owner": owner,
+                "now_working": nw, "tasks": tasks, "count": len(tasks),
+                "brain_up": brain_up,
             })
             return
         self._send(404, {"error": "not_found", "path": self.path})
