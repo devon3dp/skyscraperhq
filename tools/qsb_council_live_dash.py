@@ -285,7 +285,23 @@ def build():
     # header so the dashboard stops hiding the ~1.8k-task reserve behind the KPIs.
     total_all = snap.get("total", board_total)
     reserved = snap.get("reserved", 0)
-    active_board = snap.get("active_board", 0)
+    # Display the CAPPED working board (in-flight + open up to cap), recomputed from the
+    # tasks array — the persisted active_board can be an un-capped raw spike written by a
+    # fleet process still on old code. The picker only ever works up to the cap.
+    try:
+        import qsb_council_tasks as _CT
+        _abs_states, _cap = _CT.ACTIVE_BOARD_STATES, _CT.ACTIVE_BOARD_CAP
+    except Exception:
+        _abs_states = {"open", "claimed", "in_progress", "assigned", "acknowledged",
+                       "awaiting_verification", "awaiting_peer_signoff", "needs_verification",
+                       "needs_second_verifier", "needs_rework", "needs_proof", "needs_partner", "ready_to_ship"}
+        _cap = snap.get("active_board_cap") or 20
+    _tk = snap.get("tasks", [])
+    _open_ct = sum(1 for t in _tk if (t.get("state") or "").lower() == "open")
+    _inflight = sum(1 for t in _tk if (t.get("state") or "").lower() in _abs_states
+                    and (t.get("state") or "").lower() != "open")
+    active_board = _inflight + min(_open_ct, max(0, _cap - _inflight))
+    active_board_raw = _open_ct + _inflight
     dropped = snap.get("dropped", 0)
     active_board_cap = snap.get("active_board_cap")
 
