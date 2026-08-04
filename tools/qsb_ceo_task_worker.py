@@ -343,6 +343,26 @@ def work_one(ceo, task):
             "reply_snippet": reply[:200], "chars": len(reply)}
 
 
+def _release_mismatched_holds():
+    """Release any CODE/DEPLOY task an analysis-mind CEO (tp_pip/acer_cass/bill) is
+    holding back to the open pool — their local models can never ship it, so it pins
+    their cap forever (why tp_pip stayed at 0 completions). Coders/Codex take it from
+    the pool; the box CEO frees a slot for analysis work. Returns released ids."""
+    HELD = ("claimed", "in_progress", "assigned", "acknowledged", "needs_rework")
+    released = []
+    for t in T.snapshot().get("tasks", []):
+        ceo = t.get("owner")
+        if ceo in ("tp_pip", "acer_cass", "bill") \
+                and (t.get("state") or "").lower() in HELD \
+                and _task_capability(t) == "code":
+            try:
+                T.update(t["id"], ceo, state="open", owner="")
+                released.append(t["id"])
+            except Exception:
+                pass
+    return released
+
+
 def tick():
     if not gate_enabled():
         log({"tick": "paused", "reason": "kill switch enabled=false"})
@@ -355,6 +375,14 @@ def tick():
         if _r.get("reaped"):
             log({"tick": "stale_reaped", "count": _r["reaped"],
                  "ids": [t["id"] for t in _r.get("tasks", [])]})
+    except Exception as e:
+        log({"tick": "reap_error", "error": str(e)[:160]})
+    # 2026-08-04 (Ross "unjam them"): release any CODE task a box CEO is still holding
+    # so their analysis minds never stay pinned at cap on work they can't ship.
+    try:
+        _rel = _release_mismatched_holds()
+        if _rel:
+            log({"tick": "capability_released", "count": len(_rel), "ids": _rel})
     except Exception as e:
         log({"tick": "reap_error", "error": str(e)[:160]})
     # Apply any pending mode-switch beacon Bill posted (Ross's relay command loop).
