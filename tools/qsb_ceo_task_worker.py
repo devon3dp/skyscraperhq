@@ -182,6 +182,56 @@ def cockpit_ask(url, prompt, timeout=150):
     return (d.get("reply") or "").strip(), d
 
 
+# ─── WORK-MODE offload + self-throttle (Ross 2026-08-04) ─────────────────────
+# TP/Acer are SLOW laptops. Running the local llama for every task pegs their CPU
+# and stalls the box (why TP kept dropping offline). Offload the heavy thinking to
+# each box's GENE POOL (:8770 -> cloud providers): the laptop just makes a light API
+# call and orchestrates. Better quality too (helps pass the two-mind gate). Fall back
+# to the local cockpit only if the gene pool has nothing.
+BOX_GENE = {
+    "tp_pip":    os.environ.get("TP_GENE")   or "http://DESKTOP-9RBVKSM.local:8770/route",
+    "acer_cass": os.environ.get("ASA_GENE")  or "http://DESKTOP-1E2FB5N.local:8770/route",
+}
+BOX_HEALTH = {
+    "tp_pip":    "http://DESKTOP-9RBVKSM.local:8770/health",
+    "acer_cass": "http://DESKTOP-1E2FB5N.local:8770/health",
+}
+
+
+def gene_pool_ask(ceo, prompt, timeout=90):
+    """Route the box CEO's analysis to its own gene pool (:8770, cloud). Returns
+    (material, why). Empty material -> caller falls back to the local cockpit."""
+    url = BOX_GENE.get(ceo)
+    if not url:
+        return "", "no_gene_pool"
+    try:
+        body = json.dumps({"prompt": prompt}).encode()
+        req = urllib.request.Request(url, data=body,
+                                     headers={"Content-Type": "application/json"}, method="POST")
+        with urllib.request.urlopen(req, timeout=timeout) as r:
+            d = json.loads(r.read() or b"{}")
+        if not d.get("ok"):
+            return "", "gene_pool_not_ok"
+        material = (d.get("material") or d.get("reply") or "").strip()
+        return material, f"gene_pool:{d.get('provider')}/{d.get('model')}"
+    except Exception as e:
+        return "", f"gene_pool_error:{type(e).__name__}"
+
+
+def box_overloaded(ceo, timeout=4):
+    """Self-throttle: is the slow laptop responsive right now? Cheap health probe.
+    True (skip this tick) only when the box does NOT answer — never push a stalling
+    laptop harder; ease off and let it recover."""
+    url = BOX_HEALTH.get(ceo)
+    if not url:
+        return False
+    try:
+        with urllib.request.urlopen(url, timeout=timeout) as r:
+            return r.status != 200
+    except Exception:
+        return True
+
+
 def _wren_token():
     return json.load(open(VAULT_TOKENS))["tokens"]["wren"]
 
@@ -311,8 +361,12 @@ def work_one(ceo, task):
         if ceo == "bill":
             reply, why = bill_ask(prompt)
         else:
-            reply, _raw = cockpit_ask(COCKPITS[ceo], prompt)
-            why = "ok" if reply else "empty_reply"
+            # OFFLOAD-FIRST: send the heavy analysis to the box's GENE POOL (cloud),
+            # not its slow local llama. The local cockpit is only the fallback.
+            reply, why = gene_pool_ask(ceo, prompt)
+            if not reply:
+                reply, _raw = cockpit_ask(COCKPITS[ceo], prompt)
+                why = ("cockpit_fallback:" + why) if reply else ("no_reply:" + why)
     except Exception as e:
         reply, why = "", f"mind_error: {e}"
 
@@ -434,6 +488,12 @@ def tick():
         cap = BILLMODE.work_cap() if ceo == "bill" else PER_CEO_CAP
         if cap <= 0 or load >= cap:
             log({"tick": "ceo_at_cap", "ceo": ceo, "inflight": load, "cap": cap})
+            continue
+        # SELF-THROTTLE: if a slow box isn't answering right now, skip it this tick —
+        # a stalling laptop must be eased off, not piled onto (its gene pool is the
+        # health signal; if that's down the whole box is likely choking/rebooting).
+        if ceo in BOX_GENE and box_overloaded(ceo):
+            log({"tick": "throttled", "ceo": ceo, "reason": "box unresponsive — easing off to let it recover"})
             continue
         task = pick_open_task(tasks, exclude=attempted, ceo=ceo)
         if not task:
