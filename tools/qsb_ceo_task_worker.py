@@ -41,6 +41,7 @@ import os
 import sys
 import json
 import time
+import re
 import uuid
 import urllib.request
 from datetime import datetime, timezone
@@ -50,6 +51,8 @@ sys.path.insert(0, os.path.join(ROOT, "tools"))
 
 import qsb_council_tasks as T          # noqa: E402
 import qsb_bill_work_mode as BILL       # noqa: E402
+import qsb_bill_mode as BILLMODE        # noqa: E402  high-level mode (work|concierge|both)
+import qsb_federation as FED            # noqa: E402  drift-proof box address resolver
 
 REG = os.path.join(ROOT, "data", "registries")
 GATE = os.path.join(REG, "qsb_autorunner_gate.json")
@@ -59,9 +62,14 @@ INTERVAL = int(os.environ.get("CEO_WORKER_INTERVAL", "120"))
 PER_CEO_CAP = int(os.environ.get("CEO_WORKER_PER_CAP", "1"))
 
 # Verified reachable minds (Ross 2026-07-28 directive).
+# 2026-07-30 (F08 IP-drift fix): cockpit URLs resolve via qsb_federation (mDNS,
+# drift-proof) instead of hardcoded IPs. The old acer_cass .41 dial went dead on
+# every DHCP lease change (Acer .41 -> .60). Env overrides still win.
 COCKPITS = {
-    "tp_pip": os.environ.get("TP_COCKPIT", "http://192.168.1.91:9120/api/chat"),
-    "acer_cass": os.environ.get("ASA_COCKPIT", "http://192.168.1.41:9120/api/chat"),
+    "tp_pip": os.environ.get("TP_COCKPIT")
+        or FED.cockpit_url("tp_pip") or "http://DESKTOP-9RBVKSM.local:9120/api/chat",
+    "acer_cass": os.environ.get("ASA_COCKPIT")
+        or FED.cockpit_url("acer_cass") or "http://DESKTOP-1E2FB5N.local:9120/api/chat",
 }
 
 # Bill is reached through the leadership relay (he has no cockpit — his Mac
@@ -120,13 +128,40 @@ def inflight_for(ceo, tasks):
                    "awaiting_peer_signoff", "awaiting_verification", "needs_rework"))
 
 
-def pick_open_task(tasks, exclude=None):
-    """Oldest real, open, UNOWNED backlog task, skipping any id in `exclude`
-    (tasks already attempted this tick, so CEOs don't pile onto the same one)."""
+# ─── capability-aware dispatch (Ross 2026-08-04) ─────────────────────────────
+# The CEOs this worker drives (tp_pip, acer_cass, bill) are ANALYSIS minds, not
+# coders. Feeding them CODE/DEPLOY tasks pins them at their 3-task cap with work
+# they can never ship (why tp_pip had 0 completions). Classify the backlog so they
+# take analysis/inspection/decision work and leave code for the coders (Codex/Wren).
+_CODE_RX = re.compile(
+    r"(\bendpoint\b|/api/|\.py\b|\.js\b|\.html\b|\.css\b|\.sh\b|\bsystemd\b|\bservice\b|"
+    r"\bdeploy\b|\bpatch\b|\bwire\b|\bimplement\b|\brefactor\b|\bmigrat|\binstall\b|"
+    r"\bcockpit\b|\bjavascript\b|\bscript\b|\btraceback\b|\bstack ?trace\b|\bcodebase\b|"
+    r"add .*\bendpoint\b|\bfix\b.*\b(bug|service|import|module|crash)\b)", re.I)
+_ANALYSIS_RX = re.compile(
+    r"(\binspect|\breport\b|\banaly[sz]|\bassess|\breview\b|\baudit\b|\bclassif|\bsummar|"
+    r"\bdecide\b|\brecommend|\bhealth\b|\bstatus\b|\bdiagnos|\bevaluat|\bcompare\b|"
+    r"\bresearch\b|\binvestigat|\btop risk\b|healthy vs|degraded)", re.I)
+
+
+def _task_capability(task):
+    """'code' → route to coders; 'analysis' → box CEOs' analysis minds can ship it."""
+    blob = ((task.get("title") or "") + " " + (task.get("description") or "")).lower()
+    if _CODE_RX.search(blob):
+        return "code"
+    return "analysis"   # analysis-tagged OR ambiguous → a note/analysis is a real deliverable
+
+
+def pick_open_task(tasks, exclude=None, ceo=None):
+    """Oldest real, open, UNOWNED backlog task, skipping any id in `exclude`.
+    Capability-aware: when picking for one of this worker's analysis-mind CEOs,
+    skip CODE/DEPLOY tasks (left for the coders) so they take work they can finish."""
     exclude = exclude or set()
     opens = [t for t in tasks
              if t.get("state") == "open" and not t.get("owner") and real(t)
              and t.get("id") not in exclude]
+    if ceo:   # all CEOs this worker drives are analysis minds, not coders
+        opens = [t for t in opens if _task_capability(t) != "code"]
     opens.sort(key=lambda t: t.get("created_at", ""))
     return opens[0] if opens else None
 
@@ -308,12 +343,42 @@ def tick():
     if not gate_enabled():
         log({"tick": "paused", "reason": "kill switch enabled=false"})
         return
+    # 2026-07-30 WIP-CAP: recycle stale claimed/in_progress orphans back to the pool so they stop
+    # holding this CEO's cap slot (also runs in the autorunner; either loop keeps the board clean).
+    # T.claim() below already enforces both the per-CEO cap and the new global WIP ceiling.
+    try:
+        _r = T.reap_stale_claims()
+        if _r.get("reaped"):
+            log({"tick": "stale_reaped", "count": _r["reaped"],
+                 "ids": [t["id"] for t in _r.get("tasks", [])]})
+    except Exception as e:
+        log({"tick": "reap_error", "error": str(e)[:160]})
+    # Apply any pending mode-switch beacon Bill posted (Ross's relay command loop).
+    try:
+        import qsb_bill_mode_apply as MA
+        MA.apply_once(verbose=False)
+    except Exception as e:
+        log({"tick": "mode_apply_error", "error": str(e)[:160]})
+
     snap = T.snapshot()
     tasks = snap.get("tasks", [])
 
-    # Bill: activate work mode first; only claim when active.
-    bill_active, bill_st = ensure_bill_work_mode()
+    # Bill's HIGH-LEVEL mode gates whether he works at all. In concierge mode he
+    # does NOT claim council tasks (he only monitors). In work/both mode he does.
+    bill_work_ok = BILLMODE.work_allowed()
+    bill_high_mode = BILLMODE.get_mode()
+    if not bill_work_ok:
+        log({"tick": "bill_mode_gate", "high_mode": bill_high_mode,
+             "reason": "concierge mode — Bill does not claim council tasks this tick"})
+        bill_active = False
+        bill_st = BILL.status()
+    else:
+        # Bill is in work/both: activate/refresh his work lease; only claim when his
+        # real mind actually answered the probe (endpoint_probe_ok). Never faked.
+        bill_active, bill_st = ensure_bill_work_mode()
     log({"tick": "bill_work_mode",
+         "high_mode": bill_high_mode,
+         "work_allowed": bill_work_ok,
          "active": bill_active,
          "mode": bill_st.get("mode"),
          "counts_for_quorum": bill_st.get("counts_for_quorum"),
@@ -322,7 +387,9 @@ def tick():
 
     ceos = ["tp_pip", "acer_cass"] + (["bill"] if bill_active else [])
     if not bill_active:
-        log({"tick": "bill_skip", "reason": "work mode not active (mind unreachable)"})
+        log({"tick": "bill_skip",
+             "reason": ("concierge mode (not working)" if not bill_work_ok
+                        else "work mode not active (mind unreachable)")})
 
     results = []
     attempted = set()  # tasks touched this tick — don't let CEOs pile onto one
@@ -330,12 +397,15 @@ def tick():
         # re-snapshot each time so a claim we just made is reflected
         tasks = T.snapshot().get("tasks", [])
         load = inflight_for(ceo, tasks)
-        if load >= PER_CEO_CAP:
-            log({"tick": "ceo_at_cap", "ceo": ceo, "inflight": load, "cap": PER_CEO_CAP})
+        # Bill's cap is mode-aware: 'both' caps him low (work_cap_both) so his
+        # concierge monitoring is never starved; pure 'work' uses BILL_WORK_CAP.
+        cap = BILLMODE.work_cap() if ceo == "bill" else PER_CEO_CAP
+        if cap <= 0 or load >= cap:
+            log({"tick": "ceo_at_cap", "ceo": ceo, "inflight": load, "cap": cap})
             continue
-        task = pick_open_task(tasks, exclude=attempted)
+        task = pick_open_task(tasks, exclude=attempted, ceo=ceo)
         if not task:
-            log({"tick": "no_open_task", "ceo": ceo})
+            log({"tick": "no_open_task", "ceo": ceo, "reason": "no analysis-suited open task"})
             continue
         attempted.add(task["id"])
         log({"tick": "delegating", "ceo": ceo, "task": task["id"],
