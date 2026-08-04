@@ -145,11 +145,15 @@ _ANALYSIS_RX = re.compile(
 
 
 def _task_capability(task):
-    """'code' → route to coders; 'analysis' → box CEOs' analysis minds can ship it."""
+    """'code' → route to coders; 'analysis' → box CEOs' analysis minds can ship it.
+    Analysis INTENT wins over incidental code nouns: 'classify systemd services healthy
+    vs degraded' is analysis even though it says 'service'."""
     blob = ((task.get("title") or "") + " " + (task.get("description") or "")).lower()
+    if _ANALYSIS_RX.search(blob):
+        return "analysis"
     if _CODE_RX.search(blob):
         return "code"
-    return "analysis"   # analysis-tagged OR ambiguous → a note/analysis is a real deliverable
+    return "analysis"   # ambiguous → a note/analysis is a real deliverable
 
 
 def pick_open_task(tasks, exclude=None, ceo=None):
